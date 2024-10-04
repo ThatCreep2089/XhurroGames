@@ -12,7 +12,7 @@
     border: none;
     outline: none;
     cursor: pointer; /* mano de interacción */
-    padding: 14px 16px;
+    padding: 0.6% 1%;
     transition: 0.s;
   }
   
@@ -29,7 +29,7 @@
   /* Style the tab content */
   .tabcontent {
     display: none;
-    padding: 6px 12px;
+    padding: 1% 1%;
     border: 1px solid #ccc;
     border-top: none;
     
@@ -37,6 +37,6 @@
 
 td {
   
-  padding: 2% 2%;
+  padding: 1% 2%;
 }
 
