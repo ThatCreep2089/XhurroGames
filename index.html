@@ -1,73 +1,103 @@
 <!-- xhurro games -->
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
     <meta charset="utf-8">
     <title>HTML</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">  <!-- estilo -->
-    <script src="logic.js"></script>          <!-- script -->
+    <link rel="stylesheet" href="style.css"> <!-- estilo -->
+    <script src="logic.js"></script> <!-- script -->
 </head>
 
 <body>
-<!-- Tab links -->
-<div class="tab">
+    <!-- Tab links -->
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'individo 6')">individuo 6</button>
+        <button class="tablinks" onclick="openCity(event, 'como jugar')">como jugar</button>
+        <button class="tablinks" onclick="openCity(event, 'Descripcion')">Descripción</button>
+        <button class="tablinks" onclick="openCity(event, 'xhurrogames')">sobre Xhurro Games</button>
+    </div>
 
-    
-    <button class="tablinks" onclick="openCity(event, 'individo 6')">individuo 6</button>
-    <button class="tablinks" onclick="openCity(event, 'como jugar')">como jugar</button>
-    <button class="tablinks" onclick="openCity(event, 'Descripcion')">Descripción</button>
-    <button class="tablinks" onclick="openCity(event, 'xhurrogames')">sobre Xhurro Games</button>
-  </div>
-  
-  <!-- Tab content -->
-   
-    
+    <!-- Tab content -->
     <div id="xhurrogames" class="tabcontent">
-        <table>
-            <miembros>
+        <table id="miembros">
+            <tr>
+                <th>
+                    <img src="images\Coon_and_friendslogo.webp" alt="Nerea">
+                </th>
+                <th>
+                    <img src="images\Coon_and_friendslogo.webp" alt="Victor">
+                </th>
+                <th>
+                    <img src="images\Coon_and_friendslogo.webp" alt="Ali">
+                </th>
+                <th>
+                    <img src="images\Coon_and_friendslogo.webp" alt="Andrea">
+                </th>
+            </tr>
+            <tr>
+                <th style="background-color:rgb(161, 219, 108); color:black;"> Nerea Espinosa Calatayud</th>
+                <th style="background-color:rgb(103, 158, 214); color:black;"> Victor Valenzuela Martínez</th>
+                <th style="background-color:rgb(219, 73, 73); color:black;"> Alicia Pérez Bumanlag</th>
+                <th style="background-color:rgb(231, 209, 67); color:black;"> Andrea González Anastasio</th>
+            </tr>
+            <tr>
+                <td> <spoiler>(podrás encontrartelo como NPC explorando la zona verde)</spoiler> </td>
+                <td> <spoiler>(podrás encontrartelo como NPC explorando la zona azul)</spoiler></td>
+                <td> <spoiler>(podrás encontrartelo como NPC explorando la zona roja)</spoiler></td>
+                <td> <spoiler>(podrás encontrartelo como NPC explorando la zona amarilla)</spoiler></td>
+            </tr>
+        </table>
 
-                <tr>
-                    <th>Persona 1</th>
-                    <th>Persona 2</th>
-                    <th>Persona 3</th>
-                    <th>Persona 4</th>
-                </tr>
-                <tr>
-                    <td> Nerea Espinosa Calatayud</td>
-                    <td> Victor Valenzuela Martínez</td>
-                    <td> Alicia Pérez Bumanlag</td>
-                    <td> Andrea González Anastasio</td>
-                </tr>
-                <tr>
-                    <td>uno de los devs y artista principales, podrás encontrartelo explorando la zona verde</td>
-                    <td>uno de los devs principales, podrás encontrartelo explorando la zona azul</td>
-                    <td>uno de los devs principales, podrás encontrartelo explorando la zona roja</td>
-                    <td>uno de los devs principales, podrás encontrartelo explorando la zona amarilla</td>
-                </tr>
-            </miembros>
-        </table>  
+        <details>
+            <summary>
+                <b>CRÉDITOS</b>
+            </summary>
+            <p>
+                <table>
+                    <tr>
+                        <ul>
+                            <b> Dirección de ARTE: </b>
+                            <li> Nerea Espinosa Calatayud, </li>
+                            <li> Alicia Pérez Bumanlag, </li>
+                            <li> Andrea González Anastasio, </li>
+                        </ul>
+                    </tr>
+                    <tr>
+                        <ul>
+                            <b> MAIN DEVS: </b>
+                            <li> Nerea Espinosa Calatayud, </li>
+                            <li> Victor Valenzuela Martínez, </li>
+                            <li> Alicia Pérez Bumanlag, </li>
+                            <li> Andrea González Anastasio, </li>
+                        </ul>
+                    </tr>
+                    <tr>
+                        <ul>
+                            <b> Dirección de ARTE: </b>
+                            <li> Nerea Espinosa Calatayud, </li>
+                            <li> Alicia Pérez Bumanlag, </li>
+                            <li> Andrea González Anastasio, </li>
+                        </ul>
+                    </tr>
+                </table>
+            </p>
+        </details>
     </div>
-    
+
     <div id="como jugar" class="tabcontent">
-        
+        <!-- Aquí puedes agregar contenido para 'como jugar' -->
     </div>
-          
-          
+
     <div id="Descripcion" class="tabcontent">
-    
+        <!-- Aquí puedes agregar contenido para 'Descripcion' -->
     </div>
-  
+
     <div id="individo 6" class="tabcontent">
-        
+        <!-- Aquí puedes agregar contenido para 'individo 6' -->
     </div>
-    
-    
-  
-    
-    
 </body>
 <!--2023-2024-->
 </html>
+
