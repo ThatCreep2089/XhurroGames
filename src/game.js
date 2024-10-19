@@ -15,7 +15,10 @@ let config = {
     // canvas: document.getElementById("juego"), //Le dice a Phaser que use un canvas concreto ya creado en el DOM
     width:  656,
     height: 376,
-    pixelArt: true,
+    //pixelArt: true,
+    resolution: window.devicePixelRatio, //ajusta la resolucion
+    pixelArt: false, // Desactiva el modo pixelArt
+    antialias: true,  // Activa el suavizado de la imagen
 	scale: {
 		autoCenter: Phaser.Scale.CENTER_HORIZONTALLY, //Le decimos que se centre en pantalla
 		// Configuramos phaser para que se adapte al tamaño de pantalla donde ejecutadmos
