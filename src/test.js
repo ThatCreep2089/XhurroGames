@@ -1,10 +1,12 @@
 import Iguana from '../src/iguana.js'
+import Building from '../src/building.js'
 
 export default class Test extends Phaser.Scene
 {
     constructor()
     {
         super({key: "test"});
+        this.moving = true;
     }
 
 
@@ -16,6 +18,7 @@ export default class Test extends Phaser.Scene
     {
         this.load.image('fondo', 'assets/ejZona.jpg'); //fondo
         this.load.image('iguana', 'assets/iguana.png'); //personaje
+        this.load.image('building', 'assets/building.png'); //building
     }
 
     create(){
@@ -38,19 +41,43 @@ export default class Test extends Phaser.Scene
         //back.setDisplaySize(this.cameras.main.width, this.cameras.main.height); //cambia el tamaño de la imagen segun el tamaño de la camara
 
         //instanciar iguana
-        this.iguana = new Iguana(this, 300, 150);
-        this.iguana.setScale(0.05); // Escalar la imagen de la iguana
+        let iguana = new Iguana(this, 300, 150);
+        
+
+        //instanciar building
+        let building = new Building(this, 200, 150);
 
 
+        this.physics.add.collider(iguana, building); //Colision iguana con building
+        
+        
+        // botones para testeo
+        const attackButton = this.add.rectangle(400, 150, 100, 50, 0xffffff)
+            .setInteractive()
+            .on('pointerdown', () => this.changeMove());
+    }
 
+    changeMove() //para desactivar/activar el movimiento
+    {
+        if(this.moving == true)
+        {
+            this.moving = false;
+        }
+        else{
+            this.moving = true;
+        }
     }
 
     update(time, dt){
         
-        // Actualiza iguana
-        this.iguana.preUpdate(dt);
-
-
+        // Actualiza iguana 
+        /*
+        if(this.moving == true)
+        {
+            iguana.move();
+        }
+        */
+       
     }
 
 }
