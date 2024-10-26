@@ -13,6 +13,7 @@ export default class Box extends Phaser.GameObjects.Sprite{
         // Hacemos el cuerpo inmovible para que no reaccione a colisiones
         this.body.setImmovable(true);
 
+        colliderGroup.add(this);
     }
 
 

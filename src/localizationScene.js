@@ -10,11 +10,15 @@ export default class localizationScene extends Phaser.Scene
 
     preload(){
         this.load.image('parque', 'assets/parque.jpg'); //fondo
+        this.load.image('puente', 'assets/puente.jpg'); //fondo
     }
 
-    create(){
+    create(data){
+        // Usar el parámetro 'fondo' para decidir qué fondo cargar
+        const fondo = data.fondo || 'puente'; // 'fondo1' por defecto
+        
         //Pintamos un fondo
-        var back = this.add.image(0, 0, 'parque').setOrigin(0, 0);
+        var back = this.add.image(0, 0, fondo).setOrigin(0, 0);
 
         //escalar el fondo
         var scaleX = this.cameras.main.width / back.width;

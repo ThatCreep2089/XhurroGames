@@ -25,7 +25,7 @@ export default class Test extends Phaser.Scene
         //Pintamos un fondo
         var back = this.add.image(0, 0, 'fondo').setOrigin(0, 0);
         
-        //escalar el fondo
+        //escalar el fondodw
         var scaleX = this.cameras.main.width / back.width;
         var scaleY = this.cameras.main.height / back.height;
         
@@ -44,31 +44,42 @@ export default class Test extends Phaser.Scene
         //instanciar iguana
         let iguana = new Iguana(this, startPosition.x, startPosition.y);
         
+        let buildings = this.add.group();
 
         //instanciar building
-        let building = new Building(this, 175, 238.5);
+        let building1 = new Building(this, 175, 238.5, buildings);
+        let building2 = new Building(this, 450, 100, buildings);
+
+        let localizations = this.add.group();
 
         //instanciar localization
-        let localization = new Localization(this, 200, 100);
+        let localization1 = new Localization(this, 200, 100, localizations, 'parque');
+        let localization2 = new Localization(this, 400, 300, localizations, 'puente');
 
 
-        this.physics.add.collider(iguana, building); //Colision iguana con building
-        this.physics.add.collider(iguana, localization); //Colision iguana con building
+        this.physics.add.collider(iguana, buildings); //Colision iguana con building
+        this.physics.add.collider(iguana, localizations); //Colision iguana con building
 
-        this.physics.add.overlap(iguana, localization.extraCollider, (iguana, extraCollider) => {
-			if(iguana.isInteractingPressed()) {
-                // Guarda la posición de `iguana` en `gameState`
-                window.gameState.iguanaPosition = { x: iguana.x, y: iguana.y };
+        // Detectar la superposición con los extra colliders de localizations
+        this.physics.add.overlap(iguana, localization2.extraCollider, (iguana, extraCollider) => {
+            
+                    if (iguana.isInteractingPressed()) {
+                        console.log("cambiar escena");
+
+                        // Guarda la posición de `iguana` en `gameState`
+                        window.gameState.iguanaPosition = { x: iguana.x, y: iguana.y };
+
+                        // Cambiar escena
+                        this.scene.start('localizationScene',  { fondo: localization2.scenario });
+                    }
                 
-                //cambiar escena
-                this.scene.start('localizationScene');
-			} 				
-		});
+            
+        });
 
 
         
         // botones para testeo
-        const changeMovement = this.add.rectangle(400, 150, 100, 50, 0xffffff)
+        const changeMovement = this.add.rectangle(500, 300, 100, 50, 0xffffff)
             .setInteractive()
             .on('pointerdown', () => iguana.changeMove());
             

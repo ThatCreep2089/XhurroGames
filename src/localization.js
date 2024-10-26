@@ -1,8 +1,10 @@
 export default class Localization extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, colliderGroup) {
+    constructor(scene, x, y, colliderGroup, scenario) {
 		super(scene, x, y, 'localization');
-		this.setScale(0.19);
+        this.setScale(0.19);
 		this.scene.add.existing(this);
+
+        this.scenario = scenario;
 
         // Activamos la física para este sprite
         this.scene.physics.world.enable(this);
@@ -24,10 +26,17 @@ export default class Localization extends Phaser.GameObjects.Sprite{
         this.extraCollider.body.setAllowGravity(false); // Desactivamos la gravedad para el collider extra
         this.extraCollider.body.setImmovable(true); // Hacemos el collider extra inmovible
         
-        
+        colliderGroup.add(this);
+
+        // Llama a la función que configura la colisión
+        //this.setupCollision();
 
     }
 
-
-
+    setupCollision(){
+        this.scene.physics.add.overlap(this.scene.iguana, this.extraCollider, (iguana, extraCollider) => {
+        
+            
+        });
+    }
 }
