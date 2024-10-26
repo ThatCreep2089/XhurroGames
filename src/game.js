@@ -1,4 +1,4 @@
-import Test from "./test.js";
+import PickScene from "./PickScene.js";
 /*
 import Maingame from './escenas/maingame.js';
 import Title from './escenas/title.js';
@@ -31,7 +31,7 @@ let config = {
         },
 		zoom: 1
     },
-    scene: [ItemScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
+    scene: [PickScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
     physics: {  
         default: 'arcade', //Tenemos físicas simple, arcade
         arcade: { 

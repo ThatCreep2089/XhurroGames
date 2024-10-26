@@ -1,58 +1,40 @@
 
-export default class Item
+export default class Item extends Phaser.GameObjects.Sprite
 {
   
-constructor(name,description,effect,posx,posy)
+constructor(scene,name,description,effect,posx,posy,amount)
 {
-this.name=name;
-this.description=description;
-this.effect=effect;
-this.posx=posx;
-this.posy=posy;
+    super(scene,posx,posy,name);
+        this.amount = amount; // elle
+        this.name=name;
+        this.description=description;
+        this.effect=effect;
+        this.scene.add.existing(this); //Añadimos item a la escena
+      this.ejemplar=1;//cauntos ejemplares del mismo elem hay
 
 }
 
 
 
-Use(effect,amount)
-    {
-        if(effect==1)
-        {
-            HealLife(amount);
-        }
-        else if(effecto==2)
-        {
-            IncreaseLifeMax(amount);
-        }
-        else if(effect==3)
-        {
-            ReduceAnxiety(amount);
-        }
-        else
-        {
-            HealCuality(amount);
-        }
-    
-    }
 
-HealLife(amount)
+HealLife(num)
 {
-console.log("vida +"+ amount);
+console.log("vida +"+ this.amount+num);
 }
 
-IncreaseLifeMax(amount)
+IncreaseLifeMax()
 {
-    console.log("vidamax +"+amount);
+    console.log("vidamax +"+this.amount+num);
 }
 
-ReduceAnxiety(amount)
+ReduceAnxiety()
 {
-    console.log("ansiedad -" +amount);
+    console.log("ansiedad -" +this.amount+num);
 }
 
-HealCuality(amount)
+HealCuality()
 {
-    console.log("cualidad +"+amount);
+    console.log("cualidad +"+this.amount+num);
 }
 
 }
