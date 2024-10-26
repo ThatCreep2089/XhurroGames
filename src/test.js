@@ -60,20 +60,20 @@ export default class Test extends Phaser.Scene
         this.physics.add.collider(iguana, buildings); //Colision iguana con building
         this.physics.add.collider(iguana, localizations); //Colision iguana con building
 
-        // Detectar la superposición con los extra colliders de localizations
-        this.physics.add.overlap(iguana, localization2.extraCollider, (iguana, extraCollider) => {
-            
-                    if (iguana.isInteractingPressed()) {
-                        console.log("cambiar escena");
+        // Detectar superposición con todos los colliders extras en localizations
+        localizations.children.iterate((localization) => {
+            this.physics.add.overlap(iguana, localization.extraCollider, (iguana, extraCollider) => {
+                //console.log("collide");
+                if (iguana.isInteractingPressed()) {
+                    console.log("cambiar escena");
 
-                        // Guarda la posición de `iguana` en `gameState`
-                        window.gameState.iguanaPosition = { x: iguana.x, y: iguana.y };
+                    // Guarda la posición de `iguana` en `gameState`
+                    window.gameState.iguanaPosition = { x: iguana.x, y: iguana.y };
 
-                        // Cambiar escena
-                        this.scene.start('localizationScene',  { fondo: localization2.scenario });
-                    }
-                
-            
+                    // Cambiar escena
+                    this.scene.start('localizationScene', { fondo: localization.scenario });
+                }
+            });
         });
 
 
