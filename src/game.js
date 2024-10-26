@@ -31,7 +31,7 @@ let config = {
         },
 		zoom: 1
     },
-    scene: [Test], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
+    scene: [ItemScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
     physics: {  
         default: 'arcade', //Tenemos físicas simple, arcade
         arcade: { 
@@ -47,7 +47,7 @@ let config = {
     },
     title: "Prueba de concepto",
     version: "1.0.2",
-    parent: "individo 6"
+    parent: "individo 6" //para meter game en la web en la parte de individuo 6
 };
 
 /*
