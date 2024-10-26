@@ -1,4 +1,5 @@
 import Test from "./test.js";
+import localizationScene from "./localizationScene.js";
 /*
 import Maingame from './escenas/maingame.js';
 import Title from './escenas/title.js';
@@ -34,7 +35,7 @@ let config = {
         },
 		zoom: 1
     },
-    scene: [Test], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
+    scene: [Test, localizationScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
     physics: {  
         default: 'arcade', //Tenemos físicas simple, arcade
         arcade: { 

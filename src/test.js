@@ -1,12 +1,12 @@
 import Iguana from '../src/iguana.js'
 import Building from '../src/building.js'
+import Localization from './localization.js';
 
 export default class Test extends Phaser.Scene
 {
     constructor()
     {
         super({key: "test"});
-        this.moving = true;
     }
 
 
@@ -19,6 +19,7 @@ export default class Test extends Phaser.Scene
         this.load.image('fondo', 'assets/ejZona.jpg'); //fondo
         this.load.image('iguana', 'assets/iguana.png'); //personaje
         this.load.image('building', 'assets/building.png'); //building
+        this.load.image('localization', 'assets/localization.png');
     }
 
     create(){
@@ -41,42 +42,39 @@ export default class Test extends Phaser.Scene
         //back.setDisplaySize(this.cameras.main.width, this.cameras.main.height); //cambia el tamaño de la imagen segun el tamaño de la camara
 
         //instanciar iguana
-        let iguana = new Iguana(this, 300, 150);
+        let iguana = new Iguana(this, 296, 150);
         
 
         //instanciar building
-        let building = new Building(this, 200, 150);
+        let building = new Building(this, 175, 238.5);
+
+        //instanciar localization
+        let localization = new Localization(this, 200, 100);
 
 
         this.physics.add.collider(iguana, building); //Colision iguana con building
-        
+        this.physics.add.collider(iguana, localization); //Colision iguana con building
+
+        this.physics.add.overlap(iguana, localization.extraCollider, (iguana, extraCollider) => {
+			if(iguana.isInteractingPressed()) {
+                //cambiar escena
+                //console.log("cambiar escena");
+                this.scene.start('localizationScene');
+			} 				
+		});
+
+
         
         // botones para testeo
-        const attackButton = this.add.rectangle(400, 150, 100, 50, 0xffffff)
+        const changeMovement = this.add.rectangle(400, 150, 100, 50, 0xffffff)
             .setInteractive()
-            .on('pointerdown', () => this.changeMove());
-    }
-
-    changeMove() //para desactivar/activar el movimiento
-    {
-        if(this.moving == true)
-        {
-            this.moving = false;
-        }
-        else{
-            this.moving = true;
-        }
+            .on('pointerdown', () => iguana.changeMove());
+            
     }
 
     update(time, dt){
         
-        // Actualiza iguana 
-        /*
-        if(this.moving == true)
-        {
-            iguana.move();
-        }
-        */
+        
        
     }
 

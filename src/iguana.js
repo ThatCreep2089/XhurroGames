@@ -4,8 +4,9 @@ export default class Iguana extends Phaser.GameObjects.Sprite{
     {
         super(scene, x, y, 'iguana');
         this.speed = 140; //velocidad
-        this.moving = true;
-        this.setScale(0.05);
+        this.isMoving = true;
+        this.isInteracting = false; //para ver si está interactuando
+        this.setScale(0.03);
 
         this.scene.add.existing(this); //Añadimos iguana a la escena
 
@@ -23,22 +24,17 @@ export default class Iguana extends Phaser.GameObjects.Sprite{
 		this.aKey = this.scene.input.keyboard.addKey('A'); //izquierda
 		this.sKey = this.scene.input.keyboard.addKey('S'); //abajo
 		this.dKey = this.scene.input.keyboard.addKey('D'); //derecha
+        this.eKey = this.scene.input.keyboard.addKey('E'); //entrar
 
     }
 
-    setMovement(move)
+    preUpdate(t, dt)
     {
-        if(move == true)
+        super.preUpdate(t, dt);
+
+        if(this.isMoving == true)
         {
-            move();
-        }
-    }
-
-    
-    move()
-    {
-        
-            // Mientras pulsemos la tecla 'A' movemos el personaje en la X
+             // Mientras pulsemos la tecla 'A' movemos el personaje en la X
             if(this.aKey.isDown){
                 //this.setFlip(true, false);
                 
@@ -75,59 +71,37 @@ export default class Iguana extends Phaser.GameObjects.Sprite{
             if (Phaser.Input.Keyboard.JustUp(this.wKey) || Phaser.Input.Keyboard.JustUp(this.sKey)) {
                 this.body.setVelocityY(0);
             }
+
+            if (this.eKey.isDown) {
+                this.isInteracting = true;
+            }
+
+            if(Phaser.Input.Keyboard.JustUp(this.eKey))
+            {
+                this.isInteracting = false;
+            }
+
+        }
         
+       
     }
-            
 
-    /*
-    preUpdate(t, dt)
+
+    isInteractingPressed()
     {
-        super.preUpdate(t, dt);
-        // Mientras pulsemos la tecla 'A' movemos el personaje en la X
-		if(this.aKey.isDown){
-			//this.setFlip(true, false);
-			
-			//this.x -= this.speed*dt / 1000;
-			this.body.setVelocityX(-this.speed);
-		}
-
-		// Mientras pulsemos la tecla 'D' movemos el personaje en la X
-		if(this.dKey.isDown){
-			//this.setFlip(false, false);
-
-			//this.x += this.speed*dt / 1000;
-			this.body.setVelocityX(this.speed);
-		}
-
-         // Movimiento hacia arriba con tecla 'W'
-         if (this.wKey.isDown) {
-            this.body.setVelocityY(-this.speed);
-        }
-
-        // Movimiento hacia abajo con tecla 'S'
-        if (this.sKey.isDown) {
-            this.body.setVelocityY(this.speed);
-        }
-
-        // Si dejamos de pulsar 'A' o 'D' volvemos al estado de animación'idle'
-		// Phaser.Input.Keyboard.JustUp y Phaser.Input.Keyboard.JustDown nos aseguran detectar la tecla una sola vez (evitamos repeticiones)
-		if(Phaser.Input.Keyboard.JustUp(this.aKey) || Phaser.Input.Keyboard.JustUp(this.dKey)){
-			this.body.setVelocityX(0);
-		}
-
-
-        // Detener el movimiento vertical cuando soltamos 'W' o 'S'
-        if (Phaser.Input.Keyboard.JustUp(this.wKey) || Phaser.Input.Keyboard.JustUp(this.sKey)) {
-            this.body.setVelocityY(0);
-        }
-
-
-
+        return this.isInteracting;
     }
-*/
 
-
-
+    changeMove()
+    {
+        if(this.isMoving == true)
+            {
+                this.isMoving = false;
+            }
+            else{
+                this.isMoving = true;
+            }
+    }
 
 
 

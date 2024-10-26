@@ -1,7 +1,7 @@
 export default class Box extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, colliderGroup) {
 		super(scene, x, y, 'building');
-		this.setScale(0.05);
+		this.setScale(0.19);
 		this.scene.add.existing(this);
 
         // Activamos la física para este sprite
