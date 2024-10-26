@@ -6,7 +6,6 @@ export default class localizationScene extends Phaser.Scene
     }
 
     init(){
-
     }
 
     preload(){
@@ -29,6 +28,12 @@ export default class localizationScene extends Phaser.Scene
             this.cameras.main.width / 2 - back.displayWidth / 2,
             this.cameras.main.height / 2 - back.displayHeight / 2
         );
+
+
+        // botones para testeo
+        const backScene = this.add.rectangle(150, 300, 100, 50, 0x000000)
+            .setInteractive()
+            .on('pointerdown', () => this.scene.start('test'));
 
     }
 

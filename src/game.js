@@ -1,14 +1,19 @@
 import Test from "./test.js";
 import localizationScene from "./localizationScene.js";
 /*
-import Maingame from './escenas/maingame.js';
-import Title from './escenas/title.js';
-import Gameover from './escenas/gameover.js'
+
 /**
  * Creamos el archivo de configuración del juego y creamos
  * la clase Game de Phaser, encargada de crear e iniciar el juego.
  * Doc: https://newdocs.phaser.io/docs/3.86.0/Phaser.Types.Core.GameConfig
  */
+
+// Define el objeto global en la parte superior del archivo principal
+window.gameState = {
+    iguanaPosition: { x: 296, y: 150 } // Posición inicial predeterminada
+};
+
+
 let config = {
     type: Phaser.AUTO,
     //parent: 'juego', //ID del elemento del DOM en el que se anidará el Canvas que genere Phaser, si no, por defecto, irá al final del body

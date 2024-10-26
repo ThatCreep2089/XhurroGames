@@ -10,8 +10,7 @@ export default class Test extends Phaser.Scene
     }
 
 
-    init(){
-
+    init(data){
     }
 
     preload()
@@ -39,10 +38,11 @@ export default class Test extends Phaser.Scene
             this.cameras.main.height / 2 - back.displayHeight / 2
         );
 
-        //back.setDisplaySize(this.cameras.main.width, this.cameras.main.height); //cambia el tamaño de la imagen segun el tamaño de la camara
+        // Recupera la posición desde `gameState` o usa la posición inicial predeterminada
+        let startPosition = window.gameState.iguanaPosition || { x: 296, y: 150 };
 
         //instanciar iguana
-        let iguana = new Iguana(this, 296, 150);
+        let iguana = new Iguana(this, startPosition.x, startPosition.y);
         
 
         //instanciar building
@@ -57,8 +57,10 @@ export default class Test extends Phaser.Scene
 
         this.physics.add.overlap(iguana, localization.extraCollider, (iguana, extraCollider) => {
 			if(iguana.isInteractingPressed()) {
+                // Guarda la posición de `iguana` en `gameState`
+                window.gameState.iguanaPosition = { x: iguana.x, y: iguana.y };
+                
                 //cambiar escena
-                //console.log("cambiar escena");
                 this.scene.start('localizationScene');
 			} 				
 		});
@@ -71,6 +73,9 @@ export default class Test extends Phaser.Scene
             .on('pointerdown', () => iguana.changeMove());
             
     }
+
+
+
 
     update(time, dt){
         
