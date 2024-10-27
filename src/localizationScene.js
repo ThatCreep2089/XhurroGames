@@ -11,6 +11,9 @@ export default class localizationScene extends Phaser.Scene
     preload(){
         this.load.image('parque', 'assets/parque.jpg'); //fondo
         this.load.image('puente', 'assets/puente.jpg'); //fondo
+        this.load.image('bar', 'assets/barFondo.jpg'); //fondo
+        this.load.image('cni', 'assets/cniFondo.jpg'); //fondo
+        this.load.image('hipodromo', 'assets/hipodromoFondo.jpg'); //fondo
     }
 
     create(data){

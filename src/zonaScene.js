@@ -16,18 +16,22 @@ export default class ZonaScene extends Phaser.Scene{
     preload() //CARGAR TODOS LOS RECURSOS
     {
         //FONDOS
-        this.load.image('fondo1', 'assets/ejZona.jpg'); //fondo
-        this.load.image('fondo2', 'assets/zona2.jpg'); //fondo 2
+        this.load.image('fondo1', 'assets/fondo2.jpeg'); //fondo 1
+        this.load.image('fondo2', 'assets/fondo2.jpeg'); //fondo 2
         this.load.image('fondo3', 'assets/zona3.jpg'); //fondo 3
 
         //IGUANA
-        this.load.image('iguana', 'assets/iguana.png'); //future elle
+        this.load.image('iguana', 'assets/elle.png'); //future elle
 
         //IMAGENES BUILDINGS
-        this.load.image('building', 'assets/building.png');
+        this.load.image('building1', 'assets/building1.png'); //clarito
+        this.load.image('building3', 'assets/building3.png'); //oscuro
+        this.load.image('building4', 'assets/building4.png'); //mediano
 
         //IMAGENES LOCALIZATIONS
-        this.load.image('localization', 'assets/localization.png');
+        this.load.image('localization1', 'assets/cni.png');
+        this.load.image('localization2', 'assets/bar.png');
+        this.load.image('localization3', 'assets/hipodromo.png');
 
         //FLECHAS
         this.load.image('flecha', 'assets/flecha.png');
@@ -62,22 +66,44 @@ export default class ZonaScene extends Phaser.Scene{
             let buildings = this.add.group();
             let localizations = this.add.group();
             let flechas = this.add.group();
+            let startPosition = { x: 278, y: 150 }; //posicion de la tenfe
 
             if(data.modo == 2){
                 
                 //GRUPO BUILDINGS
-                    
+                    let building1 = new Building(this, 'building3', 45, 45, 0.07, 0.08, buildings);
+                    let building2 = new Building(this, 'building4', 193, 45, 0.115, 0.09, buildings);
+                    let building3 = new Building(this, 'building1', 333, 45, 0.065, 0.087, buildings);
+                    let building4 = new Building(this, 'building4', 452, 45, 0.08, 0.09, buildings);
+                    let building5 = new Building(this, 'building3', 607, 45, 0.115, 0.082, buildings);
+                    let building11 = new Building(this, 'building1', 45, 262, 0.078, 0.09, buildings);
+                    let building13 = new Building(this, 'building3', 85, 405, 0.135, 0.082, buildings);
 
+                //GRUPO LOCALIZATIONS
+                    //let localization1 = new Localization(this, 300, 100, localizations, 'parque');
+                    let localization1 = new Localization(this, 'localization1', 172, 278, 0.1, 0.1, localizations, 'cni');
+                    let localization2 = new Localization(this, 'localization2', 316, 82, 0.1, 0.1, localizations, 'bar');
+                    let localization3 = new Localization(this, 'localization3', 484, 255, 0.1, 0.1, localizations, 'hipodromo');
 
                 //GRUPO FLECHAS
-                let flecha1 = new Flecha(this, 150, 350, flechas, 1);
-                let flecha3 = new Flecha(this, 500, 250, flechas, 3);
+                    let flecha1 = new Flecha(this, 20, 115, flechas, 1, 2);
+                    let flecha3 = new Flecha(this, 600, 115, flechas, 3, 2);
                 
+                if(data.ant == 1)
+                {
+                    startPosition= { x: 20, y: 115 };
+                }
+                else{
+                    startPosition= { x: 600, y: 115 };
+                }
+                
+                /*
                 //BOTONES TESTEO
                     //back to modo 1
                     const backScene = this.add.rectangle(150, 300, 100, 50, 0x000000)
                     .setInteractive()
                     .on('pointerdown', () => this.scene.restart({ modo: 1 }));
+                    */
             }
             else if(data.modo == 3){
                 
@@ -86,7 +112,9 @@ export default class ZonaScene extends Phaser.Scene{
                 
                 
                 //GRUPO FLECHAS
-                let flecha2 = new Flecha(this, 150, 350, flechas, 2);
+                let flecha2 = new Flecha(this, 150, 350, flechas, 2, 3);
+
+                startPosition= { x: 150, y: 350 };
 
                 //BOTONES TESTEO
                     //back to modo 1
@@ -95,17 +123,13 @@ export default class ZonaScene extends Phaser.Scene{
                     .on('pointerdown', () => this.scene.restart({ modo: 1 }));
             }
             else{
+                let flecha1 = new Flecha(this, 600, 115, flechas, 2, 1);
                 
-                //GRUPO BUILDINGS
-                    let building1 = new Building(this, 175, 238.5, 0.23, 0.2, buildings);
-                    let building2 = new Building(this, 389, 238.5, 0.17, 0.195, buildings);
-
-                //GRUPO LOCALIZATIONS
-                    //let localization1 = new Localization(this, 300, 100, localizations, 'parque');
-                    let localization2 = new Localization(this, 480, 190, 0.6, 0.3, localizations, 'puente');
-
-                //GRUPO FLECHAS
-                    let flecha2 = new Flecha(this, 150, 350, flechas, 2);
+                if(data.ant == 2)
+                {
+                    startPosition= { x: 600, y: 115 };
+                }
+                
 
             }
 
@@ -115,7 +139,7 @@ export default class ZonaScene extends Phaser.Scene{
 
             //IGUANA
                 // Recupera la posición desde `gameState` o usa la posición inicial predeterminada
-                let startPosition = window.gameState.iguanaPosition || { x: 296, y: 150 };
+                //let startPosition = window.gameState.iguanaPosition || { x: 278, y: 150 };
 
                 //instanciar iguana
                 let iguana = new Iguana(this, startPosition.x, startPosition.y);
@@ -146,13 +170,10 @@ export default class ZonaScene extends Phaser.Scene{
                         if (iguana.isInteractingPressed()) {
                             console.log("recargar escena " + flecha.modo);
     
-                            // Guarda la posición de `iguana` en `gameState`
-                            window.gameState.iguanaPosition = { x: iguana.x, y: iguana.y };
-    
                             // Cambiar escena
                             //this.scene.restart({ modo: flecha.modo });
                             this.scene.stop('zonaScene'); // Detener la escena actual
-                            this.scene.start('zonaScene', { modo: flecha.modo });
+                            this.scene.start('zonaScene', { modo: flecha.modo, ant: flecha.ant});
                         }
                     });
                 });

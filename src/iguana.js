@@ -3,10 +3,10 @@ export default class Iguana extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y)
     {
         super(scene, x, y, 'iguana');
-        this.speed = 140; //velocidad
+        this.speed = 200; //velocidad
         this.isMoving = true;
         this.isInteracting = false; //para ver si está interactuando
-        this.setScale(0.03);
+        this.setScale(0.012);
 
         this.scene.add.existing(this); //Añadimos iguana a la escena
 

@@ -1,6 +1,6 @@
 export default class Box extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, width, height, colliderGroup) {
-        super(scene, x, y, 'building');
+    constructor(scene, image, x, y, width, height, colliderGroup) {
+        super(scene, x, y, image);
         
         // Añadir a la escena
         scene.add.existing(this);

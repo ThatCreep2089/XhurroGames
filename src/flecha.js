@@ -1,10 +1,11 @@
 export default class Flecha extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, colliderGroup, modo) {
+    constructor(scene, x, y, colliderGroup, modo, ant) {
 		super(scene, x, y, 'flecha');
-        this.setScale(0.1);
+        this.setScale(0.06);
 		this.scene.add.existing(this);
 
         this.modo = modo;
+        this.ant = ant;
 
         // Activamos la física para este sprite
         this.scene.physics.world.enable(this);

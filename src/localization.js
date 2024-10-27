@@ -1,6 +1,6 @@
 export default class Localization extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, width, height, colliderGroup, scenario) {
-		super(scene, x, y, 'localization');
+    constructor(scene, image, x, y, width, height, colliderGroup, scenario) {
+		super(scene, x, y, image);
         
         this.setScale(width, height);
 		
