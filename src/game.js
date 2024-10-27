@@ -9,7 +9,10 @@ import ZonaScene from "./zonaScene.js";
  * Doc: https://newdocs.phaser.io/docs/3.86.0/Phaser.Types.Core.GameConfig
  */
 
-
+// Define el objeto global en la parte superior del archivo principal
+window.gameState = {
+    iguanaPosition: { x: 278, y: 150 } // Posición inicial predeterminada
+};
 
 
 let config = {

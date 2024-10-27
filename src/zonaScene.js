@@ -66,7 +66,7 @@ export default class ZonaScene extends Phaser.Scene{
             let buildings = this.add.group();
             let localizations = this.add.group();
             let flechas = this.add.group();
-            let startPosition = { x: 278, y: 150 }; //posicion de la tenfe
+            let startPosition = window.gameState.iguanaPosition || { x: 278, y: 150 }; //posicion de la tenfe
 
             if(data.modo == 2){
                 
@@ -93,7 +93,8 @@ export default class ZonaScene extends Phaser.Scene{
                 {
                     startPosition= { x: 20, y: 115 };
                 }
-                else{
+                else if (data.ant == 3)
+                {
                     startPosition= { x: 600, y: 115 };
                 }
                 
@@ -159,7 +160,7 @@ export default class ZonaScene extends Phaser.Scene{
                             window.gameState.iguanaPosition = { x: iguana.x, y: iguana.y };
     
                             // Cambiar escena
-                            this.scene.start('localizationScene', { fondo: localization.scenario });
+                            this.scene.start('localizationScene', { fondo: localization.scenario, modo: data.modo });
                         }
                     });
                 });
