@@ -66,9 +66,12 @@ export default class ZonaScene extends Phaser.Scene{
             if(data.modo == 2){
                 
                 //GRUPO BUILDINGS
-                    let building1 = new Building(this, 475, 400, buildings);
-                    let building2 = new Building(this, 100, 100, buildings);
+                    
 
+
+                //GRUPO FLECHAS
+                let flecha1 = new Flecha(this, 150, 350, flechas, 1);
+                let flecha3 = new Flecha(this, 500, 250, flechas, 3);
                 
                 //BOTONES TESTEO
                     //back to modo 1
@@ -79,10 +82,12 @@ export default class ZonaScene extends Phaser.Scene{
             else if(data.modo == 3){
                 
                 //GRUPO BUILDINGS
-                let building1 = new Building(this, 475, 400, buildings);
-                let building2 = new Building(this, 100, 100, buildings);
                 
                 
+                
+                //GRUPO FLECHAS
+                let flecha2 = new Flecha(this, 150, 350, flechas, 2);
+
                 //BOTONES TESTEO
                     //back to modo 1
                     const backScene = this.add.rectangle(150, 300, 100, 50, 0x000000)
@@ -92,16 +97,15 @@ export default class ZonaScene extends Phaser.Scene{
             else{
                 
                 //GRUPO BUILDINGS
-                    let building1 = new Building(this, 175, 238.5, buildings);
-                    let building2 = new Building(this, 450, 100, buildings);
+                    let building1 = new Building(this, 175, 238.5, 0.23, 0.2, buildings);
+                    let building2 = new Building(this, 389, 238.5, 0.17, 0.195, buildings);
 
                 //GRUPO LOCALIZATIONS
-                    let localization1 = new Localization(this, 200, 100, localizations, 'parque');
-                    let localization2 = new Localization(this, 400, 300, localizations, 'puente');
+                    //let localization1 = new Localization(this, 300, 100, localizations, 'parque');
+                    let localization2 = new Localization(this, 480, 190, 0.6, 0.3, localizations, 'puente');
 
                 //GRUPO FLECHAS
                     let flecha2 = new Flecha(this, 150, 350, flechas, 2);
-                    let flecha3 = new Flecha(this, 500, 250, flechas, 3);
 
             }
 
@@ -156,7 +160,7 @@ export default class ZonaScene extends Phaser.Scene{
             
             //BOTONES TESTEO
                 //habilitar/deshabilitar movimiento Iguana
-                const changeMovement = this.add.rectangle(500, 300, 100, 50, 0xffffff)
+                const changeMovement = this.add.rectangle(500, 80, 100, 50, 0x00ff00)
                     .setInteractive()
                     .on('pointerdown', () => iguana.changeMove());
 

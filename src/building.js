@@ -1,21 +1,25 @@
 export default class Box extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, colliderGroup) {
-		super(scene, x, y, 'building');
-		this.setScale(0.19);
-		this.scene.add.existing(this);
+    constructor(scene, x, y, width, height, colliderGroup) {
+        super(scene, x, y, 'building');
+        
+        // Añadir a la escena
+        scene.add.existing(this);
 
-        // Activamos la física para este sprite
-        this.scene.physics.world.enable(this);
-
-        // Desactivamos la gravedad para la iguana
+        // Habilitar físicas
+        scene.physics.world.enable(this);
+        
+        // Desactivar gravedad y hacerlo inmovible
         this.body.setAllowGravity(false);
-
-        // Hacemos el cuerpo inmovible para que no reaccione a colisiones
         this.body.setImmovable(true);
 
+        // Ajustar el tamaño visual
+        this.setDisplaySize(width, height); // Llamar primero a este método
+
+        // Asegurarte de que el colisionador tenga el tamaño correcto
+        this.setScale(width, height); // Ajustar el colisionador al tamaño visual
+
+        // Añadir al grupo de colisiones
         colliderGroup.add(this);
     }
-
-
 
 }
