@@ -1,5 +1,6 @@
-import googleMaps from "./googleMaps.js";
+//import googleMaps from "./googleMaps.js";
 import localizationScene from "./localizationScene.js";
+import ZonaScene from "./zonaScene.js";
 /*
 
 /**
@@ -40,7 +41,7 @@ let config = {
         },
 		zoom: 1
     },
-    scene: [googleMaps, localizationScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
+    scene: [ZonaScene, localizationScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
     physics: {  
         default: 'arcade', //Tenemos físicas simple, arcade
         arcade: { 

@@ -37,7 +37,7 @@ export default class localizationScene extends Phaser.Scene
         // botones para testeo
         const backScene = this.add.rectangle(150, 300, 100, 50, 0x000000)
             .setInteractive()
-            .on('pointerdown', () => this.scene.start('googleMaps'));
+            .on('pointerdown', () => this.scene.start('zonaScene'));
 
     }
 
