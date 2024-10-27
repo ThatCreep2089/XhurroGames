@@ -15,7 +15,7 @@ export default class localizationScene extends Phaser.Scene
 
     create(data){
         // Usar el parámetro 'fondo' para decidir qué fondo cargar
-        const fondo = data.fondo || 'puente'; // 'fondo1' por defecto
+        const fondo = data.fondo || 'parque';
         
         //Pintamos un fondo
         var back = this.add.image(0, 0, fondo).setOrigin(0, 0);
@@ -37,7 +37,7 @@ export default class localizationScene extends Phaser.Scene
         // botones para testeo
         const backScene = this.add.rectangle(150, 300, 100, 50, 0x000000)
             .setInteractive()
-            .on('pointerdown', () => this.scene.start('test'));
+            .on('pointerdown', () => this.scene.start('googleMaps'));
 
     }
 

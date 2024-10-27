@@ -1,10 +1,10 @@
-export default class Localization extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, colliderGroup, scenario) {
-		super(scene, x, y, 'localization');
-        this.setScale(0.19);
+export default class Flecha extends Phaser.GameObjects.Sprite{
+    constructor(scene, x, y, colliderGroup, modo) {
+		super(scene, x, y, 'flecha');
+        this.setScale(0.1);
 		this.scene.add.existing(this);
 
-        this.scenario = scenario;
+        this.modo = modo;
 
         // Activamos la física para este sprite
         this.scene.physics.world.enable(this);
