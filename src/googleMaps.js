@@ -21,7 +21,8 @@ export default class GoogleMaps extends Phaser.Scene
     {
         //IMAGENES FONDO
         this.load.image('fondo1', 'assets/ejZona.jpg'); //fondo
-        this.load.image('fondo2', 'assets/zona2.jpg'); //fondo
+        this.load.image('fondo2', 'assets/zona2.jpg'); //fondo 2
+        this.load.image('fondo3', 'assets/zona3.jpg'); //fondo 3
 
         //ELLE/IGUANA
         this.load.image('iguana', 'assets/iguana.png');
@@ -39,8 +40,39 @@ export default class GoogleMaps extends Phaser.Scene
     create(data){
         if(data.modo == 2)
         {
+            const fondo = 'fondo' + data.modo;
             //Pintamos un fondo
-            var back = this.add.image(0, 0, 'fondo2').setOrigin(0, 0);
+            var back = this.add.image(0, 0, fondo).setOrigin(0, 0);
+
+            //escalar el fondo
+            var scaleX = this.cameras.main.width / back.width;
+            var scaleY = this.cameras.main.height / back.height;
+            
+            var scale = Math.min(scaleX, scaleY);
+            
+            back.setScale(scale);
+            
+            back.setPosition(
+                this.cameras.main.width / 2 - back.displayWidth / 2,
+                this.cameras.main.height / 2 - back.displayHeight / 2
+            );
+
+            // botones para testeo
+            const backScene = this.add.rectangle(150, 300, 100, 50, 0x000000)
+            .setInteractive()
+            .on('pointerdown', () => this.scene.restart({ modo: 1 }));
+
+
+        }
+        else if(data.modo == 3)
+        {
+            //Pintamos un fondo
+            var back = this.add.image(0, 0, 'fondo3').setOrigin(0, 0);
+
+            // botones para testeo
+            const backScene = this.add.rectangle(150, 300, 100, 50, 0x000000)
+            .setInteractive()
+            .on('pointerdown', () => this.scene.restart({ modo: 1 }));
         }
         else{
             //FONDO
@@ -106,8 +138,8 @@ export default class GoogleMaps extends Phaser.Scene
             //FLECHAS
             let flechas = this.add.group();
 
-            let flecha1 = new Flecha(this, 500, 250, flechas, 2);
-
+            let flecha2 = new Flecha(this, 150, 350, flechas, 2);
+            let flecha3 = new Flecha(this, 500, 250, flechas, 3);
 
             flechas.children.iterate((flecha) => {
                 this.physics.add.overlap(iguana, flecha.extraCollider, (iguana, extraCollider) => {
