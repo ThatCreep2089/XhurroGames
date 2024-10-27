@@ -98,13 +98,6 @@ export default class ZonaScene extends Phaser.Scene{
                     startPosition= { x: 600, y: 115 };
                 }
                 
-                /*
-                //BOTONES TESTEO
-                    //back to modo 1
-                    const backScene = this.add.rectangle(150, 300, 100, 50, 0x000000)
-                    .setInteractive()
-                    .on('pointerdown', () => this.scene.restart({ modo: 1 }));
-                    */
             }
             else if(data.modo == 3){
                 
@@ -117,11 +110,6 @@ export default class ZonaScene extends Phaser.Scene{
 
                 startPosition= { x: 150, y: 350 };
 
-                //BOTONES TESTEO
-                    //back to modo 1
-                    const backScene = this.add.rectangle(150, 300, 100, 50, 0x000000)
-                    .setInteractive()
-                    .on('pointerdown', () => this.scene.restart({ modo: 1 }));
             }
             else{
                 let flecha1 = new Flecha(this, 600, 115, flechas, 2, 1);
