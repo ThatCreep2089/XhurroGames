@@ -1,14 +1,24 @@
-import InventoryScene from "./InventoryScene.js";
-import PickScene from "./PickScene.js";
+//import googleMaps from "./googleMaps.js";
+import localizationScene from "../scenes/localizationScene.js";
+import ZonaScene from "../scenes/zonaScene.js";
+import CombatScene from '../scenes/CombatScene.js';
+import LoseScene from '../scenes/LoseScene.js';
+import VictoryScene from '../scenes/VictoryScene.js';
+
 /*
-import Maingame from './escenas/maingame.js';
-import Title from './escenas/title.js';
-import Gameover from './escenas/gameover.js'
+
 /**
  * Creamos el archivo de configuración del juego y creamos
  * la clase Game de Phaser, encargada de crear e iniciar el juego.
  * Doc: https://newdocs.phaser.io/docs/3.86.0/Phaser.Types.Core.GameConfig
  */
+
+// Define el objeto global en la parte superior del archivo principal
+window.gameState = {
+    playerPosition: { x: 278, y: 150 } // Posición inicial predeterminada
+};
+
+
 let config = {
     type: Phaser.AUTO,
     //parent: 'juego', //ID del elemento del DOM en el que se anidará el Canvas que genere Phaser, si no, por defecto, irá al final del body
@@ -16,7 +26,10 @@ let config = {
     // canvas: document.getElementById("juego"), //Le dice a Phaser que use un canvas concreto ya creado en el DOM
     width:  1920,
     height: 1080,
-    pixelArt: true,
+    //pixelArt: true,
+    resolution: window.devicePixelRatio, //ajusta la resolucion
+    pixelArt: false, // Desactiva el modo pixelArt
+    antialias: true,  // Activa el suavizado de la imagen
 	scale: {
 		autoCenter: Phaser.Scale.CENTER_HORIZONTALLY, //Le decimos que se centre en pantalla
 		// Configuramos phaser para que se adapte al tamaño de pantalla donde ejecutadmos
@@ -32,7 +45,7 @@ let config = {
         },
 		zoom: 1
     },
-    scene: [PickScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
+    scene: [ZonaScene, localizationScene, CombatScene, VictoryScene, LoseScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
     physics: {  
         default: 'arcade', //Tenemos físicas simple, arcade
         arcade: { 
@@ -48,7 +61,7 @@ let config = {
     },
     title: "Prueba de concepto",
     version: "1.0.2",
-    parent: "individo 6" //para meter game en la web en la parte de individuo 6
+    parent: "individo 6"
 };
 
 /*
