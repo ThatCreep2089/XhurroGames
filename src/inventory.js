@@ -66,24 +66,24 @@ export default class Inventory
     }
 
 
-    UseItem(effect,item)
+    UseItem(effect,item,player)
     {
         this.RemoveItem(item);
         if(effect===1)
         {
-            item.HealLife(item.amount);
+            item.HealLife(item.amount,player);
         }
         else if(effect===2)
         {
-            item.IncreaseLifeMax(item.amount);
+            item.IncreaseLifeMax(item.amount,player);
         }
         else if(effect===3)
         {
-            item.ReduceAnxiety(item.amount);
+            item.ReduceAnxiety(item.amount,player);
         }
         else
         {
-            item.HealCuality(item.amount);
+            item.HealCuality(item.amount,player);
         }
        
     }

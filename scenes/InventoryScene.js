@@ -1,5 +1,4 @@
-import Item from './item.js'
-import Inventory from './inventory.js'
+
 export default class InventoryScene extends Phaser.Scene
 {
     constructor()

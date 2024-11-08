@@ -17,8 +17,9 @@ constructor(scene,name,description,effect,posx,posy,amount)
 
 
 
-HealLife(num)
+HealLife(num,player)
 {
+
 console.log("vida +"+ this.amount+num);
 }
 
