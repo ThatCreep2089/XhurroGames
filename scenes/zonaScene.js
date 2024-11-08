@@ -1,7 +1,7 @@
-import Iguana from './iguana.js';
-import Building from './building.js';
-import Localization from './localization.js';
-import Flecha from './flecha.js';
+import Player from '../src/Player.js';
+import Building from '../src/building.js';
+import Localization from '../src/localization.js';
+import Flecha from '../src/flecha.js';
 
 export default class ZonaScene extends Phaser.Scene{
     constructor()
@@ -21,7 +21,7 @@ export default class ZonaScene extends Phaser.Scene{
         this.load.image('fondo3', 'assets/zona3.jpg'); //fondo 3
 
         //IGUANA
-        this.load.image('iguana', 'assets/elle.png'); //future elle
+        this.load.image('player', 'assets/elle.png'); //future elle
 
         //IMAGENES BUILDINGS
         this.load.image('building1', 'assets/building1.png'); //clarito
@@ -66,7 +66,7 @@ export default class ZonaScene extends Phaser.Scene{
             let buildings = this.add.group();
             let localizations = this.add.group();
             let flechas = this.add.group();
-            let startPosition = window.gameState.iguanaPosition || { x: 278, y: 150 }; //posicion de la tenfe
+            let startPosition = window.gameState.playerPosition || { x: 278, y: 150 }; //posicion de la tenfe
 
             if(data.modo == 2){
                 
@@ -130,22 +130,22 @@ export default class ZonaScene extends Phaser.Scene{
                 // Recupera la posición desde `gameState` o usa la posición inicial predeterminada
                 //let startPosition = window.gameState.iguanaPosition || { x: 278, y: 150 };
 
-                //instanciar iguana
-                let iguana = new Iguana(this, startPosition.x, startPosition.y);
+                //instanciar player
+                let player = new Player(this, startPosition.x, startPosition.y);
 
 
             //COLISIONES CON IGUANA 
-                this.physics.add.collider(iguana, buildings); //Colision iguana con building
-                this.physics.add.collider(iguana, localizations); //Colision iguana con localizations
+                this.physics.add.collider(player, buildings); //Colision iguana con building
+                this.physics.add.collider(player, localizations); //Colision iguana con localizations
 
                 //cambios de escena con localizations
                 localizations.children.iterate((localization) => {
-                    this.physics.add.overlap(iguana, localization.extraCollider, (iguana, extraCollider) => {
-                        if (iguana.isInteractingPressed()) {
+                    this.physics.add.overlap(player, localization.extraCollider, (player, extraCollider) => {
+                        if (player.isInteractingPressed()) {
                             console.log("cambiar escena");
     
                             // Guarda la posición de `iguana` en `gameState`
-                            window.gameState.iguanaPosition = { x: iguana.x, y: iguana.y };
+                            window.gameState.playerPosition = { x: player.x, y: player.y };
     
                             // Cambiar escena
                             this.scene.start('localizationScene', { fondo: localization.scenario, modo: data.modo });
@@ -155,8 +155,8 @@ export default class ZonaScene extends Phaser.Scene{
 
                 //recargar escena con flechas
                 flechas.children.iterate((flecha) => {
-                    this.physics.add.overlap(iguana, flecha.extraCollider, (iguana, extraCollider) => {
-                        if (iguana.isInteractingPressed()) {
+                    this.physics.add.overlap(player, flecha.extraCollider, (player, extraCollider) => {
+                        if (player.isInteractingPressed()) {
                             console.log("recargar escena " + flecha.modo);
     
                             // Cambiar escena
@@ -172,7 +172,7 @@ export default class ZonaScene extends Phaser.Scene{
                 //habilitar/deshabilitar movimiento Iguana
                 const changeMovement = this.add.rectangle(500, 80, 100, 50, 0x00ff00)
                     .setInteractive()
-                    .on('pointerdown', () => iguana.changeMove());
+                    .on('pointerdown', () => player.changeMove());
 
     }
 

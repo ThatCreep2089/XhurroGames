@@ -1,6 +1,10 @@
 //import googleMaps from "./googleMaps.js";
-import localizationScene from "./localizationScene.js";
-import ZonaScene from "./zonaScene.js";
+import localizationScene from "../scenes/localizationScene.js";
+import ZonaScene from "../scenes/zonaScene.js";
+import CombatScene from '../scenes/CombatScene.js';
+import LoseScene from '../scenes/LoseScene.js';
+import VictoryScene from '../scenes/VictoryScene.js';
+
 /*
 
 /**
@@ -11,7 +15,7 @@ import ZonaScene from "./zonaScene.js";
 
 // Define el objeto global en la parte superior del archivo principal
 window.gameState = {
-    iguanaPosition: { x: 278, y: 150 } // Posición inicial predeterminada
+    playerPosition: { x: 278, y: 150 } // Posición inicial predeterminada
 };
 
 
@@ -41,7 +45,7 @@ let config = {
         },
 		zoom: 1
     },
-    scene: [ZonaScene, localizationScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
+    scene: [ZonaScene, localizationScene, CombatScene, VictoryScene, LoseScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
     physics: {  
         default: 'arcade', //Tenemos físicas simple, arcade
         arcade: { 
