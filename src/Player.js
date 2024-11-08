@@ -130,7 +130,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     changeMove(bool)
     {
-    this.isMoving == bool
+        this.isMoving = bool;
     }
 
 }

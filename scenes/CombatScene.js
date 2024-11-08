@@ -5,7 +5,7 @@ export default class CombatScene extends Phaser.Scene {
     constructor() {
         super({ key: 'CombatScene' });
         this.turn = 'player'; // Inicia el turno el player
-
+        
         
     }
 
@@ -32,6 +32,9 @@ init(boss){
         // crear player y  enemigo
         this.player = new Player(this, 50, 500);
         this.enemy = new Enemy(this, 650, 100);
+
+        //anulamos movimiento player
+        this.player.changeMove(false);
 
         // botones para ataques player
         let attackButton = this.add.rectangle(200, 350, 100, 50)
