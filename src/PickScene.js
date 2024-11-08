@@ -18,7 +18,8 @@ export default class PickScene extends Phaser.Scene
         this.load.image('patatas', 'assets/patatas.jpg'); 
     }
 
-    create(){ //instanciar cosas
+    create(){ 
+        //instanciar cosas
         this.inventario = new Inventory();//creamos inventario
         this.hamburguesa= new Item(this,'hamburguesa','cura 3 de vida',1,50,50,3);//creamos item
         console.log(this.hamburguesa.name+this.hamburguesa.description);
