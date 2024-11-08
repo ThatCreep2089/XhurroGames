@@ -1,9 +1,12 @@
 //import googleMaps from "./googleMaps.js";
+import MainMenuScene from "../scenes/MainMenuScene.js";
 import localizationScene from "../scenes/localizationScene.js";
 import ZonaScene from "../scenes/zonaScene.js";
 import CombatScene from '../scenes/CombatScene.js';
 import LoseScene from '../scenes/LoseScene.js';
 import VictoryScene from '../scenes/VictoryScene.js';
+import	PickScene from '../scenes/PickScene.js';
+import	InventoryScene from '../scenes/InventoryScene.js';
 
 /*
 
@@ -45,7 +48,7 @@ let config = {
         },
 		zoom: 1
     },
-    scene: [ZonaScene, localizationScene, CombatScene, VictoryScene, LoseScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
+    scene: [MainMenuScene,ZonaScene, localizationScene, CombatScene, VictoryScene, LoseScene,InventoryScene,PickScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
     physics: {  
         default: 'arcade', //Tenemos físicas simple, arcade
         arcade: { 

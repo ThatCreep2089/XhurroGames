@@ -35,7 +35,14 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.agnosticismo = 0;
         this.afecto = 0;
     }
+//Metodos inventario (Nerea)
 
+HealPlayer(amount)
+{
+
+
+
+}
 
 //métodos de combate (victor)
     // Método de ataque
