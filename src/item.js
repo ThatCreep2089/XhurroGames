@@ -19,22 +19,25 @@ constructor(scene,name,description,effect,posx,posy,amount)
 
 HealLife(num,player)
 {
-
+player.HealPlayer(num);
 console.log("vida +"+ this.amount+num);
 }
 
-IncreaseLifeMax()
+IncreaseLifeMax(num,player)
 {
+    player.MaxLife(amount)
     console.log("vidamax +"+this.amount+num);
 }
 
-ReduceAnxiety()
+ReduceAnxiety(num,player)
 {
+    player.LessAnxiety(amount)
     console.log("ansiedad -" +this.amount+num);
 }
 
-HealCuality()
+HealCuality(num,player)
 {
+    player.HealQuality(amount)
     console.log("cualidad +"+this.amount+num);
 }
 
