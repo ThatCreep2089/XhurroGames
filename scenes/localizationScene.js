@@ -42,6 +42,11 @@ export default class localizationScene extends Phaser.Scene
             .setInteractive()
             .on('pointerdown', () => this.scene.start('zonaScene', { modo: data.modo}));
 
+        // botones para testeo
+        const combat = this.add.rectangle(50, 300, 100, 50, 0xFFFFFF)
+        .setInteractive()
+        .on('pointerdown', () => this.scene.start('CombatScene'));
+
     }
 
     update(){
