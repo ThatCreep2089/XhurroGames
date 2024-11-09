@@ -3,13 +3,14 @@ export default class localizationScene extends Phaser.Scene
     constructor()
     {
         super({key: "localizationScene"});
-        var acceptButton, backButton;
-        var show;
+        
         this.mode;
         this.titulo = null;
     }
 
-    init(){
+    init(data){
+        // Usar el parámetro 'fondo' para decidir qué fondo cargar
+        this.mode = data.fondo || 'parque';
     }
 
     preload(){
@@ -42,9 +43,6 @@ export default class localizationScene extends Phaser.Scene
     create(data){
         
         //1. PINTAR FONDO
-            // Usar el parámetro 'fondo' para decidir qué fondo cargar
-            this.mode = data.fondo || 'parque';
-            
             //Pintamos un fondo
             var back = this.add.image(0, 0, this.mode).setOrigin(0, 0);
 
@@ -69,88 +67,88 @@ export default class localizationScene extends Phaser.Scene
 
             // TEXTO
             this.titulo = this.add.text(
-                this.sys.game.canvas.width / 2,   // Coordenada X: centrado horizontalmente
-                this.sys.game.canvas.height / 12, // Coordenada Y: 1/10 del alto de la pantalla 
-                "Con quien quieres hablar?", 
+                this.sys.game.canvas.width / 2,   // coordenada x
+                this.sys.game.canvas.height / 12, // coordenada y
+                "Con quien quieres hablar?", //frase
                 { 
                     fontSize: '100px', 
-                    color: '#999999',       // Negro
+                    color: '#999999',       // Gris
                     fontFamily: 'Georgia',  
                 }
             );
-            this.titulo.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
+            this.titulo.setStroke('#000000', 8);  // Trazo negro
             this.titulo.setOrigin(0.5, 0);
             this.titulo.setScale(0.8);
 
             
             //NPCS (DEPENDEN DE DATA)
-            if(this.mode == 'bar')
-                {
-                    var names = this.add.group();
+                //LOCALIZACION: BAR
+                    if(this.mode == 'bar')
+                        {
+                            var names = this.add.group(); //grupo de nombres de npcs
 
-                        let pacoName = this.add.text(
-                            this.sys.game.canvas.width / 4,   // Coordenada X: centrado horizontalmente
-                            this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
-                            "PACO", 
-                            { 
-                                fontSize: '100px', 
-                                color: '#999999',       // Negro
-                                fontFamily: 'Georgia',  
-                            }
-                        );
-                        pacoName.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
-                        pacoName.setOrigin(0.5, 0);
-                        pacoName.setScale(0.6);
+                                //NOMBRE Paco
+                                let pacoName = this.add.text(
+                                    this.sys.game.canvas.width / 4,   // coordenada x
+                                    this.sys.game.canvas.height / 3.7, // coordenada y
+                                    "PACO", //frase
+                                    { 
+                                        fontSize: '100px', 
+                                        color: '#999999',       // Gris
+                                        fontFamily: 'Georgia',  
+                                    }
+                                );
+                                pacoName.setStroke('#000000', 8);  // Trazo negro
+                                pacoName.setOrigin(0.5, 0);
+                                pacoName.setScale(0.6);
 
-                        names.add(pacoName);
-                    
-                        //PACO
-                        const paco = this.add.image(
-                            this.sys.game.canvas.width / 4,
-                            this.sys.game.canvas.height / 1.4, 
-                            'paco')
-                        .setOrigin(0.5, 0.5)
-                        .setScale(0.9)
-                        .setInteractive()
-                        .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con PACO?"))
-                        .on('pointerover', () => paco.setTint(0xff0000))
-                        .on('pointerout', () => paco.clearTint());
+                                names.add(pacoName); //añadir al conjunto
+                            
+                                //BOTON Paco
+                                const paco = this.add.image(
+                                    this.sys.game.canvas.width / 4,
+                                    this.sys.game.canvas.height / 1.4, 
+                                    'paco') //id
+                                .setOrigin(0.5, 0.5)
+                                .setScale(0.9)
+                                .setInteractive()
+                                .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con PACO?"))
+                                .on('pointerover', () => paco.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
+                                .on('pointerout', () => paco.clearTint());
+                        }
+                //LOCALIZACION: CNI
+                    else if(this.mode == 'cni')
+                    {
+                        var names = this.add.group();
+                            
+                            let mariaName = this.add.text(
+                                this.sys.game.canvas.width / 1.37,   // Coordenada X: centrado horizontalmente
+                                this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
+                                "MARIA", 
+                                { 
+                                    fontSize: '100px', 
+                                    color: '#999999',       // Gris
+                                    fontFamily: 'Georgia',  
+                                }
+                            );
+                            mariaName.setStroke('#000000', 8);  // Trazo negro
+                            mariaName.setOrigin(0.5, 0);
+                            mariaName.setScale(0.6);
 
-                    
-                }
-                else if(this.mode == 'cni')
-                {
-                    var names = this.add.group();
-
+                            names.add(mariaName);
                         
-                        let mariaName = this.add.text(
-                            this.sys.game.canvas.width / 1.37,   // Coordenada X: centrado horizontalmente
-                            this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
-                            "MARIA", 
-                            { 
-                                fontSize: '100px', 
-                                color: '#999999',       // Negro
-                                fontFamily: 'Georgia',  
-                            }
-                        );
-                        mariaName.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
-                        mariaName.setOrigin(0.5, 0);
-                        mariaName.setScale(0.6);
-
-                        names.add(mariaName);
-                    
-                        //MARIA
-                        const maria = this.add.image(
-                            this.sys.game.canvas.width / 1.35,
-                            this.sys.game.canvas.height / 1.4, 
-                            'maria')
-                        .setOrigin(0.5, 0.5)
-                        .setScale(0.6)
-                        .setInteractive()
-                        .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?"))
-                        .on('pointerover', () => maria.setTint(0xff0000))
-                        .on('pointerout', () => maria.clearTint());
-                }
+                            //MARIA
+                            const maria = this.add.image(
+                                this.sys.game.canvas.width / 1.35,
+                                this.sys.game.canvas.height / 1.4, 
+                                'maria')
+                            .setOrigin(0.5, 0.5)
+                            .setScale(0.6)
+                            .setInteractive()
+                            .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?"))
+                            .on('pointerover', () => maria.setTint(0xff0000))
+                            .on('pointerout', () => maria.clearTint());
+                    }
                 else if(this.mode == 'hipodromo')
                 {
                     var names = this.add.group();
@@ -333,7 +331,7 @@ export default class localizationScene extends Phaser.Scene
                 .on('pointerdown', () => {
                     this.acceptButton(false, arrows, names, acceptButton, backButton, "Con quien quieres hablar?");
                 });
-    ;
+    
                 
                 this.acceptButton(false, arrows, names, acceptButton, backButton, "Con quien quieres hablar?"); //empieza ocultando boton aceptar
 
