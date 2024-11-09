@@ -126,17 +126,18 @@ export default class ZonaScene extends Phaser.Scene{
             
         //3. ELEMENTOS EN COMÚN
 
-            //IGUANA
+            //PLAYER
                 // Recupera la posición desde `gameState` o usa la posición inicial predeterminada
-                //let startPosition = window.gameState.iguanaPosition || { x: 278, y: 150 };
+                //let startPosition = window.gameState.playerPosition || { x: 278, y: 150 };
 
                 //instanciar player
                 let player = new Player(this, startPosition.x, startPosition.y);
+                player.setScale(0.03);
 
 
             //COLISIONES CON IGUANA 
-                this.physics.add.collider(player, buildings); //Colision iguana con building
-                this.physics.add.collider(player, localizations); //Colision iguana con localizations
+                this.physics.add.collider(player, buildings); //Colision player con building
+                this.physics.add.collider(player, localizations); //Colision player con localizations
 
                 //cambios de escena con localizations
                 localizations.children.iterate((localization) => {
@@ -172,7 +173,7 @@ export default class ZonaScene extends Phaser.Scene{
                 //habilitar/deshabilitar movimiento Iguana
                 const changeMovement = this.add.rectangle(500, 80, 100, 50, 0x00ff00)
                     .setInteractive()
-                    .on('pointerdown', () => player.changeMove());
+                    .on('pointerdown', () => player.changeMove(false));
 
     }
 
