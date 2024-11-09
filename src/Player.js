@@ -29,20 +29,72 @@ export default class Player extends Phaser.GameObjects.Sprite {
         //atributos combate (victor)
         this.health = 100; //vida player
         this.mana = 50; //mana
+        this.maxMana=400;
+        this.maxHealth = 100;
         //cualidades
         this.humidad = 0;
         this.trabajoDuro = 0;
         this.agnosticismo = 0;
         this.afecto = 0;
+        this.ansiedad=0;
+        this.maxAnsiedad=100;
+      
     }
 //Metodos inventario (Nerea)
 
 HealPlayer(amount)
 {
+    if(this.health+amount < this.maxHealth){
+    this.health+=amount;
+    }
+    else {
+        this.health = this.maxHealth;
+    }
 
+}
+
+MaxLife(amount)
+{
+this.maxHealth+=amount;
+}
+
+LessAnxiety(amount)
+{
+    if(this.ansiedad-amount < 0){
+        this.ansiedad=0;
+        }
+        else {
+            this.ansiedad-= this.ansiedad;
+        }
+
+}
+
+IncreaseAnxiety(amount)
+{
+    if(this.ansiedad+amount < this.maxAnsiedad){
+        this.ansiedad+=amount;
+        }
+        else {
+            this.ansiedad = this.maxAnsiedad;
+        }
+
+}
+
+HealQuality(amount)
+{
+    if(this.mana+amount < this.maxMana){
+        this.mana+=amount;
+        }
+        else {
+            this.mana = this.maxMana;
+        }
 
 
 }
+
+
+
+
 
 //métodos de combate (victor)
     // Método de ataque
