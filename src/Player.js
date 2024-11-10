@@ -92,10 +92,6 @@ HealQuality(amount)
 
 }
 
-
-
-
-
 //métodos de combate (victor)
     // Método de ataque
     attackEnemy(enemy, totalDamage) {
