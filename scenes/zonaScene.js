@@ -18,7 +18,7 @@ export default class ZonaScene extends Phaser.Scene{
         //FONDOS
         this.load.image('fondo1', 'assets/fondo2.jpeg'); //fondo 1
         this.load.image('fondo2', 'assets/fondo2.jpeg'); //fondo 2
-        this.load.image('fondo3', 'assets/zona3.jpg'); //fondo 3
+        this.load.image('fondo3', 'assets/fondo2.jpeg'); //fondo 3
 
         //IGUANA
         this.load.image('player', 'assets/elle.png'); //future elle
@@ -27,11 +27,15 @@ export default class ZonaScene extends Phaser.Scene{
         this.load.image('building1', 'assets/building1.png'); //clarito
         this.load.image('building3', 'assets/building3.png'); //oscuro
         this.load.image('building4', 'assets/building4.png'); //mediano
+        this.load.image('tenfe', 'assets/tenfe.png'); //tenfe
 
         //IMAGENES LOCALIZATIONS
-        this.load.image('localization1', 'assets/cni.png');
-        this.load.image('localization2', 'assets/bar.png');
-        this.load.image('localization3', 'assets/hipodromo.png');
+        this.load.image('localization1', 'assets/parque.png');
+        this.load.image('localization4', 'assets/cni.png');
+        this.load.image('localization5', 'assets/bar.png');
+        this.load.image('localization6', 'assets/hipodromo.png');
+        
+
 
         //FLECHAS
         this.load.image('flecha', 'assets/flecha.png');
@@ -82,18 +86,17 @@ export default class ZonaScene extends Phaser.Scene{
                 */
 
                 //GRUPO LOCALIZATIONS
-                    //let localization1 = new Localization(this, 300, 100, localizations, 'parque');
-                    let localization1 = new Localization(this, 'localization1', 
+                    let localization4 = new Localization(this, 'localization4', 
                         this.sys.game.canvas.width / 3.4,
                         this.sys.game.canvas.height / 1.4,
                         0.43, 0.41, localizations, 'cni');
                     
-                    let localization2 = new Localization(this, 'localization2',
+                    let localization5 = new Localization(this, 'localization5',
                         this.sys.game.canvas.width / 2.04,
                         this.sys.game.canvas.height / 4.8,
                         0.4, 0.4, localizations, 'bar');
                     
-                    let localization3 = new Localization(this, 'localization3',
+                    let localization6 = new Localization(this, 'localization6',
                         this.sys.game.canvas.width / 1.21,
                         this.sys.game.canvas.height / 1.62,
                         0.4, 0.4, localizations, 'hipodromo');
@@ -133,6 +136,20 @@ export default class ZonaScene extends Phaser.Scene{
 
             }
             else{
+                
+                //TENFE (por ahora actua como building)
+                let building1 = new Building(this, 'tenfe',
+                    this.sys.game.canvas.width / 1.8,
+                    this.sys.game.canvas.height / 1.4,
+                    0.1, 0.1, buildings);
+                
+                //GRUPO LOCALIZATIONS
+                let localization4 = new Localization(this, 'localization1', 
+                    this.sys.game.canvas.width / 3.4,
+                    this.sys.game.canvas.height / 8,
+                    0.68, 0.41, localizations, 'parque');
+                
+                
                 let flecha1 = new Flecha(this, 
                     this.sys.game.canvas.width / 1.05,
                     this.sys.game.canvas.height / 3.3, 
