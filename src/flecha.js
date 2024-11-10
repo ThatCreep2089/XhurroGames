@@ -1,7 +1,7 @@
 export default class Flecha extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, colliderGroup, modo, ant) {
 		super(scene, x, y, 'flecha');
-        this.setScale(0.06);
+        
 		this.scene.add.existing(this);
 
         this.modo = modo;
@@ -22,7 +22,7 @@ export default class Flecha extends Phaser.GameObjects.Sprite{
         // Configuramos las dimensiones y posición del collider extra
         //this.extraCollider.setSize(70, 50); // Establecemos el tamaño del collider extra
         
-        this.extraCollider.setSize(this.body.width * 1.5, this.body.height * 1.5);
+        this.extraCollider.setSize(this.body.width * 0.3, this.body.height * 0.3);
         this.extraCollider.setPosition(x, y); // Posicionamos el collider extra en las coordenadas deseadas
         this.extraCollider.body.setAllowGravity(false); // Desactivamos la gravedad para el collider extra
         this.extraCollider.body.setImmovable(true); // Hacemos el collider extra inmovible

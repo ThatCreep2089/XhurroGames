@@ -66,11 +66,12 @@ export default class ZonaScene extends Phaser.Scene{
             let buildings = this.add.group();
             let localizations = this.add.group();
             let flechas = this.add.group();
-            let startPosition = window.gameState.playerPosition || { x: 278, y: 150 }; //posicion de la tenfe
+            let startPosition = window.gameState.playerPosition || { x: 900, y: 330 }; //posicion de la tenfe
 
             if(data.modo == 2){
                 
                 //GRUPO BUILDINGS
+                /*
                     let building1 = new Building(this, 'building3', 45, 45, 0.07, 0.08, buildings);
                     let building2 = new Building(this, 'building4', 193, 45, 0.115, 0.09, buildings);
                     let building3 = new Building(this, 'building1', 333, 45, 0.065, 0.087, buildings);
@@ -78,24 +79,44 @@ export default class ZonaScene extends Phaser.Scene{
                     let building5 = new Building(this, 'building3', 607, 45, 0.115, 0.082, buildings);
                     let building11 = new Building(this, 'building1', 45, 262, 0.078, 0.09, buildings);
                     let building13 = new Building(this, 'building3', 85, 405, 0.135, 0.082, buildings);
+                */
 
                 //GRUPO LOCALIZATIONS
                     //let localization1 = new Localization(this, 300, 100, localizations, 'parque');
-                    let localization1 = new Localization(this, 'localization1', 172, 278, 0.1, 0.1, localizations, 'cni');
-                    let localization2 = new Localization(this, 'localization2', 316, 82, 0.1, 0.1, localizations, 'bar');
-                    let localization3 = new Localization(this, 'localization3', 484, 255, 0.1, 0.1, localizations, 'hipodromo');
+                    let localization1 = new Localization(this, 'localization1', 
+                        this.sys.game.canvas.width / 3.4,
+                        this.sys.game.canvas.height / 1.4,
+                        0.43, 0.41, localizations, 'cni');
+                    
+                    let localization2 = new Localization(this, 'localization2',
+                        this.sys.game.canvas.width / 2.04,
+                        this.sys.game.canvas.height / 4.8,
+                        0.4, 0.4, localizations, 'bar');
+                    
+                    let localization3 = new Localization(this, 'localization3',
+                        this.sys.game.canvas.width / 1.21,
+                        this.sys.game.canvas.height / 1.62,
+                        0.4, 0.4, localizations, 'hipodromo');
 
                 //GRUPO FLECHAS
-                    let flecha1 = new Flecha(this, 20, 115, flechas, 1, 2);
-                    let flecha3 = new Flecha(this, 600, 115, flechas, 3, 2);
+                    let flecha1 = new Flecha(this,
+                        this.sys.game.canvas.width / 22,
+                        this.sys.game.canvas.height / 3.3,
+                        flechas, 1, 2)
+                        .setScale(0.2);
+                    let flecha3 = new Flecha(this,
+                        this.sys.game.canvas.width / 1.05,
+                        this.sys.game.canvas.height / 3.3,
+                        flechas, 3, 2)
+                        .setScale(0.2);
                 
                 if(data.ant == 1)
                 {
-                    startPosition= { x: 20, y: 115 };
+                    startPosition= { x: this.sys.game.canvas.width / 22, y: this.sys.game.canvas.height / 3.3 };
                 }
                 else if (data.ant == 3)
                 {
-                    startPosition= { x: 600, y: 115 };
+                    startPosition= { x: this.sys.game.canvas.width / 1.05, y: this.sys.game.canvas.height / 3.3 };
                 }
                 
             }
@@ -106,17 +127,21 @@ export default class ZonaScene extends Phaser.Scene{
                 
                 
                 //GRUPO FLECHAS
-                let flecha2 = new Flecha(this, 150, 350, flechas, 2, 3);
+                let flecha2 = new Flecha(this, 150, 350, flechas, 2, 3).setScale(0.2);
 
                 startPosition= { x: 150, y: 350 };
 
             }
             else{
-                let flecha1 = new Flecha(this, 600, 115, flechas, 2, 1);
+                let flecha1 = new Flecha(this, 
+                    this.sys.game.canvas.width / 1.05,
+                    this.sys.game.canvas.height / 3.3, 
+                    flechas, 2, 1)
+                    .setScale(0.2);
                 
                 if(data.ant == 2)
                 {
-                    startPosition= { x: 600, y: 115 };
+                    startPosition= { x:  this.sys.game.canvas.width / 1.05, y: this.sys.game.canvas.height / 3.3 };
                 }
                 
 
@@ -127,9 +152,6 @@ export default class ZonaScene extends Phaser.Scene{
         //3. ELEMENTOS EN COMÚN
 
             //PLAYER
-                // Recupera la posición desde `gameState` o usa la posición inicial predeterminada
-                //let startPosition = window.gameState.playerPosition || { x: 278, y: 150 };
-
                 //instanciar player
                 let player = new Player(this, startPosition.x, startPosition.y);
                 player.setScale(0.03);
@@ -167,13 +189,6 @@ export default class ZonaScene extends Phaser.Scene{
                         }
                     });
                 });
-
-            
-            //BOTONES TESTEO
-                //habilitar/deshabilitar movimiento Iguana
-                const changeMovement = this.add.rectangle(500, 80, 100, 50, 0x00ff00)
-                    .setInteractive()
-                    .on('pointerdown', () => player.changeMove(false));
 
     }
 
