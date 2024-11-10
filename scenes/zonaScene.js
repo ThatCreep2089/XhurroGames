@@ -107,11 +107,13 @@ export default class ZonaScene extends Phaser.Scene{
                         this.sys.game.canvas.height / 3.3,
                         flechas, 1, 2)
                         .setScale(0.2);
-                    let flecha3 = new Flecha(this,
+                    /*
+                        let flecha3 = new Flecha(this,
                         this.sys.game.canvas.width / 1.05,
                         this.sys.game.canvas.height / 3.3,
                         flechas, 3, 2)
                         .setScale(0.2);
+                        */
                 
                 if(data.ant == 1)
                 {
@@ -124,7 +126,7 @@ export default class ZonaScene extends Phaser.Scene{
                 
             }
             else if(data.modo == 3){
-                
+                /*
                 //GRUPO BUILDINGS
                 
                 
@@ -133,7 +135,7 @@ export default class ZonaScene extends Phaser.Scene{
                 let flecha2 = new Flecha(this, 150, 350, flechas, 2, 3).setScale(0.2);
 
                 startPosition= { x: 150, y: 350 };
-
+                */
             }
             else{
                 

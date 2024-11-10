@@ -19,7 +19,7 @@ import Player from "./Player.js";
 
 // Define el objeto global en la parte superior del archivo principal
 window.gameState = {
-    playerPosition: { x: 2000, y: 330 } // Posición inicial predeterminada
+    playerPosition: { x: 1000, y: 330 } // Posición inicial predeterminada
 };
 
 
