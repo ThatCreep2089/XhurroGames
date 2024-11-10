@@ -50,28 +50,22 @@ export default class Inventory
     {
         const pos = this.elems.findIndex(e => e.name === item.name); // Encontrar el índice del item
    
-        // Verificar si el índice es válido (es decir, el item existe en el inventario)
-    if (pos !== -1) {
         if (this.elems[pos].ejemplar > 1) {
             this.elems[pos].ejemplar--; // Decrementar la cantidad
-        } else {
+        } 
+        else {
             this.elems.splice(pos, 1); // Eliminar el item
             this.index--;
         }
-
         console.log("Lista actual de elementos en el inventario:");
-        for (let j = 0; j < this.elems.length; j++) {
-            console.log(this.elems[j].name + " (Cantidad: " + this.elems[j].ejemplar + ")");
-        }
-    } else {
-        // Si el índice no es válido, significa que el item no fue encontrado
-        console.log("Item no encontrado en el inventario.");
-    }
+            for (let j = 0; j < this.elems.length; j++) {
+                console.log(this.elems[j].name + " (Cantidad: " + this.elems[j].ejemplar + ")");
+            }
+    
 
     }
 
 
-    //utilizar el item
     UseItem(effect,item,player)
     {
         this.RemoveItem(item);
