@@ -5,8 +5,9 @@ import ZonaScene from "../scenes/zonaScene.js";
 import CombatScene from '../scenes/CombatScene.js';
 import LoseScene from '../scenes/LoseScene.js';
 import VictoryScene from '../scenes/VictoryScene.js';
-import	PickScene from '../scenes/PickScene.js';
-import	InventoryScene from '../scenes/InventoryScene.js';
+import PickScene from '../scenes/PickScene.js';
+import InventoryScene from '../scenes/InventoryScene.js';
+import Player from "./Player.js";
 
 /*
 

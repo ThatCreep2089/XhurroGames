@@ -1,3 +1,5 @@
+import Player from '../src/Player.js';
+
 export default class localizationScene extends Phaser.Scene
 {
     constructor()
@@ -25,6 +27,7 @@ export default class localizationScene extends Phaser.Scene
             this.load.image('paco', 'assets/paco.png');
             this.load.image('humberto', 'assets/humberto.png');
             this.load.image('maria', 'assets/maria.png');
+            this.load.image('npc', 'assets/npc.png');
 
         //BACK BUTTON
         this.load.image('flecha', 'assets/flecha.png');
@@ -115,6 +118,65 @@ export default class localizationScene extends Phaser.Scene
                                 .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con PACO?"))
                                 .on('pointerover', () => paco.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
                                 .on('pointerout', () => paco.clearTint());
+
+
+                                //NOMBRE Npc
+                                let npcName1 = this.add.text(
+                                    this.sys.game.canvas.width / 2,   // coordenada x
+                                    this.sys.game.canvas.height / 3.7, // coordenada y
+                                    "NPC", //frase
+                                    { 
+                                        fontSize: '100px', 
+                                        color: '#999999',       // Gris
+                                        fontFamily: 'Georgia',  
+                                    }
+                                );
+                                npcName1.setStroke('#000000', 8);  // Trazo negro
+                                npcName1.setOrigin(0.5, 0);
+                                npcName1.setScale(0.6);
+
+                                names.add(npcName1); //añadir al conjunto
+                            
+                                //BOTON Npc
+                                const npc1 = this.add.image(
+                                    this.sys.game.canvas.width / 2,
+                                    this.sys.game.canvas.height / 1.4, 
+                                    'npc') //id
+                                .setOrigin(0.5, 0.5)
+                                .setScale(3)
+                                .setInteractive()
+                                .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?"))
+                                .on('pointerover', () => npc1.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
+                                .on('pointerout', () => npc1.clearTint());
+
+                                //NOMBRE Npc
+                                let npcName2 = this.add.text(
+                                    this.sys.game.canvas.width / 1.37,   // coordenada x
+                                    this.sys.game.canvas.height / 3.7, // coordenada y
+                                    "NPC", //frase
+                                    { 
+                                        fontSize: '100px', 
+                                        color: '#999999',       // Gris
+                                        fontFamily: 'Georgia',  
+                                    }
+                                );
+                                npcName2.setStroke('#000000', 8);  // Trazo negro
+                                npcName2.setOrigin(0.5, 0);
+                                npcName2.setScale(0.6);
+
+                                names.add(npcName2); //añadir al conjunto
+                            
+                                //BOTON Npc
+                                const npc2 = this.add.image(
+                                    this.sys.game.canvas.width / 1.37,
+                                    this.sys.game.canvas.height / 1.4, 
+                                    'npc') //id
+                                .setOrigin(0.5, 0.5)
+                                .setScale(3)
+                                .setInteractive()
+                                .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?"))
+                                .on('pointerover', () => npc2.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
+                                .on('pointerout', () => npc2.clearTint());
                         }
                 //LOCALIZACION: CNI
                     else if(this.mode == 'cni')
@@ -148,9 +210,70 @@ export default class localizationScene extends Phaser.Scene
                             .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?"))
                             .on('pointerover', () => maria.setTint(0xff0000))
                             .on('pointerout', () => maria.clearTint());
+
+
+                            //NOMBRE Npc
+                            let npcName1 = this.add.text(
+                                this.sys.game.canvas.width / 2,   // coordenada x
+                                this.sys.game.canvas.height / 3.7, // coordenada y
+                                "NPC", //frase
+                                { 
+                                    fontSize: '100px', 
+                                    color: '#999999',       // Gris
+                                    fontFamily: 'Georgia',  
+                                }
+                            );
+                            npcName1.setStroke('#000000', 8);  // Trazo negro
+                            npcName1.setOrigin(0.5, 0);
+                            npcName1.setScale(0.6);
+
+                            names.add(npcName1); //añadir al conjunto
+                        
+                            //BOTON Npc
+                            const npc1 = this.add.image(
+                                this.sys.game.canvas.width / 2,
+                                this.sys.game.canvas.height / 1.4, 
+                                'npc') //id
+                            .setOrigin(0.5, 0.5)
+                            .setScale(3)
+                            .setInteractive()
+                            .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?"))
+                            .on('pointerover', () => npc1.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
+                            .on('pointerout', () => npc1.clearTint());
+
+                            //NOMBRE Npc
+                            let npcName2 = this.add.text(
+                                this.sys.game.canvas.width / 4,   // coordenada x
+                                this.sys.game.canvas.height / 3.7, // coordenada y
+                                "NPC", //frase
+                                { 
+                                    fontSize: '100px', 
+                                    color: '#999999',       // Gris
+                                    fontFamily: 'Georgia',  
+                                }
+                            );
+                            npcName2.setStroke('#000000', 8);  // Trazo negro
+                            npcName2.setOrigin(0.5, 0);
+                            npcName2.setScale(0.6);
+
+                            names.add(npcName2); //añadir al conjunto
+                        
+                            //BOTON Npc
+                            const npc2 = this.add.image(
+                                this.sys.game.canvas.width / 4,
+                                this.sys.game.canvas.height / 1.4, 
+                                'npc') //id
+                            .setOrigin(0.5, 0.5)
+                            .setScale(3)
+                            .setInteractive()
+                            .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?"))
+                            .on('pointerover', () => npc2.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
+                            .on('pointerout', () => npc2.clearTint());
+                            
                     }
-                else if(this.mode == 'hipodromo')
-                {
+                //LOCALIZACION: HIPODROMO
+                    else if(this.mode == 'hipodromo')
+                    {
                     var names = this.add.group();
 
                         let humbertoName = this.add.text(
@@ -181,8 +304,71 @@ export default class localizationScene extends Phaser.Scene
                         .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con HUMBERTO?"))
                         .on('pointerover', () => humberto.setTint(0xff0000))
                         .on('pointerout', () => humberto.clearTint());
-                }
-                else if(this.mode == 'parque') //pruebas
+
+                        //NOMBRE Npc
+                        let npcName1 = this.add.text(
+                            this.sys.game.canvas.width / 4,   // coordenada x
+                            this.sys.game.canvas.height / 3.7, // coordenada y
+                            "NPC", //frase
+                            { 
+                                fontSize: '100px', 
+                                color: '#999999',       // Gris
+                                fontFamily: 'Georgia',  
+                            }
+                        );
+                        npcName1.setStroke('#000000', 8);  // Trazo negro
+                        npcName1.setOrigin(0.5, 0);
+                        npcName1.setScale(0.6);
+
+                        names.add(npcName1); //añadir al conjunto
+                    
+                        
+                        //BOTON Npc
+                        const npc1 = this.add.image(
+                            this.sys.game.canvas.width / 4,
+                            this.sys.game.canvas.height / 1.4, 
+                            'npc') //id
+                        .setOrigin(0.5, 0.5)
+                        .setScale(3)
+                        .setInteractive()
+                        .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?"))
+                        .on('pointerover', () => npc1.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
+                        .on('pointerout', () => npc1.clearTint());
+
+                        //NOMBRE Npc
+                        let npcName2 = this.add.text(
+                            this.sys.game.canvas.width / 1.37,   // coordenada x
+                            this.sys.game.canvas.height / 3.7, // coordenada y
+                            "NPC", //frase
+                            { 
+                                fontSize: '100px', 
+                                color: '#999999',       // Gris
+                                fontFamily: 'Georgia',  
+                            }
+                        );
+                        npcName2.setStroke('#000000', 8);  // Trazo negro
+                        npcName2.setOrigin(0.5, 0);
+                        npcName2.setScale(0.6);
+
+                        names.add(npcName2); //añadir al conjunto
+                    
+                        //BOTON Npc
+                        const npc2 = this.add.image(
+                            this.sys.game.canvas.width / 1.37,
+                            this.sys.game.canvas.height / 1.4, 
+                            'npc') //id
+                        .setOrigin(0.5, 0.5)
+                        .setScale(3)
+                        .setInteractive()
+                        .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?"))
+                        .on('pointerover', () => npc2.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
+                        .on('pointerout', () => npc2.clearTint());
+
+
+
+
+                    }
+                    else if(this.mode == 'parque') //pruebas
                     {
                         
                         var names = this.add.group();
@@ -225,7 +411,7 @@ export default class localizationScene extends Phaser.Scene
                             "MARIA", 
                             { 
                                 fontSize: '100px', 
-                                color: '#999999',       // Negro
+                                color: '#999999',       // Gris
                                 fontFamily: 'Georgia',  
                             }
                         );
@@ -234,9 +420,6 @@ export default class localizationScene extends Phaser.Scene
                         mariaName.setScale(0.6);
 
                         names.add(mariaName);
-                        
-                        
-                        
                         
                         
                         
@@ -253,10 +436,6 @@ export default class localizationScene extends Phaser.Scene
                         .on('pointerout', () => paco.clearTint());
                         
 
-
-                        
-
-
                         //HUMBERTO
                         const humberto = this.add.image(
                             this.sys.game.canvas.width / 2,
@@ -269,8 +448,6 @@ export default class localizationScene extends Phaser.Scene
                         .on('pointerover', () => humberto.setTint(0xff0000))
                         .on('pointerout', () => humberto.clearTint());
 
-
-                        
 
                         //MARIA
                         const maria = this.add.image(
@@ -286,8 +463,6 @@ export default class localizationScene extends Phaser.Scene
 
                         
                     }
-
-
 
             //FLECHAS
                 var arrows = this.add.group();
@@ -313,6 +488,13 @@ export default class localizationScene extends Phaser.Scene
                 arrows.add(arrow3);
 
 
+            //ELLE (para la ansiedad)
+            let startPosition = window.gameState.playerPosition || { x: 278, y: 150 }; //posicion de la tenfe
+            this.player = new Player(this, startPosition.x, startPosition.y);
+            this.player.setVisible(false); //que elle NO se vea
+            this.player.changeMove(false);
+            console.log("Ansiedad: " + this.player.ansiedad); //debug
+
             //ACCEPT && BACK
                 var acceptButton = this.add.image(
                     this.sys.game.canvas.width / 2,
@@ -320,7 +502,12 @@ export default class localizationScene extends Phaser.Scene
                     'accept')
                 .setScale(0.5, 0.5)
                 .setInteractive()
-                .on('pointerdown', () => this.scene.start('CombatScene')); //cambiar a escena dialogo
+                .on('pointerdown', () => {
+                    
+                    this.player.IncreaseAnxiety(10);
+                    console.log("Ansiedad: " + this.player.ansiedad); //debug
+                    //this.scene.start('CombatScene')
+                }); //cambiar a escena dialogo
                 
                 var backButton = this.add.image(
                     this.sys.game.canvas.width / 4,
@@ -337,6 +524,21 @@ export default class localizationScene extends Phaser.Scene
 
 
             
+
+
+            //MOSTRAR ANSIEDAD
+            this.anxietyText = this.add.text(
+                this.sys.game.canvas.width / 7,   // Coordenada X: centrado horizontalmente
+                this.sys.game.canvas.height / 6,
+                `Ansiedad: ${this.player.ansiedad}`,
+                {
+                    fontSize: '100px', 
+                    color: '#999999',       // Gris
+                    fontFamily: 'Georgia',
+                });
+                this.anxietyText.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
+                this.anxietyText.setOrigin(0.5, 0);
+                this.anxietyText.setScale(0.6);
 
 
 
@@ -356,14 +558,36 @@ export default class localizationScene extends Phaser.Scene
 
 
         // botones para testeo
-        const combat = this.add.rectangle(50, 300, 100, 50, 0xFFFFFF)
+        let combatButton = this.add.rectangle(
+            this.sys.game.canvas.width / 1.2,
+            this.sys.game.canvas.height / 5, 
+            50, 50, 0xff0000)
         .setInteractive()
+        .setScale(4, 2)
         .on('pointerdown', () => this.scene.start('CombatScene'));
+
+         // Texto para mostrar "Ansiedad" en el centro del botón
+        let combatText = this.add.text(
+            combatButton.x,   // Colocar en la misma X del botón
+            combatButton.y,   // Colocar en la misma Y del botón
+            `COMBATE`,
+            {
+                fontSize: '32px',  // Cambia el tamaño del texto según el espacio
+                color: '#ffffff',  // Gris
+                fontFamily: 'Georgia',
+                fontStyle: 'bold',
+                align: 'center'    // Centrar el texto internamente
+            }
+        );
+
+        // Centrar el texto en el botón
+        combatText.setOrigin(0.5, 0.5);
 
     }
 
     update(){
-
+        // Actualiza el texto con el nuevo valor de la variable
+        this.anxietyText.setText(`Ansiedad: ${this.player.ansiedad}`);
     }
 
     acceptButton(show, arrows, names, acceptButton, backButton, nuevoTexto) //para enseñar y ocultar botones
