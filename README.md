@@ -13,9 +13,12 @@ El jugador deberá explorar las cuatro zonas de la metrópolis, en las que podr�
 
 Con un tono satírico, el juego está cargado de crítica social en contra de las grandes personalidades que generan odio hacia minorías reprimidas, posicionándose a favor de la libertad y derechos del individuo.
 
-## Imágenes del Juego
-![Elle explorando la ciudad](./capturas/mainMenu.jpg)
-
-
 ## Página Web
 [Página Web de Xhurro Games](https://thatcreep2089.github.io/XhurroGames/)
+
+## Imágenes del Juego
+![Boceto Menu Principal](assets/capturas/mainMenu.jpg)  
+![Elle explorando la ciudad](assets/capturas/zona1.jpg)  
+![Elle explorando la ciudad](assets/capturas/zona2.jpg)  
+![En combate](assets/capturas/combate.jpg)  
+![Elige con quien hablar](assets/capturas/localizacion.jpg)  
