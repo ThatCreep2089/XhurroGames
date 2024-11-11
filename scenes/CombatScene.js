@@ -15,8 +15,8 @@ init(boss){
 
     preload() {
         //Cargar imágenes
-        this.load.image("elle", "./assets/npc/elle.png") //player
-        this.load.image("enemy", "./assets/npc/yusoa.png") //enemigo
+        this.load.image('player', "./assets/npc/elle.png") //player
+        this.load.image('enemy', "./assets/npc/yusoa.png") //enemigo
     }
 
     create() {
@@ -30,7 +30,8 @@ init(boss){
         this.generateCards();
 
         // crear player y  enemigo
-        this.player = new Player(this, 50, 500);
+        this.player = new Player(this, this.sys.game.canvas.width / 9, this.sys.game.canvas.height / 1.7);
+        this.player.setScale(0.1);
         this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5);
         this.enemy.setScale(1);
 
