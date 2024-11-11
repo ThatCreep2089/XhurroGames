@@ -55,11 +55,11 @@ export default class DialogueScene extends Phaser.Scene {
         {
             //PACO
                 const paco = this.add.image(
-                    this.sys.game.canvas.width / 4,
+                    this.sys.game.canvas.width / 2,
                     this.sys.game.canvas.height / 1.4, 
                     'paco')
                 .setOrigin(0.5, 0.5)
-                .setScale(0.9);
+                .setScale(1.5);
         }
         else if(this.npc == 'humberto')
         {
@@ -69,17 +69,17 @@ export default class DialogueScene extends Phaser.Scene {
                     this.sys.game.canvas.height / 1.4, 
                     'humberto')
                 .setOrigin(0.5, 0.5)
-                .setScale(0.4)
+                .setScale(0.8)
         }
         else if(this.npc == 'maria')
         {
             //MARIA
                 const maria = this.add.image(
-                    this.sys.game.canvas.width / 1.35,
+                    this.sys.game.canvas.width / 2,
                     this.sys.game.canvas.height / 1.4, 
                     'maria')
                 .setOrigin(0.5, 0.5)
-                .setScale(0.6)
+                .setScale(1)
         }
         else if(this.npc == 'random')
         {
@@ -89,11 +89,25 @@ export default class DialogueScene extends Phaser.Scene {
                     this.sys.game.canvas.height / 1.4, 
                     'npc') //id
                 .setOrigin(0.5, 0.5)
-                .setScale(3)
+                .setScale(4)
         }
         
 
 
+        // TEXTO
+        this.titulo = this.add.text(
+            this.sys.game.canvas.width / 2,   // coordenada x
+            this.sys.game.canvas.height / 12, // coordenada y
+            this.npc, //frase
+            { 
+                fontSize: '100px', 
+                color: '#999999',       // Gris
+                fontFamily: 'Georgia',  
+            }
+        );
+        this.titulo.setStroke('#000000', 8);  // Trazo negro
+        this.titulo.setOrigin(0.5, 0);
+        this.titulo.setScale(0.8);
 
         //BACK BUTTON
         const backScene = this.add.image(
