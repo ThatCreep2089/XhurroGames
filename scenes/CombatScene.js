@@ -31,41 +31,141 @@ init(boss){
 
         // crear player y  enemigo
         this.player = new Player(this, 50, 500);
-        this.enemy = new Enemy(this, 650, 100);
+        this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5);
+        this.enemy.setScale(1);
+
 
         //anulamos movimiento player
         this.player.changeMove(false);
 
         // botones para ataques player
-        let attackButton = this.add.rectangle(200, 350, 100, 50)
+        let attackButton = this.add.rectangle(
+            this.sys.game.canvas.width / 1.8,
+            this.sys.game.canvas.height / 2,
+            200, 100,
+            0xff0000
+            )
             .setInteractive()
             .on('pointerdown', () => this.playerTurn('attack'));
 
-        let magicButton = this.add.rectangle(400, 350, 100, 50)
+        let magicButton = this.add.rectangle(
+            this.sys.game.canvas.width / 3,
+            this.sys.game.canvas.height / 2,
+            200, 100,
+            0xff0000 
+            )
             .setInteractive()
             .on('pointerdown', () => this.playerTurn('magic'));
 
         // texto en los botones
-        this.add.text(175, 335, 'normal');
-        this.add.text(375, 335, 'magico');
+        this.add.text(
+            this.sys.game.canvas.width / 1.95,
+            this.sys.game.canvas.height / 2.1,
+            'normal', { 
+            fontSize: '50px', 
+            color: '#FFFFFF',       //Blanco
+            fontFamily: 'Georgia',  
+        });
+        this.add.text(
+            this.sys.game.canvas.width / 3.4,
+            this.sys.game.canvas.height / 2.1,
+            'magico', { 
+            fontSize: '50px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
 
 
         //texto de valores de las cartas:
-        this.espadasText = this.add.text(200,535, 'espadas: ' + this.espadas);
-        this.copasText = this.add.text(325,535, 'copas: ' + this.copas);
-        this.bastosText = this.add.text(450,535, 'bastos: ' + this.bastos);
-        this.orosText = this.add.text(575,535, 'oros: ' + this.oros);
+        this.espadasText = this.add.text(
+            this.sys.game.canvas.width / 5.5,
+            this.sys.game.canvas.height / 1.3,
+            'espadas: ' + this.espadas, { 
+            fontSize: '50px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
+        this.copasText = this.add.text(
+            this.sys.game.canvas.width / 2.9,
+            this.sys.game.canvas.height / 1.3,
+            'copas: ' + this.copas, { 
+            fontSize: '50px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
+        this.bastosText = this.add.text(
+            this.sys.game.canvas.width / 2,
+            this.sys.game.canvas.height / 1.3,
+            'bastos: ' + this.bastos, { 
+            fontSize: '50px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
+        this.orosText = this.add.text(
+            this.sys.game.canvas.width / 1.5,
+            this.sys.game.canvas.height / 1.3,
+            'oros: ' + this.oros, { 
+            fontSize: '50px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
 
         //texto para mostrar salud, mana y cualidades del player
-        this.playerHealthText = this.add.text(50, 50, 'PlayerHP: ' + this.player.health);
-        this.playerManaText = this.add.text(50,70, 'PlayerMana: ' + this.player.mana);
+        this.playerHealthText = this.add.text(50, 50, 'PlayerHP: ' + this.player.health, { 
+            fontSize: '50px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
+        this.playerManaText = this.add.text(
+            this.sys.game.canvas.width / 40,
+            this.sys.game.canvas.height / 10,
+             'PlayerMana: ' + this.player.mana, { 
+            fontSize: '50px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
 
-        this.playerHumildadText = this.add.text(50,100, 'Humildad: ' + this.player.humidad);
-        this.playerTrabajoDuroText = this.add.text(50,120, 'Trabajo duro: ' + this.player.trabajoDuro);
-        this.playerAgnosticismoText = this.add.text(50,140, 'Agnosticismo: ' + this.player.agnosticismo);
-        this.playerAfectoText = this.add.text(50,160, 'Afecto: '+ this.player.afecto);
+        this.playerHumildadText = this.add.text(
+            this.sys.game.canvas.width / 40,
+            this.sys.game.canvas.height / 6.5,
+            'Humildad: ' + this.player.humidad, { 
+            fontSize: '50px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
+        this.playerTrabajoDuroText = this.add.text(
+            this.sys.game.canvas.width / 40,
+            this.sys.game.canvas.height / 4.8,
+            'Trabajo duro: ' + this.player.trabajoDuro, { 
+            fontSize: '50px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
+        this.playerAgnosticismoText = this.add.text(
+            this.sys.game.canvas.width / 40,
+            this.sys.game.canvas.height / 3.9,
+            'Agnosticismo: ' + this.player.agnosticismo, { 
+            fontSize: '50px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
+        this.playerAfectoText = this.add.text(
+            this.sys.game.canvas.width / 40,
+            this.sys.game.canvas.height / 3.2,
+            'Afecto: '+ this.player.afecto, { 
+            fontSize: '50px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
         //texto de la salud del enemigo 
-        this.enemyHealthText = this.add.text(400, 50, 'Enemigo: ' +this.enemy.health);
+        this.enemyHealthText = this.add.text(
+            this.sys.game.canvas.width / 1.8,
+            this.sys.game.canvas.height / 8,
+            'Enemigo: ' + this.enemy.health, { 
+                fontSize: '50px', 
+                color: '#FFFFFF',       // Blanco
+                fontFamily: 'Georgia',  
+            });
     }
 
     // turno del jugador
