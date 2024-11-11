@@ -125,15 +125,28 @@ En las localizaciones se encuentran los distintos Npc’s con los que el jugador
 ### 5.1. Imágenes de Mapa y pantallas
 
 **ESQUEMA MAPA**
-
+![Mapa](assets/gdd/mapa.jpg)
 
 **BOCETOS PANTALLA DE JUEGO**:
 - Pantalla combate  
+![Combate](assets/gdd/combate.jpg)
+
 - Pantalla mapa TENFE  
+![Tenfe](assets/gdd/tenfe.jpg)
+
 - Pantalla ejemplo zona  
+![Zona](assets/gdd/pantalla.jpg)
+
 - Pantalla ejemplo sitio dentro de la zona  
+![Localizacion](assets/gdd/localizacion.jpg)
+
 - Pantalla ejemplo dialogando  
-- Plantilla diseño de Npc’s
+![Dialogo](assets/gdd/dialogo.jpg)
+
+- Plantilla diseño de Npc’s  
+![Plantilla](assets/gdd/plantilla.png)
+
+
 
 ### 5.3. Descripción de partida típica
 El jugador utilizará TENFE para ir a una zona de Madrizz. Allí podrá desplazarse por 3 pantallas, en cada una habrá lugares en los que podrá entrar. Dentro podrá interactuar con los npc, obteniendo mejoras y objetos, explorando la zona. Finalmente irá a combatir contra el enemigo de esa zona. Tras derrotarlo obtendrá un trozo de constitución. El juego continuará hasta que el jugador tenga los cuatro trozos y podrá desbloquear el acceso a la zona contaminada y enfrentarse al enemigo final.
@@ -146,6 +159,9 @@ El jugador utilizará TENFE para ir a una zona de Madrizz. Allí podrá desplaza
 | **STATS**        | Estadísticas de Elle (vida, puntos de cualidades, ansiedad, nivel de las cualidades) | Rojo            |
 | **Mochila**      | Objetos obtenidos (para aumentar vida/ptos cualidad máxima y regeneración de vida/ptos de cualidad) | Amarillo        |
 | **Contactos**    | Información de los NPC tras conocerlos: Nombre, pronombre, imagen, y descripción breve | Morado          |
+
+### En pantalla
+![Pantalla](assets/gdd/pantalla.jpg)
 
 
 ## 7. Visual
@@ -163,6 +179,9 @@ La paleta de colores dependerá del tipo de personaje.
 | **NPCs**             | Colores apagados y grisáceos                                                 |
 | **Nosotros**         | Miembros del equipo aparecerán como NPCs, con una mezcla de colores grisáceos y el color de su zona |
 
+### 7.2. Referencias
+![SouthParkReferencia](assets/gdd/referenceSouthPark.jpg)  
+(Referencia estética del juego anteriormente mencionado)
 
 ## 8. Menús
 ### MENÚ INICIO
@@ -205,12 +224,21 @@ Cada zona está basada en uno de los palos de la baraja española, siendo iguale
 ### 9.3. Personajes Principales
 | **NOMBRE**          | **DESCRIPCIÓN**                                                                                          | **DISEÑO/IMAGEN** |
 |---------------------|----------------------------------------------------------------------------------------------------------|-------------------|
-| **Elle**            | Protagonista del juego. Aparece en Madrizz y decide derrocar al régimen corrupto.                        |                   |
+| **Elle**            | Protagonista del juego. Aparece en Madrizz y decide derrocar al régimen corrupto.                        |     ![Elle](assets/npc/elle.png)                 |
 | **Ellie**           | Personaje secundario. Introduce el mundo a “Elle” y lidera en las sombras la resistencia (Luciérnagas). Mientras que Elle se encuentra luchando con los secuaces en cada zona y contra Yusoa, Ellie va ganando adeptos a su causa para organizar un levantamiento popular contra el régimen. |                   |
-| **Yusoa**           | Enemigo final. Fue quien dividió Madrizz en las 4 zonas y guarda el poder absoluto.                       |                   |
+| **Yusoa**           | Enemigo final. Fue quien dividió Madrizz en las 4 zonas y guarda el poder absoluto.                       |    ![Yusoa](assets/npc/yusoa.png)                 |
 | **Boss Calderilla** | Secuaz de Yusoa. Clasista.                                                                                 |                   |
 | **Boss Navajas**    | Secuaz de Yusoa. Sanguinario.                                                                              |                   |
 | **Boss Porras**     | Secuaz de Yusoa. Avaricioso.                                                                               |                   |
 | **Boss Botellín**   | Secuaz de Yusoa. Egocéntrico.                                                                              |                   |
 
 ## 10. Referencias
+![Pokemon](assets/gdd/pokemon.jpg)
+**Pokemon** (sistema de combate)  
+
+![Persona 5](assets/gdd/persona.jpg)
+**Pokemon** (sistema de combate)  
+
+![South Park](assets/gdd/southPark.jpg)
+**Pokemon** (sistema de combate)  
+
