@@ -140,10 +140,10 @@ export default class ZonaScene extends Phaser.Scene{
             else{
                 
                 //TENFE (por ahora actua como building)
-                let building1 = new Building(this, 'tenfe',
+                let tenfe = new Localization(this, 'tenfe',
                     this.sys.game.canvas.width / 1.8,
                     this.sys.game.canvas.height / 1.4,
-                    0.1, 0.1, buildings);
+                    0.1, 0.1, localizations, 'tenfeFondo');
                 
                 //GRUPO LOCALIZATIONS
                 let localization4 = new Localization(this, 'localization1', 
@@ -189,8 +189,15 @@ export default class ZonaScene extends Phaser.Scene{
                             // Guarda la posición de `iguana` en `gameState`
                             window.gameState.playerPosition = { x: player.x, y: player.y };
     
-                            // Cambiar escena
-                            this.scene.start('localizationScene', { fondo: localization.scenario, modo: data.modo });
+                            if(localization.scenario == 'tenfeFondo')
+                            {
+                                // Cambiar escena
+                                this.scene.start('tenfeScene', { fondo: localization.scenario});
+                            }
+                            else{
+                                // Cambiar escena
+                                this.scene.start('localizationScene', { fondo: localization.scenario, modo: data.modo });
+                            }
                         }
                     });
                 });
@@ -208,6 +215,33 @@ export default class ZonaScene extends Phaser.Scene{
                         }
                     });
                 });
+
+
+                // botones para testeo
+                let inventarioButton = this.add.rectangle(
+                    this.sys.game.canvas.width / 14,
+                    this.sys.game.canvas.height / 1.5, 
+                    50, 50, 0xffe800)
+                .setInteractive()
+                .setScale(4, 2)
+                .on('pointerdown', () => this.scene.start('InventoryScene'));
+
+                // Texto para mostrar "Ansiedad" en el centro del botón
+                let combatText = this.add.text(
+                    inventarioButton.x,   // Colocar en la misma X del botón
+                    inventarioButton.y,   // Colocar en la misma Y del botón
+                    `INVENTARIO`,
+                    {
+                        fontSize: '25px',  // Cambia el tamaño del texto según el espacio
+                        color: '#000000',  // Negro
+                        fontFamily: 'Georgia',
+                        fontStyle: 'bold',
+                        align: 'center'    // Centrar el texto internamente
+                    }
+                );
+
+                // Centrar el texto en el botón
+                combatText.setOrigin(0.5, 0.5);
 
     }
 
