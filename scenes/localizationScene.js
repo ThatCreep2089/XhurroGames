@@ -8,11 +8,13 @@ export default class localizationScene extends Phaser.Scene
         
         this.mode;
         this.titulo = null;
+        this.npcTalk;
     }
 
     init(data){
         // Usar el parámetro 'fondo' para decidir qué fondo cargar
         this.mode = data.fondo || 'parque';
+        this.modo = data.modo;
     }
 
     preload(){
@@ -115,7 +117,10 @@ export default class localizationScene extends Phaser.Scene
                                 .setOrigin(0.5, 0.5)
                                 .setScale(0.9)
                                 .setInteractive()
-                                .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con PACO?"))
+                                .on('pointerdown', () =>{
+                                    this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con PACO?");
+                                    this.npcTalk = 'paco';
+                                    })
                                 .on('pointerover', () => paco.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
                                 .on('pointerout', () => paco.clearTint());
 
@@ -145,7 +150,10 @@ export default class localizationScene extends Phaser.Scene
                                 .setOrigin(0.5, 0.5)
                                 .setScale(3)
                                 .setInteractive()
-                                .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?"))
+                                .on('pointerdown', () => {
+                                    this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
+                                    this.npcTalk = 'random';
+                                    })
                                 .on('pointerover', () => npc1.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
                                 .on('pointerout', () => npc1.clearTint());
 
@@ -174,7 +182,10 @@ export default class localizationScene extends Phaser.Scene
                                 .setOrigin(0.5, 0.5)
                                 .setScale(3)
                                 .setInteractive()
-                                .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?"))
+                                .on('pointerdown', () => {
+                                    this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
+                                    this.npcTalk = 'random';
+                                    })
                                 .on('pointerover', () => npc2.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
                                 .on('pointerout', () => npc2.clearTint());
                         }
@@ -207,7 +218,10 @@ export default class localizationScene extends Phaser.Scene
                             .setOrigin(0.5, 0.5)
                             .setScale(0.6)
                             .setInteractive()
-                            .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?"))
+                            .on('pointerdown', () =>{
+                                this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?");
+                                this.npcTalk = 'maria';
+                                })
                             .on('pointerover', () => maria.setTint(0xff0000))
                             .on('pointerout', () => maria.clearTint());
 
@@ -237,7 +251,10 @@ export default class localizationScene extends Phaser.Scene
                             .setOrigin(0.5, 0.5)
                             .setScale(3)
                             .setInteractive()
-                            .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?"))
+                            .on('pointerdown', () => {
+                                this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
+                                this.npcTalk = 'random';
+                                })
                             .on('pointerover', () => npc1.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
                             .on('pointerout', () => npc1.clearTint());
 
@@ -266,7 +283,10 @@ export default class localizationScene extends Phaser.Scene
                             .setOrigin(0.5, 0.5)
                             .setScale(3)
                             .setInteractive()
-                            .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?"))
+                            .on('pointerdown', () => {
+                                this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
+                                this.npcTalk = 'random';
+                                })
                             .on('pointerover', () => npc2.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
                             .on('pointerout', () => npc2.clearTint());
                             
@@ -301,7 +321,10 @@ export default class localizationScene extends Phaser.Scene
                         .setOrigin(0.5, 0.5)
                         .setScale(0.4)
                         .setInteractive()
-                        .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con HUMBERTO?"))
+                        .on('pointerdown', () =>{
+                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con HUMBERTO?");
+                            this.npcTalk = 'humberto';
+                            })
                         .on('pointerover', () => humberto.setTint(0xff0000))
                         .on('pointerout', () => humberto.clearTint());
 
@@ -331,7 +354,10 @@ export default class localizationScene extends Phaser.Scene
                         .setOrigin(0.5, 0.5)
                         .setScale(3)
                         .setInteractive()
-                        .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?"))
+                        .on('pointerdown', () => {
+                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
+                            this.npcTalk = 'random';
+                            })
                         .on('pointerover', () => npc1.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
                         .on('pointerout', () => npc1.clearTint());
 
@@ -360,7 +386,10 @@ export default class localizationScene extends Phaser.Scene
                         .setOrigin(0.5, 0.5)
                         .setScale(3)
                         .setInteractive()
-                        .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?"))
+                        .on('pointerdown', () => {
+                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
+                            this.npcTalk = 'random';
+                            })
                         .on('pointerover', () => npc2.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
                         .on('pointerout', () => npc2.clearTint());
 
@@ -368,7 +397,7 @@ export default class localizationScene extends Phaser.Scene
 
 
                     }
-                    else if(this.mode == 'parque') //pruebas
+                    else if(this.mode == 'parque')
                     {
                         
                         var names = this.add.group();
@@ -431,7 +460,10 @@ export default class localizationScene extends Phaser.Scene
                         .setOrigin(0.5, 0.5)
                         .setScale(0.9)
                         .setInteractive()
-                        .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con PACO?"))
+                        .on('pointerdown', () =>{
+                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con PACO?");
+                            this.npcTalk = 'paco';
+                            })
                         .on('pointerover', () => paco.setTint(0xff0000))
                         .on('pointerout', () => paco.clearTint());
                         
@@ -444,7 +476,10 @@ export default class localizationScene extends Phaser.Scene
                         .setOrigin(0.5, 0.5)
                         .setScale(0.4)
                         .setInteractive()
-                        .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con HUMBERTO?"))
+                        .on('pointerdown', () =>{
+                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con HUMBERTO?");
+                            this.npcTalk = 'humberto';
+                            })
                         .on('pointerover', () => humberto.setTint(0xff0000))
                         .on('pointerout', () => humberto.clearTint());
 
@@ -457,7 +492,10 @@ export default class localizationScene extends Phaser.Scene
                         .setOrigin(0.5, 0.5)
                         .setScale(0.6)
                         .setInteractive()
-                        .on('pointerdown', () => this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?"))
+                        .on('pointerdown', () =>{
+                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?");
+                            this.npcTalk = 'maria';
+                            })
                         .on('pointerover', () => maria.setTint(0xff0000))
                         .on('pointerout', () => maria.clearTint());
 
@@ -506,7 +544,8 @@ export default class localizationScene extends Phaser.Scene
                     
                     this.player.IncreaseAnxiety(10);
                     console.log("Ansiedad: " + this.player.ansiedad); //debug
-                    //this.scene.start('CombatScene')
+                    console.log(this.npcTalk);
+                    this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.mode, modo: this.modo})
                 }); //cambiar a escena dialogo
                 
                 var backButton = this.add.image(

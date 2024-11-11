@@ -9,6 +9,7 @@ import PickScene from '../scenes/PickScene.js';
 import InventoryScene from '../scenes/InventoryScene.js';
 import Player from "./Player.js";
 import TenfeScene from "../scenes/tenfeScene.js";
+import DialogueScene from "../scenes/dialogueScene.js";
 
 /*
 
@@ -50,7 +51,7 @@ let config = {
         },
 		zoom: 1
     },
-    scene: [MainMenuScene,ZonaScene, localizationScene, CombatScene, VictoryScene, LoseScene,InventoryScene,PickScene, TenfeScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
+    scene: [MainMenuScene,ZonaScene, localizationScene, CombatScene, VictoryScene, LoseScene,InventoryScene,PickScene, TenfeScene, DialogueScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
     //scene: [localizationScene, ZonaScene], 
     physics: {  
         default: 'arcade', //Tenemos físicas simple, arcade
