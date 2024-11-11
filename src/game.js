@@ -51,9 +51,9 @@ let config = {
         },
 		zoom: 1
     },
-    //scene: [MainMenuScene,ZonaScene, localizationScene, CombatScene, VictoryScene, LoseScene,InventoryScene,PickScene, TenfeScene, DialogueScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
-    //scene: [localizationScene, ZonaScene],
-    scene: [CombatScene, VictoryScene, LoseScene], 
+    scene: [MainMenuScene,ZonaScene, localizationScene, CombatScene, VictoryScene, LoseScene,InventoryScene,PickScene, TenfeScene, DialogueScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
+    //scene: [localizationScene, ZonaScene], //debug
+    //scene: [CombatScene, VictoryScene, LoseScene], //debug
     physics: {  
         default: 'arcade', //Tenemos físicas simple, arcade
         arcade: { 
