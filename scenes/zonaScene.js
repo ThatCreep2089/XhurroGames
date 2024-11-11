@@ -16,29 +16,29 @@ export default class ZonaScene extends Phaser.Scene{
     preload() //CARGAR TODOS LOS RECURSOS
     {
         //FONDOS
-        this.load.image('fondo1', 'assets/fondo2.jpeg'); //fondo 1
-        this.load.image('fondo2', 'assets/fondo2.jpeg'); //fondo 2
-        this.load.image('fondo3', 'assets/fondo2.jpeg'); //fondo 3
+        this.load.image('fondo1', 'assets/fondos/fondo2.jpeg'); //fondo 1
+        this.load.image('fondo2', 'assets/fondos/fondo2.jpeg'); //fondo 2
+        this.load.image('fondo3', 'assets/fondos/fondo2.jpeg'); //fondo 3
 
         //IGUANA
-        this.load.image('player', 'assets/elle.png'); //future elle
+        this.load.image('player', 'assets/npc/elle.png'); //future elle
 
         //IMAGENES BUILDINGS
-        this.load.image('building1', 'assets/building1.png'); //clarito
-        this.load.image('building3', 'assets/building3.png'); //oscuro
-        this.load.image('building4', 'assets/building4.png'); //mediano
-        this.load.image('tenfe', 'assets/tenfe.png'); //tenfe
+        this.load.image('building1', 'assets/edificios/building1.png'); //clarito
+        this.load.image('building3', 'assets/edificios/building3.png'); //oscuro
+        this.load.image('building4', 'assets/edificios/building4.png'); //mediano
+        this.load.image('tenfe', 'assets/edificios/tenfe.png'); //tenfe
 
         //IMAGENES LOCALIZATIONS
-        this.load.image('localization1', 'assets/parque.png');
-        this.load.image('localization4', 'assets/cni.png');
-        this.load.image('localization5', 'assets/bar.png');
-        this.load.image('localization6', 'assets/hipodromo.png');
+        this.load.image('localization1', 'assets/edificios/parque.png');
+        this.load.image('localization4', 'assets/edificios/cni.png');
+        this.load.image('localization5', 'assets/edificios/bar.png');
+        this.load.image('localization6', 'assets/edificios/hipodromo.png');
         
 
 
         //FLECHAS
-        this.load.image('flecha', 'assets/flecha.png');
+        this.load.image('flecha', 'assets/other/flecha.png');
 
     }
 

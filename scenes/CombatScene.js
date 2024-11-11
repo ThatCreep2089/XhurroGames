@@ -15,8 +15,8 @@ init(boss){
 
     preload() {
         //Cargar imágenes
-        this.load.image("elle", "./assets/elle.png") //player
-        this.load.image("enemy", "./assets/yusoa.png") //enemigo
+        this.load.image("elle", "./assets/npc/elle.png") //player
+        this.load.image("enemy", "./assets/npc/yusoa.png") //enemigo
     }
 
     create() {

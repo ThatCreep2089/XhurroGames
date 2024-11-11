@@ -13,7 +13,7 @@ export default class InventoryScene extends Phaser.Scene
 
     preload()//cargar imagenes*
     {
-        this.load.image('fondo', 'assets/FondoInventario.jpg'); 
+        this.load.image('fondo', 'assets/fondos/FondoInventario.jpg'); 
        
     }
 

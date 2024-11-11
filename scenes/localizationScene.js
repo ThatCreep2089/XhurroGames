@@ -17,25 +17,25 @@ export default class localizationScene extends Phaser.Scene
 
     preload(){
         //FONDOS
-            this.load.image('parque', 'assets/parque.jpg'); //fondo
-            this.load.image('puente', 'assets/puente.jpg'); //fondo
-            this.load.image('bar', 'assets/barFondo.jpg'); //fondo
-            this.load.image('cni', 'assets/cniFondo.jpg'); //fondo
-            this.load.image('hipodromo', 'assets/hipodromoFondo.jpg'); //fondo
+            this.load.image('parque', 'assets/fondos/parque.jpg'); //fondo
+            this.load.image('puente', 'assets/fondos/puente.jpg'); //fondo
+            this.load.image('bar', 'assets/fondos/barFondo.jpg'); //fondo
+            this.load.image('cni', 'assets/fondos/cniFondo.jpg'); //fondo
+            this.load.image('hipodromo', 'assets/fondos/hipodromoFondo.jpg'); //fondo
 
         //NPCS
-            this.load.image('paco', 'assets/paco.png');
-            this.load.image('humberto', 'assets/humberto.png');
-            this.load.image('maria', 'assets/maria.png');
-            this.load.image('npc', 'assets/npc.png');
+            this.load.image('paco', 'assets/npc/paco.png');
+            this.load.image('humberto', 'assets/npc/humberto.png');
+            this.load.image('maria', 'assets/npc/maria.png');
+            this.load.image('npc', 'assets/npc/npc.png');
 
         //BACK BUTTON
-        this.load.image('flecha', 'assets/flecha.png');
+        this.load.image('flecha', 'assets/other/flecha.png');
 
         //FLECHAS
-        this.load.image('arrow', 'assets/arrow.png');
+        this.load.image('arrow', 'assets/other/arrow.png');
 
-        this.load.image('accept', 'assets/accept.png');
+        this.load.image('accept', 'assets/other/accept.png');
 
         //OBJETOS COLECCIONABLES
         
