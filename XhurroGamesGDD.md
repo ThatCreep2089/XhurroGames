@@ -1,4 +1,4 @@
-# "INDIVIDUO 6"
+# "YUSOA ES LEY"
 
 ## 1. Nombre de los autores
 - Nerea Espinosa Calatayud
@@ -7,7 +7,7 @@
 - Andrea González Anastasio
 
 ## 2. Ficha técnica
-- **Título**: Individuo 6
+- **Título**: YUSOA ES LEY
 - **Género**: Exploración, combate por turnos, comedia
 - **Target**: Adulto joven entusiasta del humor negro y crítica social
 - **Rating**: +16
