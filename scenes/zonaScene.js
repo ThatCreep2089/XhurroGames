@@ -224,7 +224,7 @@ export default class ZonaScene extends Phaser.Scene{
                     50, 50, 0xffe800)
                 .setInteractive()
                 .setScale(4, 2)
-                .on('pointerdown', () => this.scene.start('InventoryScene'));
+                .on('pointerdown', () => this.scene.start('PickScene'));
 
                 // Texto para mostrar "Ansiedad" en el centro del botón
                 let combatText = this.add.text(
