@@ -12,7 +12,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
 
         //MOV
-        this.speed = 140; //velocidad
+        this.speed = 200; //velocidad
         
         // Activamos la física para este sprite
         this.scene.physics.world.enable(this);
@@ -63,51 +63,33 @@ export default class Player extends Phaser.GameObjects.Sprite {
         //move o combat
     }
 
+    update(time, delta)
+    {
+        this.player.move(true, delta / 1000);
+    }
 
     //metodo mover personaje
-    move(enabled)
-    {
-        //no haria falta creo
-        if(enabled == true) //si no está habilitado no hace nada
-        {
-            // Mientras pulsemos la tecla 'A' movemos el personaje en la X
-            if(this.aKey.isDown){
-                //this.setFlip(true, false);
-                
-                //this.x -= this.speed*dt / 1000;
-                this.body.setVelocityX(-this.speed);
-            }
-
-            // Mientras pulsemos la tecla 'D' movemos el personaje en la X
-            if(this.dKey.isDown){
-                //this.setFlip(false, false);
-
-                //this.x += this.speed*dt / 1000;
-                this.body.setVelocityX(this.speed);
-            }
-
-            // Movimiento hacia arriba con tecla 'W'
-            if (this.wKey.isDown) {
-                this.body.setVelocityY(-this.speed);
-            }
-
-            // Movimiento hacia abajo con tecla 'S'
-            if (this.sKey.isDown) {
-                this.body.setVelocityY(this.speed);
-            }
-
-            // Si dejamos de pulsar 'A' o 'D' volvemos al estado de animación'idle'
-            // Phaser.Input.Keyboard.JustUp y Phaser.Input.Keyboard.JustDown nos aseguran detectar la tecla una sola vez (evitamos repeticiones)
-            if(Phaser.Input.Keyboard.JustUp(this.aKey) || Phaser.Input.Keyboard.JustUp(this.dKey)){
+    move(enabled, delta) {
+        if (enabled) {
+            const moveSpeed = this.speed * delta;
+    
+            if (this.aKey.isDown) {
+                this.body.setVelocityX(-moveSpeed);
+            } else if (this.dKey.isDown) {
+                this.body.setVelocityX(moveSpeed);
+            } else {
                 this.body.setVelocityX(0);
             }
-
-
-            // Detener el movimiento vertical cuando soltamos 'W' o 'S'
-            if (Phaser.Input.Keyboard.JustUp(this.wKey) || Phaser.Input.Keyboard.JustUp(this.sKey)) {
+    
+            if (this.wKey.isDown) {
+                this.body.setVelocityY(-moveSpeed);
+            } else if (this.sKey.isDown) {
+                this.body.setVelocityY(moveSpeed);
+            } else {
                 this.body.setVelocityY(0);
             }
         }
     }
+    
 
 }

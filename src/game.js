@@ -5,8 +5,11 @@ import ZonaScene from "../scenes/zonaScene.js";
 import CombatScene from '../scenes/CombatScene.js';
 import LoseScene from '../scenes/LoseScene.js';
 import VictoryScene from '../scenes/VictoryScene.js';
-import	PickScene from '../scenes/PickScene.js';
-import	InventoryScene from '../scenes/InventoryScene.js';
+import PickScene from '../scenes/PickScene.js';
+import InventoryScene from '../scenes/InventoryScene.js';
+import Player from "./Player.js";
+import TenfeScene from "../scenes/tenfeScene.js";
+import DialogueScene from "../scenes/dialogueScene.js";
 
 /*
 
@@ -18,7 +21,7 @@ import	InventoryScene from '../scenes/InventoryScene.js';
 
 // Define el objeto global en la parte superior del archivo principal
 window.gameState = {
-    playerPosition: { x: 278, y: 150 } // Posición inicial predeterminada
+    playerPosition: { x: 1000, y: 330 } // Posición inicial predeterminada
 };
 
 
@@ -48,12 +51,16 @@ let config = {
         },
 		zoom: 1
     },
-    scene: [PickScene,MainMenuScene,ZonaScene, localizationScene, CombatScene, VictoryScene, LoseScene,InventoryScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
+    scene: [MainMenuScene,ZonaScene, localizationScene, CombatScene, VictoryScene, LoseScene,InventoryScene,PickScene, TenfeScene, DialogueScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
+    //scene: [localizationScene, ZonaScene], //debug
+    //scene: [CombatScene, VictoryScene, LoseScene], //debug
     physics: {  
         default: 'arcade', //Tenemos físicas simple, arcade
         arcade: { 
             gravity: { y: 200 }, //Tenemos gravedad, podemos modificarla para aumentar su fuera o disminuirla
-            debug: true // Aquí indicamos si queremos que Phaser pinte los cuerpos y fuerzas de los objetos con físicas
+            fps: 60,         // Ajusta esto a 60 o más para mayor fluidez
+            timeScale: 0.5,
+            debug: false // Aquí indicamos si queremos que Phaser pinte los cuerpos y fuerzas de los objetos con físicas
         },
         checkCollision: {
             up: true,

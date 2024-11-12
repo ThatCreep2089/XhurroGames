@@ -14,8 +14,8 @@ export default class PickScene extends Phaser.Scene
 
     preload()//cargar imagenes*
     {
-        this.load.image('hamburguesa', 'assets/hamburguesa.jpg'); 
-        this.load.image('patatas', 'assets/patatas.jpg'); 
+        this.load.image('hamburguesa', 'assets/other/hamburguesa.jpg'); 
+        this.load.image('patatas', 'assets/other/patatas.jpg'); 
     }
 
     create(){ 
