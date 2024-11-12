@@ -80,7 +80,7 @@ for (let j = 0; j < this.inventario.index; j++) {
             this.descripcion=this.inventario.elems[j].descripcion;
             this.ejemplares=this.inventario.elems[j].ejemplares;
             this.itemSprite.setInteractive(); // Habilitar interactividad
-            this.itemSprite.on('pointerdown', () => { //evento para detectar el raton
+            /*this.itemSprite.on('pointerdown', () => { //evento para detectar el raton
                              // botones para ir a inventario
                              console.log(`Colocando ${this.inventario.elems[j].ejemplares} en (${fila}, ${columna})`);
                 this.use = this.add.rectangle(500, 300, 100, 50, 0xff0000).setInteractive();
@@ -104,7 +104,7 @@ for (let j = 0; j < this.inventario.index; j++) {
                     
 
                 });
-            });
+            });*/
             // Avanza a la siguiente columna
             columna++;
 
