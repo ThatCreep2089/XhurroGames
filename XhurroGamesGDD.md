@@ -11,7 +11,7 @@
 - **Género**: Exploración, combate por turnos, comedia
 - **Target**: Adulto joven entusiasta del humor negro y crítica social
 - **Rating**: +16
-- **Plataforma**: PC
+- **Plataforma**:  Navegador Web
 - **Modos de juego**: Single player
 
 ### Cartas:
@@ -21,21 +21,22 @@
 - **Libre**: Ansiedad (p07) - Andrea
 - **Etérea**: Emociones reprimidas (e01): el grupo 06 utilizará la carta Ansiedad (p07)
 - **Imposición grupo 09**: Red de relaciones (carta Persona 3): usamos la carta Gato en una caja (p13)
+- **Slot extra 1**: Españita (a14)
 
 ## 3. Descripción
-Individuo 6 es un videojuego de exploración y combate por turnos en 2D. El jugador controla a **“Elle”**, un joven lleno de **“esperanza”**, habitante de un **Madrizz** distópico y caótico. Para liberar la ciudad de las opresivas garras del líder corrupto y sus secuaces, **“Elle”** deberá enfrentarse a ellos en un feroz combate. Tras derrotarlos, conseguirá un trozo de constitución para acceder a la zona contaminada, lugar donde se esconde **Yusoa**, con el fin de conseguir restaurar la libertad e igualdad del pueblo madrizzleño.
+"Yusoa es ley" es un videojuego de exploración y combate por turnos en 2D. El jugador controla a **“Elle”**, un joven lleno de **“esperanza”**, habitante de un **Madrizz** distópico y caótico. Para liberar la ciudad de las opresivas garras del líder corrupto y sus secuaces, **“Elle”** deberá enfrentarse a ellos en un feroz combate. Tras derrotarlos, conseguirá un trozo de constitución para acceder a la zona contaminada, lugar donde se esconde **Yusoa**, con el fin de conseguir restaurar la libertad e igualdad del pueblo madrizzleño.
 
 El jugador deberá explorar las cuatro zonas de la metrópolis, en las que hablará con sus diferentes vecinos, adquiriendo así nuevos objetos y mejorando sus habilidades.  
-Sin embargo, **“Elle”** sufre de ansiedad (afectando negativamente en combate si alcanza valores muy altos), por lo que tendrá que elegir sabiamente con qué individuos hablar.
+Sin embargo, **“Elle”** sufre de ansiedad (afectando negativamente en combate si alcanza valores muy altos), por lo que tendrá que elegir sabiamente con qué individuos hablar (Se explicará más adelante).
 
 Con un tono satírico, el juego está cargado de crítica social en contra de las grandes personalidades que generan odio hacia minorías reprimidas, posicionándose a favor de la libertad y derechos del individuo.
 
 ## 4. Jugabilidad
 
 ### 4.1. Movimiento del personaje
-- Movimiento **WASD** con diagonales en cámara top-down
-- Click para interacciones para cámara frontal
-- Tecla “e” para interacciones en cámara top-down
+- Movimiento **WASD** con diagonales en cámara top-down.
+- Click para interacciones cuando nos encontremos en escenas de diálogos.
+- Tecla “e” para interacciones cuando se mueve por la ciudad.
 
 ### 4.2. Cámara
 Se utilizarán dos tipos de perspectiva:
@@ -48,7 +49,7 @@ Se utilizarán dos tipos de perspectiva:
 El jugador se moverá por las diferentes zonas de la ciudad para hablar con distintos npc’s, encontrar distintos objetos y descansar cuando sea necesario.  
 **Objetos escondidos**: utilizados para recuperar vida y puntos de cualidad.  
 **Diálogo de personajes**: al interactuar con los vecinos de cada zona, podrás mantener diálogos con ellos para tener la posibilidad de obtener mejoras en las habilidades.  
-**Banco de piti**: puntos en el escenario donde podrás guardar el progreso de juego y bajar la ansiedad y recuperar vida.  
+**Banco de piti**: puntos en el escenario donde podrás guardar el progreso de juego y bajar la ansiedad y recuperar vida. Son de un solo uso.
 **TENFE**: mapa de las líneas del tren, las cuales interconectan cada zona. Como en la vida real, el tren solo se puede coger en las estaciones locales de cada zona.
 
 #### ANSIEDAD
