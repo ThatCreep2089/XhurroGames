@@ -75,10 +75,10 @@ El ataque estará representado con cartas. El jugador contará con un mazo estab
 - **Copas** → Botellín
 
 El jugador sacará 4 cartas del mazo aleatoriamente, creando así su mano. A la hora de atacar el jugador podrá hacerlo de dos maneras distintas:
-1. **Con cualidades** consumiendo x puntos de cualidad.
+1. **Con cualidades** consumiendo x puntos de cualidad. Estas cualidades afectan a los valores de las cartas.
 2. **Sin cualidades**
 
-Tras elegir alguna de estas opciones el jugador lanzará las 4 cartas en conjunto al enemigo. El enemigo atacará y nuevamente será el turno del jugador.
+Tras elegir alguna de estas opciones el jugador lanzará las 4 cartas en conjunto al enemigo, haciendo de daño la suma total. El enemigo atacará y nuevamente será el turno del jugador.
 
 #### Estadísticas generales
 
@@ -113,7 +113,7 @@ Tras elegir alguna de estas opciones el jugador lanzará las 4 cartas en conjunt
 
 ## 5. Diseño de niveles
 
-“Individuo 6” cuenta con cuatro zonas distintas, cada una basada en los cuatro distintos palos de la baraja española, interconectadas con TENFE.
+“Yosua es ley” cuenta con cuatro zonas distintas, cada una basada en los cuatro distintos palos de la baraja española, interconectadas con TENFE.
 
 Cada zona cuenta con dos pantallas, las cuales, a su vez, cuentan cada una con dos a tres localizaciones con las que el jugador podrá interactuar, hablar con npc’s y encontrar objetos escondidos. Una será la zona del enemigo.
 
