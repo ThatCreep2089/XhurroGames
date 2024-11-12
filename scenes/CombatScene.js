@@ -17,9 +17,28 @@ init(boss){
         //Cargar imágenes
         this.load.image('player', "./assets/npc/elle.png") //player
         this.load.image('enemy', "./assets/npc/yusoa.png") //enemigo
+        this.load.image('combat', "./assets/fondos/combate.jpg") //fondo
     }
 
     create() {
+        
+        //Pintamos un fondo
+        var back = this.add.image(0, 0, 'combat').setOrigin(0, 0);
+
+        //escalar el fondo
+        var scaleX = this.cameras.main.width / back.width;
+        var scaleY = this.cameras.main.height / back.height;
+        
+        var scale = Math.min(scaleX, scaleY);
+        
+        back.setScale(scale);
+        
+        back.setPosition(
+            this.cameras.main.width / 2 - back.displayWidth / 2,
+            this.cameras.main.height / 2 - back.displayHeight / 2
+        );
+        
+        
         //ejemplo cambio de escena:
         //this.scene.start("explorarMadrid", {name:"boss", atk: 65})
         //generamos las primeras cartas
@@ -30,7 +49,7 @@ init(boss){
         this.generateCards();
 
         // crear player y  enemigo
-        this.player = new Player(this, this.sys.game.canvas.width / 9, this.sys.game.canvas.height / 1.7);
+        this.player = new Player(this, this.sys.game.canvas.width / 11, this.sys.game.canvas.height / 1.7);
         this.player.setScale(0.1);
         this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5);
         this.enemy.setScale(1);
@@ -52,7 +71,7 @@ init(boss){
         let magicButton = this.add.rectangle(
             this.sys.game.canvas.width / 3,
             this.sys.game.canvas.height / 2,
-            200, 100,
+            300, 100,
             0xff0000 
             )
             .setInteractive()
@@ -62,15 +81,15 @@ init(boss){
         this.add.text(
             this.sys.game.canvas.width / 1.95,
             this.sys.game.canvas.height / 2.1,
-            'normal', { 
+            'Normal', { 
             fontSize: '50px', 
             color: '#FFFFFF',       //Blanco
             fontFamily: 'Georgia',  
         });
         this.add.text(
-            this.sys.game.canvas.width / 3.4,
+            this.sys.game.canvas.width / 3.7,
             this.sys.game.canvas.height / 2.1,
-            'magico', { 
+            'Cualidades', { 
             fontSize: '50px', 
             color: '#FFFFFF',       // Blanco
             fontFamily: 'Georgia',  
@@ -80,36 +99,136 @@ init(boss){
         //texto de valores de las cartas:
         this.espadasText = this.add.text(
             this.sys.game.canvas.width / 5.5,
-            this.sys.game.canvas.height / 1.3,
-            'espadas: ' + this.espadas, { 
+            this.sys.game.canvas.height / 1.7,
+            'espadas: ', { 
             fontSize: '50px', 
             color: '#FFFFFF',       // Blanco
             fontFamily: 'Georgia',  
         });
+        
+        
+
         this.copasText = this.add.text(
             this.sys.game.canvas.width / 2.9,
-            this.sys.game.canvas.height / 1.3,
-            'copas: ' + this.copas, { 
+            this.sys.game.canvas.height / 1.7,
+            'copas: ', { 
             fontSize: '50px', 
             color: '#FFFFFF',       // Blanco
             fontFamily: 'Georgia',  
         });
+
+
         this.bastosText = this.add.text(
             this.sys.game.canvas.width / 2,
-            this.sys.game.canvas.height / 1.3,
-            'bastos: ' + this.bastos, { 
+            this.sys.game.canvas.height / 1.7,
+            'bastos: ', { 
             fontSize: '50px', 
             color: '#FFFFFF',       // Blanco
             fontFamily: 'Georgia',  
         });
+
+
         this.orosText = this.add.text(
             this.sys.game.canvas.width / 1.5,
-            this.sys.game.canvas.height / 1.3,
-            'oros: ' + this.oros, { 
+            this.sys.game.canvas.height / 1.7,
+            'oros: ', { 
             fontSize: '50px', 
             color: '#FFFFFF',       // Blanco
             fontFamily: 'Georgia',  
         });
+
+        // Rectángulos (cartas) debajo de cada texto (bajados):
+        const offsetY = 160;  // Aumento en el valor Y para bajar los rectángulos
+
+        // Rectángulo para 'espadas'
+        this.espadasCard = this.add.rectangle(
+            this.espadasText.x + this.espadasText.width / 2,  // Centrado con el texto
+            this.espadasText.y + this.espadasText.height + offsetY, // Mover más abajo
+            160, 240, // Ancho y alto del rectángulo más grandes
+            0xFFFFFF // Color blanco
+        );
+        this.espadasCard.setOrigin(0.5); // Centrar el origen del rectángulo
+
+        // Rectángulo para 'copas'
+        this.copasCard = this.add.rectangle(
+            this.copasText.x + this.copasText.width / 2,  // Centrado con el texto
+            this.copasText.y + this.copasText.height + offsetY, // Mover más abajo
+            160, 240,  // Ancho y alto del rectángulo más grandes
+            0xFFFFFF // Color blanco
+        );
+        this.copasCard.setOrigin(0.5);
+
+        // Rectángulo para 'bastos'
+        this.bastosCard = this.add.rectangle(
+            this.bastosText.x + this.bastosText.width / 2,  // Centrado con el texto
+            this.bastosText.y + this.bastosText.height + offsetY, // Mover más abajo
+            160, 240, // Ancho y alto del rectángulo más grandes
+            0xFFFFFF // Color blanco
+        );
+        this.bastosCard.setOrigin(0.5);
+
+        // Rectángulo para 'oros'
+        this.orosCard = this.add.rectangle(
+            this.orosText.x + this.orosText.width / 2,  // Centrado con el texto
+            this.orosText.y + this.orosText.height + offsetY, // Mover más abajo
+            160, 240, // Ancho y alto del rectángulo más grandes
+            0xFFFFFF // Color blanco
+        );
+        this.orosCard.setOrigin(0.5);
+
+        // Texto del número de 'espadas' centrado en el rectángulo de 'espadas'
+        this.espadasNumber = this.add.text(
+            this.espadasCard.x,  // Usamos la posición x del rectángulo
+            this.espadasCard.y,  // Usamos la posición y del rectángulo
+            this.espadas, { 
+                fontSize: '100px', 
+                color: '#000000',       // Negro
+                fontFamily: 'Georgia',  
+            }
+        );
+        this.espadasNumber.setOrigin(0.5);  // Centramos el texto en su posición
+
+        // Repite lo mismo para los otros textos y rectángulos
+
+        // Texto del número de 'copas' centrado en el rectángulo de 'copas'
+        this.copasNumber = this.add.text(
+            this.copasCard.x,  // Usamos la posición x del rectángulo
+            this.copasCard.y,  // Usamos la posición y del rectángulo
+            this.copas, { 
+                fontSize: '100px', 
+                color: '#000000',       // Negro
+                fontFamily: 'Georgia',  
+            }
+        );
+        this.copasNumber.setOrigin(0.5);  // Centramos el texto en su posición
+
+        // Texto del número de 'bastos' centrado en el rectángulo de 'bastos'
+        this.bastosNumber = this.add.text(
+            this.bastosCard.x,  // Usamos la posición x del rectángulo
+            this.bastosCard.y,  // Usamos la posición y del rectángulo
+            this.bastos, { 
+                fontSize: '100px', 
+                color: '#000000',       // Negro
+                fontFamily: 'Georgia',  
+            }
+        );
+        this.bastosNumber.setOrigin(0.5);  // Centramos el texto en su posición
+
+        // Texto del número de 'oros' centrado en el rectángulo de 'oros'
+        this.orosNumber = this.add.text(
+            this.orosCard.x,  // Usamos la posición x del rectángulo
+            this.orosCard.y,  // Usamos la posición y del rectángulo
+            this.oros, { 
+                fontSize: '100px', 
+                color: '#000000',       // Negro
+                fontFamily: 'Georgia',  
+            }
+        );
+        this.orosNumber.setOrigin(0.5);  // Centramos el texto en su posición
+
+
+
+        
 
         //texto para mostrar salud, mana y cualidades del player
         this.playerHealthText = this.add.text(50, 50, 'PlayerHP: ' + this.player.health, { 
@@ -182,7 +301,7 @@ init(boss){
             
             //ataque con cualidades
             else if (action === 'magic') {
-                this.changeTextsVisibility();
+                //this.changeTextsVisibility();
 
                 
                 
@@ -233,10 +352,10 @@ init(boss){
 
     //Actualiza el texto de las cartas
     updateCardsTexts(){
-        this.espadasText.setText('espadas: ' + this.espadas);
-        this.copasText.setText('copas: ' + this.copas);
-        this.bastosText.setText('bastos: ' + this.bastos);
-        this.orosText.setText('oros: ' + this.oros);
+        this.espadasNumber.setText(this.espadas);
+        this.copasNumber.setText(this.copas);
+        this.bastosNumber.setText(this.bastos);
+        this.orosNumber.setText(this.oros);
     }
 
     // Comprueba si alguno de los personajes ha perdido
