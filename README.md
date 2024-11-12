@@ -22,3 +22,4 @@ Con un tono satírico, el juego está cargado de crítica social en contra de la
 ![Elle explorando la ciudad](assets/capturas/zona2.jpg)  
 ![En combate](assets/capturas/combate.jpg)  
 ![Elige con quien hablar](assets/capturas/localizacion.jpg)  
+![Inventario](assets/capturas/inventario.jpg)
