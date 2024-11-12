@@ -20,7 +20,7 @@ init(boss){
         this.load.image('combat', "./assets/fondos/combate.jpg") //fondo
     }
 
-    create() {
+    create(data) {
         
         //Pintamos un fondo
         var back = this.add.image(0, 0, 'combat').setOrigin(0, 0);
@@ -286,6 +286,20 @@ init(boss){
                 color: '#FFFFFF',       // Blanco
                 fontFamily: 'Georgia',  
             });
+
+
+        //BACK BUTTON (VOLVER A ZONA SCENE)
+        const backScene = this.add.image(
+            this.sys.game.canvas.width / 12,
+            this.sys.game.canvas.height / 1.2, 
+            'flecha')
+        .setScale(-0.3, 0.3)
+        .setInteractive()
+        .on('pointerdown', () => this.scene.start('zonaScene', { modo: data.modo}));
+
+
+
+
     }
 
     // turno del jugador

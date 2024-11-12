@@ -27,7 +27,7 @@ export default class InventoryScene extends Phaser.Scene
         this.load.image('patatas', 'assets/other/patatas.jpg'); 
     }
 
-    create(){ 
+    create(data){ 
         //Pintamos un fondo
         var back = this.add.image(0, 0, 'inventory').setOrigin(0, 0);
 
@@ -114,8 +114,18 @@ export default class InventoryScene extends Phaser.Scene
                 fila++;  // Pasa a la siguiente fila
                 }
         
-    }  
-   
+        }  
+        
+        //BACK BUTTON (VOLVER A ZONA SCENE)
+        const backScene = this.add.image(
+            this.sys.game.canvas.width / 12,
+            this.sys.game.canvas.height / 1.2, 
+            'flecha')
+        .setScale(-0.3, 0.3)
+        .setInteractive()
+        .on('pointerdown', () => this.scene.start('zonaScene', { modo: data.modo}));
+
+
     }
     
    Remove(item)
