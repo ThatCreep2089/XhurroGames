@@ -10,21 +10,37 @@
     <script src="logic.js"></script> <!-- script web logic-->
     <script src="./lib/phaser.js"></script> <!-- phaser-->
     <script src="./src/game.js" type="module"></script> <!-- game-->
+    <script>
+        // JavaScript para abrir la pestaña 'individo 6' por defecto al cargar la página
+        window.onload = function() {
+            openCity(event, 'individo 6');
+        };
+    </script>
 </head>
 
 <body>
     <!-- Tab links -->
     <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'individo 6')">YUSOA ES LEY</button>
-        <button class="tablinks" onclick="openCity(event, 'como jugar')">COMO JUGAR</button>
-        <button class="tablinks" onclick="openCity(event, 'Descripcion')">DESCRIPCIÓN</button>
-        <button class="tablinks" onclick="openCity(event, 'xhurrogames')">SOBRE XHURRO GAMES</button>
+        <button class="tablinks" onclick="openCity(event, 'individo 6')"><b>YUSOA ES LEY</b></button>
+        <button class="tablinks" onclick="openCity(event, 'como jugar')"><b>COMO JUGAR</b></button>
+        <button class="tablinks" onclick="openCity(event, 'Descripcion')"><b>DESCRIPCIÓN</b></button>
+        <button class="tablinks" onclick="openCity(event, 'xhurrogames')"><b>SOBRE XHURRO GAMES</b></button>
     </div>
 
     <!-- Tab content -->
-    <div id="xhurrogames" class="tabcontent">
+    <div id="xhurrogames" class="tabcontent centered-content" style="font-size: 30px;">
+        <p style="padding: 1% 2%; font-size: 32px;">
+            <b>SOMOS XHURRO GAMES:</b>
+            <br>
+            Hola, somos Xhurro Games, un grupo de estudiantes universitarios de desarrollo de videojuegos, ¡y este es nuestro proyecto!
+            <br>
+            Estamos muy orgullosos de presentar nuestro primer juego: YUSOA ES LEY.
+            <br>
+        
+        
         <table id="miembros">
             <tr>
+                <!-- 
                 <th>
                     <img src="images\nerea.webp" alt="Nerea">
                 </th>
@@ -38,6 +54,7 @@
                     <img src="images\andrea.webp" alt="Andrea">
                 </th>
             </tr>
+            Tab content -->
             <tr>
                 <th style="background-color:rgb(161, 219, 108); color:black;"> Nerea Espinosa Calatayud</th>
                 <th style="background-color:rgb(103, 158, 214); color:black;"> Victor Valenzuela Martínez</th>
@@ -62,47 +79,60 @@
                         <th><b> Dirección de ARTE: </b></th>
                         <th><b> MAIN DEVS: </b></th>
                         <th><b> GDD: </b></th>
-                        <th><b> WEB Y PRESENTACIÓN 1: </b></th>
+                        <th><b> WEB Y PRESENTACIÓN 2: </b></th>
                         <th><b> GESTORES DE REDES </b></th>
                     </tr>
                     <tr>
                         <td>
                         <ul>
-                            <li> Nerea Espinosa Calatayud </li>
                             <li> Alicia Pérez Bumanlag </li>
+                            <br>
                             <li> Andrea González Anastasio </li>
-                            <li></li>
+                            <br>
                         </ul>
                         </td>
                         <td>
                         <ul>
                             <li> Nerea Espinosa Calatayud </li>
+                            <br>
                             <li> Victor Valenzuela Martínez </li>
+                            <br>
                             <li> Alicia Pérez Bumanlag </li>
+                            <br>
                             <li> Andrea González Anastasio </li>
                         </ul>
                         </td>
                         <td>
                             <ul>
                                 <li> Nerea Espinosa Calatayud </li>
+                                <br>
                                 <li> Andrea González Anastasio </li>
+                                <br>
+                                <li> Victor Valenzuela Martínez </li>
                             </ul>
                         </td>
                         <td>
                             <ul>
                                 <li> Victor Valenzuela Martínez </li>
+                                <br>
                                 <li> Alicia Pérez Bumanlag </li>
+                                <br>
+                                <li> Nerea Espinosa Calatayud </li>
+                                <br>
+                                <li> Andrea González Anastasio </li>
                             </ul>
                         </td>
                         <td>
                             <b>TikTok e Instagram</b>
                             <ul>
                                 <li> Nerea Espinosa Calatayud </li>
+                                <br>
                                 <li> Andrea González Anastasio </li>
                             </ul>
                             <b>Twitter y YouTube</b>
                             <ul>
                                 <li> Victor Valenzuela Martínez </li>
+                                <br>
                                 <li> Alicia Pérez Bumanlag </li>
                             </ul>
                         </td>
@@ -123,13 +153,26 @@
 
     <div id="como jugar" class="tabcontent">
         <!-- Aquí puedes agregar contenido para 'como jugar' -->
-         error 404
+        <p style="padding: 1% 2%; font-size: 32px;"> 
+        <b>CONTROLES:</b>
+         <br>
+         - Muevete por el mapa con las teclas WASD
+         <br>
+         - Acércate a los edificios moviendo a Elle y pulsa E para interactuar con ellos.
+         <br>
+         - Para hacer click a los botones o elegir con que NPC interactuar pulsa CLICK IZQDO
+         <br>
+         -En el combate, interactua con los distintos botones de acciones con click izqdo
+        </p>
+
     </div>
 
     <div id="Descripcion" class="tabcontent">
         <!-- Aquí puedes agregar contenido para 'Descripcion' -->
         <p style="padding: 1% 2%; font-size: 32px;">
-        Individuo 6 es un videojuego de exploración y combate por turnos en 2D. El jugador controla a “Elle”, un joven lleno de “esperanza”, habitante de un Madrizz distópico y caótico. Para liberar la ciudad de las opresivas garras del líder corrupto y sus secuaces, “Elle” deberá enfrentarse a ellos en un feroz combate. Tras derrotarlos, conseguirá un trozo de constitución para acceder a la zona contaminada, lugar donde se esconde Yusoa, con el fin de conseguir restaurar la libertad e igualdad del pueblo madrizzleño.
+        <b>DESCRIPCIÓN:</b>
+        <br>
+            Individuo 6 es un videojuego de exploración y combate por turnos en 2D. El jugador controla a “Elle”, un joven lleno de “esperanza”, habitante de un Madrizz distópico y caótico. Para liberar la ciudad de las opresivas garras del líder corrupto y sus secuaces, “Elle” deberá enfrentarse a ellos en un feroz combate. Tras derrotarlos, conseguirá un trozo de constitución para acceder a la zona contaminada, lugar donde se esconde Yusoa, con el fin de conseguir restaurar la libertad e igualdad del pueblo madrizzleño.
         <br>
         <br>
         El jugador deberá explorar las cuatro zonas de la metrópolis, en las que hablará con sus diferentes vecinos, adquiriendo así nuevos objetos y mejorando sus habilidades.
@@ -143,6 +186,9 @@
 
     <div id="individo 6" class="tabcontent">
         <!-- Aquí puedes agregar contenido para 'individo 6' -->
+        <p style="font-size: 60px; text-align: center;">
+        <b>YUSOA ES LEY:</b>
+    </p>
     </div>
 </body>
 <!--2023-2024-->
