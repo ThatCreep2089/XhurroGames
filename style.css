@@ -3,7 +3,7 @@
   justify-content: center;     /* Centrado horizontal */
   align-items: center;         /* Centrado vertical */
   width: 100%;                /* 100% del ancho de la página */
-  height: 10vh;               /* 100% de la altura de la ventana */
+  height: 20vh;               /* 100% de la altura de la ventana */
   overflow: hidden;            /* Oculta el exceso si la imagen es más grande */
 }
 
@@ -52,10 +52,8 @@
 td {
   padding: 1% 2%;
 }
-<<<<<<< Updated upstream
-
 body {
-  background-image: url('assets/fondos/fondoWeb.jpg'); /* Reemplaza con la ruta de tu imagen */
+  background-image: url("./assets/web media/madrizzbn.png"); /* Reemplaza con la ruta de tu imagen */
   background-size: cover;           /* Asegura que la imagen cubra toda la pantalla */
   background-attachment: fixed;     /* Fija la imagen para que no se mueva al hacer scroll */
   background-position: center;      /* Centra la imagen de fondo */
@@ -64,6 +62,7 @@ body {
   padding: 0;
   height: 100vh;                    /* Asegura que el body ocupe toda la altura de la ventana */
   width: 100%;
+  
 }
 
 .centered-content {
@@ -71,7 +70,7 @@ body {
   margin: 0 auto; /* Centra el contenido horizontalmente */
   text-align: center; /* Centra el texto */
 }
-=======
+
 p{
   font-family: "Host Grotesk", sans-serif;
   font-optical-sizing: auto;
@@ -81,4 +80,3 @@ p{
 body {
   background-image: url("./assets/web media/madrizzbn.png");
 }
->>>>>>> Stashed changes
