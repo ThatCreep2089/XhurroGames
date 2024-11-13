@@ -63,6 +63,7 @@ body {
   height: 100vh;                    /* Asegura que el body ocupe toda la altura de la ventana */
   width: 100%;
   
+  font-size: 32px; 
 }
 
 .centered-content {
@@ -75,6 +76,7 @@ p{
   font-family: "Host Grotesk", sans-serif;
   font-optical-sizing: auto;
   font-weight: 25;
+  padding: 1% 2%; 
   font-style: normal;
 }
 body {

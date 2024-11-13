@@ -17,6 +17,7 @@
         // JavaScript para abrir la pestaña 'individo 6' por defecto al cargar la página
         window.onload = function() {
             openCity(event, 'individo 6');
+           // startGame(); // Iniciar el juego
         };
     </script>
 </head>
@@ -183,13 +184,12 @@
     </div>
     
     <div id="como jugar" class="tabcontent">
-          <!-- Aquí puedes agregar contenido para 'como jugar' -->
-          <p style="padding: 1% 2%; font-size: 32px;"> 
+          
             <h1>CONTROLES:</h1>
              <br>
              - Muevete por el mapa con las teclas WASD
              <div class="contenedor" >
-                <!--<p> <b>Teclas de movimiento:</b> W, A, S, D </p>-->
+               --<p> <b>Teclas de movimiento:</b> W, A, S, D </p>
                 <br></br>
                <img src="./assets/web media/wasd.png" alt="W A S D">
              </div>
@@ -220,7 +220,6 @@
              - Pero cuidado con hablar demasiado o tu ANSIEDAD subirá.
              <br>
              - Tras conseguir derrotar a los 4 enemios, enfréntate a Yusoa en una batalla épica que definirá el futuro de Madrizz.
-            </p>
             </p>
             
         
@@ -260,8 +259,11 @@
         
     </div>
 
-  
+    <div id="individuo 6" class="tabcontent">
+        <h2>individuo 6</h2>
+        <div id="game-container"></div>
     </div>
+
 </body>
 <!--2023-2024-->
 </html>
