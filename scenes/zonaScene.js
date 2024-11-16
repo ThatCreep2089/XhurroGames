@@ -16,11 +16,11 @@ export default class ZonaScene extends Phaser.Scene{
     preload() //CARGAR TODOS LOS RECURSOS
     {
         //FONDOS
-        this.load.image('fondo1', 'assets/fondos/fondo2.jpeg'); //fondo 1
+        this.load.image('fondo1', 'assets/fondos/fondo1.jpeg'); //fondo 1
         this.load.image('fondo2', 'assets/fondos/fondo2.jpeg'); //fondo 2
-        this.load.image('fondo3', 'assets/fondos/fondo2.jpeg'); //fondo 3
+        this.load.image('fondo3', 'assets/fondos/fondo3.jpeg'); //fondo 3
 
-        //IGUANA
+        //PLAYER
         this.load.image('player', 'assets/npc/elle.png'); //future elle
 
         //IMAGENES BUILDINGS
@@ -31,12 +31,13 @@ export default class ZonaScene extends Phaser.Scene{
 
         //IMAGENES LOCALIZATIONS
         this.load.image('localization1', 'assets/edificios/parque.png');
+        this.load.image('localization2', 'assets/edificios/puente.png');
         this.load.image('localization4', 'assets/edificios/cni.png');
         this.load.image('localization5', 'assets/edificios/bar.png');
         this.load.image('localization6', 'assets/edificios/hipodromo.png');
+        this.load.image('localization7', 'assets/edificios/cruzRoja.png');
+        this.load.image('localization8', 'assets/edificios/iglesia.png');
         
-
-
         //FLECHAS
         this.load.image('flecha', 'assets/other/flecha.png');
 
@@ -106,14 +107,14 @@ export default class ZonaScene extends Phaser.Scene{
                         this.sys.game.canvas.width / 22,
                         this.sys.game.canvas.height / 3.3,
                         flechas, 1, 2)
-                        .setScale(0.2);
-                    /*
+                        .setScale(-0.2);
+                    
                         let flecha3 = new Flecha(this,
                         this.sys.game.canvas.width / 1.05,
                         this.sys.game.canvas.height / 3.3,
                         flechas, 3, 2)
                         .setScale(0.2);
-                        */
+                        
                 
                 if(data.ant == 1)
                 {
@@ -126,16 +127,19 @@ export default class ZonaScene extends Phaser.Scene{
                 
             }
             else if(data.modo == 3){
-                /*
                 //GRUPO BUILDINGS
                 
                 
                 
                 //GRUPO FLECHAS
-                let flecha2 = new Flecha(this, 150, 350, flechas, 2, 3).setScale(0.2);
+                let flecha2 = new Flecha(this,
+                    this.sys.game.canvas.width / 22,
+                    this.sys.game.canvas.height / 3.3,
+                    flechas, 2, 3)
+                    .setScale(0.2);
 
-                startPosition= { x: 150, y: 350 };
-                */
+                startPosition= { x: this.sys.game.canvas.width / 22, y: this.sys.game.canvas.height / 3.3 };
+                
             }
             else{
                 
@@ -146,11 +150,16 @@ export default class ZonaScene extends Phaser.Scene{
                     0.1, 0.1, localizations, 'tenfeFondo');
                 
                 //GRUPO LOCALIZATIONS
-                let localization4 = new Localization(this, 'localization1', 
+                let localization1 = new Localization(this, 'localization1', 
                     this.sys.game.canvas.width / 3.4,
                     this.sys.game.canvas.height / 8,
                     0.68, 0.41, localizations, 'parque');
                 
+                    //GRUPO LOCALIZATIONS
+                let localization2 = new Localization(this, 'localization2', 
+                    this.sys.game.canvas.width / 1.31,
+                    this.sys.game.canvas.height / 3.4,
+                    0.3, 0.3, localizations, 'puente');
                 
                 let flecha1 = new Flecha(this, 
                     this.sys.game.canvas.width / 1.05,

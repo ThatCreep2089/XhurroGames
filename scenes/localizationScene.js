@@ -397,6 +397,7 @@ export default class localizationScene extends Phaser.Scene
 
 
                     }
+                //LOCALIZACION: PARQUE
                     else if(this.mode == 'parque')
                     {
                         
@@ -501,6 +502,112 @@ export default class localizationScene extends Phaser.Scene
 
                         
                     }
+                //LOCALIZACION: PUENTE
+                else if(this.mode == 'puente')
+                    {
+                        
+                        var names = this.add.group();
+
+                        let pacoName = this.add.text(
+                            this.sys.game.canvas.width / 4,   // Coordenada X: centrado horizontalmente
+                            this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
+                            "PACO", 
+                            { 
+                                fontSize: '100px', 
+                                color: '#999999',       // Negro
+                                fontFamily: 'Georgia',  
+                            }
+                        );
+                        pacoName.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
+                        pacoName.setOrigin(0.5, 0);
+                        pacoName.setScale(0.6);
+
+                        names.add(pacoName);
+
+                        let humbertoName = this.add.text(
+                            this.sys.game.canvas.width / 2,   // Coordenada X: centrado horizontalmente
+                            this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
+                            "HUMBERTO", 
+                            { 
+                                fontSize: '100px', 
+                                color: '#999999',       // Negro
+                                fontFamily: 'Georgia',  
+                            }
+                        );
+                        humbertoName.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
+                        humbertoName.setOrigin(0.5, 0);
+                        humbertoName.setScale(0.6);
+
+                        names.add(humbertoName);
+
+                        let mariaName = this.add.text(
+                            this.sys.game.canvas.width / 1.37,   // Coordenada X: centrado horizontalmente
+                            this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
+                            "MARIA", 
+                            { 
+                                fontSize: '100px', 
+                                color: '#999999',       // Gris
+                                fontFamily: 'Georgia',  
+                            }
+                        );
+                        mariaName.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
+                        mariaName.setOrigin(0.5, 0);
+                        mariaName.setScale(0.6);
+
+                        names.add(mariaName);
+                        
+                        
+                        
+                        //PACO
+                        const paco = this.add.image(
+                            this.sys.game.canvas.width / 4,
+                            this.sys.game.canvas.height / 1.4, 
+                            'paco')
+                        .setOrigin(0.5, 0.5)
+                        .setScale(0.9)
+                        .setInteractive()
+                        .on('pointerdown', () =>{
+                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con PACO?");
+                            this.npcTalk = 'paco';
+                            })
+                        .on('pointerover', () => paco.setTint(0xff0000))
+                        .on('pointerout', () => paco.clearTint());
+                        
+
+                        //HUMBERTO
+                        const humberto = this.add.image(
+                            this.sys.game.canvas.width / 2,
+                            this.sys.game.canvas.height / 1.4, 
+                            'humberto')
+                        .setOrigin(0.5, 0.5)
+                        .setScale(0.4)
+                        .setInteractive()
+                        .on('pointerdown', () =>{
+                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con HUMBERTO?");
+                            this.npcTalk = 'humberto';
+                            })
+                        .on('pointerover', () => humberto.setTint(0xff0000))
+                        .on('pointerout', () => humberto.clearTint());
+
+
+                        //MARIA
+                        const maria = this.add.image(
+                            this.sys.game.canvas.width / 1.35,
+                            this.sys.game.canvas.height / 1.4, 
+                            'maria')
+                        .setOrigin(0.5, 0.5)
+                        .setScale(0.6)
+                        .setInteractive()
+                        .on('pointerdown', () =>{
+                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?");
+                            this.npcTalk = 'maria';
+                            })
+                        .on('pointerover', () => maria.setTint(0xff0000))
+                        .on('pointerout', () => maria.clearTint());
+
+                        
+                    }
+                    
 
             //FLECHAS
                 var arrows = this.add.group();
