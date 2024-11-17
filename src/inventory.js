@@ -70,6 +70,9 @@ export default class Inventory
 
     }
 
+    GetItems() {
+        return this.elems; // Devuelve todos los ítems
+    }
 
     //utilizar el item
     UseItem(effect,item,player)
