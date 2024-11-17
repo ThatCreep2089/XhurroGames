@@ -1,5 +1,5 @@
 
-export default class Item extends Phaser.GameObjects.Sprite
+export default class Item extends Phaser.GameObjects.Image
 {
   
 constructor(scene,name,description,effect,posx,posy,amount)
@@ -9,7 +9,7 @@ constructor(scene,name,description,effect,posx,posy,amount)
         this.name=name; //nombre elem
         this.description=description;//que hace el objeto
         this.effect=effect;//tipo efecto(si es para reducir ansiedad...)
-        this.scene.add.existing(this); //Añadimos item a la escena
+        scene.add.existing(this); //Añadimos item a la escena
         this.ejemplar=1;//cauntos ejemplares del mismo elem hay
 
 }
