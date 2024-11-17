@@ -13,7 +13,6 @@ import DialogueScene from "../scenes/dialogueScene.js";
 
 /*
 
-
 /**
  * Creamos el archivo de configuración del juego y creamos
  * la clase Game de Phaser, encargada de crear e iniciar el juego.
@@ -24,6 +23,7 @@ import DialogueScene from "../scenes/dialogueScene.js";
 window.gameState = {
     playerPosition: { x: 1000, y: 330 } // Posición inicial predeterminada
 };
+
 
 let config = {
     type: Phaser.AUTO,
@@ -77,9 +77,4 @@ let config = {
 /*
     Instanciamos Phaser con la configuración deseada, Phaser se encargará de lanzar la primera escena del array de escenas
 */
-/*function startGame() {
-    if (!window.game) {  // Evita inicializar varias veces
-        window.game = new Phaser.Game(config);
-    }
-}*/
 new Phaser.Game(config); 

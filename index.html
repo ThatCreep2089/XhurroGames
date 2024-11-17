@@ -7,9 +7,6 @@
     <title>YUSOA ES LEY</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css"> <!-- estilo -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Jersey+25&display=swap" rel="stylesheet">    
     <script src="logic.js"></script> <!-- script web logic-->
     <script src="./lib/phaser.js"></script> <!-- phaser-->
     <script src="./src/game.js" type="module"></script> <!-- game-->
@@ -17,16 +14,11 @@
         // JavaScript para abrir la pestaña 'individo 6' por defecto al cargar la página
         window.onload = function() {
             openCity(event, 'individo 6');
-           // startGame(); // Iniciar el juego
         };
     </script>
 </head>
 
-<body> 
-   
-    <div class="contenedor">
-         <img src="./assets/web media/titulo.png" alt="YUSOA ES LEY">
-      </div>
+<body>
     <!-- Tab links -->
     <div class="tab">
         <button class="tablinks" onclick="openCity(event, 'individo 6')"><b>YUSOA ES LEY</b></button>
@@ -49,33 +41,25 @@
             <br>
             <br>
             Finalmente nos decantamos por :YUSOA ES LEY, si sabes inglés y eres mínimo generación Z el chiste del nombre se cuenta solo.
-            <img src="./assets/fondos/xhurroGames.png" alt="Xhurro Games logo" style="width: 100%; max-width: 400px; display: block; margin: 20px auto;">
+            <img src="assets/fondos/xhurroGames.png" alt="Xhurro Games logo" style="width: 100%; max-width: 400px; display: block; margin: 20px auto;">
         
         <table id="miembros">
             <tr>
-                
+                <!-- 
                 <th>
-                <div class="contenedor" >
-                    <img src="./assets/web media/nerea.png"  alt="Nerea">
-                </div>
-                </th>
-                
-                <th>
-                <div class="contenedor" >
-                    <img src="./assets/web media/victor.png" alt="Victor">
-                    </div>
+                    <img src="images\nerea.webp" alt="Nerea">
                 </th>
                 <th>
-                <div class="contenedor" >
-                    <img src="./assets/web media/ali.png" alt="Ali">
-                </div>
+                    <img src="images\victor.webp" alt="Victor">
                 </th>
                 <th>
-                <div class="contenedor" >
-                    <img src="./assets/web media/andrea.png" alt="Andrea">
-                </div>
-                 </th>
+                    <img src="images\ali.webp" alt="Ali">
+                </th>
+                <th>
+                    <img src="images\andrea.webp" alt="Andrea">
+                </th>
             </tr>
+            Tab content -->
             <tr>
                 <th style="background-color:rgb(161, 219, 108); color:black;"> Nerea Espinosa Calatayud</th>
                 <th style="background-color:rgb(103, 158, 214); color:black;"> Victor Valenzuela Martínez</th>
@@ -88,17 +72,7 @@
                 <td> <spoiler>(podrás encontrartelo como NPC explorando la zona roja)</spoiler></td>
                 <td> <spoiler>(podrás encontrartelo como NPC explorando la zona amarilla)</spoiler></td>
             </tr>
-          
         </table>
-       
-            <p style= "align-items: center;justify-content: center;"  >
-                Xhurro Games esta formado por un grupo de desarrolladores creado con el fin de desarrollar un videojuego para un proyecto universitario.
-                Somos 4 amigos que simplemente decidieron hacer algo entretenido, inspirado en la realidad con un toque de humor satírico y crítica social.
-                Nuestra intencion es llamar la atencion de el tipo de grandes personalidades que generan odio hacia minorías reprimidas.
-                El contenido de nuestro proyecto no esta creado con la intencion de ofender ni degradar a nadie, sino sacarles una sonrisa a los jugadores
-                mediante el uso de estereotípos y situaciones exageradas de manera cómica. 
-            </p>
-        
 
         <details>
             <summary>
@@ -173,77 +147,58 @@
         </details>
         <redes>
             <a href="https://x.com/XhurroGames" target="_blank"> X/twitter </a>
-            <br></br>
+            <br>
             <a href="https://www.tiktok.com/@xhurro.games" target="_blank">tiktok</a>
-            <br></br>
+            <br>
             <a href="https://www.instagram.com/xhurrogames/" target="_blank">instagram</a>
-            <br></br>
+            <br>
             <a href="https://www.youtube.com/@XhurroGames" target="_blank">youtube</a>
         </redes>
-    
     </div>
-    
+
     <div id="como jugar" class="tabcontent">
-          
-            <h1>CONTROLES:</h1>
-             <br>
-             - Muevete por el mapa con las teclas WASD
-             <div class="contenedor" >
-               --<p> <b>Teclas de movimiento:</b> W, A, S, D </p>
-                <br></br>
-               <img src="./assets/web media/wasd.png" alt="W A S D">
-             </div>
-             <br>
-             - Acércate a los edificios moviendo a Elle y pulsa E para interactuar con ellos.
-             <div class="contenedor" >
-                <p> <b>Tecla de interacción:</b> E </p>
-                <br></br>
-                <img src="./assets/web media/e.png" alt="E">
-            </div>
-            <div class="contenedor" >
-                <p> <b>Interactuar con la interfaz:</b> click izquierdo </p>
-                <br></br>
-                <img src="./assets/web media/click_izquierdo.png" alt="RClick">
-            </div>
-             <br>
-             - Para hacer click a los botones o elegir con que NPC interactuar pulsa CLICK IZQDO
-             <br>
-             -En el combate, interactua con los distintos botones de acciones con click izqdo
-             <br>
-             <br>
-             <h1>OBJETIVO:</h1>
-             <br>
-             - Derrota a los esbirros de Yusoa, mediante combate por turnos para recuperar los 4 trozos de la constitución.
-             <br>
-             - Vuélvete más fuerte hablando con los vecinos y recogiendo objetos.
-             <br>
-             - Pero cuidado con hablar demasiado o tu ANSIEDAD subirá.
-             <br>
-             - Tras conseguir derrotar a los 4 enemios, enfréntate a Yusoa en una batalla épica que definirá el futuro de Madrizz.
-            </p>
-            
+        <!-- Aquí puedes agregar contenido para 'como jugar' -->
+        <p style="padding: 1% 2%; font-size: 32px;"> 
+        <b>CONTROLES:</b>
+         <br>
+         - Muevete por el mapa con las teclas WASD
+         <br>
+         - Acércate a los edificios moviendo a Elle y pulsa E para interactuar con ellos.
+         <br>
+         - Para hacer click a los botones o elegir con que NPC interactuar pulsa CLICK IZQDO
+         <br>
+         -En el combate, interactua con los distintos botones de acciones con click izqdo
+         <br>
+         <br>
+         <b>OBJETIVO:</b>
+         <br>
+         - Derrota a los esbirros de Yusoa, mediante combate por turnos para recuperar los 4 trozos de la constitución.
+         <br>
+         - Vuélvete más fuerte hablando con los vecinos y recogiendo objetos.
+         <br>
+         - Pero cuidado con hablar demasiado o tu ANSIEDAD subirá.
+         <br>
+         - Tras conseguir derrotar a los 4 enemios, enfréntate a Yusoa en una batalla épica que definirá el futuro de Madrizz.
+        </p>
+        </p>
         
 
     </div>
 
     <div id="Descripcion" class="tabcontent">
+        <!-- Aquí puedes agregar contenido para 'Descripcion' -->
         <p style="padding: 1% 2%; font-size: 32px;">
         <b>DESCRIPCIÓN:</b>
-        <b>"Yusoa es ley"</b> es un videojuego de exploración y combate por turnos en 2D.
-        El jugador controla a <b>“Elle”</b>, un joven lleno de <b>“esperanza”</b>, habitante de un <b>Madrizz</b> distópico y caótico.
-        Para liberar la ciudad de las opresivas garras del líder corrupto y sus secuaces,
-        <b>“Elle”</b> deberá enfrentarse a ellos en un feroz combate.
-        Tras derrotarlos, conseguirá un trozo de constitución para acceder a la zona contaminada,
-        lugar donde se esconde <b>Yusoa</b>, con el fin de conseguir restaurar la libertad e igualdad del pueblo madrizzleño.
-        <br></br>
-        El jugador deberá explorar las cuatro zonas de la metrópolis, en las que hablará con sus diferentes vecinos,
-        adquiriendo así nuevos objetos y mejorando sus habilidades.  
-        Sin embargo, <b>“Elle”</b> sufre de ansiedad (afectando negativamente en combate si alcanza valores muy altos),
-        por lo que tendrá que elegir sabiamente con qué individuos hablar (Se explicará más adelante).
-        <br></br>
-        Con un tono satírico, el juego está cargado de crítica social en contra de las grandes personalidades que generan odio hacia minorías reprimidas,
-        posicionándose a favor de la libertad y derechos del individuo.
-        </p>
+        <br>
+            Individuo 6 es un videojuego de exploración y combate por turnos en 2D. El jugador controla a “Elle”, un joven lleno de “esperanza”, habitante de un Madrizz distópico y caótico. Para liberar la ciudad de las opresivas garras del líder corrupto y sus secuaces, “Elle” deberá enfrentarse a ellos en un feroz combate. Tras derrotarlos, conseguirá un trozo de constitución para acceder a la zona contaminada, lugar donde se esconde Yusoa, con el fin de conseguir restaurar la libertad e igualdad del pueblo madrizzleño.
+        <br>
+        <br>
+        El jugador deberá explorar las cuatro zonas de la metrópolis, en las que hablará con sus diferentes vecinos, adquiriendo así nuevos objetos y mejorando sus habilidades.
+        Sin embargo, “Elle” sufre de ansiedad (afectando negativamente en combate si alcanza valores muy altos), por lo que tendrá que elegir sabiamente con qué individuos hablar. 
+        <br>
+        <br>
+        Con un tono satírico, el juego está cargado de crítica social en contra de las grandes personalidades que generan odio hacia minorías reprimidas, posicionándose a favor de la libertad y derechos del individuo.
+        
         <table class="centered-content" style="font-size: 30px;">
         <tr>
             <th> <b>PROTAGONISTA </b></th>
@@ -261,8 +216,8 @@
 
     <div id="individo 6" class="tabcontent">
         <!-- Aquí puedes agregar contenido para 'individo 6' -->
-        <p style="font-size: 5px; text-align: center;">
-        <br></br>
+        <p style="font-size: 60px; text-align: center;">
+        <b>YUSOA ES LEY:</b>
     </p>
     </div>
 </body>
