@@ -26,11 +26,7 @@ export default class PickScene extends Phaser.Scene
     .setInteractive()
     .on('pointerdown', () => this.scene.start('InventoryScene'));
 
-   // Guardas el inventario en el registro global
-   if (!this.registry.get('inventario')) {
-    const inventario = new Inventory();
-    this.registry.set('inventario', inventario);
-   }
+        this.inventario = new Inventory();  // Creamos un inventario
 
         
 
@@ -66,7 +62,8 @@ export default class PickScene extends Phaser.Scene
     this.patatas2.on('pointerdown', () => { //evento para detectar el raton
         this.Pick(this.patatas2); 
     });
-       
+       // Guardas el inventario en el registro global
+       this.registry.set('inventario', this.inventario); 
 
     }
 
@@ -77,12 +74,9 @@ export default class PickScene extends Phaser.Scene
     Pick(item)
     {
         
-        const inventario = this.registry.get('inventario');
-        if (inventario) {
-        inventario.AddItem(item); // Agregar el item al inventario
-        item.setVisible(false);
+        item.destroy();
+        this.inventario.AddItem(item); // Agregar el item al inventario
     }
-}
 
    
     
