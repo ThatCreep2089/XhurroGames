@@ -1,4 +1,17 @@
+.contenedor {
+  display: flex;               /* centrar la imagen */
+  justify-content: center;     /* Centrado horizontal */
+  align-items: center;         /* Centrado vertical */
+  width: 100%;                /* 100% del ancho de la página */
+  height: 20vh;               /* 100% de la altura de la ventana */
+  overflow: hidden;            /* Oculta el exceso si la imagen es más grande */
+}
 
+.contenedor img {
+  max-width: 100%;             /* La imagen nunca será más ancha que el contenedor */
+  max-height: 100%;            /* La imagen nunca será más alta que el contenedor */
+  object-fit: cover;           /* Asegura que la imagen cubra todo el contenedor */
+}
 .tab {
     overflow: hidden;
     border: 3px solid #000000;
@@ -39,9 +52,8 @@
 td {
   padding: 1% 2%;
 }
-
 body {
-  background-image: url('assets/fondos/fondoWeb.jpg'); /* Reemplaza con la ruta de tu imagen */
+  background-image: url("./assets/web media/madrizzbn.png"); /* Reemplaza con la ruta de tu imagen */
   background-size: cover;           /* Asegura que la imagen cubra toda la pantalla */
   background-attachment: fixed;     /* Fija la imagen para que no se mueva al hacer scroll */
   background-position: center;      /* Centra la imagen de fondo */
@@ -50,10 +62,23 @@ body {
   padding: 0;
   height: 100vh;                    /* Asegura que el body ocupe toda la altura de la ventana */
   width: 100%;
+  
+  font-size: 32px; 
 }
 
 .centered-content {
   width: 80%; /* Ajusta al tamaño que desees */
   margin: 0 auto; /* Centra el contenido horizontalmente */
   text-align: center; /* Centra el texto */
+}
+
+p{
+  font-family: "Host Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 25;
+  padding: 1% 2%; 
+  font-style: normal;
+}
+body {
+  background-image: url("./assets/web media/madrizzbn.png");
 }
