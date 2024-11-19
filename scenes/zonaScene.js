@@ -115,58 +115,71 @@ export default class ZonaScene extends Phaser.Scene{
                         flechas, 3, 2)
                         .setScale(0.2);
                         
-                
-                if(data.ant == 1)
-                {
-                    startPosition= { x: this.sys.game.canvas.width / 22, y: this.sys.game.canvas.height / 3.3 };
-                }
-                else if (data.ant == 3)
-                {
-                    startPosition= { x: this.sys.game.canvas.width / 1.05, y: this.sys.game.canvas.height / 3.3 };
-                }
+                //POSICION
+                    if(data.ant == 1)
+                    {
+                        startPosition= { x: this.sys.game.canvas.width / 22, y: this.sys.game.canvas.height / 3.3 };
+                    }
+                    else if (data.ant == 3)
+                    {
+                        startPosition= { x: this.sys.game.canvas.width / 1.05, y: this.sys.game.canvas.height / 3.3 };
+                    }
                 
             }
             else if(data.modo == 3){
                 //GRUPO BUILDINGS
                 
+                //GRUPO LOCALIZATIONS
+                let localization7 = new Localization(this, 'localization7', 
+                    this.sys.game.canvas.width / 4.4,
+                    this.sys.game.canvas.height / 1.27,
+                    0.3, 0.3, localizations, 'cruzRoja');
                 
+                let localization8 = new Localization(this, 'localization8',
+                    this.sys.game.canvas.width / 1.52,
+                    this.sys.game.canvas.height / 2.25,
+                    0.305, 0.3, localizations, 'iglesia');
                 
                 //GRUPO FLECHAS
                 let flecha2 = new Flecha(this,
                     this.sys.game.canvas.width / 22,
                     this.sys.game.canvas.height / 3.3,
                     flechas, 2, 3)
-                    .setScale(0.2);
+                    .setScale(-0.2);
 
-                startPosition= { x: this.sys.game.canvas.width / 22, y: this.sys.game.canvas.height / 3.3 };
-                
+                //POSICION
+                if(data.ant == 2)
+                {
+                    startPosition= { x: this.sys.game.canvas.width / 22, y: this.sys.game.canvas.height / 3.3 };
+                }
             }
             else{
                 
                 //TENFE (por ahora actua como building)
-                let tenfe = new Localization(this, 'tenfe',
+                    let tenfe = new Localization(this, 'tenfe',
                     this.sys.game.canvas.width / 1.8,
                     this.sys.game.canvas.height / 1.4,
                     0.1, 0.1, localizations, 'tenfeFondo');
                 
                 //GRUPO LOCALIZATIONS
-                let localization1 = new Localization(this, 'localization1', 
+                    let localization1 = new Localization(this, 'localization1', 
                     this.sys.game.canvas.width / 3.4,
                     this.sys.game.canvas.height / 8,
                     0.68, 0.41, localizations, 'parque');
                 
-                    //GRUPO LOCALIZATIONS
-                let localization2 = new Localization(this, 'localization2', 
+                    let localization2 = new Localization(this, 'localization2', 
                     this.sys.game.canvas.width / 1.31,
                     this.sys.game.canvas.height / 3.4,
-                    0.3, 0.3, localizations, 'puente');
+                    0.26, 0.3, localizations, 'puente');
                 
-                let flecha1 = new Flecha(this, 
+                //FLECHAS
+                    let flecha1 = new Flecha(this, 
                     this.sys.game.canvas.width / 1.05,
                     this.sys.game.canvas.height / 3.3, 
                     flechas, 2, 1)
                     .setScale(0.2);
                 
+                //POSICION    
                 if(data.ant == 2)
                 {
                     startPosition= { x:  this.sys.game.canvas.width / 1.05, y: this.sys.game.canvas.height / 3.3 };

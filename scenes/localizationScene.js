@@ -24,6 +24,8 @@ export default class localizationScene extends Phaser.Scene
             this.load.image('bar', 'assets/fondos/barFondo.jpg'); //fondo
             this.load.image('cni', 'assets/fondos/cniFondo.jpg'); //fondo
             this.load.image('hipodromo', 'assets/fondos/hipodromoFondo.jpg'); //fondo
+            this.load.image('cruzRoja', 'assets/fondos/cruzRoja.jpg'); //fondo
+            this.load.image('iglesia', 'assets/fondos/iglesia.jpg'); //fondo
 
         //NPCS
             this.load.image('paco', 'assets/npc/paco.png');
@@ -503,7 +505,7 @@ export default class localizationScene extends Phaser.Scene
                         
                     }
                 //LOCALIZACION: PUENTE
-                else if(this.mode == 'puente')
+                    else if(this.mode == 'puente')
                     {
                         
                         var names = this.add.group();
@@ -607,7 +609,211 @@ export default class localizationScene extends Phaser.Scene
 
                         
                     }
-                    
+                  //LOCALIZACION: CNI
+                    else if(this.mode == 'cruzRoja')
+                    {
+                        var names = this.add.group();
+                            
+                            let mariaName = this.add.text(
+                                this.sys.game.canvas.width / 1.37,   // Coordenada X: centrado horizontalmente
+                                this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
+                                "MARIA", 
+                                { 
+                                    fontSize: '100px', 
+                                    color: '#999999',       // Gris
+                                    fontFamily: 'Georgia',  
+                                }
+                            );
+                            mariaName.setStroke('#000000', 8);  // Trazo negro
+                            mariaName.setOrigin(0.5, 0);
+                            mariaName.setScale(0.6);
+
+                            names.add(mariaName);
+                        
+                            //MARIA
+                            const maria = this.add.image(
+                                this.sys.game.canvas.width / 1.35,
+                                this.sys.game.canvas.height / 1.4, 
+                                'maria')
+                            .setOrigin(0.5, 0.5)
+                            .setScale(0.6)
+                            .setInteractive()
+                            .on('pointerdown', () =>{
+                                this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?");
+                                this.npcTalk = 'maria';
+                                })
+                            .on('pointerover', () => maria.setTint(0xff0000))
+                            .on('pointerout', () => maria.clearTint());
+
+
+                            //NOMBRE Npc
+                            let npcName1 = this.add.text(
+                                this.sys.game.canvas.width / 2,   // coordenada x
+                                this.sys.game.canvas.height / 3.7, // coordenada y
+                                "NPC", //frase
+                                { 
+                                    fontSize: '100px', 
+                                    color: '#999999',       // Gris
+                                    fontFamily: 'Georgia',  
+                                }
+                            );
+                            npcName1.setStroke('#000000', 8);  // Trazo negro
+                            npcName1.setOrigin(0.5, 0);
+                            npcName1.setScale(0.6);
+
+                            names.add(npcName1); //añadir al conjunto
+                        
+                            //BOTON Npc
+                            const npc1 = this.add.image(
+                                this.sys.game.canvas.width / 2,
+                                this.sys.game.canvas.height / 1.4, 
+                                'npc') //id
+                            .setOrigin(0.5, 0.5)
+                            .setScale(3)
+                            .setInteractive()
+                            .on('pointerdown', () => {
+                                this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
+                                this.npcTalk = 'random';
+                                })
+                            .on('pointerover', () => npc1.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
+                            .on('pointerout', () => npc1.clearTint());
+
+                            //NOMBRE Npc
+                            let npcName2 = this.add.text(
+                                this.sys.game.canvas.width / 4,   // coordenada x
+                                this.sys.game.canvas.height / 3.7, // coordenada y
+                                "NPC", //frase
+                                { 
+                                    fontSize: '100px', 
+                                    color: '#999999',       // Gris
+                                    fontFamily: 'Georgia',  
+                                }
+                            );
+                            npcName2.setStroke('#000000', 8);  // Trazo negro
+                            npcName2.setOrigin(0.5, 0);
+                            npcName2.setScale(0.6);
+
+                            names.add(npcName2); //añadir al conjunto
+                        
+                            //BOTON Npc
+                            const npc2 = this.add.image(
+                                this.sys.game.canvas.width / 4,
+                                this.sys.game.canvas.height / 1.4, 
+                                'npc') //id
+                            .setOrigin(0.5, 0.5)
+                            .setScale(3)
+                            .setInteractive()
+                            .on('pointerdown', () => {
+                                this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
+                                this.npcTalk = 'random';
+                                })
+                            .on('pointerover', () => npc2.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
+                            .on('pointerout', () => npc2.clearTint());
+                            
+                    }
+                    //LOCALIZACION: CNI
+                    else if(this.mode == 'iglesia')
+                        {
+                            var names = this.add.group();
+                                
+                                let mariaName = this.add.text(
+                                    this.sys.game.canvas.width / 1.37,   // Coordenada X: centrado horizontalmente
+                                    this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
+                                    "MARIA", 
+                                    { 
+                                        fontSize: '100px', 
+                                        color: '#999999',       // Gris
+                                        fontFamily: 'Georgia',  
+                                    }
+                                );
+                                mariaName.setStroke('#000000', 8);  // Trazo negro
+                                mariaName.setOrigin(0.5, 0);
+                                mariaName.setScale(0.6);
+    
+                                names.add(mariaName);
+                            
+                                //MARIA
+                                const maria = this.add.image(
+                                    this.sys.game.canvas.width / 1.35,
+                                    this.sys.game.canvas.height / 1.4, 
+                                    'maria')
+                                .setOrigin(0.5, 0.5)
+                                .setScale(0.6)
+                                .setInteractive()
+                                .on('pointerdown', () =>{
+                                    this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?");
+                                    this.npcTalk = 'maria';
+                                    })
+                                .on('pointerover', () => maria.setTint(0xff0000))
+                                .on('pointerout', () => maria.clearTint());
+    
+    
+                                //NOMBRE Npc
+                                let npcName1 = this.add.text(
+                                    this.sys.game.canvas.width / 2,   // coordenada x
+                                    this.sys.game.canvas.height / 3.7, // coordenada y
+                                    "NPC", //frase
+                                    { 
+                                        fontSize: '100px', 
+                                        color: '#999999',       // Gris
+                                        fontFamily: 'Georgia',  
+                                    }
+                                );
+                                npcName1.setStroke('#000000', 8);  // Trazo negro
+                                npcName1.setOrigin(0.5, 0);
+                                npcName1.setScale(0.6);
+    
+                                names.add(npcName1); //añadir al conjunto
+                            
+                                //BOTON Npc
+                                const npc1 = this.add.image(
+                                    this.sys.game.canvas.width / 2,
+                                    this.sys.game.canvas.height / 1.4, 
+                                    'npc') //id
+                                .setOrigin(0.5, 0.5)
+                                .setScale(3)
+                                .setInteractive()
+                                .on('pointerdown', () => {
+                                    this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
+                                    this.npcTalk = 'random';
+                                    })
+                                .on('pointerover', () => npc1.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
+                                .on('pointerout', () => npc1.clearTint());
+    
+                                //NOMBRE Npc
+                                let npcName2 = this.add.text(
+                                    this.sys.game.canvas.width / 4,   // coordenada x
+                                    this.sys.game.canvas.height / 3.7, // coordenada y
+                                    "NPC", //frase
+                                    { 
+                                        fontSize: '100px', 
+                                        color: '#999999',       // Gris
+                                        fontFamily: 'Georgia',  
+                                    }
+                                );
+                                npcName2.setStroke('#000000', 8);  // Trazo negro
+                                npcName2.setOrigin(0.5, 0);
+                                npcName2.setScale(0.6);
+    
+                                names.add(npcName2); //añadir al conjunto
+                            
+                                //BOTON Npc
+                                const npc2 = this.add.image(
+                                    this.sys.game.canvas.width / 4,
+                                    this.sys.game.canvas.height / 1.4, 
+                                    'npc') //id
+                                .setOrigin(0.5, 0.5)
+                                .setScale(3)
+                                .setInteractive()
+                                .on('pointerdown', () => {
+                                    this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
+                                    this.npcTalk = 'random';
+                                    })
+                                .on('pointerover', () => npc2.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
+                                .on('pointerout', () => npc2.clearTint());
+                                
+                        }
+
 
             //FLECHAS
                 var arrows = this.add.group();
