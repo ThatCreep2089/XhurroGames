@@ -41,6 +41,10 @@ export default class ZonaScene extends Phaser.Scene{
         //FLECHAS
         this.load.image('flecha', 'assets/other/flecha.png');
 
+        //ASSETS NOMBRES LOCALIZATIONS
+        this.load.image('caja', 'assets/other/caja.png');
+        this.load.image('maps', 'assets/other/maps.png');
+
     }
 
     create(data){
@@ -160,17 +164,85 @@ export default class ZonaScene extends Phaser.Scene{
                     this.sys.game.canvas.width / 1.9,
                     this.sys.game.canvas.height / 1.25,
                     0.1, 0.1, localizations, 'tenfeFondo');
+
+                    //NOMBRES LOCALIZACION
+                    let caja1 = this.add.image(
+                        this.sys.game.canvas.width / 1.94,
+                        this.sys.game.canvas.height / 1.5, 
+                        'caja')
+                    .setScale(0.2, 0.12);
+
+                    let texto1 = this.add.text(
+                        this.sys.game.canvas.width / 1.9,
+                        this.sys.game.canvas.height / 1.53,
+                        'TENFE',
+                        { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                    );
+
+                    texto1.setOrigin(0.5, 0.5);
+                    
+                    this.add.image(
+                        this.sys.game.canvas.width / 1.75,
+                        this.sys.game.canvas.height / 1.3, 
+                        'maps')
+                    .setScale(0.15, 0.15);
                 
                 //GRUPO LOCALIZATIONS
                     let localization1 = new Localization(this, 'localization1', 
                     this.sys.game.canvas.width / 4.3,
                     this.sys.game.canvas.height / 3.2,
                     0.58, 0.4, localizations, 'parque');
+
+                        //NOMBRES LOCALIZACION
+                            let caja2 = this.add.image(
+                                this.sys.game.canvas.width / 4.6,
+                                this.sys.game.canvas.height / 9.5, 
+                                'caja')
+                            .setScale(0.3, 0.12);
+
+                            let texto2 = this.add.text(
+                                this.sys.game.canvas.width / 4.3,
+                                this.sys.game.canvas.height / 11,
+                                'PARQUE\nMIL FLORES',
+                                { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                            );
+
+                            texto2.setOrigin(0.5, 0.5);
+                            
+                            this.add.image(
+                                this.sys.game.canvas.width / 3.2,
+                                this.sys.game.canvas.height / 5, 
+                                'maps')
+                            .setScale(0.15, 0.15);
+                
                 
                     let localization2 = new Localization(this, 'localization2', 
-                    this.sys.game.canvas.width / 1.31,
-                    this.sys.game.canvas.height / 3.4,
-                    0.26, 0.3, localizations, 'puente');
+                        this.sys.game.canvas.width / 1.31,
+                        this.sys.game.canvas.height / 3.4,
+                        0.26, 0.3, localizations, 'puente');
+
+                        //NOMBRES LOCALIZACION
+                        let caja3 = this.add.image(
+                            this.sys.game.canvas.width / 1.34,
+                            this.sys.game.canvas.height / 2.15, 
+                            'caja')
+                        .setScale(0.3, 0.12);
+
+                        let texto3 = this.add.text(
+                            this.sys.game.canvas.width / 1.32,
+                            this.sys.game.canvas.height / 2.2,
+                            'PUENTE',
+                            { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                        );
+
+                        texto3.setOrigin(0.5, 0.5);
+                        
+                        this.add.image(
+                            this.sys.game.canvas.width / 1.43,
+                            this.sys.game.canvas.height / 2.5, 
+                            'maps')
+                        .setScale(0.15, 0.15);
+                        
                 
                 //FLECHAS
                     let flecha1 = new Flecha(this, 
@@ -184,6 +256,7 @@ export default class ZonaScene extends Phaser.Scene{
                 {
                     startPosition= { x:  this.sys.game.canvas.width / 1.05, y: this.sys.game.canvas.height / 3.3 };
                 }
+                
                 
 
             }
