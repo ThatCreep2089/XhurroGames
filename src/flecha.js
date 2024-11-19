@@ -1,33 +1,33 @@
 export default class Flecha extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, colliderGroup, modo, ant) {
-		super(scene, x, y, 'flecha');
+        super(scene, x, y, 'flecha');
         
-		this.scene.add.existing(this);
-
+        // Agregamos el sprite a la escena
+        this.scene.add.existing(this);
+    
         this.modo = modo;
         this.ant = ant;
-
+    
         // Activamos la física para este sprite
         this.scene.physics.world.enable(this);
-
-        // Desactivamos la gravedad para la iguana
+    
+        // Desactivamos la gravedad para el sprite
         this.body.setAllowGravity(false);
-
+    
         // Hacemos el cuerpo inmovible para que no reaccione a colisiones
         this.body.setImmovable(true);
-
-        
-        // Creamos un collider extra
-        this.extraCollider = this.scene.physics.add.sprite(x, y, null); // sin textura
-        // Configuramos las dimensiones y posición del collider extra
-        //this.extraCollider.setSize(70, 50); // Establecemos el tamaño del collider extra
-        
-        this.extraCollider.setSize(this.body.width * 0.3, this.body.height * 0.3);
-        this.extraCollider.setPosition(x, y); // Posicionamos el collider extra en las coordenadas deseadas
-        this.extraCollider.body.setAllowGravity(false); // Desactivamos la gravedad para el collider extra
-        this.extraCollider.body.setImmovable(true); // Hacemos el collider extra inmovible
-        
+    
+        // Configuramos el tamaño del collider principal del sprite
+        this.body.setSize(this.body.width * 1.3, this.body.height * 1.3);
+    
+        // Aseguramos que el collider esté centrado en el sprite
+        this.body.setOffset(
+            (this.width - this.body.width) / 2,
+            (this.height - this.body.height) / 2
+        );
+    
+        // Añadimos el sprite al grupo de colliders
         colliderGroup.add(this);
-
     }
+    
 }

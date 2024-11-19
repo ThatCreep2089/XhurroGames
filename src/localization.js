@@ -23,7 +23,7 @@ export default class Localization extends Phaser.GameObjects.Sprite{
         // Configuramos las dimensiones y posición del collider extra
         //this.extraCollider.setSize(70, 50); // Establecemos el tamaño del collider extra
         
-        this.extraCollider.setSize(this.body.width * 1.3, this.body.height * 1.5);
+        this.extraCollider.setSize(Math.abs(this.body.width * 1.3), Math.abs(this.body.height * 1.5));
         this.extraCollider.setPosition(x, y); // Posicionamos el collider extra en las coordenadas deseadas
         this.extraCollider.body.setAllowGravity(false); // Desactivamos la gravedad para el collider extra
         this.extraCollider.body.setImmovable(true); // Hacemos el collider extra inmovible

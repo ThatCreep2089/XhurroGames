@@ -177,7 +177,7 @@ export default class ZonaScene extends Phaser.Scene{
                         this.sys.game.canvas.width / 22,
                         this.sys.game.canvas.height / 3.3,
                         flechas, 1, 2)
-                        .setScale(-0.2);
+                        .setScale(-0.2, 0.2);
                     
                         let flecha3 = new Flecha(this,
                         this.sys.game.canvas.width / 1.05,
@@ -259,7 +259,7 @@ export default class ZonaScene extends Phaser.Scene{
                     this.sys.game.canvas.width / 22,
                     this.sys.game.canvas.height / 3.3,
                     flechas, 2, 3)
-                    .setScale(-0.2);
+                    .setScale(-0.2, 0.2);
 
                 //POSICION
                 if(data.ant == 2)
@@ -407,19 +407,19 @@ export default class ZonaScene extends Phaser.Scene{
                     });
                 });
 
-                //recargar escena con flechas
+                // Recargar escena con flechas
                 flechas.children.iterate((flecha) => {
-                    this.physics.add.overlap(player, flecha.extraCollider, (player, extraCollider) => {
+                    this.physics.add.overlap(player, flecha, (player, flecha) => { // Cambiado a `flecha` en lugar de `flecha.extraCollider`
                         if (player.isInteractingPressed()) {
                             console.log("recargar escena " + flecha.modo);
-    
+                    
                             // Cambiar escena
-                            //this.scene.restart({ modo: flecha.modo });
                             this.scene.stop('zonaScene'); // Detener la escena actual
-                            this.scene.start('zonaScene', { modo: flecha.modo, ant: flecha.ant});
+                            this.scene.start('zonaScene', { modo: flecha.modo, ant: flecha.ant });
                         }
                     });
                 });
+
 
 
                 // botones para testeo
