@@ -95,16 +95,82 @@ export default class ZonaScene extends Phaser.Scene{
                         this.sys.game.canvas.width / 3.4,
                         this.sys.game.canvas.height / 1.4,
                         0.43, 0.41, localizations, 'cni');
+
+                        //NOMBRES LOCALIZACION
+                            let caja1 = this.add.image(
+                                this.sys.game.canvas.width / 3.5,
+                                this.sys.game.canvas.height / 2.15, 
+                                'caja')
+                            .setScale(0.2, 0.12);
+
+                            let texto1 = this.add.text(
+                                this.sys.game.canvas.width / 3.4,
+                                this.sys.game.canvas.height / 2.2,
+                                'CNI',
+                                { fontSize: '40px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                            );
+
+                            texto1.setOrigin(0.5, 0.5);
+                            
+                            this.add.image(
+                                this.sys.game.canvas.width / 4,
+                                this.sys.game.canvas.height / 1.8, 
+                                'maps')
+                            .setScale(-0.15, 0.15);
                     
                     let localization5 = new Localization(this, 'localization5',
                         this.sys.game.canvas.width / 2.04,
                         this.sys.game.canvas.height / 4.8,
                         0.4, 0.4, localizations, 'bar');
+
+                        //NOMBRES LOCALIZACION
+                            let caja2 = this.add.image(
+                                this.sys.game.canvas.width / 2.01,
+                                this.sys.game.canvas.height / 10.5, 
+                                'caja')
+                            .setScale(0.19, 0.1);
+
+                            let texto2 = this.add.text(
+                                this.sys.game.canvas.width / 1.97,
+                                this.sys.game.canvas.height / 12,
+                                'BAR SAN\nAGUSTIN',
+                                { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                            );
+
+                            texto2.setOrigin(0.5, 0.5);
+                            
+                            this.add.image(
+                                this.sys.game.canvas.width / 1.8,
+                                this.sys.game.canvas.height / 5.5, 
+                                'maps')
+                            .setScale(0.13, 0.13);
                     
                     let localization6 = new Localization(this, 'localization6',
                         this.sys.game.canvas.width / 1.21,
                         this.sys.game.canvas.height / 1.62,
                         0.4, 0.4, localizations, 'hipodromo');
+
+                        //NOMBRES LOCALIZACION
+                            let caja3 = this.add.image(
+                                this.sys.game.canvas.width / 1.36,
+                                this.sys.game.canvas.height / 1.52, 
+                                'caja')
+                            .setScale(0.1, 0.32);
+
+                            let texto3 = this.add.text(
+                                this.sys.game.canvas.width / 1.35,
+                                this.sys.game.canvas.height / 1.62,
+                                'H\nI\nP\nO\nD\nR\nO\nM\nO',
+                                { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                            );
+
+                            texto3.setOrigin(0.5, 0.5);
+                            
+                            this.add.image(
+                                this.sys.game.canvas.width / 1.3,
+                                this.sys.game.canvas.height / 2.3, 
+                                'maps')
+                            .setScale(-0.13, 0.13);
 
                 //GRUPO FLECHAS
                     let flecha1 = new Flecha(this,
