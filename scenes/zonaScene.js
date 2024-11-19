@@ -155,17 +155,17 @@ export default class ZonaScene extends Phaser.Scene{
             }
             else{
                 
-                //TENFE (por ahora actua como building)
+                //TENFE
                     let tenfe = new Localization(this, 'tenfe',
-                    this.sys.game.canvas.width / 1.8,
-                    this.sys.game.canvas.height / 1.4,
+                    this.sys.game.canvas.width / 1.9,
+                    this.sys.game.canvas.height / 1.25,
                     0.1, 0.1, localizations, 'tenfeFondo');
                 
                 //GRUPO LOCALIZATIONS
                     let localization1 = new Localization(this, 'localization1', 
-                    this.sys.game.canvas.width / 3.4,
-                    this.sys.game.canvas.height / 8,
-                    0.68, 0.41, localizations, 'parque');
+                    this.sys.game.canvas.width / 4.3,
+                    this.sys.game.canvas.height / 3.2,
+                    0.58, 0.4, localizations, 'parque');
                 
                     let localization2 = new Localization(this, 'localization2', 
                     this.sys.game.canvas.width / 1.31,
