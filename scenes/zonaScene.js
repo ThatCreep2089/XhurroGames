@@ -204,11 +204,55 @@ export default class ZonaScene extends Phaser.Scene{
                     this.sys.game.canvas.width / 4.4,
                     this.sys.game.canvas.height / 1.27,
                     0.3, 0.3, localizations, 'cruzRoja');
+
+                    //NOMBRES LOCALIZACION
+                        let caja1 = this.add.image(
+                            this.sys.game.canvas.width / 3.1,
+                            this.sys.game.canvas.height / 1.27, 
+                            'caja')
+                        .setScale(0.18, 0.13);
+
+                        let texto1 = this.add.text(
+                            this.sys.game.canvas.width / 3,
+                            this.sys.game.canvas.height / 1.3,
+                            'CRUZ\nROJA',
+                            { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                        );
+
+                        texto1.setOrigin(0.5, 0.5);
+                        
+                        this.add.image(
+                            this.sys.game.canvas.width / 3.5,
+                            this.sys.game.canvas.height / 1.15, 
+                            'maps')
+                        .setScale(0.13, 0.13);
                 
                 let localization8 = new Localization(this, 'localization8',
                     this.sys.game.canvas.width / 1.52,
                     this.sys.game.canvas.height / 2.25,
                     0.305, 0.3, localizations, 'iglesia');
+
+                    //NOMBRES LOCALIZACION
+                        let caja2 = this.add.image(
+                            this.sys.game.canvas.width / 1.54,
+                            this.sys.game.canvas.height / 2.2, 
+                            'caja')
+                        .setScale(0.18, 0.13);
+
+                        let texto2 = this.add.text(
+                            this.sys.game.canvas.width / 1.52,
+                            this.sys.game.canvas.height / 2.25,
+                            'IGLESIA',
+                            { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                        );
+
+                        texto2.setOrigin(0.5, 0.5);
+                        
+                        this.add.image(
+                            this.sys.game.canvas.width / 1.68,
+                            this.sys.game.canvas.height / 2.25, 
+                            'maps')
+                        .setScale(-0.13, 0.13);
                 
                 //GRUPO FLECHAS
                 let flecha2 = new Flecha(this,
