@@ -52,7 +52,7 @@ export default class DialogueScene extends Phaser.Scene {
                 this.cameras.main.height / 2 - back.displayHeight / 2
             );
         
-           
+         
 
         //NPC (depende de data)
         if(this.npc == 'paco')
@@ -64,6 +64,26 @@ export default class DialogueScene extends Phaser.Scene {
                     'paco')
                 .setOrigin(0.5, 0.5)
                 .setScale(1.5);
+
+            //TEXTO DIALOGO
+            this.dialog = new DialogText(this, {
+                borderThickness: 4,
+                borderColor: 0xcb3234,
+                borderAlpha: 1,
+                windowAlpha: 0.6,
+                windowColor: 0xff6961,
+                windowHeight: 150,
+                padding: 32,
+                closeBtnColor: 'darkgoldenrod',
+                dialogSpeed: 3,
+                fontSize: 100,
+                fontFamily: "pixel"
+            });
+
+
+            //this.dialog.toggleWindow();
+            this.dialog.setText("HOLA SOY PACO", true);
+            
         }
         else if(this.npc == 'humberto')
         {
@@ -73,7 +93,28 @@ export default class DialogueScene extends Phaser.Scene {
                     this.sys.game.canvas.height / 1.4, 
                     'humberto')
                 .setOrigin(0.5, 0.5)
-                .setScale(0.8)
+                .setScale(0.8);
+
+            //TEXTO DIALOGO
+            this.dialog = new DialogText(this, {
+                borderThickness: 4,
+                borderColor: 0xcb3234,
+                borderAlpha: 1,
+                windowAlpha: 0.6,
+                windowColor: 0xff6961,
+                windowHeight: 150,
+                padding: 32,
+                closeBtnColor: 'darkgoldenrod',
+                dialogSpeed: 3,
+                fontSize: 100,
+                fontFamily: "pixel"
+            });
+
+
+
+            //this.dialog.toggleWindow();
+            this.dialog.setText("HOLA SOY HUMBERTO", true);
+
         }
         else if(this.npc == 'maria')
         {
@@ -84,6 +125,26 @@ export default class DialogueScene extends Phaser.Scene {
                     'maria')
                 .setOrigin(0.5, 0.5)
                 .setScale(1)
+
+            //TEXTO DIALOGO
+            this.dialog = new DialogText(this, {
+                borderThickness: 4,
+                borderColor: 0xcb3234,
+                borderAlpha: 1,
+                windowAlpha: 0.6,
+                windowColor: 0xff6961,
+                windowHeight: 150,
+                padding: 32,
+                closeBtnColor: 'darkgoldenrod',
+                dialogSpeed: 3,
+                fontSize: 100,
+                fontFamily: "pixel"
+            });
+
+
+            //this.dialog.toggleWindow();
+            this.dialog.setText("HOLA SOY MARIA", true);
+
         }
         else if(this.npc == 'random')
         {
@@ -94,6 +155,25 @@ export default class DialogueScene extends Phaser.Scene {
                     'npc') //id
                 .setOrigin(0.5, 0.5)
                 .setScale(4)
+
+            //TEXTO DIALOGO
+            this.dialog = new DialogText(this, {
+                borderThickness: 4,
+                borderColor: 0xcb3234,
+                borderAlpha: 1,
+                windowAlpha: 0.6,
+                windowColor: 0xff6961,
+                windowHeight: 150,
+                padding: 32,
+                closeBtnColor: 'darkgoldenrod',
+                dialogSpeed: 3,
+                fontSize: 100,
+                fontFamily: "pixel"
+            });
+
+            //this.dialog.toggleWindow();
+            this.dialog.setText("QUIERES UN PORRO", true);
+
         }
         
 
@@ -114,23 +194,9 @@ export default class DialogueScene extends Phaser.Scene {
         this.titulo.setScale(0.8);
 
 
-        //TEXTO DIALOGO
-        this.dialog = new DialogText(this, {
-            borderThickness: 4,
-            borderColor: 0xcb3234,
-            borderAlpha: 1,
-            windowAlpha: 0.6,
-            windowColor: 0xff6961,
-            windowHeight: 150,
-            padding: 32,
-            closeBtnColor: 'darkgoldenrod',
-            dialogSpeed: 3,
-            fontSize: 24,
-            fontFamily: "pixel"
-        });
+        
 
-        //this.dialog.toggleWindow();
-        this.dialog.setText("Bu! Vamos a hacer un jueguito", true);
+        
 
 
 
