@@ -8,6 +8,27 @@ export default class Inventory
             
         }
    
+        init (config)
+        {
+            this.elems= config.elems;
+            this.tam= config.tam;
+            this.index= config.index;
+      
+      
+        }
+
+
+        GetConfigData()
+        {
+            return{
+                elems: this.elems,
+                tam: this.tam,
+                index:this.index
+            }
+
+        }
+
+
     //Añadir item
 
     AddItem(item)
@@ -45,7 +66,16 @@ export default class Inventory
     }
         }
         
-  
+
+
+
+
+
+
+
+
+
+
     RemoveItem(item)
     {
         const pos = this.elems.findIndex(e => e.name === item.name); // Encontrar el índice del item

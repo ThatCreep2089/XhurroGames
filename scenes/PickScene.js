@@ -52,7 +52,7 @@ export default class PickScene extends Phaser.Scene
 
     this.patatas= new Item(this,'patatas','Quita 3 de ansiedad',1,100,50,3);//creamos item
     console.log(this.patatas.name+this.patatas.description);
-    this.patatas.setDisplaySize(50, 50);//ajustamos tam
+    this.patatas.setDisplaySize(500, 300);//ajustamos tam
     this.patatas.setInteractive(); // Habilitar interactividad
     this.patatas.on('pointerdown', () => { //evento para detectar el raton
         this.Pick(this.patatas); 
