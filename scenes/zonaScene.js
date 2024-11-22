@@ -16,11 +16,11 @@ export default class ZonaScene extends Phaser.Scene{
     preload() //CARGAR TODOS LOS RECURSOS
     {
         //FONDOS
-        this.load.image('fondo1', 'assets/fondos/fondo2.jpeg'); //fondo 1
+        this.load.image('fondo1', 'assets/fondos/fondo1.jpeg'); //fondo 1
         this.load.image('fondo2', 'assets/fondos/fondo2.jpeg'); //fondo 2
-        this.load.image('fondo3', 'assets/fondos/fondo2.jpeg'); //fondo 3
+        this.load.image('fondo3', 'assets/fondos/fondo3.jpeg'); //fondo 3
 
-        //IGUANA
+        //PLAYER
         this.load.image('player', 'assets/npc/elle.png'); //future elle
 
         //IMAGENES BUILDINGS
@@ -31,14 +31,19 @@ export default class ZonaScene extends Phaser.Scene{
 
         //IMAGENES LOCALIZATIONS
         this.load.image('localization1', 'assets/edificios/parque.png');
+        this.load.image('localization2', 'assets/edificios/puente.png');
         this.load.image('localization4', 'assets/edificios/cni.png');
         this.load.image('localization5', 'assets/edificios/bar.png');
         this.load.image('localization6', 'assets/edificios/hipodromo.png');
+        this.load.image('localization7', 'assets/edificios/cruzRoja.png');
+        this.load.image('localization8', 'assets/edificios/iglesia.png');
         
-
-
         //FLECHAS
         this.load.image('flecha', 'assets/other/flecha.png');
+
+        //ASSETS NOMBRES LOCALIZATIONS
+        this.load.image('caja', 'assets/other/caja.png');
+        this.load.image('maps', 'assets/other/maps.png');
 
     }
 
@@ -90,78 +95,278 @@ export default class ZonaScene extends Phaser.Scene{
                         this.sys.game.canvas.width / 3.4,
                         this.sys.game.canvas.height / 1.4,
                         0.43, 0.41, localizations, 'cni');
+
+                        //NOMBRES LOCALIZACION
+                            let caja1 = this.add.image(
+                                this.sys.game.canvas.width / 3.5,
+                                this.sys.game.canvas.height / 2.15, 
+                                'caja')
+                            .setScale(0.2, 0.12);
+
+                            let texto1 = this.add.text(
+                                this.sys.game.canvas.width / 3.4,
+                                this.sys.game.canvas.height / 2.2,
+                                'CNI',
+                                { fontSize: '40px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                            );
+
+                            texto1.setOrigin(0.5, 0.5);
+                            
+                            this.add.image(
+                                this.sys.game.canvas.width / 4,
+                                this.sys.game.canvas.height / 1.8, 
+                                'maps')
+                            .setScale(-0.15, 0.15);
                     
                     let localization5 = new Localization(this, 'localization5',
                         this.sys.game.canvas.width / 2.04,
                         this.sys.game.canvas.height / 4.8,
                         0.4, 0.4, localizations, 'bar');
+
+                        //NOMBRES LOCALIZACION
+                            let caja2 = this.add.image(
+                                this.sys.game.canvas.width / 2.01,
+                                this.sys.game.canvas.height / 10.5, 
+                                'caja')
+                            .setScale(0.19, 0.1);
+
+                            let texto2 = this.add.text(
+                                this.sys.game.canvas.width / 1.97,
+                                this.sys.game.canvas.height / 12,
+                                'BAR SAN\nAGUSTIN',
+                                { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                            );
+
+                            texto2.setOrigin(0.5, 0.5);
+                            
+                            this.add.image(
+                                this.sys.game.canvas.width / 1.8,
+                                this.sys.game.canvas.height / 5.5, 
+                                'maps')
+                            .setScale(0.13, 0.13);
                     
                     let localization6 = new Localization(this, 'localization6',
                         this.sys.game.canvas.width / 1.21,
                         this.sys.game.canvas.height / 1.62,
                         0.4, 0.4, localizations, 'hipodromo');
 
+                        //NOMBRES LOCALIZACION
+                            let caja3 = this.add.image(
+                                this.sys.game.canvas.width / 1.36,
+                                this.sys.game.canvas.height / 1.52, 
+                                'caja')
+                            .setScale(0.1, 0.32);
+
+                            let texto3 = this.add.text(
+                                this.sys.game.canvas.width / 1.35,
+                                this.sys.game.canvas.height / 1.62,
+                                'H\nI\nP\nO\nD\nR\nO\nM\nO',
+                                { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                            );
+
+                            texto3.setOrigin(0.5, 0.5);
+                            
+                            this.add.image(
+                                this.sys.game.canvas.width / 1.3,
+                                this.sys.game.canvas.height / 2.3, 
+                                'maps')
+                            .setScale(-0.13, 0.13);
+
                 //GRUPO FLECHAS
                     let flecha1 = new Flecha(this,
                         this.sys.game.canvas.width / 22,
                         this.sys.game.canvas.height / 3.3,
                         flechas, 1, 2)
-                        .setScale(0.2);
-                    /*
+                        .setScale(-0.2);
+                    
                         let flecha3 = new Flecha(this,
                         this.sys.game.canvas.width / 1.05,
                         this.sys.game.canvas.height / 3.3,
                         flechas, 3, 2)
                         .setScale(0.2);
-                        */
-                
-                if(data.ant == 1)
-                {
-                    startPosition= { x: this.sys.game.canvas.width / 22, y: this.sys.game.canvas.height / 3.3 };
-                }
-                else if (data.ant == 3)
-                {
-                    startPosition= { x: this.sys.game.canvas.width / 1.05, y: this.sys.game.canvas.height / 3.3 };
-                }
+                        
+                //POSICION
+                    if(data.ant == 1)
+                    {
+                        startPosition= { x: this.sys.game.canvas.width / 22, y: this.sys.game.canvas.height / 3.3 };
+                    }
+                    else if (data.ant == 3)
+                    {
+                        startPosition= { x: this.sys.game.canvas.width / 1.05, y: this.sys.game.canvas.height / 3.3 };
+                    }
                 
             }
             else if(data.modo == 3){
-                /*
                 //GRUPO BUILDINGS
                 
+                //GRUPO LOCALIZATIONS
+                let localization7 = new Localization(this, 'localization7', 
+                    this.sys.game.canvas.width / 4.4,
+                    this.sys.game.canvas.height / 1.27,
+                    0.3, 0.3, localizations, 'cruzRoja');
+
+                    //NOMBRES LOCALIZACION
+                        let caja1 = this.add.image(
+                            this.sys.game.canvas.width / 3.1,
+                            this.sys.game.canvas.height / 1.27, 
+                            'caja')
+                        .setScale(0.18, 0.13);
+
+                        let texto1 = this.add.text(
+                            this.sys.game.canvas.width / 3,
+                            this.sys.game.canvas.height / 1.3,
+                            'CRUZ\nROJA',
+                            { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                        );
+
+                        texto1.setOrigin(0.5, 0.5);
+                        
+                        this.add.image(
+                            this.sys.game.canvas.width / 3.5,
+                            this.sys.game.canvas.height / 1.15, 
+                            'maps')
+                        .setScale(0.13, 0.13);
                 
+                let localization8 = new Localization(this, 'localization8',
+                    this.sys.game.canvas.width / 1.52,
+                    this.sys.game.canvas.height / 2.25,
+                    0.305, 0.3, localizations, 'iglesia');
+
+                    //NOMBRES LOCALIZACION
+                        let caja2 = this.add.image(
+                            this.sys.game.canvas.width / 1.54,
+                            this.sys.game.canvas.height / 2.2, 
+                            'caja')
+                        .setScale(0.18, 0.13);
+
+                        let texto2 = this.add.text(
+                            this.sys.game.canvas.width / 1.52,
+                            this.sys.game.canvas.height / 2.25,
+                            'IGLESIA',
+                            { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                        );
+
+                        texto2.setOrigin(0.5, 0.5);
+                        
+                        this.add.image(
+                            this.sys.game.canvas.width / 1.68,
+                            this.sys.game.canvas.height / 2.25, 
+                            'maps')
+                        .setScale(-0.13, 0.13);
                 
                 //GRUPO FLECHAS
-                let flecha2 = new Flecha(this, 150, 350, flechas, 2, 3).setScale(0.2);
+                let flecha2 = new Flecha(this,
+                    this.sys.game.canvas.width / 22,
+                    this.sys.game.canvas.height / 3.3,
+                    flechas, 2, 3)
+                    .setScale(-0.2);
 
-                startPosition= { x: 150, y: 350 };
-                */
+                //POSICION
+                if(data.ant == 2)
+                {
+                    startPosition= { x: this.sys.game.canvas.width / 22, y: this.sys.game.canvas.height / 3.3 };
+                }
             }
             else{
                 
-                //TENFE (por ahora actua como building)
-                let tenfe = new Localization(this, 'tenfe',
-                    this.sys.game.canvas.width / 1.8,
-                    this.sys.game.canvas.height / 1.4,
+                //TENFE
+                    let tenfe = new Localization(this, 'tenfe',
+                    this.sys.game.canvas.width / 1.9,
+                    this.sys.game.canvas.height / 1.25,
                     0.1, 0.1, localizations, 'tenfeFondo');
+
+                    //NOMBRES LOCALIZACION
+                    let caja1 = this.add.image(
+                        this.sys.game.canvas.width / 1.94,
+                        this.sys.game.canvas.height / 1.5, 
+                        'caja')
+                    .setScale(0.2, 0.12);
+
+                    let texto1 = this.add.text(
+                        this.sys.game.canvas.width / 1.9,
+                        this.sys.game.canvas.height / 1.53,
+                        'TENFE',
+                        { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                    );
+
+                    texto1.setOrigin(0.5, 0.5);
+                    
+                    this.add.image(
+                        this.sys.game.canvas.width / 1.75,
+                        this.sys.game.canvas.height / 1.3, 
+                        'maps')
+                    .setScale(0.15, 0.15);
                 
                 //GRUPO LOCALIZATIONS
-                let localization4 = new Localization(this, 'localization1', 
-                    this.sys.game.canvas.width / 3.4,
-                    this.sys.game.canvas.height / 8,
-                    0.68, 0.41, localizations, 'parque');
+                    let localization1 = new Localization(this, 'localization1', 
+                    this.sys.game.canvas.width / 4.3,
+                    this.sys.game.canvas.height / 3.2,
+                    0.58, 0.4, localizations, 'parque');
+
+                        //NOMBRES LOCALIZACION
+                            let caja2 = this.add.image(
+                                this.sys.game.canvas.width / 4.6,
+                                this.sys.game.canvas.height / 9.5, 
+                                'caja')
+                            .setScale(0.3, 0.12);
+
+                            let texto2 = this.add.text(
+                                this.sys.game.canvas.width / 4.3,
+                                this.sys.game.canvas.height / 11,
+                                'PARQUE\nMIL FLORES',
+                                { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                            );
+
+                            texto2.setOrigin(0.5, 0.5);
+                            
+                            this.add.image(
+                                this.sys.game.canvas.width / 3.2,
+                                this.sys.game.canvas.height / 5, 
+                                'maps')
+                            .setScale(0.15, 0.15);
                 
                 
-                let flecha1 = new Flecha(this, 
+                    let localization2 = new Localization(this, 'localization2', 
+                        this.sys.game.canvas.width / 1.31,
+                        this.sys.game.canvas.height / 3.4,
+                        0.26, 0.3, localizations, 'puente');
+
+                        //NOMBRES LOCALIZACION
+                        let caja3 = this.add.image(
+                            this.sys.game.canvas.width / 1.34,
+                            this.sys.game.canvas.height / 2.15, 
+                            'caja')
+                        .setScale(0.3, 0.12);
+
+                        let texto3 = this.add.text(
+                            this.sys.game.canvas.width / 1.32,
+                            this.sys.game.canvas.height / 2.2,
+                            'PUENTE',
+                            { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                        );
+
+                        texto3.setOrigin(0.5, 0.5);
+                        
+                        this.add.image(
+                            this.sys.game.canvas.width / 1.43,
+                            this.sys.game.canvas.height / 2.5, 
+                            'maps')
+                        .setScale(0.15, 0.15);
+                        
+                
+                //FLECHAS
+                    let flecha1 = new Flecha(this, 
                     this.sys.game.canvas.width / 1.05,
                     this.sys.game.canvas.height / 3.3, 
                     flechas, 2, 1)
                     .setScale(0.2);
                 
+                //POSICION    
                 if(data.ant == 2)
                 {
                     startPosition= { x:  this.sys.game.canvas.width / 1.05, y: this.sys.game.canvas.height / 3.3 };
                 }
+                
                 
 
             }
