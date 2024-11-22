@@ -1,3 +1,5 @@
+import DialogText from "../src/dialog_plugin.js";
+
 export default class DialogueScene extends Phaser.Scene {
     constructor(){
         super({key: "dialogueScene"})
@@ -50,6 +52,8 @@ export default class DialogueScene extends Phaser.Scene {
                 this.cameras.main.height / 2 - back.displayHeight / 2
             );
         
+           
+
         //NPC (depende de data)
         if(this.npc == 'paco')
         {
@@ -108,6 +112,27 @@ export default class DialogueScene extends Phaser.Scene {
         this.titulo.setStroke('#000000', 8);  // Trazo negro
         this.titulo.setOrigin(0.5, 0);
         this.titulo.setScale(0.8);
+
+
+        //TEXTO DIALOGO
+        this.dialog = new DialogText(this, {
+            borderThickness: 4,
+            borderColor: 0xcb3234,
+            borderAlpha: 1,
+            windowAlpha: 0.6,
+            windowColor: 0xff6961,
+            windowHeight: 150,
+            padding: 32,
+            closeBtnColor: 'darkgoldenrod',
+            dialogSpeed: 3,
+            fontSize: 24,
+            fontFamily: "pixel"
+        });
+
+        //this.dialog.toggleWindow();
+        this.dialog.setText("Bu! Vamos a hacer un jueguito", true);
+
+
 
         //BACK BUTTON
         const backScene = this.add.image(
