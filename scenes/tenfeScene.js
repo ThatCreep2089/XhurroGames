@@ -51,7 +51,15 @@ export default class TenfeScene extends Phaser.Scene {
             { fontSize: '32px', color: '#ffffff', backgroundColor: '#000000', padding: { x: 10, y: 5 } }
         ).setOrigin(0.5).setInteractive();
 
-    
+        const resultText = this.add.text(
+            this.sys.game.canvas.width / 2,
+            this.sys.game.canvas.height / 2 + 50,
+            '',
+            { fontSize: '32px', color: '#ff0000' }
+        ).setOrigin(0.5);
+
+        let timerEvent = null;
+
 
     }
 
