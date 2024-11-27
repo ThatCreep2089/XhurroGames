@@ -1,0 +1,27 @@
+{
+
+    "paco":{
+
+        
+        "frase1":"Hola, soy Paco",
+        "frases2":"¿Qué tal?",
+        "frase3":"¿Cómo estás?"
+        
+    },
+    "humberto":{
+
+        
+        "frase1":"Hola, soy Humberto",
+        "frases2":"¿Qué tal?",
+        "frase3":"¿Cómo estás?"
+        
+    },
+    "maria":{
+
+        
+        "frase1":"Hola, soy Maria",
+        "frases2":"¿Qué tal?",
+        "frase3":"¿Cómo estás?"
+        
+    }
+}
