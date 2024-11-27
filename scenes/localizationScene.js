@@ -41,6 +41,7 @@ export default class localizationScene extends Phaser.Scene
 
         this.load.image('accept', 'assets/other/accept.png');
 
+        
         //OBJETOS COLECCIONABLES
         
     }

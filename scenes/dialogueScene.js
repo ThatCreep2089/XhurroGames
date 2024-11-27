@@ -8,11 +8,11 @@ export default class DialogueScene extends Phaser.Scene {
     preload()
     {
         //FONDO
-            this.load.image('parque', 'assets/fondos/parque.jpg'); //fondo
-            this.load.image('puente', 'assets/fondos/puente.jpg'); //fondo
-            this.load.image('bar', 'assets/fondos/barFondo.jpg'); //fondo
-            this.load.image('cni', 'assets/fondos/cniFondo.jpg'); //fondo
-            this.load.image('hipodromo', 'assets/fondos/hipodromoFondo.jpg'); //fondo
+        this.load.image('parque', 'assets/fondos/parque.jpg'); //fondo
+        this.load.image('puente', 'assets/fondos/puente.jpg'); //fondo
+        this.load.image('bar', 'assets/fondos/barFondo.jpg'); //fondo
+        this.load.image('cni', 'assets/fondos/cniFondo.jpg'); //fondo
+        this.load.image('hipodromo', 'assets/fondos/hipodromoFondo.jpg'); //fondo
 
         //BACK BUTTON
         this.load.image('flecha', 'assets/other/flecha.png');
@@ -22,6 +22,9 @@ export default class DialogueScene extends Phaser.Scene {
         this.load.image('humberto', 'assets/npc/humberto.png');
         this.load.image('maria', 'assets/npc/maria.png');
         this.load.image('npc', 'assets/npc/npc.png');
+
+        this.load.json("dialogsNPC", 'src/dialog.json')
+
     }
 
     init(data){
@@ -34,7 +37,9 @@ export default class DialogueScene extends Phaser.Scene {
 
     create(data){
         console.log(data.npc);//debug
-        
+
+        const jsonObject = this.cache.json.get('dialogsNPC');
+        console.log(jsonObject);
         //1. PINTAR FONDO
             //Pintamos un fondo
             var back = this.add.image(0, 0, this.fondo).setOrigin(0, 0);
@@ -82,7 +87,7 @@ export default class DialogueScene extends Phaser.Scene {
 
 
             //this.dialog.toggleWindow();
-            this.dialog.setText("HOLA SOY PACO", true);
+            this.dialog.setText(jsonObject[this.npc].frase1, true);
             
         }
         else if(this.npc == 'humberto')

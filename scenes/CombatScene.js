@@ -325,9 +325,15 @@ init(boss){
             }
 
             this.updateHealthTexts(); //actualiza la vida
-            this.checkGameOver(); //comprueba si ha acabado el combate
-            this.turn = 'enemy'; // Cambia el turno al enemigo
-            this.enemyTurn();
+            const result = this.checkGameOver(); //comprueba si ha acabado el combate
+            if(!result.end == true){
+                this.turn = 'enemy'; // Cambia el turno al enemigo
+                this.enemyTurn();
+            } else if(result.playerwin == true){
+                this.scene.start("victory")
+            } else {
+                this.scene.start("lose")
+            }
         }
     }
 
@@ -374,16 +380,20 @@ init(boss){
 
     // Comprueba si alguno de los personajes ha perdido
     checkGameOver() {
+       
         if (this.player.health <= 0) {
             //debug
             console.log('Player pierde');
-            this.scene.start("lose");
+            //this.scene.start("lose");
+            return {"end": true, "playerwin": false}
         }
          else if (this.enemy.health <= 0) {
             //debug
             console.log('Enemy pierde');
-            this.scene.start("victory");
+           //this.scene.start("victory");
+           return {"end": true, "playerwin": true}
         }
+        return {"end": false, "playerwin": false}
     }
 
     update() {
