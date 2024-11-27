@@ -9,10 +9,12 @@ export default class CombatScene extends Phaser.Scene {
         
     }
 
-init(playerConfig, invetConfig){
-    this.playerConfig = playerConfig;
-    console.log(playerConfig)
-    console.log(invetConfig)
+init(data){
+    //this.data = data;
+    console.log(data.player)
+    console.log(data.inventory)
+    this.playerConfig = data.player
+    this.inventoryConfig = data.inventory
 }
 
     preload() {

@@ -58,7 +58,6 @@ let config = {
     physics: {  
         default: 'arcade', //Tenemos físicas simple, arcade
         arcade: { 
-            gravity: { y: 200 }, //Tenemos gravedad, podemos modificarla para aumentar su fuera o disminuirla
             fps: 60,         // Ajusta esto a 60 o más para mayor fluidez
             timeScale: 0.5,
             debug: true // Aquí indicamos si queremos que Phaser pinte los cuerpos y fuerzas de los objetos con físicas
