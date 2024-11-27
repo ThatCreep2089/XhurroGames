@@ -3,8 +3,8 @@
     "paco":{
 
         
-        "frase1":"Hola, soy Paco",
-        "frases2":"¿Qué tal?",
+        "frase1":"Hola, no soy Paco, pero es mentira",
+        "frase2":"¿Qué tal amijo?",
         "frase3":"¿Cómo estás?"
         
     },
@@ -12,7 +12,7 @@
 
         
         "frase1":"Hola, soy Humberto",
-        "frases2":"¿Qué tal?",
+        "frase2":"¿Qué tal?",
         "frase3":"¿Cómo estás?"
         
     },
@@ -20,8 +20,9 @@
 
         
         "frase1":"Hola, soy Maria",
-        "frases2":"¿Qué tal?",
+        "frase2":"¿Qué tal?",
         "frase3":"¿Cómo estás?"
         
     }
 }
+
