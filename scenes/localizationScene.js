@@ -1,4 +1,5 @@
 import Player from '../src/Player.js';
+import Inventory from '../src/inventory.js';
 
 export default class localizationScene extends Phaser.Scene
 {
@@ -846,6 +847,8 @@ export default class localizationScene extends Phaser.Scene
             this.player.changeMove(false);
             console.log("Ansiedad: " + this.player.ansiedad); //debug
 
+            this.Inventory = new Inventory(this);
+
             //ACCEPT && BACK
                 var acceptButton = this.add.image(
                     this.sys.game.canvas.width / 2,
@@ -916,7 +919,7 @@ export default class localizationScene extends Phaser.Scene
             50, 50, 0xff0000)
         .setInteractive()
         .setScale(4, 2)
-        .on('pointerdown', () => this.scene.start('CombatScene'));
+        .on('pointerdown', () => this.scene.start('CombatScene', this.player.getConfigData(), this.Inventory.getConfigData()));
 
          // Texto para mostrar "Ansiedad" en el centro del botón
         let combatText = this.add.text(

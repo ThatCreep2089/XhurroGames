@@ -9,8 +9,10 @@ export default class CombatScene extends Phaser.Scene {
         
     }
 
-init(boss){
-    this.boss = boss
+init(playerConfig, invetConfig){
+    this.playerConfig = playerConfig;
+    console.log(playerConfig)
+    console.log(invetConfig)
 }
 
     preload() {
@@ -50,7 +52,8 @@ init(boss){
 
         // crear player y  enemigo
         this.player = new Player(this, this.sys.game.canvas.width / 11, this.sys.game.canvas.height / 1.7);
-        this.player.setScale(0.1);
+        this.player.init(this.playerConfig);
+        //this.player.setScale(0.1);
         this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5);
         this.enemy.setScale(1);
 

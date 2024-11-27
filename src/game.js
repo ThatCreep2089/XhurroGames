@@ -1,4 +1,5 @@
 //import googleMaps from "./googleMaps.js";
+import loadScene from "../scenes/loadScene.js";
 import MainMenuScene from "../scenes/MainMenuScene.js";
 import localizationScene from "../scenes/localizationScene.js";
 import ZonaScene from "../scenes/zonaScene.js";
@@ -51,7 +52,7 @@ let config = {
         },
 		zoom: 1
     },
-    scene: [MainMenuScene,ZonaScene, localizationScene, CombatScene, VictoryScene, LoseScene,InventoryScene,PickScene, TenfeScene, DialogueScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
+    scene: [loadScene,MainMenuScene,ZonaScene, localizationScene, CombatScene, VictoryScene, LoseScene,InventoryScene,PickScene, TenfeScene, DialogueScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
     //scene: [localizationScene, ZonaScene], //debug
     //scene: [CombatScene, VictoryScene, LoseScene], //debug
     physics: {  
