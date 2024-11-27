@@ -42,7 +42,16 @@ export default class TenfeScene extends Phaser.Scene {
         .setScale(-0.3, 0.3)
         .setInteractive()
         .on('pointerdown', () => this.scene.start('zonaScene', { modo: data.modo}));
+        
+        //gambling de tenfe
+        const gachaButton = this.add.text(
+            this.sys.game.canvas.width / 2,
+            this.sys.game.canvas.height / 2 - 50,
+            'esperar tenfe',
+            { fontSize: '32px', color: '#ffffff', backgroundColor: '#000000', padding: { x: 10, y: 5 } }
+        ).setOrigin(0.5).setInteractive();
 
+    
 
     }
 
