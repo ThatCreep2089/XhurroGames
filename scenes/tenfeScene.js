@@ -61,6 +61,26 @@ export default class TenfeScene extends Phaser.Scene {
         let timerEvent = null;
 
 
+        gachaButton.on('pointerdown', () => {
+            // Reiniciar texto y temporizador
+            resultText.setText('');
+            if (timerEvent) {
+                timerEvent.remove(false);
+            }
+
+            // Generar número aleatorio
+            const secs = Phaser.Math.Between(0, 60);
+            resultText.setText(`Número: ${secs}`);
+
+            // Temporizador para mostrar "renfe"
+            timerEvent = this.time.addEvent({
+                delay: secs * 1000, // Convertir a milisegundos
+                callback: () => {
+                    resultText.setText('el metro ha llegado');
+                },
+                callbackScope: this
+            });
+        });
     }
 
 }
