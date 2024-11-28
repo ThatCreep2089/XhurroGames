@@ -29,8 +29,8 @@ export default class localizationScene extends Phaser.Scene
             this.load.image('iglesia', 'assets/fondos/iglesia.jpg'); //fondo
 
         //NPCS
-            this.load.image('PACO', 'assets/npc/paco.png');
-            this.load.image('HUMBERTO', 'assets/npc/humberto.png');
+            this.load.image('PACO', 'assets/npc/paco (2).png');
+            this.load.image('HUMBERTO', 'assets/npc/humberto (2).png');
             this.load.image('MARIA', 'assets/npc/maria.png');
             this.load.image('NPC', 'assets/npc/npc.png');
 
@@ -112,8 +112,8 @@ export default class localizationScene extends Phaser.Scene
                 //LOCALIZACION: PARQUE
                     else if(this.mode == 'parque')
                     {
-                        this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.9);
-                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 0.4);
+                        this.addNPCToScene("PACO", this.sys.game.canvas.width / 3.8, this.sys.game.canvas.height / 1.4, 0.28);
+                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2.05,this.sys.game.canvas.height / 1.4, 0.28);
                         this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
                     }
                 //LOCALIZACION: PUENTE

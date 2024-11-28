@@ -68,7 +68,7 @@ export default class DialogueScene extends Phaser.Scene {
                     this.sys.game.canvas.height / 1.4, 
                     'PACO')
                 .setOrigin(0.5, 0.5)
-                .setScale(1.5);
+                .setScale(0.5);
 
             //TEXTO DIALOGO
             this.dialog = new DialogText(this, {
@@ -98,7 +98,7 @@ export default class DialogueScene extends Phaser.Scene {
                     this.sys.game.canvas.height / 1.4, 
                     'HUMBERTO')
                 .setOrigin(0.5, 0.5)
-                .setScale(0.8);
+                .setScale(0.5);
 
             //TEXTO DIALOGO
             this.dialog = new DialogText(this, {
