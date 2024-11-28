@@ -18,10 +18,10 @@ export default class DialogueScene extends Phaser.Scene {
         this.load.image('flecha', 'assets/other/flecha.png');
 
         //NPCS
-        this.load.image('paco', 'assets/npc/paco.png');
-        this.load.image('humberto', 'assets/npc/humberto.png');
-        this.load.image('maria', 'assets/npc/maria.png');
-        this.load.image('npc', 'assets/npc/npc.png');
+        this.load.image('PACO', 'assets/npc/paco.png');
+        this.load.image('HUMBERTO', 'assets/npc/humberto.png');
+        this.load.image('MARIA', 'assets/npc/maria.png');
+        this.load.image('NPC', 'assets/npc/npc.png');
 
         this.load.json("dialogsNPC", 'src/dialog.json')
 
@@ -29,7 +29,7 @@ export default class DialogueScene extends Phaser.Scene {
 
     init(data){
         // Usar el parámetro 'fondo' para decidir qué fondo cargar
-        this.npc = data.npc || 'humberto';
+        this.npc = data.npc || 'HUMBERTO';
         this.fondo = data.fondo || 'puente';
         this.modo = data.modo;
         console.log(data.fondo);
@@ -60,13 +60,13 @@ export default class DialogueScene extends Phaser.Scene {
          
 
         //NPC (depende de data)
-        if(this.npc == 'paco')
+        if(this.npc == 'PACO')
         {
             //PACO
                 const paco = this.add.image(
                     this.sys.game.canvas.width / 2,
                     this.sys.game.canvas.height / 1.4, 
-                    'paco')
+                    'PACO')
                 .setOrigin(0.5, 0.5)
                 .setScale(1.5);
 
@@ -90,13 +90,13 @@ export default class DialogueScene extends Phaser.Scene {
             this.dialog.setText(jsonObject[this.npc].frase1, true);
             
         }
-        else if(this.npc == 'humberto')
+        else if(this.npc == 'HUMBERTO')
         {
             //HUMBERTO
                 const humberto = this.add.image(
                     this.sys.game.canvas.width / 2,
                     this.sys.game.canvas.height / 1.4, 
-                    'humberto')
+                    'HUMBERTO')
                 .setOrigin(0.5, 0.5)
                 .setScale(0.8);
 
@@ -121,13 +121,13 @@ export default class DialogueScene extends Phaser.Scene {
             this.dialog.setText("HOLA SOY HUMBERTO", true);
 
         }
-        else if(this.npc == 'maria')
+        else if(this.npc == 'MARIA')
         {
             //MARIA
                 const maria = this.add.image(
                     this.sys.game.canvas.width / 2,
                     this.sys.game.canvas.height / 1.4, 
-                    'maria')
+                    'MARIA')
                 .setOrigin(0.5, 0.5)
                 .setScale(1)
 
@@ -157,7 +157,7 @@ export default class DialogueScene extends Phaser.Scene {
                 const npc = this.add.image(
                     this.sys.game.canvas.width / 2,
                     this.sys.game.canvas.height / 1.4, 
-                    'npc') //id
+                    'NPC') //id
                 .setOrigin(0.5, 0.5)
                 .setScale(4)
 

@@ -1,6 +1,6 @@
 {
 
-    "paco":{
+    "PACO":{
 
         
         "frase1":"Hola, no soy Paco, pero es mentira",
@@ -8,7 +8,7 @@
         "frase3":"¿Cómo estás?"
         
     },
-    "humberto":{
+    "HUMBERTO":{
 
         
         "frase1":"Hola, soy Humberto",
@@ -16,7 +16,7 @@
         "frase3":"¿Cómo estás?"
         
     },
-    "maria":{
+    "MARIA":{
 
         
         "frase1":"Hola, soy Maria",

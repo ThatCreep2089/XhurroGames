@@ -29,10 +29,10 @@ export default class localizationScene extends Phaser.Scene
             this.load.image('iglesia', 'assets/fondos/iglesia.jpg'); //fondo
 
         //NPCS
-            this.load.image('paco', 'assets/npc/paco.png');
-            this.load.image('humberto', 'assets/npc/humberto.png');
-            this.load.image('maria', 'assets/npc/maria.png');
-            this.load.image('npc', 'assets/npc/npc.png');
+            this.load.image('PACO', 'assets/npc/paco.png');
+            this.load.image('HUMBERTO', 'assets/npc/humberto.png');
+            this.load.image('MARIA', 'assets/npc/maria.png');
+            this.load.image('NPC', 'assets/npc/npc.png');
 
         //BACK BUTTON
         this.load.image('flecha', 'assets/other/flecha.png');
@@ -69,11 +69,6 @@ export default class localizationScene extends Phaser.Scene
             );
 
         //2. AÑADIR ELEMENTOS LOCALIZACIÓN
-            //agrupación objetos coleccionables (depende de data)
-            //ansiedad
-            //elle NO visible
-
-
             // TEXTO
             this.titulo = this.add.text(
                 this.sys.game.canvas.width / 2,   // coordenada x
@@ -90,735 +85,57 @@ export default class localizationScene extends Phaser.Scene
             this.titulo.setScale(0.8);
 
             this.names = this.add.group();
+            
             //NPCS (DEPENDEN DE DATA)
                 //LOCALIZACION: BAR
-
                     if(this.mode == 'bar')
                         {
-                            this.addNPCToScene("paco", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 3.7, 0.9, acceptButton);
-                            this.addNPCToScene("humberto", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 3.7, 0.2, acceptButton);
-                            /*
-                            var names = this.add.group(); //grupo de nombres de npcs
-
-                                //NOMBRE Paco
-                                let pacoName = this.add.text(
-                                    this.sys.game.canvas.width / 4,   // coordenada x
-                                    this.sys.game.canvas.height / 3.7, // coordenada y
-                                    "PACO", //frase
-                                    { 
-                                        fontSize: '100px', 
-                                        color: '#999999',       // Gris
-                                        fontFamily: 'Georgia',  
-                                    }
-                                );
-                                pacoName.setStroke('#000000', 8);  // Trazo negro
-                                pacoName.setOrigin(0.5, 0);
-                                pacoName.setScale(0.6);
-
-                                names.add(pacoName); //añadir al conjunto
-                            
-                                //BOTON Paco
-                                const paco = this.add.image(
-                                    this.sys.game.canvas.width / 4,
-                                    this.sys.game.canvas.height / 1.4, 
-                                    'paco') //id
-                                .setOrigin(0.5, 0.5)
-                                .setScale(0.9)
-                                .setInteractive()
-                                .on('pointerdown', () =>{
-                                    this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con PACO?");
-                                    this.npcTalk = 'paco';
-                                    })
-                                .on('pointerover', () => paco.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
-                                .on('pointerout', () => paco.clearTint());
-
-
-                                //NOMBRE Npc
-                                let npcName1 = this.add.text(
-                                    this.sys.game.canvas.width / 2,   // coordenada x
-                                    this.sys.game.canvas.height / 3.7, // coordenada y
-                                    "NPC", //frase
-                                    { 
-                                        fontSize: '100px', 
-                                        color: '#999999',       // Gris
-                                        fontFamily: 'Georgia',  
-                                    }
-                                );
-                                npcName1.setStroke('#000000', 8);  // Trazo negro
-                                npcName1.setOrigin(0.5, 0);
-                                npcName1.setScale(0.6);
-
-                                names.add(npcName1); //añadir al conjunto
-                            
-                                //BOTON Npc
-                                const npc1 = this.add.image(
-                                    this.sys.game.canvas.width / 2,
-                                    this.sys.game.canvas.height / 1.4, 
-                                    'npc') //id
-                                .setOrigin(0.5, 0.5)
-                                .setScale(3)
-                                .setInteractive()
-                                .on('pointerdown', () => {
-                                    this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
-                                    this.npcTalk = 'random';
-                                    })
-                                .on('pointerover', () => npc1.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
-                                .on('pointerout', () => npc1.clearTint());
-
-                                //NOMBRE Npc
-                                let npcName2 = this.add.text(
-                                    this.sys.game.canvas.width / 1.37,   // coordenada x
-                                    this.sys.game.canvas.height / 3.7, // coordenada y
-                                    "NPC", //frase
-                                    { 
-                                        fontSize: '100px', 
-                                        color: '#999999',       // Gris
-                                        fontFamily: 'Georgia',  
-                                    }
-                                );
-                                npcName2.setStroke('#000000', 8);  // Trazo negro
-                                npcName2.setOrigin(0.5, 0);
-                                npcName2.setScale(0.6);
-
-                                names.add(npcName2); //añadir al conjunto
-                            
-                                //BOTON Npc
-                                const npc2 = this.add.image(
-                                    this.sys.game.canvas.width / 1.37,
-                                    this.sys.game.canvas.height / 1.4, 
-                                    'npc') //id
-                                .setOrigin(0.5, 0.5)
-                                .setScale(3)
-                                .setInteractive()
-                                .on('pointerdown', () => {
-                                    this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
-                                    this.npcTalk = 'random';
-                                    })
-                                .on('pointerover', () => npc2.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
-                                .on('pointerout', () => npc2.clearTint());
-                            */
+                            this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 3.7, 0.9);
+                            this.addNPCToScene("NPC", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 3.7, 0.2);
+                            this.addNPCToScene("NPC", this.sys.game.canvas.width / 1.5,this.sys.game.canvas.height / 3.7, 0.2);
                         }
                 //LOCALIZACION: CNI
                     else if(this.mode == 'cni')
                     {
-                        var names = this.add.group();
-                            
-                            let mariaName = this.add.text(
-                                this.sys.game.canvas.width / 1.37,   // Coordenada X: centrado horizontalmente
-                                this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
-                                "MARIA", 
-                                { 
-                                    fontSize: '100px', 
-                                    color: '#999999',       // Gris
-                                    fontFamily: 'Georgia',  
-                                }
-                            );
-                            mariaName.setStroke('#000000', 8);  // Trazo negro
-                            mariaName.setOrigin(0.5, 0);
-                            mariaName.setScale(0.6);
-
-                            names.add(mariaName);
-                        
-                            //MARIA
-                            const maria = this.add.image(
-                                this.sys.game.canvas.width / 1.35,
-                                this.sys.game.canvas.height / 1.4, 
-                                'maria')
-                            .setOrigin(0.5, 0.5)
-                            .setScale(0.6)
-                            .setInteractive()
-                            .on('pointerdown', () =>{
-                                this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?");
-                                this.npcTalk = 'maria';
-                                })
-                            .on('pointerover', () => maria.setTint(0xff0000))
-                            .on('pointerout', () => maria.clearTint());
-
-
-                            //NOMBRE Npc
-                            let npcName1 = this.add.text(
-                                this.sys.game.canvas.width / 2,   // coordenada x
-                                this.sys.game.canvas.height / 3.7, // coordenada y
-                                "NPC", //frase
-                                { 
-                                    fontSize: '100px', 
-                                    color: '#999999',       // Gris
-                                    fontFamily: 'Georgia',  
-                                }
-                            );
-                            npcName1.setStroke('#000000', 8);  // Trazo negro
-                            npcName1.setOrigin(0.5, 0);
-                            npcName1.setScale(0.6);
-
-                            names.add(npcName1); //añadir al conjunto
-                        
-                            //BOTON Npc
-                            const npc1 = this.add.image(
-                                this.sys.game.canvas.width / 2,
-                                this.sys.game.canvas.height / 1.4, 
-                                'npc') //id
-                            .setOrigin(0.5, 0.5)
-                            .setScale(3)
-                            .setInteractive()
-                            .on('pointerdown', () => {
-                                this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
-                                this.npcTalk = 'random';
-                                })
-                            .on('pointerover', () => npc1.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
-                            .on('pointerout', () => npc1.clearTint());
-
-                            //NOMBRE Npc
-                            let npcName2 = this.add.text(
-                                this.sys.game.canvas.width / 4,   // coordenada x
-                                this.sys.game.canvas.height / 3.7, // coordenada y
-                                "NPC", //frase
-                                { 
-                                    fontSize: '100px', 
-                                    color: '#999999',       // Gris
-                                    fontFamily: 'Georgia',  
-                                }
-                            );
-                            npcName2.setStroke('#000000', 8);  // Trazo negro
-                            npcName2.setOrigin(0.5, 0);
-                            npcName2.setScale(0.6);
-
-                            names.add(npcName2); //añadir al conjunto
-                        
-                            //BOTON Npc
-                            const npc2 = this.add.image(
-                                this.sys.game.canvas.width / 4,
-                                this.sys.game.canvas.height / 1.4, 
-                                'npc') //id
-                            .setOrigin(0.5, 0.5)
-                            .setScale(3)
-                            .setInteractive()
-                            .on('pointerdown', () => {
-                                this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
-                                this.npcTalk = 'random';
-                                })
-                            .on('pointerover', () => npc2.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
-                            .on('pointerout', () => npc2.clearTint());
-                            
+                        this.addNPCToScene("MARIA", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 3.7, 0.9);
+                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 3.7, 0.2);
+                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 1.5,this.sys.game.canvas.height / 3.7, 0.2);
                     }
                 //LOCALIZACION: HIPODROMO
                     else if(this.mode == 'hipodromo')
                     {
-                    var names = this.add.group();
-
-                        let humbertoName = this.add.text(
-                            this.sys.game.canvas.width / 2,   // Coordenada X: centrado horizontalmente
-                            this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
-                            "HUMBERTO", 
-                            { 
-                                fontSize: '100px', 
-                                color: '#999999',       // Negro
-                                fontFamily: 'Georgia',  
-                            }
-                        );
-                        humbertoName.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
-                        humbertoName.setOrigin(0.5, 0);
-                        humbertoName.setScale(0.6);
-
-                        names.add(humbertoName);
-
-                    
-                        //HUMBERTO
-                        const humberto = this.add.image(
-                            this.sys.game.canvas.width / 2,
-                            this.sys.game.canvas.height / 1.4, 
-                            'humberto')
-                        .setOrigin(0.5, 0.5)
-                        .setScale(0.4)
-                        .setInteractive()
-                        .on('pointerdown', () =>{
-                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con HUMBERTO?");
-                            this.npcTalk = 'humberto';
-                            })
-                        .on('pointerover', () => humberto.setTint(0xff0000))
-                        .on('pointerout', () => humberto.clearTint());
-
-                        //NOMBRE Npc
-                        let npcName1 = this.add.text(
-                            this.sys.game.canvas.width / 4,   // coordenada x
-                            this.sys.game.canvas.height / 3.7, // coordenada y
-                            "NPC", //frase
-                            { 
-                                fontSize: '100px', 
-                                color: '#999999',       // Gris
-                                fontFamily: 'Georgia',  
-                            }
-                        );
-                        npcName1.setStroke('#000000', 8);  // Trazo negro
-                        npcName1.setOrigin(0.5, 0);
-                        npcName1.setScale(0.6);
-
-                        names.add(npcName1); //añadir al conjunto
-                    
-                        
-                        //BOTON Npc
-                        const npc1 = this.add.image(
-                            this.sys.game.canvas.width / 4,
-                            this.sys.game.canvas.height / 1.4, 
-                            'npc') //id
-                        .setOrigin(0.5, 0.5)
-                        .setScale(3)
-                        .setInteractive()
-                        .on('pointerdown', () => {
-                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
-                            this.npcTalk = 'random';
-                            })
-                        .on('pointerover', () => npc1.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
-                        .on('pointerout', () => npc1.clearTint());
-
-                        //NOMBRE Npc
-                        let npcName2 = this.add.text(
-                            this.sys.game.canvas.width / 1.37,   // coordenada x
-                            this.sys.game.canvas.height / 3.7, // coordenada y
-                            "NPC", //frase
-                            { 
-                                fontSize: '100px', 
-                                color: '#999999',       // Gris
-                                fontFamily: 'Georgia',  
-                            }
-                        );
-                        npcName2.setStroke('#000000', 8);  // Trazo negro
-                        npcName2.setOrigin(0.5, 0);
-                        npcName2.setScale(0.6);
-
-                        names.add(npcName2); //añadir al conjunto
-                    
-                        //BOTON Npc
-                        const npc2 = this.add.image(
-                            this.sys.game.canvas.width / 1.37,
-                            this.sys.game.canvas.height / 1.4, 
-                            'npc') //id
-                        .setOrigin(0.5, 0.5)
-                        .setScale(3)
-                        .setInteractive()
-                        .on('pointerdown', () => {
-                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
-                            this.npcTalk = 'random';
-                            })
-                        .on('pointerover', () => npc2.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
-                        .on('pointerout', () => npc2.clearTint());
-
-
-
+                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 3.7, 0.9);
+                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 3.7, 0.2);
+                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 1.5,this.sys.game.canvas.height / 3.7, 0.2);
 
                     }
                 //LOCALIZACION: PARQUE
                     else if(this.mode == 'parque')
                     {
-                        
-                        var names = this.add.group();
-
-                        let pacoName = this.add.text(
-                            this.sys.game.canvas.width / 4,   // Coordenada X: centrado horizontalmente
-                            this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
-                            "PACO", 
-                            { 
-                                fontSize: '100px', 
-                                color: '#999999',       // Negro
-                                fontFamily: 'Georgia',  
-                            }
-                        );
-                        pacoName.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
-                        pacoName.setOrigin(0.5, 0);
-                        pacoName.setScale(0.6);
-
-                        names.add(pacoName);
-
-                        let humbertoName = this.add.text(
-                            this.sys.game.canvas.width / 2,   // Coordenada X: centrado horizontalmente
-                            this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
-                            "HUMBERTO", 
-                            { 
-                                fontSize: '100px', 
-                                color: '#999999',       // Negro
-                                fontFamily: 'Georgia',  
-                            }
-                        );
-                        humbertoName.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
-                        humbertoName.setOrigin(0.5, 0);
-                        humbertoName.setScale(0.6);
-
-                        names.add(humbertoName);
-
-                        let mariaName = this.add.text(
-                            this.sys.game.canvas.width / 1.37,   // Coordenada X: centrado horizontalmente
-                            this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
-                            "MARIA", 
-                            { 
-                                fontSize: '100px', 
-                                color: '#999999',       // Gris
-                                fontFamily: 'Georgia',  
-                            }
-                        );
-                        mariaName.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
-                        mariaName.setOrigin(0.5, 0);
-                        mariaName.setScale(0.6);
-
-                        names.add(mariaName);
-                        
-                        
-                        
-                        //PACO
-                        const paco = this.add.image(
-                            this.sys.game.canvas.width / 4,
-                            this.sys.game.canvas.height / 1.4, 
-                            'paco')
-                        .setOrigin(0.5, 0.5)
-                        .setScale(0.9)
-                        .setInteractive()
-                        .on('pointerdown', () =>{
-                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con PACO?");
-                            this.npcTalk = 'paco';
-                            })
-                        .on('pointerover', () => paco.setTint(0xff0000))
-                        .on('pointerout', () => paco.clearTint());
-                        
-
-                        //HUMBERTO
-                        const humberto = this.add.image(
-                            this.sys.game.canvas.width / 2,
-                            this.sys.game.canvas.height / 1.4, 
-                            'humberto')
-                        .setOrigin(0.5, 0.5)
-                        .setScale(0.4)
-                        .setInteractive()
-                        .on('pointerdown', () =>{
-                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con HUMBERTO?");
-                            this.npcTalk = 'humberto';
-                            })
-                        .on('pointerover', () => humberto.setTint(0xff0000))
-                        .on('pointerout', () => humberto.clearTint());
-
-
-                        //MARIA
-                        const maria = this.add.image(
-                            this.sys.game.canvas.width / 1.35,
-                            this.sys.game.canvas.height / 1.4, 
-                            'maria')
-                        .setOrigin(0.5, 0.5)
-                        .setScale(0.6)
-                        .setInteractive()
-                        .on('pointerdown', () =>{
-                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?");
-                            this.npcTalk = 'maria';
-                            })
-                        .on('pointerover', () => maria.setTint(0xff0000))
-                        .on('pointerout', () => maria.clearTint());
-
-                        
+                        this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.9);
+                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 0.4);
+                        this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
                     }
                 //LOCALIZACION: PUENTE
                     else if(this.mode == 'puente')
                     {
-                        
-                        var names = this.add.group();
-
-                        let pacoName = this.add.text(
-                            this.sys.game.canvas.width / 4,   // Coordenada X: centrado horizontalmente
-                            this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
-                            "PACO", 
-                            { 
-                                fontSize: '100px', 
-                                color: '#999999',       // Negro
-                                fontFamily: 'Georgia',  
-                            }
-                        );
-                        pacoName.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
-                        pacoName.setOrigin(0.5, 0);
-                        pacoName.setScale(0.6);
-
-                        names.add(pacoName);
-
-                        let humbertoName = this.add.text(
-                            this.sys.game.canvas.width / 2,   // Coordenada X: centrado horizontalmente
-                            this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
-                            "HUMBERTO", 
-                            { 
-                                fontSize: '100px', 
-                                color: '#999999',       // Negro
-                                fontFamily: 'Georgia',  
-                            }
-                        );
-                        humbertoName.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
-                        humbertoName.setOrigin(0.5, 0);
-                        humbertoName.setScale(0.6);
-
-                        names.add(humbertoName);
-
-                        let mariaName = this.add.text(
-                            this.sys.game.canvas.width / 1.37,   // Coordenada X: centrado horizontalmente
-                            this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
-                            "MARIA", 
-                            { 
-                                fontSize: '100px', 
-                                color: '#999999',       // Gris
-                                fontFamily: 'Georgia',  
-                            }
-                        );
-                        mariaName.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
-                        mariaName.setOrigin(0.5, 0);
-                        mariaName.setScale(0.6);
-
-                        names.add(mariaName);
-                        
-                        
-                        
-                        //PACO
-                        const paco = this.add.image(
-                            this.sys.game.canvas.width / 4,
-                            this.sys.game.canvas.height / 1.4, 
-                            'paco')
-                        .setOrigin(0.5, 0.5)
-                        .setScale(0.9)
-                        .setInteractive()
-                        .on('pointerdown', () =>{
-                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con PACO?");
-                            this.npcTalk = 'paco';
-                            })
-                        .on('pointerover', () => paco.setTint(0xff0000))
-                        .on('pointerout', () => paco.clearTint());
-                        
-
-                        //HUMBERTO
-                        const humberto = this.add.image(
-                            this.sys.game.canvas.width / 2,
-                            this.sys.game.canvas.height / 1.4, 
-                            'humberto')
-                        .setOrigin(0.5, 0.5)
-                        .setScale(0.4)
-                        .setInteractive()
-                        .on('pointerdown', () =>{
-                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con HUMBERTO?");
-                            this.npcTalk = 'humberto';
-                            })
-                        .on('pointerover', () => humberto.setTint(0xff0000))
-                        .on('pointerout', () => humberto.clearTint());
-
-
-                        //MARIA
-                        const maria = this.add.image(
-                            this.sys.game.canvas.width / 1.35,
-                            this.sys.game.canvas.height / 1.4, 
-                            'maria')
-                        .setOrigin(0.5, 0.5)
-                        .setScale(0.6)
-                        .setInteractive()
-                        .on('pointerdown', () =>{
-                            this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?");
-                            this.npcTalk = 'maria';
-                            })
-                        .on('pointerover', () => maria.setTint(0xff0000))
-                        .on('pointerout', () => maria.clearTint());
-
-                        
+                        this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 3.7, 0.9);
+                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 3.7, 0.2);
+                        this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.5,this.sys.game.canvas.height / 3.7, 0.2);
                     }
-                  //LOCALIZACION: CNI
+                  //LOCALIZACION: CRUZ ROJA
                     else if(this.mode == 'cruzRoja')
                     {
-                        var names = this.add.group();
-                            
-                            let mariaName = this.add.text(
-                                this.sys.game.canvas.width / 1.37,   // Coordenada X: centrado horizontalmente
-                                this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
-                                "MARIA", 
-                                { 
-                                    fontSize: '100px', 
-                                    color: '#999999',       // Gris
-                                    fontFamily: 'Georgia',  
-                                }
-                            );
-                            mariaName.setStroke('#000000', 8);  // Trazo negro
-                            mariaName.setOrigin(0.5, 0);
-                            mariaName.setScale(0.6);
-
-                            names.add(mariaName);
-                        
-                            //MARIA
-                            const maria = this.add.image(
-                                this.sys.game.canvas.width / 1.35,
-                                this.sys.game.canvas.height / 1.4, 
-                                'maria')
-                            .setOrigin(0.5, 0.5)
-                            .setScale(0.6)
-                            .setInteractive()
-                            .on('pointerdown', () =>{
-                                this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?");
-                                this.npcTalk = 'maria';
-                                })
-                            .on('pointerover', () => maria.setTint(0xff0000))
-                            .on('pointerout', () => maria.clearTint());
-
-
-                            //NOMBRE Npc
-                            let npcName1 = this.add.text(
-                                this.sys.game.canvas.width / 2,   // coordenada x
-                                this.sys.game.canvas.height / 3.7, // coordenada y
-                                "NPC", //frase
-                                { 
-                                    fontSize: '100px', 
-                                    color: '#999999',       // Gris
-                                    fontFamily: 'Georgia',  
-                                }
-                            );
-                            npcName1.setStroke('#000000', 8);  // Trazo negro
-                            npcName1.setOrigin(0.5, 0);
-                            npcName1.setScale(0.6);
-
-                            names.add(npcName1); //añadir al conjunto
-                        
-                            //BOTON Npc
-                            const npc1 = this.add.image(
-                                this.sys.game.canvas.width / 2,
-                                this.sys.game.canvas.height / 1.4, 
-                                'npc') //id
-                            .setOrigin(0.5, 0.5)
-                            .setScale(3)
-                            .setInteractive()
-                            .on('pointerdown', () => {
-                                this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
-                                this.npcTalk = 'random';
-                                })
-                            .on('pointerover', () => npc1.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
-                            .on('pointerout', () => npc1.clearTint());
-
-                            //NOMBRE Npc
-                            let npcName2 = this.add.text(
-                                this.sys.game.canvas.width / 4,   // coordenada x
-                                this.sys.game.canvas.height / 3.7, // coordenada y
-                                "NPC", //frase
-                                { 
-                                    fontSize: '100px', 
-                                    color: '#999999',       // Gris
-                                    fontFamily: 'Georgia',  
-                                }
-                            );
-                            npcName2.setStroke('#000000', 8);  // Trazo negro
-                            npcName2.setOrigin(0.5, 0);
-                            npcName2.setScale(0.6);
-
-                            names.add(npcName2); //añadir al conjunto
-                        
-                            //BOTON Npc
-                            const npc2 = this.add.image(
-                                this.sys.game.canvas.width / 4,
-                                this.sys.game.canvas.height / 1.4, 
-                                'npc') //id
-                            .setOrigin(0.5, 0.5)
-                            .setScale(3)
-                            .setInteractive()
-                            .on('pointerdown', () => {
-                                this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
-                                this.npcTalk = 'random';
-                                })
-                            .on('pointerover', () => npc2.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
-                            .on('pointerout', () => npc2.clearTint());
-                            
+                        this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 3.7, 0.9);
+                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 3.7, 0.2);
+                        this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.5,this.sys.game.canvas.height / 3.7, 0.2);
                     }
-                    //LOCALIZACION: CNI
+                    //LOCALIZACION: IGLESIA
                     else if(this.mode == 'iglesia')
                         {
-                            var names = this.add.group();
-                                
-                                let mariaName = this.add.text(
-                                    this.sys.game.canvas.width / 1.37,   // Coordenada X: centrado horizontalmente
-                                    this.sys.game.canvas.height / 3.7, // Coordenada Y: 1/10 del alto de la pantalla 
-                                    "MARIA", 
-                                    { 
-                                        fontSize: '100px', 
-                                        color: '#999999',       // Gris
-                                        fontFamily: 'Georgia',  
-                                    }
-                                );
-                                mariaName.setStroke('#000000', 8);  // Trazo negro
-                                mariaName.setOrigin(0.5, 0);
-                                mariaName.setScale(0.6);
-    
-                                names.add(mariaName);
-                            
-                                //MARIA
-                                const maria = this.add.image(
-                                    this.sys.game.canvas.width / 1.35,
-                                    this.sys.game.canvas.height / 1.4, 
-                                    'maria')
-                                .setOrigin(0.5, 0.5)
-                                .setScale(0.6)
-                                .setInteractive()
-                                .on('pointerdown', () =>{
-                                    this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con MARIA?");
-                                    this.npcTalk = 'maria';
-                                    })
-                                .on('pointerover', () => maria.setTint(0xff0000))
-                                .on('pointerout', () => maria.clearTint());
-    
-    
-                                //NOMBRE Npc
-                                let npcName1 = this.add.text(
-                                    this.sys.game.canvas.width / 2,   // coordenada x
-                                    this.sys.game.canvas.height / 3.7, // coordenada y
-                                    "NPC", //frase
-                                    { 
-                                        fontSize: '100px', 
-                                        color: '#999999',       // Gris
-                                        fontFamily: 'Georgia',  
-                                    }
-                                );
-                                npcName1.setStroke('#000000', 8);  // Trazo negro
-                                npcName1.setOrigin(0.5, 0);
-                                npcName1.setScale(0.6);
-    
-                                names.add(npcName1); //añadir al conjunto
-                            
-                                //BOTON Npc
-                                const npc1 = this.add.image(
-                                    this.sys.game.canvas.width / 2,
-                                    this.sys.game.canvas.height / 1.4, 
-                                    'npc') //id
-                                .setOrigin(0.5, 0.5)
-                                .setScale(3)
-                                .setInteractive()
-                                .on('pointerdown', () => {
-                                    this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
-                                    this.npcTalk = 'random';
-                                    })
-                                .on('pointerover', () => npc1.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
-                                .on('pointerout', () => npc1.clearTint());
-    
-                                //NOMBRE Npc
-                                let npcName2 = this.add.text(
-                                    this.sys.game.canvas.width / 4,   // coordenada x
-                                    this.sys.game.canvas.height / 3.7, // coordenada y
-                                    "NPC", //frase
-                                    { 
-                                        fontSize: '100px', 
-                                        color: '#999999',       // Gris
-                                        fontFamily: 'Georgia',  
-                                    }
-                                );
-                                npcName2.setStroke('#000000', 8);  // Trazo negro
-                                npcName2.setOrigin(0.5, 0);
-                                npcName2.setScale(0.6);
-    
-                                names.add(npcName2); //añadir al conjunto
-                            
-                                //BOTON Npc
-                                const npc2 = this.add.image(
-                                    this.sys.game.canvas.width / 4,
-                                    this.sys.game.canvas.height / 1.4, 
-                                    'npc') //id
-                                .setOrigin(0.5, 0.5)
-                                .setScale(3)
-                                .setInteractive()
-                                .on('pointerdown', () => {
-                                    this.acceptButton(true, arrows, names, acceptButton, backButton, "Quieres hablar con NPC?");
-                                    this.npcTalk = 'random';
-                                    })
-                                .on('pointerover', () => npc2.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
-                                .on('pointerout', () => npc2.clearTint());
-                                
+                            this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 3.7, 0.9);
+                            this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 3.7, 0.2);
+                            this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.5,this.sys.game.canvas.height / 3.7, 0.2);
                         }
 
 
@@ -856,7 +173,7 @@ export default class localizationScene extends Phaser.Scene
             this.Inventory = new Inventory(this);
 
             //ACCEPT && BACK
-                var acceptButton = this.add.image(
+                this.accept = this.add.image(
                     this.sys.game.canvas.width / 2,
                     this.sys.game.canvas.height / 3.2, 
                     'accept')
@@ -870,21 +187,18 @@ export default class localizationScene extends Phaser.Scene
                     this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.mode, modo: this.modo})
                 }); //cambiar a escena dialogo
                 
-                var backButton = this.add.image(
+                this.backButton = this.add.image(
                     this.sys.game.canvas.width / 4,
                     this.sys.game.canvas.height / 3.2, 
                     'flecha')
                 .setScale(-0.3, 0.3)
                 .setInteractive()
                 .on('pointerdown', () => {
-                    this.acceptButton(false, this.arrows, this.names, acceptButton, backButton, "Con quien quieres hablar?");
+                    this.acceptButton(false, "Con quien quieres hablar?");
                 });
     
                 
-                this.acceptButton(false, this.arrows, this.names, acceptButton, backButton, "Con quien quieres hablar?"); //empieza ocultando boton aceptar
-
-
-            
+                this.acceptButton(false, "Con quien quieres hablar?"); //empieza ocultando boton aceptar
 
 
             //MOSTRAR ANSIEDAD
@@ -902,7 +216,6 @@ export default class localizationScene extends Phaser.Scene
                 this.anxietyText.setScale(0.6);
 
 
-
             //BACK BUTTON
             const backScene = this.add.image(
                 this.sys.game.canvas.width / 12,
@@ -913,11 +226,6 @@ export default class localizationScene extends Phaser.Scene
             .on('pointerdown', () => this.scene.start('zonaScene', { modo: data.modo}));
 
             
-
-
-
-
-
         // botones para testeo
         let combatButton = this.add.rectangle(
             this.sys.game.canvas.width / 1.2,
@@ -950,7 +258,7 @@ export default class localizationScene extends Phaser.Scene
     }
 
 
-    addNPCToScene(nombre, x, y, scale, acceptButton){    
+    addNPCToScene(nombre, x, y, scale){    
         //BOTON Paco
         const spritePJ = this.add.image(
             x,
@@ -960,16 +268,17 @@ export default class localizationScene extends Phaser.Scene
         .setScale(scale)
         .setInteractive()
         .on('pointerdown', () =>{
-            this.acceptButton(true, undefined, this.names, acceptButton, backButton, "Quieres hablar con "+nombre+"?");
+            this.acceptButton(true, "Quieres hablar con "+ nombre +"?");
             this.npcTalk = nombre;
             })
         .on('pointerover', () => spritePJ.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
         .on('pointerout', () => spritePJ.clearTint());
 
+        
         //NOMBRE Paco
         let textPJ = this.add.text(
             x,   // coordenada x
-            y-(spritePJ.width/2), // coordenada y
+            this.sys.game.canvas.height / 3.7, // coordenada y
             nombre, //frase
             { 
                 fontSize: '100px', 
@@ -990,14 +299,13 @@ export default class localizationScene extends Phaser.Scene
         this.anxietyText.setText(`Ansiedad: ${this.player.ansiedad}`);
     }
 
-    acceptButton(show, arrows, names, acceptButton, backButton, nuevoTexto) //para enseñar y ocultar botones
+    acceptButton(show, nuevoTexto) //para enseñar y ocultar botones
     {
         if(show == true)
         {
             //mostrar boton aceptar y back
-            acceptButton.setVisible(true);
-            backButton.setVisible(true);
-
+            this.accept.setVisible(true);
+            this.backButton.setVisible(true);
 
             //ocultar flechas
             this.arrows.setVisible(false);
@@ -1012,8 +320,8 @@ export default class localizationScene extends Phaser.Scene
         else
         {
             // Ocultar botones aceptar y back
-            if (acceptButton) acceptButton.setVisible(false);
-            if (backButton) backButton.setVisible(false);   
+            if (this.accept) this.accept.setVisible(false);
+            if (this.backButton) this.backButton.setVisible(false);   
 
             // Mostrar flechas
             this.arrows.setVisible(true);
