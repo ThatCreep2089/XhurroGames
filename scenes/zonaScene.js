@@ -78,7 +78,7 @@ export default class ZonaScene extends Phaser.Scene{
         
             // Declarar los grupos de objetos
             let buildings = this.add.group();
-            let localizations = this.add.group();
+            this.localizations = this.add.group();
             let flechas = this.add.group();
             let startPosition = window.gameState.playerPosition || { x: 900, y: 330 }; //posicion de la tenfe
 
@@ -274,6 +274,8 @@ export default class ZonaScene extends Phaser.Scene{
             }
             else{
                 const localization = jsonObject["botellin"].zona1.parque;
+                this.createLocalization(localization);
+                /*
                 let localization1 = new Localization(this, localization.sprite, 
                     eval(localization.x),
                     eval(localization.y),
@@ -303,7 +305,7 @@ export default class ZonaScene extends Phaser.Scene{
                                 eval(decor.y), 
                                 decor.id)
                             .setScale( eval(decor.width),  eval(decor.height));
-                
+                */
                 //FLECHAS
                 const flecha = jsonObject["botellin"].zona1.parque.flecha;
                 let flecha1 = new Flecha(this, 
@@ -422,10 +424,10 @@ export default class ZonaScene extends Phaser.Scene{
 
             //COLISIONES CON IGUANA 
                 this.physics.add.collider(player, buildings); //Colision player con building
-                this.physics.add.collider(player, localizations); //Colision player con localizations
+                this.physics.add.collider(player, this.localizations); //Colision player con localizations
 
                 //cambios de escena con localizations
-                localizations.children.iterate((localization) => {
+                this.localizations.children.iterate((localization) => {
                     this.physics.add.overlap(player, localization.extraCollider, (player, extraCollider) => {
                         if (player.isInteractingPressed()) {
                             console.log("cambiar escena");
@@ -488,6 +490,46 @@ export default class ZonaScene extends Phaser.Scene{
                 combatText.setOrigin(0.5, 0.5);
 
     }
+
+    createLocalization(localization)
+    {
+        //recibimos el objeto localizacion
+        //a partir de ahí lo creamos y su nombre tmb
+        //const localization = jsonObject["botellin"].zona1.parque;
+                let localization1 = new Localization(this, localization.sprite, 
+                    eval(localization.x),
+                    eval(localization.y),
+                    eval(localization.width), eval(localization.height), this.localizations, localization.scenario);
+
+                const cajaL = localization.caja;
+                        //NOMBRES LOCALIZACION
+                            let caja2 = this.add.image(
+                                eval(cajaL.x),
+                                eval(cajaL.y), 
+                                cajaL.id)
+                            .setScale( eval(cajaL.width),  eval(cajaL.height));
+
+                const textL = localization.texto;
+                            let texto2 = this.add.text(
+                                eval(textL.x),
+                                eval(textL.y),
+                                textL.text,
+                                { fontSize: textL.size, color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                            );
+
+                            texto2.setOrigin(0.5, 0.5);
+
+                const decor = localization.decor;
+                            this.add.image(
+                                eval(decor.x),
+                                eval(decor.y), 
+                                decor.id)
+                            .setScale( eval(decor.width),  eval(decor.height));
+
+
+
+    }
+
 
     update(time, dt){
 
