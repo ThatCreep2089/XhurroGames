@@ -114,7 +114,8 @@
                 "colliderGroup": "flechas",
                 "modo": "2",
                 "ant": "1",
-                "scale": "0.2"
+                "width": "0.2",
+                "height": "0.2"
             }
         },
         "zona2":
@@ -182,7 +183,7 @@
                 },
                 "decor":
                 {
-                    "x": "this.sys.game.canvas.width / 18",
+                    "x": "this.sys.game.canvas.width / 1.8",
                     "y": "this.sys.game.canvas.height / 5.5",
                     "width": "0.13",
                     "height": "0.13",

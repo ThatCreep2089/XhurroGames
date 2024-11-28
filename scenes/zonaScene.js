@@ -105,18 +105,10 @@ export default class ZonaScene extends Phaser.Scene{
                
                 //FLECHAS
                 const flecha1 = jsonObject["botellin"].zona2.flecha1;
-                let flecha = new Flecha(this, 
-                    eval(flecha1.x),
-                    eval(flecha1.y), 
-                    this.flechas, eval(flecha1.modo), eval(flecha1.ant))
-                    .setScale(eval(flecha1.width), eval(flecha1.height));
+                this.createFlecha(flecha1);
 
                 const flecha3 = jsonObject["botellin"].zona2.flecha3;
-                let flecha2 = new Flecha(this, 
-                    eval(flecha3.x),
-                    eval(flecha3.y), 
-                    this.flechas, eval(flecha3.modo), eval(flecha3.ant))
-                    .setScale(eval(flecha3.width), eval(flecha3.height));
+                this.createFlecha(flecha3);
                 
                 //POSICION
                     if(data.ant == 1)
@@ -141,11 +133,7 @@ export default class ZonaScene extends Phaser.Scene{
                
                 //FLECHAS
                 const flecha = jsonObject["botellin"].zona3.flecha2;
-                let flecha1 = new Flecha(this, 
-                    eval(flecha.x),
-                    eval(flecha.y), 
-                    this.flechas, eval(flecha.modo), eval(flecha.ant))
-                    .setScale(eval(flecha.width), eval(flecha.height));
+                this.createFlecha(flecha);
                 
                 //POSICION
                 if(data.ant == 2)
@@ -168,11 +156,7 @@ export default class ZonaScene extends Phaser.Scene{
                
                 //FLECHAS
                 const flecha = jsonObject["botellin"].zona1.flecha;
-                let flecha1 = new Flecha(this, 
-                    eval(flecha.x),
-                    eval(flecha.y), 
-                    this.flechas, eval(flecha.modo), eval(flecha.ant))
-                    .setScale(eval(flecha.scale));
+                this.createFlecha(flecha);
                 
                 //POSICION    
                 if(data.ant == 2)
@@ -299,6 +283,14 @@ export default class ZonaScene extends Phaser.Scene{
 
     }
 
+    createFlecha(flecha)
+    {
+        let flecha1 = new Flecha(this, 
+            eval(flecha.x),
+            eval(flecha.y), 
+            this.flechas, eval(flecha.modo), eval(flecha.ant))
+            .setScale(eval(flecha.width), eval(flecha.height));
+    }
 
     update(time, dt){
 
