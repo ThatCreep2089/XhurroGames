@@ -37,16 +37,84 @@
                     "width": "0.15",
                     "height": "0.15",
                     "id": "maps"
-                },
-                "flecha":
-                {
-                    "x": "this.sys.game.canvas.width / 1.05",
-                    "y": "this.sys.game.canvas.height / 3.3",
-                    "colliderGroup": "flechas",
-                    "modo": "2",
-                    "ant": "1",
-                    "scale": "0.2"
                 }
+            },
+            "puente":
+            {
+                "sprite": "localization2",
+                "x": "this.sys.game.canvas.width / 1.31",
+                "y": "this.sys.game.canvas.height / 3.4",
+                "width": "0.26",
+                "height": "0.3",
+                "colliderGroup": "localizations",
+                "scenario": "puente",
+                "caja":
+                {
+                    "x": "this.sys.game.canvas.width / 1.34",
+                    "y": "this.sys.game.canvas.height / 2.15",
+                    "width": "0.3",
+                    "height": "0.12",
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": "this.sys.game.canvas.width / 1.32",
+                    "y": "this.sys.game.canvas.height / 2.2",
+                    "text": "PUENTE"
+                },
+                "decor":
+                {
+                    "x": "this.sys.game.canvas.width / 1.43",
+                    "y": "this.sys.game.canvas.height / 2.5",
+                    "width": "0.15",
+                    "height": "0.15",
+                    "id": "maps"
+                }
+                
+            },
+            "tenfe":
+            {
+                "sprite": "tenfe",
+                "x": "this.sys.game.canvas.width / 1.9",
+                "y": "this.sys.game.canvas.height / 1.25",
+                "width": "0.1",
+                "height": "0.1",
+                "colliderGroup": "localizations",
+                "scenario": "tenfeFondo",
+                "caja":
+                {
+                    "x": "this.sys.game.canvas.width / 1.94",
+                    "y": "this.sys.game.canvas.height / 1.5",
+                    "width": "0.2",
+                    "height": "0.12",
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": "this.sys.game.canvas.width / 1.9",
+                    "y": "this.sys.game.canvas.height / 1.53",
+                    "text": "TENFE"
+                },
+                "decor":
+                {
+                    "x": "this.sys.game.canvas.width / 1.75",
+                    "y": "this.sys.game.canvas.height / 1.3",
+                    "width": "0.15",
+                    "height": "0.15",
+                    "id": "maps"
+                }
+                
+            },
+            "flecha":
+            {
+                "x": "this.sys.game.canvas.width / 1.05",
+                "y": "this.sys.game.canvas.height / 3.3",
+                "colliderGroup": "flechas",
+                "modo": "2",
+                "ant": "1",
+                "scale": "0.2"
             }
             
         }

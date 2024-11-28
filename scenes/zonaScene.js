@@ -10,7 +10,10 @@ export default class ZonaScene extends Phaser.Scene{
     }
 
 
-    init(){
+    init(data){
+        this.fondo = 'fondo1';
+            if(data.modo == 2) this.fondo = 'fondo2';
+            else if(data.modo == 3)  this.fondo ='fondo3';
     }
 
     preload() //CARGAR TODOS LOS RECURSOS
@@ -50,17 +53,12 @@ export default class ZonaScene extends Phaser.Scene{
     }
 
     create(data){
+       //leer mapa
         const jsonObject = this.cache.json.get('mapJason');
-        //console.log(jsonObject);
-
 
         //1. PINTAR FONDO
-            let fondo = 'fondo1';
-            if(data.modo == 2) fondo = 'fondo2';
-            else if(data.modo == 3)  fondo ='fondo3';
-
             //Crear y escalar fondo
-            var back = this.add.image(0, 0, fondo).setOrigin(0, 0);
+            var back = this.add.image(0, 0, this.fondo).setOrigin(0, 0);
 
             var scaleX = this.cameras.main.width / back.width;
             var scaleY = this.cameras.main.height / back.height;
@@ -77,9 +75,9 @@ export default class ZonaScene extends Phaser.Scene{
         //2. AÑADIR ELEMENTOS ZONA 
         
             // Declarar los grupos de objetos
-            let buildings = this.add.group();
+            this.buildings = this.add.group();
             this.localizations = this.add.group();
-            let flechas = this.add.group();
+            this.flechas = this.add.group();
             let startPosition = window.gameState.playerPosition || { x: 900, y: 330 }; //posicion de la tenfe
 
             if(data.modo == 2){
@@ -273,45 +271,21 @@ export default class ZonaScene extends Phaser.Scene{
                 }
             }
             else{
-                const localization = jsonObject["botellin"].zona1.parque;
-                this.createLocalization(localization);
-                /*
-                let localization1 = new Localization(this, localization.sprite, 
-                    eval(localization.x),
-                    eval(localization.y),
-                    eval(localization.width), eval(localization.height), localizations, localization.scenario);
+                const parque = jsonObject["botellin"].zona1.parque;
+                this.createLocalization(parque);
 
-                const cajaL = jsonObject["botellin"].zona1.parque.caja;
-                        //NOMBRES LOCALIZACION
-                            let caja2 = this.add.image(
-                                eval(cajaL.x),
-                                eval(cajaL.y), 
-                                cajaL.id)
-                            .setScale( eval(cajaL.width),  eval(cajaL.height));
+                const puente = jsonObject["botellin"].zona1.puente;
+                this.createLocalization(puente);
 
-                const textL = jsonObject["botellin"].zona1.parque.texto;
-                            let texto2 = this.add.text(
-                                eval(textL.x),
-                                eval(textL.y),
-                                textL.text,
-                                { fontSize: textL.size, color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
-                            );
-
-                            texto2.setOrigin(0.5, 0.5);
-
-                const decor = jsonObject["botellin"].zona1.parque.decor;
-                            this.add.image(
-                                eval(decor.x),
-                                eval(decor.y), 
-                                decor.id)
-                            .setScale( eval(decor.width),  eval(decor.height));
-                */
+                const tenfe = jsonObject["botellin"].zona1.tenfe;
+                this.createLocalization(tenfe);
+               
                 //FLECHAS
-                const flecha = jsonObject["botellin"].zona1.parque.flecha;
+                const flecha = jsonObject["botellin"].zona1.flecha;
                 let flecha1 = new Flecha(this, 
                     eval(flecha.x),
                     eval(flecha.y), 
-                    flechas, eval(flecha.modo), eval(flecha.ant))
+                    this.flechas, eval(flecha.modo), eval(flecha.ant))
                     .setScale(eval(flecha.scale));
                 
                 //POSICION    
@@ -423,7 +397,7 @@ export default class ZonaScene extends Phaser.Scene{
 
 
             //COLISIONES CON IGUANA 
-                this.physics.add.collider(player, buildings); //Colision player con building
+                this.physics.add.collider(player, this.buildings); //Colision player con building
                 this.physics.add.collider(player, this.localizations); //Colision player con localizations
 
                 //cambios de escena con localizations
@@ -449,7 +423,7 @@ export default class ZonaScene extends Phaser.Scene{
                 });
 
                 // Recargar escena con flechas
-                flechas.children.iterate((flecha) => {
+                this.flechas.children.iterate((flecha) => {
                     this.physics.add.overlap(player, flecha, (player, flecha) => { // Cambiado a `flecha` en lugar de `flecha.extraCollider`
                         if (player.isInteractingPressed()) {
                             console.log("recargar escena " + flecha.modo);
