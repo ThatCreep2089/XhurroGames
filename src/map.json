@@ -244,7 +244,92 @@
                 "width": "0.2",
                 "height": "0.2"
             }
+        },
+        "zona3":
+        {
+            "manzanas":
+            {
+
+            },
+            "cruzRoja":
+            {
+                "sprite": "localization7",
+                "x": "this.sys.game.canvas.width / 4.4",
+                "y": "this.sys.game.canvas.height / 1.27",
+                "width": "0.3",
+                "height": "0.3",
+                "colliderGroup": "localizations",
+                "scenario": "cruzRoja",
+                "caja":
+                {
+                    "x": "this.sys.game.canvas.width / 3.1",
+                    "y": "this.sys.game.canvas.height / 1.27",
+                    "width": "0.18",
+                    "height": "0.13",
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": "this.sys.game.canvas.width / 3",
+                    "y": "this.sys.game.canvas.height / 1.3",
+                    "text": "CRUZ\nROJA"
+                },
+                "decor":
+                {
+                    "x": "this.sys.game.canvas.width / 3.5",
+                    "y": "this.sys.game.canvas.height / 1.15",
+                    "width": "0.13",
+                    "height": "0.13",
+                    "id": "maps"
+                }
+            },
+            "iglesia":
+            {
+                "sprite": "localization8",
+                "x": "this.sys.game.canvas.width / 1.52",
+                "y": "this.sys.game.canvas.height / 2.25",
+                "width": "0.305",
+                "height": "0.3",
+                "colliderGroup": "localizations",
+                "scenario": "iglesia",
+                "caja":
+                {
+                    "x": "this.sys.game.canvas.width / 1.54",
+                    "y": "this.sys.game.canvas.height / 2.2",
+                    "width": "0.18",
+                    "height": "0.13",
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": "this.sys.game.canvas.width / 1.52",
+                    "y": "this.sys.game.canvas.height / 2.2",
+                    "text": "IGLESIA"
+                },
+                "decor":
+                {
+                    "x": "this.sys.game.canvas.width / 1.68",
+                    "y": "this.sys.game.canvas.height / 2.25",
+                    "width": "-0.13",
+                    "height": "0.13",
+                    "id": "maps"
+                }
+                
+            },
+            "flecha2":
+            {
+                "x": "this.sys.game.canvas.width / 22",
+                "y": "this.sys.game.canvas.height / 3.3",
+                "colliderGroup": "flechas",
+                "modo": "2",
+                "ant": "3",
+                "width": "-0.2",
+                "height": "0.2"
+            }
         }
+
         
     }
   }
