@@ -90,23 +90,23 @@ export default class localizationScene extends Phaser.Scene
                 //LOCALIZACION: BAR
                     if(this.mode == 'bar')
                         {
-                            this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 3.7, 0.9);
-                            this.addNPCToScene("NPC", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 3.7, 0.2);
-                            this.addNPCToScene("NPC", this.sys.game.canvas.width / 1.5,this.sys.game.canvas.height / 3.7, 0.2);
+                            this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.9);
+                            this.addNPCToScene("NPC", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 3);
+                            this.addNPCToScene("NPC", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 3);
                         }
                 //LOCALIZACION: CNI
                     else if(this.mode == 'cni')
                     {
-                        this.addNPCToScene("MARIA", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 3.7, 0.9);
-                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 3.7, 0.2);
-                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 1.5,this.sys.game.canvas.height / 3.7, 0.2);
+                        this.addNPCToScene("MARIA", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.6);
+                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 3);
+                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 3);
                     }
                 //LOCALIZACION: HIPODROMO
                     else if(this.mode == 'hipodromo')
                     {
-                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 3.7, 0.9);
-                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 3.7, 0.2);
-                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 1.5,this.sys.game.canvas.height / 3.7, 0.2);
+                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.4);
+                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 3);
+                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 3);
 
                     }
                 //LOCALIZACION: PARQUE
@@ -119,23 +119,23 @@ export default class localizationScene extends Phaser.Scene
                 //LOCALIZACION: PUENTE
                     else if(this.mode == 'puente')
                     {
-                        this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 3.7, 0.9);
-                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 3.7, 0.2);
-                        this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.5,this.sys.game.canvas.height / 3.7, 0.2);
+                        this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.9);
+                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 0.4);
+                        this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
                     }
                   //LOCALIZACION: CRUZ ROJA
                     else if(this.mode == 'cruzRoja')
                     {
-                        this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 3.7, 0.9);
-                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 3.7, 0.2);
-                        this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.5,this.sys.game.canvas.height / 3.7, 0.2);
+                        this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.9);
+                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 0.4);
+                        this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
                     }
                     //LOCALIZACION: IGLESIA
                     else if(this.mode == 'iglesia')
                         {
-                            this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 3.7, 0.9);
-                            this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 3.7, 0.2);
-                            this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.5,this.sys.game.canvas.height / 3.7, 0.2);
+                            this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.9);
+                            this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 0.4);
+                            this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
                         }
 
 
