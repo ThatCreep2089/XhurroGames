@@ -93,101 +93,31 @@ export default class ZonaScene extends Phaser.Scene{
                     let building13 = new Building(this, 'building3', 85, 405, 0.135, 0.082, buildings);
                 */
 
-                //GRUPO LOCALIZATIONS
-                    let localization4 = new Localization(this, 'localization4', 
-                        this.sys.game.canvas.width / 3.4,
-                        this.sys.game.canvas.height / 1.4,
-                        0.43, 0.41, localizations, 'cni');
+                //LOCALIZACIONES
+                const cni = jsonObject["botellin"].zona2.cni;
+                this.createLocalization(cni);
 
-                        //NOMBRES LOCALIZACION
-                            let caja1 = this.add.image(
-                                this.sys.game.canvas.width / 3.5,
-                                this.sys.game.canvas.height / 2.15, 
-                                'caja')
-                            .setScale(0.2, 0.12);
+                const bar = jsonObject["botellin"].zona2.bar;
+                this.createLocalization(bar);
 
-                            let texto1 = this.add.text(
-                                this.sys.game.canvas.width / 3.4,
-                                this.sys.game.canvas.height / 2.2,
-                                'CNI',
-                                { fontSize: '40px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
-                            );
+                const hipodromo = jsonObject["botellin"].zona2.hipodromo;
+                this.createLocalization(hipodromo);
+               
+                //FLECHAS
+                const flecha1 = jsonObject["botellin"].zona2.flecha1;
+                let flecha = new Flecha(this, 
+                    eval(flecha1.x),
+                    eval(flecha1.y), 
+                    this.flechas, eval(flecha1.modo), eval(flecha1.ant))
+                    .setScale(eval(flecha1.width), eval(flecha1.height));
 
-                            texto1.setOrigin(0.5, 0.5);
-                            
-                            this.add.image(
-                                this.sys.game.canvas.width / 4,
-                                this.sys.game.canvas.height / 1.8, 
-                                'maps')
-                            .setScale(-0.15, 0.15);
-                    
-                    let localization5 = new Localization(this, 'localization5',
-                        this.sys.game.canvas.width / 2.04,
-                        this.sys.game.canvas.height / 4.8,
-                        0.4, 0.4, localizations, 'bar');
-
-                        //NOMBRES LOCALIZACION
-                            let caja2 = this.add.image(
-                                this.sys.game.canvas.width / 2.01,
-                                this.sys.game.canvas.height / 10.5, 
-                                'caja')
-                            .setScale(0.19, 0.1);
-
-                            let texto2 = this.add.text(
-                                this.sys.game.canvas.width / 1.97,
-                                this.sys.game.canvas.height / 12,
-                                'BAR SAN\nAGUSTIN',
-                                { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
-                            );
-
-                            texto2.setOrigin(0.5, 0.5);
-                            
-                            this.add.image(
-                                this.sys.game.canvas.width / 1.8,
-                                this.sys.game.canvas.height / 5.5, 
-                                'maps')
-                            .setScale(0.13, 0.13);
-                    
-                    let localization6 = new Localization(this, 'localization6',
-                        this.sys.game.canvas.width / 1.21,
-                        this.sys.game.canvas.height / 1.62,
-                        0.4, 0.4, localizations, 'hipodromo');
-
-                        //NOMBRES LOCALIZACION
-                            let caja3 = this.add.image(
-                                this.sys.game.canvas.width / 1.36,
-                                this.sys.game.canvas.height / 1.52, 
-                                'caja')
-                            .setScale(0.1, 0.32);
-
-                            let texto3 = this.add.text(
-                                this.sys.game.canvas.width / 1.35,
-                                this.sys.game.canvas.height / 1.62,
-                                'H\nI\nP\nO\nD\nR\nO\nM\nO',
-                                { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
-                            );
-
-                            texto3.setOrigin(0.5, 0.5);
-                            
-                            this.add.image(
-                                this.sys.game.canvas.width / 1.3,
-                                this.sys.game.canvas.height / 2.3, 
-                                'maps')
-                            .setScale(-0.13, 0.13);
-
-                //GRUPO FLECHAS
-                    let flecha1 = new Flecha(this,
-                        this.sys.game.canvas.width / 22,
-                        this.sys.game.canvas.height / 3.3,
-                        flechas, 1, 2)
-                        .setScale(-0.2, 0.2);
-                    
-                        let flecha3 = new Flecha(this,
-                        this.sys.game.canvas.width / 1.05,
-                        this.sys.game.canvas.height / 3.3,
-                        flechas, 3, 2)
-                        .setScale(0.2);
-                        
+                const flecha3 = jsonObject["botellin"].zona2.flecha3;
+                let flecha2 = new Flecha(this, 
+                    eval(flecha3.x),
+                    eval(flecha3.y), 
+                    this.flechas, eval(flecha3.modo), eval(flecha3.ant))
+                    .setScale(eval(flecha3.width), eval(flecha3.height));
+                
                 //POSICION
                     if(data.ant == 1)
                     {
@@ -271,6 +201,9 @@ export default class ZonaScene extends Phaser.Scene{
                 }
             }
             else{
+                //BUILDINGS
+                
+                //LOCALIZACIONES
                 const parque = jsonObject["botellin"].zona1.parque;
                 this.createLocalization(parque);
 
@@ -293,97 +226,6 @@ export default class ZonaScene extends Phaser.Scene{
                 {
                     startPosition= { x:  this.sys.game.canvas.width / 1.05, y: this.sys.game.canvas.height / 3.3 };
                 }
-                
-                /*
-                //TENFE
-                    let tenfe = new Localization(this, 'tenfe',
-                    this.sys.game.canvas.width / 1.9,
-                    this.sys.game.canvas.height / 1.25,
-                    0.1, 0.1, localizations, 'tenfeFondo');
-
-                    //NOMBRES LOCALIZACION
-                    let caja1 = this.add.image(
-                        this.sys.game.canvas.width / 1.94,
-                        this.sys.game.canvas.height / 1.5, 
-                        'caja')
-                    .setScale(0.2, 0.12);
-
-                    let texto1 = this.add.text(
-                        this.sys.game.canvas.width / 1.9,
-                        this.sys.game.canvas.height / 1.53,
-                        'TENFE',
-                        { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
-                    );
-
-                    texto1.setOrigin(0.5, 0.5);
-                    
-                    this.add.image(
-                        this.sys.game.canvas.width / 1.75,
-                        this.sys.game.canvas.height / 1.3, 
-                        'maps')
-                    .setScale(0.15, 0.15);
-                
-                //GRUPO LOCALIZATIONS
-                    let localization1 = new Localization(this, 'localization1', 
-                    this.sys.game.canvas.width / 4.3,
-                    this.sys.game.canvas.height / 3.2,
-                    0.58, 0.4, localizations, 'parque');
-
-                        //NOMBRES LOCALIZACION
-                            let caja2 = this.add.image(
-                                this.sys.game.canvas.width / 4.6,
-                                this.sys.game.canvas.height / 9.5, 
-                                'caja')
-                            .setScale(0.3, 0.12);
-
-                            let texto2 = this.add.text(
-                                this.sys.game.canvas.width / 4.3,
-                                this.sys.game.canvas.height / 11,
-                                'PARQUE\nMIL FLORES',
-                                { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
-                            );
-
-                            texto2.setOrigin(0.5, 0.5);
-                            
-                            this.add.image(
-                                this.sys.game.canvas.width / 3.2,
-                                this.sys.game.canvas.height / 5, 
-                                'maps')
-                            .setScale(0.15, 0.15);
-                
-                
-                    let localization2 = new Localization(this, 'localization2', 
-                        this.sys.game.canvas.width / 1.31,
-                        this.sys.game.canvas.height / 3.4,
-                        0.26, 0.3, localizations, 'puente');
-
-                        //NOMBRES LOCALIZACION
-                        let caja3 = this.add.image(
-                            this.sys.game.canvas.width / 1.34,
-                            this.sys.game.canvas.height / 2.15, 
-                            'caja')
-                        .setScale(0.3, 0.12);
-
-                        let texto3 = this.add.text(
-                            this.sys.game.canvas.width / 1.32,
-                            this.sys.game.canvas.height / 2.2,
-                            'PUENTE',
-                            { fontSize: '30px', color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
-                        );
-
-                        texto3.setOrigin(0.5, 0.5);
-                        
-                        this.add.image(
-                            this.sys.game.canvas.width / 1.43,
-                            this.sys.game.canvas.height / 2.5, 
-                            'maps')
-                        .setScale(0.15, 0.15);
-                   */     
-                
-                
-                
-                
-
             }
 
        
@@ -396,7 +238,7 @@ export default class ZonaScene extends Phaser.Scene{
                 player.setScale(0.03);
 
 
-            //COLISIONES CON IGUANA 
+            //COLISIONES CON PLAYER 
                 this.physics.add.collider(player, this.buildings); //Colision player con building
                 this.physics.add.collider(player, this.localizations); //Colision player con localizations
 
