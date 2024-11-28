@@ -45,10 +45,15 @@ export default class ZonaScene extends Phaser.Scene{
         this.load.image('caja', 'assets/other/caja.png');
         this.load.image('maps', 'assets/other/maps.png');
 
+        this.load.json("mapJason", 'src/map.json');
+
     }
 
     create(data){
-        
+        const jsonObject = this.cache.json.get('mapJason');
+        //console.log(jsonObject);
+
+
         //1. PINTAR FONDO
             let fondo = 'fondo1';
             if(data.modo == 2) fondo = 'fondo2';
@@ -268,7 +273,52 @@ export default class ZonaScene extends Phaser.Scene{
                 }
             }
             else{
+                const localization = jsonObject["botellin"].zona1.parque;
+                let localization1 = new Localization(this, localization.sprite, 
+                    eval(localization.x),
+                    eval(localization.y),
+                    eval(localization.width), eval(localization.height), localizations, localization.scenario);
+
+                const cajaL = jsonObject["botellin"].zona1.parque.caja;
+                        //NOMBRES LOCALIZACION
+                            let caja2 = this.add.image(
+                                eval(cajaL.x),
+                                eval(cajaL.y), 
+                                cajaL.id)
+                            .setScale( eval(cajaL.width),  eval(cajaL.height));
+
+                const textL = jsonObject["botellin"].zona1.parque.texto;
+                            let texto2 = this.add.text(
+                                eval(textL.x),
+                                eval(textL.y),
+                                textL.text,
+                                { fontSize: textL.size, color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                            );
+
+                            texto2.setOrigin(0.5, 0.5);
+
+                const decor = jsonObject["botellin"].zona1.parque.decor;
+                            this.add.image(
+                                eval(decor.x),
+                                eval(decor.y), 
+                                decor.id)
+                            .setScale( eval(decor.width),  eval(decor.height));
                 
+                //FLECHAS
+                const flecha = jsonObject["botellin"].zona1.parque.flecha;
+                let flecha1 = new Flecha(this, 
+                    eval(flecha.x),
+                    eval(flecha.y), 
+                    flechas, eval(flecha.modo), eval(flecha.ant))
+                    .setScale(eval(flecha.scale));
+                
+                //POSICION    
+                if(data.ant == 2)
+                {
+                    startPosition= { x:  this.sys.game.canvas.width / 1.05, y: this.sys.game.canvas.height / 3.3 };
+                }
+                
+                /*
                 //TENFE
                     let tenfe = new Localization(this, 'tenfe',
                     this.sys.game.canvas.width / 1.9,
@@ -352,20 +402,9 @@ export default class ZonaScene extends Phaser.Scene{
                             this.sys.game.canvas.height / 2.5, 
                             'maps')
                         .setScale(0.15, 0.15);
-                        
+                   */     
                 
-                //FLECHAS
-                    let flecha1 = new Flecha(this, 
-                    this.sys.game.canvas.width / 1.05,
-                    this.sys.game.canvas.height / 3.3, 
-                    flechas, 2, 1)
-                    .setScale(0.2);
                 
-                //POSICION    
-                if(data.ant == 2)
-                {
-                    startPosition= { x:  this.sys.game.canvas.width / 1.05, y: this.sys.game.canvas.height / 3.3 };
-                }
                 
                 
 

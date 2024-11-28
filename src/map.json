@@ -1,0 +1,55 @@
+  {
+    "botellin": {
+        "zona1":
+        {
+            "manzanas":
+            {
+
+            },
+            "parque":
+            {
+                "sprite": "localization1",
+                "x": "this.sys.game.canvas.width / 4.3",
+                "y": "this.sys.game.canvas.height / 3.2",
+                "width": "0.58",
+                "height": "0.4",
+                "colliderGroup": "localizations",
+                "scenario": "parque",
+                "caja":
+                {
+                    "x": "this.sys.game.canvas.width / 4.6",
+                    "y": "this.sys.game.canvas.height / 9.5",
+                    "width": "0.3",
+                    "height": "0.12",
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": "this.sys.game.canvas.width / 4.3",
+                    "y": "this.sys.game.canvas.height / 11",
+                    "text": "PARQUE\nMIL FLORES"
+                },
+                "decor":
+                {
+                    "x": "this.sys.game.canvas.width / 3.2",
+                    "y": "this.sys.game.canvas.height / 5",
+                    "width": "0.15",
+                    "height": "0.15",
+                    "id": "maps"
+                },
+                "flecha":
+                {
+                    "x": "this.sys.game.canvas.width / 1.05",
+                    "y": "this.sys.game.canvas.height / 3.3",
+                    "colliderGroup": "flechas",
+                    "modo": "2",
+                    "ant": "1",
+                    "scale": "0.2"
+                }
+            }
+            
+        }
+        
+    }
+  }
