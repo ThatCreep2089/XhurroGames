@@ -2,7 +2,7 @@
 
 export default class MainMenuScene extends Phaser.Scene {
     constructor(){
-        super({key: "MainMenu"})
+        super({key: "MainMenuScene"})
     }
 
     preload()

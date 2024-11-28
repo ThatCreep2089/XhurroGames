@@ -1,4 +1,5 @@
 import Player from '../src/Player.js';
+import Inventory from '../src/inventory.js';
 
 export default class localizationScene extends Phaser.Scene
 {
@@ -88,11 +89,15 @@ export default class localizationScene extends Phaser.Scene
             this.titulo.setOrigin(0.5, 0);
             this.titulo.setScale(0.8);
 
-            
+            this.names = this.add.group();
             //NPCS (DEPENDEN DE DATA)
                 //LOCALIZACION: BAR
+
                     if(this.mode == 'bar')
                         {
+                            this.addNPCToScene("paco", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 3.7, 0.9, acceptButton);
+                            this.addNPCToScene("humberto", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 3.7, 0.2, acceptButton);
+                            /*
                             var names = this.add.group(); //grupo de nombres de npcs
 
                                 //NOMBRE Paco
@@ -191,6 +196,7 @@ export default class localizationScene extends Phaser.Scene
                                     })
                                 .on('pointerover', () => npc2.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
                                 .on('pointerout', () => npc2.clearTint());
+                            */
                         }
                 //LOCALIZACION: CNI
                     else if(this.mode == 'cni')
@@ -817,27 +823,27 @@ export default class localizationScene extends Phaser.Scene
 
 
             //FLECHAS
-                var arrows = this.add.group();
+                this.arrows = this.add.group();
                 var arrow1 = this.add.image(
                     this.sys.game.canvas.width / 4,
                     this.sys.game.canvas.height / 2.5, 
                     'arrow')
                     .setScale(0.2, 0.1);
-                arrows.add(arrow1);
+                this.arrows.add(arrow1);
 
                 var arrow2 = this.add.image(
                     this.sys.game.canvas.width / 2,
                     this.sys.game.canvas.height / 2.5, 
                     'arrow')
                     .setScale(0.2, 0.1);
-                arrows.add(arrow2);
+                this.arrows.add(arrow2);
 
                 var arrow3 = this.add.image(
                     this.sys.game.canvas.width / 1.37,
                     this.sys.game.canvas.height / 2.5, 
                     'arrow')
                     .setScale(0.2, 0.1);
-                arrows.add(arrow3);
+                this.arrows.add(arrow3);
 
 
             //ELLE (para la ansiedad)
@@ -846,6 +852,8 @@ export default class localizationScene extends Phaser.Scene
             this.player.setVisible(false); //que elle NO se vea
             this.player.changeMove(false);
             console.log("Ansiedad: " + this.player.ansiedad); //debug
+
+            this.Inventory = new Inventory(this);
 
             //ACCEPT && BACK
                 var acceptButton = this.add.image(
@@ -869,11 +877,11 @@ export default class localizationScene extends Phaser.Scene
                 .setScale(-0.3, 0.3)
                 .setInteractive()
                 .on('pointerdown', () => {
-                    this.acceptButton(false, arrows, names, acceptButton, backButton, "Con quien quieres hablar?");
+                    this.acceptButton(false, this.arrows, this.names, acceptButton, backButton, "Con quien quieres hablar?");
                 });
     
                 
-                this.acceptButton(false, arrows, names, acceptButton, backButton, "Con quien quieres hablar?"); //empieza ocultando boton aceptar
+                this.acceptButton(false, this.arrows, this.names, acceptButton, backButton, "Con quien quieres hablar?"); //empieza ocultando boton aceptar
 
 
             
@@ -917,7 +925,10 @@ export default class localizationScene extends Phaser.Scene
             50, 50, 0xff0000)
         .setInteractive()
         .setScale(4, 2)
-        .on('pointerdown', () => this.scene.start('CombatScene'));
+        .on('pointerdown', () => this.scene.start('CombatScene', {
+            player: this.player.getConfigData(), 
+            inventory: this.Inventory.getConfigData()
+        }));
 
          // Texto para mostrar "Ansiedad" en el centro del botón
         let combatText = this.add.text(
@@ -938,6 +949,42 @@ export default class localizationScene extends Phaser.Scene
 
     }
 
+
+    addNPCToScene(nombre, x, y, scale, acceptButton){    
+        //BOTON Paco
+        const spritePJ = this.add.image(
+            x,
+            y, 
+            nombre) //id
+        .setOrigin(0.5, 0.5)
+        .setScale(scale)
+        .setInteractive()
+        .on('pointerdown', () =>{
+            this.acceptButton(true, undefined, this.names, acceptButton, backButton, "Quieres hablar con "+nombre+"?");
+            this.npcTalk = nombre;
+            })
+        .on('pointerover', () => spritePJ.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
+        .on('pointerout', () => spritePJ.clearTint());
+
+        //NOMBRE Paco
+        let textPJ = this.add.text(
+            x,   // coordenada x
+            y-(spritePJ.width/2), // coordenada y
+            nombre, //frase
+            { 
+                fontSize: '100px', 
+                color: '#999999',       // Gris
+                fontFamily: 'Georgia',  
+            }
+        );
+        textPJ.setStroke('#000000', 8);  // Trazo negro
+        textPJ.setOrigin(0.5, 0);
+        textPJ.setScale(0.6);
+
+        this.names.add(textPJ); //añadir al conjunto
+    }
+
+
     update(){
         // Actualiza el texto con el nuevo valor de la variable
         this.anxietyText.setText(`Ansiedad: ${this.player.ansiedad}`);
@@ -953,10 +1000,10 @@ export default class localizationScene extends Phaser.Scene
 
 
             //ocultar flechas
-            arrows.setVisible(false);
+            this.arrows.setVisible(false);
 
             //ocultar names
-            names.setVisible(false);
+            this.names.setVisible(false);
 
             if (this.titulo) {
                 this.titulo.setText(nuevoTexto);  // Cambia el texto en el objeto titulo
@@ -969,10 +1016,10 @@ export default class localizationScene extends Phaser.Scene
             if (backButton) backButton.setVisible(false);   
 
             // Mostrar flechas
-            arrows.setVisible(true);
+            this.arrows.setVisible(true);
 
             //mostrar names
-            names.setVisible(true);
+            this.names.setVisible(true);
 
             if (this.titulo) {
                 this.titulo.setText(nuevoTexto);  // Cambia el texto en el objeto titulo
