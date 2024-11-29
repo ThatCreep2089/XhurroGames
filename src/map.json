@@ -331,7 +331,7 @@
             },
             "pitiBanco":
             {
-                "sprite": "pitiBanco",
+                "sprite": "pitiBancoLocalization",
                 "x": "this.sys.game.canvas.width / 1.52",
                 "y": "this.sys.game.canvas.height / 2.25",
                 "width": "0.305",

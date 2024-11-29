@@ -28,12 +28,14 @@ export default class localizationScene extends Phaser.Scene
             this.load.image('hipodromo', 'assets/fondos/hipodromoFondo.jpg'); //fondo
             this.load.image('cruzRoja', 'assets/fondos/cruzRoja.jpg'); //fondo
             this.load.image('iglesia', 'assets/fondos/iglesia.jpg'); //fondo
+            this.load.image('pitiBanco', 'assets/fondos/pitiBanco.jpg'); //fondo
 
         //NPCS
             this.load.image('PACO', 'assets/npc/paco (2).png');
             this.load.image('HUMBERTO', 'assets/npc/humberto (2).png');
             this.load.image('MARIA', 'assets/npc/maria.png');
             this.load.image('NPC', 'assets/npc/npc.png');
+            this.load.image('PITIBANCO', 'assets/npc/pitiBanco.png');
 
         //BACK BUTTON
         this.load.image('flecha', 'assets/other/flecha.png');
@@ -139,6 +141,11 @@ export default class localizationScene extends Phaser.Scene
                             this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.9);
                             this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 0.4);
                             this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
+                        }
+                    //LOCALIZACION: PITIBANCO
+                    else if(this.mode == 'pitiBanco')
+                        {
+                            this.addNPCToScene("PITIBANCO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 0.4);
                         }
 
 

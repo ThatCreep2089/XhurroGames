@@ -34,7 +34,7 @@ export default class ZonaScene extends Phaser.Scene{
 
         //IMAGENES LOCALIZATIONS
         this.load.image('tenfe', 'assets/edificios/tenfe.png'); //tenfe
-        this.load.image('pitiBanco', 'assets/edificios/pitiBanco.png');
+        this.load.image('pitiBancoLocalization', 'assets/edificios/pitiBanco.png');
         this.load.image('localization1', 'assets/edificios/parque.png');
         this.load.image('localization2', 'assets/edificios/puente.png');
         this.load.image('localization4', 'assets/edificios/cni.png');
