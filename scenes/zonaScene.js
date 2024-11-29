@@ -2,6 +2,7 @@ import Player from '../src/Player.js';
 import Building from '../src/building.js';
 import Localization from '../src/localization.js';
 import Flecha from '../src/flecha.js';
+import Inventory from '../src/inventory.js';
 
 export default class ZonaScene extends Phaser.Scene{
     constructor()
@@ -12,8 +13,12 @@ export default class ZonaScene extends Phaser.Scene{
 
     init(data){
         this.fondo = 'fondo1';
-            if(data.modo == 2) this.fondo = 'fondo2';
-            else if(data.modo == 3)  this.fondo ='fondo3';
+        if(data.modo == 2) this.fondo = 'fondo2';
+        else if(data.modo == 3)  this.fondo ='fondo3';
+
+        this.playerConfig = data.player
+        this.inventoryConfig = data.inventory
+        
     }
 
     preload() //CARGAR TODOS LOS RECURSOS
@@ -169,33 +174,45 @@ export default class ZonaScene extends Phaser.Scene{
             
         //3. ELEMENTOS EN COMÚN
 
+
+            //INVENTARIO
+                //instanciar inventario
+                this.inventory = new Inventory(this);
+                this.inventory.init(this.inventoryConfig);
+
             //PLAYER
                 //instanciar player
-                let player = new Player(this, startPosition.x, startPosition.y);
+                this.player = new Player(this, startPosition.x, startPosition.y);
+                player.init(this.playerConfig);
                 player.setScale(0.03);
 
 
             //COLISIONES CON PLAYER 
-                this.physics.add.collider(player, this.buildings); //Colision player con building
-                this.physics.add.collider(player, this.localizations); //Colision player con localizations
+                this.physics.add.collider(this.player, this.buildings); //Colision player con building
+                this.physics.add.collider(this.player, this.localizations); //Colision player con localizations
 
                 //cambios de escena con localizations
                 this.localizations.children.iterate((localization) => {
-                    this.physics.add.overlap(player, localization.extraCollider, (player, extraCollider) => {
-                        if (player.isInteractingPressed()) {
+                    this.physics.add.overlap(this.player, localization.extraCollider, (player, extraCollider) => {
+                        if (this.player.isInteractingPressed()) {
                             console.log("cambiar escena");
     
                             // Guarda la posición de `iguana` en `gameState`
-                            window.gameState.playerPosition = { x: player.x, y: player.y };
+                            window.gameState.playerPosition = { x: this.player.x, y: this.player.y };
     
                             if(localization.scenario == 'tenfeFondo')
                             {
                                 // Cambiar escena
-                                this.scene.start('tenfeScene', { fondo: localization.scenario});
+                                this.scene.start('tenfeScene', { fondo: localization.scenario,
+                                                                player: this.player.getConfigData(), 
+                                                                inventory: this.Inventory.getConfigData()});
                             }
                             else{
                                 // Cambiar escena
-                                this.scene.start('localizationScene', { fondo: localization.scenario, modo: data.modo });
+                                this.scene.start('localizationScene', { fondo: localization.scenario, 
+                                                                        modo: data.modo,
+                                                                        player: this.player.getConfigData(), 
+                                                                        inventory: this.Inventory.getConfigData() });
                             }
                         }
                     });
@@ -204,7 +221,7 @@ export default class ZonaScene extends Phaser.Scene{
                 // Recargar escena con flechas
                 this.flechas.children.iterate((flecha) => {
                     this.physics.add.overlap(player, flecha, (player, flecha) => { // Cambiado a `flecha` en lugar de `flecha.extraCollider`
-                        if (player.isInteractingPressed()) {
+                        if (this.player.isInteractingPressed()) {
                             console.log("recargar escena " + flecha.modo);
                     
                             // Cambiar escena

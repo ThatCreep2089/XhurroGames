@@ -3,6 +3,10 @@ export default class LoseScene extends Phaser.Scene {
         super({key: "lose"})
     }
 
+    init(data){
+        this.playerConfig = data.player;
+        this.inventoryConfig = this.inventory;
+    }
 
     create(data){
 
@@ -23,8 +27,10 @@ export default class LoseScene extends Phaser.Scene {
             'flecha')
         .setScale(-0.3, 0.3)
         .setInteractive()
-        .on('pointerdown', () => this.scene.start('zonaScene', { modo: data.modo}));
-
+        .on('pointerdown', () => this.scene.start('zonaScene', { modo: data.modo,
+                                                                player: this.playerConfig,
+                                                                inventory: this.inventoryConfig
+        }));
     }
 
 }
