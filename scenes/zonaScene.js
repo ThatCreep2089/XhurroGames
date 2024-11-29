@@ -18,7 +18,7 @@ export default class ZonaScene extends Phaser.Scene{
 
         this.playerConfig = data.player
         this.inventoryConfig = data.inventory
-        
+
     }
 
     preload() //CARGAR TODOS LOS RECURSOS
@@ -178,40 +178,47 @@ export default class ZonaScene extends Phaser.Scene{
             //INVENTARIO
                 //instanciar inventario
                 this.inventory = new Inventory(this);
-                this.inventory.init(this.inventoryConfig);
+                if(this.inventoryConfig != undefined) {
+                    this.inventory.init(this.inventoryConfig);
+                }
 
             //PLAYER
                 //instanciar player
-                this.player = new Player(this, startPosition.x, startPosition.y);
-                player.init(this.playerConfig);
+                let player = new Player(this, startPosition.x, startPosition.y);
+                
                 player.setScale(0.03);
+                console.log(this.playerConfig);
+                if(this.playerConfig != undefined)
+                {
+                    player.init(this.playerConfig);
+                }
 
 
             //COLISIONES CON PLAYER 
-                this.physics.add.collider(this.player, this.buildings); //Colision player con building
-                this.physics.add.collider(this.player, this.localizations); //Colision player con localizations
+                this.physics.add.collider(player, this.buildings); //Colision player con building
+                this.physics.add.collider(player, this.localizations); //Colision player con localizations
 
                 //cambios de escena con localizations
                 this.localizations.children.iterate((localization) => {
-                    this.physics.add.overlap(this.player, localization.extraCollider, (player, extraCollider) => {
-                        if (this.player.isInteractingPressed()) {
+                    this.physics.add.overlap(player, localization.extraCollider, (player, extraCollider) => {
+                        if (player.isInteractingPressed()) {
                             console.log("cambiar escena");
     
                             // Guarda la posición de `iguana` en `gameState`
-                            window.gameState.playerPosition = { x: this.player.x, y: this.player.y };
+                            window.gameState.playerPosition = { x: player.x, y: player.y };
     
                             if(localization.scenario == 'tenfeFondo')
                             {
                                 // Cambiar escena
                                 this.scene.start('tenfeScene', { fondo: localization.scenario,
-                                                                player: this.player.getConfigData(), 
+                                                                player: player.getConfigData(), 
                                                                 inventory: this.Inventory.getConfigData()});
                             }
                             else{
                                 // Cambiar escena
                                 this.scene.start('localizationScene', { fondo: localization.scenario, 
                                                                         modo: data.modo,
-                                                                        player: this.player.getConfigData(), 
+                                                                        player: player.getConfigData(), 
                                                                         inventory: this.Inventory.getConfigData() });
                             }
                         }
@@ -221,7 +228,7 @@ export default class ZonaScene extends Phaser.Scene{
                 // Recargar escena con flechas
                 this.flechas.children.iterate((flecha) => {
                     this.physics.add.overlap(player, flecha, (player, flecha) => { // Cambiado a `flecha` en lugar de `flecha.extraCollider`
-                        if (this.player.isInteractingPressed()) {
+                        if (player.isInteractingPressed()) {
                             console.log("recargar escena " + flecha.modo);
                     
                             // Cambiar escena
@@ -240,8 +247,12 @@ export default class ZonaScene extends Phaser.Scene{
                     50, 50, 0xffe800)
                 .setInteractive()
                 .setScale(4, 2)
-                .on('pointerdown', () => this.scene.start('PickScene'));
-
+                .on('pointerdown', () => this.scene.start('InventoryScene',{
+                    lastScene: this.key,
+                    player: player.getConfigData(),
+                    inventory: this.inventory.getConfigData(),
+                    modo: this.modo
+                }));
                 // Texto para mostrar "Ansiedad" en el centro del botón
                 let combatText = this.add.text(
                     inventarioButton.x,   // Colocar en la misma X del botón
