@@ -2,7 +2,7 @@ import Player from '../src/Player.js';
 import Building from '../src/building.js';
 import Localization from '../src/localization.js';
 import Flecha from '../src/flecha.js';
-
+import Inventory from '../src/inventory.js';
 export default class ZonaScene extends Phaser.Scene{
     constructor()
     {
@@ -379,7 +379,8 @@ export default class ZonaScene extends Phaser.Scene{
                 //instanciar player
                 let player = new Player(this, startPosition.x, startPosition.y);
                 player.setScale(0.03);
-
+            //INVENTORY
+                this.inventory= new Inventory(this);
 
             //COLISIONES CON IGUANA 
                 this.physics.add.collider(player, buildings); //Colision player con building
@@ -429,7 +430,12 @@ export default class ZonaScene extends Phaser.Scene{
                     50, 50, 0xffe800)
                 .setInteractive()
                 .setScale(4, 2)
-                .on('pointerdown', () => this.scene.start('PickScene'));
+                .on('pointerdown', () => this.scene.start('InventoryScene',{
+                    lastScene: this.key,
+                    player: player.getConfigData(),
+                    inventory: this.inventory.getConfigData(),
+                    modo: this.modo
+                }));
 
                 // Texto para mostrar "Ansiedad" en el centro del botón
                 let combatText = this.add.text(

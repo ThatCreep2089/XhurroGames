@@ -18,7 +18,7 @@ export default class Inventory
         }
 
 
-        GetConfigData()
+        getConfigData()
         {
             return{
                 elems: this.elems,
