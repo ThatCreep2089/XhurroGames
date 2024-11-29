@@ -335,9 +335,11 @@ init(data){
                 this.turn = 'enemy'; // Cambia el turno al enemigo
                 this.enemyTurn();
             } else if(result.playerwin == true){
-                this.scene.start("victory")
+                this.scene.start("victory", {player: this.player.getConfigData(), 
+                                            inventory: this.Inventory.getConfigData()})
             } else {
-                this.scene.start("lose")
+                this.scene.start("lose", {player: this.player.getConfigData(), 
+                    inventory: this.Inventory.getConfigData()})
             }
         }
     }

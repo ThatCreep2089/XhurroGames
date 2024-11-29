@@ -55,6 +55,22 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.ansiedad= config.ansiedad;
         this.maxAnsiedad= config.maxAnsiedad;
     }
+
+    getConfigData(){
+        return {
+            health : this.health, //vida player
+            mana : this.mana, //mana
+            maxMana : this.maxMana,
+            maxHealth : this.maxHealth,
+            //cualidades
+            humidad : this.humidad,
+            trabajoDuro : this.trabajoDuro,
+            agnosticismo : this.agnosticismo,
+            afecto : this.afecto,
+            ansiedad : this.ansiedad,
+            maxAnsiedad : this.maxAnsiedad,
+        }
+    }
 //Metodos inventario (Nerea)
 
 HealPlayer(amount)
@@ -203,20 +219,6 @@ HealQuality(amount)
         this.isMoving = bool;
     }
 
-    getConfigData(){
-        return {
-            health : 700, //vida player
-            mana : this.mana, //mana
-            maxMana : this.maxMana,
-            maxHealth : this.maxHealth,
-            //cualidades
-            humidad : this.humidad,
-            trabajoDuro : this.trabajoDuro,
-            agnosticismo : this.agnosticismo,
-            afecto : this.afecto,
-            ansiedad : this.ansiedad,
-            maxAnsiedad : this.maxAnsiedad,
-        }
-    }
+    
 
 }

@@ -1,4 +1,5 @@
-
+import Player from "../src/Player.js";
+import Inventory from "../src/inventory.js";    
 export default class InventoryScene extends Phaser.Scene
 {
     constructor()
@@ -8,14 +9,16 @@ export default class InventoryScene extends Phaser.Scene
 
 
     init(data) {
-       
-        this.inventario = data.inventario; // Recibe el inventario del objeto `data`
+        this.lastScene = data.lastScene;
+        this.inventoryConfig = data.inventory; // Recibe el inventario del objeto `data`
+        this.playerConfig= data.player;
+        this.modo= data.modo;
 
-    if (this.inventario) {
+    /*if (this.inventario) {
         console.log('Inventario recibido:', this.inventario);
     } else {
         console.error('El inventario no fue recibido.');
-    }
+    }*/
     
     }
 
@@ -26,7 +29,17 @@ export default class InventoryScene extends Phaser.Scene
         this.load.image('patatas', 'assets/other/patatas.jpg'); 
     }
 
-    create(data){ 
+
+    create(){ 
+
+        //Creamos player
+        this.player= new Player(this,0,0);
+        this.player.init(this.playerConfig);
+
+        //Creamos inventario
+        this.inventory= new Inventory(this);
+        this.inventory.init(this.inventoryConfig);
+
         //Pintamos un fondo
         var back = this.add.image(0, 0, 'inventory').setOrigin(0, 0);
 
@@ -52,7 +65,7 @@ export default class InventoryScene extends Phaser.Scene
         titulo.setStroke('#800080', 3);
         titulo.x = this.sys.game.canvas.width/2 - titulo.width/2;    
 
-                const items = this.inventario.GetItems(); // Obtiene los ítems del inventario
+                const items = this.inventory.GetItems(); // Obtiene los ítems del inventario
 
                 let fila = 0;
                 let columna = 0;
@@ -148,13 +161,19 @@ export default class InventoryScene extends Phaser.Scene
                 });
         
         //BACK BUTTON (VOLVER A ZONA SCENE)
-        const backScene = this.add.image(
+        var backScene;
+        backScene = this.add.image(
             this.sys.game.canvas.width / 12,
             this.sys.game.canvas.height / 1.2, 
             'flecha')
         .setScale(-0.3, 0.3)
         .setInteractive()
-        .on('pointerdown', () => this.scene.start('zonaScene', { modo: data.modo}));
+        .on('pointerdown', () => this.scene.start(this.lastScene, { 
+            player:this.player.getConfigData(),
+            inventory:this.invertory.getConfigData(),
+            modo: this.modo
+        })
+    );
 
 
     }
@@ -162,7 +181,7 @@ export default class InventoryScene extends Phaser.Scene
    Remove(item)
     {
         
-        this.inventario.UseItem(item.effect ,item,); //si utilizamos el item despues lo quitamos del inventario
+        this.inventario.UseItem(item.effect ,item,this.player); //si utilizamos el item despues lo quitamos del inventario
         this.inventario.RemoveItem(item);//quita el item del inventario
         if (item.ejemplares === 0) {
             sprite.setVisible(false); // Hacer invisible si no quedan ejemplares

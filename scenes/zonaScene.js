@@ -2,6 +2,7 @@ import Player from '../src/Player.js';
 import Building from '../src/building.js';
 import Localization from '../src/localization.js';
 import Flecha from '../src/flecha.js';
+import Inventory from '../src/inventory.js';
 
 export default class ZonaScene extends Phaser.Scene{
     constructor()
@@ -12,8 +13,12 @@ export default class ZonaScene extends Phaser.Scene{
 
     init(data){
         this.fondo = 'fondo1';
-            if(data.modo == 2) this.fondo = 'fondo2';
-            else if(data.modo == 3)  this.fondo ='fondo3';
+        if(data.modo == 2) this.fondo = 'fondo2';
+        else if(data.modo == 3)  this.fondo ='fondo3';
+
+        this.playerConfig = data.player
+        this.inventoryConfig = data.inventory
+
     }
 
     preload() //CARGAR TODOS LOS RECURSOS
@@ -174,10 +179,24 @@ export default class ZonaScene extends Phaser.Scene{
             
         //3. ELEMENTOS EN COMÚN
 
+
+            //INVENTARIO
+                //instanciar inventario
+                this.inventory = new Inventory(this);
+                if(this.inventoryConfig != undefined) {
+                    this.inventory.init(this.inventoryConfig);
+                }
+
             //PLAYER
                 //instanciar player
                 let player = new Player(this, startPosition.x, startPosition.y);
+                
                 player.setScale(0.03);
+                console.log(this.playerConfig);
+                if(this.playerConfig != undefined)
+                {
+                    player.init(this.playerConfig);
+                }
 
 
             //COLISIONES CON PLAYER 
@@ -196,11 +215,16 @@ export default class ZonaScene extends Phaser.Scene{
                             if(localization.scenario == 'tenfeFondo')
                             {
                                 // Cambiar escena
-                                this.scene.start('tenfeScene', { fondo: localization.scenario});
+                                this.scene.start('tenfeScene', { fondo: localization.scenario,
+                                                                player: player.getConfigData(), 
+                                                                inventory: this.Inventory.getConfigData()});
                             }
                             else{
                                 // Cambiar escena
-                                this.scene.start('localizationScene', { fondo: localization.scenario, modo: data.modo });
+                                this.scene.start('localizationScene', { fondo: localization.scenario, 
+                                                                        modo: data.modo,
+                                                                        player: player.getConfigData(), 
+                                                                        inventory: this.Inventory.getConfigData() });
                             }
                         }
                     });
@@ -228,8 +252,12 @@ export default class ZonaScene extends Phaser.Scene{
                     50, 50, 0xffe800)
                 .setInteractive()
                 .setScale(4, 2)
-                .on('pointerdown', () => this.scene.start('PickScene'));
-
+                .on('pointerdown', () => this.scene.start('InventoryScene',{
+                    lastScene: this.key,
+                    player: player.getConfigData(),
+                    inventory: this.inventory.getConfigData(),
+                    modo: this.modo
+                }));
                 // Texto para mostrar "Ansiedad" en el centro del botón
                 let combatText = this.add.text(
                     inventarioButton.x,   // Colocar en la misma X del botón
