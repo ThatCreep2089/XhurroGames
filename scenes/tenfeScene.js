@@ -42,8 +42,45 @@ export default class TenfeScene extends Phaser.Scene {
         .setScale(-0.3, 0.3)
         .setInteractive()
         .on('pointerdown', () => this.scene.start('zonaScene', { modo: data.modo}));
+        
+        //gambling de tenfe
+        const gachaButton = this.add.text(
+            this.sys.game.canvas.width / 2,
+            this.sys.game.canvas.height / 2 - 50,
+            'esperar tenfe',
+            { fontSize: '32px', color: '#ffffff', backgroundColor: '#000000', padding: { x: 10, y: 5 } }
+        ).setOrigin(0.5).setInteractive();
+
+        const resultText = this.add.text(
+            this.sys.game.canvas.width / 2,
+            this.sys.game.canvas.height / 2 + 50,
+            '',
+            { fontSize: '32px', color: '#ff0000' }
+        ).setOrigin(0.5);
+
+        let timerEvent = null;
 
 
+        gachaButton.on('pointerdown', () => {
+            // Reiniciar texto y temporizador
+            resultText.setText('');
+            if (timerEvent) {
+                timerEvent.remove(false);
+            }
+
+            // Generar número aleatorio
+            const secs = Phaser.Math.Between(0, 60);
+            resultText.setText(`Número: ${secs}`);
+
+            // Temporizador para mostrar "renfe"
+            timerEvent = this.time.addEvent({
+                delay: secs * 1000, // Convertir a milisegundos
+                callback: () => {
+                    resultText.setText('el metro ha llegado');
+                },
+                callbackScope: this
+            });
+        });
     }
 
 }

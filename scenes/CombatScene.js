@@ -9,8 +9,12 @@ export default class CombatScene extends Phaser.Scene {
         
     }
 
-init(boss){
-    this.boss = boss
+init(data){
+    //this.data = data;
+    console.log(data.player)
+    console.log(data.inventory)
+    this.playerConfig = data.player
+    this.inventoryConfig = data.inventory
 }
 
     preload() {
@@ -50,7 +54,8 @@ init(boss){
 
         // crear player y  enemigo
         this.player = new Player(this, this.sys.game.canvas.width / 11, this.sys.game.canvas.height / 1.7);
-        this.player.setScale(0.1);
+        this.player.init(this.playerConfig);
+        //this.player.setScale(0.1);
         this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5);
         this.enemy.setScale(1);
 
@@ -325,9 +330,17 @@ init(boss){
             }
 
             this.updateHealthTexts(); //actualiza la vida
-            this.checkGameOver(); //comprueba si ha acabado el combate
-            this.turn = 'enemy'; // Cambia el turno al enemigo
-            this.enemyTurn();
+            const result = this.checkGameOver(); //comprueba si ha acabado el combate
+            if(!result.end == true){
+                this.turn = 'enemy'; // Cambia el turno al enemigo
+                this.enemyTurn();
+            } else if(result.playerwin == true){
+                this.scene.start("victory", {player: this.player.getConfigData(), 
+                                            inventory: this.Inventory.getConfigData()})
+            } else {
+                this.scene.start("lose", {player: this.player.getConfigData(), 
+                    inventory: this.Inventory.getConfigData()})
+            }
         }
     }
 
@@ -374,16 +387,20 @@ init(boss){
 
     // Comprueba si alguno de los personajes ha perdido
     checkGameOver() {
+       
         if (this.player.health <= 0) {
             //debug
             console.log('Player pierde');
-            this.scene.start("lose");
+            //this.scene.start("lose");
+            return {"end": true, "playerwin": false}
         }
          else if (this.enemy.health <= 0) {
             //debug
             console.log('Enemy pierde');
-            this.scene.start("victory");
+           //this.scene.start("victory");
+           return {"end": true, "playerwin": true}
         }
+        return {"end": false, "playerwin": false}
     }
 
     update() {

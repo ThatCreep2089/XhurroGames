@@ -1,3 +1,5 @@
+import DialogText from "../src/dialog_plugin.js";
+
 export default class DialogueScene extends Phaser.Scene {
     constructor(){
         super({key: "dialogueScene"})
@@ -6,25 +8,28 @@ export default class DialogueScene extends Phaser.Scene {
     preload()
     {
         //FONDO
-            this.load.image('parque', 'assets/fondos/parque.jpg'); //fondo
-            this.load.image('puente', 'assets/fondos/puente.jpg'); //fondo
-            this.load.image('bar', 'assets/fondos/barFondo.jpg'); //fondo
-            this.load.image('cni', 'assets/fondos/cniFondo.jpg'); //fondo
-            this.load.image('hipodromo', 'assets/fondos/hipodromoFondo.jpg'); //fondo
+        this.load.image('parque', 'assets/fondos/parque.jpg'); //fondo
+        this.load.image('puente', 'assets/fondos/puente.jpg'); //fondo
+        this.load.image('bar', 'assets/fondos/barFondo.jpg'); //fondo
+        this.load.image('cni', 'assets/fondos/cniFondo.jpg'); //fondo
+        this.load.image('hipodromo', 'assets/fondos/hipodromoFondo.jpg'); //fondo
 
         //BACK BUTTON
         this.load.image('flecha', 'assets/other/flecha.png');
 
         //NPCS
-        this.load.image('paco', 'assets/npc/paco.png');
-        this.load.image('humberto', 'assets/npc/humberto.png');
-        this.load.image('maria', 'assets/npc/maria.png');
-        this.load.image('npc', 'assets/npc/npc.png');
+        this.load.image('PACO', 'assets/npc/paco.png');
+        this.load.image('HUMBERTO', 'assets/npc/humberto.png');
+        this.load.image('MARIA', 'assets/npc/maria.png');
+        this.load.image('NPC', 'assets/npc/npc.png');
+
+        this.load.json("dialogsNPC", 'src/dialog.json')
+
     }
 
     init(data){
         // Usar el parámetro 'fondo' para decidir qué fondo cargar
-        this.npc = data.npc || 'humberto';
+        this.npc = data.npc || 'HUMBERTO';
         this.fondo = data.fondo || 'puente';
         this.modo = data.modo;
         console.log(data.fondo);
@@ -32,7 +37,9 @@ export default class DialogueScene extends Phaser.Scene {
 
     create(data){
         console.log(data.npc);//debug
-        
+
+        const jsonObject = this.cache.json.get('dialogsNPC');
+        console.log(jsonObject);
         //1. PINTAR FONDO
             //Pintamos un fondo
             var back = this.add.image(0, 0, this.fondo).setOrigin(0, 0);
@@ -50,36 +57,99 @@ export default class DialogueScene extends Phaser.Scene {
                 this.cameras.main.height / 2 - back.displayHeight / 2
             );
         
+         
+
         //NPC (depende de data)
-        if(this.npc == 'paco')
+        if(this.npc == 'PACO')
         {
             //PACO
                 const paco = this.add.image(
                     this.sys.game.canvas.width / 2,
                     this.sys.game.canvas.height / 1.4, 
-                    'paco')
+                    'PACO')
                 .setOrigin(0.5, 0.5)
-                .setScale(1.5);
+                .setScale(0.5);
+
+            //TEXTO DIALOGO
+            this.dialog = new DialogText(this, {
+                borderThickness: 4,
+                borderColor: 0xcb3234,
+                borderAlpha: 1,
+                windowAlpha: 0.6,
+                windowColor: 0xff6961,
+                windowHeight: 150,
+                padding: 32,
+                closeBtnColor: 'darkgoldenrod',
+                dialogSpeed: 3,
+                fontSize: 100,
+                fontFamily: "pixel"
+            });
+
+
+            //this.dialog.toggleWindow();
+            this.dialog.setText(jsonObject[this.npc].frase1, true);
+            
         }
-        else if(this.npc == 'humberto')
+        else if(this.npc == 'HUMBERTO')
         {
             //HUMBERTO
                 const humberto = this.add.image(
                     this.sys.game.canvas.width / 2,
                     this.sys.game.canvas.height / 1.4, 
-                    'humberto')
+                    'HUMBERTO')
                 .setOrigin(0.5, 0.5)
-                .setScale(0.8)
+                .setScale(0.5);
+
+            //TEXTO DIALOGO
+            this.dialog = new DialogText(this, {
+                borderThickness: 4,
+                borderColor: 0xcb3234,
+                borderAlpha: 1,
+                windowAlpha: 0.6,
+                windowColor: 0xff6961,
+                windowHeight: 150,
+                padding: 32,
+                closeBtnColor: 'darkgoldenrod',
+                dialogSpeed: 3,
+                fontSize: 100,
+                fontFamily: "pixel"
+            });
+
+
+
+            //this.dialog.toggleWindow();
+            this.dialog.setText("HOLA SOY HUMBERTO", true);
+
         }
-        else if(this.npc == 'maria')
+        else if(this.npc == 'MARIA')
         {
             //MARIA
                 const maria = this.add.image(
                     this.sys.game.canvas.width / 2,
                     this.sys.game.canvas.height / 1.4, 
-                    'maria')
+                    'MARIA')
                 .setOrigin(0.5, 0.5)
                 .setScale(1)
+
+            //TEXTO DIALOGO
+            this.dialog = new DialogText(this, {
+                borderThickness: 4,
+                borderColor: 0xcb3234,
+                borderAlpha: 1,
+                windowAlpha: 0.6,
+                windowColor: 0xff6961,
+                windowHeight: 150,
+                padding: 32,
+                closeBtnColor: 'darkgoldenrod',
+                dialogSpeed: 3,
+                fontSize: 100,
+                fontFamily: "pixel"
+            });
+
+
+            //this.dialog.toggleWindow();
+            this.dialog.setText("HOLA SOY MARIA", true);
+
         }
         else if(this.npc == 'random')
         {
@@ -87,9 +157,28 @@ export default class DialogueScene extends Phaser.Scene {
                 const npc = this.add.image(
                     this.sys.game.canvas.width / 2,
                     this.sys.game.canvas.height / 1.4, 
-                    'npc') //id
+                    'NPC') //id
                 .setOrigin(0.5, 0.5)
                 .setScale(4)
+
+            //TEXTO DIALOGO
+            this.dialog = new DialogText(this, {
+                borderThickness: 4,
+                borderColor: 0xcb3234,
+                borderAlpha: 1,
+                windowAlpha: 0.6,
+                windowColor: 0xff6961,
+                windowHeight: 150,
+                padding: 32,
+                closeBtnColor: 'darkgoldenrod',
+                dialogSpeed: 3,
+                fontSize: 100,
+                fontFamily: "pixel"
+            });
+
+            //this.dialog.toggleWindow();
+            this.dialog.setText("QUIERES UN PORRO", true);
+
         }
         
 
@@ -108,6 +197,13 @@ export default class DialogueScene extends Phaser.Scene {
         this.titulo.setStroke('#000000', 8);  // Trazo negro
         this.titulo.setOrigin(0.5, 0);
         this.titulo.setScale(0.8);
+
+
+        
+
+        
+
+
 
         //BACK BUTTON
         const backScene = this.add.image(
