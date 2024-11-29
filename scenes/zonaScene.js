@@ -30,9 +30,11 @@ export default class ZonaScene extends Phaser.Scene{
         this.load.image('building1', 'assets/edificios/building1.png'); //clarito
         this.load.image('building3', 'assets/edificios/building3.png'); //oscuro
         this.load.image('building4', 'assets/edificios/building4.png'); //mediano
-        this.load.image('tenfe', 'assets/edificios/tenfe.png'); //tenfe
+        
 
         //IMAGENES LOCALIZATIONS
+        this.load.image('tenfe', 'assets/edificios/tenfe.png'); //tenfe
+        this.load.image('pitiBanco', 'assets/edificios/pitiBanco.png');
         this.load.image('localization1', 'assets/edificios/parque.png');
         this.load.image('localization2', 'assets/edificios/puente.png');
         this.load.image('localization4', 'assets/edificios/cni.png');
@@ -130,6 +132,9 @@ export default class ZonaScene extends Phaser.Scene{
 
                 const iglesia = jsonObject["botellin"].zona3.iglesia;
                 this.createLocalization(iglesia);
+
+                const pitiBanco = jsonObject["botellin"].zona3.pitiBanco;
+                this.createLocalization(pitiBanco);
                
                 //FLECHAS
                 const flecha = jsonObject["botellin"].zona3.flecha2;
