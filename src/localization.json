@@ -1,0 +1,32 @@
+{
+    "parque":
+    {
+        "items":
+        [
+            {
+                "name": " ",
+                "description": " ",
+                "x": " ",
+                "y": " ",
+                "effect": " ",
+                "amountOfEffect": " "
+            },
+            {
+
+            },
+            {
+
+            }
+        ],
+        "npcs":
+        [
+            {
+                "x": " ", 
+                "y": " ",
+                "scale": " "
+            }
+
+        ]
+    }
+
+}
