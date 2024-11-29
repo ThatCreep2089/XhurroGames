@@ -1,5 +1,6 @@
 import Player from '../src/Player.js';
 import Inventory from '../src/inventory.js';
+import Item from '../src/item.js';
 
 export default class localizationScene extends Phaser.Scene
 {
@@ -44,6 +45,7 @@ export default class localizationScene extends Phaser.Scene
 
         
         //OBJETOS COLECCIONABLES
+        this.load.image('hamburguesa', 'assets/other/hamburguesa.png');
         
     }
 
@@ -112,6 +114,7 @@ export default class localizationScene extends Phaser.Scene
                 //LOCALIZACION: PARQUE
                     else if(this.mode == 'parque')
                     {
+                        this.addItemToScene("hamburguesa", "Cura 3 de vida", 1, 150, 50, 3);
                         this.addNPCToScene("PACO", this.sys.game.canvas.width / 3.8, this.sys.game.canvas.height / 1.4, 0.28);
                         this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2.05,this.sys.game.canvas.height / 1.4, 0.28);
                         this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
@@ -293,6 +296,16 @@ export default class localizationScene extends Phaser.Scene
         this.names.add(textPJ); //añadir al conjunto
     }
 
+    addItemToScene(name, description, effect, posx, posy, amountOfEffect)
+    {
+        this.hamburguesa= new Item(this, name, description, effect, posx, posy, amountOfEffect);//creamos item
+        console.log(this.hamburguesa.name+ this.hamburguesa.description);
+        this.hamburguesa.setDisplaySize(50, 50);//ajustamos tam
+        this.hamburguesa.setInteractive(); // Habilitar interactividad
+        this.hamburguesa.on('pointerdown', () => { //evento para detectar el raton
+            this.Pick(this.hamburguesa); 
+        });
+    }
 
     update(){
         // Actualiza el texto con el nuevo valor de la variable
@@ -334,5 +347,15 @@ export default class localizationScene extends Phaser.Scene
             }
         }
          
+    }
+
+    Pick(item)
+    {
+        
+        const inventario = this.registry.get('inventario');
+        if (inventario) {
+            inventario.AddItem(item); // Agregar el item al inventario
+            item.setVisible(false);
+        }
     }
 }
