@@ -25,6 +25,7 @@ export default class DialogueScene extends Phaser.Scene {
         this.load.image('MARIA', 'assets/npc/maria.png');
         this.load.image('NPC', 'assets/npc/npc.png');
         this.load.image('PITIBANCO', 'assets/npc/pitiBanco.png');
+        this.load.image('BOSS', 'assets/npc/bossBotellin.png');
 
         this.load.json("dialogsNPC", 'src/dialog.json')
 
@@ -337,7 +338,66 @@ export default class DialogueScene extends Phaser.Scene {
                     this.vidaText.setOrigin(0.5, 0);
                     this.vidaText.setScale(0.6);
 
-            }
+        }
+        else if(this.npc == 'BOSS')
+        {
+            //BOSS
+            const paco = this.add.image(
+                this.sys.game.canvas.width / 2,
+                this.sys.game.canvas.height / 1.4, 
+                'BOSS')
+            .setOrigin(0.5, 0.5)
+            .setScale(0.5);
+
+            //TEXTO DIALOGO
+            this.dialog = new DialogText(this, {
+                borderThickness: 4,
+                borderColor: 0xcb3234,
+                borderAlpha: 1,
+                windowAlpha: 0.6,
+                windowColor: 0xff6961,
+                windowHeight: 150,
+                padding: 32,
+                closeBtnColor: 'darkgoldenrod',
+                dialogSpeed: 3,
+                fontSize: 100,
+                fontFamily: "pixel"
+            });
+
+
+            //this.dialog.toggleWindow();
+            this.dialog.setText(jsonObject[this.npc].frase1, true);
+
+            let combatButton = this.add.rectangle(
+                this.sys.game.canvas.width / 1.2,
+                this.sys.game.canvas.height / 5, 
+                50, 50, 0xff0000)
+            .setInteractive()
+            .setScale(4, 2)
+            .on('pointerdown', () => this.scene.start('CombatScene', {
+                ant: this.ant,
+                player: this.player.getConfigData(), 
+                inventory: this.inventory.getConfigData()
+            }));
+    
+            // TEXTO BOTON COMBATE
+            let combatText = this.add.text(
+                combatButton.x,   // Colocar en la misma X del botón
+                combatButton.y,   // Colocar en la misma Y del botón
+                `COMBATE`,
+                {
+                    fontSize: '32px',  // Cambia el tamaño del texto según el espacio
+                    color: '#ffffff',  // Gris
+                    fontFamily: 'Georgia',
+                    fontStyle: 'bold',
+                    align: 'center'    // Centrar el texto internamente
+                }
+            );
+    
+            // Centrar el texto en el botón
+            combatText.setOrigin(0.5, 0.5);
+
+        }
         
 
 

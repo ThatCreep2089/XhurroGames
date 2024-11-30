@@ -24,6 +24,13 @@
         "frase3":"¿Cómo estás?"
         
     },
+    "BOSS":
+    {
+        "frase1":"Eres menor?",
+        "frase2":"¿Qué tal?",
+        "frase3":"¿Cómo estás?"
+        
+    },
     "PITIBANCO":{
 
         "frase1":"Hola, soy Piti Banco, el banco del piti. Cual te quieres fumar hoy?",
