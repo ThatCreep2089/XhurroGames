@@ -13,11 +13,16 @@ export default class ZonaScene extends Phaser.Scene{
 
     init(data){
         console.log("en el constructor",this.key);
+        
         this.key="zonaScene";
+        
         this.fondo = 'fondo1';
+        this.modo= data.modo;
         if(data.modo == 2) this.fondo = 'fondo2';
         else if(data.modo == 3)  this.fondo ='fondo3';
-        this.modo= data.modo;
+        
+        
+        
         this.playerConfig = data.player
         this.inventoryConfig = data.inventory
 
@@ -224,7 +229,7 @@ export default class ZonaScene extends Phaser.Scene{
                             else{
                                 // Cambiar escena
                                 this.scene.start('localizationScene', { fondo: localization.scenario, 
-                                                                        modo: data.modo,
+                                                                        ant: data.modo,
                                                                         player: player.getConfigData(), 
                                                                         inventory:this.inventory.getConfigData()});
                             }

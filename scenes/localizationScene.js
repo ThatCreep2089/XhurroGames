@@ -8,15 +8,15 @@ export default class localizationScene extends Phaser.Scene
     {
         super({key: "localizationScene"});
         
-        this.mode;
+        this.localizacion;
         this.titulo = null;
         this.npcTalk;
     }
 
     init(data){
         // Usar el parámetro 'fondo' para decidir qué fondo cargar
-        this.mode = data.fondo || 'parque';
-        this.modo = data.modo;
+        this.localizacion = data.fondo || 'parque';
+        this.ant = data.ant;
     }
 
     preload(){
@@ -57,14 +57,14 @@ export default class localizationScene extends Phaser.Scene
 
     
 
-    create(data){
+    create(){
         
         //leer mapa
         const jsonObject = this.cache.json.get('localizationJson');
 
         //1. PINTAR FONDO
             //Pintamos un fondo
-            var back = this.add.image(0, 0, this.mode).setOrigin(0, 0);
+            var back = this.add.image(0, 0, this.localizacion).setOrigin(0, 0);
 
             //escalar el fondo
             var scaleX = this.cameras.main.width / back.width;
@@ -95,13 +95,14 @@ export default class localizationScene extends Phaser.Scene
             this.titulo.setOrigin(0.5, 0);
             this.titulo.setScale(0.8);
 
+            //GRUPOS
             this.names = this.add.group();
             this.arrows = this.add.group();
             
             //NPCS (DEPENDEN DE DATA)
-            const localizacion = this.mode;
+            //const localizacion = this.localizacion;
             
-            const mode = jsonObject["botellin"][localizacion];
+            const mode = jsonObject["botellin"][this.localizacion];
             
             mode.npcs.forEach(npc => {
                 this.addNPCToScene(npc);});
@@ -199,6 +200,7 @@ export default class localizationScene extends Phaser.Scene
                 this.arrows.add(arrow3);
                         */
 
+            //CAMBIAR A ELLE GLOBAL
             //ELLE (para la ansiedad)
             let startPosition = window.gameState.playerPosition || { x: 278, y: 150 }; //posicion de la tenfe
             this.player = new Player(this, startPosition.x, startPosition.y);
@@ -220,7 +222,7 @@ export default class localizationScene extends Phaser.Scene
                     this.player.IncreaseAnxiety(10);
                     console.log("Ansiedad: " + this.player.ansiedad); //debug
                     console.log(this.npcTalk);
-                    this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.mode, modo: this.modo})
+                    this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, modo: this.ant})
                 }); //cambiar a escena dialogo
                 
                 this.backButton = this.add.image(
@@ -259,7 +261,7 @@ export default class localizationScene extends Phaser.Scene
                 'flecha')
             .setScale(-0.3, 0.3)
             .setInteractive()
-            .on('pointerdown', () => this.scene.start('zonaScene', { modo: data.modo}));
+            .on('pointerdown', () => this.scene.start('zonaScene', { modo: this.ant}));
 
             
         // botones para testeo
