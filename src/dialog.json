@@ -26,10 +26,11 @@
     },
     "PITIBANCO":{
 
-        
-        "frase1":"Hola, soy Piti Banco, el banco del piti.",
-        "frase2":"¿Qué tal?",
-        "frase3":"¿Cómo estás?"
+        "frase1":"Hola, soy Piti Banco, el banco del piti. Cual te quieres fumar hoy?",
+        "frase2":"Ey pequeñe, ya te lo has fumado",
+        "frase3":"¿Cómo estás?",
+        "curarAnsiedad": "true",
+        "curarVida": "true"
         
     }
 }

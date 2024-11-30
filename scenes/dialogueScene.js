@@ -205,7 +205,7 @@ export default class DialogueScene extends Phaser.Scene {
         else if(this.npc == 'PITIBANCO')
             {
                 //debug (para probar si funciona curar)
-                //this.player.takeDamage(50);
+                this.player.takeDamage(50);
                 
                 //Npc
                     const npc = this.add.image(
@@ -233,60 +233,81 @@ export default class DialogueScene extends Phaser.Scene {
                 this.dialog.setText(jsonObject[this.npc].frase1, true);
 
                 //PORROS (BOTONES)
-                //CURAR ANSIEDAD
-                let curarAnsiedadButton = this.add.rectangle(
-                    this.sys.game.canvas.width / 4,
-                    this.sys.game.canvas.height / 3, 
-                    50, 50, 0xff7c00)
-                .setInteractive()
-                .setScale(6, 2)
-                .on('pointerdown', () => {
-                    this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad
-                });
-                // Texto para mostrar "Ansiedad" en el centro del botón
-                let ansiedadText = this.add.text(
-                    curarAnsiedadButton.x,   // Colocar en la misma X del botón
-                    curarAnsiedadButton.y,   // Colocar en la misma Y del botón
-                    `CURAR ANSIEDAD`,
-                    {
-                        fontSize: '25px',  // Cambia el tamaño del texto según el espacio
-                        color: '#000000',  // Negro
-                        fontFamily: 'Georgia',
-                        fontStyle: 'bold',
-                        align: 'center'    // Centrar el texto internamente
-                    }
-                );
+                
+                    //CURAR ANSIEDAD
+                    let curarAnsiedadButton = this.add.rectangle(
+                        this.sys.game.canvas.width / 4,
+                        this.sys.game.canvas.height / 3, 
+                        50, 50, 0xff7c00)
+                    .setInteractive()
+                    .setScale(6, 2)
+                    .on('pointerdown', () => {
+                        if(jsonObject[this.npc].curarAnsiedad == "true")
+                        {
+                            this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad
+                            jsonObject[this.npc].curarAnsiedad = "false";
+                        }
+                        else{
+                            this.dialog.setText(jsonObject[this.npc].frase2, true);
+                        }
+                        
+                    });
+                    // Texto para mostrar "Ansiedad" en el centro del botón
+                    let ansiedadText = this.add.text(
+                        curarAnsiedadButton.x,   // Colocar en la misma X del botón
+                        curarAnsiedadButton.y,   // Colocar en la misma Y del botón
+                        `CURAR ANSIEDAD`,
+                        {
+                            fontSize: '25px',  // Cambia el tamaño del texto según el espacio
+                            color: '#000000',  // Negro
+                            fontFamily: 'Georgia',
+                            fontStyle: 'bold',
+                            align: 'center'    // Centrar el texto internamente
+                        }
+                    );
 
-                // Centrar el texto en el botón
-                ansiedadText.setOrigin(0.5, 0.5);
+                    // Centrar el texto en el botón
+                    ansiedadText.setOrigin(0.5, 0.5);
+                
 
                 //CURAR VIDA
-                let curarVidaButton = this.add.rectangle(
-                    this.sys.game.canvas.width / 1.5,
-                    this.sys.game.canvas.height / 3, 
-                    50, 50, 0x00fff3)
-                .setInteractive()
-                .setScale(6, 2)
-                .on('pointerdown', () => {
-                    var diff = this.player.maxHealth - this.player.health; //lo que le falta para estar al maximo
-                    this.player.HealPlayer(diff);
-                });
-                // Texto para mostrar "Ansiedad" en el centro del botón
-                let vidaText = this.add.text(
-                    curarVidaButton.x,   // Colocar en la misma X del botón
-                    curarVidaButton.y,   // Colocar en la misma Y del botón
-                    `CURAR VIDA`,
-                    {
-                        fontSize: '25px',  // Cambia el tamaño del texto según el espacio
-                        color: '#000000',  // Negro
-                        fontFamily: 'Georgia',
-                        fontStyle: 'bold',
-                        align: 'center'    // Centrar el texto internamente
-                    }
-                );
+               
+                    
+                    let curarVidaButton = this.add.rectangle(
+                        this.sys.game.canvas.width / 1.5,
+                        this.sys.game.canvas.height / 3, 
+                        50, 50, 0x00fff3)
+                    .setInteractive()
+                    .setScale(6, 2)
+                    .on('pointerdown', () => {
+                        if(jsonObject[this.npc].curarVida == "true")
+                        {
+                            var diff = this.player.maxHealth - this.player.health; //lo que le falta para estar al maximo
+                            this.player.HealPlayer(diff);
+                            jsonObject[this.npc].curarVida = "false";
+                        }
+                        else
+                        {
+                            this.dialog.setText(jsonObject[this.npc].frase2, true);
+                        }
+                    });
+                    // Texto para mostrar "Ansiedad" en el centro del botón
+                    let vidaText = this.add.text(
+                        curarVidaButton.x,   // Colocar en la misma X del botón
+                        curarVidaButton.y,   // Colocar en la misma Y del botón
+                        `CURAR VIDA`,
+                        {
+                            fontSize: '25px',  // Cambia el tamaño del texto según el espacio
+                            color: '#000000',  // Negro
+                            fontFamily: 'Georgia',
+                            fontStyle: 'bold',
+                            align: 'center'    // Centrar el texto internamente
+                        }
+                    );
 
-                // Centrar el texto en el botón
-                vidaText.setOrigin(0.5, 0.5);
+                    // Centrar el texto en el botón
+                    vidaText.setOrigin(0.5, 0.5);
+                
 
                 // 2.9 MOSTRAR ANSIEDAD
                 this.anxietyText = this.add.text(
