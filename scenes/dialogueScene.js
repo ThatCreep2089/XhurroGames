@@ -33,8 +33,7 @@ export default class DialogueScene extends Phaser.Scene {
         // Usar el parámetro 'fondo' para decidir qué fondo cargar
         this.npc = data.npc || 'HUMBERTO';
         this.fondo = data.fondo || 'puente';
-        this.modo = data.modo;
-        console.log(data.fondo);
+        this.ant = data.ant;
 
         //PLAYER E INVENTARIO
         this.playerConfig = data.player
@@ -49,7 +48,6 @@ export default class DialogueScene extends Phaser.Scene {
         let startPosition = window.gameState.playerPosition || { x: 278, y: 150 }; //posicion de la tenfe
             
         this.player = new Player(this, startPosition.x, startPosition.y);
-        console.log(this.playerConfig);
         this.player.init(this.playerConfig);
         
         this.player.setVisible(false); //que elle NO se vea
@@ -63,7 +61,6 @@ export default class DialogueScene extends Phaser.Scene {
 
 
         const jsonObject = this.cache.json.get('dialogsNPC');
-        console.log(jsonObject);
         //1. PINTAR FONDO
             //Pintamos un fondo
             var back = this.add.image(0, 0, this.fondo).setOrigin(0, 0);
@@ -238,7 +235,7 @@ export default class DialogueScene extends Phaser.Scene {
         .setInteractive()
         .on('pointerdown', () => this.scene.start('localizationScene', {
             fondo: data.fondo,
-            modo: this.modo,
+            ant: this.ant,
             player: this.player.getConfigData(), 
             inventory: this.inventory.getConfigData()
         }));

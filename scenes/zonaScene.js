@@ -229,7 +229,7 @@ export default class ZonaScene extends Phaser.Scene{
                             else{
                                 // Cambiar escena
                                 this.scene.start('localizationScene', { fondo: localization.scenario, 
-                                                                        ant: data.modo,
+                                                                        ant: this.modo,
                                                                         player: player.getConfigData(), 
                                                                         inventory:this.inventory.getConfigData()});
                             }
@@ -245,7 +245,10 @@ export default class ZonaScene extends Phaser.Scene{
                     
                             // Cambiar escena
                             this.scene.stop('zonaScene'); // Detener la escena actual
-                            this.scene.start('zonaScene', { modo: flecha.modo, ant: flecha.ant });
+                            this.scene.start('zonaScene', { modo: flecha.modo, ant: flecha.ant,
+                            player: player.getConfigData(), 
+                            inventory:this.inventory.getConfigData()
+                             });
                         }
                     });
                 });

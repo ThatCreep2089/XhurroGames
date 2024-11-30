@@ -18,6 +18,7 @@ export default class localizationScene extends Phaser.Scene
         
         //para volver a la zona correcta
         this.ant = data.ant;
+        console.log("this.ant: " + this.ant);
 
         //PLAYER E INVENTARIO
         this.playerConfig = data.player
@@ -133,11 +134,13 @@ export default class localizationScene extends Phaser.Scene
                 .setScale(0.5, 0.5)
                 .setInteractive()
                 .on('pointerdown', () => {
+                   
+                    
                     
                     this.player.IncreaseAnxiety(10);
                     console.log("Ansiedad: " + this.player.ansiedad); //debug
                     console.log(this.npcTalk);
-                    this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, modo: this.ant,
+                    this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
                         player: this.player.getConfigData(), 
                         inventory: this.inventory.getConfigData()
                     })
