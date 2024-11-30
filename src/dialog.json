@@ -23,6 +23,14 @@
         "frase2":"¿Qué tal?",
         "frase3":"¿Cómo estás?"
         
+    },
+    "PITIBANCO":{
+
+        
+        "frase1":"Hola, soy Piti Banco, el banco del piti.",
+        "frase2":"¿Qué tal?",
+        "frase3":"¿Cómo estás?"
+        
     }
 }
 

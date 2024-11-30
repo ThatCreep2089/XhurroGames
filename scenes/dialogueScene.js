@@ -24,6 +24,7 @@ export default class DialogueScene extends Phaser.Scene {
         this.load.image('HUMBERTO', 'assets/npc/humberto.png');
         this.load.image('MARIA', 'assets/npc/maria.png');
         this.load.image('NPC', 'assets/npc/npc.png');
+        this.load.image('PITIBANCO', 'assets/npc/pitiBanco.png');
 
         this.load.json("dialogsNPC", 'src/dialog.json')
 
@@ -201,6 +202,121 @@ export default class DialogueScene extends Phaser.Scene {
             this.dialog.setText("QUIERES UN PORRO", true);
 
         }
+        else if(this.npc == 'PITIBANCO')
+            {
+                //debug (para probar si funciona curar)
+                //this.player.takeDamage(50);
+                
+                //Npc
+                    const npc = this.add.image(
+                        this.sys.game.canvas.width / 2,
+                        this.sys.game.canvas.height / 1.4, 
+                        'PITIBANCO') //id
+                    .setOrigin(0.5, 0.5)
+                    .setScale(1)
+    
+                //TEXTO DIALOGO
+                this.dialog = new DialogText(this, {
+                    borderThickness: 4,
+                    borderColor: 0xcb3234,
+                    borderAlpha: 1,
+                    windowAlpha: 0.6,
+                    windowColor: 0xff6961,
+                    windowHeight: 150,
+                    padding: 32,
+                    closeBtnColor: 'darkgoldenrod',
+                    dialogSpeed: 3,
+                    fontSize: 100,
+                    fontFamily: "pixel"
+                });
+    
+                this.dialog.setText(jsonObject[this.npc].frase1, true);
+
+                //PORROS (BOTONES)
+                //CURAR ANSIEDAD
+                let curarAnsiedadButton = this.add.rectangle(
+                    this.sys.game.canvas.width / 4,
+                    this.sys.game.canvas.height / 3, 
+                    50, 50, 0xff7c00)
+                .setInteractive()
+                .setScale(6, 2)
+                .on('pointerdown', () => {
+                    this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad
+                });
+                // Texto para mostrar "Ansiedad" en el centro del botón
+                let ansiedadText = this.add.text(
+                    curarAnsiedadButton.x,   // Colocar en la misma X del botón
+                    curarAnsiedadButton.y,   // Colocar en la misma Y del botón
+                    `CURAR ANSIEDAD`,
+                    {
+                        fontSize: '25px',  // Cambia el tamaño del texto según el espacio
+                        color: '#000000',  // Negro
+                        fontFamily: 'Georgia',
+                        fontStyle: 'bold',
+                        align: 'center'    // Centrar el texto internamente
+                    }
+                );
+
+                // Centrar el texto en el botón
+                ansiedadText.setOrigin(0.5, 0.5);
+
+                //CURAR VIDA
+                let curarVidaButton = this.add.rectangle(
+                    this.sys.game.canvas.width / 1.5,
+                    this.sys.game.canvas.height / 3, 
+                    50, 50, 0x00fff3)
+                .setInteractive()
+                .setScale(6, 2)
+                .on('pointerdown', () => {
+                    var diff = this.player.maxHealth - this.player.health; //lo que le falta para estar al maximo
+                    this.player.HealPlayer(diff);
+                });
+                // Texto para mostrar "Ansiedad" en el centro del botón
+                let vidaText = this.add.text(
+                    curarVidaButton.x,   // Colocar en la misma X del botón
+                    curarVidaButton.y,   // Colocar en la misma Y del botón
+                    `CURAR VIDA`,
+                    {
+                        fontSize: '25px',  // Cambia el tamaño del texto según el espacio
+                        color: '#000000',  // Negro
+                        fontFamily: 'Georgia',
+                        fontStyle: 'bold',
+                        align: 'center'    // Centrar el texto internamente
+                    }
+                );
+
+                // Centrar el texto en el botón
+                vidaText.setOrigin(0.5, 0.5);
+
+                // 2.9 MOSTRAR ANSIEDAD
+                this.anxietyText = this.add.text(
+                    this.sys.game.canvas.width / 7,   // Coordenada X: centrado horizontalmente
+                    this.sys.game.canvas.height / 6,
+                    `Ansiedad: ${this.player.ansiedad}`,
+                    {
+                        fontSize: '100px', 
+                        color: '#999999',       // Gris
+                        fontFamily: 'Georgia',
+                    });
+                    this.anxietyText.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
+                    this.anxietyText.setOrigin(0.5, 0);
+                    this.anxietyText.setScale(0.6);
+                
+                // 2.9 MOSTRAR VIDA ACTUAL
+                this.vidaText = this.add.text(
+                    this.sys.game.canvas.width / 1.3,   // Coordenada X: centrado horizontalmente
+                    this.sys.game.canvas.height / 6,
+                    `Vida actual: ${this.player.health}`,
+                    {
+                        fontSize: '100px', 
+                        color: '#999999',       // Gris
+                        fontFamily: 'Georgia',
+                    });
+                    this.vidaText.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
+                    this.vidaText.setOrigin(0.5, 0);
+                    this.vidaText.setScale(0.6);
+
+            }
         
 
 
@@ -219,13 +335,6 @@ export default class DialogueScene extends Phaser.Scene {
         this.titulo.setOrigin(0.5, 0);
         this.titulo.setScale(0.8);
 
-        
-        
-
-        
-
-
-
         //BACK BUTTON
         const backScene = this.add.image(
             this.sys.game.canvas.width / 12,
@@ -241,6 +350,16 @@ export default class DialogueScene extends Phaser.Scene {
         }));
 
 
+    }
+
+    update(){
+        if((this.npc == 'PITIBANCO'))
+        {
+            // Actualiza el texto con el nuevo valor de la variable
+            this.anxietyText.setText(`Ansiedad: ${this.player.ansiedad}`);
+            this.vidaText.setText(`Vida actual: ${this.player.health}`);
+        }
+        
     }
 
 }

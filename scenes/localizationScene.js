@@ -23,6 +23,7 @@ export default class localizationScene extends Phaser.Scene
         //PLAYER E INVENTARIO
         this.playerConfig = data.player
         this.inventoryConfig = data.inventory
+
     }
 
     preload(){
@@ -145,12 +146,15 @@ export default class localizationScene extends Phaser.Scene
             .setInteractive()
             .on('pointerdown', () => {
                 // SUBIR ANSIEDAD
-                this.player.IncreaseAnxiety(10);
-                
+                if(this.localizacion != 'pitiBanco') //a dialogos si NO es pitibanco
+                {
+                    this.player.IncreaseAnxiety(10);
+                    
+                }
                 this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
                     player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData()})
-                }); //cambiar a escena dialogo
+                    inventory: this.inventory.getConfigData()});  //cambiar a escena dialogo
+            });
                 
             // 2.7 BACK BUTTON (volver a eligir otro NPC)
             this.backButton = this.add.image(
