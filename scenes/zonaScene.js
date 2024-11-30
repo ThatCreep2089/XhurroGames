@@ -212,14 +212,14 @@ export default class ZonaScene extends Phaser.Scene{
                                 // Cambiar escena
                                 this.scene.start('tenfeScene', { fondo: localization.scenario,
                                                                 player: player.getConfigData(), 
-                                                                inventory: this.Inventory.getConfigData()});
+                                                                inventory: this.inventory.getConfigData()});
                             }
                             else{
                                 // Cambiar escena
                                 this.scene.start('localizationScene', { fondo: localization.scenario, 
                                                                         modo: data.modo,
                                                                         player: player.getConfigData(), 
-                                                                        inventory: this.Inventory.getConfigData() });
+                                                                        inventory:this.inventory.getConfigData()});
                             }
                         }
                     });
