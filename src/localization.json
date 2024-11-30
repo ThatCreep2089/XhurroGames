@@ -1,32 +1,37 @@
 {
-    "parque":
+    "botellin":
     {
-        "items":
-        [
-            {
-                "name": " ",
-                "description": " ",
-                "x": " ",
-                "y": " ",
-                "effect": " ",
-                "amountOfEffect": " "
-            },
-            {
+        "parque":
+        {
+            "items":
+            [
+                {
+                    "name": "hamburguesa",
+                    "description": "Cura 3 de vida",
+                    "x": 1,
+                    "y": 150,
+                    "effect": 50,
+                    "amountOfEffect": 3
+                }
+            ],
+            "npcs":
+            [
+                {
+                    "name": "PACO",
+                    "x": 3.8, 
+                    "y": 1.4,
+                    "scale": 0.28
+                },
+                {
+                    "name": "HUMBERTO",
+                    "x": 1.35, 
+                    "y": 1.4,
+                    "scale": 0.4
+                }
 
-            },
-            {
-
-            }
-        ],
-        "npcs":
-        [
-            {
-                "x": " ", 
-                "y": " ",
-                "scale": " "
-            }
-
-        ]
+            ]
+        }
     }
+    
 
 }

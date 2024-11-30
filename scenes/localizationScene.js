@@ -48,6 +48,8 @@ export default class localizationScene extends Phaser.Scene
         
         //OBJETOS COLECCIONABLES
         this.load.image('hamburguesa', 'assets/other/hamburguesa.png');
+
+        this.load.json("localizationJson", 'src/localization.json');
         
     }
 
@@ -55,6 +57,9 @@ export default class localizationScene extends Phaser.Scene
 
     create(data){
         
+        //leer mapa
+        const jsonObject = this.cache.json.get('localizationJson');
+
         //1. PINTAR FONDO
             //Pintamos un fondo
             var back = this.add.image(0, 0, this.mode).setOrigin(0, 0);
@@ -89,6 +94,7 @@ export default class localizationScene extends Phaser.Scene
             this.titulo.setScale(0.8);
 
             this.names = this.add.group();
+            this.arrows = this.add.group();
             
             //NPCS (DEPENDEN DE DATA)
                 //LOCALIZACION: BAR
@@ -116,10 +122,19 @@ export default class localizationScene extends Phaser.Scene
                 //LOCALIZACION: PARQUE
                     else if(this.mode == 'parque')
                     {
+                        const parque = jsonObject["botellin"].parque;
+                        parque.npcs.forEach(npc => {
+                            this.addNPCToScene(npc);
+                            //console.log(`Nombre: ${npc.name}, Coordenadas: (${npc.x}, ${npc.y}), Escala: ${npc.scale}`);
+                        });
+                        
+                        
+                        /*
                         this.addItemToScene("hamburguesa", "Cura 3 de vida", 1, 150, 50, 3);
                         this.addNPCToScene("PACO", this.sys.game.canvas.width / 3.8, this.sys.game.canvas.height / 1.4, 0.28);
                         this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2.05,this.sys.game.canvas.height / 1.4, 0.28);
                         this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
+                        */
                     }
                 //LOCALIZACION: PUENTE
                     else if(this.mode == 'puente')
@@ -150,7 +165,8 @@ export default class localizationScene extends Phaser.Scene
 
 
             //FLECHAS
-                this.arrows = this.add.group();
+                
+                /*
                 var arrow1 = this.add.image(
                     this.sys.game.canvas.width / 4,
                     this.sys.game.canvas.height / 2.5, 
@@ -171,7 +187,7 @@ export default class localizationScene extends Phaser.Scene
                     'arrow')
                     .setScale(0.2, 0.1);
                 this.arrows.add(arrow3);
-
+                        */
 
             //ELLE (para la ansiedad)
             let startPosition = window.gameState.playerPosition || { x: 278, y: 150 }; //posicion de la tenfe
@@ -268,18 +284,18 @@ export default class localizationScene extends Phaser.Scene
     }
 
 
-    addNPCToScene(nombre, x, y, scale){    
+    addNPCToScene(npc){    
         //BOTON Paco
         const spritePJ = this.add.image(
-            x,
-            y, 
-            nombre) //id
+            this.sys.game.canvas.width /npc.x,
+            this.sys.game.canvas.height /npc.y, 
+            npc.name) //id
         .setOrigin(0.5, 0.5)
-        .setScale(scale)
+        .setScale(npc.scale)
         .setInteractive()
         .on('pointerdown', () =>{
-            this.acceptButton(true, "Quieres hablar con "+ nombre +"?");
-            this.npcTalk = nombre;
+            this.acceptButton(true, "Quieres hablar con "+ npc.name +"?");
+            this.npcTalk = npc.name;
             })
         .on('pointerover', () => spritePJ.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
         .on('pointerout', () => spritePJ.clearTint());
@@ -287,9 +303,9 @@ export default class localizationScene extends Phaser.Scene
         
         //NOMBRE Paco
         let textPJ = this.add.text(
-            x,   // coordenada x
+            this.sys.game.canvas.width /npc.x,   // coordenada x
             this.sys.game.canvas.height / 3.7, // coordenada y
-            nombre, //frase
+            npc.name, //frase
             { 
                 fontSize: '100px', 
                 color: '#999999',       // Gris
@@ -301,6 +317,15 @@ export default class localizationScene extends Phaser.Scene
         textPJ.setScale(0.6);
 
         this.names.add(textPJ); //añadir al conjunto
+
+        var arrow = this.add.image(
+            this.sys.game.canvas.width /npc.x,
+            this.sys.game.canvas.height / 2.5, 
+            'arrow')
+            .setScale(0.2, 0.1);
+        this.arrows.add(arrow);
+
+
     }
 
     addItemToScene(name, description, effect, posx, posy, amountOfEffect)
