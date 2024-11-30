@@ -1,0 +1,119 @@
+{
+    "botellin":
+    {
+          "npcs":
+            [
+                {
+                    "name": "Maria",
+                    "conocida": true,
+                    "posx": 3,
+                    "posy": 3,
+                    "bandera":"lesbiana",
+                    "edad": 20,
+                    "localizacion":"CNI"
+                },
+                {
+                    "name": "Juan",
+                    "conocida": true,
+                    "posx": 8,
+                    "posy": 3,
+                     "bandera":"hetero",
+                     "edad": 32,
+                      "localizacion":"Bar paco"
+                }
+                
+            ]
+            
+    
+    },
+
+    "religioso":
+    {
+          "npcs":
+            [
+                {
+                    "name": "Marta",
+                    "conocida": false,
+                    "posx": 3,
+                    "posy": 3,
+                    "bandera":"lesbiana",
+                    "edad": 20,
+                    "localizacion":"CNI"
+                },
+                {
+                    "name": "Pedro",
+                    "conocida": false,
+                    "posx": 8,
+                    "posy": 3,
+                     "bandera":"hetero",
+                     "edad": 32,
+                      "localizacion":"Bar paco"
+                }
+                
+            ]
+            
+    
+    },
+    "navajas":
+    {
+          "npcs":
+            [
+                {
+                    "name": "Pepa",
+                    "conocida": false,
+                    "posx": 3,
+                    "posy": 3,
+                    "bandera":"lesbiana",
+                    "edad": 20,
+                    "localizacion":"CNI"
+                },
+                {
+                    "name": "Joselin",
+                    "conocida": false,
+                    "posx": 8,
+                    "posy": 3,
+                     "bandera":"hetero",
+                     "edad": 32,
+                      "localizacion":"Bar paco"
+                }
+                
+            ]
+            
+    
+    },   "dinero":
+    {
+          "npcs":
+            [
+                {
+                    "name": "Juana",
+                    "conocida": false,
+                    "posx": 3,
+                    "posy": 3,
+                    "bandera":"lesbiana",
+                    "edad": 20,
+                    "localizacion":"CNI"
+                },
+                {
+                    "name": "Francisco",
+                    "conocida": false,
+                    "posx": 8,
+                    "posy": 3,
+                     "bandera":"hetero",
+                     "edad": 32,
+                      "localizacion":"Bar paco"
+                }
+                
+            ]
+            
+    
+    }
+
+}
+
+
+
+
+
+
+
+
