@@ -10,6 +10,8 @@ export default class CombatScene extends Phaser.Scene {
     }
 
 init(data){
+    this.ant = data.ant;
+    console.log("combate this.ant: " + this.ant);
     //this.data = data;
     console.log(data.player)
     console.log(data.inventory)
@@ -24,7 +26,7 @@ init(data){
         this.load.image('combat', "./assets/fondos/combate.jpg") //fondo
     }
 
-    create(data) {
+    create() {
         
         //Pintamos un fondo
         var back = this.add.image(0, 0, 'combat').setOrigin(0, 0);
@@ -300,7 +302,7 @@ init(data){
             'flecha')
         .setScale(-0.3, 0.3)
         .setInteractive()
-        .on('pointerdown', () => this.scene.start('zonaScene', { modo: data.modo}));
+        .on('pointerdown', () => this.scene.start('zonaScene', { modo: this.ant}));
 
 
 

@@ -126,41 +126,38 @@ export default class localizationScene extends Phaser.Scene
                 this.inventory.init(this.inventoryConfig);
             }
 
-            //ACCEPT && BACK
-                this.accept = this.add.image(
-                    this.sys.game.canvas.width / 2,
-                    this.sys.game.canvas.height / 3.2, 
-                    'accept')
-                .setScale(0.5, 0.5)
-                .setInteractive()
-                .on('pointerdown', () => {
-                   
-                    
-                    
-                    this.player.IncreaseAnxiety(10);
-                    console.log("Ansiedad: " + this.player.ansiedad); //debug
-                    console.log(this.npcTalk);
-                    this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
-                        player: this.player.getConfigData(), 
-                        inventory: this.inventory.getConfigData()
-                    })
+            // 2.6 ACCEPT
+            this.accept = this.add.image(
+                this.sys.game.canvas.width / 2,
+                this.sys.game.canvas.height / 3.2, 
+                'accept')
+            .setScale(0.5, 0.5)
+            .setInteractive()
+            .on('pointerdown', () => {
+                // SUBIR ANSIEDAD
+                this.player.IncreaseAnxiety(10);
+                
+                this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
+                    player: this.player.getConfigData(), 
+                    inventory: this.inventory.getConfigData()})
                 }); //cambiar a escena dialogo
                 
-                this.backButton = this.add.image(
-                    this.sys.game.canvas.width / 4,
-                    this.sys.game.canvas.height / 3.2, 
-                    'flecha')
-                .setScale(-0.3, 0.3)
-                .setInteractive()
-                .on('pointerdown', () => {
-                    this.acceptButton(false, "Con quien quieres hablar?");
-                });
+            // 2.7 BACK BUTTON (volver a eligir otro NPC)
+            this.backButton = this.add.image(
+                this.sys.game.canvas.width / 4,
+                this.sys.game.canvas.height / 3.2, 
+                'flecha')
+            .setScale(-0.3, 0.3)
+            .setInteractive()
+            .on('pointerdown', () => {
+                this.acceptButton(false, "Con quien quieres hablar?");
+            });
     
-                
-                this.acceptButton(false, "Con quien quieres hablar?"); //empieza ocultando boton aceptar
+            // 2.8 INICIO    
+            this.acceptButton(false, "Con quien quieres hablar?"); //empieza ocultando boton aceptar
 
 
-            //MOSTRAR ANSIEDAD
+            // 2.9 MOSTRAR ANSIEDAD
             this.anxietyText = this.add.text(
                 this.sys.game.canvas.width / 7,   // Coordenada X: centrado horizontalmente
                 this.sys.game.canvas.height / 6,
@@ -175,7 +172,7 @@ export default class localizationScene extends Phaser.Scene
                 this.anxietyText.setScale(0.6);
 
 
-            //BACK BUTTON
+            // 2.8 BACK BUTTON (volver a zonaScene)
             const backScene = this.add.image(
                 this.sys.game.canvas.width / 12,
                 this.sys.game.canvas.height / 1.2, 
@@ -188,7 +185,7 @@ export default class localizationScene extends Phaser.Scene
                 inventory: this.inventory.getConfigData()
             }));
 
-            
+        //TESTEO    
         // botones para testeo
         let combatButton = this.add.rectangle(
             this.sys.game.canvas.width / 1.2,
@@ -197,11 +194,12 @@ export default class localizationScene extends Phaser.Scene
         .setInteractive()
         .setScale(4, 2)
         .on('pointerdown', () => this.scene.start('CombatScene', {
+            ant: this.ant,
             player: this.player.getConfigData(), 
-            inventory: this.Inventory.getConfigData()
+            inventory: this.inventory.getConfigData()
         }));
 
-         // Texto para mostrar "Ansiedad" en el centro del botón
+        // TEXTO BOTON COMBATE
         let combatText = this.add.text(
             combatButton.x,   // Colocar en la misma X del botón
             combatButton.y,   // Colocar en la misma Y del botón
