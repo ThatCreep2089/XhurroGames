@@ -17,13 +17,14 @@
             "npcs":
             [
                 {
-                    "name": "PACO",
+                    "name": "MARIA JOSE",
                     "x": 3.8, 
                     "y": 1.4,
-                    "scale": 0.28
+                    "scale": 2,
+                    "aparecido": true
                 },
                 {
-                    "name": "HUMBERTO",
+                    "name": "MARIA DEL CARMEN",
                     "x": 1.35, 
                     "y": 1.4,
                     "scale": 0.4
