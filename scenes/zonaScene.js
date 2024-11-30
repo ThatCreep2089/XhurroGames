@@ -12,10 +12,12 @@ export default class ZonaScene extends Phaser.Scene{
 
 
     init(data){
+        console.log("en el constructor",this.key);
+        this.key="zonaScene";
         this.fondo = 'fondo1';
         if(data.modo == 2) this.fondo = 'fondo2';
         else if(data.modo == 3)  this.fondo ='fondo3';
-
+        this.modo= data.modo;
         this.playerConfig = data.player
         this.inventoryConfig = data.inventory
 
@@ -247,12 +249,15 @@ export default class ZonaScene extends Phaser.Scene{
                     50, 50, 0xffe800)
                 .setInteractive()
                 .setScale(4, 2)
-                .on('pointerdown', () => this.scene.start('InventoryScene',{
-                    lastScene: this.key,
-                    player: player.getConfigData(),
-                    inventory: this.inventory.getConfigData(),
-                    modo: this.modo
-                }));
+                .on('pointerdown', () => {
+                    console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
+                    this.scene.start('InventoryScene', {
+                        lastScene: this.key, // Este es el valor que debería contener "zonaScene"
+                        player: player.getConfigData(),
+                        inventory: this.inventory.getConfigData(),
+                        modo: this.modo
+                    });
+                });
                 // Texto para mostrar "Ansiedad" en el centro del botón
                 let combatText = this.add.text(
                     inventarioButton.x,   // Colocar en la misma X del botón

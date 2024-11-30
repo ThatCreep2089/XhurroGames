@@ -9,24 +9,24 @@ export default class InventoryScene extends Phaser.Scene
 
 
     init(data) {
+      
+        
         this.lastScene = data.lastScene;
         this.inventoryConfig = data.inventory; // Recibe el inventario del objeto `data`
         this.playerConfig= data.player;
         this.modo= data.modo;
-
-    /*if (this.inventario) {
-        console.log('Inventario recibido:', this.inventario);
-    } else {
-        console.error('El inventario no fue recibido.');
-    }*/
+        console.log('lastScene', data.lastScene);
+        console.log("modo",data.modo);
     
     }
 
     preload()//cargar imagenes*
     {
-        this.load.image('inventory', 'assets/fondos/FondoInventario.jpg'); 
-        this.load.image('hamburguesa', 'assets/other/hamburguesa.jpg'); 
-        this.load.image('patatas', 'assets/other/patatas.jpg'); 
+        this.load.image('inventory', 'assets/fondos/FondoInventario.png'); 
+        this.load.image('flechaa', 'assets/other/flecha.png');
+        //this.load.image('hamburguesa', 'assets/other/hamburguesa.jpg'); 
+        //this.load.image('patatas', 'assets/other/patatas.jpg'); 
+      
     }
 
 
@@ -59,10 +59,10 @@ export default class InventoryScene extends Phaser.Scene
    
 
         // Mostramos texto de INVENTARIO
-        let titulo = this.add.text(0, this.sys.game.canvas.height/50,
+        let titulo = this.add.text(0, this.sys.game.canvas.height/15,
         "INVENTARIO");
         titulo.setFontSize(100);
-        titulo.setStroke('#800080', 3);
+        titulo.setStroke('#000000', 7);
         titulo.x = this.sys.game.canvas.width/2 - titulo.width/2;    
 
                 const items = this.inventory.GetItems(); // Obtiene los ítems del inventario
@@ -165,15 +165,16 @@ export default class InventoryScene extends Phaser.Scene
         backScene = this.add.image(
             this.sys.game.canvas.width / 12,
             this.sys.game.canvas.height / 1.2, 
-            'flecha')
+            'flechaa')
         .setScale(-0.3, 0.3)
         .setInteractive()
-        .on('pointerdown', () => this.scene.start(this.lastScene, { 
-            player:this.player.getConfigData(),
-            inventory:this.invertory.getConfigData(),
-            modo: this.modo
-        })
-    );
+        .on('pointerdown', () => {
+            this.scene.start(this.lastScene, { 
+                player: this.player.getConfigData(),
+                inventory: this.inventory.getConfigData(),
+                modo: this.modo
+            });
+        });
 
 
     }
