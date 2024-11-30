@@ -8,7 +8,6 @@ export default class localizationScene extends Phaser.Scene
     {
         super({key: "localizationScene"});
         
-        this.localizacion;
         this.titulo = null;
         this.npcTalk;
     }
@@ -16,19 +15,25 @@ export default class localizationScene extends Phaser.Scene
     init(data){
         // Usar el parámetro 'fondo' para decidir qué fondo cargar
         this.localizacion = data.fondo || 'parque';
+        
+        //para volver a la zona correcta
         this.ant = data.ant;
+
+        //PLAYER E INVENTARIO
+        this.playerConfig = data.player
+        this.inventoryConfig = data.inventory
     }
 
     preload(){
         //FONDOS
-            this.load.image('parque', 'assets/fondos/parque.jpg'); //fondo
-            this.load.image('puente', 'assets/fondos/puente.jpg'); //fondo
-            this.load.image('bar', 'assets/fondos/barFondo.jpg'); //fondo
-            this.load.image('cni', 'assets/fondos/cniFondo.jpg'); //fondo
-            this.load.image('hipodromo', 'assets/fondos/hipodromoFondo.jpg'); //fondo
-            this.load.image('cruzRoja', 'assets/fondos/cruzRoja.jpg'); //fondo
-            this.load.image('iglesia', 'assets/fondos/iglesia.jpg'); //fondo
-            this.load.image('pitiBanco', 'assets/fondos/pitiBanco.jpg'); //fondo
+            this.load.image('parque', 'assets/fondos/parque.jpg');
+            this.load.image('puente', 'assets/fondos/puente.jpg');
+            this.load.image('bar', 'assets/fondos/barFondo.jpg');
+            this.load.image('cni', 'assets/fondos/cniFondo.jpg');
+            this.load.image('hipodromo', 'assets/fondos/hipodromoFondo.jpg');
+            this.load.image('cruzRoja', 'assets/fondos/cruzRoja.jpg');
+            this.load.image('iglesia', 'assets/fondos/iglesia.jpg');
+            this.load.image('pitiBanco', 'assets/fondos/pitiBanco.jpg');
 
         //NPCS
             this.load.image('PACO', 'assets/npc/paco (2).png');
@@ -51,15 +56,14 @@ export default class localizationScene extends Phaser.Scene
         //OBJETOS COLECCIONABLES
         this.load.image('hamburguesa', 'assets/other/hamburguesa.png');
 
+        //JSON
         this.load.json("localizationJson", 'src/localization.json');
         
     }
 
     
-
     create(){
-        
-        //leer mapa
+        //leer localizacion
         const jsonObject = this.cache.json.get('localizationJson');
 
         //1. PINTAR FONDO
@@ -80,7 +84,7 @@ export default class localizationScene extends Phaser.Scene
             );
 
         //2. AÑADIR ELEMENTOS LOCALIZACIÓN
-            // TEXTO
+            // 2.1 TEXTO
             this.titulo = this.add.text(
                 this.sys.game.canvas.width / 2,   // coordenada x
                 this.sys.game.canvas.height / 12, // coordenada y
@@ -95,120 +99,31 @@ export default class localizationScene extends Phaser.Scene
             this.titulo.setOrigin(0.5, 0);
             this.titulo.setScale(0.8);
 
-            //GRUPOS
+            // 2.2 GRUPOS
             this.names = this.add.group();
             this.arrows = this.add.group();
             
-            //NPCS (DEPENDEN DE DATA)
-            //const localizacion = this.localizacion;
-            
+            // 2.3 NPCS
             const mode = jsonObject["botellin"][this.localizacion];
             
             mode.npcs.forEach(npc => {
                 this.addNPCToScene(npc);});
 
-            /*
-                //LOCALIZACION: BAR
-                    if(this.mode == 'bar')
-                        {
-                            this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.9);
-                            this.addNPCToScene("NPC", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 3);
-                            this.addNPCToScene("NPC", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 3);
-                        }
-                //LOCALIZACION: CNI
-                    else if(this.mode == 'cni')
-                    {
-                        this.addNPCToScene("MARIA", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.6);
-                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 3);
-                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 3);
-                    }
-                //LOCALIZACION: HIPODROMO
-                    else if(this.mode == 'hipodromo')
-                    {
-                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.4);
-                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 3);
-                        this.addNPCToScene("NPC", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 3);
-
-                    }
-                //LOCALIZACION: PARQUE
-                    else if(this.mode == 'parque')
-                    {
-                        const parque = jsonObject["botellin"].parque;
-                        parque.npcs.forEach(npc => {
-                            this.addNPCToScene(npc);
-                            //console.log(`Nombre: ${npc.name}, Coordenadas: (${npc.x}, ${npc.y}), Escala: ${npc.scale}`);
-                        });
-                        
-                        
-                        /*
-                        this.addItemToScene("hamburguesa", "Cura 3 de vida", 1, 150, 50, 3);
-                        this.addNPCToScene("PACO", this.sys.game.canvas.width / 3.8, this.sys.game.canvas.height / 1.4, 0.28);
-                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2.05,this.sys.game.canvas.height / 1.4, 0.28);
-                        this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
-                        
-                    }
-                //LOCALIZACION: PUENTE
-                    else if(this.mode == 'puente')
-                    {
-                        this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.9);
-                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 0.4);
-                        this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
-                    }
-                  //LOCALIZACION: CRUZ ROJA
-                    else if(this.mode == 'cruzRoja')
-                    {
-                        this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.9);
-                        this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 0.4);
-                        this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
-                    }
-                    //LOCALIZACION: IGLESIA
-                    else if(this.mode == 'iglesia')
-                        {
-                            this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.9);
-                            this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 0.4);
-                            this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
-                        }
-                    //LOCALIZACION: PITIBANCO
-                    else if(this.mode == 'pitiBanco')
-                        {
-                            this.addNPCToScene("PITIBANCO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 0.4);
-                        }
-             */           
-
-            //FLECHAS
-                
-                /*
-                var arrow1 = this.add.image(
-                    this.sys.game.canvas.width / 4,
-                    this.sys.game.canvas.height / 2.5, 
-                    'arrow')
-                    .setScale(0.2, 0.1);
-                this.arrows.add(arrow1);
-
-                var arrow2 = this.add.image(
-                    this.sys.game.canvas.width / 2,
-                    this.sys.game.canvas.height / 2.5, 
-                    'arrow')
-                    .setScale(0.2, 0.1);
-                this.arrows.add(arrow2);
-
-                var arrow3 = this.add.image(
-                    this.sys.game.canvas.width / 1.37,
-                    this.sys.game.canvas.height / 2.5, 
-                    'arrow')
-                    .setScale(0.2, 0.1);
-                this.arrows.add(arrow3);
-                        */
-
-            //CAMBIAR A ELLE GLOBAL
-            //ELLE (para la ansiedad)
+            
+            // 2.4 PLAYER
             let startPosition = window.gameState.playerPosition || { x: 278, y: 150 }; //posicion de la tenfe
+            
             this.player = new Player(this, startPosition.x, startPosition.y);
+            this.player.init(this.playerConfig);
+            
             this.player.setVisible(false); //que elle NO se vea
             this.player.changeMove(false);
-            console.log("Ansiedad: " + this.player.ansiedad); //debug
-
-            this.Inventory = new Inventory(this);
+            
+            // 2.5 INVENTARIO
+            this.inventory = new Inventory(this);
+            if(this.inventoryConfig != undefined) {
+                this.inventory.init(this.inventoryConfig);
+            }
 
             //ACCEPT && BACK
                 this.accept = this.add.image(
@@ -222,7 +137,10 @@ export default class localizationScene extends Phaser.Scene
                     this.player.IncreaseAnxiety(10);
                     console.log("Ansiedad: " + this.player.ansiedad); //debug
                     console.log(this.npcTalk);
-                    this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, modo: this.ant})
+                    this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, modo: this.ant,
+                        player: this.player.getConfigData(), 
+                        inventory: this.inventory.getConfigData()
+                    })
                 }); //cambiar a escena dialogo
                 
                 this.backButton = this.add.image(
@@ -261,7 +179,11 @@ export default class localizationScene extends Phaser.Scene
                 'flecha')
             .setScale(-0.3, 0.3)
             .setInteractive()
-            .on('pointerdown', () => this.scene.start('zonaScene', { modo: this.ant}));
+            .on('pointerdown', () => this.scene.start('zonaScene', { 
+                modo: this.ant,
+                player: this.player.getConfigData(), 
+                inventory: this.inventory.getConfigData()
+            }));
 
             
         // botones para testeo
@@ -396,7 +318,6 @@ export default class localizationScene extends Phaser.Scene
 
     Pick(item)
     {
-        
         const inventario = this.registry.get('inventario');
         if (inventario) {
             inventario.AddItem(item); // Agregar el item al inventario

@@ -1,4 +1,6 @@
 import DialogText from "../src/dialog_plugin.js";
+import Player from '../src/Player.js';
+import Inventory from '../src/inventory.js';
 
 export default class DialogueScene extends Phaser.Scene {
     constructor(){
@@ -33,10 +35,32 @@ export default class DialogueScene extends Phaser.Scene {
         this.fondo = data.fondo || 'puente';
         this.modo = data.modo;
         console.log(data.fondo);
+
+        //PLAYER E INVENTARIO
+        this.playerConfig = data.player
+        this.inventoryConfig = data.inventory
+
     }
 
     create(data){
         console.log(data.npc);//debug
+
+        // 2.4 PLAYER
+        let startPosition = window.gameState.playerPosition || { x: 278, y: 150 }; //posicion de la tenfe
+            
+        this.player = new Player(this, startPosition.x, startPosition.y);
+        console.log(this.playerConfig);
+        this.player.init(this.playerConfig);
+        
+        this.player.setVisible(false); //que elle NO se vea
+        this.player.changeMove(false);
+        
+        // 2.5 INVENTARIO
+        this.inventory = new Inventory(this);
+        if(this.inventoryConfig != undefined) {
+            this.inventory.init(this.inventoryConfig);
+        }
+
 
         const jsonObject = this.cache.json.get('dialogsNPC');
         console.log(jsonObject);
@@ -198,7 +222,7 @@ export default class DialogueScene extends Phaser.Scene {
         this.titulo.setOrigin(0.5, 0);
         this.titulo.setScale(0.8);
 
-
+        
         
 
         
@@ -212,7 +236,12 @@ export default class DialogueScene extends Phaser.Scene {
             'flecha')
         .setScale(-0.3, 0.3)
         .setInteractive()
-        .on('pointerdown', () => this.scene.start('localizationScene', { fondo: data.fondo, modo: this.modo}));
+        .on('pointerdown', () => this.scene.start('localizationScene', {
+            fondo: data.fondo,
+            modo: this.modo,
+            player: this.player.getConfigData(), 
+            inventory: this.inventory.getConfigData()
+        }));
 
 
     }
