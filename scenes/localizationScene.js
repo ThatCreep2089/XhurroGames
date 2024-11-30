@@ -99,6 +99,14 @@ export default class localizationScene extends Phaser.Scene
             this.arrows = this.add.group();
             
             //NPCS (DEPENDEN DE DATA)
+            const localizacion = this.mode;
+            
+            const mode = jsonObject["botellin"][localizacion];
+            
+            mode.npcs.forEach(npc => {
+                this.addNPCToScene(npc);});
+
+            /*
                 //LOCALIZACION: BAR
                     if(this.mode == 'bar')
                         {
@@ -136,7 +144,7 @@ export default class localizationScene extends Phaser.Scene
                         this.addNPCToScene("PACO", this.sys.game.canvas.width / 3.8, this.sys.game.canvas.height / 1.4, 0.28);
                         this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2.05,this.sys.game.canvas.height / 1.4, 0.28);
                         this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
-                        */
+                        
                     }
                 //LOCALIZACION: PUENTE
                     else if(this.mode == 'puente')
@@ -164,7 +172,7 @@ export default class localizationScene extends Phaser.Scene
                         {
                             this.addNPCToScene("PITIBANCO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 0.4);
                         }
-
+             */           
 
             //FLECHAS
                 
@@ -287,7 +295,7 @@ export default class localizationScene extends Phaser.Scene
 
 
     addNPCToScene(npc){    
-        //BOTON Paco
+        //BOTON NPC
         const spritePJ = this.add.image(
             this.sys.game.canvas.width /npc.x,
             this.sys.game.canvas.height /npc.y, 
@@ -303,7 +311,7 @@ export default class localizationScene extends Phaser.Scene
         .on('pointerout', () => spritePJ.clearTint());
 
         
-        //NOMBRE Paco
+        //NOMBRE NPC
         let textPJ = this.add.text(
             this.sys.game.canvas.width /npc.x,   // coordenada x
             this.sys.game.canvas.height / 3.7, // coordenada y
@@ -320,6 +328,7 @@ export default class localizationScene extends Phaser.Scene
 
         this.names.add(textPJ); //añadir al conjunto
 
+        //FLECHA NPC
         var arrow = this.add.image(
             this.sys.game.canvas.width /npc.x,
             this.sys.game.canvas.height / 2.5, 

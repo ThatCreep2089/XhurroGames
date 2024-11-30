@@ -20,14 +20,223 @@
                     "name": "MARIA JOSE",
                     "x": 3.8, 
                     "y": 1.4,
-                    "scale": 2,
-                    "aparecido": true
+                    "scale": 2
                 },
                 {
                     "name": "MARIA DEL CARMEN",
                     "x": 1.35, 
                     "y": 1.4,
                     "scale": 0.4
+                }
+
+            ]
+        },
+        "puente":
+        {
+            "items":
+            [
+                {
+                    "name": "hamburguesa",
+                    "description": "Cura 3 de vida",
+                    "x": 1,
+                    "y": 150,
+                    "effect": 50,
+                    "amountOfEffect": 3
+                }
+            ],
+            "npcs":
+            [
+                {
+                    "name": "ALI",
+                    "x": 3.8, 
+                    "y": 1.4,
+                    "scale": 2
+                },
+                {
+                    "name": "JESUS",
+                    "x": 1.35, 
+                    "y": 1.4,
+                    "scale": 0.4
+                }
+
+            ]
+        },
+        "hipodromo":
+        {
+            "items":
+            [
+                {
+                    "name": "hamburguesa",
+                    "description": "Cura 3 de vida",
+                    "x": 1,
+                    "y": 150,
+                    "effect": 50,
+                    "amountOfEffect": 3
+                }
+            ],
+            "npcs":
+            [
+                {
+                    "name": "HUMBERTO",
+                    "x": 3.8, 
+                    "y": 1.4,
+                    "scale": 2
+                },
+                {
+                    "name": "JOSE",
+                    "x": 1.35, 
+                    "y": 1.4,
+                    "scale": 0.4
+                }
+
+            ]
+        },
+        "cni":
+        {
+            "items":
+            [
+                {
+                    "name": "hamburguesa",
+                    "description": "Cura 3 de vida",
+                    "x": 1,
+                    "y": 150,
+                    "effect": 50,
+                    "amountOfEffect": 3
+                }
+            ],
+            "npcs":
+            [
+                {
+                    "name": "MARIA",
+                    "x": 3.8, 
+                    "y": 1.4,
+                    "scale": 2
+                },
+                {
+                    "name": "PEDRITO",
+                    "x": 1.35, 
+                    "y": 1.4,
+                    "scale": 0.4
+                }
+
+            ]
+        },
+        "bar":
+        {
+            "items":
+            [
+                {
+                    "name": "hamburguesa",
+                    "description": "Cura 3 de vida",
+                    "x": 1,
+                    "y": 150,
+                    "effect": 50,
+                    "amountOfEffect": 3
+                }
+            ],
+            "npcs":
+            [
+                {
+                    "name": "PACO",
+                    "x": 3.8, 
+                    "y": 1.4,
+                    "scale": 0.9
+                },
+                {
+                    "name": "AGUSTÍN",
+                    "x": 1.35, 
+                    "y": 1.4,
+                    "scale": 0.4
+                },
+                {
+                    "name": "AGUSTÍN",
+                    "x": 2, 
+                    "y": 1.4,
+                    "scale": 0.4
+                }
+
+            ]
+        },
+        "cruzRoja":
+        {
+            "items":
+            [
+                {
+                    "name": "hamburguesa",
+                    "description": "Cura 3 de vida",
+                    "x": 1,
+                    "y": 150,
+                    "effect": 50,
+                    "amountOfEffect": 3
+                }
+            ],
+            "npcs":
+            [
+                {
+                    "name": "CONSUELO",
+                    "x": 3.8, 
+                    "y": 1.4,
+                    "scale": 0.9
+                },
+                {
+                    "name": "MARIA TERESA",
+                    "x": 1.35, 
+                    "y": 1.4,
+                    "scale": 0.4
+                }
+
+            ]
+        },
+        "iglesia":
+        {
+            "items":
+            [
+                {
+                    "name": "hamburguesa",
+                    "description": "Cura 3 de vida",
+                    "x": 1,
+                    "y": 150,
+                    "effect": 50,
+                    "amountOfEffect": 3
+                }
+            ],
+            "npcs":
+            [
+                {
+                    "name": "BOSS",
+                    "x": 3.8, 
+                    "y": 1.4,
+                    "scale": 0.9
+                },
+                {
+                    "name": "GATO EN CAJA",
+                    "x": 1.35, 
+                    "y": 1.4,
+                    "scale": 0.4
+                }
+
+            ]
+        },
+        "pitiBanco":
+        {
+            "items":
+            [
+                {
+                    "name": "hamburguesa",
+                    "description": "Cura 3 de vida",
+                    "x": 1,
+                    "y": 150,
+                    "effect": 50,
+                    "amountOfEffect": 3
+                }
+            ],
+            "npcs":
+            [
+                {
+                    "name": "PITIBANCO",
+                    "x": 3.8, 
+                    "y": 1.4,
+                    "scale": 0.9
                 }
 
             ]
