@@ -237,22 +237,22 @@ export default class ZonaScene extends Phaser.Scene{
     createLocalization(localization)
     {
         let localization1 = new Localization(this, localization.sprite, 
-            eval(localization.x),
-            eval(localization.y),
-            eval(localization.width), eval(localization.height), this.localizations, localization.scenario);
+            this.sys.game.canvas.width / localization.x,
+            this.sys.game.canvas.height / localization.y,
+            localization.width, localization.height, this.localizations, localization.scenario);
 
         const cajaL = localization.caja;
                 //NOMBRES LOCALIZACION
                     let caja2 = this.add.image(
-                        eval(cajaL.x),
-                        eval(cajaL.y), 
+                        this.sys.game.canvas.width / cajaL.x,
+                        this.sys.game.canvas.height / cajaL.y, 
                         cajaL.id)
-                    .setScale( eval(cajaL.width),  eval(cajaL.height));
+                    .setScale(cajaL.width, cajaL.height);
 
         const textL = localization.texto;
                     let texto2 = this.add.text(
-                        eval(textL.x),
-                        eval(textL.y),
+                        this.sys.game.canvas.width / textL.x,
+                        this.sys.game.canvas.height / textL.y,
                         textL.text,
                         { fontSize: textL.size, color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
                     );
@@ -261,20 +261,20 @@ export default class ZonaScene extends Phaser.Scene{
 
         const decor = localization.decor;
                     this.add.image(
-                        eval(decor.x),
-                        eval(decor.y), 
+                        this.sys.game.canvas.width / decor.x,
+                        this.sys.game.canvas.height / decor.y, 
                         decor.id)
-                    .setScale( eval(decor.width),  eval(decor.height));
+                    .setScale(decor.width, decor.height);
 
     }
 
     createFlecha(flecha)
     {
         let flecha1 = new Flecha(this, 
-            eval(flecha.x),
-            eval(flecha.y), 
-            this.flechas, eval(flecha.modo), eval(flecha.ant))
-            .setScale(eval(flecha.width), eval(flecha.height));
+            this.sys.game.canvas.width / flecha.x,
+            this.sys.game.canvas.height / flecha.y, 
+            this.flechas, flecha.modo, flecha.ant)
+            .setScale(flecha.width, flecha.height);
     }
 
     update(time, dt){
