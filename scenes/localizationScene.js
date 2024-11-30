@@ -1,5 +1,6 @@
 import Player from '../src/Player.js';
 import Inventory from '../src/inventory.js';
+import Item from '../src/item.js';
 
 export default class localizationScene extends Phaser.Scene
 {
@@ -27,12 +28,14 @@ export default class localizationScene extends Phaser.Scene
             this.load.image('hipodromo', 'assets/fondos/hipodromoFondo.jpg'); //fondo
             this.load.image('cruzRoja', 'assets/fondos/cruzRoja.jpg'); //fondo
             this.load.image('iglesia', 'assets/fondos/iglesia.jpg'); //fondo
+            this.load.image('pitiBanco', 'assets/fondos/pitiBanco.jpg'); //fondo
 
         //NPCS
             this.load.image('PACO', 'assets/npc/paco (2).png');
             this.load.image('HUMBERTO', 'assets/npc/humberto (2).png');
             this.load.image('MARIA', 'assets/npc/maria.png');
             this.load.image('NPC', 'assets/npc/npc.png');
+            this.load.image('PITIBANCO', 'assets/npc/pitiBanco.png');
 
         //BACK BUTTON
         this.load.image('flecha', 'assets/other/flecha.png');
@@ -44,6 +47,7 @@ export default class localizationScene extends Phaser.Scene
 
         
         //OBJETOS COLECCIONABLES
+        this.load.image('hamburguesa', 'assets/other/hamburguesa.png');
         
     }
 
@@ -112,6 +116,7 @@ export default class localizationScene extends Phaser.Scene
                 //LOCALIZACION: PARQUE
                     else if(this.mode == 'parque')
                     {
+                        this.addItemToScene("hamburguesa", "Cura 3 de vida", 1, 150, 50, 3);
                         this.addNPCToScene("PACO", this.sys.game.canvas.width / 3.8, this.sys.game.canvas.height / 1.4, 0.28);
                         this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2.05,this.sys.game.canvas.height / 1.4, 0.28);
                         this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
@@ -136,6 +141,11 @@ export default class localizationScene extends Phaser.Scene
                             this.addNPCToScene("PACO", this.sys.game.canvas.width / 4, this.sys.game.canvas.height / 1.4, 0.9);
                             this.addNPCToScene("HUMBERTO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 0.4);
                             this.addNPCToScene("MARIA", this.sys.game.canvas.width / 1.35,this.sys.game.canvas.height / 1.4, 0.6);
+                        }
+                    //LOCALIZACION: PITIBANCO
+                    else if(this.mode == 'pitiBanco')
+                        {
+                            this.addNPCToScene("PITIBANCO", this.sys.game.canvas.width / 2,this.sys.game.canvas.height / 1.4, 0.4);
                         }
 
 
@@ -293,6 +303,16 @@ export default class localizationScene extends Phaser.Scene
         this.names.add(textPJ); //añadir al conjunto
     }
 
+    addItemToScene(name, description, effect, posx, posy, amountOfEffect)
+    {
+        this.hamburguesa= new Item(this, name, description, effect, posx, posy, amountOfEffect);//creamos item
+        console.log(this.hamburguesa.name+ this.hamburguesa.description);
+        this.hamburguesa.setDisplaySize(50, 50);//ajustamos tam
+        this.hamburguesa.setInteractive(); // Habilitar interactividad
+        this.hamburguesa.on('pointerdown', () => { //evento para detectar el raton
+            this.Pick(this.hamburguesa); 
+        });
+    }
 
     update(){
         // Actualiza el texto con el nuevo valor de la variable
@@ -334,5 +354,15 @@ export default class localizationScene extends Phaser.Scene
             }
         }
          
+    }
+
+    Pick(item)
+    {
+        
+        const inventario = this.registry.get('inventario');
+        if (inventario) {
+            inventario.AddItem(item); // Agregar el item al inventario
+            item.setVisible(false);
+        }
     }
 }

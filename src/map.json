@@ -331,13 +331,36 @@
             },
             "pitiBanco":
             {
-                "sprite": "pitiBanco",
+                "sprite": "pitiBancoLocalization",
                 "x": "this.sys.game.canvas.width / 1.52",
                 "y": "this.sys.game.canvas.height / 2.25",
                 "width": "0.305",
                 "height": "0.3",
                 "colliderGroup": "localizations",
-                "scenario": "pitiBanco"
+                "scenario": "pitiBanco",
+                "caja":
+                {
+                    "x": "this.sys.game.canvas.width / 3.1",
+                    "y": "this.sys.game.canvas.height / 1.27",
+                    "width": "0.18",
+                    "height": "0.13",
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": "this.sys.game.canvas.width / 3",
+                    "y": "this.sys.game.canvas.height / 1.3",
+                    "text": "CRUZ\nROJA"
+                },
+                "decor":
+                {
+                    "x": "this.sys.game.canvas.width / 3.5",
+                    "y": "this.sys.game.canvas.height / 1.15",
+                    "width": "0.13",
+                    "height": "0.13",
+                    "id": "maps"
+                }
             }
         }
 
