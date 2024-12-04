@@ -13,6 +13,7 @@ import TenfeScene from "../scenes/tenfeScene.js";
 import DialogueScene from "../scenes/dialogueScene.js";
 import ContactScene from "../scenes/ContactScene.js";
 import GeneralContactsScene from "../scenes/GeneralContactsScene.js";
+import StatsScene from "../scenes/StatsScene.js";
 /*
 
 
