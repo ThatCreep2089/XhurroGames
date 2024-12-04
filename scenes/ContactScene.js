@@ -95,34 +95,40 @@ init(data){
         //BARRIO: RELIGIOSO
            
             else if(this.modo == 2)
-            {contacto='Rojo'
-                const religioso = jsonObject["religioso"];
+            {const religioso = jsonObject["religioso"];
                 religioso.npcs.forEach(npc => {
-                    this.addContactToScene(npc,contacto);
-                    console.log(`Nombre: ${npc.name}`);
-                });
+                if (npc.conocida) { // Comprobar si este NPC es conocido
+                    contacto = npc.name; // La imagen se toma del nombre del NPC
+                    this.addContactToScene(npc, contacto);
+                }
+                
+            });
     
             }
         //BARRIO: NAVAJAS
             else if(this.modo == 3)
             {
-              contacto='Azul'
                 const navajas = jsonObject["navajas"];
                 navajas.npcs.forEach(npc => {
-                    this.addContactToScene(npc,contacto);
-                    console.log(`Nombre: ${npc.name}`);
-                });
+                if (npc.conocida) { // Comprobar si este NPC es conocido
+                    contacto = npc.name; // La imagen se toma del nombre del NPC
+                    this.addContactToScene(npc, contacto);
+                }
+                
+            });
     
             }
         //BARRIO: DINERO
             else if(this.modo == 4)
             {
-                 contacto='Amarillo'
                 const dinero = jsonObject["dinero"];
                 dinero.npcs.forEach(npc => {
-                    this.addContactToScene(npc,contacto);
-                    console.log(`Nombre: ${npc.name}`);
-                });
+                if (npc.conocida) { // Comprobar si este NPC es conocido
+                    contacto = npc.name; // La imagen se toma del nombre del NPC
+                    this.addContactToScene(npc, contacto);
+                }
+                
+            });
             }
           
               //BACK BUTTON (VOLVER A GENERALCONTACS)

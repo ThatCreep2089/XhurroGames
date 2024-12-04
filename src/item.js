@@ -5,7 +5,7 @@ export default class Item extends Phaser.GameObjects.Image
 constructor(scene,name,description,effect,posx,posy,amount)
 {
     super(scene,posx,posy,name);
-        this.amount = amount; // elle
+        this.amount = amount; // cantodad del efecto, pej si cuar 3 ese 3 que se 
         this.name=name; //nombre elem
         this.description=description;//que hace el objeto
         this.effect=effect;//tipo efecto(si es para reducir ansiedad...)

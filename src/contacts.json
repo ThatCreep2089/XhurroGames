@@ -33,7 +33,7 @@
             [
                 {
                     "name": "Marta",
-                    "conocida": false,
+                    "conocida": true,
                     "posx": 3,
                     "posy": 3,
                     "bandera":"lesbiana",
@@ -60,7 +60,7 @@
             [
                 {
                     "name": "Pepa",
-                    "conocida": false,
+                    "conocida": true,
                     "posx": 3,
                     "posy": 3,
                     "bandera":"lesbiana",
