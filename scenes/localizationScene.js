@@ -287,15 +287,15 @@ export default class localizationScene extends Phaser.Scene
     {
         if(item.recogido == "false")
         {
-            this.newItem= new Item(this, item.name, item.description, item.effect, item.x, item.y, item.amountOfEffect);//creamos item
+           let newItem= new Item(this, item.name, item.description, item.effect, item.x, item.y, item.amountOfEffect);//creamos item
             //console.log(this.item.name+ this.item.description);
-            this.newItem.setScale(0.3);//ajustamos tam
-            this.newItem.setInteractive(); // Habilitar interactividad
+            newItem.setScale(0.3);//ajustamos tam
+           newItem.setInteractive(); // Habilitar interactividad
             
             //evento boton
-            this.newItem.on('pointerdown', () => { //evento para detectar el raton
+            newItem.on('pointerdown', () => { //evento para detectar el raton
                 item.recogido = "true";
-                this.Pick(this.newItem); //recoger item (meter en inventario) y quitar de escena
+                this.Pick(newItem); //recoger item (meter en inventario) y quitar de escena
             });
         }
         

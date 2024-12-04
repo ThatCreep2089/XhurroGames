@@ -82,7 +82,7 @@ export default class Inventory
    
         // Verificar si el índice es válido (es decir, el item existe en el inventario)
     if (pos !== -1) {
-        if (this.elems[pos].ejemplar > 1) {
+        if (this.elems[pos].ejemplar >= 1) {
             this.elems[pos].ejemplar--; // Decrementar la cantidad
         } else {
             this.elems.splice(pos, 1); // Eliminar el item
@@ -107,10 +107,10 @@ export default class Inventory
     //utilizar el item
     UseItem(effect,item,player)
     {
-        this.RemoveItem(item);
         if(effect===1)
         {
             item.HealLife(item.amount,player);
+            
         }
         else if(effect===2)
         {

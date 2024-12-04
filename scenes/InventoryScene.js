@@ -141,8 +141,14 @@ export default class InventoryScene extends Phaser.Scene
                     // Si selecciono "Sí"
                     rect2.on('pointerdown', () => {
                         // Hacer efecto al seleccionar "Sí"
+                        console.log("he seleccinado si")
+                        console.log(this.inventory)
                         this.Remove(item); // Eliminar el item
-                        console.log(item.ejemplares);
+                        console.log(item.ejemplar)
+                        if (item.ejemplar == 0) {
+                            sprite.setVisible(false); // Hacer invisible si no quedan ejemplares
+                        }
+                        
                         
                         rect.setVisible(false);
                         rect0.setVisible(false);
@@ -151,7 +157,7 @@ export default class InventoryScene extends Phaser.Scene
                         texto2.setVisible(false);
                         texto3.setVisible(false);
                     });
-                
+                   
                     // Lógica de avance de columna y fila fuera del evento `pointerdown`
                     columna++;
                     if (columna >= numColumnas) {
@@ -182,11 +188,9 @@ export default class InventoryScene extends Phaser.Scene
    Remove(item)
     {
         
-        this.inventario.UseItem(item.effect ,item,this.player); //si utilizamos el item despues lo quitamos del inventario
-        this.inventario.RemoveItem(item);//quita el item del inventario
-        if (item.ejemplares === 0) {
-            sprite.setVisible(false); // Hacer invisible si no quedan ejemplares
-        }
+        this.inventory.UseItem(item.effect ,item,this.player); //si utilizamos el item despues lo quitamos del inventario
+        this.inventory.RemoveItem(item);//quita el item del inventario
+        
     }  
         
         
