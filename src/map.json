@@ -1,367 +1,376 @@
   {
     "botellin": {
-        "zona1":
+        "1":
         {
             "manzanas":
-            {
+            [
 
-            },
-            "parque":
-            {
-                "sprite": "localization1",
-                "x": "this.sys.game.canvas.width / 4.3",
-                "y": "this.sys.game.canvas.height / 3.2",
-                "width": "0.58",
-                "height": "0.4",
-                "colliderGroup": "localizations",
-                "scenario": "parque",
-                "caja":
+            ],
+            "localizations":
+            [
                 {
-                    "x": "this.sys.game.canvas.width / 4.6",
-                    "y": "this.sys.game.canvas.height / 9.5",
-                    "width": "0.3",
-                    "height": "0.12",
-                    "id": "caja"
+                    "sprite": "localization1",
+                    "x": 4.3,
+                    "y": 3.2,
+                    "width": 0.58,
+                    "height": 0.4,
+                    "colliderGroup": "localizations",
+                    "scenario": "parque",
+                    "caja":
+                    {
+                        "x": 4.6,
+                        "y": 9.5,
+                        "width": 0.3,
+                        "height": 0.12,
+                        "id": "caja"
+                    },
+                    "texto":
+                    {
+                        "size": "30px",
+                        "x": 4.3,
+                        "y": 11,
+                        "text": "PARQUE\nMIL FLORES"
+                    },
+                    "decor":
+                    {
+                        "x": 3.2,
+                        "y": 5,
+                        "width": 0.15,
+                        "height": 0.15,
+                        "id": "maps"
+                    }
                 },
-                "texto":
                 {
-                    "size": "30px",
-                    "x": "this.sys.game.canvas.width / 4.3",
-                    "y": "this.sys.game.canvas.height / 11",
-                    "text": "PARQUE\nMIL FLORES"
+                    "sprite": "localization2",
+                    "x": 1.31,
+                    "y": 3.4,
+                    "width": 0.26,
+                    "height": 0.3,
+                    "colliderGroup": "localizations",
+                    "scenario": "puente",
+                    "caja":
+                    {
+                        "x": 1.34,
+                        "y": 2.15,
+                        "width": 0.3,
+                        "height": 0.12,
+                        "id": "caja"
+                    },
+                    "texto":
+                    {
+                        "size": "30px",
+                        "x": 1.32,
+                        "y": 2.2,
+                        "text": "PUENTE"
+                    },
+                    "decor":
+                    {
+                        "x": 1.43,
+                        "y": 2.5,
+                        "width": 0.15,
+                        "height": 0.15,
+                        "id": "maps"
+                    }
+                    
                 },
-                "decor":
                 {
-                    "x": "this.sys.game.canvas.width / 3.2",
-                    "y": "this.sys.game.canvas.height / 5",
-                    "width": "0.15",
-                    "height": "0.15",
-                    "id": "maps"
+                    "sprite": "tenfe",
+                    "x": 1.9,
+                    "y": 1.25,
+                    "width": 0.1,
+                    "height": 0.1,
+                    "colliderGroup": "localizations",
+                    "scenario": "tenfeFondo",
+                    "caja":
+                    {
+                        "x": 1.94,
+                        "y": 1.5,
+                        "width": 0.2,
+                        "height": 0.12,
+                        "id": "caja"
+                    },
+                    "texto":
+                    {
+                        "size": "30px",
+                        "x": 1.9,
+                        "y": 1.53,
+                        "text": "TENFE"
+                    },
+                    "decor":
+                    {
+                        "x": 1.75,
+                        "y": 1.3,
+                        "width": 0.15,
+                        "height": 0.15,
+                        "id": "maps"
+                    }
+                    
                 }
-            },
-            "puente":
-            {
-                "sprite": "localization2",
-                "x": "this.sys.game.canvas.width / 1.31",
-                "y": "this.sys.game.canvas.height / 3.4",
-                "width": "0.26",
-                "height": "0.3",
-                "colliderGroup": "localizations",
-                "scenario": "puente",
-                "caja":
+
+            ],
+            "flechas":
+            [
                 {
-                    "x": "this.sys.game.canvas.width / 1.34",
-                    "y": "this.sys.game.canvas.height / 2.15",
-                    "width": "0.3",
-                    "height": "0.12",
-                    "id": "caja"
-                },
-                "texto":
-                {
-                    "size": "30px",
-                    "x": "this.sys.game.canvas.width / 1.32",
-                    "y": "this.sys.game.canvas.height / 2.2",
-                    "text": "PUENTE"
-                },
-                "decor":
-                {
-                    "x": "this.sys.game.canvas.width / 1.43",
-                    "y": "this.sys.game.canvas.height / 2.5",
-                    "width": "0.15",
-                    "height": "0.15",
-                    "id": "maps"
-                }
-                
-            },
-            "tenfe":
-            {
-                "sprite": "tenfe",
-                "x": "this.sys.game.canvas.width / 1.9",
-                "y": "this.sys.game.canvas.height / 1.25",
-                "width": "0.1",
-                "height": "0.1",
-                "colliderGroup": "localizations",
-                "scenario": "tenfeFondo",
-                "caja":
-                {
-                    "x": "this.sys.game.canvas.width / 1.94",
-                    "y": "this.sys.game.canvas.height / 1.5",
-                    "width": "0.2",
-                    "height": "0.12",
-                    "id": "caja"
-                },
-                "texto":
-                {
-                    "size": "30px",
-                    "x": "this.sys.game.canvas.width / 1.9",
-                    "y": "this.sys.game.canvas.height / 1.53",
-                    "text": "TENFE"
-                },
-                "decor":
-                {
-                    "x": "this.sys.game.canvas.width / 1.75",
-                    "y": "this.sys.game.canvas.height / 1.3",
-                    "width": "0.15",
-                    "height": "0.15",
-                    "id": "maps"
-                }
-                
-            },
-            "flecha":
-            {
-                "x": "this.sys.game.canvas.width / 1.05",
-                "y": "this.sys.game.canvas.height / 3.3",
+                "x": 1.05,
+                "y": 3.3,
                 "colliderGroup": "flechas",
-                "modo": "2",
-                "ant": "1",
-                "width": "0.2",
-                "height": "0.2"
-            }
+                "modo": 2,
+                "ant": 1,
+                "width": 0.2,
+                "height": 0.2
+                }
+            ]
+            
         },
-        "zona2":
+        "2":
         {
             "manzanas":
-            {
+            [
 
-            },
-            "cni":
-            {
-                "sprite": "localization4",
-                "x": "this.sys.game.canvas.width / 3.4",
-                "y": "this.sys.game.canvas.height / 1.4",
-                "width": "0.43",
-                "height": "0.41",
-                "colliderGroup": "localizations",
-                "scenario": "cni",
-                "caja":
+            ],
+        
+            "localizations":
+            [
                 {
-                    "x": "this.sys.game.canvas.width / 3.5",
-                    "y": "this.sys.game.canvas.height / 2.15",
-                    "width": "0.2",
-                    "height": "0.12",
-                    "id": "caja"
+                    "sprite": "localization4",
+                    "x": 3.4,
+                    "y": 1.4,
+                    "width": 0.43,
+                    "height": 0.41,
+                    "colliderGroup": "localizations",
+                    "scenario": "cni",
+                    "caja":
+                    {
+                        "x": 3.5,
+                        "y": 2.15,
+                        "width": 0.2,
+                        "height": 0.12,
+                        "id": "caja"
+                    },
+                    "texto":
+                    {
+                        "size": "30px",
+                        "x": 3.4,
+                        "y": 2.2,
+                        "text": "CNI"
+                    },
+                    "decor":
+                    {
+                        "x": 4,
+                        "y": 1.8,
+                        "width": -0.15,
+                        "height": 0.15,
+                        "id": "maps"
+                    }
                 },
-                "texto":
                 {
-                    "size": "30px",
-                    "x": "this.sys.game.canvas.width / 3.4",
-                    "y": "this.sys.game.canvas.height / 2.2",
-                    "text": "CNI"
+                    "sprite": "localization5",
+                    "x": 2.04,
+                    "y": 4.8,
+                    "width": 0.4,
+                    "height": 0.4,
+                    "colliderGroup": "localizations",
+                    "scenario": "bar",
+                    "caja":
+                    {
+                        "x": 2.01,
+                        "y": 10.5,
+                        "width": 0.19,
+                        "height": 0.1,
+                        "id": "caja"
+                    },
+                    "texto":
+                    {
+                        "size": "30px",
+                        "x": 1.97,
+                        "y": 12,
+                        "text": "BAR SAN\nAGUSTIN"
+                    },
+                    "decor":
+                    {
+                        "x": 1.8,
+                        "y": 5.5,
+                        "width": 0.13,
+                        "height": 0.13,
+                        "id": "maps"
+                    }
+                    
                 },
-                "decor":
                 {
-                    "x": "this.sys.game.canvas.width / 4",
-                    "y": "this.sys.game.canvas.height / 1.8",
-                    "width": "-0.15",
-                    "height": "0.15",
-                    "id": "maps"
+                    "sprite": "localization6",
+                    "x": 1.21,
+                    "y": 1.62,
+                    "width": 0.4,
+                    "height": 0.4,
+                    "colliderGroup": "localizations",
+                    "scenario": "hipodromo",
+                    "caja":
+                    {
+                        "x": 1.36,
+                        "y": 1.52,
+                        "width": 0.1,
+                        "height": 0.32,
+                        "id": "caja"
+                    },
+                    "texto":
+                    {
+                        "size": "30px",
+                        "x": 1.35,
+                        "y": 1.62,
+                        "text": "H\nI\nP\nO\nD\nR\nO\nM\nO"
+                    },
+                    "decor":
+                    {
+                        "x": 1.3,
+                        "y": 2.3,
+                        "width": -0.13,
+                        "height": 0.13,
+                        "id": "maps"
+                    }
                 }
-            },
-            "bar":
-            {
-                "sprite": "localization5",
-                "x": "this.sys.game.canvas.width / 2.04",
-                "y": "this.sys.game.canvas.height / 4.8",
-                "width": "0.4",
-                "height": "0.4",
-                "colliderGroup": "localizations",
-                "scenario": "bar",
-                "caja":
+            ],
+            "flechas":
+            [
                 {
-                    "x": "this.sys.game.canvas.width / 2.01",
-                    "y": "this.sys.game.canvas.height / 10.5",
-                    "width": "0.19",
-                    "height": "0.1",
-                    "id": "caja"
+                    "x": 22,
+                    "y": 3.3,
+                    "colliderGroup": "flechas",
+                    "modo": 1,
+                    "ant": 2,
+                    "width": -0.2,
+                    "height": 0.2
                 },
-                "texto":
                 {
-                    "size": "30px",
-                    "x": "this.sys.game.canvas.width / 1.97",
-                    "y": "this.sys.game.canvas.height / 12",
-                    "text": "BAR SAN\nAGUSTIN"
-                },
-                "decor":
-                {
-                    "x": "this.sys.game.canvas.width / 1.8",
-                    "y": "this.sys.game.canvas.height / 5.5",
-                    "width": "0.13",
-                    "height": "0.13",
-                    "id": "maps"
+                    "x": 1.05,
+                    "y": 3.3,
+                    "colliderGroup": "flechas",
+                    "modo": 3,
+                    "ant": 2,
+                    "width": 0.2,
+                    "height": 0.2
                 }
-                
-            },
-            "hipodromo":
-            {
-                "sprite": "localization6",
-                "x": "this.sys.game.canvas.width / 1.21",
-                "y": "this.sys.game.canvas.height / 1.62",
-                "width": "0.4",
-                "height": "0.4",
-                "colliderGroup": "localizations",
-                "scenario": "hipodromo",
-                "caja":
-                {
-                    "x": "this.sys.game.canvas.width / 1.36",
-                    "y": "this.sys.game.canvas.height / 1.52",
-                    "width": "0.1",
-                    "height": "0.32",
-                    "id": "caja"
-                },
-                "texto":
-                {
-                    "size": "30px",
-                    "x": "this.sys.game.canvas.width / 1.35",
-                    "y": "this.sys.game.canvas.height / 1.62",
-                    "text": "H\nI\nP\nO\nD\nR\nO\nM\nO"
-                },
-                "decor":
-                {
-                    "x": "this.sys.game.canvas.width / 1.3",
-                    "y": "this.sys.game.canvas.height / 2.3",
-                    "width": "-0.13",
-                    "height": "0.13",
-                    "id": "maps"
-                }
-                
-            },
-            "flecha1":
-            {
-                "x": "this.sys.game.canvas.width / 22",
-                "y": "this.sys.game.canvas.height / 3.3",
-                "colliderGroup": "flechas",
-                "modo": "1",
-                "ant": "2",
-                "width": "-0.2",
-                "height": "0.2"
-            },
-            "flecha3":
-            {
-                "x": "this.sys.game.canvas.width / 1.05",
-                "y": "this.sys.game.canvas.height / 3.3",
-                "colliderGroup": "flechas",
-                "modo": "3",
-                "ant": "2",
-                "width": "0.2",
-                "height": "0.2"
-            }
+            ]
         },
-        "zona3":
+        "3":
         {
             "manzanas":
-            {
+            [
 
-            },
-            "cruzRoja":
-            {
-                "sprite": "localization7",
-                "x": "this.sys.game.canvas.width / 4.4",
-                "y": "this.sys.game.canvas.height / 1.27",
-                "width": "0.3",
-                "height": "0.3",
-                "colliderGroup": "localizations",
-                "scenario": "cruzRoja",
-                "caja":
+            ],
+            "localizations":
+            [
                 {
-                    "x": "this.sys.game.canvas.width / 3.1",
-                    "y": "this.sys.game.canvas.height / 1.27",
-                    "width": "0.18",
-                    "height": "0.13",
-                    "id": "caja"
+                    "sprite": "localization7",
+                    "x": 4.4,
+                    "y": 1.27,
+                    "width": 0.3,
+                    "height": 0.3,
+                    "colliderGroup": "localizations",
+                    "scenario": "cruzRoja",
+                    "caja":
+                    {
+                        "x": 3.1,
+                        "y": 1.27,
+                        "width": 0.18,
+                        "height": 0.13,
+                        "id": "caja"
+                    },
+                    "texto":
+                    {
+                        "size": "30px",
+                        "x": 3,
+                        "y": 1.3,
+                        "text": "CRUZ\nROJA"
+                    },
+                    "decor":
+                    {
+                        "x": 3.5,
+                        "y": 1.15,
+                        "width": 0.13,
+                        "height": 0.13,
+                        "id": "maps"
+                    }
                 },
-                "texto":
                 {
-                    "size": "30px",
-                    "x": "this.sys.game.canvas.width / 3",
-                    "y": "this.sys.game.canvas.height / 1.3",
-                    "text": "CRUZ\nROJA"
+                    "sprite": "localization8",
+                    "x": 1.52,
+                    "y": 2.25,
+                    "width": 0.305,
+                    "height": 0.3,
+                    "colliderGroup": "localizations",
+                    "scenario": "iglesia",
+                    "caja":
+                    {
+                        "x": 1.54,
+                        "y": 2.2,
+                        "width": 0.18,
+                        "height": 0.13,
+                        "id": "caja"
+                    },
+                    "texto":
+                    {
+                        "size": "30px",
+                        "x": 1.52,
+                        "y": 2.3,
+                        "text": "IGLESIA"
+                    },
+                    "decor":
+                    {
+                        "x": 1.68,
+                        "y": 2.25,
+                        "width": -0.13,
+                        "height": 0.13,
+                        "id": "maps"
+                    }
+                    
                 },
-                "decor":
                 {
-                    "x": "this.sys.game.canvas.width / 3.5",
-                    "y": "this.sys.game.canvas.height / 1.15",
-                    "width": "0.13",
-                    "height": "0.13",
-                    "id": "maps"
+                    "sprite": "pitiBancoLocalization",
+                    "x": 3.9,
+                    "y": 4,
+                    "width": 0.1,
+                    "height": 0.1,
+                    "colliderGroup": "localizations",
+                    "scenario": "pitiBanco",
+                    "caja":
+                    {
+                        "x": 3.1,
+                        "y": 1.27,
+                        "width": 0.18,
+                        "height": 0.13,
+                        "id": "caja"
+                    },
+                    "texto":
+                    {
+                        "size": "30px",
+                        "x": 3,
+                        "y": 1.3,
+                        "text": "CRUZ\nROJA"
+                    },
+                    "decor":
+                    {
+                        "x": 3.5,
+                        "y": 1.15,
+                        "width": 0.13,
+                        "height": 0.13,
+                        "id": "maps"
+                    }
                 }
-            },
-            "iglesia":
-            {
-                "sprite": "localization8",
-                "x": "this.sys.game.canvas.width / 1.52",
-                "y": "this.sys.game.canvas.height / 2.25",
-                "width": "0.305",
-                "height": "0.3",
-                "colliderGroup": "localizations",
-                "scenario": "iglesia",
-                "caja":
+            ],
+            "flechas":
+            [
                 {
-                    "x": "this.sys.game.canvas.width / 1.54",
-                    "y": "this.sys.game.canvas.height / 2.2",
-                    "width": "0.18",
-                    "height": "0.13",
-                    "id": "caja"
-                },
-                "texto":
-                {
-                    "size": "30px",
-                    "x": "this.sys.game.canvas.width / 1.52",
-                    "y": "this.sys.game.canvas.height / 2.2",
-                    "text": "IGLESIA"
-                },
-                "decor":
-                {
-                    "x": "this.sys.game.canvas.width / 1.68",
-                    "y": "this.sys.game.canvas.height / 2.25",
-                    "width": "-0.13",
-                    "height": "0.13",
-                    "id": "maps"
+                    "x": 22,
+                    "y": 3.3,
+                    "colliderGroup": "flechas",
+                    "modo": 2,
+                    "ant": 3,
+                    "width": -0.2,
+                    "height": 0.2
                 }
-                
-            },
-            "flecha2":
-            {
-                "x": "this.sys.game.canvas.width / 22",
-                "y": "this.sys.game.canvas.height / 3.3",
-                "colliderGroup": "flechas",
-                "modo": "2",
-                "ant": "3",
-                "width": "-0.2",
-                "height": "0.2"
-            },
-            "pitiBanco":
-            {
-                "sprite": "pitiBancoLocalization",
-                "x": "this.sys.game.canvas.width / 1.52",
-                "y": "this.sys.game.canvas.height / 2.25",
-                "width": "0.305",
-                "height": "0.3",
-                "colliderGroup": "localizations",
-                "scenario": "pitiBanco",
-                "caja":
-                {
-                    "x": "this.sys.game.canvas.width / 3.1",
-                    "y": "this.sys.game.canvas.height / 1.27",
-                    "width": "0.18",
-                    "height": "0.13",
-                    "id": "caja"
-                },
-                "texto":
-                {
-                    "size": "30px",
-                    "x": "this.sys.game.canvas.width / 3",
-                    "y": "this.sys.game.canvas.height / 1.3",
-                    "text": "CRUZ\nROJA"
-                },
-                "decor":
-                {
-                    "x": "this.sys.game.canvas.width / 3.5",
-                    "y": "this.sys.game.canvas.height / 1.15",
-                    "width": "0.13",
-                    "height": "0.13",
-                    "id": "maps"
-                }
-            }
+            ]
+            
+            
         }
 
         

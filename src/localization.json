@@ -24,9 +24,9 @@
                 },
                 {
                     "name": "MARIA DEL CARMEN",
-                    "x": 1.35, 
+                    "x": 1.6, 
                     "y": 1.4,
-                    "scale": 0.4
+                    "scale": 1
                 }
 
             ]
@@ -48,13 +48,13 @@
             [
                 {
                     "name": "ALI",
-                    "x": 3.8, 
+                    "x": 3.6, 
                     "y": 1.4,
-                    "scale": 2
+                    "scale": 0.5
                 },
                 {
                     "name": "JESUS",
-                    "x": 1.35, 
+                    "x": 1.5, 
                     "y": 1.4,
                     "scale": 0.4
                 }
@@ -80,13 +80,13 @@
                     "name": "HUMBERTO",
                     "x": 3.8, 
                     "y": 1.4,
-                    "scale": 2
+                    "scale": 0.25
                 },
                 {
                     "name": "JOSE",
                     "x": 1.35, 
                     "y": 1.4,
-                    "scale": 0.4
+                    "scale": 1
                 }
 
             ]
@@ -110,13 +110,13 @@
                     "name": "MARIA",
                     "x": 3.8, 
                     "y": 1.4,
-                    "scale": 2
+                    "scale": 0.6
                 },
                 {
                     "name": "PEDRITO",
                     "x": 1.35, 
                     "y": 1.4,
-                    "scale": 0.4
+                    "scale": 1.3
                 }
 
             ]
@@ -140,19 +140,19 @@
                     "name": "PACO",
                     "x": 3.8, 
                     "y": 1.4,
-                    "scale": 0.9
+                    "scale": 0.25
                 },
                 {
                     "name": "AGUSTÍN",
                     "x": 1.35, 
                     "y": 1.4,
-                    "scale": 0.4
+                    "scale": 0.8
                 },
                 {
-                    "name": "AGUSTÍN",
+                    "name": "ANGEL",
                     "x": 2, 
                     "y": 1.4,
-                    "scale": 0.4
+                    "scale": 1.2
                 }
 
             ]
@@ -176,13 +176,13 @@
                     "name": "CONSUELO",
                     "x": 3.8, 
                     "y": 1.4,
-                    "scale": 0.9
+                    "scale": 0.4
                 },
                 {
                     "name": "MARIA TERESA",
                     "x": 1.35, 
                     "y": 1.4,
-                    "scale": 0.4
+                    "scale": 0.3
                 }
 
             ]
@@ -234,7 +234,7 @@
             [
                 {
                     "name": "PITIBANCO",
-                    "x": 3.8, 
+                    "x": 2, 
                     "y": 1.4,
                     "scale": 0.9
                 }
