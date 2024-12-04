@@ -8,10 +8,20 @@
                 {
                     "name": "taza",
                     "description": "Cura 3 de vida",
-                    "x": 1,
+                    "x": 50,
                     "y": 150,
-                    "effect": 50,
-                    "amountOfEffect": 3
+                    "effect": 1,
+                    "amountOfEffect": 3,
+                    "recogido": "false"
+                },
+                {
+                    "name": "botella",
+                    "description": "Cura 10 de vida",
+                    "x": 100,
+                    "y": 200,
+                    "effect": 1,
+                    "amountOfEffect": 10,
+                    "recogido": "false"
                 }
             ],
             "npcs":

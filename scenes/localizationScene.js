@@ -65,8 +65,9 @@ export default class localizationScene extends Phaser.Scene
         this.load.image('accept', 'assets/other/accept.png');
 
         
-        //OBJETOS COLECCIONABLES
-        this.load.image('hamburguesa', 'assets/other/hamburguesa.png');
+        //ITEMS
+        this.load.image('taza', 'assets/recolectables/taza.png');
+        this.load.image('botella', 'assets/recolectables/botella.png');
 
         //JSON
         this.load.json("localizationJson", 'src/localization.json');
@@ -115,9 +116,13 @@ export default class localizationScene extends Phaser.Scene
             this.names = this.add.group();
             this.arrows = this.add.group();
             
-            // 2.3 NPCS
             const mode = jsonObject["botellin"][this.localizacion];
-            
+
+            // ITEMS
+            mode.items.forEach(item => {
+                this.addItemToScene(item);});
+
+            // 2.3 NPCS
             mode.npcs.forEach(npc => {
                 this.addNPCToScene(npc);});
 
@@ -278,14 +283,16 @@ export default class localizationScene extends Phaser.Scene
 
     }
 
-    addItemToScene(name, description, effect, posx, posy, amountOfEffect)
+    addItemToScene(item)
     {
-        this.hamburguesa= new Item(this, name, description, effect, posx, posy, amountOfEffect);//creamos item
-        console.log(this.hamburguesa.name+ this.hamburguesa.description);
-        this.hamburguesa.setDisplaySize(50, 50);//ajustamos tam
-        this.hamburguesa.setInteractive(); // Habilitar interactividad
-        this.hamburguesa.on('pointerdown', () => { //evento para detectar el raton
-            this.Pick(this.hamburguesa); 
+        this.newItem= new Item(this, item.name, item.description, item.effect, item.x, item.y, item.amountOfEffect);//creamos item
+        //console.log(this.item.name+ this.item.description);
+        this.newItem.setScale(0.3);//ajustamos tam
+        this.newItem.setInteractive(); // Habilitar interactividad
+        
+        //evento boton
+        this.newItem.on('pointerdown', () => { //evento para detectar el raton
+            this.Pick(this.newItem); //recoger item (meter en inventario) y quitar de escena
         });
     }
 
@@ -333,9 +340,10 @@ export default class localizationScene extends Phaser.Scene
 
     Pick(item)
     {
-        const inventario = this.registry.get('inventario');
-        if (inventario) {
-            inventario.AddItem(item); // Agregar el item al inventario
+        if (this.inventory) {
+            console.log(this.inventory);
+            
+            this.inventory.AddItem(item); // Agregar el item al inventario
             item.setVisible(false);
         }
     }
