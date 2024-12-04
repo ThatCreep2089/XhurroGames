@@ -46,7 +46,7 @@ export default class DialogueScene extends Phaser.Scene {
     create(data){
         console.log(data.npc);//debug
 
-        // 2.4 PLAYER
+        // PLAYER
         let startPosition = window.gameState.playerPosition || { x: 278, y: 150 }; //posicion de la tenfe
             
         this.player = new Player(this, startPosition.x, startPosition.y);
@@ -55,14 +55,15 @@ export default class DialogueScene extends Phaser.Scene {
         this.player.setVisible(false); //que elle NO se vea
         this.player.changeMove(false);
         
-        // 2.5 INVENTARIO
+        // INVENTARIO
         this.inventory = new Inventory(this);
         if(this.inventoryConfig != undefined) {
             this.inventory.init(this.inventoryConfig);
         }
 
 
-        const jsonObject = this.cache.json.get('dialogsNPC');
+        this.jsonObject = this.cache.json.get('dialogsNPC');
+        
         //1. PINTAR FONDO
             //Pintamos un fondo
             var back = this.add.image(0, 0, this.fondo).setOrigin(0, 0);
@@ -80,8 +81,39 @@ export default class DialogueScene extends Phaser.Scene {
                 this.cameras.main.height / 2 - back.displayHeight / 2
             );
         
-         
+        // 2. NOMBRE DEL NPC
+        this.nombreNPC = this.add.text(
+            this.sys.game.canvas.width / 2,   // coordenada x
+            this.sys.game.canvas.height / 12, // coordenada y
+            this.npc, //frase
+            { 
+                fontSize: '100px', 
+                color: '#999999',       // Gris
+                fontFamily: 'Georgia',  
+            }
+        );
+        this.nombreNPC.setStroke('#000000', 8);  // Trazo negro
+        this.nombreNPC.setOrigin(0.5, 0);
+        this.nombreNPC.setScale(0.8);
 
+        // 3. DESCRIPCION DEL NPC
+
+        // 4. IMAGEN NPC
+        let npcImage = this.add.image(
+            this.sys.game.canvas.width / 2,
+            this.sys.game.canvas.height / 1.5,
+            this.npc);
+        
+        // 5. LEER DIALOGOS
+        this.addDialogue();
+
+        // 6. MOSTRAR DIALOGOS
+
+        // 7. MOSTRAR BOTON ACEPTAR OFRENDA
+
+
+        
+/*
         //NPC (depende de data)
         if(this.npc == 'PACO')
         {
@@ -398,25 +430,10 @@ export default class DialogueScene extends Phaser.Scene {
             combatText.setOrigin(0.5, 0.5);
 
         }
-        
+        */
 
 
-        // TEXTO
-        this.titulo = this.add.text(
-            this.sys.game.canvas.width / 2,   // coordenada x
-            this.sys.game.canvas.height / 12, // coordenada y
-            this.npc, //frase
-            { 
-                fontSize: '100px', 
-                color: '#999999',       // Gris
-                fontFamily: 'Georgia',  
-            }
-        );
-        this.titulo.setStroke('#000000', 8);  // Trazo negro
-        this.titulo.setOrigin(0.5, 0);
-        this.titulo.setScale(0.8);
-
-        //BACK BUTTON
+        //DEBUG BACK BUTTON
         const backScene = this.add.image(
             this.sys.game.canvas.width / 12,
             this.sys.game.canvas.height / 1.2, 
@@ -431,6 +448,29 @@ export default class DialogueScene extends Phaser.Scene {
         }));
 
 
+    }
+
+    
+    addDialogue()
+    {
+        //TEXTO DIALOGO
+        this.dialog = new DialogText(this, {
+            borderThickness: 4,
+            borderColor: 0xcb3234,
+            borderAlpha: 1,
+            windowAlpha: 0.6,
+            windowColor: 0xff6961,
+            windowHeight: 150,
+            padding: 32,
+            closeBtnColor: 'darkgoldenrod',
+            dialogSpeed: 3,
+            fontSize: 100,
+            fontFamily: "pixel"
+        });
+
+
+        //this.dialog.toggleWindow();
+        this.dialog.setText(this.jsonObject[this.npc].frase1, true);
     }
 
     update(){
