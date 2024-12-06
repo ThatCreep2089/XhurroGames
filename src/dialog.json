@@ -38,7 +38,8 @@
         ],
         "fumado": "Ey pequeñe, ya te lo has fumado",
         "curarAnsiedad": "true",
-        "curarVida": "true"
+        "curarVida": "true",
+        "scale":0.3
         
     }
 }

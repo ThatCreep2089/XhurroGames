@@ -31,6 +31,11 @@ export default class DialogueScene extends Phaser.Scene {
 
         this.load.json("dialogsNPC", 'src/dialog.json')
 
+        //others
+        
+        this.load.image('PITIBANCO', 'assets/others/Mar_iguana.png');
+        
+
     }
 
     init(data){
@@ -104,7 +109,7 @@ export default class DialogueScene extends Phaser.Scene {
         let npcImage = this.add.image(
             this.sys.game.canvas.width / 2,
             this.sys.game.canvas.height / 1.5,
-            this.npc);
+            this.npc).setScale(this.jsonObject[this.npc].scale);
 
 
         // 5. LEER DIALOGOS
