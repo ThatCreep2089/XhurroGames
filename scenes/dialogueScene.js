@@ -135,7 +135,7 @@ export default class DialogueScene extends Phaser.Scene {
             this.addButtonToScene(4, 3, 0xff7c00, `CURAR ANSIEDAD`, this.fumarPorroAnsiedad);
                 
             //curar vida
-            this.addButtonToScene(1.5, 3, 0x00fff3, `CURAR VIDA`, this.fumarPorroAnsiedad);
+            this.addButtonToScene(1.5, 3, 0x00fff3, `CURAR VIDA`, this.fumarPorroVida);
            
             // 2.9 MOSTRAR ANSIEDAD
             this.anxietyText = this.add.text(
@@ -537,7 +537,7 @@ export default class DialogueScene extends Phaser.Scene {
         .setScale(6, 2)
         .on('pointerdown', () => {
             console.log("obtener recompensa");
-            callback(); 
+            callback.call(this); 
         });
         // Texto para mostrar "Ansiedad" en el centro del botón
         let acceptText = this.add.text(
@@ -562,16 +562,15 @@ export default class DialogueScene extends Phaser.Scene {
         console.log("Añadir recompensa");
     }
 
-    fumarPorroAnsiedad()
+    fumarPorroAnsiedad() 
     {
-        console.log(this.jsonObject);
         if(this.jsonObject[this.npc].curarAnsiedad == "true")
         {
             this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad
             this.jsonObject[this.npc].curarAnsiedad = "false";
         }
         else{
-            this.dialog.setText(jsonObject[this.npc].fumado, true);
+            this.dialog.setText(this.jsonObject[this.npc].fumado, true);
         } 
     }
 
@@ -585,7 +584,7 @@ export default class DialogueScene extends Phaser.Scene {
             }
             else
             {
-                this.dialog.setText(jsonObject[this.npc].frase2, true);
+                this.dialog.setText(this.jsonObject[this.npc].fumado, true);
             }
     }
 
