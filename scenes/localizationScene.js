@@ -160,10 +160,14 @@ export default class localizationScene extends Phaser.Scene
                     if (noCumplidos.length > 0)
                     {
                         console.log("Hay requisitos pendientes.");
+                        
                     }
                     else
                     {
                         console.log("Todos los requisitos han sido cumplidos.");
+                        this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
+                            player: this.player.getConfigData(), 
+                            inventory: this.inventory.getConfigData()});  //cambiar a escena dialogo
                     }
                 }
                 else
@@ -383,7 +387,7 @@ export default class localizationScene extends Phaser.Scene
 
         gatoEnCaja.requisitos.forEach(requisito => {
             console.log(requisito.name);
-
+            console.log(dialogueJson[requisito.name].hablado == "true");
             //si no ha hablado -> salir directamente
             if (dialogueJson[requisito.name].hablado == "true")
             {
@@ -395,6 +399,7 @@ export default class localizationScene extends Phaser.Scene
             }
         });
 
+        
         return { cumplidos, noCumplidos };
     }
 }
