@@ -32,10 +32,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.maxMana=400;
         this.maxHealth = 100;
         //cualidades
-        this.humidad = 0;
-        this.trabajoDuro = 0;
-        this.agnosticismo = 0;
-        this.afecto = 0;
+        this.humidad = 1;
+        this.trabajoDuro = 1;
+        this.agnosticismo = 1;
+        this.afecto = 1;
+
         this.ansiedad=0;
         this.maxAnsiedad=100;
       
@@ -133,15 +134,11 @@ HealQuality(amount)
         console.log("ataque normal: " + totalDamage);
     }
 
-    // Método de magia
-    useMagic(enemy) {
-        if (this.mana >= 20) {
-            var damage = 50;
-            enemy.takeDamage(damage);
-            this.mana -= 20;
-            //debug
-            console.log("ataque especial: " + damage + ", mana restante: " + this.mana)
-        }
+    // Método de reducir mana
+    manaPerdido(manaPerdido) {
+
+            this.mana -= manaPerdido;
+
     }
 
     //metodo recibir daño
@@ -220,6 +217,31 @@ HealQuality(amount)
         this.isMoving = bool;
     }
 
+    getCualidad(cualidad) {
+        switch(cualidad) {
+            case 'humildad' :
+                return this.humidad;
+            case 'trabajo duro':
+                return this.trabajoDuro;
+            case 'agnosticismo':
+                return this.agnosticismo;
+            case 'afecto':
+                return this.afecto;
+        }
+    }
     
+
+mejorarCualidad(cualidad) {
+    switch(cualidad) {
+        case 'humildad' :
+            this.humidad += 1;
+        case 'trabajo duro':
+            this.trabajoDuro += 1;
+        case 'agnosticismo':
+            this.agnosticismo += 1;
+        case 'afecto':
+            return this.afecto;
+    }
+}
 
 }
