@@ -1,12 +1,12 @@
 {
 
     "PACO":{
-
-        
-        "frase1":"Hola, no soy Paco, pero es mentira",
-        "frase2":"¿Qué tal amijo?",
-        "frase3":"¿Cómo estás?"
-        
+        "frases":
+        [
+            "Hola, no soy Paco, pero es mentira",
+            "¿Qué tal amijo?",
+            "¿Cómo estás?"
+        ]
     },
     "HUMBERTO":{
 

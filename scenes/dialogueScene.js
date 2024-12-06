@@ -5,6 +5,7 @@ import Inventory from '../src/inventory.js';
 export default class DialogueScene extends Phaser.Scene {
     constructor(){
         super({key: "dialogueScene"})
+        this.dialog;
     }
 
     preload()
@@ -103,11 +104,27 @@ export default class DialogueScene extends Phaser.Scene {
             this.sys.game.canvas.width / 2,
             this.sys.game.canvas.height / 1.5,
             this.npc);
+
+
+
+
         
         // 5. LEER DIALOGOS
         this.addDialogue();
 
         // 6. MOSTRAR DIALOGOS
+        // Avanza de línea al hacer clic
+        this.input.on('pointerdown', () => {
+            this.dialog.nextLine();
+        });
+
+        console.log(this.dialog);
+
+        // Evento que se lanza al finalizar el diálogo
+        this.dialog.on('dialogComplete', () => {
+            console.log('Diálogo completo');
+            // Aquí puedes lanzar la lógica que necesites al final
+        });
 
         // 7. MOSTRAR BOTON ACEPTAR OFRENDA
 
@@ -470,7 +487,8 @@ export default class DialogueScene extends Phaser.Scene {
 
 
         //this.dialog.toggleWindow();
-        this.dialog.setText(this.jsonObject[this.npc].frase1, true);
+        //this.dialog.setText(this.jsonObject[this.npc].frase1, true);
+        this.dialog.startDialog(this.jsonObject[this.npc].frases);
     }
 
     update(){

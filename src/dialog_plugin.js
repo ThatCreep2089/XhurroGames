@@ -7,11 +7,17 @@
  * Esta clase está pensada para crear cuadros de diálogo
  * Las funciones que empiezan por "_" no deberían llamarse nunca desde otras escenas. Pueden romer cosas.
  */
-export default class DialogText{
+export default class DialogText extends Phaser.Events.EventEmitter{
 
 	constructor(scene, opts){
+		super();
+		
 		this.scene = scene;
 		this.init(opts);
+		
+		this.dialogData = []; // Almacena las líneas de diálogo del JSON
+		this.currentLineIndex = 0; // Línea actual que se está mostrando
+		this.allowNextLine = false; // Controla si se puede pasar a la siguiente línea
 	}
 
 	init(opts) {
@@ -211,6 +217,7 @@ export default class DialogText{
 		//Cuando eventCounter sea igual a la longitud del texto, se detiene el evento
 		if (this.eventCounter === this.dialog.length) {
 			this.timedEvent.remove();
+			this.allowNextLine = true;
 		}
 	}
 
@@ -235,5 +242,29 @@ export default class DialogText{
 				fontFamily: this.fontFamily
 			}
 		});
+	}
+
+	startDialog(dialogData) {
+		this.dialogData = dialogData; // Carga las líneas de diálogo
+		this.currentLineIndex = 0; // Reinicia el índice
+		this.allowNextLine = false; // Bloquea avanzar al principio
+		this._showCurrentLine(); // Muestra la primera línea
+	}
+
+	_showCurrentLine() {
+		if (this.currentLineIndex < this.dialogData.length) {
+			const currentLine = this.dialogData[this.currentLineIndex];
+			this.setText(currentLine, true); // Muestra la línea con animación
+			this.allowNextLine = false; // Bloquea avanzar hasta que termine la animación
+		} else {
+			this.emit('dialogComplete'); // Lanza el evento al final del diálogo
+		}
+	}
+
+	nextLine() {
+		if (this.allowNextLine) {
+			this.currentLineIndex++;
+			this._showCurrentLine(); // Muestra la siguiente línea
+		}
 	}
 };
