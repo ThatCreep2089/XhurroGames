@@ -26,9 +26,12 @@
     },
     "BOSS":
     {
-        "frase1":"Eres menor?",
-        "frase2":"¿Qué tal?",
-        "frase3":"¿Cómo estás?"
+        "frases":[
+            "Eres menor?",
+            "¿Qué tal?",
+            "¿Cómo estás?"
+        ],
+        "scale": 0.5
         
     },
     "PITIBANCO":{
@@ -39,7 +42,7 @@
         "fumado": "Ey pequeñe, ya te lo has fumado",
         "curarAnsiedad": "true",
         "curarVida": "true",
-        "scale":0.3
+        "scale": 0.3
         
     }
 }
