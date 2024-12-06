@@ -13,6 +13,27 @@
                     "effect": 1,
                     "amountOfEffect": 3,
                     "recogido": "false"
+                 
+                },
+                {
+                    "name": "taza",
+                    "description": "Cura 3 de vida",
+                    "x": 500,
+                    "y": 150,
+                    "effect": 1,
+                    "amountOfEffect": 3,
+                    "recogido": "false"
+                 
+                },
+                {
+                    "name": "taza",
+                    "description": "Cura 3 de vida",
+                    "x": 400,
+                    "y": 150,
+                    "effect": 1,
+                    "amountOfEffect": 3,
+                    "recogido": "false"
+            
                 },
                 {
                     "name": "botella",
@@ -22,6 +43,7 @@
                     "effect": 1,
                     "amountOfEffect": 10,
                     "recogido": "false"
+                
                 }
             ],
             "npcs":
@@ -46,12 +68,22 @@
             "items":
             [
                 {
-                    "name": "hamburguesa",
-                    "description": "Cura 3 de vida",
+                    "name": "ansiedad1",
+                    "description": "Resta 3 de ansiedad",
                     "x": 1,
                     "y": 150,
                     "effect": 50,
                     "amountOfEffect": 3
+                  
+                },
+                {
+                    "name": "ansiedad2",
+                    "description": "Resta 7 de ansiedad",
+                    "x": 1,
+                    "y": 150,
+                    "effect": 50,
+                    "amountOfEffect": 3
+                   
                 }
             ],
             "npcs":
