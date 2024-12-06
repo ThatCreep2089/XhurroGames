@@ -136,12 +136,7 @@ export default class DialogueScene extends Phaser.Scene {
             }
             else if(this.npc == 'BOSS')
             {
-                this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA',
-                    this.scene.start('CombatScene', {
-                    ant: this.ant,
-                    player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData()
-                }));
+                this.addButtonToScene(1.2, 5, 0xff0000, 'COMBATE', this.mostrarCombate);
             }
             else
             {
@@ -324,7 +319,15 @@ export default class DialogueScene extends Phaser.Scene {
             }
     }
 
-    
+    mostrarCombate()
+    {
+        this.scene.start('CombatScene', {
+            ant: this.ant,
+            player: this.player.getConfigData(), 
+            inventory: this.inventory.getConfigData()
+        })
+    }
+
     update(){
         if((this.npc == 'PITIBANCO'))
         {
