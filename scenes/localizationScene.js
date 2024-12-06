@@ -71,13 +71,14 @@ export default class localizationScene extends Phaser.Scene
 
         //JSON
         this.load.json("localizationJson", 'src/localization.json');
-        
+        this.load.json("dialogueJson", 'src/dialog.json');
     }
 
     
     create(){
         //leer localizacion
-        const jsonObject = this.cache.json.get('localizationJson');
+        this.jsonObject = this.cache.json.get('localizationJson');
+        const dialogueJson = this.cache.json.get('dialogueJson');
 
         //1. PINTAR FONDO
             //Pintamos un fondo
@@ -116,7 +117,7 @@ export default class localizationScene extends Phaser.Scene
             this.names = this.add.group();
             this.arrows = this.add.group();
             
-            const mode = jsonObject["botellin"][this.localizacion];
+            const mode = this.jsonObject["botellin"][this.localizacion];
 
             // ITEMS
             mode.items.forEach(item => {
@@ -151,14 +152,32 @@ export default class localizationScene extends Phaser.Scene
             .setInteractive()
             .on('pointerdown', () => {
                 // SUBIR ANSIEDAD
-                if(this.localizacion != 'pitiBanco') //a dialogos si NO es pitibanco
+                if(this.npcTalk == 'GATO EN CAJA')
                 {
-                    this.player.IncreaseAnxiety(10);
-                    
+                    //verificar si tiene lo que hay q tener
+                    const { cumplidos, noCumplidos } = this.requisitosGato(mode, dialogueJson);
+
+                    if (noCumplidos.length > 0)
+                    {
+                        console.log("Hay requisitos pendientes.");
+                    }
+                    else
+                    {
+                        console.log("Todos los requisitos han sido cumplidos.");
+                    }
                 }
-                this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
-                    player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData()});  //cambiar a escena dialogo
+                else
+                {
+                    if(this.npcTalk != 'PITIBANCO') //a dialogos si NO es pitibanco
+                    {
+                        this.player.IncreaseAnxiety(10);
+                        
+                    }
+                    this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
+                        player: this.player.getConfigData(), 
+                        inventory: this.inventory.getConfigData()});  //cambiar a escena dialogo
+                }
+                
             });
                 
             // 2.7 BACK BUTTON (volver a eligir otro NPC)
@@ -351,5 +370,31 @@ export default class localizationScene extends Phaser.Scene
             this.inventory.AddItem(item); // Agregar el item al inventario
             item.setVisible(false);
         }
+    }
+
+    //verificar si el jugador cumple los requisitos para hablar con el gato
+    requisitosGato(mode, dialogueJson)
+    {
+        //busco al gato
+        const gatoEnCaja = mode.npcs.find(npc => npc.name == "GATO EN CAJA");
+        
+        const cumplidos = [];
+        const noCumplidos = [];
+
+        gatoEnCaja.requisitos.forEach(requisito => {
+            console.log(requisito.name);
+
+            //si no ha hablado -> salir directamente
+            if (dialogueJson[requisito.name].hablado == "true")
+            {
+                cumplidos.push(requisito.name);
+            }
+            else
+            {
+                noCumplidos.push(requisito.name);
+            }
+        });
+
+        return { cumplidos, noCumplidos };
     }
 }

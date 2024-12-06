@@ -111,11 +111,45 @@ export default class DialogueScene extends Phaser.Scene {
             this.sys.game.canvas.height / 1.5,
             this.npc).setScale(this.jsonObject[this.npc].scale);
 
+        // 4.1. CASOS ESPECIALES:
+       if(this.npc == 'PITIBANCO')
+        {
+             //debug (para probar si funciona curar)
+             this.player.takeDamage(50);
+             
+             // 2.9 MOSTRAR ANSIEDAD
+             this.anxietyText = this.add.text(
+                 this.sys.game.canvas.width / 7,   // Coordenada X: centrado horizontalmente
+                 this.sys.game.canvas.height / 6,
+                 `Ansiedad: ${this.player.ansiedad}`,
+                 {
+                     fontSize: '100px', 
+                     color: '#999999',       // Gris
+                     fontFamily: 'Georgia',
+                 });
+                 this.anxietyText.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
+                 this.anxietyText.setOrigin(0.5, 0);
+                 this.anxietyText.setScale(0.6);
+             
+             // 2.9 MOSTRAR VIDA ACTUAL
+             this.vidaText = this.add.text(
+                 this.sys.game.canvas.width / 1.3,   // Coordenada X: centrado horizontalmente
+                 this.sys.game.canvas.height / 6,
+                 `Vida actual: ${this.player.health}`,
+                 {
+                     fontSize: '100px', 
+                     color: '#999999',       // Gris
+                     fontFamily: 'Georgia',
+                 });
+                 this.vidaText.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
+                 this.vidaText.setOrigin(0.5, 0);
+                 this.vidaText.setScale(0.6);
+        }
+
 
         // 5. LEER DIALOGOS
         this.addDialogue();
 
-        // 6. MOSTRAR DIALOGOS
         // Avanza de línea al hacer clic
         this.input.on('pointerdown', () => {
             this.dialog.nextLine();
@@ -123,7 +157,7 @@ export default class DialogueScene extends Phaser.Scene {
 
         console.log(this.dialog);
 
-        // Evento que se lanza al finalizar el diálogo. DEPENDE DEL NPC
+        // Cuando se termina el dialogo...
         this.dialog.on('dialogComplete', () => {
             if(this.npc == 'PITIBANCO')
             {
@@ -143,94 +177,23 @@ export default class DialogueScene extends Phaser.Scene {
                 this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
             }
             
-        });
-
-       // CASOS ESPECIALES:
-       if(this.npc == 'PITIBANCO')
-       {
-            //debug (para probar si funciona curar)
-            this.player.takeDamage(50);
-            
-            // 2.9 MOSTRAR ANSIEDAD
-            this.anxietyText = this.add.text(
-                this.sys.game.canvas.width / 7,   // Coordenada X: centrado horizontalmente
-                this.sys.game.canvas.height / 6,
-                `Ansiedad: ${this.player.ansiedad}`,
-                {
-                    fontSize: '100px', 
-                    color: '#999999',       // Gris
-                    fontFamily: 'Georgia',
-                });
-                this.anxietyText.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
-                this.anxietyText.setOrigin(0.5, 0);
-                this.anxietyText.setScale(0.6);
-            
-            // 2.9 MOSTRAR VIDA ACTUAL
-            this.vidaText = this.add.text(
-                this.sys.game.canvas.width / 1.3,   // Coordenada X: centrado horizontalmente
-                this.sys.game.canvas.height / 6,
-                `Vida actual: ${this.player.health}`,
-                {
-                    fontSize: '100px', 
-                    color: '#999999',       // Gris
-                    fontFamily: 'Georgia',
-                });
-                this.vidaText.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
-                this.vidaText.setOrigin(0.5, 0);
-                this.vidaText.setScale(0.6);
-       }
-
-/*
-        
-        else if(this.npc == 'BOSS')
-        {
-                        let combatButton = this.add.rectangle(
-                this.sys.game.canvas.width / 1.2,
-                this.sys.game.canvas.height / 5, 
-                50, 50, 0xff0000)
+            //DEBUG BACK BUTTON
+            const backScene = this.add.image(
+                this.sys.game.canvas.width / 12,
+                this.sys.game.canvas.height / 1.2, 
+                'flecha')
+            .setScale(-0.3, 0.3)
             .setInteractive()
-            .setScale(4, 2)
-            .on('pointerdown', () => this.scene.start('CombatScene', {
+            .on('pointerdown', () => this.scene.start('localizationScene', {
+                fondo: data.fondo,
                 ant: this.ant,
                 player: this.player.getConfigData(), 
                 inventory: this.inventory.getConfigData()
             }));
-    
-            // TEXTO BOTON COMBATE
-            let combatText = this.add.text(
-                combatButton.x,   // Colocar en la misma X del botón
-                combatButton.y,   // Colocar en la misma Y del botón
-                `COMBATE`,
-                {
-                    fontSize: '32px',  // Cambia el tamaño del texto según el espacio
-                    color: '#ffffff',  // Gris
-                    fontFamily: 'Georgia',
-                    fontStyle: 'bold',
-                    align: 'center'    // Centrar el texto internamente
-                }
-            );
-    
-            // Centrar el texto en el botón
-            combatText.setOrigin(0.5, 0.5);
 
-        }
-        */
+        });
 
-
-        //DEBUG BACK BUTTON
-        const backScene = this.add.image(
-            this.sys.game.canvas.width / 12,
-            this.sys.game.canvas.height / 1.2, 
-            'flecha')
-        .setScale(-0.3, 0.3)
-        .setInteractive()
-        .on('pointerdown', () => this.scene.start('localizationScene', {
-            fondo: data.fondo,
-            ant: this.ant,
-            player: this.player.getConfigData(), 
-            inventory: this.inventory.getConfigData()
-        }));
-
+       
 
     }
 
