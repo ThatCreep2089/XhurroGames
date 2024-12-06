@@ -6,6 +6,7 @@ export default class DialogueScene extends Phaser.Scene {
     constructor(){
         super({key: "dialogueScene"})
         this.dialog;
+        this.jsonObject;
     }
 
     preload()
@@ -130,6 +131,7 @@ export default class DialogueScene extends Phaser.Scene {
             
             //PORROS (BOTONES)
             //curar ansiedad
+            console.log(this.jsonObject);
             this.addButtonToScene(4, 3, 0xff7c00, `CURAR ANSIEDAD`, this.fumarPorroAnsiedad);
                 
             //curar vida
@@ -562,14 +564,15 @@ export default class DialogueScene extends Phaser.Scene {
 
     fumarPorroAnsiedad()
     {
+        console.log(this.jsonObject);
         if(this.jsonObject[this.npc].curarAnsiedad == "true")
-            {
-                this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad
-                this.jsonObject[this.npc].curarAnsiedad = "false";
-            }
-            else{
-                this.dialog.setText(jsonObject[this.npc].frase2, true);
-            } 
+        {
+            this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad
+            this.jsonObject[this.npc].curarAnsiedad = "false";
+        }
+        else{
+            this.dialog.setText(jsonObject[this.npc].fumado, true);
+        } 
     }
 
     fumarPorroVida()
