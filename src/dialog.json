@@ -6,24 +6,63 @@
             "hombre! ¿Cómo andamos, campeón?",
             "¿te viste el partido de ayer?",
             "¡Qué locura! machacamos a esos canelones 3-0"
-        ]
+        ],
+        "hablado": "false"
     },
     "HUMBERTO":{
 
-        
-        "frase1":"hola cacho pan, buenas mañas",
-        "frase2":"cada dia siento que soy más viejo",
-        "frase3":"y tu tan joven, ¿cómo lo haces?"
-        
+        "frases":
+        [
+        "hola cacho pan, buenas mañas. hoy hace un tiempo buenisimo para cabalgar un poco",
+        "cada dia siento que soy más viejo",
+        "y tu tan joven, ¿cómo lo haces?"
+        ],
+        "hablado": "false"
     },
     "MARIA":{
 
+        "frases":
+        [
+
+            "hola cariño,¿has visto a paco?",
+            "cada dia esta mas guapo jiji, ",
+            "pero no se lo digas eh que quede entre nosotres"
         
-        "frase1":"hola cariño,¿has visto a paco?",
-        "frase2":"cada dia esta mas guapo jiji, ",
-        "frase3":"pero no se lo digas eh que quede entre nosotres"
+        ],
+        "hablado": "false"
         
     },
+    "CONSUELO":{
+
+        "frases":
+        [
+        "Mira yo no doy a basto, ugh...",
+        "cada día que pasa hay más gente que entra en nuestra clínica de desintoxicación.",
+        "Lo peor de la situación es que muchos entran obligados, ",
+        "por tanto no son proclives a soltar la botella",
+        "Por más que intentemos concienciar a la gente, no es suficiente.",
+        "Las cifras de nuevos ingresos están aumentando frenéticamente. ", 
+        "No comprenden que están hechando a perder sus vidas,", 
+        "y haciendo sufrir a sus seres queridos, el alcoholismo solo trae dolor."
+
+        ],
+        "hablado": "false"
+    },
+    "MARIA TERESA":{
+
+        "frases":
+        [
+        "Estoy agradecida de poder trabajar aqui,",
+        "siempre me agradó poder ayudar a las personas.",
+        "Si tan solo el jefe dejara de lado sus prejuicios...",
+        "No me malinterpretes, es una persona ecantadora, pero...",
+        "A veces no se da cuenta que deberia amar a todos por igual y respetar.",
+        "eso es lo que nos enseñó Jesús, ¿no?"
+        ],
+        "hablado": "false"
+    },
+
+
     "BOSS":
     {
         "frases":[
