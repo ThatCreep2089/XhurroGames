@@ -3,25 +3,25 @@
     "PACO":{
         "frases":
         [
-            "Hola, no soy Paco, pero es mentira",
-            "¿Qué tal amijo?",
-            "¿Cómo estás?"
+            "hombre! ¿Cómo andamos, campeón?",
+            "¿te viste el partido de ayer?",
+            "¡Qué locura! machacamos a esos canelones 3-0"
         ]
     },
     "HUMBERTO":{
 
         
-        "frase1":"Hola, soy Humberto",
-        "frase2":"¿Qué tal?",
-        "frase3":"¿Cómo estás?"
+        "frase1":"hola cacho pan, buenas mañas",
+        "frase2":"cada dia siento que soy más viejo",
+        "frase3":"y tu tan joven, ¿cómo lo haces?"
         
     },
     "MARIA":{
 
         
-        "frase1":"Hola, soy Maria",
-        "frase2":"¿Qué tal?",
-        "frase3":"¿Cómo estás?"
+        "frase1":"hola cariño,¿has visto a paco?",
+        "frase2":"cada dia esta mas guapo jiji, ",
+        "frase3":"pero no se lo digas eh que quede entre nosotres"
         
     },
     "BOSS":
