@@ -119,11 +119,50 @@ export default class DialogueScene extends Phaser.Scene {
 
         // Evento que se lanza al finalizar el diálogo
         this.dialog.on('dialogComplete', () => {
-            console.log('Diálogo completo');
-            this.addAcceptButton('ACEPTAR OFRENDA', this.addRecompensa);
+            this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
         });
 
-        // 7. MOSTRAR BOTON ACEPTAR OFRENDA
+       // CASOS ESPECIALES:
+       if(this.npc == 'PITIBANCO')
+       {
+            //debug (para probar si funciona curar)
+            this.player.takeDamage(50);
+            
+            //PORROS (BOTONES)
+            //curar ansiedad
+            this.addButtonToScene(4, 3, 0xff7c00, `CURAR ANSIEDAD`, this.fumarPorroAnsiedad);
+                
+            //curar vida
+            this.addButtonToScene(1.5, 3, 0x00fff3, `CURAR VIDA`, this.fumarPorroAnsiedad);
+           
+            // 2.9 MOSTRAR ANSIEDAD
+            this.anxietyText = this.add.text(
+                this.sys.game.canvas.width / 7,   // Coordenada X: centrado horizontalmente
+                this.sys.game.canvas.height / 6,
+                `Ansiedad: ${this.player.ansiedad}`,
+                {
+                    fontSize: '100px', 
+                    color: '#999999',       // Gris
+                    fontFamily: 'Georgia',
+                });
+                this.anxietyText.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
+                this.anxietyText.setOrigin(0.5, 0);
+                this.anxietyText.setScale(0.6);
+            
+            // 2.9 MOSTRAR VIDA ACTUAL
+            this.vidaText = this.add.text(
+                this.sys.game.canvas.width / 1.3,   // Coordenada X: centrado horizontalmente
+                this.sys.game.canvas.height / 6,
+                `Vida actual: ${this.player.health}`,
+                {
+                    fontSize: '100px', 
+                    color: '#999999',       // Gris
+                    fontFamily: 'Georgia',
+                });
+                this.vidaText.setStroke('#000000', 8);  // Trazo negro, puedes ajustar el grosor o eliminarlo
+                this.vidaText.setOrigin(0.5, 0);
+                this.vidaText.setScale(0.6);
+       }
 
 /*
         //NPC (depende de data)
@@ -486,12 +525,12 @@ export default class DialogueScene extends Phaser.Scene {
         this.dialog.startDialog(this.jsonObject[this.npc].frases);
     }
 
-    addAcceptButton(text, callback)
+    addButtonToScene(x, y, color, text, callback)
     {
         let button = this.add.rectangle(
-            this.sys.game.canvas.width / 1.5,
-            this.sys.game.canvas.height / 3, 
-            50, 50, 0x00fff3)
+            this.sys.game.canvas.width / x,
+            this.sys.game.canvas.height / y, 
+            50, 50, color)
         .setInteractive()
         .setScale(6, 2)
         .on('pointerdown', () => {
@@ -517,7 +556,35 @@ export default class DialogueScene extends Phaser.Scene {
     }
 
     addRecompensa()
-    {}
+    {
+        console.log("Añadir recompensa");
+    }
+
+    fumarPorroAnsiedad()
+    {
+        if(this.jsonObject[this.npc].curarAnsiedad == "true")
+            {
+                this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad
+                this.jsonObject[this.npc].curarAnsiedad = "false";
+            }
+            else{
+                this.dialog.setText(jsonObject[this.npc].frase2, true);
+            } 
+    }
+
+    fumarPorroVida()
+    {
+        if(this.jsonObject[this.npc].curarVida == "true")
+            {
+                var diff = this.player.maxHealth - this.player.health; //lo que le falta para estar al maximo
+                this.player.HealPlayer(diff);
+                this.jsonObject[this.npc].curarVida = "false";
+            }
+            else
+            {
+                this.dialog.setText(jsonObject[this.npc].frase2, true);
+            }
+    }
 
     update(){
         if((this.npc == 'PITIBANCO'))
