@@ -3,9 +3,13 @@
     "PACO":{
         "frases":
         [
-            "hombre! ¿Cómo andamos, campeón?",
-            "¿te viste el partido de ayer?",
-            "¡Qué locura! machacamos a esos canelones 3-0"
+            "España va cuesta abajo, y no por falta de ideas,",
+            "sino porque los políticos están más ocupados robando que gobernando.",
+            "Cada semana un escándalo nuevo: sobres, contratos amañados… ¡y ninguno dimite!",
+            "sobretodo esa dichosa Yusoa... no se puede ser más descarada",
+            "La gente está harta, pero cansada, como si ya ni nos quedaran fuerzas para enfadarnos.",
+            "Y mientras ellos se reparten el pastel, a nosotros nos suben todo menos el sueldo.",
+            " Esto, chaval , no es país, es un chiste malo."
         ],
         "hablado": "false"
     },
@@ -13,9 +17,12 @@
 
         "frases":
         [
-        "hola cacho pan, buenas mañas. hoy hace un tiempo buenisimo para cabalgar un poco",
-        "cada dia siento que soy más viejo",
-        "y tu tan joven, ¿cómo lo haces?"
+        "hola cacho pan, buenas mañas. hoy hace un tiempo buenisimo para cabalgar un poco no crees?",
+        "las apuestas esta semana estan muy altas, ¿te apuntas?",
+        "me he comprado un vinito para disfrutar mientras veo las carreras,",
+        "estoy seguro de que mis jinetes ganarán esta semana denuevo",
+        "jajaja!",
+        "mi caballo sardinilla es el mejor de todos, no hay quien le gane"
         ],
         "hablado": "false"
     },
@@ -24,9 +31,16 @@
         "frases":
         [
 
-            "hola cariño,¿has visto a paco?",
-            "cada dia esta mas guapo jiji, ",
-            "pero no se lo digas eh que quede entre nosotres"
+            "no me lo puedo creer, me han vuelto a excluir de la reunión",
+            "siempre igual, no me tienen en cuenta para nada",
+            "siempre me toca hacer el trabajo sucio...",
+            "y para que? para que me ignoren y me dejen de lado",
+            "la corrupción de la presidencia es evidente, no se puede ser más descarado",
+            "pero a mi nadie me hace ni caso.",
+            "ni siquiera parece que sea presidenta de camára! es una vergüenza",
+            "sin embargo cuando Yusoa se lava las manos tras crear leyes injustas que solo benefician a los ricos,",
+            "nadie dice nada"
+            
         
         ],
         "hablado": "false"
@@ -61,8 +75,22 @@
         ],
         "hablado": "false"
     },
+    "ALI":{
 
+        "frases":
+        [
 
+                "has oido hablar del cura de la iglesia de al lado?",
+                "siempre actua raro y de manera sospechosa,",
+                "además ultimamente han ocuurido muchos desaparecimientos de niños en el barrio",
+                "creo que ha podido ser él, ojalá alguien le pare los pies",
+                "realmente es horrible lo que algunos adultos pueden llegar a hacer..."
+        
+        ],
+        "hablado": "false"
+        
+    },
+    
     "BOSS":
     {
         "frases":[
