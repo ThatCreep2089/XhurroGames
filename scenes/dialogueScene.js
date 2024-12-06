@@ -29,7 +29,7 @@ export default class DialogueScene extends Phaser.Scene {
         this.load.image('PITIBANCO', 'assets/npc/pitiBanco.png');
         this.load.image('BOSS', 'assets/npc/bossBotellin.png');
 
-        this.load.json("dialogsNPC", 'src/dialog.json')
+        this.load.json("dialogueJson", 'src/dialog.json')
 
         //others
         
@@ -47,6 +47,15 @@ export default class DialogueScene extends Phaser.Scene {
         //PLAYER E INVENTARIO
         this.playerConfig = data.player
         this.inventoryConfig = data.inventory
+
+        //JSON DIALOGOS
+        if(data.dialogueJson)
+        {
+            this.dialogueJson = data.dialogueJson;
+        }
+        else{
+            this.dialogueJson = this.cache.json.get('dialogueJson');
+        }
 
     }
 
@@ -68,8 +77,6 @@ export default class DialogueScene extends Phaser.Scene {
             this.inventory.init(this.inventoryConfig);
         }
 
-
-        this.jsonObject = this.cache.json.get('dialogsNPC');
         
         //1. PINTAR FONDO
             //Pintamos un fondo
@@ -109,7 +116,7 @@ export default class DialogueScene extends Phaser.Scene {
         let npcImage = this.add.image(
             this.sys.game.canvas.width / 2,
             this.sys.game.canvas.height / 1.5,
-            this.npc).setScale(this.jsonObject[this.npc].scale);
+            this.npc).setScale(this.dialogueJson[this.npc].scale);
 
         // 4.1. CASOS ESPECIALES:
        if(this.npc == 'PITIBANCO')
@@ -160,8 +167,8 @@ export default class DialogueScene extends Phaser.Scene {
         // Cuando se termina el dialogo...
         this.dialog.on('dialogComplete', () => {
             
-            this.jsonObject[this.npc].hablado = "true";
-            console.log(this.jsonObject[this.npc]);
+            this.dialogueJson[this.npc].hablado = "true";
+            console.log(this.dialogueJson[this.npc]);
             
             if(this.npc == 'PITIBANCO')
             {
@@ -192,7 +199,8 @@ export default class DialogueScene extends Phaser.Scene {
                 fondo: data.fondo,
                 ant: this.ant,
                 player: this.player.getConfigData(), 
-                inventory: this.inventory.getConfigData()
+                inventory: this.inventory.getConfigData(),
+                dialogueJson: this.dialogueJson
             }));
 
         });
@@ -222,7 +230,7 @@ export default class DialogueScene extends Phaser.Scene {
 
         //this.dialog.toggleWindow();
         //this.dialog.setText(this.jsonObject[this.npc].frase1, true);
-        this.dialog.startDialog(this.jsonObject[this.npc].frases);
+        this.dialog.startDialog(this.dialogueJson[this.npc].frases);
     }
 
     addButtonToScene(x, y, color, text, callback)
@@ -262,27 +270,27 @@ export default class DialogueScene extends Phaser.Scene {
 
     fumarPorroAnsiedad() 
     {
-        if(this.jsonObject[this.npc].curarAnsiedad == "true")
+        if(this.dialogueJson[this.npc].curarAnsiedad == "true")
         {
             this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad
-            this.jsonObject[this.npc].curarAnsiedad = "false";
+            this.dialogueJson[this.npc].curarAnsiedad = "false";
         }
         else{
-            this.dialog.setText(this.jsonObject[this.npc].fumado, true);
+            this.dialog.setText(this.dialogueJson[this.npc].fumado, true);
         } 
     }
 
     fumarPorroVida()
     {
-        if(this.jsonObject[this.npc].curarVida == "true")
+        if(this.dialogueJson[this.npc].curarVida == "true")
             {
                 var diff = this.player.maxHealth - this.player.health; //lo que le falta para estar al maximo
                 this.player.HealPlayer(diff);
-                this.jsonObject[this.npc].curarVida = "false";
+                this.dialogueJson[this.npc].curarVida = "false";
             }
             else
             {
-                this.dialog.setText(this.jsonObject[this.npc].fumado, true);
+                this.dialog.setText(this.dialogueJson[this.npc].fumado, true);
             }
     }
 
@@ -291,7 +299,8 @@ export default class DialogueScene extends Phaser.Scene {
         this.scene.start('CombatScene', {
             ant: this.ant,
             player: this.player.getConfigData(), 
-            inventory: this.inventory.getConfigData()
+            inventory: this.inventory.getConfigData(),
+            dialogueJson: this.dialogueJson
         })
     }
 

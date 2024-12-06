@@ -18,11 +18,21 @@ export default class localizationScene extends Phaser.Scene
         
         //para volver a la zona correcta
         this.ant = data.ant;
-        console.log("this.ant: " + this.ant);
+       
 
         //PLAYER E INVENTARIO
         this.playerConfig = data.player
         this.inventoryConfig = data.inventory
+
+        //JSON DIALOGOS
+        if(data.dialogueJson)
+        {
+            this.dialogueJson = data.dialogueJson;
+        }
+        else{
+            this.dialogueJson = this.cache.json.get('dialogueJson');
+        }
+        
 
     }
 
@@ -78,7 +88,10 @@ export default class localizationScene extends Phaser.Scene
     create(){
         //leer localizacion
         this.jsonObject = this.cache.json.get('localizationJson');
-        const dialogueJson = this.cache.json.get('dialogueJson');
+        if(!this.dialogueJson)
+        {
+            this.dialogueJson = this.cache.json.get('dialogueJson');
+        }
 
         //1. PINTAR FONDO
             //Pintamos un fondo
@@ -155,7 +168,7 @@ export default class localizationScene extends Phaser.Scene
                 if(this.npcTalk == 'GATO EN CAJA')
                 {
                     //verificar si tiene lo que hay q tener
-                    const { cumplidos, noCumplidos } = this.requisitosGato(mode, dialogueJson);
+                    const { cumplidos, noCumplidos } = this.requisitosGato(mode);
 
                     if (noCumplidos.length > 0)
                     {
@@ -167,7 +180,8 @@ export default class localizationScene extends Phaser.Scene
                         console.log("Todos los requisitos han sido cumplidos.");
                         this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
                             player: this.player.getConfigData(), 
-                            inventory: this.inventory.getConfigData()});  //cambiar a escena dialogo
+                            inventory: this.inventory.getConfigData(),
+                            dialogueJson: this.dialogueJson});  //cambiar a escena dialogo
                     }
                 }
                 else
@@ -179,7 +193,8 @@ export default class localizationScene extends Phaser.Scene
                     }
                     this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
                         player: this.player.getConfigData(), 
-                        inventory: this.inventory.getConfigData()});  //cambiar a escena dialogo
+                        inventory: this.inventory.getConfigData(),
+                        dialogueJson: this.dialogueJson});  //cambiar a escena dialogo
                 }
                 
             });
@@ -224,7 +239,8 @@ export default class localizationScene extends Phaser.Scene
             .on('pointerdown', () => this.scene.start('zonaScene', { 
                 modo: this.ant,
                 player: this.player.getConfigData(), 
-                inventory: this.inventory.getConfigData()
+                inventory: this.inventory.getConfigData(),
+                dialogueJson: this.dialogueJson
             }));
 
         //TESTEO    
@@ -238,7 +254,8 @@ export default class localizationScene extends Phaser.Scene
         .on('pointerdown', () => this.scene.start('CombatScene', {
             ant: this.ant,
             player: this.player.getConfigData(), 
-            inventory: this.inventory.getConfigData()
+            inventory: this.inventory.getConfigData(),
+            dialogueJson: this.dialogueJson
         }));
 
         // TEXTO BOTON COMBATE
@@ -311,8 +328,7 @@ export default class localizationScene extends Phaser.Scene
         if(item.recogido == "false")
         {
            let newItem= new Item(this, item.name, item.description, item.effect, item.x, item.y, item.amountOfEffect);//creamos item
-            //console.log(this.item.name+ this.item.description);
-            newItem.setScale(0.3);//ajustamos tam
+           newItem.setScale(0.3);//ajustamos tam
            newItem.setInteractive(); // Habilitar interactividad
             
             //evento boton
@@ -369,15 +385,13 @@ export default class localizationScene extends Phaser.Scene
     Pick(item)
     {
         if (this.inventory) {
-            console.log(this.inventory);
-            
             this.inventory.AddItem(item); // Agregar el item al inventario
             item.setVisible(false);
         }
     }
 
     //verificar si el jugador cumple los requisitos para hablar con el gato
-    requisitosGato(mode, dialogueJson)
+    requisitosGato(mode)
     {
         //busco al gato
         const gatoEnCaja = mode.npcs.find(npc => npc.name == "GATO EN CAJA");
@@ -386,11 +400,8 @@ export default class localizationScene extends Phaser.Scene
         const noCumplidos = [];
 
         gatoEnCaja.requisitos.forEach(requisito => {
-            console.log(requisito.name);
-            console.log(dialogueJson[requisito.name]);
-            
             //si no ha hablado -> salir directamente
-            if (dialogueJson[requisito.name].hablado == "true")
+            if (this.dialogueJson[requisito.name].hablado == "true")
             {
                 cumplidos.push(requisito.name);
             }

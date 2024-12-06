@@ -27,6 +27,15 @@ export default class ZonaScene extends Phaser.Scene{
         this.playerConfig = data.player
         this.inventoryConfig = data.inventory
 
+        //JSON DIALOGOS
+        if(data.dialogueJson)
+        {
+            this.dialogueJson = data.dialogueJson;
+        }
+        else{
+            this.dialogueJson = this.cache.json.get('dialogueJson');
+        }
+
     }
 
     preload() //CARGAR TODOS LOS RECURSOS
@@ -169,14 +178,16 @@ export default class ZonaScene extends Phaser.Scene{
                             // Cambiar escena
                             this.scene.start('tenfeScene', { fondo: localization.scenario,
                                                             player: player.getConfigData(), 
-                                                            inventory: this.inventory.getConfigData()});
+                                                            inventory: this.inventory.getConfigData(),
+                                                            dialogueJson: this.dialogueJson});
                         }
                         else{
                             // Cambiar escena
                             this.scene.start('localizationScene', { fondo: localization.scenario, 
                                                                     ant: this.modo,
                                                                     player: player.getConfigData(), 
-                                                                    inventory:this.inventory.getConfigData()});
+                                                                    inventory:this.inventory.getConfigData(),
+                                                                    dialogueJson: this.dialogueJson});
                         }
                     }
                 });
@@ -192,7 +203,8 @@ export default class ZonaScene extends Phaser.Scene{
                         this.scene.stop('zonaScene'); // Detener la escena actual
                         this.scene.start('zonaScene', { modo: flecha.modo, ant: flecha.ant,
                         player: player.getConfigData(), 
-                        inventory:this.inventory.getConfigData()
+                        inventory:this.inventory.getConfigData(),
+                        dialogueJson: this.dialogueJson
                             });
                     }
                 });
@@ -212,7 +224,8 @@ export default class ZonaScene extends Phaser.Scene{
                     lastScene: this.key, // Este es el valor que debería contener "zonaScene"
                     player: player.getConfigData(),
                     inventory: this.inventory.getConfigData(),
-                    modo: this.modo
+                    modo: this.modo,
+                    dialogueJson: this.dialogueJson
                 });
             });
             // Texto para mostrar "Ansiedad" en el centro del botón

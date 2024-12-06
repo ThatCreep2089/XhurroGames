@@ -90,6 +90,21 @@
         "hablado": "false"
         
     },
+    "GATO EN CAJA":{
+
+        "frases":
+        [
+
+                "miau",
+                "miau miau",
+                "miau miau miau",
+                "miau"
+                
+        ],
+        "hablado": "false",
+        "scale": 1
+        
+    },
     
     "BOSS":
     {
