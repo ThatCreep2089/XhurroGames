@@ -1,11 +1,11 @@
 import Player from '../src/Player.js';
 import Enemy from '../src/Enemy.js';
+import Inventory from '../src/inventory.js';
 
 export default class CombatScene extends Phaser.Scene {
     constructor() {
         super({ key: 'CombatScene' });
         this.turn = 'player'; // Inicia el turno el player
-        
         
     }
 
@@ -19,10 +19,11 @@ init(data){
     this.inventoryConfig = data.inventory
 }
 
+
     preload() {
         //Cargar imágenes
         this.load.image('player', "./assets/npc/elle.png") //player
-        this.load.image('enemy', "./assets/npc/yusoa.png") //enemigo
+        this.load.image('yusoa', "./assets/npc/yusoa.png") //enemigo
         this.load.image('combat', "./assets/fondos/combate.jpg") //fondo
     }
 
@@ -54,16 +55,24 @@ init(data){
         this.oros;
         this.generateCards();
 
+
+        
+
         // crear player y  enemigo
         this.player = new Player(this, this.sys.game.canvas.width / 11, this.sys.game.canvas.height / 1.7);
         this.player.init(this.playerConfig);
         //this.player.setScale(0.1);
-        this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5);
+        this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5, 'yusoa');
         this.enemy.setScale(1);
+
+        //creamos inventario
+        this.inventory = new Inventory(this)
+        this.inventory.init(this.inventoryConfig)
 
 
         //anulamos movimiento player
         this.player.changeMove(false);
+        this.player.visible = false;
 
         // botones para ataques player
         let attackButton = this.add.rectangle(
@@ -307,6 +316,21 @@ init(data){
 
 
 
+        
+        this.events.on('playerTurn', ()=>this.isPlayerTurn());
+        this.events.on('enemyTurn', ()=>this.isEnemyTurn());
+
+
+
+    }
+    isPlayerTurn() {
+        this.turn = 'player';
+        console.log(this.turn)
+    }
+    isEnemyTurn(){
+        this.turn = 'enemy'; // Cambia el turno al enemigo
+        console.log(this.turn);
+        this.enemyTurn();
     }
 
     // turno del jugador
@@ -323,28 +347,86 @@ init(data){
             //ataque con cualidades
             else if (action === 'magic') {
                 //this.changeTextsVisibility();
-
+                if(this.player.mana >=20) {
+                this.cualidades('humildad');
+                this.player.manaPerdido(20);
+                }
+                else  {
+                    console.log("no hay mana");
+                }
                 
                 
-
-
-                //this.player.useMagic(this.enemy);
             }
 
             this.updateHealthTexts(); //actualiza la vida
-            const result = this.checkGameOver(); //comprueba si ha acabado el combate
+            var result = this.checkGameOver(); //comprueba si ha acabado el combate
             if(!result.end == true){
-                this.turn = 'enemy'; // Cambia el turno al enemigo
-                this.enemyTurn();
+                this.events.emit('enemyTurn');
             } else if(result.playerwin == true){
                 this.scene.start("victory", {player: this.player.getConfigData(), 
                                             inventory: this.Inventory.getConfigData()})
             } else {
+                console.log("derrota")
                 this.scene.start("lose", {player: this.player.getConfigData(), 
-                    inventory: this.Inventory.getConfigData()})
+                    inventory: this.inventory.getConfigData()})
             }
+
+            
         }
     }
+
+    cualidades(cualidad) {
+        switch(cualidad){
+            case 'humildad':
+                var lvl = this.player.getCualidad('humildad');
+
+                var totalDamage = this.oros * 2 * lvl 
+               // + this.espadas * this.bad
+                + this.bastos * 1.25 * lvl
+                + this.copas;
+
+                console.log("oros: " +this.oros + "* 2 * lvl "
+                     + "bastos: " + this.bastos + "* 1.25 * lvl"
+                     + "copas: " + this.copas);
+                this.player.attackEnemy(this.enemy, totalDamage);
+                break;
+            case 'trabajo duro':
+                var lvl = this.player.getCualidad('trabajo duro');
+                
+                var totalDamage = this.oros * 1.25 * lvl
+                + this.espadas
+                + this.bastos * 2 * lvl 
+                //+ this.copas;
+
+                this.player.attackEnemy(this.enemy, totalDamage); 
+                break;
+            case 'agnosticismo':
+                var lvl = this.player.getCualidad('trabajo duro');
+                
+                var totalDamage = this.oros
+                + this.espadas * 1.25 * lvl
+                //+ this.bastos 
+                + this.copas * 2 * lvl;
+
+                this.player.attackEnemy(this.enemy, totalDamage);
+                break;
+            case 'afecto':
+                var lvl = this.player.getCualidad('afecto');
+                
+                var totalDamage =
+                // this.oros +
+                this.espadas * 2 * lvl
+                + this.bastos 
+                + this.copas * 1.25 * lvl;
+
+                this.player.attackEnemy(this.enemy, totalDamage);
+                break;
+            default: 
+                console.log("algo está fallando");
+        }
+    }
+
+
 
     // Método de turno del enemigo
     enemyTurn() {
@@ -353,10 +435,24 @@ init(data){
             
             this.enemy.attackPlayer(this.player); //ataca
             this.updateHealthTexts(); //cambia vida del player
-            this.checkGameOver(); //comprueba si ha acabado el combate
-            this.turn = 'player'; // Vuelve el turno al player
-            this.generateCards(); //genera nuevas cartas
-            this.updateCardsTexts(); // cambia valor de cartas
+            var result = this.checkGameOver(); //comprueba si ha acabado el combate
+            //this.turn = 'player'; // Vuelve el turno al player
+            if(!result.end == true){
+                this.events.emit('playerTurn');
+                this.generateCards(); //genera nuevas cartas
+                this.updateCardsTexts(); // cambia valor de cartas
+            
+            } else if(result.playerwin == true){
+                this.scene.start("victory", {player: this.player.getConfigData(), 
+                                            inventory: this.Inventory.getConfigData()})
+            } else {
+                console.log("derrota")
+                this.scene.start("lose", {player: this.player.getConfigData(), 
+                    inventory: this.inventory.getConfigData()})
+            }
+
+           // this.events.emit('playerTurn');
+            
         }
     }
 
@@ -377,6 +473,7 @@ init(data){
     updateHealthTexts() {
         this.playerHealthText.setText('PlayerHP: ' +this.player.health);
         this.enemyHealthText.setText('Enemigo: ' + this.enemy.health);
+        this.playerManaText.setText('PlayerMana: ' + this.player.mana);
     }
 
     //Actualiza el texto de las cartas
