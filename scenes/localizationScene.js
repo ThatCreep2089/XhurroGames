@@ -160,7 +160,7 @@ export default class localizationScene extends Phaser.Scene
                     if (noCumplidos.length > 0)
                     {
                         console.log("Hay requisitos pendientes.");
-                        
+                        this.mostrarGatoPendientes(noCumplidos);
                     }
                     else
                     {
@@ -387,7 +387,8 @@ export default class localizationScene extends Phaser.Scene
 
         gatoEnCaja.requisitos.forEach(requisito => {
             console.log(requisito.name);
-            console.log(dialogueJson[requisito.name].hablado == "true");
+            console.log(dialogueJson[requisito.name]);
+            
             //si no ha hablado -> salir directamente
             if (dialogueJson[requisito.name].hablado == "true")
             {
@@ -401,5 +402,49 @@ export default class localizationScene extends Phaser.Scene
 
         
         return { cumplidos, noCumplidos };
+    }
+
+    mostrarGatoPendientes(noCumplidos) {
+        // Crear la pestaña
+        this.pestana = this.add.container(
+            this.sys.game.canvas.width / 2, // Centro del canvas
+            this.sys.game.canvas.height / 2 // Centro del canvas
+        );
+    
+        // Fondo de la pestaña (más grande)
+        const fondoPestana = this.add.rectangle(0, 0, 600, 500, 0x000000) // Nuevo tamaño: 600x500
+            .setOrigin(0.5) // Centrado
+            .setInteractive(); // Fondo para capturar clics
+        this.pestana.add(fondoPestana);
+    
+        // Crear un texto con los nombres en el array noCumplidos
+        let nombres = "TIENES QUE HABLAR CON:\n";
+        
+        // Añadir los nombres del array noCumplidos al string
+        noCumplidos.forEach(nombre => {
+            nombres += ` ${nombre}\n`; // Añadir cada nombre con salto de línea
+        });
+    
+        // Crear el texto con los nombres
+        const textoPestana = this.add.text(0, 0, nombres, {
+            font: "40px Georgia",
+            color: "#ffffff",
+            align: "center"
+        });
+    
+        textoPestana.setOrigin(0.5, 0.5); // Centrar el origen del texto
+        textoPestana.setPosition(0, 5); // Ajustar la posición dentro del fondo
+        this.pestana.add(textoPestana);
+    
+        // Crear el botón rojo para ocultar la pestaña
+        const botonCerrar = this.add.rectangle(290, -240, 20, 20, 0xff0000) // Ajuste relativo a la posición del fondo
+            .setOrigin(0.5)
+            .setInteractive();
+        this.pestana.add(botonCerrar);
+    
+        // Evento del botón para ocultar la pestaña
+        botonCerrar.on("pointerdown", () => {
+            this.pestana.setVisible(false); // Ocultar la pestaña
+        });
     }
 }
