@@ -106,9 +106,6 @@ export default class DialogueScene extends Phaser.Scene {
             this.npc);
 
 
-
-
-        
         // 5. LEER DIALOGOS
         this.addDialogue();
 
@@ -123,13 +120,11 @@ export default class DialogueScene extends Phaser.Scene {
         // Evento que se lanza al finalizar el diálogo
         this.dialog.on('dialogComplete', () => {
             console.log('Diálogo completo');
-            // Aquí puedes lanzar la lógica que necesites al final
+            this.addAcceptButton('ACEPTAR OFRENDA', this.addRecompensa);
         });
 
         // 7. MOSTRAR BOTON ACEPTAR OFRENDA
 
-
-        
 /*
         //NPC (depende de data)
         if(this.npc == 'PACO')
@@ -490,6 +485,39 @@ export default class DialogueScene extends Phaser.Scene {
         //this.dialog.setText(this.jsonObject[this.npc].frase1, true);
         this.dialog.startDialog(this.jsonObject[this.npc].frases);
     }
+
+    addAcceptButton(text, callback)
+    {
+        let button = this.add.rectangle(
+            this.sys.game.canvas.width / 1.5,
+            this.sys.game.canvas.height / 3, 
+            50, 50, 0x00fff3)
+        .setInteractive()
+        .setScale(6, 2)
+        .on('pointerdown', () => {
+            console.log("obtener recompensa");
+            callback(); 
+        });
+        // Texto para mostrar "Ansiedad" en el centro del botón
+        let acceptText = this.add.text(
+            button.x,   // Colocar en la misma X del botón
+            button.y,   // Colocar en la misma Y del botón
+            text,
+            {
+                fontSize: '25px',  // Cambia el tamaño del texto según el espacio
+                color: '#000000',  // Negro
+                fontFamily: 'Georgia',
+                fontStyle: 'bold',
+                align: 'center'    // Centrar el texto internamente
+            }
+        );
+
+        // Centrar el texto en el botón
+        acceptText.setOrigin(0.5, 0.5);
+    }
+
+    addRecompensa()
+    {}
 
     update(){
         if((this.npc == 'PITIBANCO'))
