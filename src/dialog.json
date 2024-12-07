@@ -66,12 +66,12 @@
 
         "frases":
         [
-        "Estoy agradecida de poder trabajar aqui,",
-        "siempre me agradó poder ayudar a las personas.",
-        "Si tan solo el jefe dejara de lado sus prejuicios...",
-        "No me malinterpretes, es una persona ecantadora, pero...",
-        "A veces no se da cuenta que deberia amar a todos por igual y respetar.",
-        "eso es lo que nos enseñó Jesús, ¿no?"
+            "Estoy agradecida de poder trabajar aqui,",
+            "siempre me agradó poder ayudar a las personas.",
+            "Si tan solo el jefe dejara de lado sus prejuicios...",
+            "No me malinterpretes, es una persona encantadora, pero...",
+            "A veces no se da cuenta que deberia amar a todos por igual y respetar.",
+            "eso es lo que nos enseñó Jesús, ¿no?"
         ],
         "hablado": "false"
     },
@@ -80,25 +80,56 @@
         "frases":
         [
 
-                "has oido hablar del cura de la iglesia de al lado?",
-                "siempre actua raro y de manera sospechosa,",
-                "además ultimamente han ocuurido muchos desaparecimientos de niños en el barrio",
-                "creo que ha podido ser él, ojalá alguien le pare los pies",
-                "realmente es horrible lo que algunos adultos pueden llegar a hacer..."
+            "has oido hablar del cura de la iglesia de al lado?",
+            "siempre actua raro y de manera sospechosa,",
+            "además ultimamente han ocuurido muchos desaparecimientos de niños en el barrio",
+            "creo que ha podido ser él, ojalá alguien le pare los pies",
+            "realmente es horrible lo que algunos adultos pueden llegar a hacer..."
         
         ],
         "hablado": "false"
         
+    },
+    "MARIA DEL CARMEN":{
+        "frases":
+        [
+            "Si tan solo ella fuera un chico...",
+            "¡Oh! perdón, no te había visto amigue",
+            "Siento que me tengas que ver así, pero ahora mismo no estoy pasando por el mejor momento",
+            "María Jose se me ha declarado y yo... la quiero mucho",
+            "Pero, ¿yo soy hetero...?",
+            "Igualemente, si no lo fuera, mi familia nunca me aceptaría",
+            "Y podría meterme en graves problemas.",
+            "María Jose, perdón por no ser valiente"
+        ],
+        "hablado": "false",
+        "scale": 0.5
+    },
+    "MARIA JOSE":{
+        "frases":
+        [
+            "Buenas compañere",
+            "¿Tu también tienes dolor de corazón?",
+            "De verdad, esta ciudad me quita todo lo que quiero.",
+            "Primero, pierdo a mis padres por las drogas y el alcohol.",
+            "Y después, la única mujer a la que he querido me rechaza ¿porque es hetero?",
+            "Si claro, ni ella misma se lo cree.",
+            "Tiene miedo, como todos en esta ciudad.",
+            "Creo que ya es hora de que huya de aquí.",
+            "Si tan solo Maria del Carmen viniera conmigo..."
+        ],
+        "hablado": "false",
+        "scale": 0.5
     },
     "GATO EN CAJA":{
 
         "frases":
         [
 
-                "miau",
-                "miau miau",
-                "miau miau miau",
-                "miau"
+            "miau",
+            "miau miau",
+            "miau miau miau",
+            "miau"
                 
         ],
         "hablado": "false",
@@ -118,8 +149,11 @@
     },
     "PITIBANCO":{
         "frases":[
-            "Hola, soy Piti Banco, el banco del piti. Cual te quieres fumar hoy?",
-            "¿Cómo estás?"
+            "Hola, soy Piti Banco, el banco del piti.",
+            "¿Te quieres fumar uno?",
+            "¡Son muy saludables y te mejoran el ánimo!",
+            "Pero recuerda, solo uno de cada, eh?",
+            "Que nos conocemos, amigue."
         ],
         "fumado": "Ey pequeñe, ya te lo has fumado",
         "curarAnsiedad": "true",
