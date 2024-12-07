@@ -48,8 +48,8 @@ export default class localizationScene extends Phaser.Scene
             this.load.image('pitiBanco', 'assets/fondos/pitiBanco.jpg');
 
         //NPCS
-            this.load.image('PACO', 'assets/npc/paco (2).png');
-            this.load.image('HUMBERTO', 'assets/npc/humberto (2).png');
+            this.load.image('PACO', 'assets/npc/paco.png');
+            this.load.image('HUMBERTO', 'assets/npc/humberto.png');
             this.load.image('MARIA', 'assets/npc/maria.png');
             this.load.image('NPC', 'assets/npc/npc.png');
             this.load.image('PITIBANCO', 'assets/npc/pitiBanco.png');

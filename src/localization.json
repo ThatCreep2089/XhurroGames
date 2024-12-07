@@ -120,15 +120,15 @@
             [
                 {
                     "name": "HUMBERTO",
-                    "x": 3.8, 
+                    "x": 3.9, 
                     "y": 1.4,
-                    "scale": 0.25
+                    "scale": 0.3
                 },
                 {
                     "name": "JOSE",
-                    "x": 1.35, 
+                    "x": 1.6, 
                     "y": 1.4,
-                    "scale": 1
+                    "scale": 0.3
                 }
 
             ]
@@ -182,7 +182,7 @@
                     "name": "PACO",
                     "x": 3.8, 
                     "y": 1.4,
-                    "scale": 0.25
+                    "scale": 0.7
                 },
                 {
                     "name": "AGUSTÍN",
