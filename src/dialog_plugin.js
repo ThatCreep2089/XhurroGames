@@ -115,10 +115,17 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 
 	// Calcula las dimensiones y pos de la ventana en funcion del tamaño de la pantalla de juego
 	_calculateWindowDimensions(width, height) {
-		var x = this.padding;
-		var y = height - this.windowHeight - this.padding;
-		var rectWidth = width - (this.padding * 2);
-		var rectHeight = this.windowHeight;
+		var x = this.padding + 40;
+		
+		// Calcular la altura como un tercio de la pantalla
+		var rectHeight = height / 3;
+	
+		// Centrar la ventana verticalmente
+		var y = (height - rectHeight) - 40;
+	
+		// Calcular el ancho (puedes ajustarlo según necesites)
+		var rectWidth = width - (this.padding * 4);
+	
 		return {
 			x,
 			y,
@@ -126,6 +133,7 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 			rectHeight
 		};
 	}
+	
 
 	// Crea la ventana interior, donde se muestra el texto 
 	_createInnerWindow(x, y, rectWidth, rectHeight) {
@@ -159,10 +167,12 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 		this._createOuterWindow(dimensions.x, dimensions.y, dimensions.rectWidth, dimensions.rectHeight);
 		this._createInnerWindow(dimensions.x, dimensions.y, dimensions.rectWidth, dimensions.rectHeight);
 		
+		/*
 		this._createCloseModalButton(); //se muestra el boton de cerrar en la ventana
-		this._createCloseModalButtonBorder(); // se muestra el borde del boton de cerrar
+		this._createCloseModalButtonBorder(); // se muestra el borde del boton de cerrar*/
 	}
 
+	/*
 	// Con el siguiente código se crea el boton de cerrar la ventana de diálogo
 	_createCloseModalButton() {
 		var self = this;
@@ -196,7 +206,7 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 			if (self.text) 
 				self.text.destroy();
 		});
-	}
+	}*/
 
 	// Se crea el borde del botón
 	_createCloseModalButtonBorder() {
@@ -227,8 +237,8 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 		if (this.text) 
 			this.text.destroy();
 
-		var x = this.padding + 10;
-		var y = this._getGameHeight() - this.windowHeight - this.padding + 10;
+		var x = this.padding + 75;
+		var y = this._getGameHeight() - this.windowHeight - this.padding - 175;
 
 		//Crea un game object que sea texto
 		this.text = this.scene.make.text({

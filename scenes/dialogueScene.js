@@ -191,7 +191,7 @@ export default class DialogueScene extends Phaser.Scene {
             //DEBUG BACK BUTTON
             const backScene = this.add.image(
                 this.sys.game.canvas.width / 12,
-                this.sys.game.canvas.height / 1.2, 
+                this.sys.game.canvas.height / 2, 
                 'flecha')
             .setScale(-0.3, 0.3)
             .setInteractive()
@@ -214,16 +214,16 @@ export default class DialogueScene extends Phaser.Scene {
     {
         //TEXTO DIALOGO
         this.dialog = new DialogText(this, {
-            borderThickness: 4,
-            borderColor: 0xcb3234,
+            borderThickness: 10,
+            borderColor: 0x5a5a5a,
             borderAlpha: 1,
-            windowAlpha: 0.6,
-            windowColor: 0xff6961,
+            windowAlpha: 0.9,
+            windowColor: 0x212121,
             windowHeight: 150,
             padding: 32,
-            closeBtnColor: 'darkgoldenrod',
+            closeBtnColor: 'Georgia',
             dialogSpeed: 3,
-            fontSize: 100,
+            fontSize: 75,
             fontFamily: "pixel"
         });
 
