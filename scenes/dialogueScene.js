@@ -172,8 +172,6 @@ export default class DialogueScene extends Phaser.Scene {
 
         // Cuando se termina el dialogo...
         this.dialog.on('dialogComplete', () => {
-            
-            this.dialogueJson[this.npc].hablado = "true";
             console.log(this.dialogueJson[this.npc]);
             
             if(this.npc == 'PITIBANCO')
@@ -191,7 +189,11 @@ export default class DialogueScene extends Phaser.Scene {
             }
             else
             {
-                this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
+                if(this.dialogueJson[this.npc].hablado != "true")
+                {
+                    this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
+                }
+                
             }
             
             //DEBUG BACK BUTTON
@@ -203,6 +205,7 @@ export default class DialogueScene extends Phaser.Scene {
             .setInteractive()
             .on('pointerdown', () => 
             {
+                this.dialogueJson[this.npc].hablado = "true";
                 if(this.npc == 'ELLIE'){
                     this.scene.start('zonaScene');
                 }
