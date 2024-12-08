@@ -9,18 +9,8 @@
                 {
                     "name": "taza",
                     "description": "+10 de vida",
-                    "x": 400,
-                    "y": 150,
-                    "effect": 1,
-                    "amountOfEffect": 10,
-                    "recogido": "false"
-            
-                },
-                {
-                    "name": "taza",
-                    "description": "+10 de vida",
                     "x": 600,
-                    "y": 150,
+                    "y": 1000,
                     "effect": 1,
                     "amountOfEffect": 10,
                     "recogido": "false"
@@ -29,73 +19,15 @@
                 {
                     "name": "botella",
                     "description": "+5 de vida",
-                    "x": 100,
-                    "y": 200,
+                    "x": 1500,
+                    "y": 800,
                     "effect": 1,
                     "amountOfEffect": 5,
                     "recogido": "false"
                 
-                },
-                {
-                    "name": "roca pija",
-                    "description": "+10 puntos de cualidad",
-                    "x": 400,
-                    "y": 150,
-                    "effect": 4,
-                    "amountOfEffect": 10,
-                    "recogido": "false"
-            
-                },
-                {
-                    "name": "roca traviesa",
-                    "description": "+20 puntos de cualidad",
-                    "x": 400,
-                    "y": 150,
-                    "effect": 4,
-                    "amountOfEffect": 20,
-                    "recogido": "false"
-            
-                },
-                {
-                    "name": "porro",
-                    "description": "-10 de ansiedad",
-                    "x": 400,
-                    "y": 150,
-                    "effect": 3,
-                    "amountOfEffect": 10,
-                    "recogido": "false"
-            
-                },
-                {
-                    "name": "mar_iguana",
-                    "description": "-40 de ansidad",
-                    "x": 400,
-                    "y": 150,
-                    "effect": 3,
-                    "amountOfEffect": 40,
-                    "recogido": "false"
-            
-                },
-                {
-                    "name": "sanidad privada",
-                    "description": "vida máxima +20",
-                    "x": 400,
-                    "y": 150,
-                    "effect": 2,
-                    "amountOfEffect": 20,
-                    "recogido": "false"
-            
-                },
-                {
-                    "name": "sanidad pública",
-                    "description": "vida máxima +10",
-                    "x": 400,
-                    "y": 150,
-                    "effect": 2,
-                    "amountOfEffect": 10,
-                    "recogido": "false"
-            
                 }
+                
+               
             ],
             "npcs":
             [
@@ -119,22 +51,24 @@
             "items":
             [
                 {
-                    "name": "ansiedad1",
-                    "description": "Resta 3 de ansiedad",
-                    "x": 1,
-                    "y": 150,
-                    "effect": 50,
-                    "amountOfEffect": 3
-                  
+                    "name": "roca pija",
+                    "description": "+10 puntos de cualidad",
+                    "x": 800,
+                    "y": 700,
+                    "effect": 4,
+                    "amountOfEffect": 10,
+                    "recogido": "false"
+            
                 },
                 {
-                    "name": "ansiedad2",
-                    "description": "Resta 7 de ansiedad",
-                    "x": 1,
-                    "y": 150,
-                    "effect": 50,
-                    "amountOfEffect": 3
-                   
+                    "name": "roca traviesa",
+                    "description": "+20 puntos de cualidad",
+                    "x": 1500,
+                    "y": 400,
+                    "effect": 4,
+                    "amountOfEffect": 20,
+                    "recogido": "false"
+            
                 }
             ],
             "npcs":
@@ -159,12 +93,24 @@
             "items":
             [
                 {
-                    "name": "hamburguesa",
-                    "description": "Cura 3 de vida",
-                    "x": 1,
-                    "y": 150,
-                    "effect": 50,
-                    "amountOfEffect": 3
+                    "name": "porro",
+                    "description": "-10 de ansiedad",
+                    "x": 1000,
+                    "y": 800,
+                    "effect": 3,
+                    "amountOfEffect": 10,
+                    "recogido": "false"
+            
+                },
+                {
+                    "name": "mar_iguana",
+                    "description": "-40 de ansidad",
+                    "x": 700,
+                    "y": 1000,
+                    "effect": 3,
+                    "amountOfEffect": 40,
+                    "recogido": "false"
+            
                 }
             ],
             "npcs":
@@ -188,13 +134,26 @@
         {
             "items":
             [
+                
                 {
-                    "name": "hamburguesa",
-                    "description": "Cura 3 de vida",
-                    "x": 1,
-                    "y": 150,
-                    "effect": 50,
-                    "amountOfEffect": 3
+                    "name": "sanidad privada",
+                    "description": "vida máxima +20",
+                    "x": 1500,
+                    "y": 1000,
+                    "effect": 2,
+                    "amountOfEffect": 20,
+                    "recogido": "false"
+            
+                },
+                {
+                    "name": "sanidad pública",
+                    "description": "vida máxima +10",
+                    "x":150,
+                    "y": 800,
+                    "effect": 2,
+                    "amountOfEffect": 10,
+                    "recogido": "false"
+            
                 }
             ],
             "npcs":
@@ -219,12 +178,23 @@
             "items":
             [
                 {
-                    "name": "hamburguesa",
-                    "description": "Cura 3 de vida",
-                    "x": 1,
-                    "y": 150,
-                    "effect": 50,
-                    "amountOfEffect": 3
+                    "name": "porro",
+                    "description": "-10 de ansiedad",
+                    "x": 1700,
+                    "y": 1000,
+                    "effect": 3,
+                    "amountOfEffect": 10,
+                    "recogido": "false"
+            
+                }, {
+                    "name": "taza",
+                    "description": "+10 de vida",
+                    "x": 1700,
+                    "y": 800,
+                    "effect": 1,
+                    "amountOfEffect": 10,
+                    "recogido": "false"
+            
                 }
             ],
             "npcs":
@@ -254,14 +224,18 @@
         {
             "items":
             [
+                
                 {
-                    "name": "hamburguesa",
-                    "description": "Cura 3 de vida",
-                    "x": 1,
-                    "y": 150,
-                    "effect": 50,
-                    "amountOfEffect": 3
+                    "name": "roca traviesa",
+                    "description": "+20 puntos de cualidad",
+                    "x": 800,
+                    "y": 1000,
+                    "effect": 4,
+                    "amountOfEffect": 20,
+                    "recogido": "false"
+            
                 }
+
             ],
             "npcs":
             [
@@ -285,12 +259,14 @@
             "items":
             [
                 {
-                    "name": "hamburguesa",
-                    "description": "Cura 3 de vida",
-                    "x": 1,
-                    "y": 150,
-                    "effect": 50,
-                    "amountOfEffect": 3
+                    "name": "taza",
+                    "description": "+10 de vida",
+                    "x": 950,
+                    "y": 1000,
+                    "effect": 1,
+                    "amountOfEffect": 10,
+                    "recogido": "false"
+            
                 }
             ],
             "npcs":
@@ -328,12 +304,14 @@
             "items":
             [
                 {
-                    "name": "hamburguesa",
-                    "description": "Cura 3 de vida",
-                    "x": 1,
+                    "name": "taza",
+                    "description": "+10 de vida",
+                    "x": 400,
                     "y": 150,
-                    "effect": 50,
-                    "amountOfEffect": 3
+                    "effect": 1,
+                    "amountOfEffect": 10,
+                    "recogido": "false"
+            
                 }
             ],
             "npcs":
