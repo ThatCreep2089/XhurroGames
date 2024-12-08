@@ -5,18 +5,9 @@ export default class ContactScene extends Phaser.Scene {
         
     }
 
-
-    init(data) {
-      
-        
-        this.lastScene = data.lastScene;
-        this.playerConfig= data.player;
-        this.modo= data.modo;
-        console.log('lastScene', data.lastScene);
-        console.log("modo",data.modo);
-    
-    }
-
+init(data){
+    this.modo= data.modo;
+}
 
     preload() {
         //FONDO
@@ -42,7 +33,6 @@ export default class ContactScene extends Phaser.Scene {
         //Cargar json
         this.load.json("contactsJson", 'src/contacts.json');
 
-    
 
        /* this.load.image('lesbiana', 'assets/contactos/lesbi.png');
         this.load.image('gay', 'assets/contactos/gay.png');

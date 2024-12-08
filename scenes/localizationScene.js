@@ -78,7 +78,12 @@ export default class localizationScene extends Phaser.Scene
         //ITEMS
         this.load.image('taza', 'assets/recolectables/taza.png');
         this.load.image('botella', 'assets/recolectables/botella.png');
-
+        this.load.image('roca pija', 'assets/recolectables/roca pija.png');
+        this.load.image('roca traviesa', 'assets/recolectables/roca traviesa.png');
+        this.load.image('porro', 'assets/recolectables/porro.png');
+        this.load.image('mar_iguana', 'assets/recolectables/mar_iguana.png');
+        this.load.image('sanidad privada', 'assets/recolectables/privada.png');
+        this.load.image('sanidad pública', 'assets/recolectables/publica.png');
         //JSON
         this.load.json("localizationJson", 'src/localization.json');
         this.load.json("dialogueJson", 'src/dialog.json');

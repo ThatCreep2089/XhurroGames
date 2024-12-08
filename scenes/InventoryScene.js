@@ -70,10 +70,10 @@ export default class InventoryScene extends Phaser.Scene
                 let fila = 0;
                 let columna = 0;
                 const numColumnas = 5;
-                const margin = 10; 
-                const cellSize = 200;
+                const margin = 20; 
+                const cellSize = 300;
                 const verticalOffset = 200;
-                const horizontalOffset = 300;
+                const horizontalOffset = 100;
             
                 items.forEach((item, index) => {
                     console.log("Descripción del item:", item.description);
@@ -82,7 +82,7 @@ export default class InventoryScene extends Phaser.Scene
                     const y = fila * (cellSize + margin) + verticalOffset;
                     
                     let sprite = this.add.image(x, y, item.name).setOrigin(0, 0);
-                    sprite.setDisplaySize(200, 200); // Ajusta el tamaño del ítem
+                    sprite.setDisplaySize(450,300); // Ajusta el tamaño del ítem
                 
                     sprite.setInteractive(); // Hacer el sprite interactivo
                 
@@ -98,25 +98,36 @@ export default class InventoryScene extends Phaser.Scene
                     rect0.setVisible(false);
                     rect2.setVisible(false);
                 
-                    // Crear los textos, también invisibles al principio
-                    let texto = this.add.text(950, 500, "¿Utilizar"+ " "+item.name+"?\nCantidad: " + item.ejemplar + "\n" + item.description, {
-                        fontSize: '40px',
-                        fill: '#1c1c1c',
-                        align: 'center'
-                    }).setOrigin(0.5, 0.5).setVisible(false);  // Centrado y oculto
+                    /// Inicialmente, todo está invisible
+            rect.setVisible(false);
+            rect0.setVisible(false);
+            rect2.setVisible(false);
+
+            // Crear los textos, también invisibles al principio
+            let texto = this.add.text(950, 500, "", {
+                fontSize: '40px',
+                fill: '#1c1c1c',
+                align: 'center'
+            }).setOrigin(0.5, 0.5).setVisible(false);  // Centrado y oculto
+
+            let texto2 = this.add.text(1150, 650, "No", {
+                fontSize: '40px',
+                fill: '#1c1c1c',
+                align: 'center'
+            }).setOrigin(0.5, 0.5).setVisible(false);  // Centrado y oculto
+
+            let texto3 = this.add.text(750, 650, "Sí", {
+                fontSize: '40px',
+                fill: '#1c1c1c',
+                align: 'center'
+            }).setOrigin(0.5, 0.5).setVisible(false);  // Centrado y oculto
                 
-                    let texto2 = this.add.text(1150, 650, "No", {
-                        fontSize: '40px',
-                        fill: '#1c1c1c',
-                        align: 'center'
-                    }).setOrigin(0.5, 0.5).setVisible(false);  // Centrado y oculto
-                
-                    let texto3 = this.add.text(750, 650, "Sí", {
-                        fontSize: '40px',
-                        fill: '#1c1c1c',
-                        align: 'center'
-                    }).setOrigin(0.5, 0.5).setVisible(false);  // Centrado y oculto
-                
+                    texto.setDepth(2);
+                    texto2.setDepth(2);
+                    texto3.setDepth(2);
+                   rect0.setDepth(2);
+                   rect2.setDepth(2);
+                   rect.setDepth(2);
                     // Cuando el sprite es clickeado, hacer visible los elementos
                     sprite.on('pointerdown', () => {
                         rect.setVisible(true);
@@ -125,6 +136,8 @@ export default class InventoryScene extends Phaser.Scene
                         texto.setVisible(true);
                         texto2.setVisible(true);
                         texto3.setVisible(true);
+                         // Actualizar el texto con la información del item
+                texto.setText("¿Utilizar " + item.name + "?\nCantidad: " + item.ejemplar + "\n" + item.description);
                         sprite.setInteractive(false);  // Desactivar interactividad del sprite
                     });
                 
@@ -156,6 +169,7 @@ export default class InventoryScene extends Phaser.Scene
                         texto.setVisible(false);
                         texto2.setVisible(false);
                         texto3.setVisible(false);
+
                     });
                    
                     // Lógica de avance de columna y fila fuera del evento `pointerdown`
