@@ -199,7 +199,7 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 	}
 	
 	_skipDialog() {
-		
+		this.allowNextLine = false;
 		const currentLine = this.dialogData[this.dialogData.length - 1];
 		this.setText(currentLine.texto, true);
 		this.emit('dialogComplete');
