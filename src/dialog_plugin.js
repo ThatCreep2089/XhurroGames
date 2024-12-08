@@ -264,8 +264,17 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 	_showCurrentLine() {
 		if (this.currentLineIndex < this.dialogData.length) {
 			const currentLine = this.dialogData[this.currentLineIndex];
-			this.setText(currentLine, true); // Muestra la línea con animación
-			this.allowNextLine = false; // Bloquea avanzar hasta que termine la animación
+			
+			if (typeof currentLine === 'string') //linea de texto
+			{
+				this.setText(currentLine, true);
+				this.allowNextLine = false;
+			}
+			else if (currentLine.video) //si es un video
+			{
+				this.allowNextLine = false;
+				this._playVideo(currentLine.video);
+			}
 		} else {
 			this.emit('dialogComplete'); // Lanza el evento al final del diálogo
 		}
@@ -276,5 +285,21 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 			this.currentLineIndex++;
 			this._showCurrentLine(); // Muestra la siguiente línea
 		}
+	}
+
+	_playVideo(videoPath) {
+		// Crear video
+		const video = this.scene.add.video(this._getGameWidth() / 2, this._getGameHeight() / 2, videoPath);
+		video.setOrigin(0.5);
+		video.play(); // Reproducir el video en bucle si es necesario
+	
+		// Detener el video cuando termine y continuar el diálogo
+		video.on('complete', () => {
+			console.log("ha terminado el video");
+			video.destroy();
+			this.allowNextLine = true;
+			this.currentLineIndex++;
+			this._showCurrentLine();
+		});
 	}
 };

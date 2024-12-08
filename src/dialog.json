@@ -137,7 +137,18 @@
         "scale": 1
         
     },
-    
+    "ELLIE":{
+        "frases":[
+            "Hola, soy Ellie",
+            "Despues de esto deberia salir un video",
+            { "video": "iguana" },
+            "Ahora ha vuelto al dialogo to chulo",
+            "BAI"
+        ],
+        "hablado": "false",
+        "scale": 1
+        
+    },
     "BOSS":
     {
         "frases":[
@@ -162,5 +173,6 @@
         "scale": 0.3
         
     }
+    
 }
 

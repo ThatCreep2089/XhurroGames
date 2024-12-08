@@ -75,13 +75,12 @@ export default class DialogueScene extends Phaser.Scene {
 
         //PLAYER
             //instanciar player
-            let player = new Player(this, 50, 60);
+            this.player = new Player(this, 50, 60);
             
-            player.setScale(0.03);
-            console.log(this.playerConfig);
+            this.player.setScale(0.03);
             if(this.playerConfig != undefined)
             {
-                player.init(this.playerConfig);
+                this.player.init(this.playerConfig);
             }
 
         
@@ -202,13 +201,23 @@ export default class DialogueScene extends Phaser.Scene {
                 'flecha')
             .setScale(-0.3, 0.3)
             .setInteractive()
-            .on('pointerdown', () => this.scene.start('localizationScene', {
-                fondo: data.fondo,
-                ant: this.ant,
-                player: this.player.getConfigData(), 
-                inventory: this.inventory.getConfigData(),
-                dialogueJson: this.dialogueJson
-            }));
+            .on('pointerdown', () => 
+            {
+                if(this.npc == 'ELLIE'){
+                    this.scene.start('zonaScene');
+                }
+                else{
+                    console.log(this.player);
+                    this.scene.start('localizationScene',{
+                        fondo: data.fondo,
+                        ant: this.ant,
+                        player: this.player.getConfigData(), 
+                        inventory: this.inventory.getConfigData(),
+                        dialogueJson: this.dialogueJson
+                    });
+                }
+                
+            });
 
         });
 
