@@ -20,14 +20,34 @@ export default class Flecha extends Phaser.GameObjects.Sprite{
         // Configuramos el tamaño del collider principal del sprite
         this.body.setSize(this.body.width * 1.3, this.body.height * 1.3);
     
-        // Aseguramos que el collider esté centrado en el sprite
-        this.body.setOffset(
-            (this.width - this.body.width) / 2,
-            (this.height - this.body.height) / 2
-        );
+        this.updateCollider();
     
         // Añadimos el sprite al grupo de colliders
         colliderGroup.add(this);
+    }
+
+    // Actualiza la posición del collider
+    updateCollider() {
+        let offsetX = (this.width - this.body.width) / 2;
+        let offsetY = (this.height - this.body.height) / 2;
+
+        if (this.scaleX < 0) {
+            const additionalOffset = 200;
+            offsetX += this.width + additionalOffset;
+        }
+
+        if (this.scaleY < 0) {
+            offsetY += this.height;
+        }
+
+        this.body.setOffset(offsetX, offsetY);
+    }
+
+    // setScale sobreescrito para ajustar el collider (por si la escala es negativa)
+    setScale(x, y) {
+        super.setScale(x, y);
+        this.updateCollider();
+        return this;
     }
     
 }
