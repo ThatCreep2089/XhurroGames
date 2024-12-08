@@ -164,38 +164,47 @@ export default class localizationScene extends Phaser.Scene
             .setScale(0.5, 0.5)
             .setInteractive()
             .on('pointerdown', () => {
-                // SUBIR ANSIEDAD
-                if(this.npcTalk == 'GATO EN CAJA')
+                if(this.player.ansiedad == this.player.maxAnsiedad - 50 && this.npcTalk != 'PITIBANCO')
                 {
-                    //verificar si tiene lo que hay q tener
-                    const { cumplidos, noCumplidos } = this.requisitosGato(mode);
-
-                    if (noCumplidos.length > 0)
+                    console.log("no puedes hablar mas, mucha ansiedad");
+                }
+                else
+                {
+                    // SUBIR ANSIEDAD
+                if(this.npcTalk == 'GATO EN CAJA')
                     {
-                        console.log("Hay requisitos pendientes.");
-                        this.mostrarGatoPendientes(noCumplidos);
+                        //verificar si tiene lo que hay q tener
+                        const { cumplidos, noCumplidos } = this.requisitosGato(mode);
+    
+                        if (noCumplidos.length > 0)
+                        {
+                            console.log("Hay requisitos pendientes.");
+                            this.mostrarGatoPendientes(noCumplidos);
+                        }
+                        else
+                        {
+                            console.log("Todos los requisitos han sido cumplidos.");
+                            this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
+                                player: this.player.getConfigData(), 
+                                inventory: this.inventory.getConfigData(),
+                                dialogueJson: this.dialogueJson});  //cambiar a escena dialogo
+                        }
                     }
                     else
                     {
-                        console.log("Todos los requisitos han sido cumplidos.");
+                        if(this.npcTalk != 'PITIBANCO') //a dialogos si NO es pitibanco
+                        {
+                            this.player.IncreaseAnxiety(10);
+                            
+                        }
                         this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
                             player: this.player.getConfigData(), 
                             inventory: this.inventory.getConfigData(),
                             dialogueJson: this.dialogueJson});  //cambiar a escena dialogo
                     }
                 }
-                else
-                {
-                    if(this.npcTalk != 'PITIBANCO') //a dialogos si NO es pitibanco
-                    {
-                        this.player.IncreaseAnxiety(10);
-                        
-                    }
-                    this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
-                        player: this.player.getConfigData(), 
-                        inventory: this.inventory.getConfigData(),
-                        dialogueJson: this.dialogueJson});  //cambiar a escena dialogo
-                }
+                
+                
                 
             });
                 
