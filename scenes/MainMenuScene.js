@@ -9,9 +9,12 @@ export default class MainMenuScene extends Phaser.Scene {
     {
         this.load.image('fondo', "./assets/web media/madrizzc.jpg") //fondo
         this.load.image('titulo', "./assets/web media/titulo.png") //titulo
+
+        this.load.json("dialogueJson", 'src/dialog.json');
     }
 
     create(){
+        this.dialogueJson = this.cache.json.get('dialogueJson');;
 
         //Pintamos un fondo
         var back = this.add.image(0, 0, 'fondo').setOrigin(0, 0);
@@ -55,7 +58,7 @@ export default class MainMenuScene extends Phaser.Scene {
             500, 200, 0x4f4f4f
         )
         .setInteractive()
-        .on('pointerdown', () => this.scene.start("zonaScene"));
+        .on('pointerdown', () => this.scene.start("dialogueScene", {dialogueJson: this.dialogueJson}));
         
         // Ajustamos el origen para que el rectángulo esté centrado
         startButton.setOrigin(0.5, 0.5);

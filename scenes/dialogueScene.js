@@ -28,19 +28,22 @@ export default class DialogueScene extends Phaser.Scene {
         this.load.image('NPC', 'assets/npc/npc.png');
         this.load.image('PITIBANCO', 'assets/npc/pitiBanco.png');
         this.load.image('BOSS', 'assets/npc/bossBotellin.png');
+        this.load.image('ELLIE', 'assets/npc/ellie.png');
 
         this.load.json("dialogueJson", 'src/dialog.json')
 
         //others
         
         this.load.image('PITIBANCO', 'assets/others/Mar_iguana.png');
+
+        this.load.video('iguana', 'assets/videos/iguana.mp4', true);
         
 
     }
 
     init(data){
         // Usar el parámetro 'fondo' para decidir qué fondo cargar
-        this.npc = data.npc || 'HUMBERTO';
+        this.npc = data.npc || 'ELLIE';
         this.fondo = data.fondo || 'puente';
         this.ant = data.ant;
 
@@ -52,6 +55,7 @@ export default class DialogueScene extends Phaser.Scene {
         if(data.dialogueJson)
         {
             this.dialogueJson = data.dialogueJson;
+            
         }
         else{
             this.dialogueJson = this.cache.json.get('dialogueJson');
@@ -62,20 +66,23 @@ export default class DialogueScene extends Phaser.Scene {
     create(data){
         console.log(data.npc);//debug
 
-        // PLAYER
-        let startPosition = window.gameState.playerPosition || { x: 278, y: 150 }; //posicion de la tenfe
+        //INVENTARIO
+            //instanciar inventario
+            this.inventory = new Inventory(this);
+            if(this.inventoryConfig != undefined) {
+                this.inventory.init(this.inventoryConfig);
+            }
+
+        //PLAYER
+            //instanciar player
+            let player = new Player(this, 50, 60);
             
-        this.player = new Player(this, startPosition.x, startPosition.y);
-        this.player.init(this.playerConfig);
-        
-        this.player.setVisible(false); //que elle NO se vea
-        this.player.changeMove(false);
-        
-        // INVENTARIO
-        this.inventory = new Inventory(this);
-        if(this.inventoryConfig != undefined) {
-            this.inventory.init(this.inventoryConfig);
-        }
+            player.setScale(0.03);
+            console.log(this.playerConfig);
+            if(this.playerConfig != undefined)
+            {
+                player.init(this.playerConfig);
+            }
 
         
         //1. PINTAR FONDO
