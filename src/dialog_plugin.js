@@ -238,7 +238,7 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 			this.text.destroy();
 
 		var x = this.padding + 75;
-		var y = this._getGameHeight() - this.windowHeight - this.padding - 175;
+		var y = this._getGameHeight() - this.windowHeight - this.padding - 100;
 
 		//Crea un game object que sea texto
 		this.text = this.scene.make.text({
@@ -254,6 +254,24 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 		});
 	}
 
+	_setAuthor(author) {
+		if (this.authorText) this.authorText.destroy(); // Si existe, destruye el anterior
+	
+		const x = this.padding + 75;
+		const y = this._getGameHeight() - this.windowHeight - this.padding - 190; // Más arriba del texto del diálogo
+	
+		this.authorText = this.scene.make.text({
+			x,
+			y,
+			text: author,
+			style: {
+				fontSize: this.fontSize * 1.2, // Tamaño más pequeño que el texto principal
+				fontFamily: this.fontFamily,
+				color: '#FFD700' // Color dorado para diferenciar
+			}
+		});
+	}
+
 	startDialog(dialogData) {
 		this.dialogData = dialogData; // Carga las líneas de diálogo
 		this.currentLineIndex = 0; // Reinicia el índice
@@ -265,9 +283,10 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 		if (this.currentLineIndex < this.dialogData.length) {
 			const currentLine = this.dialogData[this.currentLineIndex];
 			
-			if (typeof currentLine === 'string') //linea de texto
+			if (currentLine.texto) //linea de texto
 			{
-				this.setText(currentLine, true);
+				this.setText(currentLine.texto, true);
+				this._setAuthor(currentLine.author);
 				this.allowNextLine = false;
 			}
 			else if (currentLine.video) //si es un video

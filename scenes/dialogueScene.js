@@ -239,7 +239,7 @@ export default class DialogueScene extends Phaser.Scene {
             padding: 32,
             closeBtnColor: 'Georgia',
             dialogSpeed: 3,
-            fontSize: 75,
+            fontSize: 50,
             fontFamily: "pixel"
         });
 
