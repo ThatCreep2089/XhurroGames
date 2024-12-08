@@ -4,6 +4,7 @@ import Localization from '../src/localization.js';
 import Flecha from '../src/flecha.js';
 import Inventory from '../src/inventory.js';
 
+
 export default class ZonaScene extends Phaser.Scene{
     constructor()
     {
@@ -211,7 +212,7 @@ export default class ZonaScene extends Phaser.Scene{
             });
 
 
-            // botones para testeo
+            // botones para ir inventario
             let inventarioButton = this.add.rectangle(
                 this.sys.game.canvas.width / 14,
                 this.sys.game.canvas.height / 1.5, 
@@ -228,7 +229,41 @@ export default class ZonaScene extends Phaser.Scene{
                     dialogueJson: this.dialogueJson
                 });
             });
-            // Texto para mostrar "Ansiedad" en el centro del botón
+                  // botones para ir contactos
+            let contactosButton = this.add.rectangle(
+                this.sys.game.canvas.width / 14,
+                this.sys.game.canvas.height / 1.3, 
+                50, 50, 0xffe800)
+            .setInteractive()
+            .setScale(4, 2)
+            .on('pointerdown', () => {
+                console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
+                this.scene.start('GeneralContactsScene', {
+                    lastScene: this.key, // Este es el valor que debería contener "zonaScene"
+                    player: player.getConfigData(),
+                    modo: this.modo,
+                    //dialogueJson: this.dialogueJson
+                });
+            });
+
+                 // Texto para mostrar "Contactos" en el centro del botón
+            let contactText = this.add.text(
+                contactosButton.x,   // Colocar en la misma X del botón
+                contactosButton.y,   // Colocar en la misma Y del botón
+                `CONTACTOS`,
+                {
+                    fontSize: '25px',  // Cambia el tamaño del texto según el espacio
+                    color: '#000000',  // Negro
+                    fontFamily: 'Georgia',
+                    fontStyle: 'bold',
+                    align: 'center'    // Centrar el texto internamente
+                }
+            );
+
+            // Centrar el texto en el botón
+            contactText.setOrigin(0.5, 0.5);
+
+            // Texto para mostrar "Inventario" en el centro del botón
             let combatText = this.add.text(
                 inventarioButton.x,   // Colocar en la misma X del botón
                 inventarioButton.y,   // Colocar en la misma Y del botón

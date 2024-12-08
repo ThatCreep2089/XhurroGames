@@ -82,6 +82,9 @@ export default class localizationScene extends Phaser.Scene
         //JSON
         this.load.json("localizationJson", 'src/localization.json');
         this.load.json("dialogueJson", 'src/dialog.json');
+
+          //Cargar json
+          this.load.json("contactsJson", 'src/contacts.json');
     }
 
     
@@ -284,6 +287,7 @@ export default class localizationScene extends Phaser.Scene
             this.sys.game.canvas.width /npc.x,
             this.sys.game.canvas.height /npc.y, 
             npc.name) //id
+
         .setOrigin(0.5, 0.5)
         .setScale(npc.scale)
         .setInteractive()

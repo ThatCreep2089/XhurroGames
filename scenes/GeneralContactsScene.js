@@ -4,7 +4,14 @@ export default class GeneralContactsScene extends Phaser.Scene {
     }
 
     init(data) {
+      
+        
         this.lastScene = data.lastScene;
+        this.playerConfig= data.player;
+        this.modo= data.modo;
+        console.log('lastScene', data.lastScene);
+        console.log("modo",data.modo);
+    
     }
 
     preload() {
@@ -14,7 +21,9 @@ export default class GeneralContactsScene extends Phaser.Scene {
 
     create(data) {
         // Pintamos el fondo
-        const back = this.add.image(0, 0, 'fondo').setOrigin(0, 0);
+        const back = this.add.image(0, 0, 'fondo')
+        .setOrigin(0, 0)
+        .setDisplaySize(this.sys.game.canvas.width, this.sys.game.canvas.height);
 
         // Mostramos el texto de que barrio elegir
         let titulo = this.add.text(0, this.sys.game.canvas.height / 15, "¿Qué barrio?");
@@ -34,8 +43,8 @@ export default class GeneralContactsScene extends Phaser.Scene {
         };
 
         // Crear los rectángulos para cada barrio
-        createRectangle(350, 300, 600, 300, 0x30ff81,1 ); // Barrio Botellín
-        createRectangle(1050, 300, 600, 300, 0xd54545,2 );    // Barrio religioso
+        createRectangle(350, 300, 600, 300,0xd54545,1  ); // Barrio Botellín
+        createRectangle(1050, 300, 600, 300,0x30ff81,2  );    // Barrio porras
         createRectangle(350, 650, 600, 300, 0x45d5d5,3 );  // Barrio Navajas
         createRectangle(1050, 650, 600, 300, 0xffe90c,4 ); // Barrio dinero
 
@@ -49,7 +58,7 @@ export default class GeneralContactsScene extends Phaser.Scene {
         .setInteractive()
         .on('pointerdown', () => {
             this.scene.start(this.lastScene, { 
-               
+                
                 modo: this.modo
             });
         });

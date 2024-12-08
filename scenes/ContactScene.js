@@ -5,37 +5,62 @@ export default class ContactScene extends Phaser.Scene {
         
     }
 
-init(data){
-    this.modo= data.modo;
-}
+
+    init(data) {
+      
+        
+        this.lastScene = data.lastScene;
+        this.playerConfig= data.player;
+        this.modo= data.modo;
+        console.log('lastScene', data.lastScene);
+        console.log("modo",data.modo);
+    
+    }
+
 
     preload() {
+        //FONDO
         this.load.image('fondo', 'assets/contactos/fondoContactos.png'); 
         //this.load.image('contacto', 'assets/contactos/contacto.png'); 
-        this.load.image('Maria', 'assets/contactos/contactoMaria.png'); 
-        this.load.image('Juan', 'assets/contactos/contacto.png'); 
-        this.load.json("contactsJson", 'src/contacts.json');//Cargar json
 
-        this.load.image('Verde', 'assets/contactos/contactoVerde.png');
-        this.load.image('Rojo', 'assets/contactos/contactoRojo.png');
-        this.load.image('Azul', 'assets/contactos/contactoAzul.png');
-        this.load.image('Amarillo', 'assets/contactos/contactoAmarillo.png');
+        //CONTACTOS(de momento tienen el mismo sprite pero en un futuro cada uno tendra el suyo)
+        //ZONA BOTELLIN
+        this.load.image('Consuelo', 'assets/contactos/contacto.png'); 
+        this.load.image('María Teresa', 'assets/contactos/contacto.png'); 
+        this.load.image('Humberto', 'assets/contactos/contacto.png'); 
+        this.load.image('José', 'assets/contactos/contacto.png'); 
+        this.load.image('María', 'assets/contactos/contacto.png'); 
+        this.load.image('Pedrito', 'assets/contactos/contacto.png'); 
+        this.load.image('Ali', 'assets/contactos/contacto.png'); 
+        this.load.image('Jesús', 'assets/contactos/contacto.png'); 
+        this.load.image('Paco', 'assets/contactos/contacto.png'); 
+        this.load.image('Agustín', 'assets/contactos/contacto.png'); 
+        this.load.image('Ángel', 'assets/contactos/contacto.png'); 
+        this.load.image('María José', 'assets/contactos/contacto.png'); 
+        this.load.image('María del Carmen', 'assets/contactos/contacto.png'); 
 
-        this.load.image('lesbiana', 'assets/contactos/lesbi.png');
+        //Cargar json
+        this.load.json("contactsJson", 'src/contacts.json');
+
+    
+
+       /* this.load.image('lesbiana', 'assets/contactos/lesbi.png');
         this.load.image('gay', 'assets/contactos/gay.png');
         this.load.image('bi', 'assets/contactos/bi.png');
         this.load.image('nobinar', 'assets/contactos/nobinar.png');
         this.load.image('pan', 'assets/contactos/pansexual.png');
-        this.load.image('trans', 'assets/contactos/trans.png');
+        this.load.image('trans', 'assets/contactos/trans.png');*/
 
-
+        //FLECAH PARA VOLVER
         this.load.image('flechaa', 'assets/other/flecha.png');
     }
 
     create(data) {
 
-        //pintamos fondo
-        var back = this.add.image(0, 0, 'fondo').setOrigin(0, 0);
+        const back = this.add.image(0, 0, 'fondo')
+        .setOrigin(0, 0)
+        .setDisplaySize(this.sys.game.canvas.width, this.sys.game.canvas.height);
+        
  // Mostramos texto de CONTACTOS
     let titulo = this.add.text(0, this.sys.game.canvas.height/15,
     "CONTACTOS");
@@ -49,23 +74,30 @@ init(data){
          const jsonObject = this.cache.json.get('contactsJson');
 
          // Crear los detalles del contacto (inicialmente ocultos)
-    this.rect0 = this.add.rectangle(950, 500, 600, 400, 0xf6f6f6).setOrigin(0.5).setVisible(false); // Fondo del texto
-    this.rect = this.add.rectangle(1150, 650, 100, 50, 0xff0000).setInteractive().setVisible(false); // Botón cerrar
+    this.rect0 = this.add.rectangle(950, 600, 900, 400, 0xf6f6f6).setOrigin(0.5).setVisible(false); // Fondo del texto
+    this.rect = this.add.rectangle(1350, 750, 50, 50, 0xff0000).setInteractive().setVisible(false); // Botón cerrar
 
+   
     //Texto con descripciones
-    this.texto = this.add.text(950, 500, "", {
+    this.texto = this.add.text(950, 500, "", {//nomnre
         fontSize: '40px',
         fill: '#1c1c1c',
         align: 'center'
     }).setOrigin(0.5, 0.5).setVisible(false);
 
-    this.texto2 = this.add.text(1150, 650, "", {
+    this.texto2 = this.add.text(950, 550, "", {//edad
         fontSize: '40px',
         fill: '#1c1c1c',
         align: 'center'
     }).setOrigin(0.5, 0.5).setVisible(false);
 
-    this.texto3 = this.add.text(750, 650, "", {
+    this.texto3 = this.add.text(950, 650, "", {//localizacion
+        fontSize: '40px',
+        fill: '#1c1c1c',
+        align: 'center'
+    }).setOrigin(0.5, 0.5).setVisible(false);
+
+    this.texto4 = this.add.text(950, 600, "", {//descripcion
         fontSize: '40px',
         fill: '#1c1c1c',
         align: 'center'
@@ -77,6 +109,7 @@ init(data){
         this.texto.setVisible(false);
         this.texto2.setVisible(false);
         this.texto3.setVisible(false);
+        this.texto4.setVisible(false);
         this.rect0.setVisible(false);
         this.rect.setVisible(false);
     });
@@ -150,8 +183,8 @@ init(data){
     addContactToScene(npcs,contacto){  
         // Crear el sprite para el contacto
     this.spritePJ = this.add.image(
-        this.sys.game.canvas.width / npcs.posx,
-        this.sys.game.canvas.height / npcs.posy, 
+        npcs.posx* (this.sys.game.canvas.width / 16),
+        npcs.posy*(this.sys.game.canvas.height / 9), 
         contacto // Imagen asociada
     )
     .setOrigin(0.5, 0.5)
@@ -163,10 +196,18 @@ init(data){
             // Actualizar y mostrar detalles específicos de este NPC
             this.texto.setText("Nombre: " + currentNpc.name).setVisible(true);
             this.texto2.setText("Edad: " + currentNpc.edad ).setVisible(true);
+            this.texto4.setText("Descripción: " + currentNpc.descripcion ).setVisible(true);
             this.texto3.setText("Conocido en: " + currentNpc.localizacion ).setVisible(true);
 
             this.rect0.setVisible(true); // Fondo visible
             this.rect.setVisible(true); // Botón cerrar visible
+            this.spritePJ.setDepth(0); // Sprite del NPC en el fondo
+            this.rect0.setDepth(1);    // Fondo del texto encima del sprite
+            this.rect.setDepth(1);    // Fondo del texto encima del sprite
+            this.texto.setDepth(2);    // Texto por encima del fondo
+            this.texto2.setDepth(2);
+            this.texto3.setDepth(2);
+            this.texto4.setDepth(2);
         };
     })());
     

@@ -3,25 +3,124 @@
     {
           "npcs":
             [
+               
                 {
-                    "name": "Maria",
+                    "name": "Consuelo",
                     "conocida": true,
-                    "posx": 3,
-                    "posy": 3,
-                    "bandera":"lesbiana",
-                    "edad": 20,
-                    "localizacion":"CNI"
+                    "posx": 5,
+                    "posy": 5,
+                     "descripcion":"enfermera",
+                     "edad": 32,
+                      "localizacion":"Circulo Verde"
                 },
                 {
-                    "name": "Juan",
+                    "name": "María Teresa",
+                    "conocida": true,
+                    "posx": 2,
+                    "posy": 5,
+                    "descripcion":"monja",
+                    "edad": 55,
+                    "localizacion":"Circulo Verde"
+                },
+                {
+                    "name": "Humberto",
+                    "conocida": true,
+                    "posx": 14,
+                    "posy": 3,
+                    "descripcion":"Dueño de un caballo",
+                    "edad": 48,
+                    "localizacion":"Hipódromo"
+                },
+                {
+                    "name": "José",
+                    "conocida": true,
+                    "posx": 11,
+                    "posy": 3,
+                    "descripcion":"Dueño de un caballo",
+                    "edad": 47,
+                    "localizacion":"Hipódromo"
+                },
+                {
+                    "name": "María",
                     "conocida": true,
                     "posx": 8,
                     "posy": 3,
-                     "bandera":"hetero",
-                     "edad": 32,
-                      "localizacion":"Bar paco"
+                    "descripcion":"Presidenta cámara CNI",
+                    "edad": 37,
+                    "localizacion":"CNI"
+                },
+                {
+                    "name": "Pedrito",
+                    "conocida": true,
+                    "posx": 5,
+                    "posy": 3,
+                    "descripcion":"Secretario de María",
+                    "edad": 30,
+                    "localizacion":"CNI"
+                },
+                {
+                    "name": "Ali",
+                    "conocida": true,
+                    "posx": 2,
+                    "posy": 3,
+                    "descripcion":"Da pistas",
+                    "edad": 20,
+                    "localizacion":"Puente"
+                },
+                {
+                    "name": "Jesús",
+                    "conocida": true,
+                    "posx": 8,
+                    "posy": 5,
+                    "descripcion":"Vagabundo",
+                    "edad": 60,
+                    "localizacion":"Puente"
+                },
+                {
+                    "name": "Paco",
+                    "conocida": true,
+                    "posx": 11,
+                    "posy": 5,
+                    "descripcion":"Profesor historia",
+                    "edad": 45,
+                    "localizacion":"Bar paco"
+                },
+                {
+                    "name": "Agustín",
+                    "conocida": true,
+                    "posx": 14,
+                    "posy": 5,
+                    "descripcion":"Dueño del bar",
+                    "edad": 50,
+                    "localizacion":"Puente"
+                },
+                {
+                    "name": "Ángel",
+                    "conocida": true,
+                    "posx": 5,
+                    "posy": 7,
+                    "descripcion":"Average borracho",
+                    "edad": 40,
+                    "localizacion":"Bar"
+                },
+                {
+                    "name": "María José",
+                    "conocida": true,
+                    "posx": 8,
+                    "posy": 7,
+                    "descripcion":"Lesbiana oprimida",
+                    "edad": 20,
+                    "localizacion":"Parque"
+                },
+                {
+                    "name": "María del Carmen",
+                    "conocida": true,
+                    "posx": 11,
+                    "posy": 7,
+                    "descripcion":"Lesbiana oprimida",
+                    "edad": 20,
+                    "localizacion":"Parque"
                 }
-                
             ]
             
     
