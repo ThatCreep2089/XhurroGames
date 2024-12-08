@@ -167,6 +167,7 @@ export default class localizationScene extends Phaser.Scene
                 if(this.player.ansiedad == this.player.maxAnsiedad - 50 && this.npcTalk != 'PITIBANCO')
                 {
                     console.log("no puedes hablar mas, mucha ansiedad");
+                    this.mostrarPestana();
                 }
                 else
                 {
@@ -179,7 +180,7 @@ export default class localizationScene extends Phaser.Scene
                         if (noCumplidos.length > 0)
                         {
                             console.log("Hay requisitos pendientes.");
-                            this.mostrarGatoPendientes(noCumplidos);
+                            this.mostrarPestana(noCumplidos);
                         }
                         else
                         {
@@ -424,7 +425,8 @@ export default class localizationScene extends Phaser.Scene
         return { cumplidos, noCumplidos };
     }
 
-    mostrarGatoPendientes(noCumplidos) {
+    mostrarPestana(noCumplidos)
+    {
         // Crear la pestaña
         this.pestana = this.add.container(
             this.sys.game.canvas.width / 2, // Centro del canvas
@@ -437,14 +439,20 @@ export default class localizationScene extends Phaser.Scene
             .setInteractive(); // Fondo para capturar clics
         this.pestana.add(fondoPestana);
     
-        // Crear un texto con los nombres en el array noCumplidos
-        let nombres = "TIENES QUE HABLAR CON:\n";
-        
-        // Añadir los nombres del array noCumplidos al string
-        noCumplidos.forEach(nombre => {
-            nombres += ` ${nombre}\n`; // Añadir cada nombre con salto de línea
-        });
-    
+        let nombres = "";
+
+        if(noCumplidos != undefined)
+        {
+            nombres = "TIENES QUE HABLAR CON:\n";
+            // Añadir los nombres del array noCumplidos al string
+            noCumplidos.forEach(nombre => {
+                nombres += ` ${nombre}\n`; // Añadir cada nombre con salto de línea
+            });
+        }
+        else{
+            nombres = "Tienes mucha ansiedad,\n no puedes hablar con mas gente";
+        }
+
         // Crear el texto con los nombres
         const textoPestana = this.add.text(0, 0, nombres, {
             font: "40px Georgia",
