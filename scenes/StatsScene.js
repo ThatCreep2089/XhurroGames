@@ -1,5 +1,4 @@
-
-//import Player from '../src/Player.js';
+import Player from '../src/Player.js';
 
 export default class StatsScene extends Phaser.Scene {
     constructor() {
@@ -10,12 +9,12 @@ export default class StatsScene extends Phaser.Scene {
     }
 
 init(data){
-    /*this.lastScene = data.lastScene;
+    this.lastScene = data.lastScene;
     //this.inventoryConfig = data.inventory; // Recibe el inventario del objeto `data`
     this.playerConfig= data.player;
     this.modo= data.modo;
-    console.log(data.lastScene);
-    console.log(data.player);*/
+    console.log("Datos recibidos en StatsScene:", data);
+    console.log(data.player);
     
     
 }
@@ -32,12 +31,12 @@ init(data){
 
     create() {
        //Creamos el player para poder acceder a el 
-      /* this.player= new Player(this,0,0);
+       this.player= new Player(this,0,0);
        this.player.init(this.playerConfig);
 
         
         this.player.setVisible(false); //que elle NO se vea
-        this.player.changeMove(false);*/
+        this.player.changeMove(false);
 
         //BACK BUTTON (VOLVER A LA ESCENA CORRESPONDIENTE)
         var backScene;
@@ -47,6 +46,7 @@ init(data){
             'flechaa')
         .setScale(-0.3, 0.3)
         .setInteractive()
+        .setDepth(2)
         .on('pointerdown', () => {
             this.scene.start(this.lastScene, { 
                 
@@ -82,21 +82,43 @@ init(data){
         titulo.setStroke('#000000', 7);
         titulo.x = this.sys.game.canvas.width/2 - titulo.width/2; 
 
-        let vida= this.add.text(225, 500,
-        "VIDA");
+        let vida= this.add.text(175, 500,
+        "VIDA"+" "+this.player.health );
         vida.setFontSize(60);
         vida.setStroke('#000000', 7);
+        let vidaM= this.add.text(100, 600,
+        "VIDA MÁX"+" "+this.player.maxHealth);
+        vidaM.setFontSize(60);
+        vidaM.setStroke('#000000', 7);
            
-        let ansi= this.add.text(600, 500,
-        "ANSIEDAD");
+        let ansi= this.add.text(550, 500,
+        "ANSIEDAD"+" "+this.player.ansiedad);
         ansi.setFontSize(60);
         ansi.setStroke('#000000', 7);
                 
-        let cualidades= this.add.text(1000, 500,
+        let cualidades= this.add.text(1000, 400,
         "CUALIDADES");
         cualidades.setFontSize(60);
         cualidades.setStroke('#000000', 7);
-                    
+
+        let humildadd= this.add.text(1000, 500,
+            "HUMILDAD"+" "+this.player.humidad);
+            humildadd.setFontSize(50);
+            humildadd.setStroke('#000000', 7); 
+         
+            
+            let trabajoo= this.add.text(1000, 600,
+                "TRABAJO DURO"+" "+this.player.trabajoDuro);
+                trabajoo.setFontSize(50);
+                trabajoo.setStroke('#000000', 7); 
+                let Afecto= this.add.text(1000, 700,
+                    "AFECTO"+" "+this.player.afecto);
+                    Afecto.setFontSize(50);
+                    Afecto.setStroke('#000000', 7);  
+                    let Agnosticismo= this.add.text(1000, 800,
+                        "AGNOSTICISMO"+" "+this.player.agnosticismo);
+                        Agnosticismo.setFontSize(50);
+                        Agnosticismo.setStroke('#000000', 7);     
         let ptos= this.add.text(1575, 450,
         "PTOS");
         ptos.setFontSize(60);
@@ -106,53 +128,13 @@ init(data){
         "CUALIDADES");
         cualidades2.setFontSize(60);
         cualidades2.setStroke('#000000', 7);
+
+        let cualidades3= this.add.text(1600, 550,
+           this.player.mana);
+            cualidades3.setFontSize(60);
+            cualidades3.setStroke('#000000', 7);
                            
-        //TEXTO CON ESTADISTICAS
-/*
-        //vida
-        let vidaMax= this.add.text(1575, 450,
-        player.maxHealth);
-        vidaMax.setFontSize(60);
-        vidaMax.setStroke('#000000', 7);
-            
-        let vidaActual= this.add.text(1575, 450,
-        player.health);
-        idaActual.setFontSize(60);
-        idaActual.setStroke('#000000', 7);
-        //ansiedad
-        let ansiedad= this.add.text(1575, 450,
-        this.player.ansiedad);
-        ansiedad.setFontSize(60);
-        ansiedad.setStroke('#000000', 7);
         
-        //cualidades
-        let humildad= this.add.text(1575, 450,
-        player.humildad);
-        humildad.setFontSize(60);
-        humildad.setStroke('#000000', 7);
-
-        let trabajo= this.add.text(1575, 450,
-        player.trabajoDuro);
-        trabajo.setFontSize(60);
-        trabajo.setStroke('#000000', 7);
-
-        let agnosticismo= this.add.text(1575, 450,
-        player.agnosticismo);
-        agnosticismo.setFontSize(60);
-        agnosticismo.setStroke('#000000', 7);
-        
-        let afecto= this.add.text(1575, 450,
-        player.afecto);
-        afecto.setFontSize(60);
-        afecto.setStroke('#000000', 7);
-
-                                                
-        //ptos cualidad
-        let ptosculidad= this.add.text(1575, 450,
-            player.mana);
-            ptosculidad.setFontSize(60);
-            ptosculidad.setStroke('#000000', 7);
-        */
     }
 
     
