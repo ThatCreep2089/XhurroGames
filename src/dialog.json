@@ -12,7 +12,26 @@
             { "texto": "Esto, chaval, no es país, es un chiste malo.", "author": "Paco" }
             
         ],
-        "hablado": "false"
+        "hablado": "false",
+        "scale": 0.5
+    },
+    "ANGEL":{
+        "frases":
+        [
+            { "texto": "Supongo que tengo que decir algo", "author": "Angel" }
+            
+        ],
+        "hablado": "false",
+        "scale": 0.5
+    },
+    "AGUSTÍN":{
+        "frases":
+        [
+            { "texto": "Ya no se que mas poner", "author": "Agustin" }
+            
+        ],
+        "hablado": "false",
+        "scale": 0.5
     },
     "HUMBERTO":{
 
@@ -25,7 +44,18 @@
             { "texto": "¡Jajaja!", "author": "Humberto" },
             { "texto": "Mi caballo Sardinilla es el mejor de todos, no hay quien le gane.", "author": "Humberto" }
         ],
-        "hablado": "false"
+        "hablado": "false",
+        "scale": 0.5
+    },
+    "JOSE":{
+
+        "frases":
+        [
+            { "texto": "Me cago en Humberto", "author": "Jose" },
+            { "texto": "Mi poni ES el que va a ganar", "author": "Jose" }
+        ],
+        "hablado": "false",
+        "scale": 0.5
     },
     "MARIA":{
 
@@ -41,7 +71,19 @@
             { "texto": "Sin embargo, cuando Yusoa se lava las manos tras crear leyes injustas que solo benefician a los ricos,", "author": "Maria" },
             { "texto": "Nadie dice nada.", "author": "Maria" }
         ],
-        "hablado": "false"
+        "hablado": "false",
+        "scale": 0.5
+        
+    },
+    "PEDRITO":{
+
+        "frases":
+        [
+            { "texto": "Well ACTUALLY", "author": "Pedrito" },
+            { "texto": "AAAAAAAAAAAAAAAAAA", "author": "Pedrito" }
+        ],
+        "hablado": "false",
+        "scale": 0.5
         
     },
     "CONSUELO":{
@@ -59,7 +101,8 @@
             { "texto": "El alcoholismo solo trae dolor.", "author": "Consuelo" }
 
         ],
-        "hablado": "false"
+        "hablado": "false",
+        "scale": 0.5
     },
     "MARIA TERESA":{
 
@@ -72,7 +115,8 @@
             { "texto": "A veces no se da cuenta que debería amar a todos por igual y respetar.", "author": "Maria Teresa" },
             { "texto": "Eso es lo que nos enseñó Jesús, ¿no?", "author": "Maria Teresa" }
         ],
-        "hablado": "false"
+        "hablado": "false",
+        "scale": 0.5
     },
     "ALI":{
 
@@ -114,6 +158,15 @@
             { "texto": "Tiene miedo, como todos en esta ciudad.", "author": "Maria Jose" },
             { "texto": "Creo que ya es hora de que huya de aquí.", "author": "Maria Jose" },
             { "texto": "Si tan solo Maria del Carmen viniera conmigo...", "author": "Maria Jose" }
+        ],
+        "hablado": "false",
+        "scale": 0.5
+    },
+    "JESUS":{
+        "frases":
+        [
+            { "texto": "Estoy en la mierda", "author": "Jesus" },
+            { "texto": "LOL", "author": "Jesus" }
         ],
         "hablado": "false",
         "scale": 0.5
