@@ -3,15 +3,13 @@
     "PACO":{
         "frases":
         [
-            [
-                { "texto": "España va cuesta abajo, y no por falta de ideas,", "author": "Paco" },
-                { "texto": "sino porque los políticos están más ocupados robando que gobernando.", "author": "Paco" },
-                { "texto": "Cada semana un escándalo nuevo: sobres, contratos amañados… ¡y ninguno dimite!", "author": "Paco" },
-                { "texto": "Sobretodo esa dichosa Yusoa... no se puede ser más descarada.", "author": "Paco" },
-                { "texto": "La gente está harta, pero cansada, como si ya ni nos quedaran fuerzas para enfadarnos.", "author": "Paco" },
-                { "texto": "Y mientras ellos se reparten el pastel, a nosotros nos suben todo menos el sueldo.", "author": "Paco" },
-                { "texto": "Esto, chaval, no es país, es un chiste malo.", "author": "Paco" }
-            ]
+            { "texto": "España va cuesta abajo, y no por falta de ideas,", "author": "Paco" },
+            { "texto": "sino porque los políticos están más ocupados robando que gobernando.", "author": "Paco" },
+            { "texto": "Cada semana un escándalo nuevo: sobres, contratos amañados… ¡y ninguno dimite!", "author": "Paco" },
+            { "texto": "Sobretodo esa dichosa Yusoa... no se puede ser más descarada.", "author": "Paco" },
+            { "texto": "La gente está harta, pero cansada, como si ya ni nos quedaran fuerzas para enfadarnos.", "author": "Paco" },
+            { "texto": "Y mientras ellos se reparten el pastel, a nosotros nos suben todo menos el sueldo.", "author": "Paco" },
+            { "texto": "Esto, chaval, no es país, es un chiste malo.", "author": "Paco" }
             
         ],
         "hablado": "false"
