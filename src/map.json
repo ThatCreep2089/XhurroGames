@@ -2,9 +2,16 @@
     "botellin": {
         "1":
         {
-            "manzanas":
+            "buildings":
             [
-
+                {
+                    "sprite": "building1",
+                    "x": 4.3,
+                    "y": 3.2,
+                    "width": 0.58,
+                    "height": 0.4,
+                    "colliderGroup": "buildings"
+                }
             ],
             "localizations":
             [
@@ -124,7 +131,7 @@
         },
         "2":
         {
-            "manzanas":
+            "buildings":
             [
 
             ],
@@ -253,7 +260,7 @@
         },
         "3":
         {
-            "manzanas":
+            "buildings":
             [
 
             ],
