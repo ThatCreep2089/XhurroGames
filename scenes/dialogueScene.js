@@ -28,19 +28,22 @@ export default class DialogueScene extends Phaser.Scene {
         this.load.image('NPC', 'assets/npc/npc.png');
         this.load.image('PITIBANCO', 'assets/npc/pitiBanco.png');
         this.load.image('BOSS', 'assets/npc/bossBotellin.png');
+        this.load.image('ELLIE', 'assets/npc/ellie.png');
 
         this.load.json("dialogueJson", 'src/dialog.json')
 
         //others
         
         this.load.image('PITIBANCO', 'assets/others/Mar_iguana.png');
+
+        this.load.video('iguana', 'assets/videos/iguana.mp4', true);
         
 
     }
 
     init(data){
         // Usar el parámetro 'fondo' para decidir qué fondo cargar
-        this.npc = data.npc || 'HUMBERTO';
+        this.npc = data.npc || 'ELLIE';
         this.fondo = data.fondo || 'puente';
         this.ant = data.ant;
 
@@ -52,6 +55,7 @@ export default class DialogueScene extends Phaser.Scene {
         if(data.dialogueJson)
         {
             this.dialogueJson = data.dialogueJson;
+            
         }
         else{
             this.dialogueJson = this.cache.json.get('dialogueJson');
@@ -62,20 +66,22 @@ export default class DialogueScene extends Phaser.Scene {
     create(data){
         console.log(data.npc);//debug
 
-        // PLAYER
-        let startPosition = window.gameState.playerPosition || { x: 278, y: 150 }; //posicion de la tenfe
+        //INVENTARIO
+            //instanciar inventario
+            this.inventory = new Inventory(this);
+            if(this.inventoryConfig != undefined) {
+                this.inventory.init(this.inventoryConfig);
+            }
+
+        //PLAYER
+            //instanciar player
+            this.player = new Player(this, 50, 60);
             
-        this.player = new Player(this, startPosition.x, startPosition.y);
-        this.player.init(this.playerConfig);
-        
-        this.player.setVisible(false); //que elle NO se vea
-        this.player.changeMove(false);
-        
-        // INVENTARIO
-        this.inventory = new Inventory(this);
-        if(this.inventoryConfig != undefined) {
-            this.inventory.init(this.inventoryConfig);
-        }
+            this.player.setScale(0.03);
+            if(this.playerConfig != undefined)
+            {
+                this.player.init(this.playerConfig);
+            }
 
         
         //1. PINTAR FONDO
@@ -166,8 +172,6 @@ export default class DialogueScene extends Phaser.Scene {
 
         // Cuando se termina el dialogo...
         this.dialog.on('dialogComplete', () => {
-            
-            this.dialogueJson[this.npc].hablado = "true";
             console.log(this.dialogueJson[this.npc]);
             
             if(this.npc == 'PITIBANCO')
@@ -185,7 +189,11 @@ export default class DialogueScene extends Phaser.Scene {
             }
             else
             {
-                this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
+                if(this.dialogueJson[this.npc].hablado != "true")
+                {
+                    this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
+                }
+                
             }
             
             //DEBUG BACK BUTTON
@@ -195,13 +203,24 @@ export default class DialogueScene extends Phaser.Scene {
                 'flecha')
             .setScale(-0.3, 0.3)
             .setInteractive()
-            .on('pointerdown', () => this.scene.start('localizationScene', {
-                fondo: data.fondo,
-                ant: this.ant,
-                player: this.player.getConfigData(), 
-                inventory: this.inventory.getConfigData(),
-                dialogueJson: this.dialogueJson
-            }));
+            .on('pointerdown', () => 
+            {
+                this.dialogueJson[this.npc].hablado = "true";
+                if(this.npc == 'ELLIE'){
+                    this.scene.start('zonaScene');
+                }
+                else{
+                    console.log(this.player);
+                    this.scene.start('localizationScene',{
+                        fondo: data.fondo,
+                        ant: this.ant,
+                        player: this.player.getConfigData(), 
+                        inventory: this.inventory.getConfigData(),
+                        dialogueJson: this.dialogueJson
+                    });
+                }
+                
+            });
 
         });
 
@@ -223,7 +242,7 @@ export default class DialogueScene extends Phaser.Scene {
             padding: 32,
             closeBtnColor: 'Georgia',
             dialogSpeed: 3,
-            fontSize: 75,
+            fontSize: 50,
             fontFamily: "pixel"
         });
 

@@ -3,90 +3,130 @@
     "PACO":{
         "frases":
         [
-            "España va cuesta abajo, y no por falta de ideas,",
-            "sino porque los políticos están más ocupados robando que gobernando.",
-            "Cada semana un escándalo nuevo: sobres, contratos amañados… ¡y ninguno dimite!",
-            "Sobretodo esa dichosa Yusoa... no se puede ser más descarada.",
-            "La gente está harta, pero cansada, como si ya ni nos quedaran fuerzas para enfadarnos.",
-            "Y mientras ellos se reparten el pastel, a nosotros nos suben todo menos el sueldo.",
-            "Esto, chaval, no es país, es un chiste malo."
+            { "texto": "España va cuesta abajo, y no por falta de ideas,", "author": "Paco" },
+            { "texto": "sino porque los políticos están más ocupados robando que gobernando.", "author": "Paco" },
+            { "texto": "Cada semana un escándalo nuevo: sobres, contratos amañados… ¡y ninguno dimite!", "author": "Paco" },
+            { "texto": "Sobretodo esa dichosa Yusoa... no se puede ser más descarada.", "author": "Paco" },
+            { "texto": "La gente está harta, pero cansada, como si ya ni nos quedaran fuerzas para enfadarnos.", "author": "Paco" },
+            { "texto": "Y mientras ellos se reparten el pastel, a nosotros nos suben todo menos el sueldo.", "author": "Paco" },
+            { "texto": "Esto, chaval, no es país, es un chiste malo.", "author": "Paco" }
+            
         ],
-        "hablado": "false"
+        "hablado": "false",
+        "scale": 0.5
+    },
+    "ANGEL":{
+        "frases":
+        [
+            { "texto": "Supongo que tengo que decir algo", "author": "Angel" }
+            
+        ],
+        "hablado": "false",
+        "scale": 0.5
+    },
+    "AGUSTÍN":{
+        "frases":
+        [
+            { "texto": "Ya no se que mas poner", "author": "Agustin" }
+            
+        ],
+        "hablado": "false",
+        "scale": 0.5
     },
     "HUMBERTO":{
 
         "frases":
         [
-        "Hola cacho pan, buenas mañas. Hoy hace un tiempo buenísimo para cabalgar un poco, ¿no crees?",
-        "Las apuestas esta semana están muy altas, ¿Te apuntas?",
-        "Me he comprado un vinito para disfrutar mientras veo las carreras,",
-        "estoy seguro de que mis jinetes ganarán esta semana de nuevo.",
-        "¡Jajaja!",
-        "Mi caballo Sardinilla es el mejor de todos, no hay quien le gane."
+            { "texto": "Hola cacho pan, buenas mañas. Hoy hace un tiempo buenísimo para cabalgar un poco, ¿no crees?", "author": "Humberto" },
+            { "texto": "Las apuestas esta semana están muy altas, ¿Te apuntas?", "author": "Humberto" },
+            { "texto": "Me he comprado un vinito para disfrutar mientras veo las carreras,", "author": "Humberto" },
+            { "texto": "Estoy seguro de que mis jinetes ganarán esta semana de nuevo.", "author": "Humberto" },
+            { "texto": "¡Jajaja!", "author": "Humberto" },
+            { "texto": "Mi caballo Sardinilla es el mejor de todos, no hay quien le gane.", "author": "Humberto" }
         ],
-        "hablado": "false"
+        "hablado": "false",
+        "scale": 0.5
+    },
+    "JOSE":{
+
+        "frases":
+        [
+            { "texto": "Me cago en Humberto", "author": "Jose" },
+            { "texto": "Mi poni ES el que va a ganar", "author": "Jose" }
+        ],
+        "hablado": "false",
+        "scale": 0.5
     },
     "MARIA":{
 
         "frases":
         [
-
-            "No me lo puedo creer, me han vuelto a excluir de la reunión.",
-            "Siempre igual, no me tienen en cuenta para nada.",
-            "Siempre me toca hacer el trabajo sucio...",
-            "Y ¿para qué? Para que me ignoren y me dejen de lado.",
-            "La corrupción de la presidencia es evidente, no se puede ser más descarado,",
-            "pero a mi nadie me hace ni caso.",
-            "¡Ni siquiera parece que sea presidenta de camára! Es una vergüenza.",
-            "Sin embargo, cuando Yusoa se lava las manos tras crear leyes injustas que solo benefician a los ricos,",
-            "nadie dice nada."
-            
-        
+            { "texto": "No me lo puedo creer, me han vuelto a excluir de la reunión.", "author": "Maria" },
+            { "texto": "Siempre igual, no me tienen en cuenta para nada.", "author": "Maria" },
+            { "texto": "Siempre me toca hacer el trabajo sucio...", "author": "Maria" },
+            { "texto": "Y ¿para qué? Para que me ignoren y me dejen de lado.", "author": "Maria" },
+            { "texto": "La corrupción de la presidencia es evidente, no se puede ser más descarado,", "author": "Maria" },
+            { "texto": "Pero a mí nadie me hace ni caso.", "author": "Maria" },
+            { "texto": "¡Ni siquiera parece que sea presidenta de cámara! Es una vergüenza.", "author": "Maria" },
+            { "texto": "Sin embargo, cuando Yusoa se lava las manos tras crear leyes injustas que solo benefician a los ricos,", "author": "Maria" },
+            { "texto": "Nadie dice nada.", "author": "Maria" }
         ],
-        "hablado": "false"
+        "hablado": "false",
+        "scale": 0.5
+        
+    },
+    "PEDRITO":{
+
+        "frases":
+        [
+            { "texto": "Well ACTUALLY", "author": "Pedrito" },
+            { "texto": "AAAAAAAAAAAAAAAAAA", "author": "Pedrito" }
+        ],
+        "hablado": "false",
+        "scale": 0.5
         
     },
     "CONSUELO":{
 
         "frases":
         [
-            "Mira yo no doy a basto, ugh...",
-            "Cada día que pasa hay más gente que entra en nuestra clínica de desintoxicación.",
-            "Lo peor de la situación es que muchos entran obligados,",
-            "por tanto no son proclives a soltar la botella.",
-            "Por más que intentemos concienciar a la gente, no es suficiente.",
-            "Las cifras de nuevos ingresos están aumentando frenéticamente.", 
-            "No comprenden que están echando a perder sus vidas,", 
-            "y haciendo sufrir a sus seres queridos,",
-            "El alcoholismo solo trae dolor."
+            { "texto": "Mira yo no doy a basto, ugh...", "author": "Consuelo" },
+            { "texto": "Cada día que pasa hay más gente que entra en nuestra clínica de desintoxicación.", "author": "Consuelo" },
+            { "texto": "Lo peor de la situación es que muchos entran obligados,", "author": "Consuelo" },
+            { "texto": "Por tanto no son proclives a soltar la botella.", "author": "Consuelo" },
+            { "texto": "Por más que intentemos concienciar a la gente, no es suficiente.", "author": "Consuelo" },
+            { "texto": "Las cifras de nuevos ingresos están aumentando frenéticamente.", "author": "Consuelo" },
+            { "texto": "No comprenden que están echando a perder sus vidas,", "author": "Consuelo" },
+            { "texto": "Y haciendo sufrir a sus seres queridos,", "author": "Consuelo" },
+            { "texto": "El alcoholismo solo trae dolor.", "author": "Consuelo" }
 
         ],
-        "hablado": "false"
+        "hablado": "false",
+        "scale": 0.5
     },
     "MARIA TERESA":{
 
         "frases":
         [
-            "Estoy agradecida de poder trabajar aqui,",
-            "siempre me agradó poder ayudar a las personas.",
-            "Si tan solo el jefe dejara de lado sus prejuicios...",
-            "No me malinterpretes, es una persona encantadora, pero...",
-            "A veces no se da cuenta que debería amar a todos por igual y respetar.",
-            "Eso es lo que nos enseñó Jesús, ¿no?"
+            { "texto": "Estoy agradecida de poder trabajar aquí,", "author": "Maria Teresa" },
+            { "texto": "Siempre me agradó poder ayudar a las personas.", "author": "Maria Teresa" },
+            { "texto": "Si tan solo el jefe dejara de lado sus prejuicios...", "author": "Maria Teresa" },
+            { "texto": "No me malinterpretes, es una persona encantadora, pero...", "author": "Maria Teresa" },
+            { "texto": "A veces no se da cuenta que debería amar a todos por igual y respetar.", "author": "Maria Teresa" },
+            { "texto": "Eso es lo que nos enseñó Jesús, ¿no?", "author": "Maria Teresa" }
         ],
-        "hablado": "false"
+        "hablado": "false",
+        "scale": 0.5
     },
     "ALI":{
 
         "frases":
         [
-
-            "¿Has oido hablar del cura de la iglesia de al lado?",
-            "Siempre actúa raro y de manera sospechosa.",
-            "Además ultimamente han desaparecido muchos niños en el barrio.",
-            "Creo que ha podido ser él, ojalá alguien le pare los pies.",
-            "Realmente es horrible lo que algunos adultos pueden llegar a hacer..."
-        
+            { "texto": "¿Has oído hablar del cura de la iglesia de al lado?", "author": "Ali" },
+            { "texto": "Siempre actúa raro y de manera sospechosa.", "author": "Ali" },
+            { "texto": "Además últimamente han desaparecido muchos niños en el barrio.", "author": "Ali" },
+            { "texto": "Creo que ha podido ser él, ojalá alguien le pare los pies.", "author": "Ali" },
+            { "texto": "Realmente es horrible lo que algunos adultos pueden llegar a hacer...", "author": "Ali" }
         ],
         "hablado": "false"
         
@@ -94,14 +134,14 @@
     "MARIA DEL CARMEN":{
         "frases":
         [
-            "Si tan solo ella fuera un chico...",
-            "¡Oh! perdón, no te había visto amigue.",
-            "Siento que me tengas que ver así, pero ahora mismo no estoy pasando por el mejor momento.",
-            "María Jose se me ha declarado y yo... la quiero mucho.",
-            "Pero, ¿yo soy hetero...?",
-            "Igualemente, si no lo fuera, mi familia nunca me aceptaría.",
-            "Y podría meterme en graves problemas.",
-            "María Jose, perdón por no ser valiente."
+            { "texto": "Si tan solo ella fuera un chico...", "author": "Maria del Carmen" },
+            { "texto": "¡Oh! perdón, no te había visto amigue.", "author": "Maria del Carmen" },
+            { "texto": "Siento que me tengas que ver así, pero ahora mismo no estoy pasando por el mejor momento.", "author": "Maria del Carmen" },
+            { "texto": "María Jose se me ha declarado y yo... la quiero mucho.", "author": "Maria del Carmen" },
+            { "texto": "Pero, ¿yo soy hetero...?", "author": "Maria del Carmen" },
+            { "texto": "Igualmente, si no lo fuera, mi familia nunca me aceptaría.", "author": "Maria del Carmen" },
+            { "texto": "Y podría meterme en graves problemas.", "author": "Maria del Carmen" },
+            { "texto": "María Jose, perdón por no ser valiente.", "author": "Maria del Carmen" }
         ],
         "hablado": "false",
         "scale": 0.5
@@ -109,15 +149,24 @@
     "MARIA JOSE":{
         "frases":
         [
-            "Buenas compañere.",
-            "¿Tu también tienes dolor de corazón?",
-            "De verdad, esta ciudad me quita todo lo que quiero.",
-            "Primero, pierdo a mis padres por las drogas y el alcohol.",
-            "Y después, la única mujer a la que he querido me rechaza ¿porque es hetero?",
-            "Si claro, ni ella misma se lo cree.",
-            "Tiene miedo, como todos en esta ciudad.",
-            "Creo que ya es hora de que huya de aquí.",
-            "Si tan solo Maria del Carmen viniera conmigo..."
+            { "texto": "Buenas compañere.", "author": "Maria Jose" },
+            { "texto": "¿Tu también tienes dolor de corazón?", "author": "Maria Jose" },
+            { "texto": "De verdad, esta ciudad me quita todo lo que quiero.", "author": "Maria Jose" },
+            { "texto": "Primero, pierdo a mis padres por las drogas y el alcohol.", "author": "Maria Jose" },
+            { "texto": "Y después, la única mujer a la que he querido me rechaza ¿porque es hetero?", "author": "Maria Jose" },
+            { "texto": "Si claro, ni ella misma se lo cree.", "author": "Maria Jose" },
+            { "texto": "Tiene miedo, como todos en esta ciudad.", "author": "Maria Jose" },
+            { "texto": "Creo que ya es hora de que huya de aquí.", "author": "Maria Jose" },
+            { "texto": "Si tan solo Maria del Carmen viniera conmigo...", "author": "Maria Jose" }
+        ],
+        "hablado": "false",
+        "scale": 0.5
+    },
+    "JESUS":{
+        "frases":
+        [
+            { "texto": "Estoy en la mierda", "author": "Jesus" },
+            { "texto": "LOL", "author": "Jesus" }
         ],
         "hablado": "false",
         "scale": 0.5
@@ -126,35 +175,89 @@
 
         "frases":
         [
-
-            "miau",
-            "miau miau",
-            "miau miau miau",
-            "miau"
-                
+            { "texto": "miau", "author": "Gato" },
+            { "texto": "miau miau", "author": "Gato" },
+            { "texto": "miau miau miau", "author": "Gato" },
+            { "texto": "miau", "author": "Gato" }
         ],
         "hablado": "false",
         "scale": 1
         
     },
-    
+    "ELLIE":{
+        "frases":[
+            { "texto": "HOLAAA? PERSONA DESCONOCIDA, RESPIRAS?  ESTAS BIEN?", "author": "???" },
+            { "texto": "hola?, ay , me duele el abdomen, creo que me han golpeado", "author": "Elle" },
+            { "texto": "POR FIN, te llevo intentando despertarte bastante rato, pensaba que te habías ido al otro barrio.", "author": "???" },
+            { "texto": "Pues por como están la cosas en nuestra sociedad casi he lo hubiese preferido.", "author": "Elle" },
+            { "texto": "Por cierto ya ha acabado la manifestación de hoy que veo que es casi de noche?", "author": "Elle" },
+            { "texto": "Que manifestación?", "author": "???" },
+            { "texto": "la que había hoy aquí, para recuperar los derechos que ese tirano del alcalde nos quería quitar?", "author": "Elle" },
+            { "texto": "Alcalde? JAJAJAJA casi que hubiese preferido eso, lo que tenemos ahora al mando es una repugnante dictadora.", "author": "???" },
+            { "texto": "como en pleno siglo 2024 hay dictadores es Madrizz? No te estás liando?", "author": "Elle" },
+            { "texto": "querida persona que aún nose su nombre, estamos en el año ...., .....,ESPERA, VIENES DEL PASADO?!", "author": "???" },
+            { "texto": "CONQUE ES ESO, ya decía yo que notaba los alrededores muy raros.", "author": "Elle" },
+            { "texto": "Pues madre mía hasta en el futuro seguimos oprimidos.", "author": "Elle" },
+            { "texto": "Por cierto soy elle y ahora que me acuerdo estabamos en plena manifestación cuando un guardia me atizó con su porra", "author": "Elle" },
+            { "texto": "y bueno pues de alguna manera he acabado aqui.", "author": "Elle" },
+            { "texto": "yo Ellie, pues déjame decirte que si, estamos incluso peor.", "author": "Ellie" },
+            { "texto": "Te hago un pequeño resumen. ", "author": "Ellie" },
+            
+            { "video": "iguana" },
+
+
+            { "texto": "Dejarme ayudaros, tengo que continuar lo que empecé y acabarlo.", "author": "Elle" },
+            { "texto": "No nos merecemos esto,", "author": "Elle" },
+            { "texto": "luchemos para que ni nosotros ni las futuras generaciones tengan que aguantar lo que nosotros estamos viviendo.", "author": "Elle" },
+            { "texto": "Me gusta tu espíritu elle", "author": "Ellie" },
+            { "texto": "tenlo por sentado lucharemos hasta devolver al pueblo lo que es suyo,", "author": "Ellie" },
+            { "texto": "gente con tu fortaleza y tu ímpetu es lo que nos hace falta.", "author": "Ellie" },
+
+            { "texto": "Como puedo empezar con esto?", "author": "Elle" },
+            { "texto": "Puedes empezar hablado con los vecinos de las diferentes zonas,", "author": "Ellie" },
+            { "texto": "escuchar sus historias y te pueden dar objetos útiles para la batalla con el jefe del barrio cuando te enfrentes a el.", "author": "Ellie" },
+            { "texto": "hablar con gente? Soy más de actuar pero bueno y como puedo ir de un barrio a otro?", "author": "Elle" },
+            { "texto": "facilito, pilla la Tenfe,", "author": "Ellie" },
+            { "texto": "pero claro suerte, Yusoa nos ha quitado los derechos pero eh la tenfe nos la ha dejado,", "author": "Ellie" },
+
+            { "texto": "normal es un instrumento de tortura prácticamente.", "author": "Ellie" },
+            { "texto": "entiendo, pero aún que me veas bastante motivade con esto,", "author": "Elle" },
+            { "texto": "me puedo sobre estimular hablar con  mucha gente nueva y darme ansiedad ,", "author": "Elle" },
+            { "texto": "por lo que tendré que pensar bien con que vecinos hablar.", "author": "Elle" },
+            { "texto": "pues todo claro no?", "author": "Ellie" },
+            { "texto": "Recuperar trozos de constitución para juntarlos y llegar a la zona donde está YUSOA para recuperar nuestros derechos.", "author": "Ellie" },
+            { "texto": "Al lio", "author": "Elle" }
+
+
+
+
+
+
+
+
+
+        ],
+        "hablado": "false",
+        "scale": 1
+        
+    },
     "BOSS":
     {
         "frases":[
-            "Eres menor?",
-            "¿Qué tal?",
-            "¿Cómo estás?"
+            { "texto": "Eres menor?", "author": "Boss" },
+            { "texto": "¿Qué tal?", "author": "Boss" },
+            { "texto": "¿Cómo estás?", "author": "Boss" }
         ],
         "scale": 0.5
         
     },
     "PITIBANCO":{
         "frases":[
-            "Hola, soy Piti Banco, el banco del piti.",
-            "¿Te quieres fumar uno?",
-            "¡Son muy saludables y te mejoran el ánimo!",
-            "Pero recuerda, solo uno de cada, eh?",
-            "Que nos conocemos, amigue."
+            { "texto": "Hola, soy Piti Banco, el banco del piti.", "author": "PitiBanco" },
+            { "texto": "¿Te quieres fumar uno?", "author": "PitiBanco" },
+            { "texto": "¡Son muy saludables y te mejoran el ánimo!", "author": "PitiBanco" },
+            { "texto": "Pero recuerda, solo uno de cada, eh?", "author": "PitiBanco" },
+            { "texto": "Que nos conocemos, amigue.", "author": "PitiBanco" }
         ],
         "fumado": "Ey ey ey pequeñe, ya te lo has fumado",
         "curarAnsiedad": "true",
@@ -162,5 +265,6 @@
         "scale": 0.3
         
     }
+    
 }
 

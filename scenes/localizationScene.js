@@ -172,38 +172,48 @@ export default class localizationScene extends Phaser.Scene
             .setScale(0.5, 0.5)
             .setInteractive()
             .on('pointerdown', () => {
-                // SUBIR ANSIEDAD
-                if(this.npcTalk == 'GATO EN CAJA')
+                if(this.player.ansiedad == this.player.maxAnsiedad - 50 && this.npcTalk != 'PITIBANCO')
                 {
-                    //verificar si tiene lo que hay q tener
-                    const { cumplidos, noCumplidos } = this.requisitosGato(mode);
-
-                    if (noCumplidos.length > 0)
+                    console.log("no puedes hablar mas, mucha ansiedad");
+                    this.mostrarPestana();
+                }
+                else
+                {
+                    // SUBIR ANSIEDAD
+                if(this.npcTalk == 'GATO EN CAJA')
                     {
-                        console.log("Hay requisitos pendientes.");
-                        this.mostrarGatoPendientes(noCumplidos);
+                        //verificar si tiene lo que hay q tener
+                        const { cumplidos, noCumplidos } = this.requisitosGato(mode);
+    
+                        if (noCumplidos.length > 0)
+                        {
+                            console.log("Hay requisitos pendientes.");
+                            this.mostrarPestana(noCumplidos);
+                        }
+                        else
+                        {
+                            console.log("Todos los requisitos han sido cumplidos.");
+                            this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
+                                player: this.player.getConfigData(), 
+                                inventory: this.inventory.getConfigData(),
+                                dialogueJson: this.dialogueJson});  //cambiar a escena dialogo
+                        }
                     }
                     else
                     {
-                        console.log("Todos los requisitos han sido cumplidos.");
+                        if(this.npcTalk != 'PITIBANCO') //a dialogos si NO es pitibanco
+                        {
+                            this.player.IncreaseAnxiety(10);
+                            
+                        }
                         this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
                             player: this.player.getConfigData(), 
                             inventory: this.inventory.getConfigData(),
                             dialogueJson: this.dialogueJson});  //cambiar a escena dialogo
                     }
                 }
-                else
-                {
-                    if(this.npcTalk != 'PITIBANCO') //a dialogos si NO es pitibanco
-                    {
-                        this.player.IncreaseAnxiety(10);
-                        
-                    }
-                    this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
-                        player: this.player.getConfigData(), 
-                        inventory: this.inventory.getConfigData(),
-                        dialogueJson: this.dialogueJson});  //cambiar a escena dialogo
-                }
+                
+                
                 
             });
                 
@@ -427,7 +437,8 @@ export default class localizationScene extends Phaser.Scene
         return { cumplidos, noCumplidos };
     }
 
-    mostrarGatoPendientes(noCumplidos) {
+    mostrarPestana(noCumplidos)
+    {
         // Crear la pestaña
         this.pestana = this.add.container(
             this.sys.game.canvas.width / 2, // Centro del canvas
@@ -440,14 +451,20 @@ export default class localizationScene extends Phaser.Scene
             .setInteractive(); // Fondo para capturar clics
         this.pestana.add(fondoPestana);
     
-        // Crear un texto con los nombres en el array noCumplidos
-        let nombres = "TIENES QUE HABLAR CON:\n";
-        
-        // Añadir los nombres del array noCumplidos al string
-        noCumplidos.forEach(nombre => {
-            nombres += ` ${nombre}\n`; // Añadir cada nombre con salto de línea
-        });
-    
+        let nombres = "";
+
+        if(noCumplidos != undefined)
+        {
+            nombres = "TIENES QUE HABLAR CON:\n";
+            // Añadir los nombres del array noCumplidos al string
+            noCumplidos.forEach(nombre => {
+                nombres += ` ${nombre}\n`; // Añadir cada nombre con salto de línea
+            });
+        }
+        else{
+            nombres = "Tienes mucha ansiedad,\n no puedes hablar con mas gente";
+        }
+
         // Crear el texto con los nombres
         const textoPestana = this.add.text(0, 0, nombres, {
             font: "40px Georgia",

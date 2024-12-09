@@ -167,55 +167,44 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 		this._createOuterWindow(dimensions.x, dimensions.y, dimensions.rectWidth, dimensions.rectHeight);
 		this._createInnerWindow(dimensions.x, dimensions.y, dimensions.rectWidth, dimensions.rectHeight);
 		
-		/*
-		this._createCloseModalButton(); //se muestra el boton de cerrar en la ventana
-		this._createCloseModalButtonBorder(); // se muestra el borde del boton de cerrar*/
+		this._createSkipButton();
+		
 	}
 
-	/*
-	// Con el siguiente código se crea el boton de cerrar la ventana de diálogo
-	_createCloseModalButton() {
-		var self = this;
-		this.closeBtn = this.scene.make.text({
-			//se crea el boton con las posiciones x e y siguientes
-			// se calculan de forma dinámica para que funcione para diferentes tamaños de pantalla
-			x: this._getGameWidth() - this.padding - 14,
-			y: this._getGameHeight() - this.windowHeight - this.padding + 3,
-			
-			//el boton queda representado como una X con su estilo debajo
-			text: 'X',
-			style: {
-				font: 'bold 12px TimesNewRoman',
-				fill: this.closeBtnColor
-			}
+	_createSkipButton() {
+		// Creamos un texto de botón que servirá para saltarse el diálogo
+		this.skipButton = this.scene.add.text(this._getGameWidth() - 100, this._getGameHeight() - 50, 'Skip', {
+			font: '18px Arial',
+			fill: '#ffffff',
+			backgroundColor: '#000000',
+			padding: { x: 10, y: 5 }
+		}).setOrigin(0.5);
+	
+		// Hacer que el botón sea interactivo
+		this.skipButton.setInteractive();
+	
+		// Definir el comportamiento cuando el cursor pasa sobre el botón
+		this.skipButton.on('pointerover', () => {
+			this.skipButton.setStyle({ fill: '#ff0000' }); // Cambiar color cuando pasa el cursor
 		});
-		
-		this.closeBtn.setInteractive(); //hace interactuable el boton de cierre
-		this.closeBtn.on('pointerover', function () {
-			this.setTint(0xff0000); //cuando el cursor se encuentra encima se cambia de color
+	
+		this.skipButton.on('pointerout', () => {
+			this.skipButton.setStyle({ fill: '#ffffff' }); // Volver al color original
 		});
-		this.closeBtn.on('pointerout', function () {
-			this.clearTint(); //vuelve al color original al quitar el cursor
+	
+		// Definir lo que pasa cuando el botón es presionado
+		this.skipButton.on('pointerdown', () => {
+			this._skipDialog(); // Llamar a la función para saltar el diálogo
 		});
-		this.closeBtn.on('pointerdown', function () {
-			self.toggleWindow(); //se llama al método que cierra o muestra la ventana de diálogo
-			
-			// elimina el game object con el texto y borra el evento
-			if (self.timedEvent) 
-				self.timedEvent.remove();
-			if (self.text) 
-				self.text.destroy();
-		});
-	}*/
-
-	// Se crea el borde del botón
-	_createCloseModalButtonBorder() {
-		var x = this._getGameWidth() - this.padding - 20;
-		var y = this._getGameHeight() - this.windowHeight - this.padding;
-		
-		//Se crea el borde del botón sin relleno
-		this.graphics.strokeRect(x, y, 20, 20);
 	}
+	
+	_skipDialog() {
+		this.allowNextLine = false;
+		const currentLine = this.dialogData[this.dialogData.length - 1];
+		this.setText(currentLine.texto, true);
+		this.emit('dialogComplete');
+	}
+	
 
 	// Hace aparecer al texto lentamente en pantalla
 	_animateText() {
@@ -238,7 +227,7 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 			this.text.destroy();
 
 		var x = this.padding + 75;
-		var y = this._getGameHeight() - this.windowHeight - this.padding - 175;
+		var y = this._getGameHeight() - this.windowHeight - this.padding - 100;
 
 		//Crea un game object que sea texto
 		this.text = this.scene.make.text({
@@ -254,6 +243,24 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 		});
 	}
 
+	_setAuthor(author) {
+		if (this.authorText) this.authorText.destroy(); // Si existe, destruye el anterior
+	
+		const x = this.padding + 75;
+		const y = this._getGameHeight() - this.windowHeight - this.padding - 190; // Más arriba del texto del diálogo
+	
+		this.authorText = this.scene.make.text({
+			x,
+			y,
+			text: author,
+			style: {
+				fontSize: this.fontSize * 1.2, // Tamaño más pequeño que el texto principal
+				fontFamily: this.fontFamily,
+				color: '#FFD700' // Color dorado para diferenciar
+			}
+		});
+	}
+
 	startDialog(dialogData) {
 		this.dialogData = dialogData; // Carga las líneas de diálogo
 		this.currentLineIndex = 0; // Reinicia el índice
@@ -264,8 +271,18 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 	_showCurrentLine() {
 		if (this.currentLineIndex < this.dialogData.length) {
 			const currentLine = this.dialogData[this.currentLineIndex];
-			this.setText(currentLine, true); // Muestra la línea con animación
-			this.allowNextLine = false; // Bloquea avanzar hasta que termine la animación
+			
+			if (currentLine.texto) //linea de texto
+			{
+				this.setText(currentLine.texto, true);
+				this._setAuthor(currentLine.author);
+				this.allowNextLine = false;
+			}
+			else if (currentLine.video) //si es un video
+			{
+				this.allowNextLine = false;
+				this._playVideo(currentLine.video);
+			}
 		} else {
 			this.emit('dialogComplete'); // Lanza el evento al final del diálogo
 		}
@@ -276,5 +293,21 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 			this.currentLineIndex++;
 			this._showCurrentLine(); // Muestra la siguiente línea
 		}
+	}
+
+	_playVideo(videoPath) {
+		// Crear video
+		const video = this.scene.add.video(this._getGameWidth() / 2, this._getGameHeight() / 2, videoPath);
+		video.setOrigin(0.5);
+		video.play(); // Reproducir el video en bucle si es necesario
+	
+		// Detener el video cuando termine y continuar el diálogo
+		video.on('complete', () => {
+			console.log("ha terminado el video");
+			video.destroy();
+			this.allowNextLine = true;
+			this.currentLineIndex++;
+			this._showCurrentLine();
+		});
 	}
 };
