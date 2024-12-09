@@ -229,6 +229,23 @@ export default class ZonaScene extends Phaser.Scene{
                     dialogueJson: this.dialogueJson
                 });
             });
+            // botones para ir stats
+            let statsButton = this.add.rectangle(
+                this.sys.game.canvas.width / 14,
+                this.sys.game.canvas.height / 1.15, 
+                50, 50, 0xffe800)
+            .setInteractive()
+            .setScale(4, 2)
+            .on('pointerdown', () => {
+                console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
+                this.scene.start('StatsScene', {
+                    lastScene: this.key, // Este es el valor que debería contener "zonaScene"
+                    player: player.getConfigData(),
+                    
+                    modo: this.modo,
+                    //dialogueJson: this.dialogueJson
+                });
+            });
                   // botones para ir contactos
             let contactosButton = this.add.rectangle(
                 this.sys.game.canvas.width / 14,
@@ -245,6 +262,21 @@ export default class ZonaScene extends Phaser.Scene{
                     //dialogueJson: this.dialogueJson
                 });
             });
+                 // Texto para mostrar "Contactos" en el centro del botón
+                 let statsText = this.add.text(
+                    statsButton.x,   // Colocar en la misma X del botón
+                   statsButton.y,   // Colocar en la misma Y del botón
+                    `ESTADISTICAS`,
+                    {
+                        fontSize: '25px',  // Cambia el tamaño del texto según el espacio
+                        color: '#000000',  // Negro
+                        fontFamily: 'Georgia',
+                        fontStyle: 'bold',
+                        align: 'center'    // Centrar el texto internamente
+                    }
+                );
+                // Centrar el texto en el botón
+                statsText.setOrigin(0.5, 0.5);
 
                  // Texto para mostrar "Contactos" en el centro del botón
             let contactText = this.add.text(

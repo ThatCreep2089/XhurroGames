@@ -10,14 +10,19 @@ export default class StatsScene extends Phaser.Scene {
     }
 
 init(data){
-    this.lastScene = data.lastScene;
-    this.inventoryConfig = data.inventory; // Recibe el inventario del objeto `data`
+    /*this.lastScene = data.lastScene;
+    //this.inventoryConfig = data.inventory; // Recibe el inventario del objeto `data`
     this.playerConfig= data.player;
     this.modo= data.modo;
+    console.log(data.lastScene);
+    console.log(data.player);*/
+    
+    
 }
 
     preload() {
-        this.load.image('fondo', 'assets/stats/fondoStats.png'); 
+        this.load.image('flechaa', 'assets/other/flecha.png');
+        this.load.image('fondoStats', 'assets/stats/fondoStats.png'); 
         this.load.image('elleRojo', 'assets/stats/elleRojo.png'); 
         this.load.image('elleVerde', 'assets/stats/elleVerde.png'); 
         this.load.image('elleAmarillo', 'assets/stats/elleAmarillo.png'); 
@@ -27,14 +32,31 @@ init(data){
 
     create() {
        //Creamos el player para poder acceder a el 
-        this.player = new Player(this, startPosition.x, startPosition.y);
-        this.player.init(this.playerConfig);
+      /* this.player= new Player(this,0,0);
+       this.player.init(this.playerConfig);
+
         
         this.player.setVisible(false); //que elle NO se vea
-        this.player.changeMove(false);
+        this.player.changeMove(false);*/
+
+        //BACK BUTTON (VOLVER A LA ESCENA CORRESPONDIENTE)
+        var backScene;
+        backScene = this.add.image(
+            this.sys.game.canvas.width / 12,
+            this.sys.game.canvas.height / 1.2, 
+            'flechaa')
+        .setScale(-0.3, 0.3)
+        .setInteractive()
+        .on('pointerdown', () => {
+            this.scene.start(this.lastScene, { 
+                
+                modo: this.modo
+            });
+        });
 
         //Pintamos un fondo
-        let fondo=this.add.image(0, 0, 'fondo').setOrigin(0, 0);
+        let fondo=this.add.image(0, 0, 'fondoStats').setOrigin(0, 0);
+
     
         //añadimos rectangulo
         let rect = this.add.rectangle(0, 200,2900, 800, 0xf6f6f6).setOrigin(0);//fondo
