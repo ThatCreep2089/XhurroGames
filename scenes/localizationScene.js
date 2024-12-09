@@ -78,10 +78,18 @@ export default class localizationScene extends Phaser.Scene
         //ITEMS
         this.load.image('taza', 'assets/recolectables/taza.png');
         this.load.image('botella', 'assets/recolectables/botella.png');
-
+        this.load.image('roca pija', 'assets/recolectables/roca pija.png');
+        this.load.image('roca traviesa', 'assets/recolectables/roca traviesa.png');
+        this.load.image('porro', 'assets/recolectables/porro.png');
+        this.load.image('mar_iguana', 'assets/recolectables/mar_iguana.png');
+        this.load.image('sanidad privada', 'assets/recolectables/privada.aaaapng');
+        this.load.image('sanidad pública', 'assets/recolectables/publica.png');
         //JSON
         this.load.json("localizationJson", 'src/localization.json');
         this.load.json("dialogueJson", 'src/dialog.json');
+
+          //Cargar json
+          this.load.json("contactsJson", 'src/contacts.json');
     }
 
     
@@ -294,6 +302,7 @@ export default class localizationScene extends Phaser.Scene
             this.sys.game.canvas.width /npc.x,
             this.sys.game.canvas.height /npc.y, 
             npc.name) //id
+
         .setOrigin(0.5, 0.5)
         .setScale(npc.scale)
         .setInteractive()
@@ -346,6 +355,9 @@ export default class localizationScene extends Phaser.Scene
                 item.recogido = "true";
                 this.Pick(newItem); //recoger item (meter en inventario) y quitar de escena
             });
+            newItem.on('pointerover', () => newItem.setTint(0x4ec647)) //para que se ponga rojo cuando el raton está encima
+            newItem.on('pointerout', () =>newItem.clearTint());
+    
         }
         
     }

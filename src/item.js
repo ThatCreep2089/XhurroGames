@@ -14,6 +14,22 @@ constructor(scene,name,description,effect,posx,posy,amount)
 
 }
 
+/*EFECTO
+1-CURAR VIDA
+2-MAX VIDA 
+3-CURAR ANSIEDAD
+4-CURAR CUALIDAD
+
+AMOUNT
+TAZA=10
+BOTELLA=5
+PORRO=10
+IGUANA=40
+ROCA PIJA=10
+ROCA TRAVIESA=20
+PRIVADA=20
+PUBLICA=10
+*/
 
 
 //curar vida
@@ -26,21 +42,21 @@ player.HealPlayer(num);
 //incrementar vida max
 IncreaseLifeMax(num,player)
 {
-    player.MaxLife(amount)
+    player.MaxLife(num)
    
 }
 
 //reducir ansiedad
 ReduceAnxiety(num,player)
 {
-    player.LessAnxiety(amount)
+    player.LessAnxiety(num)
    
 }
 
 //cuara ptos cualidad
 HealCuality(num,player)
 {
-    player.HealQuality(amount)
+    player.HealQuality(num)
     
 }
 
