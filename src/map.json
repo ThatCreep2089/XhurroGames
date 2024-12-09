@@ -253,7 +253,14 @@
         {
             "buildings":
             [
-
+                {
+                    "sprite": "building1",
+                    "x": 15,
+                    "y": 1.43,
+                    "width": 0.23,
+                    "height": 0.2,
+                    "colliderGroup": "buildings"
+                }
             ],
         
             "localizations":
