@@ -2,9 +2,136 @@
     "botellin": {
         "1":
         {
-            "manzanas":
+            "buildings":
             [
-
+                {
+                    "sprite": "building1",
+                    "x": 5.85,
+                    "y": 1.14,
+                    "width": 0.3,
+                    "height": 0.3,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building1",
+                    "x": 1.9,
+                    "y": 1.68,
+                    "width": 0.25,
+                    "height": 0.45,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building1",
+                    "x": 1.31,
+                    "y": 4.63,
+                    "width": 0.35,
+                    "height": 0.07,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building1",
+                    "x": 4.2,
+                    "y": 4.5,
+                    "width": 0.5,
+                    "height": 0.4,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building1",
+                    "x": 1.04,
+                    "y": 1.68,
+                    "width": 0.13,
+                    "height": 0.44,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building2",
+                    "x": 1.31,
+                    "y": 2.05,
+                    "width": 0.36,
+                    "height": 0.25,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building2",
+                    "x": 1.515,
+                    "y": 22,
+                    "width": 0.7,
+                    "height": 0.09,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building2",
+                    "x": 45,
+                    "y": 4.5,
+                    "width": 0.05,
+                    "height": 0.43,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building2",
+                    "x": 2.18,
+                    "y": 1.01,
+                    "width": 0.47,
+                    "height": 0.1,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building2",
+                    "x": 5.75,
+                    "y": 1.72,
+                    "width": 0.3,
+                    "height": 0.08,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building2",
+                    "x": 1.02,
+                    "y": 1.02,
+                    "width": 0.19,
+                    "height": 0.09,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building3",
+                    "x": 1.31,
+                    "y": 1.17,
+                    "width": 0.32,
+                    "height": 0.22,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building3",
+                    "x": 2.8,
+                    "y": 1.44,
+                    "width": 0.12,
+                    "height": 0.25,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building3",
+                    "x": 70,
+                    "y": 1.29,
+                    "width": 0.05,
+                    "height": 0.4,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building3",
+                    "x": 1.89,
+                    "y": 4.59,
+                    "width": 0.22,
+                    "height": 0.06,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building3",
+                    "x": 1.02,
+                    "y": 20,
+                    "width": 0.18,
+                    "height": 0.35,
+                    "colliderGroup": "buildings"
+                }
             ],
             "localizations":
             [
@@ -124,9 +251,16 @@
         },
         "2":
         {
-            "manzanas":
+            "buildings":
             [
-
+                {
+                    "sprite": "building1",
+                    "x": 15,
+                    "y": 1.43,
+                    "width": 0.23,
+                    "height": 0.2,
+                    "colliderGroup": "buildings"
+                }
             ],
         
             "localizations":
@@ -253,7 +387,7 @@
         },
         "3":
         {
-            "manzanas":
+            "buildings":
             [
 
             ],

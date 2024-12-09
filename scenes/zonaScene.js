@@ -51,8 +51,8 @@ export default class ZonaScene extends Phaser.Scene{
 
         //IMAGENES BUILDINGS
         this.load.image('building1', 'assets/edificios/building1.png'); //clarito
-        this.load.image('building3', 'assets/edificios/building3.png'); //oscuro
-        this.load.image('building4', 'assets/edificios/building4.png'); //mediano
+        this.load.image('building2', 'assets/edificios/building2.png'); //oscuro
+        this.load.image('building3', 'assets/edificios/building3.png'); //mediano
         
 
         //IMAGENES LOCALIZATIONS
@@ -103,9 +103,14 @@ export default class ZonaScene extends Phaser.Scene{
         this.flechas = this.add.group();
         let startPosition = window.gameState.playerPosition || { x: 900, y: 330 }; //posicion de la tenfe
 
-        //LOCALIZACIONES
+        //LEER ZONA
         const zone = jsonObject["botellin"][this.modo];
         
+        //BUILDINGS
+        zone.buildings.forEach(building => {
+            this.createBuilding(building);});
+
+        //LOCALIZACIONES
         zone.localizations.forEach(localization => {
             this.createLocalization(localization);});
 
@@ -355,6 +360,14 @@ export default class ZonaScene extends Phaser.Scene{
             this.sys.game.canvas.height / flecha.y, 
             this.flechas, flecha.modo, flecha.ant)
             .setScale(flecha.width, flecha.height);
+    }
+
+    createBuilding(building)
+    {
+        let building1 = new Building(this, building.sprite, 
+            this.sys.game.canvas.width / building.x,
+            this.sys.game.canvas.height / building.y,
+            building.width, building.height, this.buildings);
     }
 
     update(time, dt){
