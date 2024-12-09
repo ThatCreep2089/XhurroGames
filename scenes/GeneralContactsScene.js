@@ -15,13 +15,13 @@ export default class GeneralContactsScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('fondo', 'assets/contactos/fondoContactos.png');
+        this.load.image('fondoC', 'assets/contactos/fondoContactos.png');
         this.load.image('flechaa', 'assets/other/flecha.png');
     }
 
     create(data) {
         // Pintamos el fondo
-        const back = this.add.image(0, 0, 'fondo')
+        const back = this.add.image(0, 0, 'fondoC')
         .setOrigin(0, 0)
         .setDisplaySize(this.sys.game.canvas.width, this.sys.game.canvas.height);
 
