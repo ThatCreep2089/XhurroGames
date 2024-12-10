@@ -34,96 +34,44 @@ export default class Inventory
     AddItem(item)
     {
 
-        //mirar si ya tengo ese item lo añado al slot aumentando la cantidad
-        var i=0;
-        var encontrado=false;
-        while(i<this.index &&!encontrado)
-        {
-             if(this.elems[i].name === item.name)//aumentamos el contador para aumentar la cantidad de elementos de ese tipo
-            {
-                this.elems[i].ejemplar++;
-                console.log("aumento elem"+item.name+" "+item.ejemplar)
-                console.log("Lista actual de elementos en el inventario:");
-                for (let j = 0; j < this.elems.length; j++) {
-                    console.log(this.elems[j].name + " (Cantidad: " + this.elems[j].ejemplar + ")");
-                }
-                encontrado=true;
-            }
-            i++;
-        }
-        if(!encontrado)//primera vez que metemos un item de ese tipo en el inventario
-        {
-            
-            this.elems.push(item); // Añadir el nuevo item al inventario
-            
-            console.log("Lista actual de elementos en el inventario:");
-            for (let j = 0; j < this.elems.length; j++) {
-                console.log(this.elems[j].name + " (Cantidad: " + this.elems[j].ejemplar + ")");
-            }
-            
-            this.index++;
-            
-    }
-        }
-        
-
-
-
-
-
-
-
-
-
-
-    RemoveItem(item)
-    {
-        const pos = this.elems.findIndex(e => e.name === item.name); // Encontrar el índice del item
-   
-        // Verificar si el índice es válido (es decir, el item existe en el inventario)
-    if (pos !== -1) {
-        if (this.elems[pos].ejemplar >= 1) {
-            this.elems[pos].ejemplar--; // Decrementar la cantidad
+        const existingItem = this.elems.find(i => i.name === item.name);
+        if (existingItem) {
+            existingItem.cantidad++; // Incrementar la cantidad si ya existe
         } else {
-            this.elems.splice(pos, 1); // Eliminar el item
-            this.index--;
+            if (this.elems.length < this.tam) {
+                this.elems.push({ ...item, cantidad: 1 }); // Agregar un nuevo ítem con cantidad inicial 1
+            } else {
+                console.log("Inventario lleno.");
+            }
         }
 
-        console.log("Lista actual de elementos en el inventario:");
-        for (let j = 0; j < this.elems.length; j++) {
-            console.log(this.elems[j].name + " (Cantidad: " + this.elems[j].ejemplar + ")");
-        }
-    } else {
-        // Si el índice no es válido, significa que el item no fue encontrado
-        console.log("Item no encontrado en el inventario.");
+        this.logInventory();
     }
 
+    RemoveItem(item) {
+        const index = this.elems.findIndex(i => i.name === item.name);
+        if (index !== -1) {
+            if (this.elems[index].cantidad > 1) {
+                this.elems[index].cantidad--; // Reducir la cantidad
+            } else if(this.elems[index].cantidad = 1){
+                this.elems.splice(index, 1); // Eliminar el ítem si la cantidad llega a 0
+            }
+            this.logInventory();
+        } else {
+            console.log("El item no está en el inventario.");
+        }
+    }
+
+    logInventory() {
+        console.log("Inventario actualizado:");
+        this.elems.forEach(item => {
+            console.log(`${item.name} (Cantidad: ${item.cantidad})`);
+        });
     }
 
     GetItems() {
-        return this.elems; // Devuelve todos los ítems
+        return this.elems; // Retornamos el arreglo directamente
     }
 
-    //utilizar el item
-    UseItem(effect,item,player)
-    {
-        if(effect===1)
-        {
-            item.HealLife(item.amount,player);
-            
-        }
-        else if(effect===2)
-        {
-            item.IncreaseLifeMax(item.amount,player);
-        }
-        else if(effect===3)
-        {
-            item.ReduceAnxiety(item.amount,player);
-        }
-        else
-        {
-            item.HealCuality(item.amount,player);
-        }
-       
-    }
+   
 }
