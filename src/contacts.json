@@ -86,13 +86,13 @@
                     "localizacion":"Bar paco"
                 },
                 {
-                    "name": "Agustín",
+                    "name": "María del Carmen",
                     "conocida": true,
                     "posx": 14,
                     "posy": 5,
-                    "descripcion":"Dueño del bar",
-                    "edad": 50,
-                    "localizacion":"Puente"
+                    "descripcion":"Lesbiana oprimida",
+                    "edad": 20,
+                    "localizacion":"Parque"
                 },
                 {
                     "name": "Ángel",
@@ -111,16 +111,8 @@
                     "descripcion":"Lesbiana oprimida",
                     "edad": 20,
                     "localizacion":"Parque"
-                },
-                {
-                    "name": "María del Carmen",
-                    "conocida": true,
-                    "posx": 11,
-                    "posy": 7,
-                    "descripcion":"Lesbiana oprimida",
-                    "edad": 20,
-                    "localizacion":"Parque"
                 }
+                
             ]
             
     

@@ -5,7 +5,7 @@ export default class InventoryScene extends Phaser.Scene
     constructor()
     {
         super({key: "InventoryScene"});
-        this.itemSprites = [];
+        this.itemSprites = []; //array donde guardamos los items a renderizar
     }
 
 
@@ -13,7 +13,7 @@ export default class InventoryScene extends Phaser.Scene
       
         
         this.lastScene = data.lastScene;
-        this.inventoryConfig = data.inventory; // Recibe el inventario del objeto `data`
+        this.inventoryConfig = data.inventory; // Recibe el inventario de data
         this.playerConfig= data.player;
         this.modo= data.modo;
         console.log('lastScene', data.lastScene);
@@ -65,6 +65,7 @@ export default class InventoryScene extends Phaser.Scene
         titulo.setStroke('#000000', 7);
         titulo.x = this.sys.game.canvas.width/2 - titulo.width/2;    
 
+        //renderizamos inventario
         this.RenderizarItems();
         
         //BACK BUTTON (VOLVER A ZONA SCENE)
@@ -91,10 +92,11 @@ export default class InventoryScene extends Phaser.Scene
         
        this.UseItem(item.effect ,item,this.player); //si utilizamos el item despues lo quitamos del inventario
         this.inventory.RemoveItem(item);//quita el item del inventario
-        this.RenderizarItems();
+        this.RenderizarItems();//renderizar inventario
     
     }  
-        
+    
+    //utilizamos el effecto del item
     UseItem(effect, item, player) {
         console.log("item"+item.name);
         switch (effect) {
@@ -114,7 +116,7 @@ export default class InventoryScene extends Phaser.Scene
 
     RenderizarItems()
     {
-       // Eliminar solo los sprites de los ítems (sin afectar los fondos ni los rectángulos)
+       // Eliminar solo los sprites de los ítems 
     this.itemSprites.forEach(sprite => {
         sprite.destroy();
     });
@@ -126,6 +128,7 @@ export default class InventoryScene extends Phaser.Scene
 
     let items = this.inventory.GetItems(); // Obtiene los ítems del inventario
 
+    //posiciones y tamaños donde se situan los items
     let fila = 0;
     let columna = 0;
     const numColumnas = 5;
@@ -142,6 +145,7 @@ export default class InventoryScene extends Phaser.Scene
         const x = columna * (cellSize + margin) + horizontalOffset;
         const y = fila * (cellSize + margin) + verticalOffset;
 
+        //creamos el sprite segun el nombre del itema
         let sprite = this.add.image(x, y, item.name).setOrigin(0, 0);
         sprite.setDisplaySize(450, 300); // Ajusta el tamaño del ítem
 
@@ -176,7 +180,7 @@ export default class InventoryScene extends Phaser.Scene
             fontSize: '40px',
             fill: '#1c1c1c',
             align: 'center'
-        }).setOrigin(0.5, 0.5).setVisible(false);  // Centrado y oculto
+        }).setOrigin(0.5, 0.5).setVisible(false);  
 
         texto.setDepth(2);
         texto2.setDepth(2);
@@ -185,7 +189,7 @@ export default class InventoryScene extends Phaser.Scene
         rect2.setDepth(2);
         rect.setDepth(2);
 
-        // Cuando el sprite es clickeado, hacer visible los elementos
+        // Cuando seleccionamos el sprite los hacemos visibles
         sprite.on('pointerdown', () => {
             rect.setVisible(true);
             rect0.setVisible(true);

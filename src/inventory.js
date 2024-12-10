@@ -70,7 +70,7 @@ export default class Inventory
     }
 
     GetItems() {
-        return this.elems; // Retornamos el arreglo directamente
+        return this.elems;
     }
 
    
