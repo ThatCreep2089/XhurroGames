@@ -4,15 +4,20 @@ export default class EndCombateScene extends Phaser.Scene {
     }
 
 init(data){
+    this.ant = data.ant;
     this.playerConfig = data.player;
     this.inventoryConfig = data.inventory;
+    this.npc = data.npc;
+    this.fondo = data.fondo;
+    this.dialogueJson = data.dialogueJson;
     this.battleResult = data.battleResult;
 }
+
 
     create(data){
 
         let result;
-        if(this.battleResult = true)
+        if(this.battleResult == true)
         {
             result = 'VICTORIA';
         }
@@ -37,9 +42,14 @@ init(data){
             'flecha')
         .setScale(-0.3, 0.3)
         .setInteractive()
-        .on('pointerdown', () => this.scene.start('zonaScene', { modo: data.modo,
-                                                                player: this.playerConfig,
-                                                                inventory: this.inventoryConfig}));
+        .on('pointerdown', () => this.scene.start('dialogueScene', {
+            ant: this.ant,
+            player: this.playerConfig, 
+            inventory: this.inventoryConfig,
+            npc: this.npc,
+            fondo: this.fondo,
+            dialogueJson: this.dialogueJson,
+            battleResult: this.battleResult }));
 
     }
 
