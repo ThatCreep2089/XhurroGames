@@ -64,7 +64,7 @@ init(data){
         this.events.on('playerTurn', ()=>this.isPlayerTurn());
         this.events.on('enemyTurn', ()=>this.isEnemyTurn());
         this.events.on('enemyDamaged', ()=>this.enemyDamageAnim());
-
+        this.events.on('checkWinLose', ()=>this.checkGameOver());
 
 
     }
@@ -82,8 +82,24 @@ init(data){
 
     enemyDamageAnim(){
         this.enemy.setTint(0xff0000);
-        this.time.delayedCall(500, () => {
+        this.time.delayedCall(5000, () => {
             this.enemy.clearTint();
+
+            this.updateHealthTexts(); //actualiza la vida
+            var result = this.checkGameOver(); //comprueba si ha acabado el combate
+            if(!result.end == true){
+                 this.events.emit('enemyTurn');
+             } else if(result.playerwin == true){
+                 this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                    inventory: this.inventory.getConfigData(),
+                    battleResult: true})
+            } else {
+                  console.log("derrota")
+                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                      inventory: this.inventory.getConfigData(),
+                      battleResult: false})
+             }
+
     });
  }
 
@@ -111,11 +127,11 @@ init(data){
                 
                 
             }
-
+            /*
             this.events.emit('enemyDamaged');
 
             this.updateHealthTexts(); //actualiza la vida
-            var result = this.checkGameOver(); //comprueba si ha acabado el combate
+            //var result = this.checkGameOver(); //comprueba si ha acabado el combate
             if(!result.end == true){
                 this.events.emit('enemyTurn');
             } else if(result.playerwin == true){
@@ -128,7 +144,27 @@ init(data){
                     inventory: this.inventory.getConfigData(),
                     battleResult: false})
             }
+            
 
+        this.events.once('enemyDamaged', () => {
+          this.updateHealthTexts(); //actualiza la vida
+          var result = this.checkGameOver(); //comprueba si ha acabado el combate
+          if(!result.end == true){
+               this.events.emit('enemyTurn');
+           } else if(result.playerwin == true){
+               this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                  inventory: this.inventory.getConfigData(),
+                  battleResult: true})
+          } else {
+                console.log("derrota")
+              this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                    inventory: this.inventory.getConfigData(),
+                    battleResult: false})
+           }
+        }); 
+        */
+
+this.events.emit('enemyDamaged');
             
         }
     }
