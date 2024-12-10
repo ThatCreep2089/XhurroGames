@@ -41,7 +41,39 @@ export default class ZonaScene extends Phaser.Scene{
 
     preload() //CARGAR TODOS LOS RECURSOS
     {
-       
+        //FONDOS
+        this.load.image('fondo1', 'assets/fondos/fondo1.jpeg'); //fondo 1
+        this.load.image('fondo2', 'assets/fondos/fondo2.jpeg'); //fondo 2
+        this.load.image('fondo3', 'assets/fondos/fondo3.jpeg'); //fondo 3
+
+        //PLAYER
+        this.load.image('player', 'assets/npc/elle.png'); //future elle
+
+        //IMAGENES BUILDINGS
+        this.load.image('building1', 'assets/edificios/building1.png'); //clarito
+        this.load.image('building2', 'assets/edificios/building2.png'); //oscuro
+        this.load.image('building3', 'assets/edificios/building3.png'); //mediano
+        
+
+        //IMAGENES LOCALIZATIONS
+        this.load.image('tenfe', 'assets/edificios/tenfe.png'); //tenfe
+        this.load.image('pitiBancoLocalization', 'assets/edificios/pitiBanco.png');
+        this.load.image('localization1', 'assets/edificios/parque.png');
+        this.load.image('localization2', 'assets/edificios/puente.png');
+        this.load.image('localization4', 'assets/edificios/cni.png');
+        this.load.image('localization5', 'assets/edificios/bar.png');
+        this.load.image('localization6', 'assets/edificios/hipodromo.png');
+        this.load.image('localization7', 'assets/edificios/cruzRoja.png');
+        this.load.image('localization8', 'assets/edificios/iglesia.png');
+        
+        //FLECHAS
+        this.load.image('flecha', 'assets/other/flecha.png');
+
+        //ASSETS NOMBRES LOCALIZATIONS
+        this.load.image('caja', 'assets/other/caja.png');
+        this.load.image('maps', 'assets/other/maps.png');
+
+        this.load.json("mapJason", 'src/map.json');
 
     }
 

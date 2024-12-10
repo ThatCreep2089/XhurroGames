@@ -5,7 +5,8 @@ export default class TenfeScene extends Phaser.Scene {
 
     preload()
     {
-        
+        //FONDO
+            this.load.image('tenfeFondo', 'assets/fondos/tenfe.jpeg');
     }
 
     init(data){

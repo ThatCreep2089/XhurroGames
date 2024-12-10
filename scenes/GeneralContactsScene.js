@@ -15,7 +15,8 @@ export default class GeneralContactsScene extends Phaser.Scene {
     }
 
     preload() {
-        
+        this.load.image('fondoC', 'assets/contactos/fondoContactos.png');
+        this.load.image('flechaa', 'assets/other/flecha.png');
     }
 
     create(data) {

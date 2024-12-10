@@ -20,6 +20,12 @@ init(data){
 }
 
     preload() {
+        this.load.image('flechaa', 'assets/other/flecha.png');
+        this.load.image('fondoStats', 'assets/stats/fondoStats.png'); 
+        this.load.image('elleRojo', 'assets/stats/elleRojo.png'); 
+        this.load.image('elleVerde', 'assets/stats/elleVerde.png'); 
+        this.load.image('elleAmarillo', 'assets/stats/elleAmarillo.png'); 
+        this.load.image('elleAzul', 'assets/stats/elleAzul.png'); 
        
     }
 

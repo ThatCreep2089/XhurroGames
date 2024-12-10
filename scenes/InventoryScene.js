@@ -23,7 +23,8 @@ export default class InventoryScene extends Phaser.Scene
 
     preload()//cargar imagenes*
     {
-       
+        this.load.image('inventory', 'assets/fondos/FondoInventario.png'); 
+        this.load.image('flechaa', 'assets/other/flecha.png');
        
       
     }

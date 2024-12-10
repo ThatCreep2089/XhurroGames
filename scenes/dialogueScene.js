@@ -11,7 +11,33 @@ export default class DialogueScene extends Phaser.Scene {
 
     preload()
     {
-       
+        //FONDO
+        this.load.image('parque', 'assets/fondos/parque.jpg'); //fondo
+        this.load.image('puente', 'assets/fondos/puente.jpg'); //fondo
+        this.load.image('bar', 'assets/fondos/barFondo.jpg'); //fondo
+        this.load.image('cni', 'assets/fondos/cniFondo.jpg'); //fondo
+        this.load.image('hipodromo', 'assets/fondos/hipodromoFondo.jpg'); //fondo
+
+        //BACK BUTTON
+        this.load.image('flecha', 'assets/other/flecha.png');
+
+        //NPCS
+        this.load.image('PACO', 'assets/npc/paco.png');
+        this.load.image('HUMBERTO', 'assets/npc/humberto.png');
+        this.load.image('MARIA', 'assets/npc/maria.png');
+        this.load.image('NPC', 'assets/npc/npc.png');
+        this.load.image('PITIBANCO', 'assets/npc/pitiBanco.png');
+        this.load.image('BOSS', 'assets/npc/bossBotellin.png');
+        this.load.image('ELLIE', 'assets/npc/ellie.png');
+
+        this.load.json("dialogueJson", 'src/dialog.json')
+
+        //others
+        
+        this.load.image('PITIBANCO', 'assets/others/Mar_iguana.png');
+
+        this.load.video('iguana', 'assets/videos/iguana.mp4', true);
+        
 
     }
 
