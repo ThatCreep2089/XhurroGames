@@ -18,40 +18,7 @@ init(data){
 }
 
     preload() {
-        //FONDO
-        this.load.image('fondoC', 'assets/contactos/fondoContactos.png'); 
-        //this.load.image('contacto', 'assets/contactos/contacto.png'); 
-
-        //CONTACTOS(de momento tienen el mismo sprite pero en un futuro cada uno tendra el suyo)
-        //ZONA BOTELLIN
-        this.load.image('Consuelo', 'assets/contactos/contacto.png'); 
-        this.load.image('María Teresa', 'assets/contactos/contacto.png'); 
-        this.load.image('Humberto', 'assets/contactos/contacto.png'); 
-        this.load.image('José', 'assets/contactos/contacto.png'); 
-        this.load.image('María', 'assets/contactos/contacto.png'); 
-        this.load.image('Pedrito', 'assets/contactos/contacto.png'); 
-        this.load.image('Ali', 'assets/contactos/contacto.png'); 
-        this.load.image('Jesús', 'assets/contactos/contacto.png'); 
-        this.load.image('Paco', 'assets/contactos/contacto.png'); 
-        this.load.image('Agustín', 'assets/contactos/contacto.png'); 
-        this.load.image('Ángel', 'assets/contactos/contacto.png'); 
-        this.load.image('María José', 'assets/contactos/contacto.png'); 
-        this.load.image('María del Carmen', 'assets/contactos/contacto.png'); 
-
-        //Cargar json
-        this.load.json("contactsJson", 'src/contacts.json');
-        this.load.json("dialogueJson", 'src/dialog.json');
-
-
-       /* this.load.image('lesbiana', 'assets/contactos/lesbi.png');
-        this.load.image('gay', 'assets/contactos/gay.png');
-        this.load.image('bi', 'assets/contactos/bi.png');
-        this.load.image('nobinar', 'assets/contactos/nobinar.png');
-        this.load.image('pan', 'assets/contactos/pansexual.png');
-        this.load.image('trans', 'assets/contactos/trans.png');*/
-
-        //FLECAH PARA VOLVER
-        this.load.image('flechaa', 'assets/other/flecha.png');
+      
     }
 
     create(data) {

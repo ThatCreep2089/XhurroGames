@@ -37,58 +37,7 @@ export default class localizationScene extends Phaser.Scene
     }
 
     preload(){
-        //FONDOS
-            this.load.image('parque', 'assets/fondos/parque.jpg');
-            this.load.image('puente', 'assets/fondos/puente.jpg');
-            this.load.image('bar', 'assets/fondos/barFondo.jpg');
-            this.load.image('cni', 'assets/fondos/cniFondo.jpg');
-            this.load.image('hipodromo', 'assets/fondos/hipodromoFondo.jpg');
-            this.load.image('cruzRoja', 'assets/fondos/cruzRoja.jpg');
-            this.load.image('iglesia', 'assets/fondos/iglesia.jpg');
-            this.load.image('pitiBanco', 'assets/fondos/pitiBanco.jpg');
-
-        //NPCS
-            this.load.image('PACO', 'assets/npc/paco.png');
-            this.load.image('HUMBERTO', 'assets/npc/humberto.png');
-            this.load.image('MARÍA', 'assets/npc/maria.png');
-            this.load.image('NPC', 'assets/npc/npc.png');
-            this.load.image('PITIBANCO', 'assets/npc/pitiBanco.png');
-            this.load.image('MARÍA JOSÉ', 'assets/npc/mariaJose.png');
-            this.load.image('MARÍA DEL CARMEN', 'assets/npc/mariaDelCarmen.png');
-            this.load.image('ALI', 'assets/npc/ali.png');
-            this.load.image('JESÚS', 'assets/npc/jesus.png');
-            this.load.image('PEDRITO', 'assets/npc/pedrito.png');
-            this.load.image('ÁNGEL', 'assets/npc/angel.png');
-            this.load.image('JOSÉ', 'assets/npc/jose.png');
-            this.load.image('MARÍA TERESA', 'assets/npc/mariaTeresa.png');
-            this.load.image('CONSUELO', 'assets/npc/consuelo.png');
-            this.load.image('GATO EN CAJA', 'assets/npc/gato.png');
-            this.load.image('BOSS', 'assets/npc/bossBotellin.png');
-
-        //BACK BUTTON
-        this.load.image('flecha', 'assets/other/flecha.png');
-
-        //FLECHAS
-        this.load.image('arrow', 'assets/other/arrow.png');
-
-        this.load.image('accept', 'assets/other/accept.png');
-
         
-        //ITEMS
-        this.load.image('taza', 'assets/recolectables/taza.png');
-        this.load.image('botella', 'assets/recolectables/botella.png');
-        this.load.image('roca pija', 'assets/recolectables/roca pija.png');
-        this.load.image('roca traviesa', 'assets/recolectables/roca traviesa.png');
-        this.load.image('porro', 'assets/recolectables/porro.png');
-        this.load.image('mar_iguana', 'assets/recolectables/mar_iguana.png');
-        this.load.image('sanidad privada', 'assets/recolectables/privada.png');
-        this.load.image('sanidad pública', 'assets/recolectables/publica.png');
-        //JSON
-        this.load.json("localizationJson", 'src/localization.json');
-        this.load.json("dialogueJson", 'src/dialog.json');
-
-          //Cargar json
-          this.load.json("contactsJson", 'src/contacts.json');
     }
 
     
