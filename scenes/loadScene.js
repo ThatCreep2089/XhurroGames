@@ -6,7 +6,6 @@ export default class loadScene extends Phaser.Scene {
         super({key: "loadScene"})
     }
 
-    
   preload() {
     // Fondo o color de la escena de precarga
     this.cameras.main.setBackgroundColor("#000000");
@@ -43,23 +42,9 @@ export default class loadScene extends Phaser.Scene {
       );
     });
 
-    // Evento para limpiar una vez que todo esté cargado
-    this.load.on("complete", () => {
-      progressBar.destroy();
-      progressBox.destroy();
-      this.loadingText.setText("¡Carga completa!");
-    });
+   
 
     console.log("he cargado cosas xd")
-    console.log("he cargado cosas xd")
-    // Aquí se cargan los recursos del juego
-    //this.load.image("logo", "assets/logo.png"); // Ejemplo
-    //this.load.spritesheet("player", "assets/player.png", {
-      //frameWidth: 32,
-      //frameHeight: 48,
-    //});
-    //this.load.audio("theme", "assets/theme.mp3");
-
     //FONDO TENFE
     this.load.image('tenfeFondo', 'assets/fondos/tenfe.jpeg');// fondo tenfe
 
@@ -191,12 +176,17 @@ export default class loadScene extends Phaser.Scene {
     this.player = new Player(this);
     this.Inventory = new Inventory(this);
 
-
+ // Evento para limpiar una vez que todo esté cargado
+ this.load.on("complete", () => {
+  progressBar.destroy();
+  progressBox.destroy();
+  this.loadingText.setText("¡Carga completa!");
+});
   }
 
   create() {
     // Cambiar a la siguiente escena cuando todo esté listo
-    this.scene.start("MainMenuScene", this.player.getConfigData()); // Cambia "MainMenuScene" por tu escena principal
+    this.scene.start("MainMenuScene", this.player.getConfigData()); // Cambia "MainMenuScene" por escena principal
   }
 
 }
