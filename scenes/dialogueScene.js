@@ -159,7 +159,6 @@ export default class DialogueScene extends Phaser.Scene {
                  this.vidaText.setScale(0.6);
         }
 
-
         // 5. LEER DIALOGOS
         this.addDialogue();
 
@@ -167,8 +166,6 @@ export default class DialogueScene extends Phaser.Scene {
         this.input.on('pointerdown', () => {
             this.dialog.nextLine();
         });
-
-        
 
         // Cuando se termina el dialogo...
         this.dialog.on('dialogComplete', () => {
@@ -228,7 +225,6 @@ export default class DialogueScene extends Phaser.Scene {
 
     }
 
-    
     addDialogue()
     {
         //TEXTO DIALOGO
@@ -245,10 +241,7 @@ export default class DialogueScene extends Phaser.Scene {
             fontSize: 50,
             fontFamily: "pixel"
         });
-
-
-        //this.dialog.toggleWindow();
-        //this.dialog.setText(this.jsonObject[this.npc].frase1, true);
+        
         this.dialog.startDialog(this.dialogueJson[this.npc].frases);
     }
 
