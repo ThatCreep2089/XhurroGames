@@ -11,7 +11,7 @@ init(data){
 
     preload() {
         //FONDO
-        this.load.image('fondo', 'assets/contactos/fondoContactos.png'); 
+        this.load.image('fondoC', 'assets/contactos/fondoContactos.png'); 
         //this.load.image('contacto', 'assets/contactos/contacto.png'); 
 
         //CONTACTOS(de momento tienen el mismo sprite pero en un futuro cada uno tendra el suyo)
@@ -47,7 +47,7 @@ init(data){
 
     create(data) {
 
-        const back = this.add.image(0, 0, 'fondo')
+        const back = this.add.image(0, 0, 'fondoC')
         .setOrigin(0, 0)
         .setDisplaySize(this.sys.game.canvas.width, this.sys.game.canvas.height);
         
