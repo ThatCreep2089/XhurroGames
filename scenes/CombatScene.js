@@ -11,12 +11,11 @@ export default class CombatScene extends Phaser.Scene {
 
 init(data){
     this.ant = data.ant;
-    console.log("combate this.ant: " + this.ant);
-    //this.data = data;
-    console.log(data.player)
-    console.log(data.inventory)
-    this.playerConfig = data.player
-    this.inventoryConfig = data.inventory
+    this.playerConfig = data.player;
+    this.inventoryConfig = data.inventory;
+    this.npc = data.npc;
+    this.fondo = data.fondo;
+    this.dialogueJson = data.dialogueJson;
 }
 
 
@@ -83,24 +82,8 @@ init(data){
 
     enemyDamageAnim(){
         this.enemy.setTint(0xff0000);
-        this.time.delayedCall(5000, () => {
+        this.time.delayedCall(2000, () => {
             this.enemy.clearTint();
-
-            this.updateHealthTexts(); //actualiza la vida
-            var result = this.checkGameOver(); //comprueba si ha acabado el combate
-            if(!result.end == true){
-                 this.events.emit('enemyTurn');
-             } else if(result.playerwin == true){
-                 this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData(),
-                    battleResult: true})
-            } else {
-                  console.log("derrota")
-                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
-                      inventory: this.inventory.getConfigData(),
-                      battleResult: false})
-             }
-
     });
  }
 
@@ -153,42 +136,31 @@ init(data){
                 
                 
             }
-            /*
-            this.events.emit('enemyDamaged');
+            this.enemy.takeDamage(this.totalDamage);
+            //this.events.emit('enemyDamaged');
 
             this.updateHealthTexts(); //actualiza la vida
-            //var result = this.checkGameOver(); //comprueba si ha acabado el combate
+            var result = this.checkGameOver(); //comprueba si ha acabado el combate
             if(!result.end == true){
                 this.events.emit('enemyTurn');
             } else if(result.playerwin == true){
-                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
                     inventory: this.inventory.getConfigData(),
+                    npc: this.npc,
+                    fondo: this.fondo,
+                    dialogueJson: this.dialogueJson,
                     battleResult: true})
             } else {
                 console.log("derrota")
-                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
                     inventory: this.inventory.getConfigData(),
+                    npc: this.npc,
+                    fondo: this.fondo,
+                    dialogueJson: this.dialogueJson,
                     battleResult: false})
             }
             
 
-        this.events.once('enemyDamaged', () => {
-          this.updateHealthTexts(); //actualiza la vida
-          var result = this.checkGameOver(); //comprueba si ha acabado el combate
-          if(!result.end == true){
-               this.events.emit('enemyTurn');
-           } else if(result.playerwin == true){
-               this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
-                  inventory: this.inventory.getConfigData(),
-                  battleResult: true})
-          } else {
-                console.log("derrota")
-              this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData(),
-                    battleResult: false})
-           }
-        }); 
-        */
 
         //this.events.emit('enemyDamaged');
             
@@ -282,13 +254,19 @@ init(data){
                 this.updateCardsTexts(); // cambia valor de cartas
             
             } else if(result.playerwin == true){
-                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
-                                            inventory: this.inventory.getConfigData(),
-                                            battleResult: true})
+                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
+                    inventory: this.inventory.getConfigData(),
+                    npc: this.npc,
+                    fondo: this.fondo,
+                    dialogueJson: this.dialogueJson,
+                    battleResult: true})
             } else {
                 console.log("derrota")
-                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
                     inventory: this.inventory.getConfigData(),
+                    npc: this.npc,
+                    fondo: this.fondo,
+                    dialogueJson: this.dialogueJson,
                     battleResult: false})
             }
 
@@ -405,7 +383,7 @@ init(data){
             0xff0000 
             )
             .setInteractive()
-            .on('pointerdown', () => this.enemy.takeDamage(this.totalDamage)));
+            .on('pointerdown', () => this.enemy.takeDamage(100)));
 
         // texto en los botones
 
