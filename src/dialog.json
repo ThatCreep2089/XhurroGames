@@ -234,6 +234,15 @@
             { "texto": "¿Qué tal?", "author": "Boss" },
             { "texto": "¿Cómo estás?", "author": "Boss" }
         ],
+        "victory":[
+            { "texto": "Me has derrotado", "author": "Boss" },
+            { "texto": "Toma la constitucion", "author": "Boss" },
+            { "texto": "Dejame en paz ya", "author": "Boss" }
+        ],
+        "lose":[
+            { "texto": "JAJAJAJAJAJ has perdido", "author": "Boss" },
+            { "texto": "A tomar por culo niñate", "author": "Boss" }
+        ],
         "scale": 0.5
         
     },
