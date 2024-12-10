@@ -5,14 +5,14 @@ export default class EndCombateScene extends Phaser.Scene {
 
 init(data){
     this.playerConfig = data.player;
-    this.inventoryConfig = this.inventory;
+    this.inventoryConfig = data.inventory;
     this.battleResult = data.battleResult;
 }
 
     create(data){
 
         let result;
-        if(this.battleResult == "true")
+        if(this.battleResult = true)
         {
             result = 'VICTORIA';
         }

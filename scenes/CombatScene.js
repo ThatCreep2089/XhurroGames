@@ -119,12 +119,14 @@ init(data){
             if(!result.end == true){
                 this.events.emit('enemyTurn');
             } else if(result.playerwin == true){
-                this.scene.start("victory", {player: this.player.getConfigData(), 
-                                            inventory: this.Inventory.getConfigData()})
+                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                    inventory: this.inventory.getConfigData(),
+                    battleResult: true})
             } else {
                 console.log("derrota")
-                this.scene.start("lose", {player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData()})
+                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                    inventory: this.inventory.getConfigData(),
+                    battleResult: false})
             }
 
             
@@ -218,12 +220,14 @@ init(data){
                 this.updateCardsTexts(); // cambia valor de cartas
             
             } else if(result.playerwin == true){
-                this.scene.start("victory", {player: this.player.getConfigData(), 
-                                            inventory: this.Inventory.getConfigData()})
+                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                                            inventory: this.inventory.getConfigData(),
+                                            battleResult: true})
             } else {
                 console.log("derrota")
-                this.scene.start("lose", {player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData()})
+                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                    inventory: this.inventory.getConfigData(),
+                    battleResult: false})
             }
 
            // this.events.emit('playerTurn');

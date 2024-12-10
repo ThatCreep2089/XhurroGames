@@ -52,7 +52,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 
     // Método de ataque
     attackPlayer(player) {
-        const damage = Phaser.Math.Between(10, 80);
+        const damage = Phaser.Math.Between(10, 20);
         player.takeDamage(damage);
         //debug
         console.log('Daño enemigo: ' + damage);
