@@ -62,7 +62,7 @@ export default class DialogueScene extends Phaser.Scene {
         }
 
         //GANAR O PERDER
-        this.resultBattle = data.resultBattle;
+        this.battleResult = data.battleResult;
 
     }
 
@@ -166,11 +166,11 @@ export default class DialogueScene extends Phaser.Scene {
         if(this.npc == 'BOSS')
         {
             let lines;
-            if(this.resultBattle == "true") //elle ha ganado
+            if(this.battleResult == true) //elle ha ganado
             {
                 lines = this.dialogueJson[this.npc].victory;
             }
-            else if(this.resultBattle == "false") //elle ha perdido
+            else if(this.battleResult == false) //elle ha perdido
             {
                 lines = this.dialogueJson[this.npc].lose;
             }
@@ -205,7 +205,7 @@ export default class DialogueScene extends Phaser.Scene {
             }
             else if(this.npc == 'BOSS')
             {
-                if(this.resultBattle == "true") //elle ha ganado
+                if(this.battleResult == true) //elle ha ganado
                 {
                     //mostrar recompensa
                     this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
@@ -338,12 +338,15 @@ export default class DialogueScene extends Phaser.Scene {
             }
     }
 
+
     mostrarCombate()
     {
         this.scene.start('CombatScene', {
             ant: this.ant,
             player: this.player.getConfigData(), 
             inventory: this.inventory.getConfigData(),
+            npc: this.npc,
+            fondo: this.fondo,
             dialogueJson: this.dialogueJson
         })
     }

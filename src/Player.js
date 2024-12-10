@@ -232,13 +232,13 @@ HealQuality(amount)
 
 mejorarCualidad(cualidad) {
     switch(cualidad) {
-        case 'humildad' :
+        case humildad :
             this.humidad += 1;
-        case 'trabajo duro':
+        case trabajoduro:
             this.trabajoDuro += 1;
-        case 'agnosticismo':
+        case agnosticismo:
             this.agnosticismo += 1;
-        case 'afecto':
+        case afecto:
             return this.afecto;
     }
 }

@@ -6,17 +6,16 @@ export default class CombatScene extends Phaser.Scene {
     constructor() {
         super({ key: 'CombatScene' });
         this.turn = 'player'; // Inicia el turno el player
-        
+        this.totalDamage = 0;
     }
 
 init(data){
     this.ant = data.ant;
-    console.log("combate this.ant: " + this.ant);
-    //this.data = data;
-    console.log(data.player)
-    console.log(data.inventory)
-    this.playerConfig = data.player
-    this.inventoryConfig = data.inventory
+    this.playerConfig = data.player;
+    this.inventoryConfig = data.inventory;
+    this.npc = data.npc;
+    this.fondo = data.fondo;
+    this.dialogueJson = data.dialogueJson;
 }
 
 
@@ -58,13 +57,14 @@ init(data){
         // crear player, inventario y enemigo
        this.setEntities(); 
        
-       this.createTextAndButtons();
+       this.createButtons();
+       this.createText();
 
        //eventos de turnos
         this.events.on('playerTurn', ()=>this.isPlayerTurn());
         this.events.on('enemyTurn', ()=>this.isEnemyTurn());
         this.events.on('enemyDamaged', ()=>this.enemyDamageAnim());
-
+        this.events.on('checkWinLose', ()=>this.checkGameOver());
 
 
     }
@@ -82,10 +82,16 @@ init(data){
 
     enemyDamageAnim(){
         this.enemy.setTint(0xff0000);
-        this.time.delayedCall(500, () => {
+        this.time.delayedCall(2000, () => {
             this.enemy.clearTint();
     });
  }
+
+
+ playerMakesDamage(totalDamage){ 
+    this.enemy.takeDamage(totaldamage);
+ }
+
 
     // turno del jugador
     playerTurn(action) {
@@ -94,8 +100,27 @@ init(data){
             
             //ataque normal
             if (action === 'attack') {
-                this.player.attackEnemy(this.enemy, 
-                this.espadas, this.copas, this.bastos,this.oros);
+                //this.player.attackEnemy(this.enemy, 
+                //this.espadas, this.copas, this.bastos,this.oros);
+                
+                if(this.enemy.weakness === 'espadas') {
+                    this.espadas *= 2;
+                }
+                else if(this.enemy.weakness === 'copas'){
+                    this.copas *= 2;
+                    console.log(this.copas)
+                }
+                else if(this.enemy.weakness === 'bastos'){
+                    this.bastos *= 2;
+                }
+                else if(this.enemy.weakness === 'oros') {
+                    this.oros *= 2;
+                }            
+                
+                this.totalDamage = this.espadas + this.copas + this.bastos + this.oros;
+
+                this.updateTotalText();
+
             } 
             
             //ataque con cualidades
@@ -111,24 +136,33 @@ init(data){
                 
                 
             }
-
-            this.events.emit('enemyDamaged');
+            this.enemy.takeDamage(this.totalDamage);
+            //this.events.emit('enemyDamaged');
 
             this.updateHealthTexts(); //actualiza la vida
             var result = this.checkGameOver(); //comprueba si ha acabado el combate
             if(!result.end == true){
                 this.events.emit('enemyTurn');
             } else if(result.playerwin == true){
-                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
                     inventory: this.inventory.getConfigData(),
+                    npc: this.npc,
+                    fondo: this.fondo,
+                    dialogueJson: this.dialogueJson,
                     battleResult: true})
             } else {
                 console.log("derrota")
-                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
                     inventory: this.inventory.getConfigData(),
+                    npc: this.npc,
+                    fondo: this.fondo,
+                    dialogueJson: this.dialogueJson,
                     battleResult: false})
             }
+            
 
+
+        //this.events.emit('enemyDamaged');
             
         }
     }
@@ -220,13 +254,19 @@ init(data){
                 this.updateCardsTexts(); // cambia valor de cartas
             
             } else if(result.playerwin == true){
-                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
-                                            inventory: this.inventory.getConfigData(),
-                                            battleResult: true})
+                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
+                    inventory: this.inventory.getConfigData(),
+                    npc: this.npc,
+                    fondo: this.fondo,
+                    dialogueJson: this.dialogueJson,
+                    battleResult: true})
             } else {
                 console.log("derrota")
-                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
                     inventory: this.inventory.getConfigData(),
+                    npc: this.npc,
+                    fondo: this.fondo,
+                    dialogueJson: this.dialogueJson,
                     battleResult: false})
             }
 
@@ -261,6 +301,10 @@ init(data){
         this.copasNumber.setText(this.copas);
         this.bastosNumber.setText(this.bastos);
         this.orosNumber.setText(this.oros);
+    }
+
+    updateTotalText(){
+        this.totalDamageText.setText(this.totalDamage);
     }
 
     // Comprueba si alguno de los personajes ha perdido
@@ -311,8 +355,8 @@ init(data){
         this.player.visible = false;
     }
 
-    createTextAndButtons() {
 
+    createButtons(){
         // botones para ataques player
         let attackButton = this.add.rectangle(
             this.sys.game.canvas.width / 1.8,
@@ -332,7 +376,18 @@ init(data){
             .setInteractive()
             .on('pointerdown', () => this.playerTurn('magic'));
 
+        let totalDamageButton = this.add.rectangle(this.add.rectangle(
+            this.sys.game.canvas.width / 1.15,
+            this.sys.game.canvas.height / 1.3,
+            300, 300,
+            0xff0000 
+            )
+            .setInteractive()
+            .on('pointerdown', () => this.enemy.takeDamage(100)));
+
         // texto en los botones
+
+        //texto ataque normal
         this.add.text(
             this.sys.game.canvas.width / 1.95,
             this.sys.game.canvas.height / 2.1,
@@ -341,6 +396,7 @@ init(data){
             color: '#FFFFFF',       //Blanco
             fontFamily: 'Georgia',  
         });
+        //texto ataque cualidades
         this.add.text(
             this.sys.game.canvas.width / 3.7,
             this.sys.game.canvas.height / 2.1,
@@ -349,6 +405,28 @@ init(data){
             color: '#FFFFFF',       // Blanco
             fontFamily: 'Georgia',  
         });
+
+        //texto suma total
+        this.add.text(
+            this.sys.game.canvas.width / 1.2,
+            this.sys.game.canvas.height / 1.8,
+            'Total', { 
+            fontSize: '50px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
+        //suma total  
+        this.totalDamageText = this.add.text(
+            this.sys.game.canvas.width / 1.15,
+            this.sys.game.canvas.height / 1.3,
+            '0', { 
+            fontSize: '100px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
+    }
+
+    createText() {
 
 
         //texto de valores de las cartas:
