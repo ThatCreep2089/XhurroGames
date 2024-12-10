@@ -1,19 +1,30 @@
-export default class VictoryScene extends Phaser.Scene {
+export default class EndCombateScene extends Phaser.Scene {
     constructor(){
-        super({key: "victory"})
+        super({key: "endCombatScene"})
     }
 
 init(data){
     this.playerConfig = data.player;
     this.inventoryConfig = this.inventory;
+    this.battleResult = data.battleResult;
 }
 
     create(data){
 
+        let result;
+        if(this.battleResult == "true")
+        {
+            result = 'VICTORIA';
+        }
+        else
+        {
+            result = 'DERROTA';
+        }
+
         this.add.text(
             this.sys.game.canvas.width / 2.5,
             this.sys.game.canvas.height / 2,
-            'VICTORIA', { 
+            result, { 
             fontSize: '50px', 
             color: '#FFFFFF',       //Blanco
             fontFamily: 'Georgia',  
