@@ -32,13 +32,13 @@
             "npcs":
             [
                 {
-                    "name": "MARIA JOSE",
+                    "name": "MARÍA JOSÉ",
                     "x": 3.8, 
                     "y": 1.4,
                     "scale": 0.27
                 },
                 {
-                    "name": "MARIA DEL CARMEN",
+                    "name": "MARÍA DEL CARMEN",
                     "x": 1.6, 
                     "y": 1.4,
                     "scale": 0.27
@@ -80,7 +80,7 @@
                     "scale": 0.5
                 },
                 {
-                    "name": "JESUS",
+                    "name": "JESÚS",
                     "x": 1.5, 
                     "y": 1.4,
                     "scale": 0.27
@@ -122,7 +122,7 @@
                     "scale": 0.3
                 },
                 {
-                    "name": "JOSE",
+                    "name": "JOSÉ",
                     "x": 1.6, 
                     "y": 1.4,
                     "scale": 0.3
@@ -159,7 +159,7 @@
             "npcs":
             [
                 {
-                    "name": "MARIA",
+                    "name": "MARÍA",
                     "x": 3, 
                     "y": 1.4,
                     "scale": 0.25
@@ -206,7 +206,7 @@
                     "scale": 0.28
                 },
                 {
-                    "name": "ANGEL",
+                    "name": "ÁNGEL",
                     "x": 1.5, 
                     "y": 1.5,
                     "scale": 0.3
@@ -240,7 +240,7 @@
                     "scale": 0.3
                 },
                 {
-                    "name": "MARIA TERESA",
+                    "name": "MARÍA TERESA",
                     "x": 1.6, 
                     "y": 1.4,
                     "scale": 0.3
@@ -285,7 +285,7 @@
                             "name": "CONSUELO"
                         },
                         {
-                            "name": "MARIA"
+                            "name": "MARÍA"
                         }
                     ]
                     

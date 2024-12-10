@@ -15,7 +15,7 @@
         "hablado": "false",
         "scale": 0.5
     },
-    "ANGEL":{
+    "ÁNGEL":{
         "frases":
         [
             { "texto": "Supongo que tengo que decir algo", "author": "Angel" }
@@ -38,7 +38,7 @@
         "hablado": "false",
         "scale": 0.5
     },
-    "JOSE":{
+    "JOSÉ":{
 
         "frases":
         [
@@ -48,7 +48,7 @@
         "hablado": "false",
         "scale": 0.5
     },
-    "MARIA":{
+    "MARÍA":{
 
         "frases":
         [
@@ -95,7 +95,7 @@
         "hablado": "false",
         "scale": 0.5
     },
-    "MARIA TERESA":{
+    "MARÍA TERESA":{
 
         "frases":
         [
@@ -122,7 +122,7 @@
         "hablado": "false"
         
     },
-    "MARIA DEL CARMEN":{
+    "MARÍA DEL CARMEN":{
         "frases":
         [
             { "texto": "Si tan solo ella fuera un chico...", "author": "Maria del Carmen" },
@@ -137,7 +137,7 @@
         "hablado": "false",
         "scale": 0.5
     },
-    "MARIA JOSE":{
+    "MARÍA JOSÉ":{
         "frases":
         [
             { "texto": "Buenas compañere.", "author": "Maria Jose" },
@@ -153,7 +153,7 @@
         "hablado": "false",
         "scale": 0.5
     },
-    "JESUS":{
+    "JESÚS":{
         "frases":
         [
             { "texto": "Estoy en la mierda", "author": "Jesus" },
@@ -214,17 +214,9 @@
             { "texto": "Recuperar trozos de constitución para juntarlos y llegar a la zona donde está YUSOA para recuperar nuestros derechos.", "author": "Ellie" },
             { "texto": "Al lio.", "author": "Elle" }
 
-
-
-
-
-
-
-
-
         ],
         "hablado": "false",
-        "scale": 1
+        "scale": 0.5
         
     },
     "BOSS":

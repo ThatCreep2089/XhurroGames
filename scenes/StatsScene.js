@@ -134,6 +134,10 @@ init(data){
             cualidades3.setFontSize(60);
             cualidades3.setStroke('#000000', 7);
                            
+        let maxcualidades= this.add.text(1500, 650,
+            "MAX"+" "+this.player.maxMana);
+            maxcualidades.setFontSize(60);
+            maxcualidades.setStroke('#000000', 7);
         
     }
 

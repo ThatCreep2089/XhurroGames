@@ -86,13 +86,13 @@
                     "localizacion":"Bar paco"
                 },
                 {
-                    "name": "Agustín",
+                    "name": "María del Carmen",
                     "conocida": true,
                     "posx": 14,
                     "posy": 5,
-                    "descripcion":"Dueño del bar",
-                    "edad": 50,
-                    "localizacion":"Puente"
+                    "descripcion":"Lesbiana oprimida",
+                    "edad": 20,
+                    "localizacion":"Parque"
                 },
                 {
                     "name": "Ángel",
@@ -111,16 +111,8 @@
                     "descripcion":"Lesbiana oprimida",
                     "edad": 20,
                     "localizacion":"Parque"
-                },
-                {
-                    "name": "María del Carmen",
-                    "conocida": true,
-                    "posx": 11,
-                    "posy": 7,
-                    "descripcion":"Lesbiana oprimida",
-                    "edad": 20,
-                    "localizacion":"Parque"
                 }
+                
             ]
             
     
@@ -130,24 +122,7 @@
     {
           "npcs":
             [
-                {
-                    "name": "Marta",
-                    "conocida": true,
-                    "posx": 3,
-                    "posy": 3,
-                    "bandera":"lesbiana",
-                    "edad": 20,
-                    "localizacion":"CNI"
-                },
-                {
-                    "name": "Pedro",
-                    "conocida": false,
-                    "posx": 8,
-                    "posy": 3,
-                     "bandera":"hetero",
-                     "edad": 32,
-                      "localizacion":"Bar paco"
-                }
+                
                 
             ]
             
@@ -157,24 +132,7 @@
     {
           "npcs":
             [
-                {
-                    "name": "Pepa",
-                    "conocida": true,
-                    "posx": 3,
-                    "posy": 3,
-                    "bandera":"lesbiana",
-                    "edad": 20,
-                    "localizacion":"CNI"
-                },
-                {
-                    "name": "Joselin",
-                    "conocida": false,
-                    "posx": 8,
-                    "posy": 3,
-                     "bandera":"hetero",
-                     "edad": 32,
-                      "localizacion":"Bar paco"
-                }
+                
                 
             ]
             
@@ -183,24 +141,7 @@
     {
           "npcs":
             [
-                {
-                    "name": "Juana",
-                    "conocida": false,
-                    "posx": 3,
-                    "posy": 3,
-                    "bandera":"lesbiana",
-                    "edad": 20,
-                    "localizacion":"CNI"
-                },
-                {
-                    "name": "Francisco",
-                    "conocida": false,
-                    "posx": 8,
-                    "posy": 3,
-                     "bandera":"hetero",
-                     "edad": 32,
-                      "localizacion":"Bar paco"
-                }
+                
                 
             ]
             

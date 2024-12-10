@@ -50,18 +50,17 @@ export default class localizationScene extends Phaser.Scene
         //NPCS
             this.load.image('PACO', 'assets/npc/paco.png');
             this.load.image('HUMBERTO', 'assets/npc/humberto.png');
-            this.load.image('MARIA', 'assets/npc/maria.png');
+            this.load.image('MARÍA', 'assets/npc/maria.png');
             this.load.image('NPC', 'assets/npc/npc.png');
             this.load.image('PITIBANCO', 'assets/npc/pitiBanco.png');
-            this.load.image('MARIA JOSE', 'assets/npc/mariaJose.png');
-            this.load.image('MARIA DEL CARMEN', 'assets/npc/mariaDelCarmen.png');
+            this.load.image('MARÍA JOSÉ', 'assets/npc/mariaJose.png');
+            this.load.image('MARÍA DEL CARMEN', 'assets/npc/mariaDelCarmen.png');
             this.load.image('ALI', 'assets/npc/ali.png');
-            this.load.image('JESUS', 'assets/npc/jesus.png');
+            this.load.image('JESÚS', 'assets/npc/jesus.png');
             this.load.image('PEDRITO', 'assets/npc/pedrito.png');
-            this.load.image('AGUSTÍN', 'assets/npc/agustin.png');
-            this.load.image('ANGEL', 'assets/npc/angel.png');
-            this.load.image('JOSE', 'assets/npc/jose.png');
-            this.load.image('MARIA TERESA', 'assets/npc/mariaTeresa.png');
+            this.load.image('ÁNGEL', 'assets/npc/angel.png');
+            this.load.image('JOSÉ', 'assets/npc/jose.png');
+            this.load.image('MARÍA TERESA', 'assets/npc/mariaTeresa.png');
             this.load.image('CONSUELO', 'assets/npc/consuelo.png');
             this.load.image('GATO EN CAJA', 'assets/npc/gato.png');
             this.load.image('BOSS', 'assets/npc/bossBotellin.png');

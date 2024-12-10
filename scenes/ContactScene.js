@@ -7,6 +7,14 @@ export default class ContactScene extends Phaser.Scene {
 
 init(data){
     this.modo= data.modo;
+     //JSON DIALOGOS
+     if(data.dialogueJson)
+        {
+            this.dialogueJson = data.dialogueJson;
+        }
+        else{
+            this.dialogueJson = this.cache.json.get('dialogueJson');
+        }
 }
 
     preload() {
@@ -32,6 +40,7 @@ init(data){
 
         //Cargar json
         this.load.json("contactsJson", 'src/contacts.json');
+        this.load.json("dialogueJson", 'src/dialog.json');
 
 
        /* this.load.image('lesbiana', 'assets/contactos/lesbi.png');
@@ -108,11 +117,15 @@ init(data){
             {  const obrero = jsonObject["botellin"];
                 
                 obrero.npcs.forEach(npc => {
-                    if (npc.conocida) { // Comprobar si este NPC es conocido
+                    let name = npc.name.toUpperCase(); //guardar nombre del npc en mayusculas
+
+                    let npcOb = this.dialogueJson[name]; //acceder al objeto npc especifico del dialogo json
+
+                    if(npcOb.hablado == "true")
+                    {
                         contacto = npc.name; // La imagen se toma del nombre del NPC
                         this.addContactToScene(npc, contacto);
                     }
-                    
                 });
             }
         //BARRIO: RELIGIOSO
