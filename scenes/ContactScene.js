@@ -9,12 +9,16 @@ init(data){
     this.modo= data.modo;
      //JSON DIALOGOS
      if(data.dialogueJson)
-        {
-            this.dialogueJson = data.dialogueJson;
-        }
-        else{
-            this.dialogueJson = this.cache.json.get('dialogueJson');
-        }
+    {
+        this.dialogueJson = data.dialogueJson;
+    }
+    else
+    {
+        this.dialogueJson = this.cache.json.get('dialogueJson');
+    }
+
+    this.playerConfig = data.player;
+    this.inventoryConfig = data.inventory;
 }
 
     preload() {
@@ -143,7 +147,11 @@ init(data){
         .setScale(-0.3, 0.3)
         .setInteractive()
         .on('pointerdown', () => {
-            this.scene.start('GeneralContactsScene');
+            this.scene.start('GeneralContactsScene', {
+                player : this.playerConfig,
+                inventory: this.inventoryConfig,
+                dialogueJson: this.dialogueJson
+            });
         });
 
 

@@ -4,8 +4,6 @@ export default class GeneralContactsScene extends Phaser.Scene {
     }
 
     init(data) {
-      
-        
         this.lastScene = data.lastScene;
         this.playerConfig= data.player;
         this.modo= data.modo;
