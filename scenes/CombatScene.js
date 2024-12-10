@@ -23,6 +23,7 @@ init(data){
     preload() {
         //Cargar imágenes
         this.load.image('player', "./assets/npc/elle.png") //player
+        this.load.image('copas', "./assets/npc/bossBotellin.png") //enemigo
         this.load.image('yusoa', "./assets/npc/yusoa.png") //enemigo
         this.load.image('combat', "./assets/fondos/combate.jpg") //fondo
     }
@@ -62,6 +63,7 @@ init(data){
        //eventos de turnos
         this.events.on('playerTurn', ()=>this.isPlayerTurn());
         this.events.on('enemyTurn', ()=>this.isEnemyTurn());
+        this.events.on('enemyDamaged', ()=>this.enemyDamageAnim());
 
 
 
@@ -78,6 +80,13 @@ init(data){
         this.enemyTurn();
     }
 
+    enemyDamageAnim(){
+        this.enemy.setTint(0xff0000);
+        this.time.delayedCall(500, () => {
+            this.enemy.clearTint();
+    });
+ }
+
     // turno del jugador
     playerTurn(action) {
 
@@ -86,7 +95,7 @@ init(data){
             //ataque normal
             if (action === 'attack') {
                 this.player.attackEnemy(this.enemy, 
-                this.espadas + this.copas + this.bastos + this.oros);
+                this.espadas, this.copas, this.bastos,this.oros);
             } 
             
             //ataque con cualidades
@@ -102,6 +111,8 @@ init(data){
                 
                 
             }
+
+            this.events.emit('enemyDamaged');
 
             this.updateHealthTexts(); //actualiza la vida
             var result = this.checkGameOver(); //comprueba si ha acabado el combate
@@ -283,8 +294,8 @@ init(data){
         this.player = new Player(this, this.sys.game.canvas.width / 11, this.sys.game.canvas.height / 1.7);
         this.player.init(this.playerConfig);
         //enemigo
-        this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5, 'espadas');
-        this.enemy.setScale(1);
+        this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5, 'copas');
+        this.enemy.setScale(0.7);
 
         //inventario
         this.inventory = new Inventory(this)

@@ -127,9 +127,9 @@ HealQuality(amount)
 
 //métodos de combate (victor)
     // Método de ataque
-    attackEnemy(enemy, espadas, copas, bastos, oros) {
+    attackEnemy(enemy, espadas,copas,bastos,oros) {
 
-        enemy.takeDamage(espadas, copas, bastos, oros);
+        enemy.takeDamage(espadas,copas,bastos,oros);
 
     }
 
