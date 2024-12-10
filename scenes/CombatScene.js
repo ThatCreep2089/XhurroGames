@@ -23,6 +23,7 @@ init(data){
     preload() {
         //Cargar imágenes
         this.load.image('player', "./assets/npc/elle.png") //player
+        this.load.image('copas', "./assets/npc/bossBotellin.png") //enemigo
         this.load.image('yusoa', "./assets/npc/yusoa.png") //enemigo
         this.load.image('combat', "./assets/fondos/combate.jpg") //fondo
     }
@@ -46,8 +47,6 @@ init(data){
         );
         
         
-        //ejemplo cambio de escena:
-        //this.scene.start("explorarMadrid", {name:"boss", atk: 65})
         //generamos las primeras cartas
         this.espadas;
         this.copas;
@@ -56,16 +55,253 @@ init(data){
         this.generateCards();
 
 
-        
+        // crear player, inventario y enemigo
+       this.setEntities(); 
+       
+       this.createTextAndButtons();
 
-        // crear player y  enemigo
+       //eventos de turnos
+        this.events.on('playerTurn', ()=>this.isPlayerTurn());
+        this.events.on('enemyTurn', ()=>this.isEnemyTurn());
+        this.events.on('enemyDamaged', ()=>this.enemyDamageAnim());
+
+
+
+    }
+
+    isPlayerTurn() {
+        this.turn = 'player';
+        console.log(this.turn)
+    }
+
+    isEnemyTurn(){
+        this.turn = 'enemy'; // Cambia el turno al enemigo
+        console.log(this.turn);
+        this.enemyTurn();
+    }
+
+    enemyDamageAnim(){
+        this.enemy.setTint(0xff0000);
+        this.time.delayedCall(500, () => {
+            this.enemy.clearTint();
+    });
+ }
+
+    // turno del jugador
+    playerTurn(action) {
+
+        if (this.turn === 'player') {
+            
+            //ataque normal
+            if (action === 'attack') {
+                this.player.attackEnemy(this.enemy, 
+                this.espadas, this.copas, this.bastos,this.oros);
+            } 
+            
+            //ataque con cualidades
+            else if (action === 'magic') {
+
+                if(this.player.mana >=20) {
+                this.cualidades('humildad');
+                this.player.manaPerdido(20);
+                }
+                else  {
+                    console.log("no hay mana");
+                }
+                
+                
+            }
+
+            this.events.emit('enemyDamaged');
+
+            this.updateHealthTexts(); //actualiza la vida
+            var result = this.checkGameOver(); //comprueba si ha acabado el combate
+            if(!result.end == true){
+                this.events.emit('enemyTurn');
+            } else if(result.playerwin == true){
+                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                    inventory: this.inventory.getConfigData(),
+                    battleResult: true})
+            } else {
+                console.log("derrota")
+                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                    inventory: this.inventory.getConfigData(),
+                    battleResult: false})
+            }
+
+            
+        }
+    }
+
+    cualidades(cualidad) {
+        switch(cualidad){
+            case 'humildad':
+                var lvl = this.player.getCualidad('humildad');
+
+               /* var totalDamage = this.oros * 2 * lvl 
+               // + this.espadas
+                + this.bastos * 1.25 * lvl
+                + this.copas;
+            */
+
+                console.log("oros: " +this.oros + "* 2 * lvl "
+                     + "bastos: " + this.bastos + "* 1.25 * lvl"
+                     + "copas: " + this.copas);
+
+                this.player.attackEnemy(this.enemy, this.oros * 2 * lvl, 0,
+                     this.bastos * 1.25 * lvl, this.copas);
+
+                break;
+
+            case 'trabajo duro':
+                var lvl = this.player.getCualidad('trabajo duro');
+                
+               /* var totalDamage = this.oros * 1.25 * lvl
+                + this.espadas
+                + this.bastos * 2 * lvl 
+                //+ this.copas;
+                    */
+
+                this.player.attackEnemy(this.enemy, this.oros * 1.25 * lvl,
+                    this.espadas,
+                    this.bastos * 2 * lvl, 
+                    0); 
+
+                break;
+
+            case 'agnosticismo':
+                var lvl = this.player.getCualidad('trabajo duro');
+                
+              /*  var totalDamage = this.oros
+                + this.espadas * 1.25 * lvl
+                //+ this.bastos 
+                + this.copas * 2 * lvl;
+                    */
+
+                this.player.attackEnemy(this.enemy, this.oros,
+                    this.espadas * 1.25 * lvl,
+                    0,
+                    this.copas * 2 * lvl);
+
+                break;
+
+            case 'afecto':
+                var lvl = this.player.getCualidad('afecto');
+                
+                var totalDamage =
+                // this.oros +
+                this.espadas * 2 * lvl
+                + this.bastos 
+                + this.copas * 1.25 * lvl;
+
+                this.player.attackEnemy(this.enemy, 0,this.espadas * 2 * lvl,
+                    this.bastos, 
+                    this.copas * 1.25 * lvl);
+                break;
+            default: 
+                console.log("algo está fallando");
+        }
+    }
+
+
+
+    // Método de turno del enemigo
+    enemyTurn() {
+
+        if (this.turn === 'enemy') {
+            
+            this.enemy.attackPlayer(this.player); //ataca
+            this.updateHealthTexts(); //cambia vida del player
+            var result = this.checkGameOver(); //comprueba si ha acabado el combate
+            //this.turn = 'player'; // Vuelve el turno al player
+            if(!result.end == true){
+                this.events.emit('playerTurn');
+                this.generateCards(); //genera nuevas cartas
+                this.updateCardsTexts(); // cambia valor de cartas
+            
+            } else if(result.playerwin == true){
+                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                                            inventory: this.inventory.getConfigData(),
+                                            battleResult: true})
+            } else {
+                console.log("derrota")
+                this.scene.start("endCombatScene", {player: this.player.getConfigData(), 
+                    inventory: this.inventory.getConfigData(),
+                    battleResult: false})
+            }
+
+           // this.events.emit('playerTurn');
+            
+        }
+    }
+
+    //Genera nuevas cartas aleatorias
+    generateCards() {
+        this.espadas = Phaser.Math.Between(1, 12);
+        this.copas = Phaser.Math.Between(1, 12);
+        this.bastos = Phaser.Math.Between(1, 12);
+        this.oros = Phaser.Math.Between(1, 12);
+
+        //debug
+        console.log('espadas: ' +this.espadas + ', copas: ' + this.copas + 
+            ', bastos: ' + this.bastos + ', oros: ' + this.oros);
+
+    }
+
+    // Actualiza el texto de la salud de los personajes
+    updateHealthTexts() {
+        this.playerHealthText.setText('PlayerHP: ' +this.player.health);
+        this.enemyHealthText.setText('Enemigo: ' + this.enemy.health);
+        this.playerManaText.setText('PlayerMana: ' + this.player.mana);
+    }
+
+    //Actualiza el texto de las cartas
+    updateCardsTexts(){
+        this.espadasNumber.setText(this.espadas);
+        this.copasNumber.setText(this.copas);
+        this.bastosNumber.setText(this.bastos);
+        this.orosNumber.setText(this.oros);
+    }
+
+    // Comprueba si alguno de los personajes ha perdido
+    checkGameOver() {
+       
+        if (this.player.health <= 0) {
+            //debug
+            console.log('Player pierde');
+            //this.scene.start("lose");
+            return {"end": true, "playerwin": false}
+        }
+         else if (this.enemy.health <= 0) {
+            //debug
+            console.log('Enemy pierde');
+           //this.scene.start("victory");
+           return {"end": true, "playerwin": true}
+        }
+        return {"end": false, "playerwin": false}
+    }
+
+    update() {
+        
+    }
+
+    changeTextsVisibility(){
+        this.espadasText.visible = !this.espadasText.visible;
+        this.copasText.visible = ! this.copasText.visible;
+        this.bastosText.visible = !this.bastosText.visible;
+        this.orosText.visible = !this.orosText.visible;
+    }
+
+
+    setEntities(){
+        //player
         this.player = new Player(this, this.sys.game.canvas.width / 11, this.sys.game.canvas.height / 1.7);
         this.player.init(this.playerConfig);
-        //this.player.setScale(0.1);
-        this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5, 'yusoa');
-        this.enemy.setScale(1);
+        //enemigo
+        this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5, 'copas');
+        this.enemy.setScale(0.7);
 
-        //creamos inventario
+        //inventario
         this.inventory = new Inventory(this)
         this.inventory.init(this.inventoryConfig)
 
@@ -73,6 +309,9 @@ init(data){
         //anulamos movimiento player
         this.player.changeMove(false);
         this.player.visible = false;
+    }
+
+    createTextAndButtons() {
 
         // botones para ataques player
         let attackButton = this.add.rectangle(
@@ -312,204 +551,5 @@ init(data){
         .setScale(-0.3, 0.3)
         .setInteractive()
         .on('pointerdown', () => this.scene.start('zonaScene', { modo: this.ant}));
-
-
-
-
-        
-        this.events.on('playerTurn', ()=>this.isPlayerTurn());
-        this.events.on('enemyTurn', ()=>this.isEnemyTurn());
-
-
-
-    }
-    isPlayerTurn() {
-        this.turn = 'player';
-        console.log(this.turn)
-    }
-    isEnemyTurn(){
-        this.turn = 'enemy'; // Cambia el turno al enemigo
-        console.log(this.turn);
-        this.enemyTurn();
-    }
-
-    // turno del jugador
-    playerTurn(action) {
-
-        if (this.turn === 'player') {
-            
-            //ataque normal
-            if (action === 'attack') {
-                var totalDamage = this.espadas + this.copas + this.bastos + this.oros;
-                this.player.attackEnemy(this.enemy, totalDamage);
-            } 
-            
-            //ataque con cualidades
-            else if (action === 'magic') {
-                //this.changeTextsVisibility();
-                if(this.player.mana >=20) {
-                this.cualidades('humildad');
-                this.player.manaPerdido(20);
-                }
-                else  {
-                    console.log("no hay mana");
-                }
-                
-                
-            }
-
-            this.updateHealthTexts(); //actualiza la vida
-            var result = this.checkGameOver(); //comprueba si ha acabado el combate
-            if(!result.end == true){
-                this.events.emit('enemyTurn');
-            } else if(result.playerwin == true){
-                this.scene.start("victory", {player: this.player.getConfigData(), 
-                                            inventory: this.Inventory.getConfigData()})
-            } else {
-                console.log("derrota")
-                this.scene.start("lose", {player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData()})
-            }
-
-            
-        }
-    }
-
-    cualidades(cualidad) {
-        switch(cualidad){
-            case 'humildad':
-                var lvl = this.player.getCualidad('humildad');
-
-                var totalDamage = this.oros * 2 * lvl 
-               // + this.espadas * this.bad
-                + this.bastos * 1.25 * lvl
-                + this.copas;
-
-                console.log("oros: " +this.oros + "* 2 * lvl "
-                     + "bastos: " + this.bastos + "* 1.25 * lvl"
-                     + "copas: " + this.copas);
-                this.player.attackEnemy(this.enemy, totalDamage);
-                break;
-            case 'trabajo duro':
-                var lvl = this.player.getCualidad('trabajo duro');
-                
-                var totalDamage = this.oros * 1.25 * lvl
-                + this.espadas
-                + this.bastos * 2 * lvl 
-                //+ this.copas;
-
-                this.player.attackEnemy(this.enemy, totalDamage); 
-                break;
-            case 'agnosticismo':
-                var lvl = this.player.getCualidad('trabajo duro');
-                
-                var totalDamage = this.oros
-                + this.espadas * 1.25 * lvl
-                //+ this.bastos 
-                + this.copas * 2 * lvl;
-
-                this.player.attackEnemy(this.enemy, totalDamage);
-                break;
-            case 'afecto':
-                var lvl = this.player.getCualidad('afecto');
-                
-                var totalDamage =
-                // this.oros +
-                this.espadas * 2 * lvl
-                + this.bastos 
-                + this.copas * 1.25 * lvl;
-
-                this.player.attackEnemy(this.enemy, totalDamage);
-                break;
-            default: 
-                console.log("algo está fallando");
-        }
-    }
-
-
-
-    // Método de turno del enemigo
-    enemyTurn() {
-
-        if (this.turn === 'enemy') {
-            
-            this.enemy.attackPlayer(this.player); //ataca
-            this.updateHealthTexts(); //cambia vida del player
-            var result = this.checkGameOver(); //comprueba si ha acabado el combate
-            //this.turn = 'player'; // Vuelve el turno al player
-            if(!result.end == true){
-                this.events.emit('playerTurn');
-                this.generateCards(); //genera nuevas cartas
-                this.updateCardsTexts(); // cambia valor de cartas
-            
-            } else if(result.playerwin == true){
-                this.scene.start("victory", {player: this.player.getConfigData(), 
-                                            inventory: this.Inventory.getConfigData()})
-            } else {
-                console.log("derrota")
-                this.scene.start("lose", {player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData()})
-            }
-
-           // this.events.emit('playerTurn');
-            
-        }
-    }
-
-    //Genera nuevas cartas aleatorias
-    generateCards() {
-        this.espadas = Phaser.Math.Between(1, 12);
-        this.copas = Phaser.Math.Between(1, 12);
-        this.bastos = Phaser.Math.Between(1, 12);
-        this.oros = Phaser.Math.Between(1, 12);
-
-        //debug
-        console.log('espadas: ' +this.espadas + ', copas: ' + this.copas + 
-            ', bastos: ' + this.bastos + ', oros: ' + this.oros);
-
-    }
-
-    // Actualiza el texto de la salud de los personajes
-    updateHealthTexts() {
-        this.playerHealthText.setText('PlayerHP: ' +this.player.health);
-        this.enemyHealthText.setText('Enemigo: ' + this.enemy.health);
-        this.playerManaText.setText('PlayerMana: ' + this.player.mana);
-    }
-
-    //Actualiza el texto de las cartas
-    updateCardsTexts(){
-        this.espadasNumber.setText(this.espadas);
-        this.copasNumber.setText(this.copas);
-        this.bastosNumber.setText(this.bastos);
-        this.orosNumber.setText(this.oros);
-    }
-
-    // Comprueba si alguno de los personajes ha perdido
-    checkGameOver() {
-       
-        if (this.player.health <= 0) {
-            //debug
-            console.log('Player pierde');
-            //this.scene.start("lose");
-            return {"end": true, "playerwin": false}
-        }
-         else if (this.enemy.health <= 0) {
-            //debug
-            console.log('Enemy pierde');
-           //this.scene.start("victory");
-           return {"end": true, "playerwin": true}
-        }
-        return {"end": false, "playerwin": false}
-    }
-
-    update() {
-        
-    }
-
-    changeTextsVisibility(){
-        this.espadasText.visible = !this.espadasText.visible;
-        this.copasText.visible = ! this.copasText.visible;
-        this.bastosText.visible = !this.bastosText.visible;
-        this.orosText.visible = !this.orosText.visible;
     }
 }

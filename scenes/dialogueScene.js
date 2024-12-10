@@ -61,6 +61,9 @@ export default class DialogueScene extends Phaser.Scene {
             this.dialogueJson = this.cache.json.get('dialogueJson');
         }
 
+        //GANAR O PERDER
+        this.resultBattle = data.resultBattle;
+
     }
 
     create(data){
@@ -159,16 +162,33 @@ export default class DialogueScene extends Phaser.Scene {
                  this.vidaText.setScale(0.6);
         }
 
-
         // 5. LEER DIALOGOS
-        this.addDialogue();
+        if(this.npc == 'BOSS')
+        {
+            let lines;
+            if(this.resultBattle == "true") //elle ha ganado
+            {
+                lines = this.dialogueJson[this.npc].victory;
+            }
+            else if(this.resultBattle == "false") //elle ha perdido
+            {
+                lines = this.dialogueJson[this.npc].lose;
+            }
+            else //elle todavia NO ha batallado
+            {
+                lines = this.dialogueJson[this.npc].frases;
+            }
+            this.addDialogue(lines);
+        }
+        else{
+            this.addDialogue(this.dialogueJson[this.npc].frases);
+        }
+        
 
         // Avanza de línea al hacer clic
         this.input.on('pointerdown', () => {
             this.dialog.nextLine();
         });
-
-        
 
         // Cuando se termina el dialogo...
         this.dialog.on('dialogComplete', () => {
@@ -185,7 +205,16 @@ export default class DialogueScene extends Phaser.Scene {
             }
             else if(this.npc == 'BOSS')
             {
-                this.addButtonToScene(1.2, 5, 0xff0000, 'COMBATE', this.mostrarCombate);
+                if(this.resultBattle == "true") //elle ha ganado
+                {
+                    //mostrar recompensa
+                    this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
+                }
+                else //elle todavia NO ha batallado o ha perdido
+                {
+                    this.addButtonToScene(1.2, 5, 0xff0000, 'COMBATE', this.mostrarCombate);
+                }
+                
             }
             else
             {
@@ -228,8 +257,7 @@ export default class DialogueScene extends Phaser.Scene {
 
     }
 
-    
-    addDialogue()
+    addDialogue(frases)
     {
         //TEXTO DIALOGO
         this.dialog = new DialogText(this, {
@@ -245,11 +273,8 @@ export default class DialogueScene extends Phaser.Scene {
             fontSize: 50,
             fontFamily: "pixel"
         });
-
-
-        //this.dialog.toggleWindow();
-        //this.dialog.setText(this.jsonObject[this.npc].frase1, true);
-        this.dialog.startDialog(this.dialogueJson[this.npc].frases);
+        
+        this.dialog.startDialog(frases);
     }
 
     addButtonToScene(x, y, color, text, callback)

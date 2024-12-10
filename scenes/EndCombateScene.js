@@ -1,24 +1,34 @@
-export default class LoseScene extends Phaser.Scene {
+export default class EndCombateScene extends Phaser.Scene {
     constructor(){
-        super({key: "lose"})
+        super({key: "endCombatScene"})
     }
 
-    init(data){
-        this.playerConfig = data.player;
-        this.inventoryConfig = this.inventory;
-    }
+init(data){
+    this.playerConfig = data.player;
+    this.inventoryConfig = data.inventory;
+    this.battleResult = data.battleResult;
+}
 
     create(data){
+
+        let result;
+        if(this.battleResult = true)
+        {
+            result = 'VICTORIA';
+        }
+        else
+        {
+            result = 'DERROTA';
+        }
 
         this.add.text(
             this.sys.game.canvas.width / 2.5,
             this.sys.game.canvas.height / 2,
-            'DERROTA', { 
+            result, { 
             fontSize: '50px', 
             color: '#FFFFFF',       //Blanco
             fontFamily: 'Georgia',  
         });
-
 
         //BACK BUTTON (VOLVER A ZONA SCENE)
         const backScene = this.add.image(
@@ -29,8 +39,8 @@ export default class LoseScene extends Phaser.Scene {
         .setInteractive()
         .on('pointerdown', () => this.scene.start('zonaScene', { modo: data.modo,
                                                                 player: this.playerConfig,
-                                                                inventory: this.inventoryConfig
-        }));
+                                                                inventory: this.inventoryConfig}));
+
     }
 
 }

@@ -24,15 +24,6 @@
         "hablado": "false",
         "scale": 0.5
     },
-    "AGUSTÍN":{
-        "frases":
-        [
-            { "texto": "Ya no se que mas poner", "author": "Agustin" }
-            
-        ],
-        "hablado": "false",
-        "scale": 0.5
-    },
     "HUMBERTO":{
 
         "frases":
@@ -181,7 +172,7 @@
             { "texto": "miau", "author": "Gato" }
         ],
         "hablado": "false",
-        "scale": 1
+        "scale": 0.4
         
     },
     "ELLIE":{
@@ -216,8 +207,8 @@
             { "texto": "¿Hablar con gente? Yo soy más de actuar.", "author": "Elle" },
             { "texto": "Pero bueno, ¿Cómo puedo ir de un barrio a otro?", "author": "Elle" },
             { "texto": "Facilito, pilla la Tenfe,", "author": "Ellie" },
-            { "texto": "Pero, mucha suerte con eso, casi nunca funciona correctamente. Yusoa nos ha quitado los derechos pero, eh, la tenfe nos la ha dejado,", "author": "Ellie" },
-            { "texto": "Entiendo, pero aún que me veas bastante motivade, hablar con mucha gente nueva me da ansiedad.", "author": "Elle" },
+            { "texto": "Pero, mucha suerte con eso, casi nunca funciona correctamente. Yusoa nos ha quitado los derechos pero, eh, la tenfe nos la ha dejado", "author": "Ellie" },
+            { "texto": "Entiendo, pero aunque me veas bastante motivade, hablar con mucha gente nueva me da ansiedad.", "author": "Elle" },
             { "texto": "Pues piensa muy bien con qué vecinos hablar, y si estás muy mal siempre puedes fumarte un piti en el banco.", "author": "Ellie" },
             { "texto": "Todo claro ahora, ¿no?", "author": "Ellie" },
             { "texto": "Recuperar trozos de constitución para juntarlos y llegar a la zona donde está YUSOA para recuperar nuestros derechos.", "author": "Ellie" },
@@ -242,6 +233,15 @@
             { "texto": "Eres menor?", "author": "Boss" },
             { "texto": "¿Qué tal?", "author": "Boss" },
             { "texto": "¿Cómo estás?", "author": "Boss" }
+        ],
+        "victory":[
+            { "texto": "Me has derrotado", "author": "Boss" },
+            { "texto": "Toma la constitucion", "author": "Boss" },
+            { "texto": "Dejame en paz ya", "author": "Boss" }
+        ],
+        "lose":[
+            { "texto": "JAJAJAJAJAJ has perdido", "author": "Boss" },
+            { "texto": "A tomar por culo niñate", "author": "Boss" }
         ],
         "scale": 0.5
         
