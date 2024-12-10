@@ -4,7 +4,6 @@ import MainMenuScene from "../scenes/MainMenuScene.js";
 import localizationScene from "../scenes/localizationScene.js";
 import ZonaScene from "../scenes/zonaScene.js";
 import CombatScene from '../scenes/CombatScene.js';
-import LoseScene from '../scenes/LoseScene.js';
 import EndCombateScene from '../scenes/EndCombateScene.js';
 import PickScene from '../scenes/PickScene.js';
 import InventoryScene from '../scenes/InventoryScene.js';
@@ -53,7 +52,7 @@ let config = {
         },
 		zoom: 1
     },
-  scene: [loadScene,MainMenuScene,ZonaScene, localizationScene, CombatScene, EndCombateScene, LoseScene,InventoryScene,PickScene, TenfeScene, DialogueScene, GeneralContactsScene,ContactScene,StatsScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
+  scene: [loadScene,MainMenuScene,ZonaScene, localizationScene, CombatScene, EndCombateScene,InventoryScene,PickScene, TenfeScene, DialogueScene, GeneralContactsScene,ContactScene,StatsScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
     //scene: [localizationScene, ZonaScene], //debug
     //scene: [CombatScene, VictoryScene, LoseScene], //debug
     //scene:[StatsScene],
