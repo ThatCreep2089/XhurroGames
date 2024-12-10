@@ -6,7 +6,7 @@ export default class CombatScene extends Phaser.Scene {
     constructor() {
         super({ key: 'CombatScene' });
         this.turn = 'player'; // Inicia el turno el player
-        
+        this.totalDamage = 0;
     }
 
 init(data){
@@ -58,7 +58,8 @@ init(data){
         // crear player, inventario y enemigo
        this.setEntities(); 
        
-       this.createTextAndButtons();
+       this.createButtons();
+       this.createText();
 
        //eventos de turnos
         this.events.on('playerTurn', ()=>this.isPlayerTurn());
@@ -103,6 +104,12 @@ init(data){
     });
  }
 
+
+ playerMakesDamage(totalDamage){ 
+    this.enemy.takeDamage(totaldamage);
+ }
+
+
     // turno del jugador
     playerTurn(action) {
 
@@ -110,8 +117,27 @@ init(data){
             
             //ataque normal
             if (action === 'attack') {
-                this.player.attackEnemy(this.enemy, 
-                this.espadas, this.copas, this.bastos,this.oros);
+                //this.player.attackEnemy(this.enemy, 
+                //this.espadas, this.copas, this.bastos,this.oros);
+                
+                if(this.enemy.weakness === 'espadas') {
+                    this.espadas *= 2;
+                }
+                else if(this.enemy.weakness === 'copas'){
+                    this.copas *= 2;
+                    console.log(this.copas)
+                }
+                else if(this.enemy.weakness === 'bastos'){
+                    this.bastos *= 2;
+                }
+                else if(this.enemy.weakness === 'oros') {
+                    this.oros *= 2;
+                }            
+                
+                this.totalDamage = this.espadas + this.copas + this.bastos + this.oros;
+
+                this.updateTotalText();
+
             } 
             
             //ataque con cualidades
@@ -164,7 +190,7 @@ init(data){
         }); 
         */
 
-this.events.emit('enemyDamaged');
+        //this.events.emit('enemyDamaged');
             
         }
     }
@@ -299,6 +325,10 @@ this.events.emit('enemyDamaged');
         this.orosNumber.setText(this.oros);
     }
 
+    updateTotalText(){
+        this.totalDamageText.setText(this.totalDamage);
+    }
+
     // Comprueba si alguno de los personajes ha perdido
     checkGameOver() {
        
@@ -347,8 +377,8 @@ this.events.emit('enemyDamaged');
         this.player.visible = false;
     }
 
-    createTextAndButtons() {
 
+    createButtons(){
         // botones para ataques player
         let attackButton = this.add.rectangle(
             this.sys.game.canvas.width / 1.8,
@@ -368,7 +398,18 @@ this.events.emit('enemyDamaged');
             .setInteractive()
             .on('pointerdown', () => this.playerTurn('magic'));
 
+        let totalDamageButton = this.add.rectangle(this.add.rectangle(
+            this.sys.game.canvas.width / 1.15,
+            this.sys.game.canvas.height / 1.3,
+            300, 300,
+            0xff0000 
+            )
+            .setInteractive()
+            .on('pointerdown', () => this.enemy.takeDamage(this.totalDamage)));
+
         // texto en los botones
+
+        //texto ataque normal
         this.add.text(
             this.sys.game.canvas.width / 1.95,
             this.sys.game.canvas.height / 2.1,
@@ -377,6 +418,7 @@ this.events.emit('enemyDamaged');
             color: '#FFFFFF',       //Blanco
             fontFamily: 'Georgia',  
         });
+        //texto ataque cualidades
         this.add.text(
             this.sys.game.canvas.width / 3.7,
             this.sys.game.canvas.height / 2.1,
@@ -385,6 +427,28 @@ this.events.emit('enemyDamaged');
             color: '#FFFFFF',       // Blanco
             fontFamily: 'Georgia',  
         });
+
+        //texto suma total
+        this.add.text(
+            this.sys.game.canvas.width / 1.2,
+            this.sys.game.canvas.height / 1.8,
+            'Total', { 
+            fontSize: '50px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
+        //suma total  
+        this.totalDamageText = this.add.text(
+            this.sys.game.canvas.width / 1.15,
+            this.sys.game.canvas.height / 1.3,
+            '0', { 
+            fontSize: '100px', 
+            color: '#FFFFFF',       // Blanco
+            fontFamily: 'Georgia',  
+        });
+    }
+
+    createText() {
 
 
         //texto de valores de las cartas:
