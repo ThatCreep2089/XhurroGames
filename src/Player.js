@@ -127,11 +127,10 @@ HealQuality(amount)
 
 //métodos de combate (victor)
     // Método de ataque
-    attackEnemy(enemy, totalDamage) {
+    attackEnemy(enemy, espadas, copas, bastos, oros) {
 
-        enemy.takeDamage(totalDamage);
-        //debug
-        console.log("ataque normal: " + totalDamage);
+        enemy.takeDamage(espadas, copas, bastos, oros);
+
     }
 
     // Método de reducir mana
