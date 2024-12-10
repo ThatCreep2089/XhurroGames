@@ -24,15 +24,6 @@
         "hablado": "false",
         "scale": 0.5
     },
-    "AGUSTÍN":{
-        "frases":
-        [
-            { "texto": "Ya no se que mas poner", "author": "Agustin" }
-            
-        ],
-        "hablado": "false",
-        "scale": 0.5
-    },
     "HUMBERTO":{
 
         "frases":
@@ -181,7 +172,7 @@
             { "texto": "miau", "author": "Gato" }
         ],
         "hablado": "false",
-        "scale": 1
+        "scale": 0.4
         
     },
     "ELLIE":{
