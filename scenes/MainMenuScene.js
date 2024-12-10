@@ -7,10 +7,7 @@ export default class MainMenuScene extends Phaser.Scene {
 
     preload()
     {
-        this.load.image('fondo', "./assets/web media/madrizzc.jpg") //fondo
-        this.load.image('titulo', "./assets/web media/titulo.png") //titulo
-
-        this.load.json("dialogueJson", 'src/dialog.json');
+       
     }
 
     create(){
