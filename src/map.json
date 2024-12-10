@@ -288,9 +288,89 @@
                 {
                     "sprite": "building1",
                     "x": 1.04,
-                    "y": 1.5,
-                    "width": 0.1,
-                    "height": 0.7,
+                    "y": 1.67,
+                    "width": 0.14,
+                    "height": 0.45,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building2",
+                    "x": 1.81,
+                    "y": 1.43,
+                    "width": 0.35,
+                    "height": 0.29,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building2",
+                    "x": 1.45,
+                    "y": 9.5,
+                    "width": 0.24,
+                    "height": 0.29,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building2",
+                    "x": 1.27,
+                    "y": 1.67,
+                    "width": 0.28,
+                    "height": 0.48,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building2",
+                    "x": 3.4,
+                    "y": 9.5,
+                    "width": 0.35,
+                    "height": 0.29,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building2",
+                    "x": 50,
+                    "y": 2.5,
+                    "width": 0.4,
+                    "height": 0.1,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building3",
+                    "x": 1.1,
+                    "y": 1.02,
+                    "width": 0.3,
+                    "height": 0.06,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building3",
+                    "x": 50,
+                    "y": 12,
+                    "width": 0.35,
+                    "height": 0.29,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building3",
+                    "x": 1.08,
+                    "y": 12,
+                    "width": 0.35,
+                    "height": 0.29,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building3",
+                    "x": 1.81,
+                    "y": 2.5,
+                    "width": 0.31,
+                    "height": 0.09,
+                    "colliderGroup": "buildings"
+                },
+                {
+                    "sprite": "building3",
+                    "x": 8,
+                    "y": 1.02,
+                    "width": 0.4,
+                    "height": 0.06,
                     "colliderGroup": "buildings"
                 }
             ],
