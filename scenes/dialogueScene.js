@@ -135,7 +135,7 @@ export default class DialogueScene extends Phaser.Scene {
         }
 
         // 5. LEER DIALOGOS
-        if(this.npc == 'BOSS')
+        if(this.dialogueJson[this.npc].isBoss == true)
         {
             let lines;
             if(this.battleResult == true || this.dialogueJson[this.npc].derrotado == true) //elle ha ganado
@@ -174,11 +174,16 @@ export default class DialogueScene extends Phaser.Scene {
                 //curar vida
                 this.addButtonToScene(1.5, 3, 0x00fff3, `CURAR VIDA`, this.fumarPorroVida);
             }
-            else if(this.npc == 'BOSS')
+            else if(this.dialogueJson[this.npc].isBoss == true)
             {
                 console.log(this.dialogueJson[this.npc].derrotado);
                 if(this.battleResult == true && this.dialogueJson[this.npc].derrotado == false) //elle ha ganado
                 {
+                    if(this.npc == "YUSOA")
+                    {
+                        //llamar a escena final
+                        this.scene.start('MainMenuScene');
+                    }
                     //mostrar recompensa
                     this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
                     this.dialogueJson[this.npc].derrotado = true;

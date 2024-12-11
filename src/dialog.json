@@ -236,7 +236,8 @@
             { "texto": "A tomar por culo niñate", "author": "Boss" }
         ],
         "scale": 0.5,
-        "derrotado": false
+        "derrotado": false,
+        "isBoss": true
         
     },
     "PITIBANCO":{
@@ -255,11 +256,20 @@
     },
     "YUSOA":{
         "frases":[
-            { "texto": "LOL", "author": "PitiBanco" },
-            { "texto": "AAAAAAAAAA", "author": "PitiBanco" }
+            { "texto": "LOL", "author": "Yusoa" },
+            { "texto": "AAAAAAAAAA", "author": "Yusoa" }
         ],
-        "hablado": "false",
-        "scale": 1
+        "victory":[
+            { "texto": "Me has derrotado", "author": "Yusoa" },
+            { "texto": "Inserte video del final", "author": "Yusoa" }
+        ],
+        "lose":[
+            { "texto": "JAJAJAJAJAJ has perdido", "author": "Yusoa" },
+            { "texto": "A tomar por culo niñate", "author": "Yusoa" }
+        ],
+        "scale": 1,
+        "isBoss": true,
+        "derrotado": false
         
     }
     
