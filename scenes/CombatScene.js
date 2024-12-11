@@ -23,7 +23,7 @@ init(data){
 
     preload() {
         //Cargar imágenes
-        this.load.image('player', "./assets/npc/elle.png") //player
+        this.load.image('playerCombat', "./assets/npc/elle.png") //player
         this.load.image('copas', "./assets/npc/bossBotellin.png") //enemigo
         this.load.image('yusoa', "./assets/npc/yusoa.png") //enemigo
         this.load.image('combat', "./assets/fondos/combate.jpg") //fondo
@@ -370,7 +370,7 @@ init(data){
 
     setEntities(){
         //player
-        this.player = new Player(this, this.sys.game.canvas.width / 11, this.sys.game.canvas.height / 1.7);
+        this.player = new Player(this, this.sys.game.canvas.width / 11, this.sys.game.canvas.height / 1.7, 'playerCombat');
         this.player.init(this.playerConfig);
         //enemigo
         this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5, 'copas');
@@ -383,7 +383,7 @@ init(data){
 
         //anulamos movimiento player
         this.player.changeMove(false);
-        this.player.visible = false;
+        //this.player.visible = false;
     }
 
 
