@@ -236,7 +236,17 @@
             { "texto": "A tomar por culo niñate", "author": "Boss" }
         ],
         "scale": 0.5,
-        "derrotado": false
+        "derrotado": false,
+        "recompensa": 
+        { 
+            "name": "roca pija",
+            "description": "+10 puntos de cualidad",
+            "effect": 4,
+            "x": 800,
+            "y": 700,
+            "amountOfEffect": 10,
+            "recogido": "false"
+        }
         
     },
     "PITIBANCO":{
