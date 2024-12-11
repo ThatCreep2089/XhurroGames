@@ -103,7 +103,7 @@ export default class DialogueScene extends Phaser.Scene {
        if(this.npc == 'PITIBANCO')
         {
              //debug (para probar si funciona curar)
-             this.player.takeDamage(50);
+             //this.player.takeDamage(50);
              
              // 2.9 MOSTRAR ANSIEDAD
              this.anxietyText = this.add.text(
@@ -138,7 +138,7 @@ export default class DialogueScene extends Phaser.Scene {
         if(this.npc == 'BOSS')
         {
             let lines;
-            if(this.battleResult == true) //elle ha ganado
+            if(this.battleResult == true || this.dialogueJson[this.npc].derrotado == true) //elle ha ganado
             {
                 lines = this.dialogueJson[this.npc].victory;
             }
@@ -176,12 +176,14 @@ export default class DialogueScene extends Phaser.Scene {
             }
             else if(this.npc == 'BOSS')
             {
-                if(this.battleResult == true) //elle ha ganado
+                console.log(this.dialogueJson[this.npc].derrotado);
+                if(this.battleResult == true && this.dialogueJson[this.npc].derrotado == false) //elle ha ganado
                 {
                     //mostrar recompensa
                     this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
+                    this.dialogueJson[this.npc].derrotado = true;
                 }
-                else //elle todavia NO ha batallado o ha perdido
+                else if(this.dialogueJson[this.npc].derrotado != true) //elle todavia NO ha batallado o ha perdido
                 {
                     this.addButtonToScene(1.2, 5, 0xff0000, 'COMBATE', this.mostrarCombate);
                 }
