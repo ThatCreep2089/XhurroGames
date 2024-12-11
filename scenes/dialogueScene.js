@@ -179,7 +179,6 @@ export default class DialogueScene extends Phaser.Scene {
             }
             else if(this.dialogueJson[this.npc].isBoss == true)
             {
-                console.log(this.dialogueJson[this.npc].derrotado);
                 if(this.battleResult == true && this.dialogueJson[this.npc].derrotado == false) //elle ha ganado
                 {
                     if(this.npc == "YUSOA")

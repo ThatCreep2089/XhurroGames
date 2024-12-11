@@ -13,7 +13,8 @@
             
         ],
         "hablado": "false",
-        "scale": 0.5
+        "scale": 0.5,
+        "recompensa": "humildad"
     },
     "ÁNGEL":{
         "frases":
@@ -27,7 +28,8 @@
             { "texto": "En esta ciudad o tomas algo o te vuelves completamente loco.", "author": "Ángel" }
         ],
         "hablado": "false",
-        "scale": 0.5
+        "scale": 0.5,
+        "recompensa": "trabajo duro"
     },
     "HUMBERTO":{
 
@@ -41,7 +43,8 @@
             { "texto": "Mi caballo Sardinilla es el mejor de todos, no hay quien le gane.", "author": "Humberto" }
         ],
         "hablado": "false",
-        "scale": 0.5
+        "scale": 0.5,
+        "recompensa": "afecto"
     },
     "JOSÉ":{
 
@@ -53,7 +56,8 @@
             { "texto": "¡Vamos vamos apuesta por mi Lentejilla ya verás que te harás con un buen botín!", "author": "Jose" }
         ],
         "hablado": "false",
-        "scale": 0.5
+        "scale": 0.5,
+        "recompensa": "humildad"
     },
     "MARÍA":{
 
@@ -70,7 +74,8 @@
             { "texto": "Nadie dice nada.", "author": "Maria" }
         ],
         "hablado": "false",
-        "scale": 0.5
+        "scale": 0.5,
+        "recompensa": "trabajo duro"
         
     },
     "PEDRITO":{
@@ -85,7 +90,8 @@
             { "texto": "Algún día lo conseguire", "author": "Pedrito" }
         ],
         "hablado": "false",
-        "scale": 0.5
+        "scale": 0.5,
+        "recompensa": "afecto"
         
     },
     "CONSUELO":{
@@ -104,7 +110,8 @@
 
         ],
         "hablado": "false",
-        "scale": 0.5
+        "scale": 0.5,
+        "recompensa": "agnosticismo"
     },
     "MARÍA TERESA":{
 
@@ -118,7 +125,8 @@
             { "texto": "Eso es lo que nos enseñó Jesús, ¿no?", "author": "Maria Teresa" }
         ],
         "hablado": "false",
-        "scale": 0.5
+        "scale": 0.5,
+        "recompensa": "humildad"
     },
     "ALI":{
 
@@ -131,7 +139,7 @@
             { "texto": "Realmente es horrible lo que algunos adultos pueden llegar a hacer...", "author": "Ali" }
         ],
         "hablado": "false",
-        "recompensa"   : "agnosticismo"
+        "recompensa": "agnosticismo"
     },
     "MARÍA DEL CARMEN":{
         "frases":
@@ -146,7 +154,8 @@
             { "texto": "María Jose, perdón por no ser valiente.", "author": "Maria del Carmen" }
         ],
         "hablado": "false",
-        "scale": 0.5
+        "scale": 0.5,
+        "recompensa": "trabajo duro"
     },
     "MARÍA JOSÉ":{
         "frases":
@@ -162,7 +171,8 @@
             { "texto": "Si tan solo Maria del Carmen viniera conmigo...", "author": "Maria Jose" }
         ],
         "hablado": "false",
-        "scale": 0.5
+        "scale": 0.5,
+        "recompensa": "afecto"
     },
     "JESÚS":{
         "frases":
@@ -175,7 +185,8 @@
             { "texto": "Debo de seguir bebiendo de este vino bendito para volver a verla y preguntarla más hacerca de mi enmienda", "author": "Jesus" }
         ],
         "hablado": "false",
-        "scale": 0.5
+        "scale": 0.5,
+        "recompensa": "humildad"
     },
     "GATO EN CAJA":{
 
@@ -187,8 +198,8 @@
             { "texto": "Tengo algo golosón que seguro que te interesa", "author": "Gato" }
         ],
         "hablado": "false",
-        "scale": 0.4
-        
+        "scale": 0.4,
+        "recompensa": "trabajo duro"
     },
     "ELLIE":{
         "frases":[

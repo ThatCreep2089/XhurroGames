@@ -32,7 +32,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.maxMana=400;
         this.maxHealth = 100;
         //cualidades
-        this.humidad = 1;
+        this.humildad = 1;
         this.trabajoDuro = 1;
         this.agnosticismo = 1;
         this.afecto = 1;
@@ -49,7 +49,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.maxMana=config.maxMana;
         this.maxHealth = config.maxHealth;
         //cualidades
-        this.humidad = config.humidad;
+        this.humildad = config.humildad;
         this.trabajoDuro = config.trabajoDuro;
         this.agnosticismo = config.agnosticismo;
         this.afecto = config.afecto;
@@ -64,7 +64,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
             maxMana : this.maxMana,
             maxHealth : this.maxHealth,
             //cualidades
-            humidad : this.humidad,
+            humildad : this.humildad,
             trabajoDuro : this.trabajoDuro,
             agnosticismo : this.agnosticismo,
             afecto : this.afecto,
@@ -219,7 +219,7 @@ HealQuality(amount)
     getCualidad(cualidad) {
         switch(cualidad) {
             case 'humildad' :
-                return this.humidad;
+                return this.humildad;
             case 'trabajo duro':
                 return this.trabajoDuro;
             case 'agnosticismo':
@@ -231,15 +231,21 @@ HealQuality(amount)
     
 
 mejorarCualidad(cualidad) {
-    switch(cualidad) {
-        case 'humildad' :
-            this.humidad += 1;
-        case 'trabajoduro':
+    switch (cualidad) {
+        case 'humildad':
+            this.humildad += 1;
+            break;
+        case 'trabajo duro':
             this.trabajoDuro += 1;
+            break;
         case 'agnosticismo':
             this.agnosticismo += 1;
+            break;
         case 'afecto':
-            return this.afecto;
+            this.afecto += 1;
+            break;
+        default:
+            console.log('cualidad no valida');
     }
 }
 
