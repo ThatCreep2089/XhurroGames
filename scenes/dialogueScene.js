@@ -41,8 +41,6 @@ export default class DialogueScene extends Phaser.Scene {
     }
 
     create(data){
-        console.log(data.npc);//debug
-
         //INVENTARIO
             //instanciar inventario
             this.inventory = new Inventory(this);
@@ -166,8 +164,7 @@ export default class DialogueScene extends Phaser.Scene {
 
         // Cuando se termina el dialogo...
         this.dialog.on('dialogComplete', () => {
-            console.log(this.dialogueJson[this.npc]);
-            
+
             if(this.npc == 'PITIBANCO')
             {
                 //PORROS (BOTONES)
@@ -213,7 +210,6 @@ export default class DialogueScene extends Phaser.Scene {
                     this.scene.start('zonaScene');
                 }
                 else{
-                    console.log(this.player);
                     this.scene.start('localizationScene',{
                         fondo: data.fondo,
                         ant: this.ant,

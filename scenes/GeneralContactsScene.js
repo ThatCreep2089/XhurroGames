@@ -6,10 +6,12 @@ export default class GeneralContactsScene extends Phaser.Scene {
     init(data) {
         this.lastScene = data.lastScene;
         this.playerConfig= data.player;
+        this.inventoryConfig = data.inventory;
         this.modo= data.modo;
-        console.log('lastScene', data.lastScene);
-        console.log("modo",data.modo);
-    
+        this.dialogueJson = data.dialogueJson;
+
+        console.log(this.playerConfig);
+        console.log(this.inventoryConfig);
     }
 
     preload() {
@@ -34,7 +36,12 @@ export default class GeneralContactsScene extends Phaser.Scene {
         const createRectangle = (x, y, width, height, color, modo) => {
             const rect = this.add.rectangle(x, y, width, height, color).setOrigin(0);
             rect.setInteractive().on('pointerdown', () => {
-                this.scene.start('ContactScene', { modo: modo }); // Cambiar el modo según la escena
+                this.scene.start('ContactScene', { 
+                    lastScene : this.lastScene,
+                    player: this.playerConfig,
+                    inventory: this.inventoryConfig,
+                    modo: this.modo,
+                    dialogueJson : this.dialogueJson }); // Cambiar el modo según la escena
             });
             return rect;
         };
@@ -55,8 +62,11 @@ export default class GeneralContactsScene extends Phaser.Scene {
         .setInteractive()
         .on('pointerdown', () => {
             this.scene.start(this.lastScene, { 
-                
-                modo: this.modo
+                lastScene : this.lastScene,
+                player: this.playerConfig,
+                inventory: this.inventoryConfig,
+                modo: this.modo,
+                dialogueJson : this.dialogueJson 
             });
         });
     }

@@ -214,12 +214,13 @@ export default class ZonaScene extends Phaser.Scene{
                 this.scene.start('StatsScene', {
                     lastScene: this.key, // Este es el valor que debería contener "zonaScene"
                     player: player.getConfigData(),
-                    
+                    inventory: this.inventory.getConfigData(),
                     modo: this.modo,
-                    //dialogueJson: this.dialogueJson
+                    dialogueJson: this.dialogueJson
                 });
             });
-                  // botones para ir contactos
+            
+            // botones para ir contactos
             let contactosButton = this.add.rectangle(
                 this.sys.game.canvas.width / 14,
                 this.sys.game.canvas.height / 1.3, 
@@ -231,8 +232,9 @@ export default class ZonaScene extends Phaser.Scene{
                 this.scene.start('GeneralContactsScene', {
                     lastScene: this.key, // Este es el valor que debería contener "zonaScene"
                     player: player.getConfigData(),
+                    inventory: this.inventory.getConfigData(),
                     modo: this.modo,
-                    //dialogueJson: this.dialogueJson
+                    dialogueJson: this.dialogueJson
                 });
             });
                  // Texto para mostrar "Contactos" en el centro del botón

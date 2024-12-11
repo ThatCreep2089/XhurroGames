@@ -19,6 +19,8 @@ init(data){
 
     this.playerConfig = data.player;
     this.inventoryConfig = data.inventory;
+
+    this.lastScene = data.lastScene;
 }
 
     preload() {
@@ -148,9 +150,11 @@ init(data){
         .setInteractive()
         .on('pointerdown', () => {
             this.scene.start('GeneralContactsScene', {
-                player : this.playerConfig,
+                lastScene : this.lastScene,
+                player: this.playerConfig,
                 inventory: this.inventoryConfig,
-                dialogueJson: this.dialogueJson
+                modo: this.modo,
+                dialogueJson : this.dialogueJson
             });
         });
 
