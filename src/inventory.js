@@ -39,7 +39,7 @@ export default class Inventory
             existingItem.cantidad++; // Incrementar la cantidad si ya existe
         } else {
             if (this.elems.length < this.tam) {
-                this.elems.push({ ...item, cantidad: 1 }); // Agregar un nuevo ítem con cantidad inicial 1
+                this.elems.push({ item, cantidad: 1 }); // Agregar un nuevo ítem con cantidad inicial 1
             } else {
                 console.log("Inventario lleno.");
             }
@@ -72,6 +72,12 @@ export default class Inventory
     GetItems() {
         return this.elems;
     }
-
+    
+    GetTrozos()
+    {
+        const trozo = this.elems.find(i => i.name === "trozo");
+        if (trozo==null||trozo==0){return 0}
+        else{return trozo.cantidad}
+    }
    
 }

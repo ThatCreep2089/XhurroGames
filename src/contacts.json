@@ -19,7 +19,7 @@
                     "posx": 2,
                     "posy": 5,
                     "descripcion":"monja",
-                    "edad": 55,
+                    "edad": 68,
                     "localizacion":"Circulo Verde"
                 },
                 {
@@ -46,7 +46,7 @@
                     "posx": 8,
                     "posy": 3,
                     "descripcion":"Presidenta cámara CNI",
-                    "edad": 37,
+                    "edad": 30,
                     "localizacion":"CNI"
                 },
                 {
@@ -55,7 +55,7 @@
                     "posx": 5,
                     "posy": 3,
                     "descripcion":"Secretario de María",
-                    "edad": 30,
+                    "edad": 27,
                     "localizacion":"CNI"
                 },
                 {
@@ -73,7 +73,7 @@
                     "posx": 8,
                     "posy": 5,
                     "descripcion":"Vagabundo",
-                    "edad": 60,
+                    "edad": 30,
                     "localizacion":"Puente"
                 },
                 {
@@ -82,7 +82,7 @@
                     "posx": 11,
                     "posy": 5,
                     "descripcion":"Profesor historia",
-                    "edad": 45,
+                    "edad": 58,
                     "localizacion":"Bar paco"
                 },
                 {
@@ -100,7 +100,7 @@
                     "posx": 5,
                     "posy": 7,
                     "descripcion":"Average borracho",
-                    "edad": 40,
+                    "edad": 22,
                     "localizacion":"Bar"
                 },
                 {
