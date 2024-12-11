@@ -85,12 +85,11 @@ export default class TenfeScene extends Phaser.Scene {
         ).setOrigin(0.5);
 
         //pintar boton  linea metro yusoa
-
         const yusoaMetroButton = this.add.text(
             this.sys.game.canvas.width / 2,
             this.sys.game.canvas.height / 2 - 50,
             'esperar tenfe',
-            { fontSize: '32px', color: '#ffffff', backgroundColor: '#000000', padding: { x: 10, y: 5 } }
+            { fontSize: '100px', color: '#ffffff', backgroundColor: '#000000', padding: { x: 10, y: 5 } }
         ).setOrigin(0.5).setInteractive();
         
         yusoaMetroButton.on('pointerdown', () => {
@@ -102,9 +101,11 @@ export default class TenfeScene extends Phaser.Scene {
             
         
             // Generar número aleatorio
-            const secs = Phaser.Math.Between(0, 60);
+            const secs = Phaser.Math.Between(0, 20);
+            console.log("secs"+ secs);
             this.countdown = secs * 1000;
-            this.resultText.setText(`Número: ${secs}`);
+            console.log("countdown" + this.countdown)
+            this.resultText.setText("Tiempo de espera en segs: "+ this.countdown);
 
               // Temporizador para mostrar "renfe"
               tiempoEspera = this.time.addEvent({
@@ -115,12 +116,12 @@ export default class TenfeScene extends Phaser.Scene {
                     //reemplza timer por texto
                     this.resultText.setText('el metro ha llegado');
                     //subir ansiedad, referencia al player inventario json dialogo...
-                    //...
-                    this.createButton('entrar en el metro', this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2 + 50, () => {
+                    this.player.IncreaseAnxiety(secs);
+                    this.createButton('entrar en el metro', this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 1.5, () => {
                         //subir ansiedad
                         //...
                         this.scene.start('zonaScene', {// Cambiar escena
-                           modo: this.modo, //cambiar a modo: 4
+                           modo: 4, //cambiar a modo: 4
                             player: this.player.getConfigData(),
                             inventory: this.inventory.getConfigData(),
                             dialogueJson: this.dialogueJson
@@ -182,29 +183,18 @@ export default class TenfeScene extends Phaser.Scene {
 
         if ( this.countdown < 0) { // Si se pasan del tiempo o ...
            console.log("se ha terminao el tiempo");//debug   
-           this.resultText.setText("secs: 0");
+           this.resultText.setText("Tiempo a esperar: 0");
         }
         else {
-            
-        this.countdown -= dt;
-        this.resultText.setText("secs: ",Math.round(this.time * 0.001));
+            this.countdown -= dt;
+            //console.log(this.countdown);
+            this.resultText.setText("Tiempo a esperar: " + Math.round(this.countdown * 0.001));
         }
 
-
-       // this.timeText.setText(Math.round(this.time 0.001));
-
-    }
-
-    random_tenfe(){
-
-        
-            // Generar número aleatorio
-            const secs = Phaser.Math.Between(0, 60);
-            this.resultText.setText(`Número: ${secs}`);
     }
 
     createButton(text, x, y, callback) {
-        const button = this.add.text(x, y, text, { fontSize: '32px', color: '#ffffff', backgroundColor: '#000000', padding: { x: 10, y: 5 } }).setOrigin(0.5).setInteractive();
+        const button = this.add.text(x, y, text, { fontSize: '100px', color: '#ffffff', backgroundColor: '#000000', padding: { x: 10, y: 5 } }).setOrigin(0.5).setInteractive();
         button.on('pointerdown', callback);
     }   
 
