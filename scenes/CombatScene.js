@@ -7,6 +7,7 @@ export default class CombatScene extends Phaser.Scene {
         super({ key: 'CombatScene' });
         this.turn = 'player'; // Inicia el turno el player
         this.totalDamage = 0;
+        this.usingMana = false;
     }
 
 init(data){
@@ -89,8 +90,44 @@ init(data){
  }
 
 
- playerMakesDamage(totalDamage){ 
-    this.enemy.takeDamage(totaldamage);
+ playerMakesDamage(damage){ 
+    if (this.usingMana == true) {
+
+        if(this.player.mana >=20) {
+        this.enemyDamageAnim();
+        this.enemy.takeDamage(damage);
+        this.player.manaPerdido(20);
+        }
+        else  {
+            console.log("no hay mana");
+        }
+    }
+    else {
+        this.enemyDamageAnim();
+        this.enemy.takeDamage(damage);
+    }
+
+    this.updateHealthTexts(); //actualiza la vida
+            var result = this.checkGameOver(); //comprueba si ha acabado el combate
+            if(!result.end == true){
+                this.events.emit('enemyTurn');
+            } else if(result.playerwin == true){
+                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
+                    inventory: this.inventory.getConfigData(),
+                    npc: this.npc,
+                    fondo: this.fondo,
+                    dialogueJson: this.dialogueJson,
+                    battleResult: true})
+            } else {
+                console.log("derrota")
+                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
+                    inventory: this.inventory.getConfigData(),
+                    npc: this.npc,
+                    fondo: this.fondo,
+                    dialogueJson: this.dialogueJson,
+                    battleResult: false})
+            }
+    
  }
 
 
@@ -122,13 +159,14 @@ init(data){
 
                 this.updateTotalText();
 
+                this.usingMana = false;
+
             } 
             
             //ataque con cualidades
-            else if (action === 'magic') {
+            else if (this.usingMana == true) {
 
                 if(this.player.mana >=20) {
-                this.cualidades('humildad');
                 this.player.manaPerdido(20);
                 }
                 else  {
@@ -137,29 +175,8 @@ init(data){
                 
                 
             }
-            this.enemy.takeDamage(this.totalDamage);
+            //this.enemy.takeDamage(this.totalDamage);
             //this.events.emit('enemyDamaged');
-
-            this.updateHealthTexts(); //actualiza la vida
-            var result = this.checkGameOver(); //comprueba si ha acabado el combate
-            if(!result.end == true){
-                this.events.emit('enemyTurn');
-            } else if(result.playerwin == true){
-                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData(),
-                    npc: this.npc,
-                    fondo: this.fondo,
-                    dialogueJson: this.dialogueJson,
-                    battleResult: true})
-            } else {
-                console.log("derrota")
-                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData(),
-                    npc: this.npc,
-                    fondo: this.fondo,
-                    dialogueJson: this.dialogueJson,
-                    battleResult: false})
-            }
             
 
 
@@ -173,65 +190,58 @@ init(data){
             case 'humildad':
                 var lvl = this.player.getCualidad('humildad');
 
-               /* var totalDamage = this.oros * 2 * lvl 
-               // + this.espadas
+                this.totalDamage = this.oros * 2 * lvl 
+                // + this.espadas
                 + this.bastos * 1.25 * lvl
                 + this.copas;
-            */
+            
+                this.updateTotalText();
 
-                console.log("oros: " +this.oros + "* 2 * lvl "
-                     + "bastos: " + this.bastos + "* 1.25 * lvl"
-                     + "copas: " + this.copas);
-
-                this.player.attackEnemy(this.enemy, this.oros * 2 * lvl, 0,
-                     this.bastos * 1.25 * lvl, this.copas);
+                this.usingMana = true;
 
                 break;
 
             case 'trabajo duro':
                 var lvl = this.player.getCualidad('trabajo duro');
                 
-               /* var totalDamage = this.oros * 1.25 * lvl
+                this.totalDamage = this.oros * 1.25 * lvl
                 + this.espadas
                 + this.bastos * 2 * lvl 
                 //+ this.copas;
-                    */
+                    
+                this.updateTotalText();
 
-                this.player.attackEnemy(this.enemy, this.oros * 1.25 * lvl,
-                    this.espadas,
-                    this.bastos * 2 * lvl, 
-                    0); 
+                this.usingMana = true;
 
                 break;
 
             case 'agnosticismo':
-                var lvl = this.player.getCualidad('trabajo duro');
+                var lvl = this.player.getCualidad('agnosticismo');
                 
-              /*  var totalDamage = this.oros
+                this.totalDamage = this.oros
                 + this.espadas * 1.25 * lvl
                 //+ this.bastos 
                 + this.copas * 2 * lvl;
-                    */
+                    
+                this.updateTotalText(); 
 
-                this.player.attackEnemy(this.enemy, this.oros,
-                    this.espadas * 1.25 * lvl,
-                    0,
-                    this.copas * 2 * lvl);
+                this.usingMana = true;
 
                 break;
 
             case 'afecto':
                 var lvl = this.player.getCualidad('afecto');
                 
-                var totalDamage =
+                this.totalDamage =
                 // this.oros +
                 this.espadas * 2 * lvl
                 + this.bastos 
                 + this.copas * 1.25 * lvl;
 
-                this.player.attackEnemy(this.enemy, 0,this.espadas * 2 * lvl,
-                    this.bastos, 
-                    this.copas * 1.25 * lvl);
+                this.updateTotalText();
+
+                this.usingMana = true;
+ 
                 break;
             default: 
                 console.log("algo está fallando");
@@ -326,18 +336,11 @@ init(data){
         return {"end": false, "playerwin": false}
     }
 
-    update() {
-        
+    
+    changeCualidadesVisibility(){
+        //para hacer bonito el combate 
     }
-
-    /*
-    changeTextsVisibility(){
-        this.espadasText.visible = !this.espadasText.visible;
-        this.copasText.visible = ! this.copasText.visible;
-        this.bastosText.visible = !this.bastosText.visible;
-        this.orosText.visible = !this.orosText.visible;
-    }
-    */
+    
 
     createText(x, y, message, fontSize = '50px', color = '#FFFFFF', fontFamily = 'Georgia') {
         return this.add.text(x, y, message, {
@@ -410,7 +413,7 @@ init(data){
             this.sys.game.canvas.height / 1.3,
             300, 300,
             0xff0000,
-            () => this.enemy.takeDamage(100)
+            () => this.playerMakesDamage(this.totalDamage)
       );
    
         this.totalDamageText = this.createText(
@@ -429,28 +432,6 @@ init(data){
 
 
 createStadisticsButtons() {
-    
-    //texto de la salud del player
-    this.playerHealthText = this.createText(
-        this.sys.game.canvas.width / 40,
-        this.sys.game.canvas.height / 20,
-        'PlayerHP: ' + this.player.health
-    );
-
-    //texto del maná del player
-    this.playerManaText = this.createText(
-        this.sys.game.canvas.width / 40,
-        this.sys.game.canvas.height / 10,
-        'PlayerMana: ' + this.player.mana
-    );
-
-    //texto de la salud del enemigo 
-    this.enemyHealthText = this.createText(
-        this.sys.game.canvas.width / 1.9,
-        this.sys.game.canvas.height / 8,
-        'Enemigo: ' + this.enemy.health,  
-        );
-
 
     //botón humildad
     this.playerHumildadText = this.createText(
@@ -465,7 +446,7 @@ createStadisticsButtons() {
         this.playerHumildadText.width,     
         this.playerHumildadText.height,    
         0x000000,                          
-        () => console.log("calculo humildad")
+        () => this.cualidades('humildad')
     ).setOrigin(0, 0)
      .setAlpha(0.5);  
 
@@ -483,7 +464,7 @@ createStadisticsButtons() {
         this.playerTrabajoDuroText.width,     
         this.playerTrabajoDuroText.height,    
         0x000000,                          
-        () => console.log("calculo trabajo duro")
+        () => this.cualidades('trabajo duro')
     ).setOrigin(0, 0)
      .setAlpha(0.5);
 
@@ -500,7 +481,7 @@ createStadisticsButtons() {
         this.playerAgnosticismoText.width,     
         this.playerAgnosticismoText.height,    
         0x000000,                          
-        () => console.log("calculo agnosticismo")
+        () => this.cualidades('agnosticismo')
     ).setOrigin(0, 0)
      .setAlpha(0.5);
 
@@ -517,7 +498,7 @@ createStadisticsButtons() {
         this.playerAfectoText.width,     
         this.playerAfectoText.height,    
         0x000000,                          
-        () => console.log("calculo afecto")
+        () => this.cualidades('afecto')
     ).setOrigin(0, 0)
      .setAlpha(0.5);    
 
@@ -529,47 +510,57 @@ createStadisticsButtons() {
 
     createOtherText() {
 
+                
+        //texto de la salud del player
+        this.playerHealthText = this.createText(
+            this.sys.game.canvas.width / 40,
+            this.sys.game.canvas.height / 20,
+            'PlayerHP: ' + this.player.health
+        );
+
+        //texto del maná del player
+        this.playerManaText = this.createText(
+            this.sys.game.canvas.width / 40,
+            this.sys.game.canvas.height / 10,
+            'PlayerMana: ' + this.player.mana
+        );
+
+        //texto de la salud del enemigo 
+        this.enemyHealthText = this.createText(
+            this.sys.game.canvas.width / 1.9,
+            this.sys.game.canvas.height / 8,
+            'Enemigo: ' + this.enemy.health,  
+            );
+
 
         //texto de valores de las cartas:
-        this.espadasText = this.add.text(
+        this.espadasText = this.createText(
             this.sys.game.canvas.width / 5.5,
             this.sys.game.canvas.height / 1.7,
-            'espadas: ', { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
+            'espadas: '
+        );
         
         
 
-        this.copasText = this.add.text(
+        this.copasText = this.createText(
             this.sys.game.canvas.width / 2.9,
             this.sys.game.canvas.height / 1.7,
-            'copas: ', { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
+            'copas: '
+        );
 
 
-        this.bastosText = this.add.text(
+        this.bastosText = this.createText(
             this.sys.game.canvas.width / 2,
             this.sys.game.canvas.height / 1.7,
-            'bastos: ', { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
+            'bastos: '  
+        );
 
 
-        this.orosText = this.add.text(
+        this.orosText = this.createText(
             this.sys.game.canvas.width / 1.5,
             this.sys.game.canvas.height / 1.7,
-            'oros: ', { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
+            'oros: '
+        );
 
         // Rectángulos (cartas) debajo de cada texto (bajados):
         const offsetY = 160;  // Aumento en el valor Y para bajar los rectángulos
@@ -611,54 +602,46 @@ createStadisticsButtons() {
         this.orosCard.setOrigin(0.5);
 
         // Texto del número de 'espadas' centrado en el rectángulo de 'espadas'
-        this.espadasNumber = this.add.text(
+        this.espadasNumber = this.createText(
             this.espadasCard.x,  // Usamos la posición x del rectángulo
             this.espadasCard.y,  // Usamos la posición y del rectángulo
-            this.espadas, { 
-                fontSize: '100px', 
-                color: '#000000',       // Negro
-                fontFamily: 'Georgia',  
-            }
-        );
-        this.espadasNumber.setOrigin(0.5);  // Centramos el texto en su posición
+            this.espadas,
+            '100px', 
+            '#000000',       // Negro  
+            
+        ).setOrigin(0.5);  // Centramos el texto en su posición
 
         // Repite lo mismo para los otros textos y rectángulos
 
         // Texto del número de 'copas' centrado en el rectángulo de 'copas'
-        this.copasNumber = this.add.text(
+        this.copasNumber = this.createText(
             this.copasCard.x,  // Usamos la posición x del rectángulo
             this.copasCard.y,  // Usamos la posición y del rectángulo
-            this.copas, { 
-                fontSize: '100px', 
-                color: '#000000',       // Negro
-                fontFamily: 'Georgia',  
-            }
-        );
-        this.copasNumber.setOrigin(0.5);  // Centramos el texto en su posición
+            this.copas,  
+            '100px', 
+            '#000000',       // Negro    
+        
+        ).setOrigin(0.5);  // Centramos el texto en su posición
 
         // Texto del número de 'bastos' centrado en el rectángulo de 'bastos'
-        this.bastosNumber = this.add.text(
+        this.bastosNumber = this.createText(
             this.bastosCard.x,  // Usamos la posición x del rectángulo
             this.bastosCard.y,  // Usamos la posición y del rectángulo
-            this.bastos, { 
-                fontSize: '100px', 
-                color: '#000000',       // Negro
-                fontFamily: 'Georgia',  
-            }
-        );
-        this.bastosNumber.setOrigin(0.5);  // Centramos el texto en su posición
+            this.bastos, 
+            '100px', 
+            '#000000',       // Negro
+                 
+        ).setOrigin(0.5);  // Centramos el texto en su posición
 
         // Texto del número de 'oros' centrado en el rectángulo de 'oros'
-        this.orosNumber = this.add.text(
+        this.orosNumber = this.createText(
             this.orosCard.x,  // Usamos la posición x del rectángulo
             this.orosCard.y,  // Usamos la posición y del rectángulo
-            this.oros, { 
-                fontSize: '100px', 
-                color: '#000000',       // Negro
-                fontFamily: 'Georgia',  
-            }
-        );
-        this.orosNumber.setOrigin(0.5);  // Centramos el texto en su posición
+            this.oros,  
+            '100px', 
+            '#000000',       // Negro
+                
+        ).setOrigin(0.5);  // Centramos el texto en su posición
 
 
 
