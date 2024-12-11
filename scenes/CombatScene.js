@@ -8,6 +8,7 @@ export default class CombatScene extends Phaser.Scene {
         this.turn = 'player'; // Inicia el turno el player
         this.totalDamage = 0;
         this.usingMana = false;
+        this.active = true;
     }
 
 init(data){
@@ -90,22 +91,26 @@ init(data){
  }
 
 
- playerMakesDamage(damage){ 
+ playerMakesDamage(){ 
     if (this.usingMana == true) {
 
         if(this.player.mana >=20) {
-        this.enemyDamageAnim();
-        this.enemy.takeDamage(damage);
         this.player.manaPerdido(20);
         }
         else  {
             console.log("no hay mana");
         }
     }
-    else {
+        this.changeActiveButtons();
         this.enemyDamageAnim();
-        this.enemy.takeDamage(damage);
-    }
+        this.enemy.takeDamage(this.totalDamage);
+        this.totalDamage = 0;
+        this.updateTotalText();
+
+        this.time.delayedCall(5000, () => {
+            this.changeActiveButtons();});
+    
+
 
     this.updateHealthTexts(); //actualiza la vida
             var result = this.checkGameOver(); //comprueba si ha acabado el combate
@@ -140,6 +145,7 @@ init(data){
             if (action === 'attack') {
                 //this.player.attackEnemy(this.enemy, 
                 //this.espadas, this.copas, this.bastos,this.oros);
+                if(this.totalDamage === 0) {
                 
                 if(this.enemy.weakness === 'espadas') {
                     this.espadas *= 2;
@@ -153,10 +159,12 @@ init(data){
                 }
                 else if(this.enemy.weakness === 'oros') {
                     this.oros *= 2;
-                }            
-                
+                }    
+            }        
+                this.totalDamage = 0;  
+                console.log("reset totaldamage: " + this.totalDamage); 
                 this.totalDamage = this.espadas + this.copas + this.bastos + this.oros;
-
+                console.log("totaldamage: " + this.totalDamage);
                 this.updateTotalText();
 
                 this.usingMana = false;
@@ -164,17 +172,6 @@ init(data){
             } 
             
             //ataque con cualidades
-            else if (this.usingMana == true) {
-
-                if(this.player.mana >=20) {
-                this.player.manaPerdido(20);
-                }
-                else  {
-                    console.log("no hay mana");
-                }
-                
-                
-            }
             //this.enemy.takeDamage(this.totalDamage);
             //this.events.emit('enemyDamaged');
             
@@ -186,6 +183,7 @@ init(data){
     }
 
     cualidades(cualidad) {
+        this.totalDamage = 0;
         switch(cualidad){
             case 'humildad':
                 var lvl = this.player.getCualidad('humildad');
@@ -340,6 +338,20 @@ init(data){
     changeCualidadesVisibility(){
         //para hacer bonito el combate 
     }
+
+    changeActiveButtons(){
+
+        this.active = !this.active;
+        console.log(this.active);
+        this.attackButton.setInteractive(this.active);
+        this.magicButton.setInteractive(this.active);
+        this.totalDamageButton.setInteractive(this.active);
+        this.playerHumildadButton.setInteractive(this.active);
+        this.playerTrabajoDuroButton.setInteractive(this.active);
+        this.playerAgnosticismoButton.setInteractive(this.active);
+        this.playerAfectoButton.setInteractive(this.active);
+    }
+
     
 
     createText(x, y, message, fontSize = '50px', color = '#FFFFFF', fontFamily = 'Georgia') {
@@ -377,7 +389,7 @@ init(data){
 
     createAttackButtons(){
         //ataque normal
-        let attackButton = this.createButton(
+        this.attackButton = this.createButton(
             this.sys.game.canvas.width / 1.8,
             this.sys.game.canvas.height / 2,
             200, 100,
@@ -393,7 +405,7 @@ init(data){
 
 
         //ataque cualidades
-      let magicButton = this.createButton(
+        this.magicButton = this.createButton(
             this.sys.game.canvas.width / 3,
             this.sys.game.canvas.height / 2,
             300, 100,
@@ -408,7 +420,7 @@ init(data){
         );
 
         //suma daño total
-     let totalDamageButton = this.createButton(
+        this.totalDamageButton = this.createButton(
             this.sys.game.canvas.width / 1.15,
             this.sys.game.canvas.height / 1.3,
             300, 300,
@@ -440,7 +452,7 @@ createStadisticsButtons() {
         'Humildad: ' + this.player.humidad
     );
 
-    let playerHumildadButton = this.createButton(
+    this.playerHumildadButton = this.createButton(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 4.8,
         this.playerHumildadText.width,     
@@ -458,7 +470,7 @@ createStadisticsButtons() {
         'Trabajo duro: ' + this.player.trabajoDuro
     );
 
-    let playerTrabajoDuroButton = this.createButton(
+    this.playerTrabajoDuroButton = this.createButton(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 3.9,
         this.playerTrabajoDuroText.width,     
@@ -475,7 +487,7 @@ createStadisticsButtons() {
         'Agnosticismo: ' + this.player.agnosticismo
     );
 
-    let playerAgnosticismoButton = this.createButton(
+    this.playerAgnosticismoButton = this.createButton(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 3.2,
         this.playerAgnosticismoText.width,     
@@ -492,7 +504,7 @@ createStadisticsButtons() {
         'Afecto: '+ this.player.afecto
     );
 
-    let playerAfectoButton = this.createButton(
+    this.playerAfectoButton = this.createButton(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 2.7,
         this.playerAfectoText.width,     
@@ -645,15 +657,22 @@ createStadisticsButtons() {
 
 
 
-        //BACK BUTTON (VOLVER A ZONA SCENE)
-      /*  const backScene = this.add.image(
-            this.sys.game.canvas.width / 12,
-            this.sys.game.canvas.height / 1.2, 
-            'flecha')
-        .setScale(-0.3, 0.3)
+       /* let inventarioButton = this.add.rectangle(
+            this.sys.game.canvas.width / 14,
+            this.sys.game.canvas.height / 1.5, 
+            50, 50, 0xffe800)
         .setInteractive()
-        .on('pointerdown', () => this.scene.start('zonaScene', { modo: this.ant}));
-        */
-
+        .setScale(4, 2)
+        .on('pointerdown', () => {
+            console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
+            this.scene.start('InventoryScene', {
+                lastScene: this.key, // Este es el valor que debería contener "zonaScene"
+                player: this.player.getConfigData(),
+                inventory: this.inventory.getConfigData(),
+                //modo: this.modo,
+                dialogueJson: this.dialogueJson
+            });
+        });
+*/
     }
 }
