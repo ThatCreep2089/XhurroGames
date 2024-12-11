@@ -235,7 +235,8 @@
             { "texto": "JAJAJAJAJAJ has perdido", "author": "Boss" },
             { "texto": "A tomar por culo niñate", "author": "Boss" }
         ],
-        "scale": 0.5
+        "scale": 0.5,
+        "derrotado": false
         
     },
     "PITIBANCO":{

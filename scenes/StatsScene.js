@@ -10,28 +10,23 @@ export default class StatsScene extends Phaser.Scene {
 
 init(data){
     this.lastScene = data.lastScene;
-    //this.inventoryConfig = data.inventory; // Recibe el inventario del objeto `data`
+    this.inventoryConfig = data.inventory; // Recibe el inventario del objeto `data`
     this.playerConfig= data.player;
     this.modo= data.modo;
-    console.log("Datos recibidos en StatsScene:", data);
-    console.log(data.player);
-    
+    this.dialogueJson = data.dialogueJson;
     
 }
 
     preload() {
-        
-       
     }
 
     create() {
        //Creamos el player para poder acceder a el 
        this.player= new Player(this,0,0);
        this.player.init(this.playerConfig);
-
-        
-        this.player.setVisible(false); //que elle NO se vea
-        this.player.changeMove(false);
+       
+       this.player.setVisible(false); //que elle NO se vea
+       this.player.changeMove(false);
 
         //BACK BUTTON (VOLVER A LA ESCENA CORRESPONDIENTE)
         var backScene;
@@ -44,8 +39,10 @@ init(data){
         .setDepth(2)
         .on('pointerdown', () => {
             this.scene.start(this.lastScene, { 
-                
-                modo: this.modo
+                player: this.playerConfig,
+                inventory: this.inventoryConfig,
+                modo: this.modo,
+                dialogueJson: this.dialogueJson
             });
         });
 

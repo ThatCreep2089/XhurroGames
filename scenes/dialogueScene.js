@@ -41,8 +41,6 @@ export default class DialogueScene extends Phaser.Scene {
     }
 
     create(data){
-        console.log(data.npc);//debug
-
         //INVENTARIO
             //instanciar inventario
             this.inventory = new Inventory(this);
@@ -105,7 +103,7 @@ export default class DialogueScene extends Phaser.Scene {
        if(this.npc == 'PITIBANCO')
         {
              //debug (para probar si funciona curar)
-             this.player.takeDamage(50);
+             //this.player.takeDamage(50);
              
              // 2.9 MOSTRAR ANSIEDAD
              this.anxietyText = this.add.text(
@@ -140,7 +138,7 @@ export default class DialogueScene extends Phaser.Scene {
         if(this.npc == 'BOSS')
         {
             let lines;
-            if(this.battleResult == true) //elle ha ganado
+            if(this.battleResult == true || this.dialogueJson[this.npc].derrotado == true) //elle ha ganado
             {
                 lines = this.dialogueJson[this.npc].victory;
             }
@@ -166,8 +164,7 @@ export default class DialogueScene extends Phaser.Scene {
 
         // Cuando se termina el dialogo...
         this.dialog.on('dialogComplete', () => {
-            console.log(this.dialogueJson[this.npc]);
-            
+
             if(this.npc == 'PITIBANCO')
             {
                 //PORROS (BOTONES)
@@ -179,12 +176,14 @@ export default class DialogueScene extends Phaser.Scene {
             }
             else if(this.npc == 'BOSS')
             {
-                if(this.battleResult == true) //elle ha ganado
+                console.log(this.dialogueJson[this.npc].derrotado);
+                if(this.battleResult == true && this.dialogueJson[this.npc].derrotado == false) //elle ha ganado
                 {
                     //mostrar recompensa
                     this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
+                    this.dialogueJson[this.npc].derrotado = true;
                 }
-                else //elle todavia NO ha batallado o ha perdido
+                else if(this.dialogueJson[this.npc].derrotado != true) //elle todavia NO ha batallado o ha perdido
                 {
                     this.addButtonToScene(1.2, 5, 0xff0000, 'COMBATE', this.mostrarCombate);
                 }
@@ -213,7 +212,6 @@ export default class DialogueScene extends Phaser.Scene {
                     this.scene.start('zonaScene');
                 }
                 else{
-                    console.log(this.player);
                     this.scene.start('localizationScene',{
                         fondo: data.fondo,
                         ant: this.ant,
