@@ -208,7 +208,7 @@ export default class DialogueScene extends Phaser.Scene {
             }
             else
             {
-                if(this.dialogueJson[this.npc].hablado != "true")
+                if(this.dialogueJson[this.npc].hablado != "true" && this.npc != "ELLIE")
                 {
                     this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
                 }
