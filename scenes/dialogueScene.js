@@ -1,6 +1,7 @@
 import DialogText from "../src/dialog_plugin.js";
 import Player from '../src/Player.js';
 import Inventory from '../src/inventory.js';
+import Item from '../src/item.js';
 
 export default class DialogueScene extends Phaser.Scene {
     constructor(){
@@ -292,7 +293,6 @@ export default class DialogueScene extends Phaser.Scene {
         if (this.npc == "BOSS"){
             console.log(recompensa);
             this.addItemToScene(recompensa);
-             
         }
         else {
             console.log("Añadir recompensa");
@@ -361,6 +361,16 @@ export default class DialogueScene extends Phaser.Scene {
         }
         
     }
+
+    Pick(item)
+    {
+        if (this.inventory) {
+            this.inventory.AddItem(item); // Agregar el item al inventario
+            item.setVisible(false);
+        }
+    }
+
+
     update(){
         if((this.npc == 'PITIBANCO'))
         {
