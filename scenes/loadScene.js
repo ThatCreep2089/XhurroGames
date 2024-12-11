@@ -47,6 +47,7 @@ export default class loadScene extends Phaser.Scene {
     console.log("he cargado cosas xd")
     //FONDO TENFE
     this.load.image('tenfeFondo', 'assets/fondos/tenfe.jpeg');// fondo tenfe
+    this.load.image('vagon', 'assets/other/vagon.png');
 
     //FONDOS ZONA SCENE
     this.load.image('fondo1', 'assets/fondos/fondo1.jpeg'); //fondo 1 Zona scene
@@ -157,6 +158,8 @@ export default class loadScene extends Phaser.Scene {
 
      //VIDEO
      this.load.video('iguana', 'assets/videos/iguana.mp4', true);
+
+     
      
     //CONTACT SCENE
   

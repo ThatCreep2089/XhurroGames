@@ -75,7 +75,9 @@ export default class TenfeScene extends Phaser.Scene {
            
          }));
         
-        //pintar contador
+         if(this.inventory.GetTrozos() >= 1)
+         {
+                //pintar contador
         let tiempoEspera = null;
         this.resultText = this.add.text(
             this.sys.game.canvas.width / 2,
@@ -111,6 +113,9 @@ export default class TenfeScene extends Phaser.Scene {
               tiempoEspera = this.time.addEvent({
                 delay: secs * 1000, // Convertir a milisegundos
                 callback: () => {
+                    //añadir imagen tren
+                    this.add.image(this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 1.5, 'vagon');
+
 
                     console.log("el metro ha llegado");//debug
                     //reemplza timer por texto
@@ -133,64 +138,27 @@ export default class TenfeScene extends Phaser.Scene {
             });
 
         })
+         }
 
 
+        
 
-
-       
-
-
-
-
-
-        /*/gambling de tenfe
-        const gachaButton = this.add.text(
-            this.sys.game.canvas.width / 2,
-            this.sys.game.canvas.height / 2 - 50,
-            'esperar tenfe',
-            { fontSize: '32px', color: '#ffffff', backgroundColor: '#000000', padding: { x: 10, y: 5 } }
-        ).setOrigin(0.5).setInteractive();
-
-       
-
-        let timerEvent = null;
-
-
-        gachaButton.on('pointerdown', () => {
-            // Reiniciar texto y temporizador
-            resultText.setText('');
-            if (timerEvent) {
-                timerEvent.remove(false);
-            }
-
-            // Generar número aleatorio
-            const secs = Phaser.Math.Between(0, 60);
-            resultText.setText(`Número: ${secs}`);
-
-            // Temporizador para mostrar "renfe"
-            timerEvent = this.time.addEvent({
-                delay: secs * 1000, // Convertir a milisegundos
-                callback: () => {
-                    resultText.setText('el metro ha llegado');
-                },
-                callbackScope: this
-            });
-        });
-*/
     }
 
     update(countdown, dt){
 
-        if ( this.countdown < 0) { // Si se pasan del tiempo o ...
-           console.log("se ha terminao el tiempo");//debug   
-           this.resultText.setText("Tiempo a esperar: 0");
+        if(this.inventory.GetTrozos() >= 1)
+        {
+            if ( this.countdown < 0) { // Si se pasan del tiempo o ...
+                console.log("se ha terminao el tiempo");//debug   
+                this.resultText.setText("Tiempo a esperar: 0");
+             }
+             else {
+                 this.countdown -= dt;
+                 //console.log(this.countdown);
+                 this.resultText.setText("Tiempo a esperar: " + Math.round(this.countdown * 0.001));
+             }
         }
-        else {
-            this.countdown -= dt;
-            //console.log(this.countdown);
-            this.resultText.setText("Tiempo a esperar: " + Math.round(this.countdown * 0.001));
-        }
-
     }
 
     createButton(text, x, y, callback) {
