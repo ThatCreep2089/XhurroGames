@@ -369,7 +369,7 @@ changeTurns() {
 
     setEntities(){
         //player
-        this.player = new Player(this, this.sys.game.canvas.width / 11, this.sys.game.canvas.height / 1.7, 'playerCombat');
+        this.player = new Player(this, this.sys.game.canvas.width / 20, this.sys.game.canvas.height / 1.01, 'playerCombat').setOrigin(0.5);;
         this.player.init(this.playerConfig);
         this.player.setScale(0.7);
         //enemigo
@@ -539,7 +539,7 @@ createStadisticsButtons() {
 
         //texto de la salud del enemigo 
         this.enemyHealthText = this.createText(
-            this.sys.game.canvas.width / 1.9,
+            this.sys.game.canvas.width / 2,
             this.sys.game.canvas.height / 8,
             'Enemigo: ' + this.enemy.health,  
             );

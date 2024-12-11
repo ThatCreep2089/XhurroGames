@@ -299,9 +299,10 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 		// Crear video
 		const video = this.scene.add.video(this._getGameWidth() / 2, this._getGameHeight() / 2, videoPath);
 		video.setOrigin(0.5);
+		video.setVolume(1);
 		video.play(); // Reproducir el video en bucle si es necesario
 	
-		video.setVolume(1);
+		
 
 		// Detener el video cuando termine y continuar el diálogo
 		video.on('complete', () => {
