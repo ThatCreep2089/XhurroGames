@@ -108,6 +108,7 @@ changeTurns() {
         this.generateCards();
         this.updateCardsTexts();
         this.changeActiveButtons();
+        this.updateTotalText();
     }
 }
 
