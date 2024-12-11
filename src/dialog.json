@@ -252,6 +252,15 @@
         "curarVida": "true",
         "scale": 0.3
         
+    },
+    "YUSOA":{
+        "frases":[
+            { "texto": "LOL", "author": "PitiBanco" },
+            { "texto": "AAAAAAAAAA", "author": "PitiBanco" }
+        ],
+        "hablado": "false",
+        "scale": 1
+        
     }
     
 }
