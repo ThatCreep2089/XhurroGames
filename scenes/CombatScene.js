@@ -64,38 +64,81 @@ init(data){
        this.createOtherText();
 
        //eventos de turnos
-        this.events.on('playerTurn', ()=>this.isPlayerTurn());
-        this.events.on('enemyTurn', ()=>this.isEnemyTurn());
+        this.events.on('changeTurns', ()=>this.changeTurns());
         this.events.on('enemyDamaged', ()=>this.enemyDamageAnim());
-        this.events.on('checkWinLose', ()=>this.checkGameOver());
-
+        this.events.on('playerDamaged', ()=>this.playerDamageAnim());
+        this.events.on('updateStatus', ()=>this.updateCombatStatus());
 
     }
 
-    isPlayerTurn() {
-        this.turn = 'player';
-        console.log(this.turn)
-    }
-
-    isEnemyTurn(){
-        this.turn = 'enemy'; // Cambia el turno al enemigo
-        console.log(this.turn);
-        this.enemyTurn();
-    }
 
     enemyDamageAnim(){
+        //desactiva botones
+        this.changeActiveButtons();
+        //pone al enemigo en rojo
         this.enemy.setTint(0xff0000);
-        this.time.delayedCall(2000, () => {
-            this.enemy.clearTint();
-    });
+        this.time.delayedCall(5000, () => {
+            this.enemy.clearTint();});
+        //hace el daño al enemigo y actualiza daño total a 0
+        this.enemy.takeDamage(this.totalDamage);
+        this.totalDamage = 0;
+        this.time.delayedCall(5000, () => {
+            this.events.emit('updateStatus');});
     }
+
     playerDamageAnim(){
         this.player.setTint(0xff0000);
-        this.time.delayedCall(2000, () => {
-            this.player.clearTint();
-    });
+        this.time.delayedCall(5000, () => {
+            this.player.clearTint();});
+        //hace daño al player
+        this.enemy.attackPlayer(this.player);
+
+        this.time.delayedCall(5000, () => {
+            this.events.emit('updateStatus');});
    }
  
+
+changeTurns() {
+    if (this.turn === 'player') {
+        this.turn = 'enemy'; // Cambia el turno al enemigo
+        this.enemyTurn();
+    } else {
+        this.turn = 'player'; // Cambia el turno al player
+        this.generateCards();
+        this.updateCardsTexts();
+    }
+}
+
+   updateCombatStatus(){
+
+        //actualiza la vida
+        this.updateHealthTexts(); 
+
+        //comprueba si ha acabado el combate
+        var result = this.checkGameOver(); 
+        //si no, turno del enemigo
+        if(!result.end == true){
+            this.time.delayedCall(2000, ()=> {this.events.emit('changeTurns');});
+        } 
+        //si ha acabado, escena de victoria o derrota
+        else if(result.playerwin == true){
+            this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
+                inventory: this.inventory.getConfigData(),
+                npc: this.npc,
+                fondo: this.fondo,
+                dialogueJson: this.dialogueJson,
+                battleResult: true})
+        } else {
+            console.log("derrota")
+            this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
+                inventory: this.inventory.getConfigData(),
+                npc: this.npc,
+                fondo: this.fondo,
+                dialogueJson: this.dialogueJson,
+                battleResult: false})
+        }
+   }
+
 
 
  playerMakesDamage(){ 
@@ -103,43 +146,15 @@ init(data){
 
         if(this.player.mana >=20) {
         this.player.manaPerdido(20);
+        this.events.emit('enemyDamaged');
         }
         else  {
             console.log("no hay mana");
         }
     }
-        this.changeActiveButtons();
-        this.enemyDamageAnim();
-        this.enemy.takeDamage(this.totalDamage);
-        this.totalDamage = 0;
-        this.updateTotalText();
-
-        this.time.delayedCall(5000, () => {
-            console.log("delay call")
-            this.changeActiveButtons();});
-    
-
-
-    this.updateHealthTexts(); //actualiza la vida
-            var result = this.checkGameOver(); //comprueba si ha acabado el combate
-            if(!result.end == true){
-                this.events.emit('enemyTurn');
-            } else if(result.playerwin == true){
-                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData(),
-                    npc: this.npc,
-                    fondo: this.fondo,
-                    dialogueJson: this.dialogueJson,
-                    battleResult: true})
-            } else {
-                console.log("derrota")
-                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData(),
-                    npc: this.npc,
-                    fondo: this.fondo,
-                    dialogueJson: this.dialogueJson,
-                    battleResult: false})
-            }
+    else {
+        this.events.emit('enemyDamaged');
+    }
     
  }
 
@@ -178,14 +193,6 @@ init(data){
                 this.usingMana = false;
 
             } 
-            
-            //ataque con cualidades
-            //this.enemy.takeDamage(this.totalDamage);
-            //this.events.emit('enemyDamaged');
-            
-
-
-        //this.events.emit('enemyDamaged');
             
         }
     }
@@ -259,38 +266,8 @@ init(data){
     // Método de turno del enemigo
     enemyTurn() {
 
-        if (this.turn === 'enemy') {
-            
-            this.playerDamageAnim();
-            this.enemy.attackPlayer(this.player); //ataca
-            this.updateHealthTexts(); //cambia vida del player
-            var result = this.checkGameOver(); //comprueba si ha acabado el combate
-            //this.turn = 'player'; // Vuelve el turno al player
-            if(!result.end == true){
-                this.events.emit('playerTurn');
-                this.generateCards(); //genera nuevas cartas
-                this.updateCardsTexts(); // cambia valor de cartas
-            
-            } else if(result.playerwin == true){
-                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData(),
-                    npc: this.npc,
-                    fondo: this.fondo,
-                    dialogueJson: this.dialogueJson,
-                    battleResult: true})
-            } else {
-                console.log("derrota")
-                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData(),
-                    npc: this.npc,
-                    fondo: this.fondo,
-                    dialogueJson: this.dialogueJson,
-                    battleResult: false})
-            }
-
-           // this.events.emit('playerTurn');
-            
-        }
+        this.events.emit('playerDamaged');
+                        
     }
 
     //Genera nuevas cartas aleatorias
