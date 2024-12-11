@@ -103,6 +103,7 @@ export default class TenfeScene extends Phaser.Scene {
         
             // Generar número aleatorio
             const secs = Phaser.Math.Between(0, 60);
+            this.countdown = secs * 1000;
             this.resultText.setText(`Número: ${secs}`);
 
               // Temporizador para mostrar "renfe"
@@ -175,6 +176,23 @@ export default class TenfeScene extends Phaser.Scene {
             });
         });
 */
+    }
+
+    update(countdown, dt){
+
+        if ( this.countdown < 0) { // Si se pasan del tiempo o ...
+           console.log("se ha terminao el tiempo");//debug   
+           this.resultText.setText("secs: 0");
+        }
+        else {
+            
+        this.countdown -= dt;
+        this.resultText.setText("secs: ",Math.round(this.time * 0.001));
+        }
+
+
+       // this.timeText.setText(Math.round(this.time 0.001));
+
     }
 
     random_tenfe(){
