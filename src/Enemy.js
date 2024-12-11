@@ -29,25 +29,9 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     }
 
     //metodo recibir daño
-    takeDamage(espadas,copas,bastos,oros) {
-        
+    takeDamage(totalDamage) {
 
-        if(this.weakness == 'espadas') {
-            espadas * 2;
-        }
-        else if(this.weakness == 'copas'){
-            copas * 2;
-        }
-        else if(this.weakness == 'bastos'){
-            bastos * 2;
-        }
-        else if(this.weakness == 'oros') {
-            oros * 2;
-        }     
-        
-        this.damage = espadas+copas+bastos+oros;
-
-        this.health -= this.damage;
+    this.health -= totalDamage;
     }
 
     // Método de ataque
