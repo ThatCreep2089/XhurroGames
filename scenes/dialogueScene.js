@@ -266,6 +266,7 @@ export default class DialogueScene extends Phaser.Scene {
         .on('pointerdown', () => {
             console.log("obtener recompensa");
             callback.call(this); 
+            button.disableInteractive();
         });
         // Texto para mostrar "Ansiedad" en el centro del botón
         let acceptText = this.add.text(
