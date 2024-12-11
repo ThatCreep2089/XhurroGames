@@ -57,8 +57,9 @@ init(data){
         // crear player, inventario y enemigo
        this.setEntities(); 
        
-       this.createButtons();
-       this.createText();
+       this.createAttackButtons();
+       this.createStadisticsButtons();
+       this.createOtherText();
 
        //eventos de turnos
         this.events.on('playerTurn', ()=>this.isPlayerTurn());
@@ -304,7 +305,7 @@ init(data){
     }
 
     updateTotalText(){
-        this.totalDamageText.setText(this.totalDamage);
+        this.totalDamageNumber.setText(this.totalDamage);
     }
 
     // Comprueba si alguno de los personajes ha perdido
@@ -356,7 +357,7 @@ init(data){
     }
 
 
-    createButtons(){
+    createAttackButtons(){
         // botones para ataques player
         let attackButton = this.add.rectangle(
             this.sys.game.canvas.width / 1.8,
@@ -397,7 +398,7 @@ init(data){
             fontFamily: 'Georgia',  
         });
         //texto ataque cualidades
-        this.add.text(
+        this.attackCualidadesText = this.add.text(
             this.sys.game.canvas.width / 3.7,
             this.sys.game.canvas.height / 2.1,
             'Cualidades', { 
@@ -416,7 +417,7 @@ init(data){
             fontFamily: 'Georgia',  
         });
         //suma total  
-        this.totalDamageText = this.add.text(
+        this.totalDamageNumber = this.add.text(
             this.sys.game.canvas.width / 1.15,
             this.sys.game.canvas.height / 1.3,
             '0', { 
@@ -424,9 +425,53 @@ init(data){
             color: '#FFFFFF',       // Blanco
             fontFamily: 'Georgia',  
         });
+        this.totalDamageNumber.setOrigin(0.5);
     }
 
-    createText() {
+
+createText(x, y, message, fontSize = '50px', color = '#FFFFFF', fontFamily = 'Georgia') {
+    return this.add.text(x, y, message, {
+        fontSize: fontSize,
+        color: color,
+        fontFamily: fontFamily
+    });
+}
+
+createStadisticsButtons() {
+    this.playerHealthText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 20,
+        'PlayerHP: ' + this.player.health
+    );
+
+    this.playerManaText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 10,
+        'PlayerMana: ' + this.player.mana
+    );
+
+    this.playerHumildadText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 6.5,
+        'Humildad: ' + this.player.humidad
+    );
+
+    this.playerTrabajoDuroText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 4.8,
+        'Trabajo duro: ' + this.player.trabajoDuro
+    );
+
+    this.playerAgnosticismoText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 3.9,
+        'Agnosticismo: ' + this.player.agnosticismo
+    );
+}
+
+
+
+    createOtherText() {
 
 
         //texto de valores de las cartas:
@@ -561,73 +606,15 @@ init(data){
 
 
 
-        
-
-        //texto para mostrar salud, mana y cualidades del player
-        this.playerHealthText = this.add.text(50, 50, 'PlayerHP: ' + this.player.health, { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-        this.playerManaText = this.add.text(
-            this.sys.game.canvas.width / 40,
-            this.sys.game.canvas.height / 10,
-             'PlayerMana: ' + this.player.mana, { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-
-        this.playerHumildadText = this.add.text(
-            this.sys.game.canvas.width / 40,
-            this.sys.game.canvas.height / 6.5,
-            'Humildad: ' + this.player.humidad, { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-        this.playerTrabajoDuroText = this.add.text(
-            this.sys.game.canvas.width / 40,
-            this.sys.game.canvas.height / 4.8,
-            'Trabajo duro: ' + this.player.trabajoDuro, { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-        this.playerAgnosticismoText = this.add.text(
-            this.sys.game.canvas.width / 40,
-            this.sys.game.canvas.height / 3.9,
-            'Agnosticismo: ' + this.player.agnosticismo, { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-        this.playerAfectoText = this.add.text(
-            this.sys.game.canvas.width / 40,
-            this.sys.game.canvas.height / 3.2,
-            'Afecto: '+ this.player.afecto, { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-        //texto de la salud del enemigo 
-        this.enemyHealthText = this.add.text(
-            this.sys.game.canvas.width / 1.8,
-            this.sys.game.canvas.height / 8,
-            'Enemigo: ' + this.enemy.health, { 
-                fontSize: '50px', 
-                color: '#FFFFFF',       // Blanco
-                fontFamily: 'Georgia',  
-            });
-
-
         //BACK BUTTON (VOLVER A ZONA SCENE)
-        const backScene = this.add.image(
+      /*  const backScene = this.add.image(
             this.sys.game.canvas.width / 12,
             this.sys.game.canvas.height / 1.2, 
             'flecha')
         .setScale(-0.3, 0.3)
         .setInteractive()
         .on('pointerdown', () => this.scene.start('zonaScene', { modo: this.ant}));
+        */
+
     }
 }
