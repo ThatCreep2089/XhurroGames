@@ -106,6 +106,7 @@ changeTurns() {
         this.turn = 'player'; // Cambia el turno al player
         this.generateCards();
         this.updateCardsTexts();
+        this.changeActiveButtons();
     }
 }
 
