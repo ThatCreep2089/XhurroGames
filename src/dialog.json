@@ -266,9 +266,9 @@
         "isBoss": true,
         "recompensa": 
         { 
-            "name": "roca pija",
-            "description": "+10 puntos de cualidad",
-            "effect": 4,
+            "name": "trozo",
+            "description": "trozo de constitución",
+            "effect": 0,
             "x": 800,
             "y": 700,
             "amountOfEffect": 10,
