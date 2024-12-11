@@ -157,7 +157,7 @@ export default class loadScene extends Phaser.Scene {
      this.load.image('ELLIE', 'assets/npc/ellie.png');
 
      //VIDEO
-     this.load.video('iguana', 'assets/videos/iguana.mp4', true);
+     this.load.video('iguana', 'assets/videos/iguana.mp4', false);
 
      
      
