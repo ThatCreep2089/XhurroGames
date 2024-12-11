@@ -192,6 +192,8 @@
     },
     "ELLIE":{
         "frases":[
+            { "video": "intro" },
+            
             { "texto": "¿Holaa? Persona desconocida, ¿Respiras?, ¿Estás bien?", "author": "???" },
             { "texto": "Hola. Ay! Me duele el abdomen, creo que me han golpeado", "author": "Elle" },
             { "texto": "Por fin, llevo intentando despertarte un tiempo, pensaba que te habías ido al otro barrio.", "author": "???" },
