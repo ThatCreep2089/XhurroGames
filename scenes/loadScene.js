@@ -52,6 +52,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('fondo1', 'assets/fondos/fondo1.jpeg'); //fondo 1 Zona scene
     this.load.image('fondo2', 'assets/fondos/fondo2.jpeg'); //fondo 2 Zona scene
     this.load.image('fondo3', 'assets/fondos/fondo3.jpeg'); //fondo 3 Zona scene
+    this.load.image('fondo4', 'assets/fondos/diputadosZona.jpg'); //fondo 3 Zona scene
 
     //PLAYER
     this.load.image('player', 'assets/npc/elle.png'); //future elle
@@ -72,6 +73,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('localization6', 'assets/edificios/hipodromo.png');
     this.load.image('localization7', 'assets/edificios/cruzRoja.png');
     this.load.image('localization8', 'assets/edificios/iglesia.png');
+    this.load.image('congresoLocalization', 'assets/edificios/congreso.png');
     
     //FLECHAS
     this.load.image('flecha', 'assets/other/flecha.png');
@@ -104,6 +106,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('cruzRoja', 'assets/fondos/cruzRoja.jpg');
     this.load.image('iglesia', 'assets/fondos/iglesia.jpg');
     this.load.image('pitiBanco', 'assets/fondos/pitiBanco.jpg');
+    this.load.image('congreso', 'assets/fondos/congresoFondo.jpg');
 
     //NPCS
     this.load.image('PACO', 'assets/npc/paco.png');
@@ -122,6 +125,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('CONSUELO', 'assets/npc/consuelo.png');
     this.load.image('GATO EN CAJA', 'assets/npc/gato.png');
     this.load.image('BOSS', 'assets/npc/bossBotellin.png');
+    this.load.image('YUSOA', 'assets/npc/yusoa.png');
 
     this.load.image('arrow', 'assets/other/arrow.png');
     this.load.image('accept', 'assets/other/accept.png');

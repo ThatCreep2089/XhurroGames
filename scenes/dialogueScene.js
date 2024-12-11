@@ -1,6 +1,7 @@
 import DialogText from "../src/dialog_plugin.js";
 import Player from '../src/Player.js';
 import Inventory from '../src/inventory.js';
+import Item from '../src/item.js';
 
 export default class DialogueScene extends Phaser.Scene {
     constructor(){
@@ -135,7 +136,7 @@ export default class DialogueScene extends Phaser.Scene {
         }
 
         // 5. LEER DIALOGOS
-        if(this.npc == 'BOSS')
+        if(this.dialogueJson[this.npc].isBoss == true)
         {
             let lines;
             if(this.battleResult == true || this.dialogueJson[this.npc].derrotado == true) //elle ha ganado
@@ -174,11 +175,16 @@ export default class DialogueScene extends Phaser.Scene {
                 //curar vida
                 this.addButtonToScene(1.5, 3, 0x00fff3, `CURAR VIDA`, this.fumarPorroVida);
             }
-            else if(this.npc == 'BOSS')
+            else if(this.dialogueJson[this.npc].isBoss == true)
             {
                 console.log(this.dialogueJson[this.npc].derrotado);
                 if(this.battleResult == true && this.dialogueJson[this.npc].derrotado == false) //elle ha ganado
                 {
+                    if(this.npc == "YUSOA")
+                    {
+                        //llamar a escena final
+                        this.scene.start('endGameScene');
+                    }
                     //mostrar recompensa
                     this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
                     this.dialogueJson[this.npc].derrotado = true;
@@ -281,7 +287,19 @@ export default class DialogueScene extends Phaser.Scene {
 
     addRecompensa()
     {
-        console.log("Añadir recompensa");
+        let recompensa = this.dialogueJson[this.npc].recompensa;
+        console.log(recompensa);
+
+        if (this.npc == "BOSS"){
+            console.log(recompensa);
+            this.addItemToScene(recompensa);
+        }
+        else {
+            console.log("Añadir recompensa");
+            
+            this.player.mejorarCualidad(recompensa);
+            console.log(this.player);
+        }
     }
 
     fumarPorroAnsiedad() 
@@ -322,6 +340,36 @@ export default class DialogueScene extends Phaser.Scene {
             dialogueJson: this.dialogueJson
         })
     }
+
+    
+    addItemToScene(item)
+    {
+        if(item.recogido == "false")
+        {
+           let newItem= new Item(this, item.name, item.description, item.effect, item.x, item.y, item.amountOfEffect);//creamos item
+           newItem.setScale(0.3);//ajustamos tam
+           newItem.setInteractive(); // Habilitar interactividad
+            
+            //evento boton
+            newItem.on('pointerdown', () => { //evento para detectar el raton
+                item.recogido = "true";
+                this.Pick(newItem); //recoger item (meter en inventario) y quitar de escena
+            });
+            newItem.on('pointerover', () => newItem.setTint(0x4ec647)) //para que se ponga rojo cuando el raton está encima
+            newItem.on('pointerout', () =>newItem.clearTint());
+    
+        }
+        
+    }
+
+    Pick(item)
+    {
+        if (this.inventory) {
+            this.inventory.AddItem(item); // Agregar el item al inventario
+            item.setVisible(false);
+        }
+    }
+
 
     update(){
         if((this.npc == 'PITIBANCO'))

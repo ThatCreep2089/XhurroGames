@@ -85,8 +85,10 @@ export default class InventoryScene extends Phaser.Scene
     
    Remove(item)
     {
-        
-       this.UseItem(item.effect ,item,this.player); //si utilizamos el item despues lo quitamos del inventario
+        if(item.name!="trozo")
+        {
+            this.UseItem(item.effect ,item,this.player); //si utilizamos el item despues lo quitamos del inventario
+        }
         this.inventory.RemoveItem(item);//quita el item del inventario
         this.RenderizarItems();//renderizar inventario
     
@@ -107,6 +109,8 @@ export default class InventoryScene extends Phaser.Scene
                 break;
             case 4:
                 player.HealQuality(item.amount);
+            case 0:
+                ;
         }
     }   
 
@@ -151,14 +155,33 @@ export default class InventoryScene extends Phaser.Scene
         const rect0 = this.add.rectangle(950, 500, 600, 400, 0xf6f6f6).setOrigin(0.5); // Rectángulo de fondo centrado
 
         // Crear los botones (rectángulos con texto)
-        const rect = this.add.rectangle(1150, 650, 100, 50, 0xff0000).setInteractive();
-        const rect2 = this.add.rectangle(750, 650, 100, 50, 0x00ff00).setInteractive();
-
+        if(item.name!= "trozo")
+        {
+            const rect = this.add.rectangle(1150, 650, 100, 50, 0xff0000).setInteractive();
+            const rect2 = this.add.rectangle(750, 650, 100, 50, 0x00ff00).setInteractive();
+            rect2.setVisible(false);
+            rect.setVisible(false);
+            let texto2 = this.add.text(1150, 650, "No", {
+                fontSize: '40px',
+                fill: '#1c1c1c',
+                align: 'center'
+            }).setOrigin(0.5, 0.5).setVisible(false);  // Centrado y oculto
+    
+            let texto3 = this.add.text(750, 650, "Sí", {
+                fontSize: '40px',
+                fill: '#1c1c1c',
+                align: 'center'
+            }).setOrigin(0.5, 0.5).setVisible(false);  
+            texto2.setDepth(2);
+            texto3.setDepth(2);
+           
+            rect2.setDepth(2);
+            rect.setDepth(2);
+        }
+        
         // Inicialmente, todo está invisible
-        rect.setVisible(false);
         rect0.setVisible(false);
-        rect2.setVisible(false);
-
+       
         // Crear los textos, también invisibles al principio
         let texto = this.add.text(950, 500, "", {
             fontSize: '40px',
@@ -166,46 +189,53 @@ export default class InventoryScene extends Phaser.Scene
             align: 'center'
         }).setOrigin(0.5, 0.5).setVisible(false);  // Centrado y oculto
 
-        let texto2 = this.add.text(1150, 650, "No", {
-            fontSize: '40px',
-            fill: '#1c1c1c',
-            align: 'center'
-        }).setOrigin(0.5, 0.5).setVisible(false);  // Centrado y oculto
-
-        let texto3 = this.add.text(750, 650, "Sí", {
-            fontSize: '40px',
-            fill: '#1c1c1c',
-            align: 'center'
-        }).setOrigin(0.5, 0.5).setVisible(false);  
+        rect0.setDepth(2);
 
         texto.setDepth(2);
-        texto2.setDepth(2);
-        texto3.setDepth(2);
-        rect0.setDepth(2);
-        rect2.setDepth(2);
-        rect.setDepth(2);
+       
+     
 
         // Cuando seleccionamos el sprite los hacemos visibles
         sprite.on('pointerdown', () => {
-            rect.setVisible(true);
+            if(item.name!= "trozo")
+                {
+                    rect.setVisible(true);
+                    rect2.setVisible(true);
+                    texto2.setVisible(true);
+                    texto3.setVisible(true);
+           
+                }
             rect0.setVisible(true);
-            rect2.setVisible(true);
+           
             texto.setVisible(true);
-            texto2.setVisible(true);
-            texto3.setVisible(true);
+          
             // Actualizar el texto con la información del item
-            texto.setText("¿Utilizar " + item.name + "?\nCantidad: " + item.cantidad + "\n" + item.description);
+            if(item.name!="trozo")
+            {
+                texto.setText("¿Utilizar " + item.name + "?\nCantidad: " + item.cantidad + "\n" + item.description);
+            }
+            else
+            {
+                texto.setText("No se puede utilizar el " + item.name + "?\nCantidad: " + item.cantidad + "\n" + item.description);
+
+            }
+           
             sprite.setInteractive(false);  // Desactivar interactividad del sprite
         });
 
         // Si selecciono "No"
         rect.on('pointerdown', () => {
-            rect.setVisible(false);
+            if(item.name!="trozo")
+                {
+                    rect.setVisible(false);
+                    rect2.setVisible(false);
+                    texto2.setVisible(false);
+                    texto3.setVisible(false);
+                }
+           
             rect0.setVisible(false);
-            rect2.setVisible(false);
             texto.setVisible(false);
-            texto2.setVisible(false);
-            texto3.setVisible(false);
+           
         });
 
         // Si selecciono "Sí"
@@ -217,13 +247,18 @@ export default class InventoryScene extends Phaser.Scene
             if (item.cantidad === 0) {
                 sprite.setVisible(false);
             }
-
-            rect.setVisible(false);
+            if(item.name!="trozo")
+                {
+                    rect.setVisible(false);
+                    rect.setVisible(false);
+                    texto2.setVisible(false);
+                    texto3.setVisible(false);
+                }
+           
             rect0.setVisible(false);
-            rect2.setVisible(false);
+            rect.setVisible(false);
             texto.setVisible(false);
-            texto2.setVisible(false);
-            texto3.setVisible(false);
+          
         });
 
         // Guardamos el sprite en la lista para destruirlo después

@@ -17,12 +17,8 @@ export default class ZonaScene extends Phaser.Scene{
         
         this.key="zonaScene";
         
-        this.fondo = 'fondo1';
-        
         this.modo= data.modo || 1;
-        if(data.modo == 2) this.fondo = 'fondo2';
-        else if(data.modo == 3)  this.fondo ='fondo3';
-        
+        this.fondo = 'fondo' + this.modo;
         
         
         this.playerConfig = data.player
@@ -151,7 +147,8 @@ export default class ZonaScene extends Phaser.Scene{
                         if(localization.scenario == 'tenfeFondo')
                         {
                             // Cambiar escena
-                            this.scene.start('tenfeScene', { fondo: localization.scenario,
+                            this.scene.start('tenfeScene', { fondo: localization.scenario, 
+                                                            modo: this.modo,
                                                             player: player.getConfigData(), 
                                                             inventory: this.inventory.getConfigData(),
                                                             dialogueJson: this.dialogueJson});
