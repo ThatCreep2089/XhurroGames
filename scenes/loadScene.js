@@ -158,19 +158,18 @@ export default class loadScene extends Phaser.Scene {
   
       //CONTACTOS(de momento tienen el mismo sprite pero en un futuro cada uno tendra el suyo)
       //ZONA BOTELLIN
-      this.load.image('Consuelo', 'assets/contactos/contacto.png'); 
-      this.load.image('María Teresa', 'assets/contactos/contacto.png'); 
-      this.load.image('Humberto', 'assets/contactos/contacto.png'); 
-      this.load.image('José', 'assets/contactos/contacto.png'); 
-      this.load.image('María', 'assets/contactos/contacto.png'); 
-      this.load.image('Pedrito', 'assets/contactos/contacto.png'); 
-      this.load.image('Ali', 'assets/contactos/contacto.png'); 
-      this.load.image('Jesús', 'assets/contactos/contacto.png'); 
-      this.load.image('Paco', 'assets/contactos/contacto.png'); 
-      this.load.image('Agustín', 'assets/contactos/contacto.png'); 
-      this.load.image('Ángel', 'assets/contactos/contacto.png'); 
-      this.load.image('María José', 'assets/contactos/contacto.png'); 
-      this.load.image('María del Carmen', 'assets/contactos/contacto.png'); 
+      this.load.image('Consuelo', 'assets/contactos/consuelo.png'); 
+      this.load.image('María Teresa', 'assets/contactos/mariaTeresa.png'); 
+      this.load.image('Humberto', 'assets/contactos/humberto.png'); 
+      this.load.image('José', 'assets/contactos/jose.png'); 
+      this.load.image('María', 'assets/contactos/maria.png'); 
+      this.load.image('Pedrito', 'assets/contactos/pedrito.png'); 
+      this.load.image('Ali', 'assets/contactos/ali.png'); 
+      this.load.image('Jesús', 'assets/contactos/jesus.png'); 
+      this.load.image('Paco', 'assets/contactos/paco.png'); 
+      this.load.image('Ángel', 'assets/contactos/angel.png'); 
+      this.load.image('María José', 'assets/contactos/mariaJose.png'); 
+      this.load.image('María del Carmen', 'assets/contactos/mariaDelCarmen.png'); 
 
       
     this.player = new Player(this);
