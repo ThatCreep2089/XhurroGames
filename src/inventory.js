@@ -33,13 +33,13 @@ export default class Inventory
 
     AddItem(item)
     {
-
+        console.log(item)
         const existingItem = this.elems.find(i => i.name === item.name);
         if (existingItem) {
             existingItem.cantidad++; // Incrementar la cantidad si ya existe
         } else {
             if (this.elems.length < this.tam) {
-                this.elems.push({ item, cantidad: 1 }); // Agregar un nuevo ítem con cantidad inicial 1
+                this.elems.push({ ...item, cantidad: 1 }); // Agregar un nuevo ítem con cantidad inicial 1
             } else {
                 console.log("Inventario lleno.");
             }

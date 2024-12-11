@@ -292,6 +292,7 @@ export default class DialogueScene extends Phaser.Scene {
 
         if (this.npc == "BOSS"){
             console.log(recompensa);
+            console.log(recompensa.name)
             this.addItemToScene(recompensa);
         }
         else {
@@ -349,7 +350,7 @@ export default class DialogueScene extends Phaser.Scene {
            let newItem= new Item(this, item.name, item.description, item.effect, item.x, item.y, item.amountOfEffect);//creamos item
            newItem.setScale(0.3);//ajustamos tam
            newItem.setInteractive(); // Habilitar interactividad
-            
+      
             //evento boton
             newItem.on('pointerdown', () => { //evento para detectar el raton
                 item.recogido = "true";
@@ -364,6 +365,7 @@ export default class DialogueScene extends Phaser.Scene {
 
     Pick(item)
     {
+        console.log(item.name)
         if (this.inventory) {
             this.inventory.AddItem(item); // Agregar el item al inventario
             item.setVisible(false);

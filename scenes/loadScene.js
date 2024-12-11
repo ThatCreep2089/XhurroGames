@@ -175,7 +175,14 @@ export default class loadScene extends Phaser.Scene {
       this.load.image('María José', 'assets/contactos/mariaJose.png'); 
       this.load.image('María del Carmen', 'assets/contactos/mariaDelCarmen.png'); 
 
+      this.load.image('trozo', 'assets/recolectables/constitucion1.png'); 
       
+      //COMBATE
+      this.load.image('copas', "./assets/npc/bossBotellin.png") //enemigo
+      this.load.image('yusoa', "./assets/npc/yusoa.png") //enemigo
+      this.load.image('combat', "./assets/fondos/combate.jpg") //fondo
+      this.load.image('playerCombat', "./assets/stats/elle2.png") //player
+
     this.player = new Player(this);
     this.Inventory = new Inventory(this);
 
