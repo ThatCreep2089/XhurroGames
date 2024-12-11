@@ -11,6 +11,7 @@ import DialogueScene from "../scenes/dialogueScene.js";
 import ContactScene from "../scenes/ContactScene.js";
 import GeneralContactsScene from "../scenes/GeneralContactsScene.js";
 import StatsScene from "../scenes/StatsScene.js";
+import EndGameScene from "../scenes/endGameScene.js";
 /*
 
 
@@ -51,7 +52,7 @@ let config = {
         },
 		zoom: 1
     },
-  scene: [loadScene,MainMenuScene,ZonaScene, localizationScene, CombatScene, EndCombateScene,InventoryScene, TenfeScene, DialogueScene, GeneralContactsScene,ContactScene,StatsScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
+  scene: [loadScene,MainMenuScene,ZonaScene, localizationScene, CombatScene, EndCombateScene,InventoryScene, TenfeScene, DialogueScene, GeneralContactsScene,ContactScene,StatsScene, EndGameScene], //Aquí metemos todas las escenas que tendrá nuestro juego (su clase, luego cambiaremos de una a otra mediante el id)
     //scene: [localizationScene, ZonaScene], //debug
     //scene: [CombatScene, VictoryScene, LoseScene], //debug
     //scene:[StatsScene],

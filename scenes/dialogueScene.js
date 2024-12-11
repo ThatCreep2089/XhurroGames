@@ -182,7 +182,7 @@ export default class DialogueScene extends Phaser.Scene {
                     if(this.npc == "YUSOA")
                     {
                         //llamar a escena final
-                        this.scene.start('MainMenuScene');
+                        this.scene.start('endGameScene');
                     }
                     //mostrar recompensa
                     this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
