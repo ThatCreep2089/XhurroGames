@@ -173,8 +173,8 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 
 	_createSkipButton() {
 		// Creamos un texto de botón que servirá para saltarse el diálogo
-		this.skipButton = this.scene.add.text(this._getGameWidth() - 100, this._getGameHeight() - 50, 'Skip', {
-			font: '18px Arial',
+		this.skipButton = this.scene.add.text(this._getGameWidth() - 200, this._getGameHeight() - 100, 'Skip', {
+			font: '50px Arial',
 			fill: '#ffffff',
 			backgroundColor: '#000000',
 			padding: { x: 10, y: 5 }
@@ -302,7 +302,12 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 		video.setVolume(1);
 		video.play(); // Reproducir el video en bucle si es necesario
 	
-		
+		video.setInteractive();
+
+		video.on('pointerdown', () => {
+			console.log("Video clickeado, se termina.");
+			video.emit('complete'); // Emitir manualmente el evento 'complete'
+		});
 
 		// Detener el video cuando termine y continuar el diálogo
 		video.on('complete', () => {
