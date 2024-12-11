@@ -301,6 +301,8 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 		video.setOrigin(0.5);
 		video.play(); // Reproducir el video en bucle si es necesario
 	
+		video.setVolume(1);
+
 		// Detener el video cuando termine y continuar el diálogo
 		video.on('complete', () => {
 			console.log("ha terminado el video");

@@ -12,7 +12,7 @@ export default class DialogueScene extends Phaser.Scene {
 
     preload()
     {
-    
+        this.load.video('iguana', 'assets/videos/iguana.mp4', true);
 
     }
 
