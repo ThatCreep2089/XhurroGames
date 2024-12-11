@@ -18,8 +18,13 @@
     "ÁNGEL":{
         "frases":
         [
-            { "texto": "Supongo que tengo que decir algo", "author": "Angel" }
-            
+            { "texto": "Ey compañere, ¿Te trata bien la vida?", "author": "Ángel" },
+            { "texto": "Porque a mi no me tratan muy bien.", "author": "Ángel" },
+            { "texto": "Mi grupo Los Granos de Yusoa, hemos tenido que separarnos.", "author": "Ángel" },
+            { "texto": "No contamos con pasta suficiente y la mitad del grupo está en rehabilitación.", "author": "Ángel" },
+            { "texto": "Con el futuro prometodor que teníamos y van y lo tiran por la borda.", "author": "Ángel" },
+            { "texto": "Aunque tampoco les culpo.", "author": "Ángel" },
+            { "texto": "En esta ciudad o tomas algo o te vuelves completamente loco.", "author": "Ángel" }
         ],
         "hablado": "false",
         "scale": 0.5
@@ -42,8 +47,10 @@
 
         "frases":
         [
-            { "texto": "Me cago en Humberto", "author": "Jose" },
-            { "texto": "Mi poni ES el que va a ganar", "author": "Jose" }
+            { "texto": "¿Qué tal maquina?, ¿te gustan los caballos?", "author": "Jose" },
+            { "texto": "Humberto no sabe nada de ellos y se cree que el suyo va a ganar la carrera", "author": "Jose" },
+            { "texto": "No se lo cree ni él ¡jajaja!, mi caballo Lentejilla va a ser el ganador ", "author": "Jose" },
+            { "texto": "¡Vamos vamos apuesta por mi Lentejilla ya verás que te harás con un buen botín!", "author": "Jose" }
         ],
         "hablado": "false",
         "scale": 0.5
@@ -70,8 +77,12 @@
 
         "frases":
         [
-            { "texto": "Well ACTUALLY", "author": "Pedrito" },
-            { "texto": "AAAAAAAAAAAAAAAAAA", "author": "Pedrito" }
+            { "texto": "¿Sabías que esta cámara se fundó en 1823 y que el arquitecto fue mi bisabuelo?", "author": "Pedrito" },
+            { "texto": "A que no eh, jejeje", "author": "Pedrito" },
+            { "texto": "Con el legado que me dejó mi familia y yo soy un simple secretario de la presidenta de la cámara", "author": "Pedrito" },
+            { "texto": "Ella no aprecia lo suficiente su puesto y siempre se queja", "author": "Pedrito" },
+            { "texto": "Si yo fuese presidente de la cámara haria las cosas mejor que ella desde luego", "author": "Pedrito" },
+            { "texto": "Algún día lo conseguire", "author": "Pedrito" }
         ],
         "hablado": "false",
         "scale": 0.5
@@ -156,8 +167,12 @@
     "JESÚS":{
         "frases":
         [
-            { "texto": "Estoy en la mierda", "author": "Jesus" },
-            { "texto": "LOL", "author": "Jesus" }
+            { "texto": "Oh querido hermane, ¿qué te trae por este lugar?", "author": "Jesus" },
+            { "texto": "El otro dia un ave blanca me reveló mi destino", "author": "Jesus" },
+            { "texto": "Me dijo que me sacrificaría por todos mis vecinos", "author": "Jesus" },
+            { "texto": "Y que después de 3 días lograría despertar del sueño eterno", "author": "Jesus" },
+            { "texto": "Se me ha encomendado esta divina tarea a mi, un simple ex-carpintero que ahora deambula estas calles sin hogar ni trabajo ", "author": "Jesus" },
+            { "texto": "Debo de seguir bebiendo de este vino bendito para volver a verla y preguntarla más hacerca de mi enmienda", "author": "Jesus" }
         ],
         "hablado": "false",
         "scale": 0.5
@@ -166,10 +181,10 @@
 
         "frases":
         [
-            { "texto": "miau", "author": "Gato" },
-            { "texto": "miau miau", "author": "Gato" },
-            { "texto": "miau miau miau", "author": "Gato" },
-            { "texto": "miau", "author": "Gato" }
+            { "texto": "Miauu, Marramau mau", "author": "Gato" },
+            { "texto": "(Ey ey pequeñe,¿Has socializado con la gente no?)", "author": "Gato" },
+            { "texto": "miiiaau marrau miau", "author": "Gato" },
+            { "texto": "Tengo algo golosón que seguro que te interesa", "author": "Gato" }
         ],
         "hablado": "false",
         "scale": 0.4
@@ -222,18 +237,29 @@
     "BOSS":
     {
         "frases":[
-            { "texto": "Eres menor?", "author": "Boss" },
-            { "texto": "¿Qué tal?", "author": "Boss" },
-            { "texto": "¿Cómo estás?", "author": "Boss" }
+            { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Boss" },
+            { "texto": "Toma asiento al fondo y mantente calladite.", "author": "Boss" },
+            { "texto": "No queremos que te pase nada, ¿no crees?", "author": "Boss" },
+            { "texto": "No vengo a escucharte hablar, momia andante", "author": "Elle" },
+            { "texto": "He cookeado y estoy aquí para poner fin a tu reinado de terror en este barrio.", "author": "Elle" },
+            { "texto": "Dame el trozo de constitución que tienes y huye de aquí, primera y última advertencia.", "author": "Elle" },
+            { "texto": "JAJAJAJAJA, vaya humos tienes para tener un cuerpo tan pequeño.", "author": "Boss" },
+            { "texto": "¿Realmente piensas que un niñate como tú puede derrotarme?", "author": "Boss" },
+            { "texto": "Adelante, intentalo. Tengo muchas ganas de comerte vivo.", "author": "Boss" }
         ],
         "victory":[
-            { "texto": "Me has derrotado", "author": "Boss" },
-            { "texto": "Toma la constitucion", "author": "Boss" },
-            { "texto": "Dejame en paz ya", "author": "Boss" }
+            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Boss" },
+            { "texto": "¿Eso es todo tu poder? Hasta la monja de aquí al lado podría haberte ganado", "author": "Elle" },
+            { "texto": "Te me relajas con la humillación.", "author": "Boss" },
+            { "texto": "Toma la maldita constitución y lárgate de aquí.", "author": "Boss" },
+            { "texto": "Eso no es suficiente, debes marcharte de aquí inmediatamente.", "author": "Elle" },
+            { "texto": "Que sí, que sí. Pero que primero tengo que coger un tren y ya sabes como funciona Tenfe.", "author": "Boss" }
         ],
         "lose":[
-            { "texto": "JAJAJAJAJAJ has perdido", "author": "Boss" },
-            { "texto": "A tomar por culo niñate", "author": "Boss" }
+            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Boss" },
+            { "texto": "Mi victoria estaba clara, tengo a Dios de mi lado.", "author": "Boss" },
+            { "texto": "No me rendiré. Me volveré más fuerte y algún día caerás.", "author": "Elle" },
+            { "texto": "A tu casa, niñate", "author": "Boss" }
         ],
         "scale": 0.5,
         "derrotado": false,
@@ -266,8 +292,12 @@
     },
     "YUSOA":{
         "frases":[
-            { "texto": "LOL", "author": "Yusoa" },
-            { "texto": "AAAAAAAAAA", "author": "Yusoa" }
+            { "texto": "¡YUSOA! Tu reinado de terror termina hoy.", "author": "Elle" },
+            { "texto": "¿Pero tú quién eres?", "author": "Yusoa" },
+            { "texto": "Soy Elle y junto con la resistencia de Ellie Williams vengo a derrocarte.", "author": "Yusoa" },
+            { "texto": "JAJAJAJA", "author": "Yusoa" },
+            { "texto": "¿Pero tú quién eres?", "author": "Yusoa" },
+            { "texto": "¿Pero tú quién eres?", "author": "Yusoa" }
         ],
         "victory":[
             { "texto": "Me has derrotado", "author": "Yusoa" },
