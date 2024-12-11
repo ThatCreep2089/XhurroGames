@@ -88,7 +88,14 @@ init(data){
         this.time.delayedCall(2000, () => {
             this.enemy.clearTint();
     });
- }
+    }
+    playerDamageAnim(){
+        this.player.setTint(0xff0000);
+        this.time.delayedCall(2000, () => {
+            this.player.clearTint();
+    });
+   }
+ 
 
 
  playerMakesDamage(){ 
@@ -108,6 +115,7 @@ init(data){
         this.updateTotalText();
 
         this.time.delayedCall(5000, () => {
+            console.log("delay call")
             this.changeActiveButtons();});
     
 
@@ -253,6 +261,7 @@ init(data){
 
         if (this.turn === 'enemy') {
             
+            this.playerDamageAnim();
             this.enemy.attackPlayer(this.player); //ataca
             this.updateHealthTexts(); //cambia vida del player
             var result = this.checkGameOver(); //comprueba si ha acabado el combate
@@ -343,14 +352,26 @@ init(data){
 
         this.active = !this.active;
         console.log(this.active);
-        this.attackButton.setInteractive(this.active);
-        this.magicButton.setInteractive(this.active);
-        this.totalDamageButton.setInteractive(this.active);
-        this.playerHumildadButton.setInteractive(this.active);
-        this.playerTrabajoDuroButton.setInteractive(this.active);
-        this.playerAgnosticismoButton.setInteractive(this.active);
-        this.playerAfectoButton.setInteractive(this.active);
-    }
+
+        if(this.active == true){
+                this.attackButton.setInteractive();
+                this.magicButton.setInteractive();
+                this.totalDamageButton.setInteractive();
+                this.playerHumildadButton.setInteractive();
+                this.playerTrabajoDuroButton.setInteractive();
+                this.playerAgnosticismoButton.setInteractive();
+                this.playerAfectoButton.setInteractive();
+            }
+        else {
+                this.attackButton.disableInteractive();
+                this.magicButton.disableInteractive();
+                this.totalDamageButton.disableInteractive();
+                this.playerHumildadButton.disableInteractive();
+                this.playerTrabajoDuroButton.disableInteractive();
+                this.playerAgnosticismoButton.disableInteractive();
+                this.playerAfectoButton.disableInteractive();
+            }   
+        }
 
     
 
@@ -372,6 +393,7 @@ init(data){
         //player
         this.player = new Player(this, this.sys.game.canvas.width / 11, this.sys.game.canvas.height / 1.7, 'playerCombat');
         this.player.init(this.playerConfig);
+        this.player.setScale(0.7);
         //enemigo
         this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5, 'copas');
         this.enemy.setScale(0.7);
