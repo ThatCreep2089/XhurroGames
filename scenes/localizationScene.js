@@ -154,6 +154,7 @@ export default class localizationScene extends Phaser.Scene
                             this.player.IncreaseAnxiety(10);
                             
                         }
+                
                         this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
                             player: this.player.getConfigData(), 
                             inventory: this.inventory.getConfigData(),
@@ -209,37 +210,6 @@ export default class localizationScene extends Phaser.Scene
                 dialogueJson: this.dialogueJson
             }));
 
-        //TESTEO    
-        // botones para testeo
-        let combatButton = this.add.rectangle(
-            this.sys.game.canvas.width / 1.2,
-            this.sys.game.canvas.height / 5, 
-            50, 50, 0xff0000)
-        .setInteractive()
-        .setScale(4, 2)
-        .on('pointerdown', () => this.scene.start('CombatScene', {
-            ant: this.ant,
-            player: this.player.getConfigData(), 
-            inventory: this.inventory.getConfigData(),
-            dialogueJson: this.dialogueJson
-        }));
-
-        // TEXTO BOTON COMBATE
-        let combatText = this.add.text(
-            combatButton.x,   // Colocar en la misma X del botón
-            combatButton.y,   // Colocar en la misma Y del botón
-            `COMBATE`,
-            {
-                fontSize: '32px',  // Cambia el tamaño del texto según el espacio
-                color: '#ffffff',  // Gris
-                fontFamily: 'Georgia',
-                fontStyle: 'bold',
-                align: 'center'    // Centrar el texto internamente
-            }
-        );
-
-        // Centrar el texto en el botón
-        combatText.setOrigin(0.5, 0.5);
 
     }
 

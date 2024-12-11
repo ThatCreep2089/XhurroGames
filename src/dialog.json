@@ -234,7 +234,7 @@
         "scale": 0.5
         
     },
-    "BOSS":
+    "COPAS":
     {
         "frases":[
             { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Boss" },

@@ -18,6 +18,7 @@ init(data){
     this.npc = data.npc;
     this.fondo = data.fondo;
     this.dialogueJson = data.dialogueJson;
+    console.log("npc: " + this.npc);
 }
 
 
@@ -373,7 +374,7 @@ changeTurns() {
         this.player.init(this.playerConfig);
         this.player.setScale(0.7);
         //enemigo
-        this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5, 'copas');
+        this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5, this.npc);
         this.enemy.setScale(0.7);
 
         //inventario

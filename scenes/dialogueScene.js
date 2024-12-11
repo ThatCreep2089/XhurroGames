@@ -95,10 +95,12 @@ export default class DialogueScene extends Phaser.Scene {
         // 3. DESCRIPCION DEL NPC
 
         // 4. IMAGEN NPC
+       
         let npcImage = this.add.image(
             this.sys.game.canvas.width / 2,
             this.sys.game.canvas.height / 1.5,
-            this.npc).setScale(this.dialogueJson[this.npc].scale);
+            this.npc)
+            .setScale(this.dialogueJson[this.npc].scale);
 
         // 4.1. CASOS ESPECIALES:
        if(this.npc == 'PITIBANCO')
@@ -291,7 +293,7 @@ export default class DialogueScene extends Phaser.Scene {
         let recompensa = this.dialogueJson[this.npc].recompensa;
         console.log(recompensa);
 
-        if (this.npc == "BOSS"){
+        if (this.npc == "COPAS"){
             console.log(recompensa);
             console.log(recompensa.name)
             this.addItemToScene(recompensa);

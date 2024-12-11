@@ -9,16 +9,16 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
         this.health = 80; //vida
 
         switch(enemy){ //debilidad
-            case 'espadas':
+            case 'ESPADAS':
                 this.weakness = 'espadas'; 
                 break;
-            case 'bastos':
+            case 'BASTOS':
                 this.weakness = 'bastos'; 
                 break;
-            case 'oros':
+            case 'OROS':
                 this.weakness = 'oros'; 
                 break;
-            case 'copas':
+            case 'COPAS':
                 this.weakness = 'copas'; 
                 break;
             default: 
