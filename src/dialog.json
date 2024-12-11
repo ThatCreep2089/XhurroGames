@@ -119,8 +119,8 @@
             { "texto": "Creo que ha podido ser él, ojalá alguien le pare los pies.", "author": "Ali" },
             { "texto": "Realmente es horrible lo que algunos adultos pueden llegar a hacer...", "author": "Ali" }
         ],
-        "hablado": "false"
-        
+        "hablado": "false",
+        "recompensa"   : "agnosticismo"
     },
     "MARÍA DEL CARMEN":{
         "frases":

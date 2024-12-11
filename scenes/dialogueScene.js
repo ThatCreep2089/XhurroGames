@@ -282,6 +282,12 @@ export default class DialogueScene extends Phaser.Scene {
     addRecompensa()
     {
         console.log("Añadir recompensa");
+      
+        let recompensa = this.dialogueJson[this.npc].recompensa;
+        console.log(recompensa)
+        
+        this.player.mejorarCualidad(recompensa);
+        console.log(this.player)
     }
 
     fumarPorroAnsiedad() 
