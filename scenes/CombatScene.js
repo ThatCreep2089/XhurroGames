@@ -330,13 +330,28 @@ init(data){
         
     }
 
+    /*
     changeTextsVisibility(){
         this.espadasText.visible = !this.espadasText.visible;
         this.copasText.visible = ! this.copasText.visible;
         this.bastosText.visible = !this.bastosText.visible;
         this.orosText.visible = !this.orosText.visible;
     }
+    */
 
+    createText(x, y, message, fontSize = '50px', color = '#FFFFFF', fontFamily = 'Georgia') {
+        return this.add.text(x, y, message, {
+            fontSize: fontSize,
+            color: color,
+            fontFamily: fontFamily
+        });
+    }
+
+    createButton(x, y, width, height, color, callback) {
+        return this.add.rectangle(x, y, width, height, color)
+            .setInteractive()
+            .on('pointerdown', callback);
+    }
 
     setEntities(){
         //player
@@ -358,115 +373,156 @@ init(data){
 
 
     createAttackButtons(){
-        // botones para ataques player
-        let attackButton = this.add.rectangle(
+        //ataque normal
+        let attackButton = this.createButton(
             this.sys.game.canvas.width / 1.8,
             this.sys.game.canvas.height / 2,
             200, 100,
-            0xff0000
-            )
-            .setInteractive()
-            .on('pointerdown', () => this.playerTurn('attack'));
+            0xff0000,
+            () => this.playerTurn('attack')
+     );
+        
+        this.attackNormalText = this.createText(
+            this.sys.game.canvas.width / 1.95,
+            this.sys.game.canvas.height / 2.1,
+            'Normal'
+           );
 
-        let magicButton = this.add.rectangle(
+
+        //ataque cualidades
+      let magicButton = this.createButton(
             this.sys.game.canvas.width / 3,
             this.sys.game.canvas.height / 2,
             300, 100,
-            0xff0000 
-            )
-            .setInteractive()
-            .on('pointerdown', () => this.playerTurn('magic'));
+            0xff0000,
+            () => this.playerTurn('magic')
+      );
+        
+        this.attackCualidadesText = this.createText(
+            this.sys.game.canvas.width / 3.7,
+            this.sys.game.canvas.height / 2.1,
+            'Cualidades'
+        );
 
-        let totalDamageButton = this.add.rectangle(this.add.rectangle(
+        //suma daño total
+     let totalDamageButton = this.createButton(
             this.sys.game.canvas.width / 1.15,
             this.sys.game.canvas.height / 1.3,
             300, 300,
-            0xff0000 
-            )
-            .setInteractive()
-            .on('pointerdown', () => this.enemy.takeDamage(100)));
-
-        // texto en los botones
-
-        //texto ataque normal
-        this.add.text(
-            this.sys.game.canvas.width / 1.95,
-            this.sys.game.canvas.height / 2.1,
-            'Normal', { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       //Blanco
-            fontFamily: 'Georgia',  
-        });
-        //texto ataque cualidades
-        this.attackCualidadesText = this.add.text(
-            this.sys.game.canvas.width / 3.7,
-            this.sys.game.canvas.height / 2.1,
-            'Cualidades', { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-
-        //texto suma total
-        this.add.text(
+            0xff0000,
+            () => this.enemy.takeDamage(100)
+      );
+   
+        this.totalDamageText = this.createText(
             this.sys.game.canvas.width / 1.2,
             this.sys.game.canvas.height / 1.8,
-            'Total', { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-        //suma total  
-        this.totalDamageNumber = this.add.text(
+            'Total'  
+        );
+       
+        this.totalDamageNumber = this.createText(
             this.sys.game.canvas.width / 1.15,
             this.sys.game.canvas.height / 1.3,
-            '0', { 
-            fontSize: '100px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
+            '0'
+        );
         this.totalDamageNumber.setOrigin(0.5);
     }
 
 
-createText(x, y, message, fontSize = '50px', color = '#FFFFFF', fontFamily = 'Georgia') {
-    return this.add.text(x, y, message, {
-        fontSize: fontSize,
-        color: color,
-        fontFamily: fontFamily
-    });
-}
-
 createStadisticsButtons() {
+    
+    //texto de la salud del player
     this.playerHealthText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 20,
         'PlayerHP: ' + this.player.health
     );
 
+    //texto del maná del player
     this.playerManaText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 10,
         'PlayerMana: ' + this.player.mana
     );
 
+    //texto de la salud del enemigo 
+    this.enemyHealthText = this.createText(
+        this.sys.game.canvas.width / 1.9,
+        this.sys.game.canvas.height / 8,
+        'Enemigo: ' + this.enemy.health,  
+        );
+
+
+    //botón humildad
     this.playerHumildadText = this.createText(
         this.sys.game.canvas.width / 40,
-        this.sys.game.canvas.height / 6.5,
+        this.sys.game.canvas.height / 4.8,
         'Humildad: ' + this.player.humidad
     );
 
-    this.playerTrabajoDuroText = this.createText(
+    let playerHumildadButton = this.createButton(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 4.8,
+        this.playerHumildadText.width,     
+        this.playerHumildadText.height,    
+        0x000000,                          
+        () => console.log("calculo humildad")
+    ).setOrigin(0, 0)
+     .setAlpha(0.5);  
+
+    
+    // botón trabajo duro
+    this.playerTrabajoDuroText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 3.9,
         'Trabajo duro: ' + this.player.trabajoDuro
     );
 
-    this.playerAgnosticismoText = this.createText(
+    let playerTrabajoDuroButton = this.createButton(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 3.9,
+        this.playerTrabajoDuroText.width,     
+        this.playerTrabajoDuroText.height,    
+        0x000000,                          
+        () => console.log("calculo trabajo duro")
+    ).setOrigin(0, 0)
+     .setAlpha(0.5);
+
+     //botón agnosticismo
+    this.playerAgnosticismoText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 3.2,
         'Agnosticismo: ' + this.player.agnosticismo
     );
+
+    let playerAgnosticismoButton = this.createButton(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 3.2,
+        this.playerAgnosticismoText.width,     
+        this.playerAgnosticismoText.height,    
+        0x000000,                          
+        () => console.log("calculo agnosticismo")
+    ).setOrigin(0, 0)
+     .setAlpha(0.5);
+
+    //botón afecto
+    this.playerAfectoText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 2.7,
+        'Afecto: '+ this.player.afecto
+    );
+
+    let playerAfectoButton = this.createButton(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 2.7,
+        this.playerAfectoText.width,     
+        this.playerAfectoText.height,    
+        0x000000,                          
+        () => console.log("calculo afecto")
+    ).setOrigin(0, 0)
+     .setAlpha(0.5);    
+
+    
+
 }
 
 
