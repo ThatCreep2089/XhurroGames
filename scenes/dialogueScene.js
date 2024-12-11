@@ -303,6 +303,20 @@ export default class DialogueScene extends Phaser.Scene {
             
             this.player.mejorarCualidad(recompensa);
             console.log(this.player);
+
+            // Crear texto temporal
+            const mensaje = this.add.text( this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, recompensa + ": +1", {
+                font: '40px Arial',
+                fill: '#ffffff',
+                backgroundColor: '#000000',
+                padding: { x: 10, y: 5 },
+                align: 'center'
+            }).setOrigin(0.5);
+
+            // Destruir el texto después de 4 segundos (4000 ms)
+            this.time.delayedCall(4000, () => {
+                mensaje.destroy();
+            });
         }
     }
 
