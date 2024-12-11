@@ -119,8 +119,8 @@
             { "texto": "Creo que ha podido ser él, ojalá alguien le pare los pies.", "author": "Ali" },
             { "texto": "Realmente es horrible lo que algunos adultos pueden llegar a hacer...", "author": "Ali" }
         ],
-        "hablado": "false"
-        
+        "hablado": "false",
+        "recompensa"   : "agnosticismo"
     },
     "MARÍA DEL CARMEN":{
         "frases":
@@ -237,7 +237,17 @@
         ],
         "scale": 0.5,
         "derrotado": false,
-        "isBoss": true
+        "isBoss": true,
+        "recompensa": 
+        { 
+            "name": "roca pija",
+            "description": "+10 puntos de cualidad",
+            "effect": 4,
+            "x": 800,
+            "y": 700,
+            "amountOfEffect": 10,
+            "recogido": "false"
+        }
         
     },
     "PITIBANCO":{

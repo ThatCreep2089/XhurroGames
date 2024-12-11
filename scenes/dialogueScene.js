@@ -286,7 +286,20 @@ export default class DialogueScene extends Phaser.Scene {
 
     addRecompensa()
     {
-        console.log("Añadir recompensa");
+        let recompensa = this.dialogueJson[this.npc].recompensa;
+        console.log(recompensa);
+
+        if (this.npc == "BOSS"){
+            console.log(recompensa);
+            this.addItemToScene(recompensa);
+             
+        }
+        else {
+            console.log("Añadir recompensa");
+            
+            this.player.mejorarCualidad(recompensa);
+            console.log(this.player);
+        }
     }
 
     fumarPorroAnsiedad() 
@@ -328,6 +341,26 @@ export default class DialogueScene extends Phaser.Scene {
         })
     }
 
+    
+    addItemToScene(item)
+    {
+        if(item.recogido == "false")
+        {
+           let newItem= new Item(this, item.name, item.description, item.effect, item.x, item.y, item.amountOfEffect);//creamos item
+           newItem.setScale(0.3);//ajustamos tam
+           newItem.setInteractive(); // Habilitar interactividad
+            
+            //evento boton
+            newItem.on('pointerdown', () => { //evento para detectar el raton
+                item.recogido = "true";
+                this.Pick(newItem); //recoger item (meter en inventario) y quitar de escena
+            });
+            newItem.on('pointerover', () => newItem.setTint(0x4ec647)) //para que se ponga rojo cuando el raton está encima
+            newItem.on('pointerout', () =>newItem.clearTint());
+    
+        }
+        
+    }
     update(){
         if((this.npc == 'PITIBANCO'))
         {
