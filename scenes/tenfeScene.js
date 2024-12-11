@@ -99,12 +99,18 @@ export default class TenfeScene extends Phaser.Scene {
             if (tiempoEspera) {
                 tiempoEspera.remove(false);
             }
-            this.random_tenfe();
+            
+        
+            // Generar número aleatorio
+            const secs = Phaser.Math.Between(0, 60);
+            this.resultText.setText(`Número: ${secs}`);
 
               // Temporizador para mostrar "renfe"
               tiempoEspera = this.time.addEvent({
                 delay: secs * 1000, // Convertir a milisegundos
                 callback: () => {
+
+                    console.log("el metro ha llegado");//debug
                     //reemplza timer por texto
                     this.resultText.setText('el metro ha llegado');
                     //subir ansiedad, referencia al player inventario json dialogo...
