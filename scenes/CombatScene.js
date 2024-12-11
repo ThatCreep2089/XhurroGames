@@ -7,6 +7,8 @@ export default class CombatScene extends Phaser.Scene {
         super({ key: 'CombatScene' });
         this.turn = 'player'; // Inicia el turno el player
         this.totalDamage = 0;
+        this.usingMana = false;
+        this.active = true;
     }
 
 init(data){
@@ -21,7 +23,7 @@ init(data){
 
     preload() {
         //Cargar imágenes
-        this.load.image('player', "./assets/npc/elle.png") //player
+        this.load.image('playerCombat', "./assets/npc/elle.png") //player
         this.load.image('copas', "./assets/npc/bossBotellin.png") //enemigo
         this.load.image('yusoa', "./assets/npc/yusoa.png") //enemigo
         this.load.image('combat', "./assets/fondos/combate.jpg") //fondo
@@ -57,39 +59,103 @@ init(data){
         // crear player, inventario y enemigo
        this.setEntities(); 
        
-       this.createButtons();
-       this.createText();
+       this.createAttackButtons();
+       this.createStadisticsButtons();
+       this.createOtherText();
 
        //eventos de turnos
-        this.events.on('playerTurn', ()=>this.isPlayerTurn());
-        this.events.on('enemyTurn', ()=>this.isEnemyTurn());
+        this.events.on('changeTurns', ()=>this.changeTurns());
         this.events.on('enemyDamaged', ()=>this.enemyDamageAnim());
-        this.events.on('checkWinLose', ()=>this.checkGameOver());
-
+        this.events.on('playerDamaged', ()=>this.playerDamageAnim());
+        this.events.on('updateStatus', ()=>this.updateCombatStatus());
 
     }
 
-    isPlayerTurn() {
-        this.turn = 'player';
-        console.log(this.turn)
-    }
-
-    isEnemyTurn(){
-        this.turn = 'enemy'; // Cambia el turno al enemigo
-        console.log(this.turn);
-        this.enemyTurn();
-    }
 
     enemyDamageAnim(){
+        //desactiva botones
+        this.changeActiveButtons();
+        //pone al enemigo en rojo
         this.enemy.setTint(0xff0000);
-        this.time.delayedCall(2000, () => {
-            this.enemy.clearTint();
-    });
- }
+        this.time.delayedCall(5000, () => {
+            this.enemy.clearTint();});
+        //hace el daño al enemigo y actualiza daño total a 0
+        this.enemy.takeDamage(this.totalDamage);
+        this.totalDamage = 0;
+        this.time.delayedCall(5000, () => {
+            this.events.emit('updateStatus');});
+    }
+
+    playerDamageAnim(){
+        this.player.setTint(0xff0000);
+        this.time.delayedCall(5000, () => {
+            this.player.clearTint();});
+        //hace daño al player
+        this.enemy.attackPlayer(this.player);
+
+        this.time.delayedCall(5000, () => {
+            this.events.emit('updateStatus');});
+   }
+ 
+
+changeTurns() {
+    if (this.turn === 'player') {
+        this.turn = 'enemy'; // Cambia el turno al enemigo
+        this.enemyTurn();
+    } else {
+        this.turn = 'player'; // Cambia el turno al player
+        this.generateCards();
+        this.updateCardsTexts();
+    }
+}
+
+   updateCombatStatus(){
+
+        //actualiza la vida
+        this.updateHealthTexts(); 
+
+        //comprueba si ha acabado el combate
+        var result = this.checkGameOver(); 
+        //si no, turno del enemigo
+        if(!result.end == true){
+            this.time.delayedCall(2000, ()=> {this.events.emit('changeTurns');});
+        } 
+        //si ha acabado, escena de victoria o derrota
+        else if(result.playerwin == true){
+            this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
+                inventory: this.inventory.getConfigData(),
+                npc: this.npc,
+                fondo: this.fondo,
+                dialogueJson: this.dialogueJson,
+                battleResult: true})
+        } else {
+            console.log("derrota")
+            this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
+                inventory: this.inventory.getConfigData(),
+                npc: this.npc,
+                fondo: this.fondo,
+                dialogueJson: this.dialogueJson,
+                battleResult: false})
+        }
+   }
 
 
- playerMakesDamage(totalDamage){ 
-    this.enemy.takeDamage(totaldamage);
+
+ playerMakesDamage(){ 
+    if (this.usingMana == true) {
+
+        if(this.player.mana >=20) {
+        this.player.manaPerdido(20);
+        this.events.emit('enemyDamaged');
+        }
+        else  {
+            console.log("no hay mana");
+        }
+    }
+    else {
+        this.events.emit('enemyDamaged');
+    }
+    
  }
 
 
@@ -102,6 +168,7 @@ init(data){
             if (action === 'attack') {
                 //this.player.attackEnemy(this.enemy, 
                 //this.espadas, this.copas, this.bastos,this.oros);
+                if(this.totalDamage === 0) {
                 
                 if(this.enemy.weakness === 'espadas') {
                     this.espadas *= 2;
@@ -115,122 +182,79 @@ init(data){
                 }
                 else if(this.enemy.weakness === 'oros') {
                     this.oros *= 2;
-                }            
-                
+                }    
+            }        
+                this.totalDamage = 0;  
+                console.log("reset totaldamage: " + this.totalDamage); 
                 this.totalDamage = this.espadas + this.copas + this.bastos + this.oros;
-
+                console.log("totaldamage: " + this.totalDamage);
                 this.updateTotalText();
 
+                this.usingMana = false;
+
             } 
-            
-            //ataque con cualidades
-            else if (action === 'magic') {
-
-                if(this.player.mana >=20) {
-                this.cualidades('humildad');
-                this.player.manaPerdido(20);
-                }
-                else  {
-                    console.log("no hay mana");
-                }
-                
-                
-            }
-            this.enemy.takeDamage(this.totalDamage);
-            //this.events.emit('enemyDamaged');
-
-            this.updateHealthTexts(); //actualiza la vida
-            var result = this.checkGameOver(); //comprueba si ha acabado el combate
-            if(!result.end == true){
-                this.events.emit('enemyTurn');
-            } else if(result.playerwin == true){
-                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData(),
-                    npc: this.npc,
-                    fondo: this.fondo,
-                    dialogueJson: this.dialogueJson,
-                    battleResult: true})
-            } else {
-                console.log("derrota")
-                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData(),
-                    npc: this.npc,
-                    fondo: this.fondo,
-                    dialogueJson: this.dialogueJson,
-                    battleResult: false})
-            }
-            
-
-
-        //this.events.emit('enemyDamaged');
             
         }
     }
 
     cualidades(cualidad) {
+        this.totalDamage = 0;
         switch(cualidad){
             case 'humildad':
                 var lvl = this.player.getCualidad('humildad');
 
-               /* var totalDamage = this.oros * 2 * lvl 
-               // + this.espadas
+                this.totalDamage = this.oros * 2 * lvl 
+                // + this.espadas
                 + this.bastos * 1.25 * lvl
                 + this.copas;
-            */
+            
+                this.updateTotalText();
 
-                console.log("oros: " +this.oros + "* 2 * lvl "
-                     + "bastos: " + this.bastos + "* 1.25 * lvl"
-                     + "copas: " + this.copas);
-
-                this.player.attackEnemy(this.enemy, this.oros * 2 * lvl, 0,
-                     this.bastos * 1.25 * lvl, this.copas);
+                this.usingMana = true;
 
                 break;
 
             case 'trabajo duro':
                 var lvl = this.player.getCualidad('trabajo duro');
                 
-               /* var totalDamage = this.oros * 1.25 * lvl
+                this.totalDamage = this.oros * 1.25 * lvl
                 + this.espadas
                 + this.bastos * 2 * lvl 
                 //+ this.copas;
-                    */
+                    
+                this.updateTotalText();
 
-                this.player.attackEnemy(this.enemy, this.oros * 1.25 * lvl,
-                    this.espadas,
-                    this.bastos * 2 * lvl, 
-                    0); 
+                this.usingMana = true;
 
                 break;
 
             case 'agnosticismo':
-                var lvl = this.player.getCualidad('trabajo duro');
+                var lvl = this.player.getCualidad('agnosticismo');
                 
-              /*  var totalDamage = this.oros
+                this.totalDamage = this.oros
                 + this.espadas * 1.25 * lvl
                 //+ this.bastos 
                 + this.copas * 2 * lvl;
-                    */
+                    
+                this.updateTotalText(); 
 
-                this.player.attackEnemy(this.enemy, this.oros,
-                    this.espadas * 1.25 * lvl,
-                    0,
-                    this.copas * 2 * lvl);
+                this.usingMana = true;
 
                 break;
 
             case 'afecto':
                 var lvl = this.player.getCualidad('afecto');
                 
-                var totalDamage =
+                this.totalDamage =
                 // this.oros +
                 this.espadas * 2 * lvl
                 + this.bastos 
                 + this.copas * 1.25 * lvl;
 
-                this.player.attackEnemy(this.enemy, 0,this.espadas * 2 * lvl,
-                    this.bastos, 
-                    this.copas * 1.25 * lvl);
+                this.updateTotalText();
+
+                this.usingMana = true;
+ 
                 break;
             default: 
                 console.log("algo está fallando");
@@ -242,37 +266,8 @@ init(data){
     // Método de turno del enemigo
     enemyTurn() {
 
-        if (this.turn === 'enemy') {
-            
-            this.enemy.attackPlayer(this.player); //ataca
-            this.updateHealthTexts(); //cambia vida del player
-            var result = this.checkGameOver(); //comprueba si ha acabado el combate
-            //this.turn = 'player'; // Vuelve el turno al player
-            if(!result.end == true){
-                this.events.emit('playerTurn');
-                this.generateCards(); //genera nuevas cartas
-                this.updateCardsTexts(); // cambia valor de cartas
-            
-            } else if(result.playerwin == true){
-                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData(),
-                    npc: this.npc,
-                    fondo: this.fondo,
-                    dialogueJson: this.dialogueJson,
-                    battleResult: true})
-            } else {
-                console.log("derrota")
-                this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
-                    inventory: this.inventory.getConfigData(),
-                    npc: this.npc,
-                    fondo: this.fondo,
-                    dialogueJson: this.dialogueJson,
-                    battleResult: false})
-            }
-
-           // this.events.emit('playerTurn');
-            
-        }
+        this.events.emit('playerDamaged');
+                        
     }
 
     //Genera nuevas cartas aleatorias
@@ -304,7 +299,7 @@ init(data){
     }
 
     updateTotalText(){
-        this.totalDamageText.setText(this.totalDamage);
+        this.totalDamageNumber.setText(this.totalDamage);
     }
 
     // Comprueba si alguno de los personajes ha perdido
@@ -325,22 +320,57 @@ init(data){
         return {"end": false, "playerwin": false}
     }
 
-    update() {
-        
+    
+    changeCualidadesVisibility(){
+        //para hacer bonito el combate 
     }
 
-    changeTextsVisibility(){
-        this.espadasText.visible = !this.espadasText.visible;
-        this.copasText.visible = ! this.copasText.visible;
-        this.bastosText.visible = !this.bastosText.visible;
-        this.orosText.visible = !this.orosText.visible;
+    changeActiveButtons(){
+
+        this.active = !this.active;
+        console.log(this.active);
+
+        if(this.active == true){
+                this.attackButton.setInteractive();
+                this.magicButton.setInteractive();
+                this.totalDamageButton.setInteractive();
+                this.playerHumildadButton.setInteractive();
+                this.playerTrabajoDuroButton.setInteractive();
+                this.playerAgnosticismoButton.setInteractive();
+                this.playerAfectoButton.setInteractive();
+            }
+        else {
+                this.attackButton.disableInteractive();
+                this.magicButton.disableInteractive();
+                this.totalDamageButton.disableInteractive();
+                this.playerHumildadButton.disableInteractive();
+                this.playerTrabajoDuroButton.disableInteractive();
+                this.playerAgnosticismoButton.disableInteractive();
+                this.playerAfectoButton.disableInteractive();
+            }   
+        }
+
+    
+
+    createText(x, y, message, fontSize = '50px', color = '#FFFFFF', fontFamily = 'Georgia') {
+        return this.add.text(x, y, message, {
+            fontSize: fontSize,
+            color: color,
+            fontFamily: fontFamily
+        });
     }
 
+    createButton(x, y, width, height, color, callback) {
+        return this.add.rectangle(x, y, width, height, color)
+            .setInteractive()
+            .on('pointerdown', callback);
+    }
 
     setEntities(){
         //player
-        this.player = new Player(this, this.sys.game.canvas.width / 11, this.sys.game.canvas.height / 1.7);
+        this.player = new Player(this, this.sys.game.canvas.width / 11, this.sys.game.canvas.height / 1.7, 'playerCombat');
         this.player.init(this.playerConfig);
+        this.player.setScale(0.7);
         //enemigo
         this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5, 'copas');
         this.enemy.setScale(0.7);
@@ -352,123 +382,196 @@ init(data){
 
         //anulamos movimiento player
         this.player.changeMove(false);
-        this.player.visible = false;
+        //this.player.visible = false;
     }
 
 
-    createButtons(){
-        // botones para ataques player
-        let attackButton = this.add.rectangle(
+    createAttackButtons(){
+        //ataque normal
+        this.attackButton = this.createButton(
             this.sys.game.canvas.width / 1.8,
             this.sys.game.canvas.height / 2,
             200, 100,
-            0xff0000
-            )
-            .setInteractive()
-            .on('pointerdown', () => this.playerTurn('attack'));
+            0xff0000,
+            () => this.playerTurn('attack')
+     );
+        
+        this.attackNormalText = this.createText(
+            this.sys.game.canvas.width / 1.95,
+            this.sys.game.canvas.height / 2.1,
+            'Normal'
+           );
 
-        let magicButton = this.add.rectangle(
+
+        //ataque cualidades
+        this.magicButton = this.createButton(
             this.sys.game.canvas.width / 3,
             this.sys.game.canvas.height / 2,
             300, 100,
-            0xff0000 
-            )
-            .setInteractive()
-            .on('pointerdown', () => this.playerTurn('magic'));
+            0xff0000,
+            () => this.playerTurn('magic')
+      );
+        
+        this.attackCualidadesText = this.createText(
+            this.sys.game.canvas.width / 3.7,
+            this.sys.game.canvas.height / 2.1,
+            'Cualidades'
+        );
 
-        let totalDamageButton = this.add.rectangle(this.add.rectangle(
+        //suma daño total
+        this.totalDamageButton = this.createButton(
             this.sys.game.canvas.width / 1.15,
             this.sys.game.canvas.height / 1.3,
             300, 300,
-            0xff0000 
-            )
-            .setInteractive()
-            .on('pointerdown', () => this.enemy.takeDamage(100)));
-
-        // texto en los botones
-
-        //texto ataque normal
-        this.add.text(
-            this.sys.game.canvas.width / 1.95,
-            this.sys.game.canvas.height / 2.1,
-            'Normal', { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       //Blanco
-            fontFamily: 'Georgia',  
-        });
-        //texto ataque cualidades
-        this.add.text(
-            this.sys.game.canvas.width / 3.7,
-            this.sys.game.canvas.height / 2.1,
-            'Cualidades', { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-
-        //texto suma total
-        this.add.text(
+            0xff0000,
+            () => this.playerMakesDamage(this.totalDamage)
+      );
+   
+        this.totalDamageText = this.createText(
             this.sys.game.canvas.width / 1.2,
             this.sys.game.canvas.height / 1.8,
-            'Total', { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-        //suma total  
-        this.totalDamageText = this.add.text(
+            'Total'  
+        );
+       
+        this.totalDamageNumber = this.createText(
             this.sys.game.canvas.width / 1.15,
             this.sys.game.canvas.height / 1.3,
-            '0', { 
-            fontSize: '100px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
+            '0'
+        );
+        this.totalDamageNumber.setOrigin(0.5);
     }
 
-    createText() {
+
+createStadisticsButtons() {
+
+    //botón humildad
+    this.playerHumildadText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 4.8,
+        'Humildad: ' + this.player.humidad
+    );
+
+    this.playerHumildadButton = this.createButton(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 4.8,
+        this.playerHumildadText.width,     
+        this.playerHumildadText.height,    
+        0x000000,                          
+        () => this.cualidades('humildad')
+    ).setOrigin(0, 0)
+     .setAlpha(0.5);  
+
+    
+    // botón trabajo duro
+    this.playerTrabajoDuroText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 3.9,
+        'Trabajo duro: ' + this.player.trabajoDuro
+    );
+
+    this.playerTrabajoDuroButton = this.createButton(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 3.9,
+        this.playerTrabajoDuroText.width,     
+        this.playerTrabajoDuroText.height,    
+        0x000000,                          
+        () => this.cualidades('trabajo duro')
+    ).setOrigin(0, 0)
+     .setAlpha(0.5);
+
+     //botón agnosticismo
+    this.playerAgnosticismoText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 3.2,
+        'Agnosticismo: ' + this.player.agnosticismo
+    );
+
+    this.playerAgnosticismoButton = this.createButton(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 3.2,
+        this.playerAgnosticismoText.width,     
+        this.playerAgnosticismoText.height,    
+        0x000000,                          
+        () => this.cualidades('agnosticismo')
+    ).setOrigin(0, 0)
+     .setAlpha(0.5);
+
+    //botón afecto
+    this.playerAfectoText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 2.7,
+        'Afecto: '+ this.player.afecto
+    );
+
+    this.playerAfectoButton = this.createButton(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 2.7,
+        this.playerAfectoText.width,     
+        this.playerAfectoText.height,    
+        0x000000,                          
+        () => this.cualidades('afecto')
+    ).setOrigin(0, 0)
+     .setAlpha(0.5);    
+
+    
+
+}
+
+
+
+    createOtherText() {
+
+                
+        //texto de la salud del player
+        this.playerHealthText = this.createText(
+            this.sys.game.canvas.width / 40,
+            this.sys.game.canvas.height / 20,
+            'PlayerHP: ' + this.player.health
+        );
+
+        //texto del maná del player
+        this.playerManaText = this.createText(
+            this.sys.game.canvas.width / 40,
+            this.sys.game.canvas.height / 10,
+            'PlayerMana: ' + this.player.mana
+        );
+
+        //texto de la salud del enemigo 
+        this.enemyHealthText = this.createText(
+            this.sys.game.canvas.width / 1.9,
+            this.sys.game.canvas.height / 8,
+            'Enemigo: ' + this.enemy.health,  
+            );
 
 
         //texto de valores de las cartas:
-        this.espadasText = this.add.text(
+        this.espadasText = this.createText(
             this.sys.game.canvas.width / 5.5,
             this.sys.game.canvas.height / 1.7,
-            'espadas: ', { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
+            'espadas: '
+        );
         
         
 
-        this.copasText = this.add.text(
+        this.copasText = this.createText(
             this.sys.game.canvas.width / 2.9,
             this.sys.game.canvas.height / 1.7,
-            'copas: ', { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
+            'copas: '
+        );
 
 
-        this.bastosText = this.add.text(
+        this.bastosText = this.createText(
             this.sys.game.canvas.width / 2,
             this.sys.game.canvas.height / 1.7,
-            'bastos: ', { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
+            'bastos: '  
+        );
 
 
-        this.orosText = this.add.text(
+        this.orosText = this.createText(
             this.sys.game.canvas.width / 1.5,
             this.sys.game.canvas.height / 1.7,
-            'oros: ', { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
+            'oros: '
+        );
 
         // Rectángulos (cartas) debajo de cada texto (bajados):
         const offsetY = 160;  // Aumento en el valor Y para bajar los rectángulos
@@ -510,124 +613,65 @@ init(data){
         this.orosCard.setOrigin(0.5);
 
         // Texto del número de 'espadas' centrado en el rectángulo de 'espadas'
-        this.espadasNumber = this.add.text(
+        this.espadasNumber = this.createText(
             this.espadasCard.x,  // Usamos la posición x del rectángulo
             this.espadasCard.y,  // Usamos la posición y del rectángulo
-            this.espadas, { 
-                fontSize: '100px', 
-                color: '#000000',       // Negro
-                fontFamily: 'Georgia',  
-            }
-        );
-        this.espadasNumber.setOrigin(0.5);  // Centramos el texto en su posición
+            this.espadas,
+            '100px', 
+            '#000000',       // Negro  
+            
+        ).setOrigin(0.5);  // Centramos el texto en su posición
 
         // Repite lo mismo para los otros textos y rectángulos
 
         // Texto del número de 'copas' centrado en el rectángulo de 'copas'
-        this.copasNumber = this.add.text(
+        this.copasNumber = this.createText(
             this.copasCard.x,  // Usamos la posición x del rectángulo
             this.copasCard.y,  // Usamos la posición y del rectángulo
-            this.copas, { 
-                fontSize: '100px', 
-                color: '#000000',       // Negro
-                fontFamily: 'Georgia',  
-            }
-        );
-        this.copasNumber.setOrigin(0.5);  // Centramos el texto en su posición
+            this.copas,  
+            '100px', 
+            '#000000',       // Negro    
+        
+        ).setOrigin(0.5);  // Centramos el texto en su posición
 
         // Texto del número de 'bastos' centrado en el rectángulo de 'bastos'
-        this.bastosNumber = this.add.text(
+        this.bastosNumber = this.createText(
             this.bastosCard.x,  // Usamos la posición x del rectángulo
             this.bastosCard.y,  // Usamos la posición y del rectángulo
-            this.bastos, { 
-                fontSize: '100px', 
-                color: '#000000',       // Negro
-                fontFamily: 'Georgia',  
-            }
-        );
-        this.bastosNumber.setOrigin(0.5);  // Centramos el texto en su posición
+            this.bastos, 
+            '100px', 
+            '#000000',       // Negro
+                 
+        ).setOrigin(0.5);  // Centramos el texto en su posición
 
         // Texto del número de 'oros' centrado en el rectángulo de 'oros'
-        this.orosNumber = this.add.text(
+        this.orosNumber = this.createText(
             this.orosCard.x,  // Usamos la posición x del rectángulo
             this.orosCard.y,  // Usamos la posición y del rectángulo
-            this.oros, { 
-                fontSize: '100px', 
-                color: '#000000',       // Negro
-                fontFamily: 'Georgia',  
-            }
-        );
-        this.orosNumber.setOrigin(0.5);  // Centramos el texto en su posición
+            this.oros,  
+            '100px', 
+            '#000000',       // Negro
+                
+        ).setOrigin(0.5);  // Centramos el texto en su posición
 
 
 
-        
-
-        //texto para mostrar salud, mana y cualidades del player
-        this.playerHealthText = this.add.text(50, 50, 'PlayerHP: ' + this.player.health, { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-        this.playerManaText = this.add.text(
-            this.sys.game.canvas.width / 40,
-            this.sys.game.canvas.height / 10,
-             'PlayerMana: ' + this.player.mana, { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-
-        this.playerHumildadText = this.add.text(
-            this.sys.game.canvas.width / 40,
-            this.sys.game.canvas.height / 6.5,
-            'Humildad: ' + this.player.humidad, { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-        this.playerTrabajoDuroText = this.add.text(
-            this.sys.game.canvas.width / 40,
-            this.sys.game.canvas.height / 4.8,
-            'Trabajo duro: ' + this.player.trabajoDuro, { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-        this.playerAgnosticismoText = this.add.text(
-            this.sys.game.canvas.width / 40,
-            this.sys.game.canvas.height / 3.9,
-            'Agnosticismo: ' + this.player.agnosticismo, { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-        this.playerAfectoText = this.add.text(
-            this.sys.game.canvas.width / 40,
-            this.sys.game.canvas.height / 3.2,
-            'Afecto: '+ this.player.afecto, { 
-            fontSize: '50px', 
-            color: '#FFFFFF',       // Blanco
-            fontFamily: 'Georgia',  
-        });
-        //texto de la salud del enemigo 
-        this.enemyHealthText = this.add.text(
-            this.sys.game.canvas.width / 1.8,
-            this.sys.game.canvas.height / 8,
-            'Enemigo: ' + this.enemy.health, { 
-                fontSize: '50px', 
-                color: '#FFFFFF',       // Blanco
-                fontFamily: 'Georgia',  
-            });
-
-
-        //BACK BUTTON (VOLVER A ZONA SCENE)
-        const backScene = this.add.image(
-            this.sys.game.canvas.width / 12,
-            this.sys.game.canvas.height / 1.2, 
-            'flecha')
-        .setScale(-0.3, 0.3)
+       /* let inventarioButton = this.add.rectangle(
+            this.sys.game.canvas.width / 14,
+            this.sys.game.canvas.height / 1.5, 
+            50, 50, 0xffe800)
         .setInteractive()
-        .on('pointerdown', () => this.scene.start('zonaScene', { modo: this.ant}));
+        .setScale(4, 2)
+        .on('pointerdown', () => {
+            console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
+            this.scene.start('InventoryScene', {
+                lastScene: this.key, // Este es el valor que debería contener "zonaScene"
+                player: this.player.getConfigData(),
+                inventory: this.inventory.getConfigData(),
+                //modo: this.modo,
+                dialogueJson: this.dialogueJson
+            });
+        });
+*/
     }
 }
