@@ -43,7 +43,14 @@ export default class ZonaScene extends Phaser.Scene{
     }
 
     create(data){
-       //leer mapa
+        // Si la música ya está reproduciéndose, no la iniciamos de nuevo
+        if (!this.sound.get('zoneMusic')) {
+            const music = this.sound.add('zoneMusic', { volume: 0.5, loop: true });
+            music.play();
+        }
+        
+       
+        //leer mapa
         const jsonObject = this.cache.json.get('mapJason');
 
         //PINTAR FONDO

@@ -161,7 +161,10 @@ export default class loadScene extends Phaser.Scene {
      //VIDEO
      this.load.video('iguana', 'assets/videos/iguana.mp4', false);
      this.load.video('intro', 'assets/videos/manifestacion.mp4', false);
-     
+
+     //SOUND
+     this.load.audio('zoneMusic', 'assets/videos/zoneMusic.mp3');
+     this.load.audio('combatMusic', 'assets/videos/combat.mp3');
      
     //CONTACT SCENE
   

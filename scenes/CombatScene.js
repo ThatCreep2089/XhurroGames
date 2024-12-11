@@ -27,6 +27,11 @@ init(data){
 
     create() {
         
+        if (!this.sound.get('combatMusic')) {
+            const music = this.sound.add('combatMusic', { volume: 0.5, loop: true });
+            music.play();
+        }
+
         //nos aseguramos de inicializar bien todo
         this.turn = 'player'; // Inicia el turno el player
         this.totalDamage = 0;
@@ -467,7 +472,7 @@ createStadisticsButtons() {
     this.playerHumildadText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 4.8,
-        'Humildad: ' + this.player.humidad
+        'Humildad: ' + this.player.humildad
     );
 
     this.playerHumildadButton = this.createButton(

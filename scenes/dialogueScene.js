@@ -39,9 +39,19 @@ export default class DialogueScene extends Phaser.Scene {
         //GANAR O PERDER
         this.battleResult = data.battleResult;
 
+        
     }
 
     create(data){
+        const music = this.sound.get('zoneMusic');
+        const combatMusic = this.sound.get('combatMusic');
+        console.log(music);
+        if (music) {
+            
+            music.resume();
+        }
+        if(combatMusic) combatMusic.stop();
+        
         //INVENTARIO
             //instanciar inventario
             this.inventory = new Inventory(this);
@@ -348,6 +358,7 @@ export default class DialogueScene extends Phaser.Scene {
 
     mostrarCombate()
     {
+        this.sound.get('zoneMusic').pause();
         this.scene.start('CombatScene', {
             ant: this.ant,
             player: this.player.getConfigData(), 
