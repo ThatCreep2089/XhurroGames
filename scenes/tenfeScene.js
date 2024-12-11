@@ -1,3 +1,6 @@
+import Player from '../src/Player.js';
+import Inventory from '../src/inventory.js';
+
 export default class TenfeScene extends Phaser.Scene {
     constructor(){
         super({key: "tenfeScene"})
@@ -18,6 +21,25 @@ export default class TenfeScene extends Phaser.Scene {
     }
 
     create(data){
+
+        //INVENTARIO
+            //instanciar inventario
+            this.inventory = new Inventory(this);
+            if(this.inventoryConfig != undefined) {
+                this.inventory.init(this.inventoryConfig);
+            }
+
+        //PLAYER
+            //instanciar player
+            this.player = new Player(this, 50, 60);
+            
+            this.player.setScale(0.03);
+            if(this.playerConfig != undefined)
+            {
+                this.player.init(this.playerConfig);
+            }
+
+        
         console.log("tenfeFondo");//debug
         
         //1. PINTAR FONDO
@@ -47,7 +69,7 @@ export default class TenfeScene extends Phaser.Scene {
         .on('pointerdown', () =>  
             this.scene.start('zonaScene', {// Cambiar escena
             modo: this.modo,
-             player: player.getConfigData(),
+             player: this.player.getConfigData(),
              inventory: this.inventory.getConfigData(),
              dialogueJson: this.dialogueJson
            
@@ -92,7 +114,7 @@ export default class TenfeScene extends Phaser.Scene {
                         //...
                         this.scene.start('zonaScene', {// Cambiar escena
                            modo: this.modo, //cambiar a modo: 4
-                            player: player.getConfigData(),
+                            player: this.player.getConfigData(),
                             inventory: this.inventory.getConfigData(),
                             dialogueJson: this.dialogueJson
                           
@@ -113,7 +135,7 @@ export default class TenfeScene extends Phaser.Scene {
 
 
 
-        //gambling de tenfe
+        /*/gambling de tenfe
         const gachaButton = this.add.text(
             this.sys.game.canvas.width / 2,
             this.sys.game.canvas.height / 2 - 50,
@@ -146,7 +168,7 @@ export default class TenfeScene extends Phaser.Scene {
                 callbackScope: this
             });
         });
-
+*/
     }
 
     random_tenfe(){
