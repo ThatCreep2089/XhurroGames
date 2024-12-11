@@ -9,9 +9,7 @@ export default class GeneralContactsScene extends Phaser.Scene {
         this.inventoryConfig = data.inventory;
         this.modo= data.modo;
         this.dialogueJson = data.dialogueJson;
-
-        console.log(this.playerConfig);
-        console.log(this.inventoryConfig);
+        console.log(this.dialogueJson);
     }
 
     preload() {
@@ -33,7 +31,7 @@ export default class GeneralContactsScene extends Phaser.Scene {
 
 
         // Creamos los rectangulos para ir a los contactos de ese barrio
-        const createRectangle = (x, y, width, height, color, modo) => {
+        const createRectangle = (x, y, width, height, color, barrio) => {
             const rect = this.add.rectangle(x, y, width, height, color).setOrigin(0);
             rect.setInteractive().on('pointerdown', () => {
                 this.scene.start('ContactScene', { 
@@ -41,6 +39,7 @@ export default class GeneralContactsScene extends Phaser.Scene {
                     player: this.playerConfig,
                     inventory: this.inventoryConfig,
                     modo: this.modo,
+                    barrio: barrio,
                     dialogueJson : this.dialogueJson }); // Cambiar el modo según la escena
             });
             return rect;

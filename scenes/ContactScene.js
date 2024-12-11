@@ -11,6 +11,7 @@ init(data){
      if(data.dialogueJson)
     {
         this.dialogueJson = data.dialogueJson;
+        console.log(this.dialogueJson);
     }
     else
     {
@@ -21,6 +22,7 @@ init(data){
     this.inventoryConfig = data.inventory;
 
     this.lastScene = data.lastScene;
+    this.barrio = data.barrio;
 }
 
     preload() {
@@ -86,16 +88,19 @@ init(data){
         this.rect.setVisible(false);
     });
         //BARRIO: OBRERO
-        if(this.modo == 1)
-            {  const obrero = jsonObject["botellin"];
-                
+        if(this.barrio == 1)
+            {  
+                const obrero = jsonObject["botellin"];
                 obrero.npcs.forEach(npc => {
                     let name = npc.name.toUpperCase(); //guardar nombre del npc en mayusculas
 
                     let npcOb = this.dialogueJson[name]; //acceder al objeto npc especifico del dialogo json
 
+                    console.log(npcOb.hablado);
+
                     if(npcOb.hablado == "true")
                     {
+                        
                         contacto = npc.name; // La imagen se toma del nombre del NPC
                         this.addContactToScene(npc, contacto);
                     }
@@ -103,7 +108,7 @@ init(data){
             }
         //BARRIO: RELIGIOSO
            
-            else if(this.modo == 2)
+            else if(this.barrio == 2)
             {const religioso = jsonObject["religioso"];
                 religioso.npcs.forEach(npc => {
                 if (npc.conocida) { // Comprobar si este NPC es conocido
@@ -115,7 +120,7 @@ init(data){
     
             }
         //BARRIO: NAVAJAS
-            else if(this.modo == 3)
+            else if(this.barrio == 3)
             {
                 const navajas = jsonObject["navajas"];
                 navajas.npcs.forEach(npc => {
@@ -128,7 +133,7 @@ init(data){
     
             }
         //BARRIO: DINERO
-            else if(this.modo == 4)
+            else if(this.barrio == 4)
             {
                 const dinero = jsonObject["dinero"];
                 dinero.npcs.forEach(npc => {
