@@ -1,3 +1,14 @@
+/**
+ * Player es un objeto que representa al jugador en el juego.
+ * El jugador tiene una cantidad de vida, una cantidad de mana y cualidades.
+ * El jugador puede moverse por el mapa.
+ * El jugador puede atacar a un enemigo en combate y recibir daño.
+ * El jugador puede interactuar con objetos del mapa.
+ * El jugador puede mejorar sus cualidades, modificar ansiedad y curarse.
+ * 
+ */
+
+
 export default class Player extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, sprite = 'player') {
         super(scene, x, y, sprite); 
