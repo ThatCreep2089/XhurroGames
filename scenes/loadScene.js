@@ -115,7 +115,6 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('PACO', 'assets/npc/paco.png');
     this.load.image('HUMBERTO', 'assets/npc/humberto.png');
     this.load.image('MARÍA', 'assets/npc/maria.png');
-    this.load.image('NPC', 'assets/npc/npc.png');
     this.load.image('PITIBANCO', 'assets/npc/pitiBanco.png');
     this.load.image('MARÍA JOSÉ', 'assets/npc/mariaJose.png');
     this.load.image('MARÍA DEL CARMEN', 'assets/npc/mariaDelCarmen.png');
