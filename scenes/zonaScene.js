@@ -35,7 +35,7 @@ export default class ZonaScene extends Phaser.Scene{
         if(data.dialogueJson)
         {
             this.dialogueJson = data.dialogueJson;
-            console.log(this.dialogueJson);
+            //console.log(this.dialogueJson);
         }
         else{
             this.dialogueJson = this.cache.json.get('dialogueJson');
