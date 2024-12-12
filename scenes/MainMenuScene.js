@@ -1,4 +1,6 @@
-
+/**
+ * Escena que actúa como menú principal para iniciar el juego
+ */
 
 export default class MainMenuScene extends Phaser.Scene {
     constructor(){

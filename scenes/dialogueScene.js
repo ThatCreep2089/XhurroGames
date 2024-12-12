@@ -3,6 +3,10 @@ import Player from '../src/Player.js';
 import Inventory from '../src/inventory.js';
 import Item from '../src/item.js';
 
+/**
+ * Escena que maneja la creación, modificación y finalización de los diálogos.
+ */
+
 export default class DialogueScene extends Phaser.Scene {
     constructor(){
         super({key: "dialogueScene"})

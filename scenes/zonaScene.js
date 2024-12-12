@@ -4,6 +4,13 @@ import Localization from '../src/localization.js';
 import Flecha from '../src/flecha.js';
 import Inventory from '../src/inventory.js';
 
+/**
+ * Escena que maneja la navegación del jugador por el mapa.
+ * Cada barrio está dividido por x numero de zonas, diferenciadas por el parámetro this.modo.
+ * Cada zona tiene localizaciones diferentes. La estación Tenfe solo está en una zona de cada barrio, al igual que la localización del boss.
+ * Cada zona también cuenta con x numero de colliders para hacer la navegación más realista.
+ * Todos estos datos se leen del archivo "map.json"
+ */
 
 export default class ZonaScene extends Phaser.Scene{
     constructor()
@@ -36,10 +43,8 @@ export default class ZonaScene extends Phaser.Scene{
 
     }
 
-    preload() //CARGAR TODOS LOS RECURSOS
+    preload()
     {
-        
-
     }
 
     create(data){
@@ -294,6 +299,7 @@ export default class ZonaScene extends Phaser.Scene{
 
     }
 
+    //Crear localizacion en escena
     createLocalization(localization)
     {
         let localization1 = new Localization(this, localization.sprite, 
@@ -328,6 +334,7 @@ export default class ZonaScene extends Phaser.Scene{
 
     }
 
+    //Crear flecha en escena
     createFlecha(flecha)
     {
         let flecha1 = new Flecha(this, 
@@ -337,6 +344,7 @@ export default class ZonaScene extends Phaser.Scene{
             .setScale(flecha.width, flecha.height);
     }
 
+    //Crear collider en escena
     createBuilding(building)
     {
         let building1 = new Building(this, building.sprite, 

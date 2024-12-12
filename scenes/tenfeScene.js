@@ -1,6 +1,14 @@
 import Player from '../src/Player.js';
 import Inventory from '../src/inventory.js';
 
+/**
+ * Escena que maneja la funcionalidad del "TENFE".
+ * Hasta que el jugador no consiga los 4 trozos de constitución, esta estará deshabilitada (actualmente el número de copias se ha rebajado a 1, ya que faltan por añadir tres barrios)
+ * Contiene un botón "Esperar Tenfe". Al pulsarlo se eligirá un número random del 0-20, siendo este el número de segundos que el jugador debe esperar hasta poder utilizar el Tenfe.
+ * Este número random será también el aumento de ansiedad al jugador.
+ * Una vez que termine el tiempo establecido, el tren llegará y el jugador podrá viajar al resto de los barrios (actualmente solo se puede viajar a la zona del enemigo final "Yusoa", por la misma razón anteriormente mencionada)
+ */
+
 export default class TenfeScene extends Phaser.Scene {
     constructor(){
         super({key: "tenfeScene"})

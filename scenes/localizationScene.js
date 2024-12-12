@@ -2,6 +2,12 @@ import Player from '../src/Player.js';
 import Inventory from '../src/inventory.js';
 import Item from '../src/item.js';
 
+/**
+ * Escena que maneja la elección de Npcs para luego derivar al diálogo.
+ * Muestra los Npcs disponibles, así como la ansiedad actual del jugador y los posibles objetos coleccionables que puede recoger el jugador.
+ * Leyendo el archivo "localization.json" la escena crea dichos objetos.
+ */
+
 export default class localizationScene extends Phaser.Scene
 {
     constructor()
