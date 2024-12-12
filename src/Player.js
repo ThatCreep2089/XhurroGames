@@ -138,9 +138,12 @@ HealQuality(amount)
 
 //métodos de combate (victor)
     // Método de ataque
-    attackEnemy(enemy, espadas,copas,bastos,oros) {
+    attackEnemy(enemy, damage) {
 
-        enemy.takeDamage(espadas,copas,bastos,oros);
+        if(this.ansiedad >= 40) {
+            damage = damage / 2;
+        }
+        enemy.takeDamage(damage);
 
     }
 

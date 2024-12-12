@@ -94,7 +94,7 @@ init(data){
         this.time.delayedCall(3000, () => {
             this.enemy.clearTint();});
         //hace el daño al enemigo y actualiza daño total a 0
-        this.enemy.takeDamage(this.totalDamage);
+        this.player.attackEnemy(this.enemy, this.totalDamage);
         this.totalDamage = 0;
         this.time.delayedCall(3000, () => {
             this.events.emit('updateStatus');});
@@ -367,7 +367,6 @@ changeTurns() {
 
         if(this.active == true){
                 this.attackButton.setInteractive();
-                this.magicButton.setInteractive();
                 this.totalDamageButton.setInteractive();
                 this.playerHumildadButton.setInteractive();
                 this.playerTrabajoDuroButton.setInteractive();
@@ -376,7 +375,6 @@ changeTurns() {
             }
         else {
                 this.attackButton.disableInteractive();
-                this.magicButton.disableInteractive();
                 this.totalDamageButton.disableInteractive();
                 this.playerHumildadButton.disableInteractive();
                 this.playerTrabajoDuroButton.disableInteractive();
