@@ -222,7 +222,7 @@
             { "texto": "Buenas, yo soy Ellie, y déjame decirte que aquí estamos incluso peor.", "author": "Ellie" },
             { "texto": "Te hago un pequeño resumen.", "author": "Ellie" },
             
-            { "video": "iguana" },
+            { "video": "resumen" },
 
             { "texto": "Ahora, los únicos que intentamos luchar contra el sistema, somos nosotros.", "author": "Ellie" },
             { "texto": "Dejarme ayudaros, no puedo quedarme solo mirando, sin hacer nada.", "author": "Elle" },
@@ -318,7 +318,7 @@
             { "texto": "AAAAGGHHHH DESTROZARÉ TODO Y A TODOS", "author": "Yusoa" },
             { "texto": "Tchh, que mal perder que tiene, aceptalo, te hemos ganado justamente ", "author": "Elle" },
             { "texto": "VOLVERÉ Y VOLVERÉ MÁS FUERTE ", "author": "Yusoa" },
-            { "texto": " //meter video  ", "author": "Yusoa" }
+            { "video": "victoria" }
            
             
         ],
