@@ -165,6 +165,7 @@ export default class loadScene extends Phaser.Scene {
      //SOUND
      this.load.audio('zoneMusic', 'assets/videos/zoneMusic.mp3');
      this.load.audio('combatMusic', 'assets/videos/combat.mp3');
+     this.load.audio('avisoMetro', 'assets/videos/Sonido_ Aviso Metro Madrid Parada.mp3');
      
     //CONTACT SCENE
   

@@ -119,9 +119,16 @@ export default class TenfeScene extends Phaser.Scene {
                         //añadir imagen tren
                         let vagonImage = this.add.image(this.sys.game.canvas.width / 1.4, this.sys.game.canvas.height / 1.8, 'vagon');
                         vagonImage.setDepth(-1);
+                        vagonImage.setOrigin(0.5);
 
                         console.log("el metro ha llegado");//debug
                         //reemplza timer por texto
+
+                        if (!this.sound.get('avisoMetro')) {
+                            const music = this.sound.add('avisoMetro', { volume: 0.5, loop: false });
+                            music.play();
+                        }
+
                         this.resultText.setText('EL TREN HA LLEGADO');
                         //subir ansiedad, referencia al player inventario json dialogo...
                         this.player.IncreaseAnxiety(secs);
