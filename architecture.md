@@ -2,7 +2,6 @@
 
 El proyecto `Yusoa es ley` es un juego desarrollado con Phaser. La arquitectura del proyecto está organizada en varias escenas y objetos que interactúan entre sí para proporcionar la funcionalidad del juego.
 
-
 ## 1. Escenas del Juego
 
 - **MainMenuScene**: Esta escena muestra el menú principal del juego.
