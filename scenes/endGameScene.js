@@ -8,10 +8,6 @@ export default class EndGameScene extends Phaser.Scene {
         super({key: "endGameScene"})
     }
 
-    preload()
-    {
-       
-    }
 
     create(){
         //Pintamos un fondo

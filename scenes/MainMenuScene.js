@@ -7,10 +7,6 @@ export default class MainMenuScene extends Phaser.Scene {
         super({key: "MainMenuScene"})
     }
 
-    preload()
-    {
-       
-    }
 
     create(){
         this.dialogueJson = this.cache.json.get('dialogueJson');;

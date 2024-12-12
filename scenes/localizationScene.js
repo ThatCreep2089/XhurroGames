@@ -42,10 +42,6 @@ export default class localizationScene extends Phaser.Scene
 
     }
 
-    preload(){
-       
-    }
-
     
     create(){
         //leer localizacion

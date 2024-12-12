@@ -43,9 +43,6 @@ export default class ZonaScene extends Phaser.Scene{
 
     }
 
-    preload()
-    {
-    }
 
     create(data){
         // Si la música ya está reproduciéndose, no la iniciamos de nuevo
@@ -353,8 +350,5 @@ export default class ZonaScene extends Phaser.Scene{
             building.width, building.height, this.buildings);
     }
 
-    update(time, dt){
-
-    }
 
 }
