@@ -7,10 +7,6 @@ export default class loadScene extends Phaser.Scene {
         super({key: "loadScene"})
     }
 
-  init()
-  {
-    
-  }
 
   preload() {
     
