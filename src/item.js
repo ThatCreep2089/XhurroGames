@@ -1,14 +1,15 @@
 
+//Esta clase sirve para crear un item con varias propiedades que se describen a continuación
 export default class Item extends Phaser.GameObjects.Image
 {
-  
+
 constructor(scene,name,description,effect,posx,posy,amount)
 {
     super(scene,posx,posy,name);
-        this.amount = amount; // cantodad del efecto, pej si cuar 3 ese 3 que se 
+        this.amount = amount; // cantidad del efecto, p ej si cura 3 de vida amount seria 3 
         this.name=name; //nombre elem
-        this.description=description;//que hace el objeto
-        this.effect=effect;//tipo efecto(si es para reducir ansiedad...)
+        this.description=description;//que hace el objeto p ej "cura 3 de vida"
+        this.effect=effect;//tipo efecto(si es para reducir ansiedad...) en int
         scene.add.existing(this); //Añadimos item a la escena
         
 
