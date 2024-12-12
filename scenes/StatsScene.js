@@ -1,3 +1,7 @@
+/*
+Escena que sirve para mostar de forma visual los atributos del player
+como vida, cualidades, ansiedad y ptos mana no se pueden midificar esos valores desde esta escena
+simplemente el jugador los observa*/
 import Player from '../src/Player.js';
 
 export default class StatsScene extends Phaser.Scene {

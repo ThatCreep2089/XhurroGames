@@ -1,3 +1,4 @@
+/*Escena que sirve para preecargar todas las imagenes del juego */
 import Player from "../src/Player.js";
 import Inventory from "../src/inventory.js";
 
