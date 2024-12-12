@@ -154,7 +154,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.json("dialogueJson", 'src/dialog.json')
 
     //INVENTORY SCENE
-    this.load.image('inventory', 'assets/fondos/FondoInventario.png'); 
+    this.load.image('inventory', 'assets/fondos/fondoInventario.png'); 
 
     //GENERAL CONTACTS
     this.load.image('fondoC', 'assets/contactos/fondoContactos.png');
