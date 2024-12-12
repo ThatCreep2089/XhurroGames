@@ -94,7 +94,7 @@ init(data){
         this.time.delayedCall(3000, () => {
             this.enemy.clearTint();});
         //hace el daño al enemigo y actualiza daño total a 0
-        this.enemy.takeDamage(this.totalDamage);
+        this.player.attackEnemy(this.enemy, this.totalDamage);
         this.totalDamage = 0;
         this.time.delayedCall(3000, () => {
             this.events.emit('updateStatus');});
