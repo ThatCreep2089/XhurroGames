@@ -367,7 +367,6 @@ changeTurns() {
 
         if(this.active == true){
                 this.attackButton.setInteractive();
-                this.magicButton.setInteractive();
                 this.totalDamageButton.setInteractive();
                 this.playerHumildadButton.setInteractive();
                 this.playerTrabajoDuroButton.setInteractive();
@@ -376,7 +375,6 @@ changeTurns() {
             }
         else {
                 this.attackButton.disableInteractive();
-                this.magicButton.disableInteractive();
                 this.totalDamageButton.disableInteractive();
                 this.playerHumildadButton.disableInteractive();
                 this.playerTrabajoDuroButton.disableInteractive();
