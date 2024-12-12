@@ -9,6 +9,7 @@ export default class StatsScene extends Phaser.Scene {
     }
 
 init(data){
+    //recibimos info 
     this.lastScene = data.lastScene;
     this.inventoryConfig = data.inventory; // Recibe el inventario del objeto `data`
     this.playerConfig= data.player;
@@ -16,9 +17,6 @@ init(data){
     this.dialogueJson = data.dialogueJson;
     
 }
-
-    preload() {
-    }
 
     create() {
        //Creamos el player para poder acceder a el 
