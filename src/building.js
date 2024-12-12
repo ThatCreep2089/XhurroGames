@@ -1,3 +1,13 @@
+/**
+ * Building es una manzana inaccesible utilizada como collider
+ * @param scene
+ * @param image
+ * @param X
+ * @param Y 
+ * @param width es la escala de la imagen en X
+ * @param height
+ * @param colliderGroup // este es el grupo donde se añade para poder colisionar
+ */
 export default class Box extends Phaser.GameObjects.Sprite{
     constructor(scene, image, x, y, width, height, colliderGroup) {
         super(scene, x, y, image);

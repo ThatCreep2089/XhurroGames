@@ -4,8 +4,8 @@
  */
 
 /**
- * Esta clase está pensada para crear cuadros de diálogo
- * Las funciones que empiezan por "_" no deberían llamarse nunca desde otras escenas. Pueden romer cosas.
+ * Esta clase está pensada para crear cuadros de diálogo.
+ * Modificaciones al código inicial para: cambios en el sistema de diálogos, capacidad de crear videos en el momento adecuado leyendo un archivo JSON
  */
 export default class DialogText extends Phaser.Events.EventEmitter{
 
@@ -167,6 +167,7 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 		this._createOuterWindow(dimensions.x, dimensions.y, dimensions.rectWidth, dimensions.rectHeight);
 		this._createInnerWindow(dimensions.x, dimensions.y, dimensions.rectWidth, dimensions.rectHeight);
 		
+		//Crear boton skip, para saltar dialogos
 		this._createSkipButton();
 		
 	}
@@ -300,13 +301,13 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 		const video = this.scene.add.video(this._getGameWidth() / 2, this._getGameHeight() / 2, videoPath);
 		video.setOrigin(0.5);
 		video.setVolume(1);
-		video.play(); // Reproducir el video en bucle si es necesario
+		video.play();
 	
 		video.setInteractive();
 
 		video.on('pointerdown', () => {
 			console.log("Video clickeado, se termina.");
-			video.emit('complete'); // Emitir manualmente el evento 'complete'
+			video.emit('complete'); // Emitir evento 'complete'
 		});
 
 		// Detener el video cuando termine y continuar el diálogo
