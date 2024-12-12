@@ -153,6 +153,7 @@ export default class DialogueScene extends Phaser.Scene {
             let lines;
             if(this.battleResult == true || this.dialogueJson[this.npc].derrotado == true) //elle ha ganado
             {
+                if(this.npc == 'YUSOA') music.stop();
                 lines = this.dialogueJson[this.npc].victory;
             }
             else if(this.battleResult == false) //elle ha perdido
@@ -191,6 +192,7 @@ export default class DialogueScene extends Phaser.Scene {
             {
                 if(this.battleResult == true && this.dialogueJson[this.npc].derrotado == false) //elle ha ganado
                 {
+                    
                     if(this.npc == "YUSOA")
                     {
                         //llamar a escena final
