@@ -138,7 +138,7 @@ HealQuality(amount)
 
 //métodos de combate (victor)
     // Método de ataque
-    attackEnemy(damage) {
+    attackEnemy(enemy, damage) {
 
         if(this.ansiedad >= 40) {
             damage = damage / 2;
