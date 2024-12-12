@@ -128,7 +128,7 @@ export default class localizationScene extends Phaser.Scene
             .on('pointerdown', () => {
                 if(this.player.ansiedad == this.player.maxAnsiedad - 50 && this.npcTalk != 'PITIBANCO')
                 {
-                    console.log("no puedes hablar mas, mucha ansiedad");
+                    //console.log("no puedes hablar mas, mucha ansiedad");
                     this.mostrarPestana();
                 }
                 else
@@ -141,12 +141,12 @@ export default class localizationScene extends Phaser.Scene
     
                         if (noCumplidos.length > 0)
                         {
-                            console.log("Hay requisitos pendientes.");
+                            //console.log("Hay requisitos pendientes.");
                             this.mostrarPestana(noCumplidos);
                         }
                         else
                         {
-                            console.log("Todos los requisitos han sido cumplidos.");
+                            //console.log("Todos los requisitos han sido cumplidos.");
                             this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
                                 player: this.player.getConfigData(), 
                                 inventory: this.inventory.getConfigData(),

@@ -49,7 +49,7 @@ export default class TenfeScene extends Phaser.Scene {
             this.player.changeMove(false);
             this.player.setVisible(false);
         
-        console.log("tenfeFondo");//debug
+        //console.log("tenfeFondo");//debug
         
         //1. PINTAR FONDO
             //Pintamos un fondo
@@ -115,9 +115,9 @@ export default class TenfeScene extends Phaser.Scene {
             
                 // Generar número aleatorio
                 const secs = Phaser.Math.Between(0, 20);
-                console.log("secs"+ secs);
+                //console.log("secs"+ secs);
                 this.countdown = secs * 1000;
-                console.log("countdown" + this.countdown)
+                //console.log("countdown" + this.countdown)
                 this.resultText.setText("Tiempo de espera: "+ this.countdown);
 
                 // Temporizador para mostrar "renfe"
@@ -129,7 +129,7 @@ export default class TenfeScene extends Phaser.Scene {
                         vagonImage.setDepth(-1);
                         vagonImage.setOrigin(0.5);
 
-                        console.log("el metro ha llegado");//debug
+                        //console.log("el metro ha llegado");//debug
                         //reemplza timer por texto
 
                         if (!this.sound.get('avisoMetro')) {
@@ -176,7 +176,7 @@ export default class TenfeScene extends Phaser.Scene {
         if(this.inventory.GetTrozos() >= 1)
         {
             if ( this.countdown < 0) { // Si se pasan del tiempo o ...
-                console.log("se ha terminao el tiempo");//debug   
+                //console.log("se ha terminao el tiempo");//debug   
                 this.resultText.setText("Tiempo de espera: 0");
              }
              else {
