@@ -256,7 +256,7 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 			style: {
 				fontSize: this.fontSize * 1.2, // Tamaño más pequeño que el texto principal
 				fontFamily: this.fontFamily,
-				color: '#FFD700' // Color dorado para diferenciar
+				color: '#cf0000' // Color dorado para diferenciar
 			}
 		});
 	}
