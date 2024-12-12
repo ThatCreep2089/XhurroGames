@@ -14,10 +14,6 @@ export default class TenfeScene extends Phaser.Scene {
         super({key: "tenfeScene"})
     }
 
-    preload()
-    {
-        
-    }
 
     init(data){
         // Usar el parámetro 'fondo' para decidir qué fondo cargar
