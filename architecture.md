@@ -3,7 +3,7 @@
 El proyecto `Yusoa es ley` es un juego desarrollado con Phaser. La arquitectura del proyecto está organizada en varias escenas y objetos que interactúan entre sí para proporcionar la funcionalidad del juego.
 
 
-### 1. Escenas del Juego
+## 1. Escenas del Juego
 
 - **MainMenuScene**: Esta escena muestra el menú principal del juego.
   - Métodos: `preload()`, `create()`
@@ -41,7 +41,7 @@ El proyecto `Yusoa es ley` es un juego desarrollado con Phaser. La arquitectura 
 - **EndGameScene**: Esta escena se muestra al finalizar el juego.
   - Métodos: `preload()`, `create()`
 
-### 2. Clases Principales
+## 2. Clases Principales
 
 - **Player**: Representa al jugador en el juego.
   - Atributos: `health`, `mana`, `humildad`, `trabajoDuro`, `agnosticismo`, `afecto`, `ansiedad`, `maxHealth`, `maxMana`, `maxAnsiedad`
@@ -72,12 +72,10 @@ El proyecto `Yusoa es ley` es un juego desarrollado con Phaser. La arquitectura 
 - **DialogText**: Maneja los cuadros de diálogo en el juego.
   - Métodos: `constructor()`, `init()`, `toggleWindow()`, `setText()`, `_getGameWidth()`, `_getGameHeight()`, `_calculateWindowDimensions()`, `_createInnerWindow()`, `_createOuterWindow()`, `_createWindow()`, `_createSkipButton()`, `_skipDialog()`, `_animateText()`, `_setText()`, `_setAuthor()`, `startDialog()`, `_showCurrentLine()`, `nextLine()`, `_playVideo()`
 
-### 3. Archivos de Configuración
+## 3. Archivos de Configuración
 
 - **map.json**: Contiene la configuración del mapa del juego.
-  - Atributos: `botellin`
 
 - **dialog.json**: Contiene los diálogos de los NPCs.
 
 - **contacts.json**: Contiene la información de los contactos en diferentes barrios.
-
