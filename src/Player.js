@@ -100,6 +100,7 @@ HealPlayer(amount)
 MaxLife(amount)
 {
 this.maxHealth+=amount;
+this.HealPlayer(amount);
 }
 
 LessAnxiety(amount)
