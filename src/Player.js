@@ -87,14 +87,14 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
 HealPlayer(amount)
 {
-    console.log("vida antes", this.health)
+    //console.log("vida antes", this.health)
     if(this.health+amount < this.maxHealth){
     this.health+=amount;
     }
     else {
         this.health = this.maxHealth;
     }
-console.log("vida ahora", this.health)
+//console.log("vida ahora", this.health)
 }
 
 MaxLife(amount)
@@ -262,7 +262,7 @@ mejorarCualidad(cualidad) {
             this.afecto += 1;
             break;
         default:
-            console.log('cualidad no valida');
+           // console.log('cualidad no valida');
     }
 }
 

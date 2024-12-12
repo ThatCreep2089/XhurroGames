@@ -20,7 +20,7 @@ export default class ZonaScene extends Phaser.Scene{
 
 
     init(data){
-        console.log("en el constructor",this.key);
+        //console.log("en el constructor",this.key);
         
         this.key="zonaScene";
         

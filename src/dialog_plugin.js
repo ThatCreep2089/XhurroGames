@@ -306,13 +306,13 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 		video.setInteractive();
 
 		video.on('pointerdown', () => {
-			console.log("Video clickeado, se termina.");
+			//console.log("Video clickeado, se termina.");
 			video.emit('complete'); // Emitir evento 'complete'
 		});
 
 		// Detener el video cuando termine y continuar el diálogo
 		video.on('complete', () => {
-			console.log("ha terminado el video");
+			//console.log("ha terminado el video");
 			video.destroy();
 			this.allowNextLine = true;
 			this.currentLineIndex++;
