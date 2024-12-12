@@ -117,7 +117,7 @@ init(data){
         ptos.setStroke('#000000', 7);
                         
         let cualidades2= this.add.text(1450, 500,
-        "CUALIDADES");
+        "MANA");
         cualidades2.setFontSize(60);
         cualidades2.setStroke('#000000', 7);
 
