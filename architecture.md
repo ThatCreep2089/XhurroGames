@@ -75,7 +75,6 @@ El proyecto `Yusoa es ley` es un juego desarrollado con Phaser. La arquitectura 
 ## 3. Archivos de Configuración
 
 - **map.json**: Contiene la configuración del mapa del juego.
-  - Atributos: `botellin`
 
 - **dialog.json**: Contiene los diálogos de los NPCs.
 
