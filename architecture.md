@@ -4,11 +4,14 @@ El proyecto `Yusoa es ley` es un juego desarrollado con Phaser. La arquitectura 
 
 ## 1. Escenas del Juego
 
-- **MainMenuScene**: Esta escena muestra el menú principal del juego.
-  - Métodos: `preload()`, `create()`
-
 - **LoadScene**: Esta escena se encarga de cargar todos los recursos del juego, como imágenes, sonidos, etc.
   - Métodos: `init()`, `preload()`, `create()`
+
+- **MainMenuScene**: Esta escena muestra el menú principal del juego.
+  - Métodos: `create()`
+
+- **DialogueScene**: Esta escena maneja los diálogos entre el jugador y los NPCs.
+  - Métodos: `init()`, `create()`, `addDialogue()`, `addButtonToScene()`, `addRecompensa()`, `fumarPorroAnsiedad()`, `fumarPorroVida()`, `mostrarCombate()`, `addItemToScene()`, `Pick()`, `update()`
 
 - **CombatScene**: Esta es la escena principal de combate donde se lleva a cabo el combate del juego.
   - Métodos: `init()`, `create()`, `enemyDamageAnim()`, `playerDamageAnim()`, `changeTurns()`, `updateCombatStatus()`, `playerMakesDamage()`, `playerTurn()`, `cualidades()`, `enemyTurn()`, `generateCards()`, `updateHealthTexts()`, `updateCardsTexts()`, `updateTotalText()`, `checkGameOver()`, `changeCualidadesVisibility()`, `changeActiveButtons()`, `createText()`, `createButton()`, `setEntities()`, `createAttackButtons()`, `createStadisticsButtons()`, `createOtherText()`
@@ -16,11 +19,20 @@ El proyecto `Yusoa es ley` es un juego desarrollado con Phaser. La arquitectura 
 - **EndCombatScene**: Esta escena se muestra al finalizar un combate, indicando si el jugador ganó o perdió.
   - Métodos: `init()`, `create()`
 
-- **DialogueScene**: Esta escena maneja los diálogos entre el jugador y los NPCs.
-  - Métodos: `preload()`, `init()`, `create()`, `addDialogue()`, `addButtonToScene()`, `addRecompensa()`, `fumarPorroAnsiedad()`, `fumarPorroVida()`, `mostrarCombate()`, `addItemToScene()`, `Pick()`, `update()`
+  - **EndGameScene**: Esta escena se muestra al finalizar el juego.
+  - Métodos: `create()`
+
+- **LocalizationScene**: Esta escena maneja la interacción del jugador en diferentes localizaciones en el mapa.
+  - Métodos: `init()`, `create()`, `addNPCToScene()`, `addItemToScene()`, `update()`, `acceptButton()`, `Pick()`, `requisitosGato()`, `mostrarPestana()`
+
+- **ZonaScene**: Esta escena maneja la interacción del jugador en una zona en el mapa.
+  - Métodos: `init()`, `create()`, `createLocalization()`, `createFlecha()`, `createBuilding()`
 
 - **InventoryScene**: Esta escena muestra el inventario del jugador.
   - Métodos: `init()`, `create()`, `Remove()`, `UseItem()`, `RenderizarItems()`
+
+- **StatsScene**: Esta escena muestra las estadísticas del jugador.
+  - Métodos: `init()`, `create()`
 
 - **GeneralContactsScene**: Esta escena permite al jugador ver los contactos conocidos de todos los barrios.
   - Métodos: `init()`, `create()`
@@ -28,17 +40,8 @@ El proyecto `Yusoa es ley` es un juego desarrollado con Phaser. La arquitectura 
 - **ContactScene**: Esta escena muestra los contactos en un barrio específico.
   - Métodos: `init()`, `create()`, `addContactToScene()`
 
-- **LocalizationScene**: Esta escena maneja la interacción del jugador en diferentes localizaciones en el mapa.
-  - Métodos: `init()`, `preload()`, `create()`, `addNPCToScene()`, `addItemToScene()`, `update()`, `acceptButton()`, `Pick()`, `requisitosGato()`, `mostrarPestana()`
-
-- **StatsScene**: Esta escena muestra las estadísticas del jugador.
-  - Métodos: `init()`, `create()`
-
 - **TenfeScene**: Esta escena maneja la interacción del jugador con el sistema de Tenfe.
-  - Métodos: `preload()`, `init()`, `create()`, `update()`, `createButton()`
-
-- **EndGameScene**: Esta escena se muestra al finalizar el juego.
-  - Métodos: `preload()`, `create()`
+  - Métodos: `init()`, `create()`, `update()`, `createButton()`
 
 ## 2. Clases Principales
 
@@ -65,10 +68,10 @@ El proyecto `Yusoa es ley` es un juego desarrollado con Phaser. La arquitectura 
 - **Flecha**: Representa una flecha en el juego.
   - Métodos: `updateCollider()`, `setScale()`
 
-- **Box**: Representa un edificio en el juego.
+- **Building**: Representa un edificio en el juego.
   - Métodos: `constructor()`
 
-- **DialogText**: Maneja los cuadros de diálogo en el juego.
+- **Dialog_Plugin**: Maneja los cuadros de diálogo en el juego.
   - Métodos: `constructor()`, `init()`, `toggleWindow()`, `setText()`, `_getGameWidth()`, `_getGameHeight()`, `_calculateWindowDimensions()`, `_createInnerWindow()`, `_createOuterWindow()`, `_createWindow()`, `_createSkipButton()`, `_skipDialog()`, `_animateText()`, `_setText()`, `_setAuthor()`, `startDialog()`, `_showCurrentLine()`, `nextLine()`, `_playVideo()`
 
 ## 3. Archivos de Configuración
@@ -78,3 +81,7 @@ El proyecto `Yusoa es ley` es un juego desarrollado con Phaser. La arquitectura 
 - **dialog.json**: Contiene los diálogos de los NPCs.
 
 - **contacts.json**: Contiene la información de los contactos en diferentes barrios.
+
+## 4. Enlace al diagrama de UML de las escenas del juego
+
+- [ENLACE](https://app.moqups.com/EECFXMJW5eeumfZUjE8vQ4QJp2x29d9t/view/page/a1e20da75?ui=0)
