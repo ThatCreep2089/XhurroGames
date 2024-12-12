@@ -214,7 +214,7 @@
             { "texto": "La que estaba organizada hoy aquí, para recuperar los derechos que ese tirano del alcalde nos quería quitar.", "author": "Elle" },
             { "texto": "¿Alcalde? JAJAJAJA, casi que hubiese preferido eso, lo que tenemos ahora al mando es una repugnante dictadora.", "author": "???" },
             { "texto": "¿Cómo es que en pleno siglo 21 haya dictadores en Madrizz? ¿No te estás liando?", "author": "Elle" },
-            { "texto": "Pero, ¿Qué estás diciendo? Estamos en el año ...., ....., ¡Espera!, ¡¿Vienes del pasado?!", "author": "???" },
+            { "texto": "Pero, ¿Qué estás diciendo? Estamos en el año 22V-4, ....., ¡Espera!, ¡¿Vienes del pasado?!", "author": "???" },
             { "texto": "Con que el futuro... ya decía yo que notaba los alrededores muy raros.", "author": "Elle" },
             { "texto": "Pues que bien, hasta en el futuro seguimos oprimidos.", "author": "Elle" },
             { "texto": "Por cierto, soy Elle y ahora que me acuerdo estábamos en plena manifestación cuando un policia me atizó con su porra", "author": "Elle" },
@@ -222,7 +222,7 @@
             { "texto": "Buenas, yo soy Ellie, y déjame decirte que aquí estamos incluso peor.", "author": "Ellie" },
             { "texto": "Te hago un pequeño resumen.", "author": "Ellie" },
             
-            { "video": "iguana" },
+            { "video": "resumen" },
 
             { "texto": "Ahora, los únicos que intentamos luchar contra el sistema, somos nosotros.", "author": "Ellie" },
             { "texto": "Dejarme ayudaros, no puedo quedarme solo mirando, sin hacer nada.", "author": "Elle" },
@@ -318,7 +318,7 @@
             { "texto": "AAAAGGHHHH DESTROZARÉ TODO Y A TODOS", "author": "Yusoa" },
             { "texto": "Tchh, que mal perder que tiene, aceptalo, te hemos ganado justamente ", "author": "Elle" },
             { "texto": "VOLVERÉ Y VOLVERÉ MÁS FUERTE ", "author": "Yusoa" },
-            { "texto": " //meter video  ", "author": "Yusoa" }
+            { "video": "victoria" }
            
             
         ],
