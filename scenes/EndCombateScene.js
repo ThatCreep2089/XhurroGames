@@ -15,14 +15,17 @@ init(data){
 
 
     create(data){
+
+        //musica
         const music = this.sound.get('zoneMusic');
-        console.log(music);
+        //console.log(music);
         if (music) {
             
             music.resume();
         }
 
 
+        //depende de el resultado es victoria o derrota
         let result;
         if(this.battleResult == true)
         {

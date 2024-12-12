@@ -44,7 +44,7 @@ export default class Inventory
         }
         }
 
-        this.logInventory();
+        //this.logInventory();
     }
 
     RemoveItem(item) {
@@ -56,17 +56,17 @@ export default class Inventory
             } else if(this.elems[index].cantidad = 1){
                 this.elems.splice(index, 1); // Eliminar el ítem si la cantidad llega a 0
             }
-            this.logInventory();
+            //this.logInventory();
         } 
     }
 
     //metodod para depurar y ver si se añaden bien las cantidades
-    logInventory() {
+    /*logInventory() {
         console.log("Inventario actualizado:");
         this.elems.forEach(item => {
             console.log(`${item.name} (Cantidad: ${item.cantidad})`);
         });
-    }
+    }*/
 
     //devolvemos el array de elems
     GetItems() {

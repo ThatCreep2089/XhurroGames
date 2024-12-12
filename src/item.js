@@ -53,7 +53,7 @@ ReduceAnxiety(num,player)
    
 }
 
-//cuara ptos mana
+//curar ptos mana
 HealCuality(num,player)
 {
     player.HealQuality(num)
