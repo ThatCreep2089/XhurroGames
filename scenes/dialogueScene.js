@@ -39,9 +39,19 @@ export default class DialogueScene extends Phaser.Scene {
         //GANAR O PERDER
         this.battleResult = data.battleResult;
 
+        
     }
 
     create(data){
+        const music = this.sound.get('zoneMusic');
+        const combatMusic = this.sound.get('combatMusic');
+        console.log(music);
+        if (music) {
+            
+            music.resume();
+        }
+        if(combatMusic) combatMusic.stop();
+        
         //INVENTARIO
             //instanciar inventario
             this.inventory = new Inventory(this);
@@ -179,7 +189,6 @@ export default class DialogueScene extends Phaser.Scene {
             }
             else if(this.dialogueJson[this.npc].isBoss == true)
             {
-                console.log(this.dialogueJson[this.npc].derrotado);
                 if(this.battleResult == true && this.dialogueJson[this.npc].derrotado == false) //elle ha ganado
                 {
                     if(this.npc == "YUSOA")
@@ -199,7 +208,7 @@ export default class DialogueScene extends Phaser.Scene {
             }
             else
             {
-                if(this.dialogueJson[this.npc].hablado != "true")
+                if(this.dialogueJson[this.npc].hablado != "true" && this.npc != "ELLIE")
                 {
                     this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
                 }
@@ -303,6 +312,20 @@ export default class DialogueScene extends Phaser.Scene {
             
             this.player.mejorarCualidad(recompensa);
             console.log(this.player);
+
+            // Crear texto temporal
+            const mensaje = this.add.text( this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, recompensa + ": +1", {
+                font: '40px Arial',
+                fill: '#ffffff',
+                backgroundColor: '#000000',
+                padding: { x: 10, y: 5 },
+                align: 'center'
+            }).setOrigin(0.5);
+
+            // Destruir el texto después de 4 segundos (4000 ms)
+            this.time.delayedCall(4000, () => {
+                mensaje.destroy();
+            });
         }
     }
 
@@ -335,6 +358,7 @@ export default class DialogueScene extends Phaser.Scene {
 
     mostrarCombate()
     {
+        this.sound.get('zoneMusic').pause();
         this.scene.start('CombatScene', {
             ant: this.ant,
             player: this.player.getConfigData(), 

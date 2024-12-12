@@ -18,20 +18,27 @@ init(data){
     this.npc = data.npc;
     this.fondo = data.fondo;
     this.dialogueJson = data.dialogueJson;
-    console.log("npc: " + this.npc);
+
 }
 
 
-    preload() {
-        //Cargar imágenes
-        this.load.image('playerCombat', "./assets/npc/elle.png") //player
-        this.load.image('copas', "./assets/npc/bossBotellin.png") //enemigo
-        this.load.image('yusoa', "./assets/npc/yusoa.png") //enemigo
-        this.load.image('combat', "./assets/fondos/combate.jpg") //fondo
-    }
+    
+
 
     create() {
         
+        if (!this.sound.get('combatMusic')) {
+            const music = this.sound.add('combatMusic', { volume: 0.5, loop: true });
+            music.play();
+        }
+
+        //nos aseguramos de inicializar bien todo
+        this.turn = 'player'; // Inicia el turno el player
+        this.totalDamage = 0;
+        this.usingMana = false;
+        this.active = true;
+
+
         //Pintamos un fondo
         var back = this.add.image(0, 0, 'combat').setOrigin(0, 0);
 
@@ -75,26 +82,27 @@ init(data){
 
     enemyDamageAnim(){
         //desactiva botones
+        console.log("cambio botones a false");
         this.changeActiveButtons();
         //pone al enemigo en rojo
         this.enemy.setTint(0xff0000);
-        this.time.delayedCall(5000, () => {
+        this.time.delayedCall(3000, () => {
             this.enemy.clearTint();});
         //hace el daño al enemigo y actualiza daño total a 0
         this.enemy.takeDamage(this.totalDamage);
         this.totalDamage = 0;
-        this.time.delayedCall(5000, () => {
+        this.time.delayedCall(3000, () => {
             this.events.emit('updateStatus');});
     }
 
     playerDamageAnim(){
         this.player.setTint(0xff0000);
-        this.time.delayedCall(5000, () => {
+        this.time.delayedCall(3000, () => {
             this.player.clearTint();});
         //hace daño al player
         this.enemy.attackPlayer(this.player);
 
-        this.time.delayedCall(5000, () => {
+        this.time.delayedCall(3000, () => {
             this.events.emit('updateStatus');});
    }
  
@@ -125,20 +133,32 @@ changeTurns() {
         } 
         //si ha acabado, escena de victoria o derrota
         else if(result.playerwin == true){
+            this.events.removeListener('changeTurns');
+            this.events.removeListener('enemyDamaged');
+            this.events.removeListener('playerDamaged');
+            this.events.removeListener('updateStatus');
+            this.changeActiveButtons();
             this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
                 inventory: this.inventory.getConfigData(),
                 npc: this.npc,
                 fondo: this.fondo,
                 dialogueJson: this.dialogueJson,
                 battleResult: true})
+     
         } else {
             console.log("derrota")
+            this.events.removeListener('changeTurns');
+            this.events.removeListener('enemyDamaged');
+            this.events.removeListener('playerDamaged');
+            this.events.removeListener('updateStatus');
+            this.changeActiveButtons();
             this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
                 inventory: this.inventory.getConfigData(),
                 npc: this.npc,
                 fondo: this.fondo,
                 dialogueJson: this.dialogueJson,
                 battleResult: false})
+              
         }
    }
 
@@ -149,6 +169,7 @@ changeTurns() {
 
         if(this.player.mana >=20) {
         this.player.manaPerdido(20);
+        console.log("llamo enemydamaged desde mana");
         this.events.emit('enemyDamaged');
         }
         else  {
@@ -156,6 +177,7 @@ changeTurns() {
         }
     }
     else {
+        console.log("llamo enemydamaged desde normal");
         this.events.emit('enemyDamaged');
     }
     
@@ -178,7 +200,6 @@ changeTurns() {
                 }
                 else if(this.enemy.weakness === 'copas'){
                     this.copas *= 2;
-                    console.log(this.copas)
                 }
                 else if(this.enemy.weakness === 'bastos'){
                     this.bastos *= 2;
@@ -188,7 +209,7 @@ changeTurns() {
                 }    
             }        
                 this.totalDamage = 0;  
-                console.log("reset totaldamage: " + this.totalDamage); 
+
                 this.totalDamage = this.espadas + this.copas + this.bastos + this.oros;
                 console.log("totaldamage: " + this.totalDamage);
                 this.updateTotalText();
@@ -451,7 +472,7 @@ createStadisticsButtons() {
     this.playerHumildadText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 4.8,
-        'Humildad: ' + this.player.humidad
+        'Humildad: ' + this.player.humildad
     );
 
     this.playerHumildadButton = this.createButton(

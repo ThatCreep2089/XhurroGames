@@ -94,7 +94,7 @@ init(data){
         cualidades.setStroke('#000000', 7);
 
         let humildadd= this.add.text(1000, 500,
-            "HUMILDAD"+" "+this.player.humidad);
+            "HUMILDAD"+" "+this.player.humildad);
             humildadd.setFontSize(50);
             humildadd.setStroke('#000000', 7); 
          

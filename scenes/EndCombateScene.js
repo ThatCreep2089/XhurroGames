@@ -15,6 +15,13 @@ init(data){
 
 
     create(data){
+        const music = this.sound.get('zoneMusic');
+        console.log(music);
+        if (music) {
+            
+            music.resume();
+        }
+
 
         let result;
         if(this.battleResult == true)
@@ -42,7 +49,9 @@ init(data){
             'flecha')
         .setScale(-0.3, 0.3)
         .setInteractive()
-        .on('pointerdown', () => this.scene.start('dialogueScene', {
+        .on('pointerdown', () => 
+            music.stop(),
+            this.scene.start('dialogueScene', {
             ant: this.ant,
             player: this.playerConfig, 
             inventory: this.inventoryConfig,
