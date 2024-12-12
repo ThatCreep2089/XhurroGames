@@ -1,4 +1,6 @@
 
+/*Clase que sirve para la creacion y el manejo de un inventario
+Tiene metodos para añadir el elemento, eliminarlo, devolverlo y un metodo para contar los trozos en el inventario*/
 export default class Inventory 
 {
         constructor() {
