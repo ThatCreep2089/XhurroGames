@@ -132,7 +132,7 @@ export default class ZonaScene extends Phaser.Scene{
             let player = new Player(this, startPosition.x, startPosition.y);
             
             player.setScale(0.03);
-            console.log(this.playerConfig);
+            //console.log(this.playerConfig);
             if(this.playerConfig != undefined)
             {
                 player.init(this.playerConfig);
@@ -146,7 +146,7 @@ export default class ZonaScene extends Phaser.Scene{
             this.localizations.children.iterate((localization) => {
                 this.physics.add.overlap(player, localization.extraCollider, (player, extraCollider) => {
                     if (player.isInteractingPressed()) {
-                        console.log("cambiar escena");
+                        //console.log("cambiar escena");
 
                         // Guarda la posición de `iguana` en `gameState`
                         window.gameState.playerPosition = { x: player.x, y: player.y };
@@ -176,7 +176,7 @@ export default class ZonaScene extends Phaser.Scene{
             this.flechas.children.iterate((flecha) => {
                 this.physics.add.overlap(player, flecha, (player, flecha) => { // Cambiado a `flecha` en lugar de `flecha.extraCollider`
                     if (player.isInteractingPressed()) {
-                        console.log("recargar escena " + flecha.modo);
+                        //console.log("recargar escena " + flecha.modo);
                 
                         // Cambiar escena
                         this.scene.stop('zonaScene'); // Detener la escena actual
@@ -198,7 +198,7 @@ export default class ZonaScene extends Phaser.Scene{
             .setInteractive()
             .setScale(4, 2)
             .on('pointerdown', () => {
-                console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
+                //console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
                 this.scene.start('InventoryScene', {
                     lastScene: this.key, // Este es el valor que debería contener "zonaScene"
                     player: player.getConfigData(),
@@ -215,7 +215,7 @@ export default class ZonaScene extends Phaser.Scene{
             .setInteractive()
             .setScale(4, 2)
             .on('pointerdown', () => {
-                console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
+                //console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
                 this.scene.start('StatsScene', {
                     lastScene: this.key, // Este es el valor que debería contener "zonaScene"
                     player: player.getConfigData(),
@@ -233,7 +233,7 @@ export default class ZonaScene extends Phaser.Scene{
             .setInteractive()
             .setScale(4, 2)
             .on('pointerdown', () => {
-                console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
+                //console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
                 this.scene.start('GeneralContactsScene', {
                     lastScene: this.key, // Este es el valor que debería contener "zonaScene"
                     player: player.getConfigData(),

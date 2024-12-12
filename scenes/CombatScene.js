@@ -12,6 +12,7 @@ export default class CombatScene extends Phaser.Scene {
     }
 
 init(data){
+      //recibimos info que nos pasan
     this.ant = data.ant;
     this.playerConfig = data.player;
     this.inventoryConfig = data.inventory;
@@ -21,12 +22,9 @@ init(data){
 
 }
 
-
-    
-
-
     create() {
         
+        //añadimos la música del combate
         if (!this.sound.get('combatMusic')) {
             const music = this.sound.add('combatMusic', { volume: 0.5, loop: true });
             music.play();
@@ -66,7 +64,6 @@ init(data){
 
         // crear player, inventario y enemigo
        this.setEntities(); 
-       
        this.createAttackButtons();
        this.createStadisticsButtons();
        this.createOtherText();
@@ -82,7 +79,7 @@ init(data){
 
     enemyDamageAnim(){
         //desactiva botones
-        console.log("cambio botones a false");
+        //console.log("cambio botones a false");
         this.changeActiveButtons();
         //pone al enemigo en rojo
         this.enemy.setTint(0xff0000);
@@ -96,12 +93,14 @@ init(data){
     }
 
     playerDamageAnim(){
-        this.player.setTint(0xff0000);
+        this.player.setTint(0xff0000);//coloreamos al player
         this.time.delayedCall(3000, () => {
             this.player.clearTint();});
+
         //hace daño al player
         this.enemy.attackPlayer(this.player);
 
+        //caundo termine actualizamos
         this.time.delayedCall(3000, () => {
             this.events.emit('updateStatus');});
    }
@@ -146,7 +145,8 @@ changeTurns() {
                 battleResult: true})
      
         } else {
-            console.log("derrota")
+            //console.log("derrota")
+            //quitamos listeners
             this.events.removeListener('changeTurns');
             this.events.removeListener('enemyDamaged');
             this.events.removeListener('playerDamaged');
@@ -167,17 +167,18 @@ changeTurns() {
  playerMakesDamage(){ 
     if (this.usingMana == true) {
 
+        //restamos mana
         if(this.player.mana >=20) {
         this.player.manaPerdido(20);
-        console.log("llamo enemydamaged desde mana");
+       // console.log("llamo enemydamaged desde mana");
         this.events.emit('enemyDamaged');
         }
         else  {
-            console.log("no hay mana");
+            //console.log("no hay mana");
         }
     }
     else {
-        console.log("llamo enemydamaged desde normal");
+        //console.log("llamo enemydamaged desde normal");
         this.events.emit('enemyDamaged');
     }
     
@@ -195,6 +196,7 @@ changeTurns() {
                 //this.espadas, this.copas, this.bastos,this.oros);
                 if(this.totalDamage === 0) {
                 
+                //si el enemigo es debil a cirto palo el ataque del player es mayor
                 if(this.enemy.weakness === 'espadas') {
                     this.espadas *= 2;
                 }
@@ -211,7 +213,7 @@ changeTurns() {
                 this.totalDamage = 0;  
 
                 this.totalDamage = this.espadas + this.copas + this.bastos + this.oros;
-                console.log("totaldamage: " + this.totalDamage);
+                //console.log("totaldamage: " + this.totalDamage);
                 this.updateTotalText();
 
                 this.usingMana = false;
@@ -224,6 +226,8 @@ changeTurns() {
     cualidades(cualidad) {
         this.totalDamage = 0;
         switch(cualidad){
+
+            //calculamos el daño que hacemos segun el tipo de cualidad
             case 'humildad':
                 var lvl = this.player.getCualidad('humildad');
 
@@ -233,9 +237,7 @@ changeTurns() {
                 + this.copas;
             
                 this.updateTotalText();
-
                 this.usingMana = true;
-
                 break;
 
             case 'trabajo duro':
@@ -281,7 +283,7 @@ changeTurns() {
  
                 break;
             default: 
-                console.log("algo está fallando");
+                //console.log("algo está fallando");
         }
     }
 
@@ -302,8 +304,8 @@ changeTurns() {
         this.oros = Phaser.Math.Between(1, 12);
 
         //debug
-        console.log('espadas: ' +this.espadas + ', copas: ' + this.copas + 
-            ', bastos: ' + this.bastos + ', oros: ' + this.oros);
+        //console.log('espadas: ' +this.espadas + ', copas: ' + this.copas + 
+        //    ', bastos: ' + this.bastos + ', oros: ' + this.oros);
 
     }
 
@@ -331,13 +333,13 @@ changeTurns() {
        
         if (this.player.health <= 0) {
             //debug
-            console.log('Player pierde');
+           // console.log('Player pierde');
             //this.scene.start("lose");
             return {"end": true, "playerwin": false}
         }
          else if (this.enemy.health <= 0) {
             //debug
-            console.log('Enemy pierde');
+            //console.log('Enemy pierde');
            //this.scene.start("victory");
            return {"end": true, "playerwin": true}
         }
@@ -352,7 +354,7 @@ changeTurns() {
     changeActiveButtons(){
 
         this.active = !this.active;
-        console.log(this.active);
+        //console.log(this.active);
 
         if(this.active == true){
                 this.attackButton.setInteractive();

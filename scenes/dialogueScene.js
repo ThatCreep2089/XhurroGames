@@ -10,11 +10,6 @@ export default class DialogueScene extends Phaser.Scene {
         this.jsonObject;
     }
 
-    preload()
-    {
-        this.load.video('iguana', 'assets/videos/iguana.mp4', true);
-
-    }
 
     init(data){
         // Usar el parámetro 'fondo' para decidir qué fondo cargar
@@ -43,6 +38,7 @@ export default class DialogueScene extends Phaser.Scene {
     }
 
     create(data){
+        //creamos musica
         const music = this.sound.get('zoneMusic');
         const combatMusic = this.sound.get('combatMusic');
         console.log(music);

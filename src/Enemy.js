@@ -39,7 +39,7 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
         const damage = Phaser.Math.Between(10, 20);
         player.takeDamage(damage);
         //debug
-        console.log('Daño enemigo: ' + this.weakness + " " + damage);
+       // console.log('Daño enemigo: ' + this.weakness + " " + damage);
     }
 
     //devuelve la debilidad
