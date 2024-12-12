@@ -1,3 +1,6 @@
+/* Escena que sirve para mostrar visualmente los items del inventario
+Tiene metodos para utilizar los items, rectangulos y textos para mostar informacion como
+cantidad, nombre y si se desea utiliza*/
 import Player from "../src/Player.js";
 import Inventory from "../src/inventory.js";    
 export default class InventoryScene extends Phaser.Scene
