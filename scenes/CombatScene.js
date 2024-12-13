@@ -2,16 +2,24 @@ import Player from '../src/Player.js';
 import Enemy from '../src/Enemy.js';
 import Inventory from '../src/inventory.js';
 
+/**
+ * Escena que maneja el combate entre el jugador y un enemigo.
+ * Este combate fuciona por eventos, en los cuales se gestiona el tiempo que hay entre un ataque y otro.
+ * Al acabar el combate se llama a la escena de victoria o derrota y se borran los listeners de eventos propios para evitar errores.
+ * En el caso del jugador, tiene 2 acciones posibles: ataque normal y ataque especial. 
+ * El ataque normal se basa en la suma de los valores de las cartas.
+ * El ataque especial utiliza sus cualidades para dar bonus a los palos concretos, pero consume maná.
+ * El enemigo te hace un daño random generado en su turno.
+ */
+
 export default class CombatScene extends Phaser.Scene {
     constructor() {
         super({ key: 'CombatScene' });
-        this.turn = 'player'; // Inicia el turno el player
-        this.totalDamage = 0;
-        this.usingMana = false;
-        this.active = true;
+
     }
 
 init(data){
+      //recibimos info que nos pasan
     this.ant = data.ant;
     this.playerConfig = data.player;
     this.inventoryConfig = data.inventory;
@@ -21,19 +29,16 @@ init(data){
 
 }
 
-
-    
-
-
     create() {
         
+        //añadimos la música del combate
         if (!this.sound.get('combatMusic')) {
             const music = this.sound.add('combatMusic', { volume: 0.5, loop: true });
             music.play();
         }
 
         //nos aseguramos de inicializar bien todo
-        this.turn = 'player'; // Inicia el turno el player
+        this.turn = 'player'; 
         this.totalDamage = 0;
         this.usingMana = false;
         this.active = true;
@@ -66,7 +71,7 @@ init(data){
 
         // crear player, inventario y enemigo
        this.setEntities(); 
-       
+       //creamos botones y textos en la escena
        this.createAttackButtons();
        this.createStadisticsButtons();
        this.createOtherText();
@@ -79,34 +84,37 @@ init(data){
 
     }
 
-
+    //secuencia al dañar un enemigo
     enemyDamageAnim(){
         //desactiva botones
-        console.log("cambio botones a false");
+        //console.log("cambio botones a false");
         this.changeActiveButtons();
         //pone al enemigo en rojo
         this.enemy.setTint(0xff0000);
         this.time.delayedCall(3000, () => {
             this.enemy.clearTint();});
         //hace el daño al enemigo y actualiza daño total a 0
-        this.enemy.takeDamage(this.totalDamage);
+        this.player.attackEnemy(this.enemy, this.totalDamage);
         this.totalDamage = 0;
         this.time.delayedCall(3000, () => {
             this.events.emit('updateStatus');});
     }
 
+    //secuencia al dañar al player
     playerDamageAnim(){
-        this.player.setTint(0xff0000);
+        this.player.setTint(0xff0000);//coloreamos al player
         this.time.delayedCall(3000, () => {
             this.player.clearTint();});
+
         //hace daño al player
         this.enemy.attackPlayer(this.player);
 
+        //caundo termine actualizamos
         this.time.delayedCall(3000, () => {
             this.events.emit('updateStatus');});
    }
  
-
+//gestión del cambio de turnos
 changeTurns() {
     if (this.turn === 'player') {
         this.turn = 'enemy'; // Cambia el turno al enemigo
@@ -120,6 +128,7 @@ changeTurns() {
     }
 }
 
+//actualiza el combate
    updateCombatStatus(){
 
         //actualiza la vida
@@ -146,7 +155,8 @@ changeTurns() {
                 battleResult: true})
      
         } else {
-            console.log("derrota")
+            //console.log("derrota")
+            //quitamos listeners
             this.events.removeListener('changeTurns');
             this.events.removeListener('enemyDamaged');
             this.events.removeListener('playerDamaged');
@@ -163,67 +173,69 @@ changeTurns() {
    }
 
 
+    //player hace daño
+    playerMakesDamage(){ 
+        if (this.usingMana == true) {
 
- playerMakesDamage(){ 
-    if (this.usingMana == true) {
-
-        if(this.player.mana >=20) {
-        this.player.manaPerdido(20);
-        console.log("llamo enemydamaged desde mana");
-        this.events.emit('enemyDamaged');
+            //restamos mana
+            if(this.player.mana >=20) {
+            this.player.manaPerdido(20);
+        // console.log("llamo enemydamaged desde mana");
+            this.events.emit('enemyDamaged');
+            }
+            else  {
+                //console.log("no hay mana");
+            }
         }
-        else  {
-            console.log("no hay mana");
+        else {
+            //console.log("llamo enemydamaged desde normal");
+            this.events.emit('enemyDamaged');
         }
+        
     }
-    else {
-        console.log("llamo enemydamaged desde normal");
-        this.events.emit('enemyDamaged');
-    }
-    
- }
 
 
-    // turno del jugador
-    playerTurn(action) {
+    //ataque normal
+    playerTurn() {
 
         if (this.turn === 'player') {
             
             //ataque normal
-            if (action === 'attack') {
-                //this.player.attackEnemy(this.enemy, 
-                //this.espadas, this.copas, this.bastos,this.oros);
-                if(this.totalDamage === 0) {
-                
-                if(this.enemy.weakness === 'espadas') {
-                    this.espadas *= 2;
-                }
-                else if(this.enemy.weakness === 'copas'){
-                    this.copas *= 2;
-                }
-                else if(this.enemy.weakness === 'bastos'){
-                    this.bastos *= 2;
-                }
-                else if(this.enemy.weakness === 'oros') {
-                    this.oros *= 2;
-                }    
-            }        
-                this.totalDamage = 0;  
 
-                this.totalDamage = this.espadas + this.copas + this.bastos + this.oros;
-                console.log("totaldamage: " + this.totalDamage);
-                this.updateTotalText();
+            //control para evitar multiplicar infinitamente el daño
+            if(this.totalDamage === 0) {
 
-                this.usingMana = false;
+            //si el enemigo es debil a cirto palo el ataque del player es mayor
+            if(this.enemy.weakness === 'espadas') {
+                this.espadas *= 2;
+            }
+            else if(this.enemy.weakness === 'copas'){
+                this.copas *= 2;
+            }
+            else if(this.enemy.weakness === 'bastos'){
+                this.bastos *= 2;
+            }
+            else if(this.enemy.weakness === 'oros') {
+                this.oros *= 2;
+            }    
+        }        
+            this.totalDamage = 0;  
+            //sumamos el daño total y lo mostramos
+            this.totalDamage = this.espadas + this.copas + this.bastos + this.oros;
+            //console.log("totaldamage: " + this.totalDamage);
+            this.updateTotalText();
 
-            } 
-            
+            this.usingMana = false;
+     
         }
     }
 
+    //ataque con cualidades
     cualidades(cualidad) {
         this.totalDamage = 0;
         switch(cualidad){
+
+            //calculamos el daño que hacemos segun el tipo de cualidad
             case 'humildad':
                 var lvl = this.player.getCualidad('humildad');
 
@@ -233,9 +245,7 @@ changeTurns() {
                 + this.copas;
             
                 this.updateTotalText();
-
                 this.usingMana = true;
-
                 break;
 
             case 'trabajo duro':
@@ -281,7 +291,7 @@ changeTurns() {
  
                 break;
             default: 
-                console.log("algo está fallando");
+                //console.log("algo está fallando");
         }
     }
 
@@ -302,8 +312,8 @@ changeTurns() {
         this.oros = Phaser.Math.Between(1, 12);
 
         //debug
-        console.log('espadas: ' +this.espadas + ', copas: ' + this.copas + 
-            ', bastos: ' + this.bastos + ', oros: ' + this.oros);
+        //console.log('espadas: ' +this.espadas + ', copas: ' + this.copas + 
+        //    ', bastos: ' + this.bastos + ', oros: ' + this.oros);
 
     }
 
@@ -322,6 +332,7 @@ changeTurns() {
         this.orosNumber.setText(this.oros);
     }
 
+    //Actualiza el texto del daño total
     updateTotalText(){
         this.totalDamageNumber.setText(this.totalDamage);
     }
@@ -331,13 +342,13 @@ changeTurns() {
        
         if (this.player.health <= 0) {
             //debug
-            console.log('Player pierde');
+           // console.log('Player pierde');
             //this.scene.start("lose");
             return {"end": true, "playerwin": false}
         }
          else if (this.enemy.health <= 0) {
             //debug
-            console.log('Enemy pierde');
+            //console.log('Enemy pierde');
            //this.scene.start("victory");
            return {"end": true, "playerwin": true}
         }
@@ -352,11 +363,10 @@ changeTurns() {
     changeActiveButtons(){
 
         this.active = !this.active;
-        console.log(this.active);
+        //console.log(this.active);
 
         if(this.active == true){
                 this.attackButton.setInteractive();
-                this.magicButton.setInteractive();
                 this.totalDamageButton.setInteractive();
                 this.playerHumildadButton.setInteractive();
                 this.playerTrabajoDuroButton.setInteractive();
@@ -365,7 +375,6 @@ changeTurns() {
             }
         else {
                 this.attackButton.disableInteractive();
-                this.magicButton.disableInteractive();
                 this.totalDamageButton.disableInteractive();
                 this.playerHumildadButton.disableInteractive();
                 this.playerTrabajoDuroButton.disableInteractive();
@@ -417,7 +426,7 @@ changeTurns() {
             this.sys.game.canvas.height / 2,
             200, 100,
             0xff0000,
-            () => this.playerTurn('attack')
+            () => this.playerTurn()
      );
         
         this.attackNormalText = this.createText(
@@ -428,6 +437,7 @@ changeTurns() {
 
 
         //ataque cualidades
+        /*
         this.magicButton = this.createButton(
             this.sys.game.canvas.width / 3,
             this.sys.game.canvas.height / 2,
@@ -435,6 +445,7 @@ changeTurns() {
             0xff0000,
             () => this.playerTurn('magic')
       );
+      */
         
         this.attackCualidadesText = this.createText(
             this.sys.game.canvas.width / 3.7,

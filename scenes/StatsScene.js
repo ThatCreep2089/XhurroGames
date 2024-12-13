@@ -1,3 +1,7 @@
+/*
+Escena que sirve para mostar de forma visual los atributos del player
+como vida, cualidades, ansiedad y ptos mana no se pueden midificar esos valores desde esta escena
+simplemente el jugador los observa*/
 import Player from '../src/Player.js';
 
 export default class StatsScene extends Phaser.Scene {
@@ -9,6 +13,7 @@ export default class StatsScene extends Phaser.Scene {
     }
 
 init(data){
+    //recibimos info 
     this.lastScene = data.lastScene;
     this.inventoryConfig = data.inventory; // Recibe el inventario del objeto `data`
     this.playerConfig= data.player;
@@ -16,9 +21,6 @@ init(data){
     this.dialogueJson = data.dialogueJson;
     
 }
-
-    preload() {
-    }
 
     create() {
        //Creamos el player para poder acceder a el 

@@ -1,12 +1,13 @@
+/**
+ * Escena que actúa como Menú al finalizar el juego.
+ * Contiene un botón que reinicia la página web entera para comenzar de nuevo el juego.
+ */
+
 export default class EndGameScene extends Phaser.Scene {
     constructor(){
         super({key: "endGameScene"})
     }
 
-    preload()
-    {
-       
-    }
 
     create(){
         //Pintamos un fondo

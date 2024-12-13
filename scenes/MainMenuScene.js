@@ -1,14 +1,12 @@
-
+/**
+ * Escena que actúa como menú principal para iniciar el juego
+ */
 
 export default class MainMenuScene extends Phaser.Scene {
     constructor(){
         super({key: "MainMenuScene"})
     }
 
-    preload()
-    {
-       
-    }
 
     create(){
         this.dialogueJson = this.cache.json.get('dialogueJson');;
@@ -29,19 +27,6 @@ export default class MainMenuScene extends Phaser.Scene {
             this.cameras.main.height / 2 - back.displayHeight / 2
         );
         
-        /*
-        // Centrar el texto "XHURROJUEGO"
-        let xhurrotexto = this.add.text(
-            this.sys.game.canvas.width / 2,   // Centrado en el eje X
-            this.sys.game.canvas.height / 3,  // Centrado en el eje Y (ajustado para que esté arriba)
-            'YUSOA ES LEY',
-            { fontSize: '200px', fontFamily: 'Arial', color: '#ffffff' }
-        );
-        xhurrotexto.setStroke('#000000', 12);  // Trazo negro
-        
-        // Ajustar el origen para centrar el texto
-        xhurrotexto.setOrigin(0.5, 0.5);
-        */
        this.add.image(
             this.sys.game.canvas.width / 2,
             this.sys.game.canvas.height / 2.5,

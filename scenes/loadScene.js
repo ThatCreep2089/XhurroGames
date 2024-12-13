@@ -1,3 +1,4 @@
+/*Escena que sirve para preecargar todas las imagenes del juego */
 import Player from "../src/Player.js";
 import Inventory from "../src/inventory.js";
 
@@ -6,20 +7,21 @@ export default class loadScene extends Phaser.Scene {
         super({key: "loadScene"})
     }
 
+
   preload() {
-    // Fondo o color de la escena de precarga
-    this.load.image('load', 'assets/web media/madrizzbn.png');// fondo load
-   
+    
+   // Fondo o color de la escena de precarga
+   this.load.image('imLoad', 'assets/fondos/madrizzbn.png');// fondo load
     //this.cameras.main.setBackgroundColor("#000000");
 
     // Texto de carga
     this.loadingText = this.add.text(
       this.cameras.main.width / 2,
-      this.cameras.main.height / 2 - 50,
+      this.cameras.main.height / 2.4,
       "Cargando...",
       {
         font: "100px Arial",
-        fill: "#000000",
+        fill: "#ffffff",
       }
     ).setOrigin(0.5);
 
@@ -148,7 +150,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.json("dialogueJson", 'src/dialog.json')
 
     //INVENTORY SCENE
-    this.load.image('inventory', 'assets/fondos/FondoInventario.png'); 
+    this.load.image('inventory', 'assets/fondos/fondoInventario.png'); 
 
     //GENERAL CONTACTS
     this.load.image('fondoC', 'assets/contactos/fondoContactos.png');
@@ -205,7 +207,22 @@ export default class loadScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0,0,'load');
+    
+    //Pintamos un fondo
+    var back = this.add.image(0, 0, 'imLoad').setOrigin(0, 0);
+
+    //escalar el fondo
+    var scaleX = this.cameras.main.width / back.width;
+    var scaleY = this.cameras.main.height / back.height;
+    
+    var scale = Math.min(scaleX, scaleY);
+    
+    back.setScale(scale);
+    
+    back.setPosition(
+        this.cameras.main.width / 2 - back.displayWidth / 2,
+        this.cameras.main.height / 2 - back.displayHeight / 2
+    );
     // Cambiar a la siguiente escena cuando todo esté listo
     this.scene.start("MainMenuScene", this.player.getConfigData()); // Cambia "MainMenuScene" por escena principal
   }

@@ -1,3 +1,14 @@
+/**
+ * Player es un objeto que representa al jugador en el juego.
+ * El jugador tiene una cantidad de vida, una cantidad de mana y cualidades.
+ * El jugador puede moverse por el mapa.
+ * El jugador puede atacar a un enemigo en combate y recibir daño.
+ * El jugador puede interactuar con objetos del mapa.
+ * El jugador puede mejorar sus cualidades, modificar ansiedad y curarse.
+ * 
+ */
+
+
 export default class Player extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, sprite = 'player') {
         super(scene, x, y, sprite); 
@@ -76,14 +87,14 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
 HealPlayer(amount)
 {
-    console.log("vida antes", this.health)
+    //console.log("vida antes", this.health)
     if(this.health+amount < this.maxHealth){
     this.health+=amount;
     }
     else {
         this.health = this.maxHealth;
     }
-console.log("vida ahora", this.health)
+//console.log("vida ahora", this.health)
 }
 
 MaxLife(amount)
@@ -127,9 +138,12 @@ HealQuality(amount)
 
 //métodos de combate (victor)
     // Método de ataque
-    attackEnemy(enemy, espadas,copas,bastos,oros) {
+    attackEnemy(enemy, damage) {
 
-        enemy.takeDamage(espadas,copas,bastos,oros);
+        if(this.ansiedad >= 40) {
+            damage = damage / 2;
+        }
+        enemy.takeDamage(damage);
 
     }
 
@@ -143,6 +157,9 @@ HealQuality(amount)
     //metodo recibir daño
     takeDamage(damage) {
         this.health -= damage;
+        if(this.health < 0) {
+            this.health = 0;
+        }   
     }
 
 
@@ -245,7 +262,7 @@ mejorarCualidad(cualidad) {
             this.afecto += 1;
             break;
         default:
-            console.log('cualidad no valida');
+           // console.log('cualidad no valida');
     }
 }
 

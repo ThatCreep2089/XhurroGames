@@ -6,12 +6,13 @@ export default class ContactScene extends Phaser.Scene {
     }
 
 init(data){
+    //recibimos info que nos pasan
     this.modo= data.modo;
      //JSON DIALOGOS
      if(data.dialogueJson)
     {
         this.dialogueJson = data.dialogueJson;
-        console.log(this.dialogueJson);
+
     }
     else
     {
@@ -25,12 +26,9 @@ init(data){
     this.barrio = data.barrio;
 }
 
-    preload() {
-       
-    }
-
     create(data) {
 
+        //pintamos el fondo
         const back = this.add.image(0, 0, 'fondoC')
         .setOrigin(0, 0)
         .setDisplaySize(this.sys.game.canvas.width, this.sys.game.canvas.height);
@@ -44,16 +42,16 @@ init(data){
 
     let contacto;//para saber el color del contacto
         
-         //leer mapa
-         const jsonObject = this.cache.json.get('contactsJson');
+    //leer mapa
+    const jsonObject = this.cache.json.get('contactsJson');
 
-         // Crear los detalles del contacto (inicialmente ocultos)
+
     this.rect0 = this.add.rectangle(950, 600, 900, 400, 0xf6f6f6).setOrigin(0.5).setVisible(false); // Fondo del texto
     this.rect = this.add.rectangle(1350, 750, 50, 50, 0xff0000).setInteractive().setVisible(false); // Botón cerrar
 
    
-    //Texto con descripciones
-    this.texto = this.add.text(950, 500, "", {//nomnre
+    //Texto con descripciones inicialmente vacios
+    this.texto = this.add.text(950, 500, "", {//nombre
         fontSize: '40px',
         fill: '#1c1c1c',
         align: 'center'
@@ -77,9 +75,9 @@ init(data){
         align: 'center'
     }).setOrigin(0.5, 0.5).setVisible(false);
    
-// Asignar evento al botón cerrar
+
     this.rect.on('pointerdown', () => {
-        // Ocultar todos los elementos al cerrar
+        // Ocultar todos los elementos al cerrar el rect de cerrar
         this.texto.setVisible(false);
         this.texto2.setVisible(false);
         this.texto3.setVisible(false);
@@ -96,7 +94,6 @@ init(data){
 
                     let npcOb = this.dialogueJson[name]; //acceder al objeto npc especifico del dialogo json
 
-                    console.log(npcOb.hablado);
 
                     if(npcOb.hablado == "true")
                     {
@@ -106,8 +103,8 @@ init(data){
                     }
                 });
             }
+
         //BARRIO: RELIGIOSO
-           
             else if(this.barrio == 2)
             {const religioso = jsonObject["religioso"];
                 religioso.npcs.forEach(npc => {

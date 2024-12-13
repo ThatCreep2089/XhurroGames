@@ -2,6 +2,12 @@ import Player from '../src/Player.js';
 import Inventory from '../src/inventory.js';
 import Item from '../src/item.js';
 
+/**
+ * Escena que maneja la elección de Npcs para luego derivar al diálogo.
+ * Muestra los Npcs disponibles, así como la ansiedad actual del jugador y los posibles objetos coleccionables que puede recoger el jugador.
+ * Leyendo el archivo "localization.json" la escena crea dichos objetos.
+ */
+
 export default class localizationScene extends Phaser.Scene
 {
     constructor()
@@ -34,10 +40,6 @@ export default class localizationScene extends Phaser.Scene
         }
         
 
-    }
-
-    preload(){
-       
     }
 
     
@@ -122,7 +124,7 @@ export default class localizationScene extends Phaser.Scene
             .on('pointerdown', () => {
                 if(this.player.ansiedad == this.player.maxAnsiedad - 50 && this.npcTalk != 'PITIBANCO')
                 {
-                    console.log("no puedes hablar mas, mucha ansiedad");
+                    //console.log("no puedes hablar mas, mucha ansiedad");
                     this.mostrarPestana();
                 }
                 else
@@ -135,12 +137,12 @@ export default class localizationScene extends Phaser.Scene
     
                         if (noCumplidos.length > 0)
                         {
-                            console.log("Hay requisitos pendientes.");
+                            //console.log("Hay requisitos pendientes.");
                             this.mostrarPestana(noCumplidos);
                         }
                         else
                         {
-                            console.log("Todos los requisitos han sido cumplidos.");
+                            //console.log("Todos los requisitos han sido cumplidos.");
                             this.scene.start('dialogueScene', { npc: this.npcTalk, fondo: this.localizacion, ant: this.ant,
                                 player: this.player.getConfigData(), 
                                 inventory: this.inventory.getConfigData(),

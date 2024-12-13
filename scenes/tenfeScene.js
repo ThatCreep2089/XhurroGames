@@ -1,15 +1,19 @@
 import Player from '../src/Player.js';
 import Inventory from '../src/inventory.js';
 
+/**
+ * Escena que maneja la funcionalidad del "TENFE".
+ * Hasta que el jugador no consiga los 4 trozos de constitución, esta estará deshabilitada (actualmente el número de copias se ha rebajado a 1, ya que faltan por añadir tres barrios)
+ * Contiene un botón "Esperar Tenfe". Al pulsarlo se eligirá un número random del 0-20, siendo este el número de segundos que el jugador debe esperar hasta poder utilizar el Tenfe.
+ * Este número random será también el aumento de ansiedad al jugador.
+ * Una vez que termine el tiempo establecido, el tren llegará y el jugador podrá viajar al resto de los barrios (actualmente solo se puede viajar a la zona del enemigo final "Yusoa", por la misma razón anteriormente mencionada)
+ */
+
 export default class TenfeScene extends Phaser.Scene {
     constructor(){
         super({key: "tenfeScene"})
     }
 
-    preload()
-    {
-        
-    }
 
     init(data){
         // Usar el parámetro 'fondo' para decidir qué fondo cargar
@@ -41,7 +45,7 @@ export default class TenfeScene extends Phaser.Scene {
             this.player.changeMove(false);
             this.player.setVisible(false);
         
-        console.log("tenfeFondo");//debug
+        //console.log("tenfeFondo");//debug
         
         //1. PINTAR FONDO
             //Pintamos un fondo
@@ -107,9 +111,9 @@ export default class TenfeScene extends Phaser.Scene {
             
                 // Generar número aleatorio
                 const secs = Phaser.Math.Between(0, 20);
-                console.log("secs"+ secs);
+                //console.log("secs"+ secs);
                 this.countdown = secs * 1000;
-                console.log("countdown" + this.countdown)
+                //console.log("countdown" + this.countdown)
                 this.resultText.setText("Tiempo de espera: "+ this.countdown);
 
                 // Temporizador para mostrar "renfe"
@@ -121,7 +125,7 @@ export default class TenfeScene extends Phaser.Scene {
                         vagonImage.setDepth(-1);
                         vagonImage.setOrigin(0.5);
 
-                        console.log("el metro ha llegado");//debug
+                        //console.log("el metro ha llegado");//debug
                         //reemplza timer por texto
 
                         if (!this.sound.get('avisoMetro')) {
@@ -168,7 +172,7 @@ export default class TenfeScene extends Phaser.Scene {
         if(this.inventory.GetTrozos() >= 1)
         {
             if ( this.countdown < 0) { // Si se pasan del tiempo o ...
-                console.log("se ha terminao el tiempo");//debug   
+                //console.log("se ha terminao el tiempo");//debug   
                 this.resultText.setText("Tiempo de espera: 0");
              }
              else {

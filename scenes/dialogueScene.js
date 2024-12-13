@@ -3,6 +3,10 @@ import Player from '../src/Player.js';
 import Inventory from '../src/inventory.js';
 import Item from '../src/item.js';
 
+/**
+ * Escena que maneja la creación, modificación y finalización de los diálogos.
+ */
+
 export default class DialogueScene extends Phaser.Scene {
     constructor(){
         super({key: "dialogueScene"})
@@ -10,11 +14,6 @@ export default class DialogueScene extends Phaser.Scene {
         this.jsonObject;
     }
 
-    preload()
-    {
-        this.load.video('iguana', 'assets/videos/iguana.mp4', true);
-
-    }
 
     init(data){
         // Usar el parámetro 'fondo' para decidir qué fondo cargar
@@ -43,9 +42,10 @@ export default class DialogueScene extends Phaser.Scene {
     }
 
     create(data){
+        //creamos musica
         const music = this.sound.get('zoneMusic');
         const combatMusic = this.sound.get('combatMusic');
-        console.log(music);
+        //console.log(music);
         if (music) {
             
             music.resume();
@@ -153,6 +153,7 @@ export default class DialogueScene extends Phaser.Scene {
             let lines;
             if(this.battleResult == true || this.dialogueJson[this.npc].derrotado == true) //elle ha ganado
             {
+                if(this.npc == 'YUSOA') music.stop();
                 lines = this.dialogueJson[this.npc].victory;
             }
             else if(this.battleResult == false) //elle ha perdido
@@ -191,6 +192,7 @@ export default class DialogueScene extends Phaser.Scene {
             {
                 if(this.battleResult == true && this.dialogueJson[this.npc].derrotado == false) //elle ha ganado
                 {
+                    
                     if(this.npc == "YUSOA")
                     {
                         //llamar a escena final
@@ -275,7 +277,7 @@ export default class DialogueScene extends Phaser.Scene {
         .setInteractive()
         .setScale(6, 2)
         .on('pointerdown', () => {
-            console.log("obtener recompensa");
+           // console.log("obtener recompensa");
             callback.call(this); 
             button.disableInteractive();
         });
@@ -300,18 +302,18 @@ export default class DialogueScene extends Phaser.Scene {
     addRecompensa()
     {
         let recompensa = this.dialogueJson[this.npc].recompensa;
-        console.log(recompensa);
+        //console.log(recompensa);
 
         if (this.npc == "COPAS"){
-            console.log(recompensa);
-            console.log(recompensa.name)
+           // console.log(recompensa);
+           // console.log(recompensa.name)
             this.addItemToScene(recompensa);
         }
         else {
-            console.log("Añadir recompensa");
+            //le.log("Añadir recompensa");
             
             this.player.mejorarCualidad(recompensa);
-            console.log(this.player);
+            //console.log(this.player);
 
             // Crear texto temporal
             const mensaje = this.add.text( this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, recompensa + ": +1", {
@@ -392,7 +394,7 @@ export default class DialogueScene extends Phaser.Scene {
 
     Pick(item)
     {
-        console.log(item.name)
+        //console.log(item.name)
         if (this.inventory) {
             this.inventory.AddItem(item); // Agregar el item al inventario
             item.setVisible(false);

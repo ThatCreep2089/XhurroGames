@@ -49,23 +49,20 @@ Se utilizarán dos tipos de perspectiva:
 El jugador se moverá por las diferentes zonas de la ciudad para hablar con distintos npc’s, encontrar distintos objetos y descansar cuando sea necesario.  
 **Objetos escondidos**: utilizados para recuperar vida y puntos de cualidad.  
 **Diálogo de personajes**: al interactuar con los vecinos de cada zona, podrás mantener diálogos con ellos para tener la posibilidad de obtener mejoras en las habilidades.  
-**Banco de piti**: puntos en el escenario donde podrás guardar el progreso de juego y bajar la ansiedad y recuperar vida. Son de un solo uso.
+**Banco de piti**: puntos en el escenario donde podrás bajar la ansiedad y recuperar vida. Son de un solo uso.
 **TENFE**: mapa de las líneas del tren, las cuales interconectan cada zona. Como en la vida real, el tren solo se puede coger en las estaciones locales de cada zona.
 
 #### ANSIEDAD
 El jugador sufre de ansiedad pudiendo incrementarse debido a distintas situaciones:
 - **Diálogos con vecinos**: El nivel de ansiedad se incrementará al hablar con cualquier npc.
-- **TENFE**: Al seleccionar la estación deseada para viajar, puede fallar y el tren que estás esperando no llegará. Esto incrementará el nivel de ansiedad.
+- **TENFE**: Al seleccionar la estación deseada para viajar,  incrementará el nivel de ansiedad dependiendo de cuanto tarde en llegar.
 
 El nivel de ansiedad afectará a distintos campos de la jugabilidad:
-- **Combate**: Al superar cierto umbral de ansiedad el daño se reducirá. Por ejemplo, si el umbral es 10, cuando el jugador llegue a 11 se aplicará una penalización de -1, 12 será -2, etc.
+- **Combate**: Al superar cierto umbral de ansiedad el daño se reducirá. 
 - **Limitación de diálogos**: Al llegar al máximo de ansiedad el jugador no podrá hablar con ningún npc.
 
 ### COMBATE
-El enfrentamiento será por turnos. El objetivo del jugador será derrotar al enemigo drenando toda la vida. El jugador tendrá dos opciones cada turno: ataque o utilizar objetos.
-
-#### Objetos:
-El jugador podrá elegir uno de sus objetos. La utilización de un objeto consume el turno del jugador.
+El enfrentamiento será por turnos. El objetivo del jugador será derrotar al enemigo drenando toda la vida.
 
 #### Ataque
 El ataque estará representado con cartas. El jugador contará con un mazo establecido, el cual no podrá elegir. Las cartas están basadas en la baraja española. Las cartas están numeradas del 1 al 10, siendo ese el daño base que tiene la carta. Los palos serán los siguientes:
@@ -96,7 +93,7 @@ Tras elegir alguna de estas opciones el jugador lanzará las 4 cartas en conjunt
 #### Estadísticas enemigos
 - **Debilidades**: Cada jefe de cada zona contará con una debilidad a cierto palo.
   Ejemplo:
-  - Si el jefe es débil a la calderilla, Primero se sumará el daño base de todas las cartas de la mano que sean de calderillas con sus puntos por cualidades( en caso de haberse seleccionado) y se multiplicará ese daño por 1,5. Después ese resultado se añadirá a la suma de las otras cartas.  
+  - Si el jefe es débil a la calderilla, Primero se sumará el daño base de todas las cartas de la mano que sean de calderillas con sus puntos por cualidades( en caso de haberse seleccionado) y se multiplicará ese daño por 2. Después ese resultado se añadirá a la suma de las otras cartas.  
 
 - **Debilidades**: Cada jefe de cada zona contará con una debilidad a cierto palo.
 
@@ -113,7 +110,7 @@ Tras elegir alguna de estas opciones el jugador lanzará las 4 cartas en conjunt
 
 ## 5. Diseño de niveles
 
-“Yosua es ley” cuenta con cuatro zonas distintas, cada una basada en los cuatro distintos palos de la baraja española, interconectadas con TENFE.
+“Yusoa es ley” cuenta con cuatro zonas distintas, cada una basada en los cuatro distintos palos de la baraja española, interconectadas con TENFE.
 
 Cada zona cuenta con dos pantallas, las cuales, a su vez, cuentan cada una con dos a tres localizaciones con las que el jugador podrá interactuar, hablar con npc’s y encontrar objetos escondidos. Una será la zona del enemigo.
 
@@ -186,10 +183,10 @@ La paleta de colores dependerá del tipo de personaje.
 
 ## 8. Menús
 ### MENÚ INICIO
-- Continuar la partida guardada, nueva partida y salida del juego.
+- Iniciar partida.
 
 ### MENÚ TENFE
-- El jugador podrá ir a cualquiera de las 4 estaciones haciendo clic.
+- El jugador podrá ir a cualquiera de las 4 estaciones.
 
 ### MENÚ DE ESTADÍSTICAS JUGADOR
 - Muestra las estadísticas actuales del jugador: nivel de ansiedad, puntos de vida, puntos de cualidad y nivel de cualidades.

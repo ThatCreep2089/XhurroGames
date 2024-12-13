@@ -51,8 +51,18 @@
             "items":
             [
                 {
+                    "name": "porro",
+                    "description": "-10 de ansiedad",
+                    "x": 1700,
+                    "y": 1000,
+                    "effect": 3,
+                    "amountOfEffect": 10,
+                    "recogido": "false"
+            
+                },
+                {
                     "name": "roca pija",
-                    "description": "+10 puntos de cualidad",
+                    "description": "+10 puntos de mana",
                     "x": 800,
                     "y": 700,
                     "effect": 4,
@@ -62,7 +72,7 @@
                 },
                 {
                     "name": "roca traviesa",
-                    "description": "+20 puntos de cualidad",
+                    "description": "+20 puntos de mana",
                     "x": 1500,
                     "y": 400,
                     "effect": 4,
@@ -134,7 +144,16 @@
         {
             "items":
             [
-                
+                {
+                    "name": "porro",
+                    "description": "-10 de ansiedad",
+                    "x": 1700,
+                    "y": 1000,
+                    "effect": 3,
+                    "amountOfEffect": 10,
+                    "recogido": "false"
+            
+                },
                 {
                     "name": "sanidad privada",
                     "description": "vida máxima +20",
@@ -221,7 +240,7 @@
                 
                 {
                     "name": "roca traviesa",
-                    "description": "+20 puntos de cualidad",
+                    "description": "+20 puntos de mana",
                     "x": 800,
                     "y": 1000,
                     "effect": 4,

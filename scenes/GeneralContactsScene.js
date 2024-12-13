@@ -1,19 +1,18 @@
+/*
+Escena donde damos al jugador cuatro opciones para ver a que contactos de x zona quiere ver*/
 export default class GeneralContactsScene extends Phaser.Scene {
     constructor() {
         super({ key: 'GeneralContactsScene' });
     }
 
     init(data) {
+        //recibimos info 
         this.lastScene = data.lastScene;
         this.playerConfig= data.player;
         this.inventoryConfig = data.inventory;
         this.modo= data.modo;
         this.dialogueJson = data.dialogueJson;
-        console.log(this.dialogueJson);
-    }
-
-    preload() {
-    
+ 
     }
 
     create(data) {

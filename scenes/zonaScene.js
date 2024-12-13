@@ -4,6 +4,13 @@ import Localization from '../src/localization.js';
 import Flecha from '../src/flecha.js';
 import Inventory from '../src/inventory.js';
 
+/**
+ * Escena que maneja la navegación del jugador por el mapa.
+ * Cada barrio está dividido por x numero de zonas, diferenciadas por el parámetro this.modo.
+ * Cada zona tiene localizaciones diferentes. La estación Tenfe solo está en una zona de cada barrio, al igual que la localización del boss.
+ * Cada zona también cuenta con x numero de colliders para hacer la navegación más realista.
+ * Todos estos datos se leen del archivo "map.json"
+ */
 
 export default class ZonaScene extends Phaser.Scene{
     constructor()
@@ -13,7 +20,7 @@ export default class ZonaScene extends Phaser.Scene{
 
 
     init(data){
-        console.log("en el constructor",this.key);
+        //console.log("en el constructor",this.key);
         
         this.key="zonaScene";
         
@@ -28,7 +35,7 @@ export default class ZonaScene extends Phaser.Scene{
         if(data.dialogueJson)
         {
             this.dialogueJson = data.dialogueJson;
-            console.log(this.dialogueJson);
+            //console.log(this.dialogueJson);
         }
         else{
             this.dialogueJson = this.cache.json.get('dialogueJson');
@@ -36,11 +43,6 @@ export default class ZonaScene extends Phaser.Scene{
 
     }
 
-    preload() //CARGAR TODOS LOS RECURSOS
-    {
-        
-
-    }
 
     create(data){
         // Si la música ya está reproduciéndose, no la iniciamos de nuevo
@@ -132,7 +134,7 @@ export default class ZonaScene extends Phaser.Scene{
             let player = new Player(this, startPosition.x, startPosition.y);
             
             player.setScale(0.03);
-            console.log(this.playerConfig);
+            //console.log(this.playerConfig);
             if(this.playerConfig != undefined)
             {
                 player.init(this.playerConfig);
@@ -146,7 +148,7 @@ export default class ZonaScene extends Phaser.Scene{
             this.localizations.children.iterate((localization) => {
                 this.physics.add.overlap(player, localization.extraCollider, (player, extraCollider) => {
                     if (player.isInteractingPressed()) {
-                        console.log("cambiar escena");
+                        //console.log("cambiar escena");
 
                         // Guarda la posición de `iguana` en `gameState`
                         window.gameState.playerPosition = { x: player.x, y: player.y };
@@ -176,7 +178,7 @@ export default class ZonaScene extends Phaser.Scene{
             this.flechas.children.iterate((flecha) => {
                 this.physics.add.overlap(player, flecha, (player, flecha) => { // Cambiado a `flecha` en lugar de `flecha.extraCollider`
                     if (player.isInteractingPressed()) {
-                        console.log("recargar escena " + flecha.modo);
+                        //console.log("recargar escena " + flecha.modo);
                 
                         // Cambiar escena
                         this.scene.stop('zonaScene'); // Detener la escena actual
@@ -198,7 +200,7 @@ export default class ZonaScene extends Phaser.Scene{
             .setInteractive()
             .setScale(4, 2)
             .on('pointerdown', () => {
-                console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
+                //console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
                 this.scene.start('InventoryScene', {
                     lastScene: this.key, // Este es el valor que debería contener "zonaScene"
                     player: player.getConfigData(),
@@ -215,7 +217,7 @@ export default class ZonaScene extends Phaser.Scene{
             .setInteractive()
             .setScale(4, 2)
             .on('pointerdown', () => {
-                console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
+                //console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
                 this.scene.start('StatsScene', {
                     lastScene: this.key, // Este es el valor que debería contener "zonaScene"
                     player: player.getConfigData(),
@@ -233,7 +235,7 @@ export default class ZonaScene extends Phaser.Scene{
             .setInteractive()
             .setScale(4, 2)
             .on('pointerdown', () => {
-                console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
+                //console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
                 this.scene.start('GeneralContactsScene', {
                     lastScene: this.key, // Este es el valor que debería contener "zonaScene"
                     player: player.getConfigData(),
@@ -294,6 +296,7 @@ export default class ZonaScene extends Phaser.Scene{
 
     }
 
+    //Crear localizacion en escena
     createLocalization(localization)
     {
         let localization1 = new Localization(this, localization.sprite, 
@@ -328,6 +331,7 @@ export default class ZonaScene extends Phaser.Scene{
 
     }
 
+    //Crear flecha en escena
     createFlecha(flecha)
     {
         let flecha1 = new Flecha(this, 
@@ -337,6 +341,7 @@ export default class ZonaScene extends Phaser.Scene{
             .setScale(flecha.width, flecha.height);
     }
 
+    //Crear collider en escena
     createBuilding(building)
     {
         let building1 = new Building(this, building.sprite, 
@@ -345,8 +350,5 @@ export default class ZonaScene extends Phaser.Scene{
             building.width, building.height, this.buildings);
     }
 
-    update(time, dt){
-
-    }
 
 }

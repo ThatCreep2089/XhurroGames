@@ -1,3 +1,13 @@
+/**
+ * Building es una manzana inaccesible utilizada como collider
+ * @param scene
+ * @param image
+ * @param X
+ * @param Y
+ * @param colliderGroup // este es el grupo donde se añade para poder colisionar
+ * @param modo // valor para determinar el siguiente modo de ZonaScene
+ * @param ant // valor para determinar el modo anterior de ZonaScene
+ */
 export default class Flecha extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, colliderGroup, modo, ant) {
         super(scene, x, y, 'flecha');

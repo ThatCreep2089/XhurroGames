@@ -251,29 +251,29 @@
     "COPAS":
     {
         "frases":[
-            { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Boss" },
-            { "texto": "Toma asiento al fondo y mantente calladite.", "author": "Boss" },
-            { "texto": "No queremos que te pase nada, ¿no crees?", "author": "Boss" },
+            { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Copas" },
+            { "texto": "Toma asiento al fondo y mantente calladite.", "author": "Copas" },
+            { "texto": "No queremos que te pase nada, ¿no crees?", "author": "Copas" },
             { "texto": "No vengo a escucharte hablar, momia andante", "author": "Elle" },
             { "texto": "He cookeado y estoy aquí para poner fin a tu reinado de terror en este barrio.", "author": "Elle" },
             { "texto": "Dame el trozo de constitución que tienes y huye de aquí, primera y última advertencia.", "author": "Elle" },
-            { "texto": "JAJAJAJAJA, vaya humos tienes para tener un cuerpo tan pequeño.", "author": "Boss" },
-            { "texto": "¿Realmente piensas que un niñate como tú puede derrotarme?", "author": "Boss" },
-            { "texto": "Adelante, intentalo. Tengo muchas ganas de comerte vivo.", "author": "Boss" }
+            { "texto": "JAJAJAJAJA, vaya humos tienes para tener un cuerpo tan pequeño.", "author": "Copas" },
+            { "texto": "¿Realmente piensas que un niñate como tú puede derrotarme?", "author": "Copas" },
+            { "texto": "Adelante, intentalo. Tengo muchas ganas de comerte vivo.", "author": "Copas" }
         ],
         "victory":[
-            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Boss" },
+            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Copas" },
             { "texto": "¿Eso es todo tu poder? Hasta la monja de aquí al lado podría haberte ganado", "author": "Elle" },
-            { "texto": "Te me relajas con la humillación.", "author": "Boss" },
-            { "texto": "Toma la maldita constitución y lárgate de aquí.", "author": "Boss" },
+            { "texto": "Te me relajas con la humillación.", "author": "Copas" },
+            { "texto": "Toma la maldita constitución y lárgate de aquí.", "author": "Copas" },
             { "texto": "Eso no es suficiente, debes marcharte de aquí inmediatamente.", "author": "Elle" },
-            { "texto": "Que sí, que sí. Pero que primero tengo que coger un tren y ya sabes como funciona Tenfe.", "author": "Boss" }
+            { "texto": "Que sí, que sí. Pero que primero tengo que coger un tren y ya sabes como funciona Tenfe.", "author": "Copas" }
         ],
         "lose":[
-            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Boss" },
-            { "texto": "Mi victoria estaba clara, tengo a Dios de mi lado.", "author": "Boss" },
-            { "texto": "No me rendiré. Me volveré más fuerte y algún día caerás.", "author": "Elle" },
-            { "texto": "A tu casa, niñate", "author": "Boss" }
+            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Copas" },
+            { "texto": "Mi victoria estaba clara, tengo a Dios de mi lado.", "author": "Copas" },
+            { "texto": "No me rendiré. Me volveré más fuerte y algún día caerás.", "author": "Copas" },
+            { "texto": "A tu casa, niñate", "author": "Copas" }
         ],
         "scale": 0.5,
         "derrotado": false,
@@ -310,24 +310,25 @@
             { "texto": "¿Pero tú quién eres?", "author": "Yusoa" },
             { "texto": "Soy Elle y junto con la resistencia de Ellie Williams vengo a derrocarte.", "author": "Elle" },
             { "texto": "JAJAJAJA", "author": "Yusoa" },
-            { "texto": "Ni me llegas a la suela de la garra,te podría aplastar facilmente", "author": "Yusoa" },
-            { "texto": "¡Yusoa no me vas a intimidar, he venido aquí con un solo objetivo y lo voy a cummplir!", "author": "Elle" }
+            { "texto": "Ni me llegas a la suela de la garra, te podría aplastar facilmente.", "author": "Yusoa" },
+            { "texto": "¡Yusoa no me vas a intimidar, he venido aquí con un solo objetivo y lo voy a cumplir!", "author": "Elle" }
         ],
         "victory":[
             { "texto": "¿Cómo ha podido este insignificante ser derrotarme?", "author": "Yusoa" },
             { "texto": "¡Ciudadanos de Madrizz, alzaos con el poder! ", "author": "Elle" },
             { "texto": "AAAAGGHHHH DESTROZARÉ TODO Y A TODOS", "author": "Yusoa" },
-            { "texto": "Tchh, que mal perder que tiene, aceptalo, te hemos ganado justamente ", "author": "Elle" },
+            { "texto": "Tchh, que mal perder que tienes, aceptalo, te hemos ganado justamente ", "author": "Elle" },
             { "texto": "VOLVERÉ Y VOLVERÉ MÁS FUERTE ", "author": "Yusoa" },
-            { "video": "victoria" }
+            { "video": "victoria" },
+            { "texto": "Finalmente, hemos ganado.", "author": "Elle" }
            
             
         ],
         "lose":[
             { "texto": "Has perdido mocose JAJAJAJAJAJ ", "author": "Yusoa" },
-            { "texto": "Lo siento, no he podido cumplir mi promesa", "author": "Elle" },
-            { "texto": "JAJAJA YO GANOOOO Y TU PIERDESSS", "author": "Yusoa" },
-            { "texto": "Cuando me vuelva más fuerte verás, nos volveremos a ver en breves", "author": "Elle" }
+            { "texto": "Lo siento, no he podido cumplir mi promesa.", "author": "Elle" },
+            { "texto": "JAJAJA YO GANOOOO Y TU PIERDESSS.", "author": "Yusoa" },
+            { "texto": "Cuando me vuelva más fuerte verás, nos volveremos a ver en breves.", "author": "Elle" }
             
         ],
         "scale": 1,
