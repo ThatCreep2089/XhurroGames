@@ -20,7 +20,7 @@
         "frases":
         [
             { "texto": "Ey compañere, ¿Te trata bien la vida?", "author": "Ángel" },
-            { "texto": "Porque a mi no me tratan muy bien.", "author": "Ángel" },
+            { "texto": "Porque a mi no me tratan muy bien. -suspira- ", "author": "Ángel" },
             { "texto": "Mi grupo Los Granos de Yusoa, hemos tenido que separarnos.", "author": "Ángel" },
             { "texto": "No contamos con pasta suficiente y la mitad del grupo está en rehabilitación.", "author": "Ángel" },
             { "texto": "Con el futuro prometodor que teníamos y van y lo tiran por la borda.", "author": "Ángel" },
@@ -35,11 +35,11 @@
 
         "frases":
         [
-            { "texto": "Hola cacho pan, buenas mañas. Hoy hace un tiempo buenísimo para cabalgar un poco, ¿no crees?", "author": "Humberto" },
+            { "texto": "Hola chavale, buenas mañas. Hoy hace un tiempo buenísimo para cabalgar un poco, ¿no crees?", "author": "Humberto" },
             { "texto": "Las apuestas esta semana están muy altas, ¿Te apuntas?", "author": "Humberto" },
             { "texto": "Me he comprado un vinito para disfrutar mientras veo las carreras,", "author": "Humberto" },
             { "texto": "Estoy seguro de que mis jinetes ganarán esta semana de nuevo.", "author": "Humberto" },
-            { "texto": "¡Jajaja!", "author": "Humberto" },
+            { "texto": "¡Jajaja! me voy a hacer de oro", "author": "Humberto" },
             { "texto": "Mi caballo Sardinilla es el mejor de todos, no hay quien le gane.", "author": "Humberto" }
         ],
         "hablado": "false",
@@ -133,7 +133,8 @@
         "frases":
         [
             { "texto": "¿Has oído hablar del cura de la iglesia de al lado?", "author": "Ali" },
-            { "texto": "Siempre actúa raro y de manera sospechosa.", "author": "Ali" },
+            { "texto": "está casi al final del distrito, el cura se encuenta en ella,", "author": "Ali" },
+            { "texto": "aunque siempre actúa raro y de manera sospechosa, nadie nunca le contradice.", "author": "Ali" },
             { "texto": "Además últimamente han desaparecido muchos niños en el barrio.", "author": "Ali" },
             { "texto": "Creo que ha podido ser él, ojalá alguien le pare los pies.", "author": "Ali" },
             { "texto": "Realmente es horrible lo que algunos adultos pueden llegar a hacer...", "author": "Ali" }
