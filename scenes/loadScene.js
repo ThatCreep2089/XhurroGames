@@ -37,6 +37,9 @@ export default class loadScene extends Phaser.Scene {
 
     // Listener para actualizar la barra de progreso
     this.load.on("progress", (value) => {
+      
+    
+      this.add.image(0, 0, 'imLoad').setOrigin(0, 0);
       progressBar.clear();
       progressBar.fillStyle(0xffffff, 1);
       progressBar.fillRect(
