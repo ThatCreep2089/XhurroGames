@@ -61,6 +61,7 @@ export default class loadScene extends Phaser.Scene {
 
     //PLAYER
     this.load.image('player', 'assets/npc/elle.png'); //future elle
+    this.load.image('playerCombat', 'assets/npc/fight elle.png');//elle combate scene sprite
 
     //IMAGENES BUILDINGS ZONA SCENE
     this.load.image('building1', 'assets/edificios/building1.png'); //clarito
