@@ -11,7 +11,8 @@ export default class loadScene extends Phaser.Scene {
   preload() {
     
    // Fondo o color de la escena de precarga
-   this.load.image('imLoad', 'assets/fondos/madrizzbn.png');// fondo load
+   //this.load.image('imLoad', 'assets/fondos/madrizzbn.png');// fondo load
+   this.load.image('imLoad', 'assets/fondos/load screen.png');// fondo load
     //this.cameras.main.setBackgroundColor("#000000");
 
     // Texto de carga
