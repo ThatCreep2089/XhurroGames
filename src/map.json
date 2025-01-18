@@ -723,30 +723,30 @@
             {
                 "sprite": "tenfeAmarillo",
                 "x": 1.9,
-                "y": 1.25,
+                "y": 1.3,
                 "width": 0.1,
                 "height": 0.1,
                 "colliderGroup": "localizations",
                 "scenario": "tenfeFondo",
                 "caja":
                 {
-                    "x": 1.94,
-                    "y": 1.5,
-                    "width": 0.2,
-                    "height": 0.12,
+                    "x": 1.9,
+                    "y": 1.55,
+                    "width": 0.08,
+                    "height": 0.08,
                     "id": "cajaAmarillo"
                 },
                 "texto":
                 {
                     "size": "30px",
                     "x": 1.9,
-                    "y": 1.53,
+                    "y": 1.55,
                     "text": "TENFE"
                 },
                 "decor":
                 {
                     "x": 1.75,
-                    "y": 1.3,
+                    "y": 1.45,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAmarillo"
@@ -755,31 +755,31 @@
             },
             {
                 "sprite": "localEdifFEO",
-                "x": 4.3,
-                "y": 3.2,
-                "width": 0.58,
-                "height": 0.4,
+                "x": 1.315,
+                "y": 2.6,
+                "width": 0.5,
+                "height": 0.5,
                 "colliderGroup": "localizations",
                 "scenario": "edifFeo",
                 "caja":
                 {
-                    "x": 4.6,
-                    "y": 9.5,
-                    "width": 0.3,
-                    "height": 0.12,
+                    "x": 1.315,
+                    "y": 2.1,
+                    "width": 0.1,
+                    "height": 0.08,
                     "id": "cajaAmarillo"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 4.3,
-                    "y": 11,
+                    "x": 1.315,
+                    "y": 2.1,
                     "text": "EDIFICIO\nFEO"
                 },
                 "decor":
                 {
-                    "x": 3.2,
-                    "y": 5,
+                    "x": 1.19,
+                    "y": 2.2,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAmarillo"
@@ -787,31 +787,31 @@
             },
             {
                 "sprite": "localPlaza",
-                "x": 1.31,
-                "y": 3.4,
-                "width": 0.26,
-                "height": 0.3,
+                "x": 6,
+                "y": 6,
+                "width": 0.4,
+                "height": 0.4,
                 "colliderGroup": "localizations",
                 "scenario": "plaza",
                 "caja":
                 {
-                    "x": 1.34,
-                    "y": 2.15,
-                    "width": 0.3,
-                    "height": 0.12,
+                    "x": 3.2,
+                    "y": 6,
+                    "width": 0.08,
+                    "height": 0.08,
                     "id": "cajaAmarillo"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 1.32,
-                    "y": 2.2,
+                    "x": 3.2,
+                    "y": 6,
                     "text": "PLAZA"
                 },
                 "decor":
                 {
-                    "x": 1.43,
-                    "y": 2.5,
+                    "x": 3.5,
+                    "y": 10,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAmarillo"
@@ -823,7 +823,7 @@
         [
             {
             "x": 1.05,
-            "y": 3.3,
+            "y": 1.63,
             "colliderGroup": "flechas",
             "modo": 5,
             "ant": 4,
