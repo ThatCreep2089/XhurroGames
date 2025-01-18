@@ -133,7 +133,19 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('cruzRoja', 'assets/fondos/cruzRoja.jpg');
     this.load.image('iglesia', 'assets/fondos/iglesia.jpg');
     this.load.image('pitiBanco', 'assets/fondos/pitiBanco.jpg');
+
+    this.load.image('edifFeo', 'assets/fondos/edifFeoFondo.jpg');
+    this.load.image('plaza', 'assets/fondos/plazaFondo.jpg');
+    this.load.image('embajada', 'assets/fondos/embajadaFondo.jpg');
+    this.load.image('iglesiaPeque', 'assets/fondos/iglesiaPequeFondo.jpg');
+    this.load.image('tenis', 'assets/fondos/tenisFondo.jpg');
+    this.load.image('colegio', 'assets/fondos/colegioFondo.jpg');
+    this.load.image('golf', 'assets/fondos/golfFondo.jpg');
+
+
+
     this.load.image('congreso', 'assets/fondos/congresoFondo.jpg');
+    
 
     //NPCS
     this.load.image('PACO', 'assets/npc/paco.png');
