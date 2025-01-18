@@ -979,31 +979,31 @@
         [
             {
                 "sprite": "localColegio",
-                "x": 4.3,
-                "y": 3.2,
-                "width": 0.58,
+                "x": 2.67,
+                "y": 3.5,
+                "width": 0.5,
                 "height": 0.4,
                 "colliderGroup": "localizations",
                 "scenario": "colegio",
                 "caja":
                 {
-                    "x": 4.6,
-                    "y": 9.5,
-                    "width": 0.3,
-                    "height": 0.12,
+                    "x": 2.67,
+                    "y": 2.1,
+                    "width": 0.1,
+                    "height": 0.1,
                     "id": "cajaAmarillo"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 4.3,
-                    "y": 11,
+                    "x": 2.67,
+                    "y": 2.1,
                     "text": "COLEGIO\nPRIVADO"
                 },
                 "decor":
                 {
-                    "x": 3.2,
-                    "y": 5,
+                    "x": 2.67,
+                    "y": 2.5,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAmarillo"
@@ -1011,31 +1011,31 @@
             },
             {
                 "sprite": "localGolf",
-                "x": 1.31,
-                "y": 3.4,
-                "width": 0.26,
-                "height": 0.3,
+                "x": 1.19,
+                "y": 1.95,
+                "width": 0.5,
+                "height": 0.5,
                 "colliderGroup": "localizations",
                 "scenario": "golf",
                 "caja":
                 {
-                    "x": 1.34,
-                    "y": 2.15,
-                    "width": 0.3,
+                    "x": 1.19,
+                    "y": 1.5,
+                    "width": 0.13,
                     "height": 0.12,
                     "id": "cajaAmarillo"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 1.32,
-                    "y": 2.2,
+                    "x": 1.19,
+                    "y": 1.5,
                     "text": "CLUB DE GOLF"
                 },
                 "decor":
                 {
-                    "x": 1.43,
-                    "y": 2.5,
+                    "x": 1.15,
+                    "y": 1.75,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAmarillo"
@@ -1045,7 +1045,7 @@
             {
                 "sprite": "pitiBancoLocalization",
                 "x": 3.9,
-                "y": 4,
+                "y": 1.5,
                 "width": 0.1,
                 "height": 0.1,
                 "colliderGroup": "localizations",
