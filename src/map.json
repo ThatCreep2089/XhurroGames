@@ -237,6 +237,7 @@
         "flechas":
         [
             {
+            "sprite": "flecha",
             "x": 1.05,
             "y": 3.3,
             "colliderGroup": "flechas",
@@ -477,6 +478,7 @@
         "flechas":
         [
             {
+                "sprite": "flecha",
                 "x": 22,
                 "y": 3.3,
                 "colliderGroup": "flechas",
@@ -486,6 +488,7 @@
                 "height": 0.2
             },
             {
+                "sprite": "flecha",
                 "x": 1.05,
                 "y": 3.3,
                 "colliderGroup": "flechas",
@@ -700,6 +703,7 @@
         "flechas":
         [
             {
+                "sprite": "flecha",
                 "x": 22,
                 "y": 3.3,
                 "colliderGroup": "flechas",
@@ -822,13 +826,14 @@
         "flechas":
         [
             {
+            "sprite": "flechaC",
             "x": 1.05,
             "y": 1.63,
             "colliderGroup": "flechas",
             "modo": 5,
             "ant": 4,
-            "width": 0.2,
-            "height": 0.2
+            "width": 0.15,
+            "height": 0.15
             }
         ]
         
@@ -942,6 +947,7 @@
         "flechas":
         [
             {
+                "sprite": "flechaC",
                 "x": 22,
                 "y": 3.3,
                 "colliderGroup": "flechas",
@@ -951,6 +957,7 @@
                 "height": 0.2
             },
             {
+                "sprite": "flechaC",
                 "x": 1.05,
                 "y": 3.3,
                 "colliderGroup": "flechas",
@@ -1071,6 +1078,7 @@
         "flechas":
         [
             {
+                "sprite": "flechaC",
                 "x": 22,
                 "y": 3.3,
                 "colliderGroup": "flechas",

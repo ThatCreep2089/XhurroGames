@@ -24,7 +24,7 @@ export default class ZonaScene extends Phaser.Scene{
         
         this.key="zonaScene";
         
-        this.modo= data.modo || 1;
+        this.modo= data.modo || 4;
         this.fondo = 'fondo' + this.modo;
         
         
@@ -334,7 +334,8 @@ export default class ZonaScene extends Phaser.Scene{
     //Crear flecha en escena
     createFlecha(flecha)
     {
-        let flecha1 = new Flecha(this, 
+        let flecha1 = new Flecha(this,
+            flecha.sprite, 
             this.sys.game.canvas.width / flecha.x,
             this.sys.game.canvas.height / flecha.y, 
             this.flechas, flecha.modo, flecha.ant)
