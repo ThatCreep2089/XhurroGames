@@ -78,11 +78,51 @@ init(data){
 
        //eventos de turnos
         this.events.on('changeTurns', ()=>this.changeTurns());
+
+        this.events.on('playerAttack', ()=>this.playerAttackAnim());
+
         this.events.on('enemyDamaged', ()=>this.enemyDamageAnim());
+
+        this.events.on('enemyAttack', ()=>this.enemyAttackAnim());
+
         this.events.on('playerDamaged', ()=>this.playerDamageAnim());
+
         this.events.on('updateStatus', ()=>this.updateCombatStatus());
 
     }
+
+    playerAttackAnim(){
+
+        this.staticAnim.pause();
+        this.tweens.add({
+            targets: [this.playerSprite],
+            x: '+=50',
+            y: '-=50', 
+            duration: 1000, 
+            ease: 'Power2',
+            yoyo: true, 
+            onComplete: () => {
+                
+                this.events.emit('enemyDamaged');
+            }
+        });
+    }
+
+    enemyAttackAnim(){
+        this.tweens.add({
+            targets: [this.enemy],
+            x: '-=50',
+            y: '+=50', 
+            duration: 1000, 
+            ease: 'Power2',
+            yoyo: true, 
+            onComplete: () => {
+                
+                this.events.emit('playerDamaged');
+            }
+        });
+    }
+
 
     //secuencia al dañar un enemigo
     enemyDamageAnim(){
@@ -91,8 +131,19 @@ init(data){
         this.changeActiveButtons();
         //pone al enemigo en rojo
         this.enemy.setTint(0xff0000);
-        this.time.delayedCall(3000, () => {
-            this.enemy.clearTint();});
+
+
+        this.tweens.add({
+            targets: [this.enemy],
+            scaleX: 0.5,
+            scaleY: 0.5, 
+            duration: 1500, 
+            ease: 'Power2',
+            yoyo: true,
+            onComplete: () => {
+                this.enemy.clearTint();
+            }
+        });
         //hace el daño al enemigo y actualiza daño total a 0
         this.player.attackEnemy(this.enemy, this.totalDamage);
         this.totalDamage = 0;
@@ -102,9 +153,19 @@ init(data){
 
     //secuencia al dañar al player
     playerDamageAnim(){
-        this.player.setTint(0xff0000);//coloreamos al player
-        this.time.delayedCall(3000, () => {
-            this.player.clearTint();});
+        this.playerSprite.setTint(0xff0000);//coloreamos al player
+       
+        this.tweens.add({
+            targets: [this.playerSprite],
+            scaleX: 0.25,
+            scaleY: 0.25, 
+            duration: 1500, 
+            ease: 'Power2',
+            yoyo: true,
+            onComplete: () => {
+                this.playerSprite.clearTint();
+            }
+        });
 
         //hace daño al player
         this.enemy.attackPlayer(this.player);
@@ -125,6 +186,7 @@ changeTurns() {
         this.updateCardsTexts();
         this.changeActiveButtons();
         this.updateTotalText();
+        this.staticAnim.resume();
     }
 }
 
@@ -143,7 +205,9 @@ changeTurns() {
         //si ha acabado, escena de victoria o derrota
         else if(result.playerwin == true){
             this.events.removeListener('changeTurns');
+            this.events.removeListener('playerAttack');
             this.events.removeListener('enemyDamaged');
+            this.events.removeListener('enemyAttack');
             this.events.removeListener('playerDamaged');
             this.events.removeListener('updateStatus');
             this.changeActiveButtons();
@@ -158,7 +222,9 @@ changeTurns() {
             //console.log("derrota")
             //quitamos listeners
             this.events.removeListener('changeTurns');
+            this.events.removeListener('playerAttack');
             this.events.removeListener('enemyDamaged');
+            this.events.removeListener('enemyAttack');
             this.events.removeListener('playerDamaged');
             this.events.removeListener('updateStatus');
             this.changeActiveButtons();
@@ -181,7 +247,8 @@ changeTurns() {
             if(this.player.mana >=20) {
             this.player.manaPerdido(20);
         // console.log("llamo enemydamaged desde mana");
-            this.events.emit('enemyDamaged');
+        
+            this.events.emit('playerAttack');
             }
             else  {
                 //console.log("no hay mana");
@@ -189,7 +256,8 @@ changeTurns() {
         }
         else {
             //console.log("llamo enemydamaged desde normal");
-            this.events.emit('enemyDamaged');
+            
+            this.events.emit('playerAttack');
         }
         
     }
@@ -300,7 +368,7 @@ changeTurns() {
     // Método de turno del enemigo
     enemyTurn() {
 
-        this.events.emit('playerDamaged');
+        this.events.emit('enemyAttack');
                         
     }
 
@@ -401,9 +469,9 @@ changeTurns() {
 
     setEntities(){
         //player
-        this.player = new Player(this, this.sys.game.canvas.width / 20, this.sys.game.canvas.height / 1.01, 'playerCombat').setOrigin(0.5);;
+        this.player = new Player(this,0,0);
         this.player.init(this.playerConfig);
-        this.player.setScale(0.7);
+
         //enemigo
         this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5, this.npc);
         this.enemy.setScale(0.7);
@@ -415,7 +483,25 @@ changeTurns() {
 
         //anulamos movimiento player
         this.player.changeMove(false);
-        //this.player.visible = false;
+        this.player.visible = false;
+
+        this.playerSprite = this.add.sprite(this.sys.game.canvas.width / 9, this.sys.game.canvas.height / 1.3,
+        'playerCombat').setOrigin(0.5).setScale(0.3);
+
+
+
+        //animaciones
+        //movimiento estático
+        this.staticAnim = this.tweens.add({
+            targets: [ this.playerSprite, this.enemy],
+            x: '+=5',
+            duration: 300,
+            ease: 'Sine.easeInOut',
+            yoyo: true,
+            repeat: -1,
+            delay: 0
+        });
+
     }
 
 
@@ -435,23 +521,6 @@ changeTurns() {
             'Normal'
            );
 
-
-        //ataque cualidades
-        /*
-        this.magicButton = this.createButton(
-            this.sys.game.canvas.width / 3,
-            this.sys.game.canvas.height / 2,
-            300, 100,
-            0xff0000,
-            () => this.playerTurn('magic')
-      );
-      */
-        
-        this.attackCualidadesText = this.createText(
-            this.sys.game.canvas.width / 3.7,
-            this.sys.game.canvas.height / 2.1,
-            'Cualidades'
-        );
 
         //suma daño total
         this.totalDamageButton = this.createButton(

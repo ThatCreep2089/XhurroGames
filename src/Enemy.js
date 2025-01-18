@@ -14,6 +14,10 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 
         this.health = 80; //vida
 
+
+        //aclaración: el switch recibe enemy porque el tipo de debilidad es su tipo de boss, 
+        //el cual viene dado en "enemy" que es el sprite y a su vez el tipo,
+        //perdón Toni no nos mates 
         switch(enemy){ //debilidad
             case 'ESPADAS':
                 this.weakness = 'espadas'; 

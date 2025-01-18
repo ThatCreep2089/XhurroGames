@@ -65,7 +65,7 @@ export default class loadScene extends Phaser.Scene {
 
     //PLAYER
     this.load.image('player', 'assets/npc/elle.png'); //future elle
-    this.load.image('playerCombat', 'assets/npc/fight elle.png');//elle combate scene sprite
+    this.load.image('playerCombat', 'assets/npc/fight_elle.png');//elle combate scene sprite
 
     //IMAGENES BUILDINGS ZONA SCENE
     this.load.image('building1', 'assets/edificios/building1.png'); //clarito
@@ -198,7 +198,7 @@ export default class loadScene extends Phaser.Scene {
       this.load.image('copas', "./assets/npc/bossBotellin.png") //enemigo
       this.load.image('yusoa', "./assets/npc/yusoa.png") //enemigo
       this.load.image('combat', "./assets/fondos/combate.jpg") //fondo
-      this.load.image('playerCombat', "./assets/stats/elle2.png") //player
+      //this.load.image('playerCombat', "./assets/stats/elle2.png") //player
 
     this.player = new Player(this);
     this.Inventory = new Inventory(this);
