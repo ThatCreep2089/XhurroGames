@@ -140,7 +140,7 @@ export default class TenfeScene extends Phaser.Scene {
                             //subir ansiedad
                             //...
                             this.scene.start('zonaScene', {// Cambiar escena
-                            modo: 4, //cambiar a modo: 4
+                            modo: 13, //cambiar a modo: 13
                                 player: this.player.getConfigData(),
                                 inventory: this.inventory.getConfigData(),
                                 dialogueJson: this.dialogueJson

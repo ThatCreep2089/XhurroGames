@@ -61,7 +61,11 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('fondo1', 'assets/fondos/fondo1.jpeg'); //fondo 1 Zona scene
     this.load.image('fondo2', 'assets/fondos/fondo2.jpeg'); //fondo 2 Zona scene
     this.load.image('fondo3', 'assets/fondos/fondo3.jpeg'); //fondo 3 Zona scene
-    this.load.image('fondo4', 'assets/fondos/diputadosZona.jpg'); //fondo 3 Zona scene
+    this.load.image('fondo4', 'assets/fondos/fondoC1.png'); //fondo 3 Zona scene
+    this.load.image('fondo5', 'assets/fondos/fondoC2.png'); //fondo 3 Zona scene
+    this.load.image('fondo6', 'assets/fondos/fondoC3.jpeg'); //fondo 3 Zona scene
+
+    this.load.image('fondo13', 'assets/fondos/diputadosZona.jpg'); //fondo 3 Zona scene
 
     //PLAYER
     this.load.image('player', 'assets/npc/elle.png'); //future elle
@@ -74,7 +78,7 @@ export default class loadScene extends Phaser.Scene {
     
 
     //IMAGENES LOCALIZATIONS
-    this.load.image('tenfe', 'assets/edificios/tenfe.png');
+    this.load.image('tenfeRojo', 'assets/edificios/tenfe.png');
     this.load.image('pitiBancoLocalization', 'assets/edificios/pitiBanco.png');
     this.load.image('localization1', 'assets/edificios/parque.png');
     this.load.image('localization2', 'assets/edificios/puente.png');
@@ -83,6 +87,16 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('localization6', 'assets/edificios/hipodromo.png');
     this.load.image('localization7', 'assets/edificios/cruzRoja.png');
     this.load.image('localization8', 'assets/edificios/iglesia.png');
+
+    this.load.image('tenfeAmarillo', 'assets/edificios/tenfeC.png');
+    this.load.image('localEdifFEO', 'assets/edificios/edificioFeo.png');
+    this.load.image('localPlaza', 'assets/edificios/plaza.png');
+    this.load.image('localEmbajada', 'assets/edificios/embajada.png');
+    this.load.image('localTenis', 'assets/edificios/tenis.png');
+    this.load.image('localIglesiaPeque', 'assets/edificios/iglesiaPeque.png');
+    this.load.image('localColegio', 'assets/edificios/colegio.png');
+    this.load.image('localGolf', 'assets/edificios/golf.png');
+
     this.load.image('congresoLocalization', 'assets/edificios/congreso.png');
     
     //FLECHAS
@@ -93,6 +107,9 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('caja', 'assets/other/caja.png');
     this.load.image('maps', 'assets/other/maps.png');
     this.load.json("mapJason", 'src/map.json');
+
+    this.load.image('cajaAmarillo', 'assets/other/cajaC.png');
+    this.load.image('mapsAmarillo', 'assets/other/mapsC.png');
 
   
     //FONDO STATS

@@ -24,7 +24,7 @@ export default class ZonaScene extends Phaser.Scene{
         
         this.key="zonaScene";
         
-        this.modo= data.modo || 1;
+        this.modo= data.modo || 4;
         this.fondo = 'fondo' + this.modo;
         
         
@@ -78,7 +78,7 @@ export default class ZonaScene extends Phaser.Scene{
         let startPosition = window.gameState.playerPosition || { x: 900, y: 330 }; //posicion de la tenfe
 
         //LEER ZONA
-        const zone = jsonObject["botellin"][this.modo];
+        const zone = jsonObject[this.modo];
         
         //BUILDINGS
         zone.buildings.forEach(building => {
