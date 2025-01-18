@@ -833,6 +833,255 @@
         ]
         
     },
+    "5":
+    {
+        "buildings":
+        [
+            
+        ],
+        "localizations":
+        [
+            {
+                "sprite": "localEmbajada",
+                "x": 4.3,
+                "y": 3.2,
+                "width": 0.58,
+                "height": 0.4,
+                "colliderGroup": "localizations",
+                "scenario": "embajada",
+                "caja":
+                {
+                    "x": 4.6,
+                    "y": 9.5,
+                    "width": 0.3,
+                    "height": 0.12,
+                    "id": "cajaAmarillo"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 4.3,
+                    "y": 11,
+                    "text": "EMBAJADA\nDE NATAR"
+                },
+                "decor":
+                {
+                    "x": 3.2,
+                    "y": 5,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "mapsAmarillo"
+                }
+            },
+            {
+                "sprite": "localTenis",
+                "x": 4.3,
+                "y": 3.2,
+                "width": 0.58,
+                "height": 0.4,
+                "colliderGroup": "localizations",
+                "scenario": "tenis",
+                "caja":
+                {
+                    "x": 4.6,
+                    "y": 9.5,
+                    "width": 0.3,
+                    "height": 0.12,
+                    "id": "cajaAmarillo"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 4.3,
+                    "y": 11,
+                    "text": "CLUB\nDE TENIS"
+                },
+                "decor":
+                {
+                    "x": 3.2,
+                    "y": 5,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "mapsAmarillo"
+                }
+            },
+            {
+                "sprite": "localIglesiaPeque",
+                "x": 1.31,
+                "y": 3.4,
+                "width": 0.26,
+                "height": 0.3,
+                "colliderGroup": "localizations",
+                "scenario": "iglesiaPeque",
+                "caja":
+                {
+                    "x": 1.34,
+                    "y": 2.15,
+                    "width": 0.3,
+                    "height": 0.12,
+                    "id": "cajaAmarillo"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 1.32,
+                    "y": 2.2,
+                    "text": "IGLESIA\nDE LOS MUERTOS"
+                },
+                "decor":
+                {
+                    "x": 1.43,
+                    "y": 2.5,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "mapsAmarillo"
+                }
+                
+            }
+        ],
+        "flechas":
+        [
+            {
+                "x": 22,
+                "y": 3.3,
+                "colliderGroup": "flechas",
+                "modo": 4,
+                "ant": 5,
+                "width": -0.2,
+                "height": 0.2
+            },
+            {
+                "x": 1.05,
+                "y": 3.3,
+                "colliderGroup": "flechas",
+                "modo": 6,
+                "ant": 5,
+                "width": 0.2,
+                "height": 0.2
+            }
+        ]
+        
+    },
+    "6":
+    {
+        "buildings":
+        [
+            
+        ],
+        "localizations":
+        [
+            {
+                "sprite": "localColegio",
+                "x": 4.3,
+                "y": 3.2,
+                "width": 0.58,
+                "height": 0.4,
+                "colliderGroup": "localizations",
+                "scenario": "colegio",
+                "caja":
+                {
+                    "x": 4.6,
+                    "y": 9.5,
+                    "width": 0.3,
+                    "height": 0.12,
+                    "id": "cajaAmarillo"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 4.3,
+                    "y": 11,
+                    "text": "COLEGIO\nPRIVADO"
+                },
+                "decor":
+                {
+                    "x": 3.2,
+                    "y": 5,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "mapsAmarillo"
+                }
+            },
+            {
+                "sprite": "localGolf",
+                "x": 1.31,
+                "y": 3.4,
+                "width": 0.26,
+                "height": 0.3,
+                "colliderGroup": "localizations",
+                "scenario": "golf",
+                "caja":
+                {
+                    "x": 1.34,
+                    "y": 2.15,
+                    "width": 0.3,
+                    "height": 0.12,
+                    "id": "cajaAmarillo"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 1.32,
+                    "y": 2.2,
+                    "text": "CLUB DE GOLF"
+                },
+                "decor":
+                {
+                    "x": 1.43,
+                    "y": 2.5,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "mapsAmarillo"
+                }
+                
+            },
+            {
+                "sprite": "pitiBancoLocalization",
+                "x": 3.9,
+                "y": 4,
+                "width": 0.1,
+                "height": 0.1,
+                "colliderGroup": "localizations",
+                "scenario": "pitiBanco",
+                "caja":
+                {
+                    "x": 3.1,
+                    "y": 1.27,
+                    "width": 0.18,
+                    "height": 0.13,
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 3,
+                    "y": 1.3,
+                    "text": "CRUZ\nROJA"
+                },
+                "decor":
+                {
+                    "x": 3.5,
+                    "y": 1.15,
+                    "width": 0.13,
+                    "height": 0.13,
+                    "id": "maps"
+                }
+            }
+        ],
+        "flechas":
+        [
+            {
+                "x": 22,
+                "y": 3.3,
+                "colliderGroup": "flechas",
+                "modo": 5,
+                "ant": 6,
+                "width": -0.2,
+                "height": 0.2
+            }
+        ]
+        
+    },
     "13":
     {
         "buildings":
