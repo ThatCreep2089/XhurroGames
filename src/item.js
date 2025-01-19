@@ -33,32 +33,5 @@ PUBLICA=10
 */
 
 
-//curar vida
-HealLife(num,player)
-{
-player.HealPlayer(num);
-
-}
-
-//incrementar vida max
-IncreaseLifeMax(num,player)
-{
-    player.MaxLife(num)
-   
-}
-
-//reducir ansiedad
-ReduceAnxiety(num,player)
-{
-    player.LessAnxiety(num)
-   
-}
-
-//curar ptos mana
-HealCuality(num,player)
-{
-    player.HealQuality(num)
-    
-}
 
 }

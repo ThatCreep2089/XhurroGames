@@ -1,7 +1,7 @@
 export default class ContactScene extends Phaser.Scene {
     constructor() {
         super({ key: 'ContactScene' });
-        
+         
         
     }
 
@@ -24,7 +24,65 @@ init(data){
 
     this.lastScene = data.lastScene;
     this.barrio = data.barrio;
+
+     
 }
+   //seteamos la visibilidad de rects, desde el primero(prin) hasta el ultimo(fin) y un estado (bool)
+   RectVisivility(prin,fin,bool)
+   {
+       for( let i= prin;i<=fin;i++)
+       {
+           this.rects[i].setVisible(bool)
+       }
+   }
+
+    //seteamos la visibilidad de textos, desde el primero(prin) hasta el ultimo(fin) y un estado (bool)
+   TextVisivility(prin,fin,bool)
+   {
+       for( let i= prin;i<=fin;i++)
+       {
+           this.textos[i].setVisible(bool)
+       }
+   }
+  
+   //creacion de rectangulos
+   CrearRect(x,y,w,h,color,origen)
+   {
+      let rect= this.add.rectangle(x,y,w,h,color,origen);
+       return rect;
+   }
+
+    //seteamos la profundidad de rects
+   SetDepthRect(prin,fin,num)
+   {
+       for( let i= prin;i<=fin;i++)
+           {
+               this.rects[i].setDepth(num);
+           }
+   }
+
+    //seteamos la profundidad de textos
+   SetDepthText(prin,fin,num)
+   {
+       for( let i= prin;i<=fin;i++)
+           {
+               this.textos[i].setDepth(num);
+           }
+   }
+
+   //creacion de textos
+   CrearText(x,y,string)
+   {
+    let text=this.add.text(x,y,string,{
+
+        fontSize: '40px',
+        fill: '#1c1c1c',
+        align: 'center'
+    });
+    text.setOrigin(0.5, 0.5)
+    text.setVisible(false);  
+    return text;
+   }
 
     create(data) {
 
@@ -45,45 +103,32 @@ init(data){
     //leer mapa
     const jsonObject = this.cache.json.get('contactsJson');
 
+     //creamos arrays para guardar los textos y los rectangulos
+     this.rects=[];
+     this.textos=[];
+   //set visible false
+   this.rect0 = this.CrearRect(950, 600, 900, 400, 0xf6f6f6).setOrigin(0.5) // Fondo del texto
+   this.rects.push(this.rect0);
 
-    this.rect0 = this.add.rectangle(950, 600, 900, 400, 0xf6f6f6).setOrigin(0.5).setVisible(false); // Fondo del texto
-    this.rect = this.add.rectangle(1350, 750, 50, 50, 0xff0000).setInteractive().setVisible(false); // Botón cerrar
+   this.rect = this.CrearRect(1350, 750, 50, 50, 0xff0000).setInteractive(); // Botón cerrar
+   this.rects.push(this.rect);
+   this.RectVisivility(0,1,false);
 
-   
-    //Texto con descripciones inicialmente vacios
-    this.texto = this.add.text(950, 500, "", {//nombre
-        fontSize: '40px',
-        fill: '#1c1c1c',
-        align: 'center'
-    }).setOrigin(0.5, 0.5).setVisible(false);
-
-    this.texto2 = this.add.text(950, 550, "", {//edad
-        fontSize: '40px',
-        fill: '#1c1c1c',
-        align: 'center'
-    }).setOrigin(0.5, 0.5).setVisible(false);
-
-    this.texto3 = this.add.text(950, 650, "", {//localizacion
-        fontSize: '40px',
-        fill: '#1c1c1c',
-        align: 'center'
-    }).setOrigin(0.5, 0.5).setVisible(false);
-
-    this.texto4 = this.add.text(950, 600, "", {//descripcion
-        fontSize: '40px',
-        fill: '#1c1c1c',
-        align: 'center'
-    }).setOrigin(0.5, 0.5).setVisible(false);
-   
-
+   //Texto con descripciones inicialmente vacios
+   this.texto = this.CrearText(950, 500, "");
+   this.textos.push( this.texto);
+   this.texto2 = this.CrearText(950, 550, "");
+   this.textos.push( this.texto2);
+   this.texto3 = this.CrearText(950, 650, "");
+   this.textos.push( this.texto3);
+   this.texto4 = this.CrearText(950, 600, "");
+   this.textos.push( this.texto4);
+    
     this.rect.on('pointerdown', () => {
         // Ocultar todos los elementos al cerrar el rect de cerrar
-        this.texto.setVisible(false);
-        this.texto2.setVisible(false);
-        this.texto3.setVisible(false);
-        this.texto4.setVisible(false);
-        this.rect0.setVisible(false);
-        this.rect.setVisible(false);
+        this.RectVisivility(0,1,false);
+        this.TextVisivility(0,3,false);
+        
     });
         //BARRIO: OBRERO
         if(this.barrio == 1)
@@ -178,20 +223,16 @@ init(data){
         const currentNpc = npcs; // el npc actual
         return () => {
             // Actualizar y mostrar detalles específicos de este NPC
-            this.texto.setText("Nombre: " + currentNpc.name).setVisible(true);
-            this.texto2.setText("Edad: " + currentNpc.edad ).setVisible(true);
-            this.texto4.setText("Descripción: " + currentNpc.descripcion ).setVisible(true);
-            this.texto3.setText("Conocido en: " + currentNpc.localizacion ).setVisible(true);
+            this.textos[0].setText("Nombre: " + currentNpc.name).setVisible(true);
+            this.textos[1].setText("Edad: " + currentNpc.edad ).setVisible(true);
+            this.textos[2].setText("Descripción: " + currentNpc.descripcion ).setVisible(true);
+            this.textos[3].setText("Conocido en: " + currentNpc.localizacion ).setVisible(true);
 
-            this.rect0.setVisible(true); // Fondo visible
-            this.rect.setVisible(true); // Botón cerrar visible
+            this.RectVisivility(0,1,true);
             this.spritePJ.setDepth(0); // Sprite del NPC en el fondo
-            this.rect0.setDepth(1);    // Fondo del texto encima del sprite
-            this.rect.setDepth(1);    // Fondo del texto encima del sprite
-            this.texto.setDepth(2);    // Texto por encima del fondo
-            this.texto2.setDepth(2);
-            this.texto3.setDepth(2);
-            this.texto4.setDepth(2);
+            this.SetDepthRect(0,1,1);
+            this.SetDepthText(0,3,2);
+           
         };
     })());
     
