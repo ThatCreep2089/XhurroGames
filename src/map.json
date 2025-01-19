@@ -1,801 +1,1178 @@
   {
-    "botellin": {
-        "1":
-        {
-            "buildings":
-            [
+    "1":
+    {
+        "buildings":
+        [
+            {
+                "sprite": "building1",
+                "x": 5.85,
+                "y": 1.14,
+                "width": 0.3,
+                "height": 0.3,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building1",
+                "x": 1.9,
+                "y": 1.68,
+                "width": 0.25,
+                "height": 0.45,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building1",
+                "x": 1.31,
+                "y": 4.63,
+                "width": 0.35,
+                "height": 0.07,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building1",
+                "x": 4.2,
+                "y": 4.5,
+                "width": 0.5,
+                "height": 0.4,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building1",
+                "x": 1.04,
+                "y": 1.68,
+                "width": 0.13,
+                "height": 0.44,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 1.31,
+                "y": 2.05,
+                "width": 0.36,
+                "height": 0.25,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 1.515,
+                "y": 22,
+                "width": 0.7,
+                "height": 0.09,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 45,
+                "y": 4.5,
+                "width": 0.05,
+                "height": 0.43,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 2.18,
+                "y": 1.01,
+                "width": 0.47,
+                "height": 0.1,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 5.75,
+                "y": 1.72,
+                "width": 0.3,
+                "height": 0.08,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 1.02,
+                "y": 1.02,
+                "width": 0.19,
+                "height": 0.09,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building3",
+                "x": 1.31,
+                "y": 1.17,
+                "width": 0.32,
+                "height": 0.22,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building3",
+                "x": 2.8,
+                "y": 1.44,
+                "width": 0.12,
+                "height": 0.25,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building3",
+                "x": 70,
+                "y": 1.29,
+                "width": 0.05,
+                "height": 0.4,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building3",
+                "x": 1.89,
+                "y": 4.59,
+                "width": 0.22,
+                "height": 0.06,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building3",
+                "x": 1.02,
+                "y": 20,
+                "width": 0.18,
+                "height": 0.35,
+                "colliderGroup": "buildings"
+            }
+        ],
+        "localizations":
+        [
+            {
+                "sprite": "localization1",
+                "x": 4.3,
+                "y": 3.2,
+                "width": 0.58,
+                "height": 0.4,
+                "colliderGroup": "localizations",
+                "scenario": "parque",
+                "caja":
                 {
-                    "sprite": "building1",
-                    "x": 5.85,
-                    "y": 1.14,
+                    "x": 4.6,
+                    "y": 9.5,
                     "width": 0.3,
-                    "height": 0.3,
-                    "colliderGroup": "buildings"
+                    "height": 0.12,
+                    "id": "caja"
                 },
+                "texto":
                 {
-                    "sprite": "building1",
-                    "x": 1.9,
-                    "y": 1.68,
-                    "width": 0.25,
-                    "height": 0.45,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building1",
-                    "x": 1.31,
-                    "y": 4.63,
-                    "width": 0.35,
-                    "height": 0.07,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building1",
-                    "x": 4.2,
-                    "y": 4.5,
-                    "width": 0.5,
-                    "height": 0.4,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building1",
-                    "x": 1.04,
-                    "y": 1.68,
-                    "width": 0.13,
-                    "height": 0.44,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 1.31,
-                    "y": 2.05,
-                    "width": 0.36,
-                    "height": 0.25,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 1.515,
-                    "y": 22,
-                    "width": 0.7,
-                    "height": 0.09,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 45,
-                    "y": 4.5,
-                    "width": 0.05,
-                    "height": 0.43,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 2.18,
-                    "y": 1.01,
-                    "width": 0.47,
-                    "height": 0.1,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 5.75,
-                    "y": 1.72,
-                    "width": 0.3,
-                    "height": 0.08,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 1.02,
-                    "y": 1.02,
-                    "width": 0.19,
-                    "height": 0.09,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building3",
-                    "x": 1.31,
-                    "y": 1.17,
-                    "width": 0.32,
-                    "height": 0.22,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building3",
-                    "x": 2.8,
-                    "y": 1.44,
-                    "width": 0.12,
-                    "height": 0.25,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building3",
-                    "x": 70,
-                    "y": 1.29,
-                    "width": 0.05,
-                    "height": 0.4,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building3",
-                    "x": 1.89,
-                    "y": 4.59,
-                    "width": 0.22,
-                    "height": 0.06,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building3",
-                    "x": 1.02,
-                    "y": 20,
-                    "width": 0.18,
-                    "height": 0.35,
-                    "colliderGroup": "buildings"
-                }
-            ],
-            "localizations":
-            [
-                {
-                    "sprite": "localization1",
+                    "size": "30px",
                     "x": 4.3,
-                    "y": 3.2,
-                    "width": 0.58,
-                    "height": 0.4,
-                    "colliderGroup": "localizations",
-                    "scenario": "parque",
-                    "caja":
-                    {
-                        "x": 4.6,
-                        "y": 9.5,
-                        "width": 0.3,
-                        "height": 0.12,
-                        "id": "caja"
-                    },
-                    "texto":
-                    {
-                        "size": "30px",
-                        "x": 4.3,
-                        "y": 11,
-                        "text": "PARQUE\nMIL FLORES"
-                    },
-                    "decor":
-                    {
-                        "x": 3.2,
-                        "y": 5,
-                        "width": 0.15,
-                        "height": 0.15,
-                        "id": "maps"
-                    }
+                    "y": 11,
+                    "text": "PARQUE\nMIL FLORES"
                 },
+                "decor":
                 {
-                    "sprite": "localization2",
-                    "x": 1.31,
-                    "y": 3.4,
-                    "width": 0.26,
-                    "height": 0.3,
-                    "colliderGroup": "localizations",
-                    "scenario": "puente",
-                    "caja":
-                    {
-                        "x": 1.34,
-                        "y": 2.15,
-                        "width": 0.3,
-                        "height": 0.12,
-                        "id": "caja"
-                    },
-                    "texto":
-                    {
-                        "size": "30px",
-                        "x": 1.32,
-                        "y": 2.2,
-                        "text": "PUENTE"
-                    },
-                    "decor":
-                    {
-                        "x": 1.43,
-                        "y": 2.5,
-                        "width": 0.15,
-                        "height": 0.15,
-                        "id": "maps"
-                    }
-                    
-                },
-                {
-                    "sprite": "tenfe",
-                    "x": 1.9,
-                    "y": 1.25,
-                    "width": 0.1,
-                    "height": 0.1,
-                    "colliderGroup": "localizations",
-                    "scenario": "tenfeFondo",
-                    "caja":
-                    {
-                        "x": 1.94,
-                        "y": 1.5,
-                        "width": 0.2,
-                        "height": 0.12,
-                        "id": "caja"
-                    },
-                    "texto":
-                    {
-                        "size": "30px",
-                        "x": 1.9,
-                        "y": 1.53,
-                        "text": "TENFE"
-                    },
-                    "decor":
-                    {
-                        "x": 1.75,
-                        "y": 1.3,
-                        "width": 0.15,
-                        "height": 0.15,
-                        "id": "maps"
-                    }
-                    
+                    "x": 3.2,
+                    "y": 5,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "maps"
                 }
-
-            ],
-            "flechas":
-            [
+            },
+            {
+                "sprite": "localization2",
+                "x": 1.31,
+                "y": 3.4,
+                "width": 0.26,
+                "height": 0.3,
+                "colliderGroup": "localizations",
+                "scenario": "puente",
+                "caja":
                 {
+                    "x": 1.34,
+                    "y": 2.15,
+                    "width": 0.3,
+                    "height": 0.12,
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 1.32,
+                    "y": 2.2,
+                    "text": "PUENTE"
+                },
+                "decor":
+                {
+                    "x": 1.43,
+                    "y": 2.5,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "maps"
+                }
+                
+            },
+            {
+                "sprite": "tenfeRojo",
+                "x": 1.9,
+                "y": 1.25,
+                "width": 0.1,
+                "height": 0.1,
+                "colliderGroup": "localizations",
+                "scenario": "tenfeFondo",
+                "caja":
+                {
+                    "x": 1.94,
+                    "y": 1.5,
+                    "width": 0.2,
+                    "height": 0.12,
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 1.9,
+                    "y": 1.53,
+                    "text": "TENFE"
+                },
+                "decor":
+                {
+                    "x": 1.75,
+                    "y": 1.3,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "maps"
+                }
+                
+            }
+
+        ],
+        "flechas":
+        [
+            {
+            "sprite": "flecha",
+            "x": 1.05,
+            "y": 3.3,
+            "colliderGroup": "flechas",
+            "modo": 2,
+            "ant": 1,
+            "width": 0.2,
+            "height": 0.2
+            }
+        ]
+        
+    },
+    "2":
+    {
+        "buildings":
+        [
+            {
+                "sprite": "building1",
+                "x": 15,
+                "y": 1.43,
+                "width": 0.23,
+                "height": 0.28,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building1",
+                "x": 3.4,
+                "y": 1.98,
+                "width": 0.34,
+                "height": 0.28,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building1",
+                "x": 1.98,
+                "y": 9.5,
+                "width": 0.2,
+                "height": 0.28,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building1",
+                "x": 1.85,
+                "y": 1.03,
+                "width": 0.7,
+                "height": 0.05,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building1",
+                "x": 1.04,
+                "y": 1.67,
+                "width": 0.14,
+                "height": 0.45,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 1.81,
+                "y": 1.43,
+                "width": 0.35,
+                "height": 0.29,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 1.45,
+                "y": 9.5,
+                "width": 0.24,
+                "height": 0.29,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 1.27,
+                "y": 1.67,
+                "width": 0.28,
+                "height": 0.48,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 3.4,
+                "y": 9.5,
+                "width": 0.35,
+                "height": 0.29,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 50,
+                "y": 2.5,
+                "width": 0.4,
+                "height": 0.1,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building3",
+                "x": 1.1,
+                "y": 1.02,
+                "width": 0.3,
+                "height": 0.06,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building3",
+                "x": 50,
+                "y": 12,
+                "width": 0.35,
+                "height": 0.29,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building3",
+                "x": 1.08,
+                "y": 12,
+                "width": 0.35,
+                "height": 0.29,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building3",
+                "x": 1.81,
+                "y": 2.5,
+                "width": 0.31,
+                "height": 0.09,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building3",
+                "x": 8,
+                "y": 1.02,
+                "width": 0.4,
+                "height": 0.06,
+                "colliderGroup": "buildings"
+            }
+        ],
+    
+        "localizations":
+        [
+            {
+                "sprite": "localization4",
+                "x": 3.4,
+                "y": 1.4,
+                "width": 0.43,
+                "height": 0.41,
+                "colliderGroup": "localizations",
+                "scenario": "cni",
+                "caja":
+                {
+                    "x": 3.5,
+                    "y": 2.15,
+                    "width": 0.2,
+                    "height": 0.12,
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 3.4,
+                    "y": 2.2,
+                    "text": "CNI"
+                },
+                "decor":
+                {
+                    "x": 4,
+                    "y": 1.8,
+                    "width": -0.15,
+                    "height": 0.15,
+                    "id": "maps"
+                }
+            },
+            {
+                "sprite": "localization5",
+                "x": 2.04,
+                "y": 4.8,
+                "width": 0.4,
+                "height": 0.4,
+                "colliderGroup": "localizations",
+                "scenario": "bar",
+                "caja":
+                {
+                    "x": 2.01,
+                    "y": 10.5,
+                    "width": 0.19,
+                    "height": 0.1,
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 1.97,
+                    "y": 12,
+                    "text": "BAR SAN\nAGUSTIN"
+                },
+                "decor":
+                {
+                    "x": 1.8,
+                    "y": 5.5,
+                    "width": 0.13,
+                    "height": 0.13,
+                    "id": "maps"
+                }
+                
+            },
+            {
+                "sprite": "localization6",
+                "x": 1.21,
+                "y": 1.62,
+                "width": 0.4,
+                "height": 0.4,
+                "colliderGroup": "localizations",
+                "scenario": "hipodromo",
+                "caja":
+                {
+                    "x": 1.36,
+                    "y": 1.52,
+                    "width": 0.1,
+                    "height": 0.32,
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 1.35,
+                    "y": 1.62,
+                    "text": "H\nI\nP\nO\nD\nR\nO\nM\nO"
+                },
+                "decor":
+                {
+                    "x": 1.3,
+                    "y": 2.3,
+                    "width": -0.13,
+                    "height": 0.13,
+                    "id": "maps"
+                }
+            }
+        ],
+        "flechas":
+        [
+            {
+                "sprite": "flecha",
+                "x": 22,
+                "y": 3.3,
+                "colliderGroup": "flechas",
+                "modo": 1,
+                "ant": 2,
+                "width": -0.2,
+                "height": 0.2
+            },
+            {
+                "sprite": "flecha",
                 "x": 1.05,
                 "y": 3.3,
                 "colliderGroup": "flechas",
-                "modo": 2,
-                "ant": 1,
+                "modo": 3,
+                "ant": 2,
                 "width": 0.2,
                 "height": 0.2
-                }
-            ]
-            
-        },
-        "2":
-        {
-            "buildings":
-            [
+            }
+        ]
+    },
+    "3":
+    {
+        "buildings":
+        [
+            {
+                "sprite": "building1",
+                "x": 50,
+                "y": 1.45,
+                "width": 0.38,
+                "height": 0.6,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building1",
+                "x": 3.4,
+                "y": 30,
+                "width": 0.34,
+                "height": 0.07,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building1",
+                "x": 1.97,
+                "y": 1.02,
+                "width": 0.19,
+                "height": 0.08,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 50,
+                "y": 12,
+                "width": 0.4,
+                "height": 0.31,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 1.66,
+                "y": 12,
+                "width": 0.51,
+                "height": 0.33,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 3.4,
+                "y": 1.2,
+                "width": 0.34,
+                "height": 0.4,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 1.03,
+                "y": 1.67,
+                "width": 0.18,
+                "height": 0.46,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building2",
+                "x": 1.45,
+                "y": 1.02,
+                "width": 0.23,
+                "height": 0.08,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building3",
+                "x": 1.05,
+                "y": 12,
+                "width": 0.42,
+                "height": 0.3,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building3",
+                "x": 3.4,
+                "y": 2.85,
+                "width": 0.3,
+                "height": 0.3,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building3",
+                "x": 1.52,
+                "y": 1.35,
+                "width": 0.64,
+                "height": 0.19,
+                "colliderGroup": "buildings"
+            },
+            {
+                "sprite": "building3",
+                "x": 1.05,
+                "y": 1.02,
+                "width": 0.42,
+                "height": 0.08,
+                "colliderGroup": "buildings"
+            }
+        ],
+        "localizations":
+        [
+            {
+                "sprite": "localization7",
+                "x": 4.4,
+                "y": 1.27,
+                "width": 0.3,
+                "height": 0.3,
+                "colliderGroup": "localizations",
+                "scenario": "cruzRoja",
+                "caja":
                 {
-                    "sprite": "building1",
-                    "x": 15,
-                    "y": 1.43,
-                    "width": 0.23,
-                    "height": 0.28,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building1",
-                    "x": 3.4,
-                    "y": 1.98,
-                    "width": 0.34,
-                    "height": 0.28,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building1",
-                    "x": 1.98,
-                    "y": 9.5,
-                    "width": 0.2,
-                    "height": 0.28,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building1",
-                    "x": 1.85,
-                    "y": 1.03,
-                    "width": 0.7,
-                    "height": 0.05,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building1",
-                    "x": 1.04,
-                    "y": 1.67,
-                    "width": 0.14,
-                    "height": 0.45,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 1.81,
-                    "y": 1.43,
-                    "width": 0.35,
-                    "height": 0.29,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 1.45,
-                    "y": 9.5,
-                    "width": 0.24,
-                    "height": 0.29,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 1.27,
-                    "y": 1.67,
-                    "width": 0.28,
-                    "height": 0.48,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 3.4,
-                    "y": 9.5,
-                    "width": 0.35,
-                    "height": 0.29,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 50,
-                    "y": 2.5,
-                    "width": 0.4,
-                    "height": 0.1,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building3",
-                    "x": 1.1,
-                    "y": 1.02,
-                    "width": 0.3,
-                    "height": 0.06,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building3",
-                    "x": 50,
-                    "y": 12,
-                    "width": 0.35,
-                    "height": 0.29,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building3",
-                    "x": 1.08,
-                    "y": 12,
-                    "width": 0.35,
-                    "height": 0.29,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building3",
-                    "x": 1.81,
-                    "y": 2.5,
-                    "width": 0.31,
-                    "height": 0.09,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building3",
-                    "x": 8,
-                    "y": 1.02,
-                    "width": 0.4,
-                    "height": 0.06,
-                    "colliderGroup": "buildings"
-                }
-            ],
-        
-            "localizations":
-            [
-                {
-                    "sprite": "localization4",
-                    "x": 3.4,
-                    "y": 1.4,
-                    "width": 0.43,
-                    "height": 0.41,
-                    "colliderGroup": "localizations",
-                    "scenario": "cni",
-                    "caja":
-                    {
-                        "x": 3.5,
-                        "y": 2.15,
-                        "width": 0.2,
-                        "height": 0.12,
-                        "id": "caja"
-                    },
-                    "texto":
-                    {
-                        "size": "30px",
-                        "x": 3.4,
-                        "y": 2.2,
-                        "text": "CNI"
-                    },
-                    "decor":
-                    {
-                        "x": 4,
-                        "y": 1.8,
-                        "width": -0.15,
-                        "height": 0.15,
-                        "id": "maps"
-                    }
-                },
-                {
-                    "sprite": "localization5",
-                    "x": 2.04,
-                    "y": 4.8,
-                    "width": 0.4,
-                    "height": 0.4,
-                    "colliderGroup": "localizations",
-                    "scenario": "bar",
-                    "caja":
-                    {
-                        "x": 2.01,
-                        "y": 10.5,
-                        "width": 0.19,
-                        "height": 0.1,
-                        "id": "caja"
-                    },
-                    "texto":
-                    {
-                        "size": "30px",
-                        "x": 1.97,
-                        "y": 12,
-                        "text": "BAR SAN\nAGUSTIN"
-                    },
-                    "decor":
-                    {
-                        "x": 1.8,
-                        "y": 5.5,
-                        "width": 0.13,
-                        "height": 0.13,
-                        "id": "maps"
-                    }
-                    
-                },
-                {
-                    "sprite": "localization6",
-                    "x": 1.21,
-                    "y": 1.62,
-                    "width": 0.4,
-                    "height": 0.4,
-                    "colliderGroup": "localizations",
-                    "scenario": "hipodromo",
-                    "caja":
-                    {
-                        "x": 1.36,
-                        "y": 1.52,
-                        "width": 0.1,
-                        "height": 0.32,
-                        "id": "caja"
-                    },
-                    "texto":
-                    {
-                        "size": "30px",
-                        "x": 1.35,
-                        "y": 1.62,
-                        "text": "H\nI\nP\nO\nD\nR\nO\nM\nO"
-                    },
-                    "decor":
-                    {
-                        "x": 1.3,
-                        "y": 2.3,
-                        "width": -0.13,
-                        "height": 0.13,
-                        "id": "maps"
-                    }
-                }
-            ],
-            "flechas":
-            [
-                {
-                    "x": 22,
-                    "y": 3.3,
-                    "colliderGroup": "flechas",
-                    "modo": 1,
-                    "ant": 2,
-                    "width": -0.2,
-                    "height": 0.2
-                },
-                {
-                    "x": 1.05,
-                    "y": 3.3,
-                    "colliderGroup": "flechas",
-                    "modo": 3,
-                    "ant": 2,
-                    "width": 0.2,
-                    "height": 0.2
-                }
-            ]
-        },
-        "3":
-        {
-            "buildings":
-            [
-                {
-                    "sprite": "building1",
-                    "x": 50,
-                    "y": 1.45,
-                    "width": 0.38,
-                    "height": 0.6,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building1",
-                    "x": 3.4,
-                    "y": 30,
-                    "width": 0.34,
-                    "height": 0.07,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building1",
-                    "x": 1.97,
-                    "y": 1.02,
-                    "width": 0.19,
-                    "height": 0.08,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 50,
-                    "y": 12,
-                    "width": 0.4,
-                    "height": 0.31,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 1.66,
-                    "y": 12,
-                    "width": 0.51,
-                    "height": 0.33,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 3.4,
-                    "y": 1.2,
-                    "width": 0.34,
-                    "height": 0.4,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 1.03,
-                    "y": 1.67,
-                    "width": 0.18,
-                    "height": 0.46,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building2",
-                    "x": 1.45,
-                    "y": 1.02,
-                    "width": 0.23,
-                    "height": 0.08,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building3",
-                    "x": 1.05,
-                    "y": 12,
-                    "width": 0.42,
-                    "height": 0.3,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building3",
-                    "x": 3.4,
-                    "y": 2.85,
-                    "width": 0.3,
-                    "height": 0.3,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building3",
-                    "x": 1.52,
-                    "y": 1.35,
-                    "width": 0.64,
-                    "height": 0.19,
-                    "colliderGroup": "buildings"
-                },
-                {
-                    "sprite": "building3",
-                    "x": 1.05,
-                    "y": 1.02,
-                    "width": 0.42,
-                    "height": 0.08,
-                    "colliderGroup": "buildings"
-                }
-            ],
-            "localizations":
-            [
-                {
-                    "sprite": "localization7",
-                    "x": 4.4,
+                    "x": 3.1,
                     "y": 1.27,
-                    "width": 0.3,
-                    "height": 0.3,
-                    "colliderGroup": "localizations",
-                    "scenario": "cruzRoja",
-                    "caja":
-                    {
-                        "x": 3.1,
-                        "y": 1.27,
-                        "width": 0.18,
-                        "height": 0.13,
-                        "id": "caja"
-                    },
-                    "texto":
-                    {
-                        "size": "30px",
-                        "x": 3,
-                        "y": 1.3,
-                        "text": "CRUZ\nROJA"
-                    },
-                    "decor":
-                    {
-                        "x": 3.5,
-                        "y": 1.15,
-                        "width": 0.13,
-                        "height": 0.13,
-                        "id": "maps"
-                    }
+                    "width": 0.18,
+                    "height": 0.13,
+                    "id": "caja"
                 },
+                "texto":
                 {
-                    "sprite": "localization8",
+                    "size": "30px",
+                    "x": 3,
+                    "y": 1.3,
+                    "text": "CRUZ\nROJA"
+                },
+                "decor":
+                {
+                    "x": 3.5,
+                    "y": 1.15,
+                    "width": 0.13,
+                    "height": 0.13,
+                    "id": "maps"
+                }
+            },
+            {
+                "sprite": "localization8",
+                "x": 1.52,
+                "y": 2.25,
+                "width": 0.305,
+                "height": 0.3,
+                "colliderGroup": "localizations",
+                "scenario": "iglesia",
+                "caja":
+                {
+                    "x": 1.54,
+                    "y": 2.2,
+                    "width": 0.18,
+                    "height": 0.13,
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
                     "x": 1.52,
-                    "y": 2.25,
-                    "width": 0.305,
-                    "height": 0.3,
-                    "colliderGroup": "localizations",
-                    "scenario": "iglesia",
-                    "caja":
-                    {
-                        "x": 1.54,
-                        "y": 2.2,
-                        "width": 0.18,
-                        "height": 0.13,
-                        "id": "caja"
-                    },
-                    "texto":
-                    {
-                        "size": "30px",
-                        "x": 1.52,
-                        "y": 2.3,
-                        "text": "IGLESIA"
-                    },
-                    "decor":
-                    {
-                        "x": 1.68,
-                        "y": 2.25,
-                        "width": -0.13,
-                        "height": 0.13,
-                        "id": "maps"
-                    }
-                    
+                    "y": 2.3,
+                    "text": "IGLESIA"
                 },
+                "decor":
                 {
-                    "sprite": "pitiBancoLocalization",
-                    "x": 3.9,
-                    "y": 4,
-                    "width": 0.1,
-                    "height": 0.1,
-                    "colliderGroup": "localizations",
-                    "scenario": "pitiBanco",
-                    "caja":
-                    {
-                        "x": 3.1,
-                        "y": 1.27,
-                        "width": 0.18,
-                        "height": 0.13,
-                        "id": "caja"
-                    },
-                    "texto":
-                    {
-                        "size": "30px",
-                        "x": 3,
-                        "y": 1.3,
-                        "text": "CRUZ\nROJA"
-                    },
-                    "decor":
-                    {
-                        "x": 3.5,
-                        "y": 1.15,
-                        "width": 0.13,
-                        "height": 0.13,
-                        "id": "maps"
-                    }
+                    "x": 1.68,
+                    "y": 2.25,
+                    "width": -0.13,
+                    "height": 0.13,
+                    "id": "maps"
                 }
-            ],
-            "flechas":
-            [
-                {
-                    "x": 22,
-                    "y": 3.3,
-                    "colliderGroup": "flechas",
-                    "modo": 2,
-                    "ant": 3,
-                    "width": -0.2,
-                    "height": 0.2
-                }
-            ]
-            
-            
-        },
-        "4":
-        {
-            "buildings":
-            [
                 
-            ],
-            "localizations":
-            [
+            },
+            {
+                "sprite": "pitiBancoLocalization",
+                "x": 3.9,
+                "y": 4,
+                "width": 0.1,
+                "height": 0.1,
+                "colliderGroup": "localizations",
+                "scenario": "pitiBanco",
+                "caja":
                 {
-                    "sprite": "tenfe",
+                    "x": 3.1,
+                    "y": 1.27,
+                    "width": 0.18,
+                    "height": 0.13,
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 3,
+                    "y": 1.3,
+                    "text": "CRUZ\nROJA"
+                },
+                "decor":
+                {
+                    "x": 3.5,
+                    "y": 1.15,
+                    "width": 0.13,
+                    "height": 0.13,
+                    "id": "maps"
+                }
+            }
+        ],
+        "flechas":
+        [
+            {
+                "sprite": "flecha",
+                "x": 22,
+                "y": 3.3,
+                "colliderGroup": "flechas",
+                "modo": 2,
+                "ant": 3,
+                "width": -0.2,
+                "height": 0.2
+            }
+        ]
+        
+        
+    },
+    "4":
+    {
+        "buildings":
+        [
+            
+        ],
+        "localizations":
+        [
+            {
+                "sprite": "tenfeAmarillo",
+                "x": 1.9,
+                "y": 1.3,
+                "width": 0.1,
+                "height": 0.1,
+                "colliderGroup": "localizations",
+                "scenario": "tenfeFondo",
+                "caja":
+                {
                     "x": 1.9,
-                    "y": 1.25,
+                    "y": 1.55,
+                    "width": 0.08,
+                    "height": 0.08,
+                    "id": "cajaAmarillo"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 1.9,
+                    "y": 1.55,
+                    "text": "TENFE"
+                },
+                "decor":
+                {
+                    "x": 1.75,
+                    "y": 1.45,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "mapsAmarillo"
+                }
+                
+            },
+            {
+                "sprite": "localEdifFEO",
+                "x": 1.315,
+                "y": 2.6,
+                "width": 0.5,
+                "height": 0.5,
+                "colliderGroup": "localizations",
+                "scenario": "edifFeo",
+                "caja":
+                {
+                    "x": 1.315,
+                    "y": 2.1,
+                    "width": 0.1,
+                    "height": 0.08,
+                    "id": "cajaAmarillo"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 1.315,
+                    "y": 2.1,
+                    "text": "EDIFICIO\nFEO"
+                },
+                "decor":
+                {
+                    "x": 1.19,
+                    "y": 2.2,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "mapsAmarillo"
+                }
+            },
+            {
+                "sprite": "localPlaza",
+                "x": 6,
+                "y": 6,
+                "width": 0.4,
+                "height": 0.4,
+                "colliderGroup": "localizations",
+                "scenario": "plaza",
+                "caja":
+                {
+                    "x": 3.2,
+                    "y": 6,
+                    "width": 0.08,
+                    "height": 0.08,
+                    "id": "cajaAmarillo"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 3.2,
+                    "y": 6,
+                    "text": "PLAZA"
+                },
+                "decor":
+                {
+                    "x": 3.5,
+                    "y": 10,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "mapsAmarillo"
+                }
+                
+            }
+        ],
+        "flechas":
+        [
+            {
+            "sprite": "flechaC",
+            "x": 1.05,
+            "y": 1.63,
+            "colliderGroup": "flechas",
+            "modo": 5,
+            "ant": 4,
+            "width": 0.15,
+            "height": 0.15
+            }
+        ]
+        
+    },
+    "5":
+    {
+        "buildings":
+        [
+            
+        ],
+        "localizations":
+        [
+            {
+                "sprite": "localEmbajada",
+                "x": 1.27,
+                "y": 11,
+                "width": 0.5,
+                "height": 0.4,
+                "colliderGroup": "localizations",
+                "scenario": "embajada",
+                "caja":
+                {
+                    "x": 1.28,
+                    "y": 3,
+                    "width": 0.15,
+                    "height": 0.12,
+                    "id": "cajaAmarillo"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 1.28,
+                    "y": 3,
+                    "text": "EMBAJADA\nDE NATAR"
+                },
+                "decor":
+                {
+                    "x": 1.15,
+                    "y": 4,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "mapsAmarillo"
+                }
+            },
+            {
+                "sprite": "localTenis",
+                "x": 1.1,
+                "y": 1.22,
+                "width": 0.5,
+                "height": 0.5,
+                "colliderGroup": "localizations",
+                "scenario": "tenis",
+                "caja":
+                {
+                    "x": 1.36,
+                    "y": 1.22,
+                    "width": 0.07,
+                    "height": 0.1,
+                    "id": "cajaAmarillo"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 1.36,
+                    "y": 1.22,
+                    "text": "CLUB\nDE TENIS"
+                },
+                "decor":
+                {
+                    "x": 1.3,
+                    "y": 1.38,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "mapsAmarillo"
+                }
+            },
+            {
+                "sprite": "localIglesiaPeque",
+                "x": 4.65,
+                "y": 1.38,
+                "width": 0.3,
+                "height": 0.3,
+                "colliderGroup": "localizations",
+                "scenario": "iglesiaPeque",
+                "caja":
+                {
+                    "x": 3.4,
+                    "y": 1.1,
+                    "width": 0.15,
+                    "height": 0.11,
+                    "id": "cajaAmarillo"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 3.4,
+                    "y": 1.1,
+                    "text": "IGLESIA\nDE LOS MUERTOS"
+                },
+                "decor":
+                {
+                    "x": 3.5,
+                    "y": 1.2,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "mapsAmarillo"
+                }
+                
+            }
+        ],
+        "flechas":
+        [
+            {
+                "sprite": "flechaC",
+                "x": 22,
+                "y": 1.63,
+                "colliderGroup": "flechas",
+                "modo": 4,
+                "ant": 5,
+                "width": -0.15,
+                "height": 0.15
+            },
+            {
+                "sprite": "flechaC",
+                "x": 1.03,
+                "y": 3.3,
+                "colliderGroup": "flechas",
+                "modo": 6,
+                "ant": 5,
+                "width": 0.15,
+                "height": 0.15
+            }
+        ]
+        
+    },
+    "6":
+    {
+        "buildings":
+        [
+            
+        ],
+        "localizations":
+        [
+            {
+                "sprite": "localColegio",
+                "x": 2.67,
+                "y": 3.5,
+                "width": 0.5,
+                "height": 0.4,
+                "colliderGroup": "localizations",
+                "scenario": "colegio",
+                "caja":
+                {
+                    "x": 2.67,
+                    "y": 2.1,
                     "width": 0.1,
                     "height": 0.1,
-                    "colliderGroup": "localizations",
-                    "scenario": "tenfeFondo",
-                    "caja":
-                    {
-                        "x": 1.94,
-                        "y": 1.5,
-                        "width": 0.2,
-                        "height": 0.12,
-                        "id": "caja"
-                    },
-                    "texto":
-                    {
-                        "size": "30px",
-                        "x": 1.9,
-                        "y": 1.53,
-                        "text": "TENFE"
-                    },
-                    "decor":
-                    {
-                        "x": 1.75,
-                        "y": 1.3,
-                        "width": 0.15,
-                        "height": 0.15,
-                        "id": "maps"
-                    }
-                    
+                    "id": "cajaAmarillo"
                 },
+                "texto":
                 {
-                    "sprite": "congresoLocalization",
-                    "x": 1.52,
-                    "y": 2.25,
-                    "width": 0.305,
-                    "height": 0.3,
-                    "colliderGroup": "localizations",
-                    "scenario": "congreso",
-                    "caja":
-                    {
-                        "x": 1.54,
-                        "y": 2.2,
-                        "width": 0.18,
-                        "height": 0.13,
-                        "id": "caja"
-                    },
-                    "texto":
-                    {
-                        "size": "30px",
-                        "x": 1.52,
-                        "y": 2.3,
-                        "text": "YUSOA"
-                    },
-                    "decor":
-                    {
-                        "x": 1.68,
-                        "y": 2.25,
-                        "width": -0.13,
-                        "height": 0.13,
-                        "id": "maps"
-                    }
-                    
+                    "size": "30px",
+                    "x": 2.67,
+                    "y": 2.1,
+                    "text": "COLEGIO\nPRIVADO"
+                },
+                "decor":
+                {
+                    "x": 2.67,
+                    "y": 2.5,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "mapsAmarillo"
                 }
-            ],
-            "flechas":
-            [
+            },
+            {
+                "sprite": "localGolf",
+                "x": 1.19,
+                "y": 1.95,
+                "width": 0.5,
+                "height": 0.5,
+                "colliderGroup": "localizations",
+                "scenario": "golf",
+                "caja":
+                {
+                    "x": 1.19,
+                    "y": 1.5,
+                    "width": 0.13,
+                    "height": 0.12,
+                    "id": "cajaAmarillo"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 1.19,
+                    "y": 1.5,
+                    "text": "CLUB DE GOLF"
+                },
+                "decor":
+                {
+                    "x": 1.15,
+                    "y": 1.75,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "mapsAmarillo"
+                }
                 
-            ]
+            },
+            {
+                "sprite": "pitiBancoLocalization",
+                "x": 3.9,
+                "y": 1.5,
+                "width": 0.1,
+                "height": 0.1,
+                "colliderGroup": "localizations",
+                "scenario": "pitiBanco",
+                "caja":
+                {
+                    "x": 3.1,
+                    "y": 1.27,
+                    "width": 0.18,
+                    "height": 0.13,
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 3,
+                    "y": 1.3,
+                    "text": "CRUZ\nROJA"
+                },
+                "decor":
+                {
+                    "x": 3.5,
+                    "y": 1.15,
+                    "width": 0.13,
+                    "height": 0.13,
+                    "id": "maps"
+                }
+            }
+        ],
+        "flechas":
+        [
+            {
+                "sprite": "flechaC",
+                "x": 22,
+                "y": 3.3,
+                "colliderGroup": "flechas",
+                "modo": 5,
+                "ant": 6,
+                "width": -0.2,
+                "height": 0.2
+            }
+        ]
+        
+    },
+    "13":
+    {
+        "buildings":
+        [
             
+        ],
+        "localizations":
+        [
+            {
+                "sprite": "tenfe",
+                "x": 1.9,
+                "y": 1.25,
+                "width": 0.1,
+                "height": 0.1,
+                "colliderGroup": "localizations",
+                "scenario": "tenfeFondo",
+                "caja":
+                {
+                    "x": 1.94,
+                    "y": 1.5,
+                    "width": 0.2,
+                    "height": 0.12,
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 1.9,
+                    "y": 1.53,
+                    "text": "TENFE"
+                },
+                "decor":
+                {
+                    "x": 1.75,
+                    "y": 1.3,
+                    "width": 0.15,
+                    "height": 0.15,
+                    "id": "maps"
+                }
+                
+            },
+            {
+                "sprite": "congresoLocalization",
+                "x": 1.52,
+                "y": 2.25,
+                "width": 0.305,
+                "height": 0.3,
+                "colliderGroup": "localizations",
+                "scenario": "congreso",
+                "caja":
+                {
+                    "x": 1.54,
+                    "y": 2.2,
+                    "width": 0.18,
+                    "height": 0.13,
+                    "id": "caja"
+                },
+                "texto":
+                {
+                    "size": "30px",
+                    "x": 1.52,
+                    "y": 2.3,
+                    "text": "YUSOA"
+                },
+                "decor":
+                {
+                    "x": 1.68,
+                    "y": 2.25,
+                    "width": -0.13,
+                    "height": 0.13,
+                    "id": "maps"
+                }
+                
+            }
+        ],
+        "flechas":
+        [
             
-        }
-
+        ]
+        
         
     }
+
+        
+    
   }

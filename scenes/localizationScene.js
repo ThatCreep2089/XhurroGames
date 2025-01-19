@@ -88,7 +88,7 @@ export default class localizationScene extends Phaser.Scene
             this.names = this.add.group();
             this.arrows = this.add.group();
             
-            const mode = this.jsonObject["botellin"][this.localizacion];
+            const mode = this.jsonObject[this.localizacion];
 
             // ITEMS
             mode.items.forEach(item => {

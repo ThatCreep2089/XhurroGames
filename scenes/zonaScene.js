@@ -78,7 +78,7 @@ export default class ZonaScene extends Phaser.Scene{
         let startPosition = window.gameState.playerPosition || { x: 900, y: 330 }; //posicion de la tenfe
 
         //LEER ZONA
-        const zone = jsonObject["botellin"][this.modo];
+        const zone = jsonObject[this.modo];
         
         //BUILDINGS
         zone.buildings.forEach(building => {
@@ -334,7 +334,8 @@ export default class ZonaScene extends Phaser.Scene{
     //Crear flecha en escena
     createFlecha(flecha)
     {
-        let flecha1 = new Flecha(this, 
+        let flecha1 = new Flecha(this,
+            flecha.sprite, 
             this.sys.game.canvas.width / flecha.x,
             this.sys.game.canvas.height / flecha.y, 
             this.flechas, flecha.modo, flecha.ant)

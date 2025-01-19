@@ -9,8 +9,8 @@
  * @param ant // valor para determinar el modo anterior de ZonaScene
  */
 export default class Flecha extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, colliderGroup, modo, ant) {
-        super(scene, x, y, 'flecha');
+    constructor(scene, sprite, x, y, colliderGroup, modo, ant) {
+        super(scene, x, y, sprite);
         
         // Agregamos el sprite a la escena
         this.scene.add.existing(this);
