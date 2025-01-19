@@ -213,6 +213,8 @@ export default class DialogueScene extends Phaser.Scene {
                 if(this.dialogueJson[this.npc].hablado != "true" && this.npc != "ELLIE")
                 {
                     this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
+                    this.dialogueJson[this.npc].hablado = "true";
+                    
                 }
                 
             }
@@ -226,7 +228,6 @@ export default class DialogueScene extends Phaser.Scene {
             .setInteractive()
             .on('pointerdown', () => 
             {
-                this.dialogueJson[this.npc].hablado = "true";
                 if(this.npc == 'ELLIE'){
                     this.scene.start('zonaScene');
                 }
@@ -275,14 +276,10 @@ export default class DialogueScene extends Phaser.Scene {
             this.sys.game.canvas.height / y, 
             50, 50, color)
         .setInteractive()
-        .setScale(6, 2)
-        .on('pointerdown', () => {
-           // console.log("obtener recompensa");
-            callback.call(this); 
-            button.disableInteractive();
-        });
-        // Texto para mostrar "Ansiedad" en el centro del botón
-        let acceptText = this.add.text(
+        .setScale(6, 2);
+
+        // Texto para mostrar texto en el centro del botón
+        let buttonText = this.add.text(
             button.x,   // Colocar en la misma X del botón
             button.y,   // Colocar en la misma Y del botón
             text,
@@ -296,7 +293,14 @@ export default class DialogueScene extends Phaser.Scene {
         );
 
         // Centrar el texto en el botón
-        acceptText.setOrigin(0.5, 0.5);
+        buttonText.setOrigin(0.5, 0.5);
+
+        //evento
+        button.on('pointerdown', () => {
+            callback.call(this);  // Ejecuta la función asociada
+            button.destroy();
+            buttonText.destroy();
+        });
     }
 
     addRecompensa()
