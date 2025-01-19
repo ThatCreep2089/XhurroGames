@@ -4,132 +4,100 @@
         "buildings":
         [
             {
-                "sprite": "building1",
                 "x": 5.85,
                 "y": 1.14,
-                "width": 0.3,
-                "height": 0.3,
-                "colliderGroup": "buildings"
+                "width": 360,
+                "height": 350
             },
             {
-                "sprite": "building1",
                 "x": 1.9,
                 "y": 1.68,
-                "width": 50,
-                "height": 50,
-                "colliderGroup": "buildings"
+                "width": 300,
+                "height": 550
             },
             {
-                "sprite": "building1",
                 "x": 1.31,
                 "y": 4.63,
                 "width": 0.35,
-                "height": 0.07,
-                "colliderGroup": "buildings"
+                "height": 0.07
             },
             {
-                "sprite": "building1",
                 "x": 4.2,
                 "y": 4.5,
                 "width": 0.5,
-                "height": 0.4,
-                "colliderGroup": "buildings"
+                "height": 0.4
             },
             {
-                "sprite": "building1",
                 "x": 1.04,
                 "y": 1.68,
                 "width": 0.13,
-                "height": 0.44,
-                "colliderGroup": "buildings"
+                "height": 0.44
             },
             {
-                "sprite": "building2",
                 "x": 1.31,
                 "y": 2.05,
                 "width": 0.36,
-                "height": 0.25,
-                "colliderGroup": "buildings"
+                "height": 0.25
             },
             {
-                "sprite": "building2",
                 "x": 1.515,
                 "y": 22,
                 "width": 0.7,
-                "height": 0.09,
-                "colliderGroup": "buildings"
+                "height": 0.09
             },
             {
-                "sprite": "building2",
                 "x": 45,
                 "y": 4.5,
                 "width": 0.05,
-                "height": 0.43,
-                "colliderGroup": "buildings"
+                "height": 0.43
             },
             {
-                "sprite": "building2",
                 "x": 2.18,
                 "y": 1.01,
                 "width": 0.47,
-                "height": 0.1,
-                "colliderGroup": "buildings"
+                "height": 0.1
             },
             {
-                "sprite": "building2",
                 "x": 5.75,
                 "y": 1.72,
                 "width": 0.3,
-                "height": 0.08,
-                "colliderGroup": "buildings"
+                "height": 0.08
             },
             {
-                "sprite": "building2",
                 "x": 1.02,
                 "y": 1.02,
                 "width": 0.19,
-                "height": 0.09,
-                "colliderGroup": "buildings"
+                "height": 0.09
             },
             {
-                "sprite": "building3",
                 "x": 1.31,
                 "y": 1.17,
                 "width": 0.32,
-                "height": 0.22,
-                "colliderGroup": "buildings"
+                "height": 0.22
             },
             {
-                "sprite": "building3",
                 "x": 2.8,
                 "y": 1.44,
                 "width": 0.12,
-                "height": 0.25,
-                "colliderGroup": "buildings"
+                "height": 0.25
             },
             {
-                "sprite": "building3",
                 "x": 70,
                 "y": 1.29,
                 "width": 0.05,
-                "height": 0.4,
-                "colliderGroup": "buildings"
+                "height": 0.4
             },
             {
-                "sprite": "building3",
                 "x": 1.89,
                 "y": 4.59,
                 "width": 0.22,
-                "height": 0.06,
-                "colliderGroup": "buildings"
+                "height": 0.06
             },
             {
-                "sprite": "building3",
                 "x": 1.02,
                 "y": 20,
                 "width": 0.18,
-                "height": 0.35,
-                "colliderGroup": "buildings"
+                "height": 0.35
             }
         ],
         "localizations":
@@ -254,124 +222,94 @@
         "buildings":
         [
             {
-                "sprite": "building1",
                 "x": 15,
                 "y": 1.43,
                 "width": 0.23,
-                "height": 0.28,
-                "colliderGroup": "buildings"
+                "height": 0.28
             },
             {
-                "sprite": "building1",
                 "x": 3.4,
                 "y": 1.98,
                 "width": 0.34,
-                "height": 0.28,
-                "colliderGroup": "buildings"
+                "height": 0.28
             },
             {
-                "sprite": "building1",
                 "x": 1.98,
                 "y": 9.5,
                 "width": 0.2,
-                "height": 0.28,
-                "colliderGroup": "buildings"
+                "height": 0.28
             },
             {
-                "sprite": "building1",
                 "x": 1.85,
                 "y": 1.03,
                 "width": 0.7,
-                "height": 0.05,
-                "colliderGroup": "buildings"
+                "height": 0.05
             },
             {
-                "sprite": "building1",
                 "x": 1.04,
                 "y": 1.67,
                 "width": 0.14,
-                "height": 0.45,
-                "colliderGroup": "buildings"
+                "height": 0.45
             },
             {
-                "sprite": "building2",
                 "x": 1.81,
                 "y": 1.43,
                 "width": 0.35,
-                "height": 0.29,
-                "colliderGroup": "buildings"
+                "height": 0.29
             },
             {
-                "sprite": "building2",
                 "x": 1.45,
                 "y": 9.5,
                 "width": 0.24,
-                "height": 0.29,
-                "colliderGroup": "buildings"
+                "height": 0.29
             },
             {
-                "sprite": "building2",
                 "x": 1.27,
                 "y": 1.67,
                 "width": 0.28,
-                "height": 0.48,
-                "colliderGroup": "buildings"
+                "height": 0.48
             },
             {
-                "sprite": "building2",
                 "x": 3.4,
                 "y": 9.5,
                 "width": 0.35,
-                "height": 0.29,
-                "colliderGroup": "buildings"
+                "height": 0.29
             },
             {
-                "sprite": "building2",
                 "x": 50,
                 "y": 2.5,
                 "width": 0.4,
-                "height": 0.1,
-                "colliderGroup": "buildings"
+                "height": 0.1
             },
             {
-                "sprite": "building3",
                 "x": 1.1,
                 "y": 1.02,
                 "width": 0.3,
-                "height": 0.06,
-                "colliderGroup": "buildings"
+                "height": 0.06
             },
             {
-                "sprite": "building3",
                 "x": 50,
                 "y": 12,
                 "width": 0.35,
-                "height": 0.29,
-                "colliderGroup": "buildings"
+                "height": 0.29
             },
             {
-                "sprite": "building3",
                 "x": 1.08,
                 "y": 12,
                 "width": 0.35,
-                "height": 0.29,
-                "colliderGroup": "buildings"
+                "height": 0.29
             },
             {
-                "sprite": "building3",
                 "x": 1.81,
                 "y": 2.5,
                 "width": 0.31,
-                "height": 0.09,
-                "colliderGroup": "buildings"
+                "height": 0.09
             },
             {
-                "sprite": "building3",
                 "x": 8,
                 "y": 1.02,
                 "width": 0.4,
-                "height": 0.06,
-                "colliderGroup": "buildings"
+                "height": 0.06
             }
         ],
     
@@ -504,100 +442,76 @@
         "buildings":
         [
             {
-                "sprite": "building1",
                 "x": 50,
                 "y": 1.45,
                 "width": 0.38,
-                "height": 0.6,
-                "colliderGroup": "buildings"
+                "height": 0.6
             },
             {
-                "sprite": "building1",
                 "x": 3.4,
                 "y": 30,
                 "width": 0.34,
-                "height": 0.07,
-                "colliderGroup": "buildings"
+                "height": 0.07
             },
             {
-                "sprite": "building1",
                 "x": 1.97,
                 "y": 1.02,
                 "width": 0.19,
-                "height": 0.08,
-                "colliderGroup": "buildings"
+                "height": 0.08
             },
             {
-                "sprite": "building2",
                 "x": 50,
                 "y": 12,
                 "width": 0.4,
-                "height": 0.31,
-                "colliderGroup": "buildings"
+                "height": 0.31
             },
             {
-                "sprite": "building2",
                 "x": 1.66,
                 "y": 12,
                 "width": 0.51,
-                "height": 0.33,
-                "colliderGroup": "buildings"
+                "height": 0.33
             },
             {
-                "sprite": "building2",
                 "x": 3.4,
                 "y": 1.2,
                 "width": 0.34,
-                "height": 0.4,
-                "colliderGroup": "buildings"
+                "height": 0.4
             },
             {
-                "sprite": "building2",
                 "x": 1.03,
                 "y": 1.67,
                 "width": 0.18,
-                "height": 0.46,
-                "colliderGroup": "buildings"
+                "height": 0.46
             },
             {
-                "sprite": "building2",
                 "x": 1.45,
                 "y": 1.02,
                 "width": 0.23,
-                "height": 0.08,
-                "colliderGroup": "buildings"
+                "height": 0.08
             },
             {
-                "sprite": "building3",
                 "x": 1.05,
                 "y": 12,
                 "width": 0.42,
-                "height": 0.3,
-                "colliderGroup": "buildings"
+                "height": 0.3
             },
             {
-                "sprite": "building3",
                 "x": 3.4,
                 "y": 2.85,
                 "width": 0.3,
-                "height": 0.3,
-                "colliderGroup": "buildings"
+                "height": 0.3
             },
             {
-                "sprite": "building3",
                 "x": 1.52,
                 "y": 1.35,
                 "width": 0.64,
-                "height": 0.19,
-                "colliderGroup": "buildings"
+                "height": 0.19
             },
             {
-                "sprite": "building3",
                 "x": 1.05,
                 "y": 1.02,
                 "width": 0.42,
-                "height": 0.08,
-                "colliderGroup": "buildings"
+                "height": 0.08
             }
         ],
         "localizations":
