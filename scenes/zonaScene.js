@@ -42,7 +42,38 @@ export default class ZonaScene extends Phaser.Scene{
         }
 
     }
+    BotonIrLocalizacion(x,y,w,h,color)//Rectangulo de (inventario,stats,contactos)
+    {
+        let rect=this.add.rectangle(x,y,w,h,color);
+        rect.setInteractive();
+        rect.setScale(4, 2);
+        return rect;;
+    }
 
+    IrLocaliz(scene,player)//Ir a las scenas de (inventario,stats,contactos)
+    {
+        this.scene.start(scene, {
+            lastScene: this.key, // Este es el valor que debería contener "zonaScene"
+            player: player.getConfigData(),
+            inventory: this.inventory.getConfigData(),
+            modo: this.modo,
+            dialogueJson: this.dialogueJson
+        });
+    }
+            //creacion de textos
+   CrearText(x,y,string,fontSize,color,fontFam,fontSt,align)
+   {
+    let text=this.add.text(x,y,string,{
+
+        fontSize: fontSize,  // Cambia el tamaño del texto según el espacio
+        color: color,  // Negro
+        fontFamily: fontFam,
+        fontStyle: fontSt,
+        align: align
+    });
+    text.setOrigin(0.5, 0.5);
+    return text;
+   }
 
     create(data){
         // Si la música ya está reproduciéndose, no la iniciamos de nuevo
@@ -192,107 +223,57 @@ export default class ZonaScene extends Phaser.Scene{
             });
 
 
-            // botones para ir inventario
-            let inventarioButton = this.add.rectangle(
-                this.sys.game.canvas.width / 14,
-                this.sys.game.canvas.height / 1.5, 
-                50, 50, 0xffe800)
-            .setInteractive()
-            .setScale(4, 2)
-            .on('pointerdown', () => {
-                //console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
-                this.scene.start('InventoryScene', {
-                    lastScene: this.key, // Este es el valor que debería contener "zonaScene"
-                    player: player.getConfigData(),
-                    inventory: this.inventory.getConfigData(),
-                    modo: this.modo,
-                    dialogueJson: this.dialogueJson
-                });
-            });
-            // botones para ir stats
-            let statsButton = this.add.rectangle(
-                this.sys.game.canvas.width / 14,
-                this.sys.game.canvas.height / 1.15, 
-                50, 50, 0xffe800)
-            .setInteractive()
-            .setScale(4, 2)
-            .on('pointerdown', () => {
-                //console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
-                this.scene.start('StatsScene', {
-                    lastScene: this.key, // Este es el valor que debería contener "zonaScene"
-                    player: player.getConfigData(),
-                    inventory: this.inventory.getConfigData(),
-                    modo: this.modo,
-                    dialogueJson: this.dialogueJson
-                });
-            });
-            
-            // botones para ir contactos
-            let contactosButton = this.add.rectangle(
-                this.sys.game.canvas.width / 14,
-                this.sys.game.canvas.height / 1.3, 
-                50, 50, 0xffe800)
-            .setInteractive()
-            .setScale(4, 2)
-            .on('pointerdown', () => {
-                //console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
-                this.scene.start('GeneralContactsScene', {
-                    lastScene: this.key, // Este es el valor que debería contener "zonaScene"
-                    player: player.getConfigData(),
-                    inventory: this.inventory.getConfigData(),
-                    modo: this.modo,
-                    dialogueJson: this.dialogueJson
-                });
-            });
-                 // Texto para mostrar "Contactos" en el centro del botón
-                 let statsText = this.add.text(
-                    statsButton.x,   // Colocar en la misma X del botón
-                   statsButton.y,   // Colocar en la misma Y del botón
-                    `ESTADISTICAS`,
-                    {
-                        fontSize: '25px',  // Cambia el tamaño del texto según el espacio
-                        color: '#000000',  // Negro
-                        fontFamily: 'Georgia',
-                        fontStyle: 'bold',
-                        align: 'center'    // Centrar el texto internamente
-                    }
-                );
-                // Centrar el texto en el botón
-                statsText.setOrigin(0.5, 0.5);
+           // botones para ir inventario
+           let inventarioButton =this.BotonIrLocalizacion( this.sys.game.canvas.width / 14,
+            this.sys.game.canvas.height / 1.5, 
+            50, 50, 0xffe800)
+        .on('pointerdown', () => {
+            this.IrLocaliz('InventoryScene',player);
+           
+        });
+        // botones para ir stats
+        let statsButton = this.BotonIrLocalizacion( 
+            this.sys.game.canvas.width / 14,
+            this.sys.game.canvas.height / 1.15, 
+            50, 50, 0xffe800)
+        .on('pointerdown', () => {
+            this.IrLocaliz('StatsScene',player);
+           
+        });
+      
+        // botones para ir contactos
+        let contactosButton = this.BotonIrLocalizacion( 
+            this.sys.game.canvas.width / 14,
+            this.sys.game.canvas.height / 1.3, 
+            50, 50, 0xffe800)
+        .on('pointerdown', () => {
+            this.IrLocaliz('GeneralContactsScene',player);
+           
+        });
+ 
 
-                 // Texto para mostrar "Contactos" en el centro del botón
-            let contactText = this.add.text(
+            // Texto para mostrar "Contactos" en el centro del botón
+            let statsText = this.CrearText(
+                statsButton.x,   // Colocar en la misma X del botón
+                statsButton.y,   // Colocar en la misma Y del botón
+                `ESTADISTICAS`,'25px','#000000', 'Georgia','bold','center'
+            );
+
+            // Texto para mostrar "Contactos" en el centro del botón
+            let contactText = this.CrearText(
                 contactosButton.x,   // Colocar en la misma X del botón
                 contactosButton.y,   // Colocar en la misma Y del botón
-                `CONTACTOS`,
-                {
-                    fontSize: '25px',  // Cambia el tamaño del texto según el espacio
-                    color: '#000000',  // Negro
-                    fontFamily: 'Georgia',
-                    fontStyle: 'bold',
-                    align: 'center'    // Centrar el texto internamente
-                }
+                `CONTACTOS`,'25px','#000000', 'Georgia','bold','center'
             );
-
-            // Centrar el texto en el botón
-            contactText.setOrigin(0.5, 0.5);
-
+          
             // Texto para mostrar "Inventario" en el centro del botón
-            let combatText = this.add.text(
+            let InventarioText = this.CrearText(
                 inventarioButton.x,   // Colocar en la misma X del botón
                 inventarioButton.y,   // Colocar en la misma Y del botón
-                `INVENTARIO`,
-                {
-                    fontSize: '25px',  // Cambia el tamaño del texto según el espacio
-                    color: '#000000',  // Negro
-                    fontFamily: 'Georgia',
-                    fontStyle: 'bold',
-                    align: 'center'    // Centrar el texto internamente
-                }
+                `INVENTARIO`,'25px','#000000', 'Georgia','bold','center'
+               
             );
 
-            // Centrar el texto en el botón
-            combatText.setOrigin(0.5, 0.5);
 
     }
 
@@ -313,14 +294,14 @@ export default class ZonaScene extends Phaser.Scene{
                     .setScale(cajaL.width, cajaL.height);
 
         const textL = localization.texto;
-                    let texto2 = this.add.text(
+
+                    let texto2 = this.CrearText(
                         this.sys.game.canvas.width / textL.x,
                         this.sys.game.canvas.height / textL.y,
-                        textL.text,
-                        { fontSize: textL.size, color: '#ffffff', fontFamily: 'Georgia', fontStyle: 'bold', align: 'center'}
+                        textL.text, textL.size, '#ffffff',  'Georgia', 'bold', 'center'
                     );
 
-                    texto2.setOrigin(0.5, 0.5);
+                   
 
         const decor = localization.decor;
                     this.add.image(
