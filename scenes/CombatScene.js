@@ -228,6 +228,9 @@ changeTurns() {
             this.events.removeListener('playerDamaged');
             this.events.removeListener('updateStatus');
             this.changeActiveButtons();
+
+            this.player.health = 1;
+
             this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
                 inventory: this.inventory.getConfigData(),
                 npc: this.npc,
@@ -556,14 +559,13 @@ createStadisticsButtons() {
     );
 
     this.playerHumildadButton = this.createButton(
-        this.sys.game.canvas.width / 40,
-        this.sys.game.canvas.height / 4.8,
-        this.playerHumildadText.width,     
-        this.playerHumildadText.height,    
-        0x000000,                          
+        this.sys.game.canvas.width / 3.5,
+        this.sys.game.canvas.height / 2 + 100,
+        300,     
+        50,    
+        0xFFFFFF,                          
         () => this.cualidades('humildad')
-    ).setOrigin(0, 0)
-     .setAlpha(0.5);  
+    ).setOrigin(0, 0); 
 
     
     // botón trabajo duro
@@ -574,14 +576,13 @@ createStadisticsButtons() {
     );
 
     this.playerTrabajoDuroButton = this.createButton(
-        this.sys.game.canvas.width / 40,
-        this.sys.game.canvas.height / 3.9,
-        this.playerTrabajoDuroText.width,     
-        this.playerTrabajoDuroText.height,    
-        0x000000,                          
+        this.sys.game.canvas.width / 3.5,
+        this.sys.game.canvas.height / 2 + 200,
+        300,     
+        50,    
+        0xFFFFFF,                          
         () => this.cualidades('trabajo duro')
-    ).setOrigin(0, 0)
-     .setAlpha(0.5);
+    ).setOrigin(0, 0);
 
      //botón agnosticismo
     this.playerAgnosticismoText = this.createText(
@@ -591,14 +592,13 @@ createStadisticsButtons() {
     );
 
     this.playerAgnosticismoButton = this.createButton(
-        this.sys.game.canvas.width / 40,
-        this.sys.game.canvas.height / 3.2,
-        this.playerAgnosticismoText.width,     
-        this.playerAgnosticismoText.height,    
-        0x000000,                          
+        this.sys.game.canvas.width / 3.5,
+        this.sys.game.canvas.height / 2 + 300,
+        300,     
+        50,    
+        0xFFFFFF,                          
         () => this.cualidades('agnosticismo')
-    ).setOrigin(0, 0)
-     .setAlpha(0.5);
+    ).setOrigin(0, 0);
 
     //botón afecto
     this.playerAfectoText = this.createText(
@@ -608,14 +608,13 @@ createStadisticsButtons() {
     );
 
     this.playerAfectoButton = this.createButton(
-        this.sys.game.canvas.width / 40,
-        this.sys.game.canvas.height / 2.7,
-        this.playerAfectoText.width,     
-        this.playerAfectoText.height,    
-        0x000000,                          
+        this.sys.game.canvas.width / 3.5,
+        this.sys.game.canvas.height / 2 + 400,
+        300,     
+        50,   
+        0xFFFFFF,                          
         () => this.cualidades('afecto')
-    ).setOrigin(0, 0)
-     .setAlpha(0.5);    
+    ).setOrigin(0, 0);  
 
     
 
@@ -648,80 +647,52 @@ createStadisticsButtons() {
             );
 
 
-        //texto de valores de las cartas:
-        this.espadasText = this.createText(
-            this.sys.game.canvas.width / 5.5,
-            this.sys.game.canvas.height / 1.7,
-            'espadas: '
-        );
-        
-        
-
-        this.copasText = this.createText(
-            this.sys.game.canvas.width / 2.9,
-            this.sys.game.canvas.height / 1.7,
-            'copas: '
-        );
-
-
-        this.bastosText = this.createText(
-            this.sys.game.canvas.width / 2,
-            this.sys.game.canvas.height / 1.7,
-            'bastos: '  
-        );
-
-
-        this.orosText = this.createText(
-            this.sys.game.canvas.width / 1.5,
-            this.sys.game.canvas.height / 1.7,
-            'oros: '
-        );
-
+  
         // Rectángulos (cartas) debajo de cada texto (bajados):
-        const offsetY = 160;  // Aumento en el valor Y para bajar los rectángulos
-
+        const offsetY = 350;  // Aumento en el valor Y para bajar los rectángulos
         // Rectángulo para 'espadas'
         this.espadasCard = this.add.rectangle(
-            this.espadasText.x + this.espadasText.width / 2,  // Centrado con el texto
-            this.espadasText.y + this.espadasText.height + offsetY, // Mover más abajo
-            160, 240, // Ancho y alto del rectángulo más grandes
+            this.sys.game.canvas.width / 2 + 100,  
+            this.sys.game.canvas.height / 1.7 + offsetY, // Mover más abajo
+            60, 100, // Ancho y alto del rectángulo más grandes
             0xFFFFFF // Color blanco
         );
         this.espadasCard.setOrigin(0.5); // Centrar el origen del rectángulo
 
         // Rectángulo para 'copas'
         this.copasCard = this.add.rectangle(
-            this.copasText.x + this.copasText.width / 2,  // Centrado con el texto
-            this.copasText.y + this.copasText.height + offsetY, // Mover más abajo
-            160, 240,  // Ancho y alto del rectángulo más grandes
+            this.sys.game.canvas.width / 2 + 200,  
+            this.sys.game.canvas.height / 1.7 + offsetY, // Mover más abajo
+            60, 100,  // Ancho y alto del rectángulo más grandes
             0xFFFFFF // Color blanco
         );
         this.copasCard.setOrigin(0.5);
 
         // Rectángulo para 'bastos'
         this.bastosCard = this.add.rectangle(
-            this.bastosText.x + this.bastosText.width / 2,  // Centrado con el texto
-            this.bastosText.y + this.bastosText.height + offsetY, // Mover más abajo
-            160, 240, // Ancho y alto del rectángulo más grandes
+            this.sys.game.canvas.width / 2 + 300,  
+            this.sys.game.canvas.height / 1.7 + offsetY, // Mover más abajo
+            60, 100, // Ancho y alto del rectángulo más grandes
             0xFFFFFF // Color blanco
         );
         this.bastosCard.setOrigin(0.5);
 
         // Rectángulo para 'oros'
         this.orosCard = this.add.rectangle(
-            this.orosText.x + this.orosText.width / 2,  // Centrado con el texto
-            this.orosText.y + this.orosText.height + offsetY, // Mover más abajo
-            160, 240, // Ancho y alto del rectángulo más grandes
+            this.sys.game.canvas.width / 2 + 400, 
+            this.sys.game.canvas.height / 1.7 + offsetY, // Mover más abajo
+            60, 100, // Ancho y alto del rectángulo más grandes
             0xFFFFFF // Color blanco
         );
         this.orosCard.setOrigin(0.5);
 
+        
         // Texto del número de 'espadas' centrado en el rectángulo de 'espadas'
         this.espadasNumber = this.createText(
             this.espadasCard.x,  // Usamos la posición x del rectángulo
             this.espadasCard.y,  // Usamos la posición y del rectángulo
             this.espadas,
-            '100px', 
+            '40px', 
             '#000000',       // Negro  
             
         ).setOrigin(0.5);  // Centramos el texto en su posición
@@ -733,7 +704,7 @@ createStadisticsButtons() {
             this.copasCard.x,  // Usamos la posición x del rectángulo
             this.copasCard.y,  // Usamos la posición y del rectángulo
             this.copas,  
-            '100px', 
+            '40px', 
             '#000000',       // Negro    
         
         ).setOrigin(0.5);  // Centramos el texto en su posición
@@ -743,7 +714,7 @@ createStadisticsButtons() {
             this.bastosCard.x,  // Usamos la posición x del rectángulo
             this.bastosCard.y,  // Usamos la posición y del rectángulo
             this.bastos, 
-            '100px', 
+            '40px', 
             '#000000',       // Negro
                  
         ).setOrigin(0.5);  // Centramos el texto en su posición
@@ -753,29 +724,10 @@ createStadisticsButtons() {
             this.orosCard.x,  // Usamos la posición x del rectángulo
             this.orosCard.y,  // Usamos la posición y del rectángulo
             this.oros,  
-            '100px', 
+            '40px', 
             '#000000',       // Negro
                 
         ).setOrigin(0.5);  // Centramos el texto en su posición
 
-
-
-       /* let inventarioButton = this.add.rectangle(
-            this.sys.game.canvas.width / 14,
-            this.sys.game.canvas.height / 1.5, 
-            50, 50, 0xffe800)
-        .setInteractive()
-        .setScale(4, 2)
-        .on('pointerdown', () => {
-            console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
-            this.scene.start('InventoryScene', {
-                lastScene: this.key, // Este es el valor que debería contener "zonaScene"
-                player: this.player.getConfigData(),
-                inventory: this.inventory.getConfigData(),
-                //modo: this.modo,
-                dialogueJson: this.dialogueJson
-            });
-        });
-*/
     }
 }
