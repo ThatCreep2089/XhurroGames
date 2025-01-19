@@ -172,9 +172,9 @@ export default class ZonaScene extends Phaser.Scene{
             }
 
         //COLISIONES CON PLAYER 
-            this.physics.add.collider(player, this.buildings); //Colision player con building
+            this.physics.add.collider(player, this.buildings);
             this.physics.add.collider(player, this.localizations); //Colision player con localizations
-
+            
             //cambios de escena con localizations
             this.localizations.children.iterate((localization) => {
                 this.physics.add.overlap(player, localization.extraCollider, (player, extraCollider) => {
@@ -326,10 +326,12 @@ export default class ZonaScene extends Phaser.Scene{
     //Crear collider en escena
     createBuilding(building)
     {
-        let building1 = new Building(this, building.sprite, 
+        let building1 = new Building(this, 
             this.sys.game.canvas.width / building.x,
             this.sys.game.canvas.height / building.y,
             building.width, building.height, this.buildings);
+
+        this.buildings.add(building1);
     }
 
 
