@@ -92,7 +92,7 @@ init(data){
     }
 
     playerAttackAnim(){
-
+        this.changeActiveButtons();
         this.staticAnim.pause();
         this.tweens.add({
             targets: [this.playerSprite],
@@ -128,7 +128,7 @@ init(data){
     enemyDamageAnim(){
         //desactiva botones
         //console.log("cambio botones a false");
-        this.changeActiveButtons();
+        
         //pone al enemigo en rojo
         this.enemy.setTint(0xff0000);
 
@@ -511,22 +511,36 @@ changeTurns() {
 
     createAttackButtons(){
         //ataque normal
-        this.attackButton = this.createButton(
-            this.sys.game.canvas.width / 1.8,
-            this.sys.game.canvas.height / 2,
-            200, 100,
+        this.attackButton = this.add.image(this.sys.game.canvas.width / 1.8,
+        this.sys.game.canvas.height / 1.5, 'cartaNormal').setScale(0.7)
+        .setInteractive().on('pointerdown', () => this.playerTurn());
+        
+       /* this.attackButton = this.createButton(
+            this.attackNormalImage.x,
+            this.attackNormalImage.y,
+            this.attackNormalImage.width,
+            this.attackNormalImage.height,
             0xff0000,
             () => this.playerTurn()
-     );
-        
+     ).setScale(0.7);
+     //.setVisible(false);
+*/
+
         this.attackNormalText = this.createText(
             this.sys.game.canvas.width / 1.95,
-            this.sys.game.canvas.height / 2.1,
-            'Normal'
-           );
+            this.sys.game.canvas.height / 1.56,
+            'Normal',
+            '50px',
+            '#000000'
+           ).setDepth(1);
 
 
         //suma daño total
+
+        this.totalDamageButton = this.add.image(this.sys.game.canvas.width / 1.15,
+            this.sys.game.canvas.height / 1.3, 'botonDamageTotal').setScale(0.5)
+            .setInteractive().on('pointerdown', () => this.playerMakesDamage(this.totalDamage));
+/*
         this.totalDamageButton = this.createButton(
             this.sys.game.canvas.width / 1.15,
             this.sys.game.canvas.height / 1.3,
@@ -534,6 +548,7 @@ changeTurns() {
             0xff0000,
             () => this.playerMakesDamage(this.totalDamage)
       );
+      */
    
         this.totalDamageText = this.createText(
             this.sys.game.canvas.width / 1.2,

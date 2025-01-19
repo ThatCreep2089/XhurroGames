@@ -194,6 +194,15 @@ export default class loadScene extends Phaser.Scene {
      //NPCS
      this.load.image('ELLIE', 'assets/npc/ellie.png');
 
+
+     //COMBATE
+     this.load.image('cartaBotellin', 'assets/combate/botellin.jpg');
+     this.load.image('cartaCalderilla', 'assets/combate/calderilla.jpg');
+     this.load.image('cartaNavaja', 'assets/combate/navaj.jpg');
+     this.load.image('cartaPorras', 'assets/combate/porras.jpg');
+     this.load.image('cartaNormal', 'assets/combate/normal.png');
+     this.load.image('botonDamageTotal', 'assets/combate/total.png');
+
      //VIDEO
 
      this.load.video('intro', 'assets/videos/manifestacion.mp4', false);
