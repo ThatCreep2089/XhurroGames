@@ -102,6 +102,13 @@ export default class TenfeScene extends Phaser.Scene {
             ).setOrigin(0.5).setInteractive();
             
             yusoaMetroButton.on('pointerdown', () => {
+                //inhabilitar boton esperarTenfe
+                yusoaMetroButton.disableInteractive();
+
+                //inhabiltar back button
+                backScene.disableInteractive();
+                backScene.setVisible(false);
+                
                 // Reiniciar texto y temporizador (BORRA LO QUE HAYA)
                 this.resultText.setText('');
                 if (tiempoEspera) {
@@ -120,6 +127,10 @@ export default class TenfeScene extends Phaser.Scene {
                 tiempoEspera = this.time.addEvent({
                     delay: secs * 1000, // Convertir a milisegundos
                     callback: () => {
+                        //habilitar de nuevo back button
+                        backScene.setVisible(true);
+                        backScene.setInteractive();
+                        
                         //añadir imagen tren
                         let vagonImage = this.add.image(this.sys.game.canvas.width / 1.4, this.sys.game.canvas.height / 1.8, 'vagon');
                         vagonImage.setDepth(-1);

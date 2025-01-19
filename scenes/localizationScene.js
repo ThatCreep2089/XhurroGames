@@ -365,6 +365,16 @@ export default class localizationScene extends Phaser.Scene
             this.sys.game.canvas.height / 2 // Centro del canvas
         );
     
+        // Fondo semitransparente para bloquear clics detrás
+        this.blocker = this.add.rectangle(
+            this.sys.game.canvas.width / 2, 
+            this.sys.game.canvas.height / 2, 
+            this.sys.game.canvas.width, 
+            this.sys.game.canvas.height, 
+            0x000000, 
+            0.5 // Opacidad (50%)
+        ).setInteractive(); // Captura eventos para bloquear interacciones
+
         // Fondo de la pestaña (más grande)
         const fondoPestana = this.add.rectangle(0, 0, 600, 500, 0x000000) // Nuevo tamaño: 600x500
             .setOrigin(0.5) // Centrado
@@ -397,14 +407,27 @@ export default class localizationScene extends Phaser.Scene
         this.pestana.add(textoPestana);
     
         // Crear el botón rojo para ocultar la pestaña
-        const botonCerrar = this.add.rectangle(290, -240, 20, 20, 0xff0000) // Ajuste relativo a la posición del fondo
+        const botonCerrar = this.add.rectangle(250, -200, 60, 60, 0xff0000) // Ajuste relativo a la posición del fondo
             .setOrigin(0.5)
             .setInteractive();
         this.pestana.add(botonCerrar);
+
+        const botonCerrarTexto = this.add.text(250, -200, "X", {
+            fontSize: "30px", // Asegurar tamaño de fuente
+            fontFamily: "Arial",
+            fontStyle: "bold",
+            color: "#ffffff"
+        }).setOrigin(0.5);
+
+        this.pestana.add(botonCerrarTexto);
     
         // Evento del botón para ocultar la pestaña
         botonCerrar.on("pointerdown", () => {
-            this.pestana.setVisible(false); // Ocultar la pestaña
+            this.blocker.destroy(); // Eliminar bloqueador
+            this.pestana.destroy(); // Eliminar la pestaña
         });
+
+        // Agregar el fondo bloqueador detrás de la pestaña
+        this.children.bringToTop(this.pestana);
     }
 }
