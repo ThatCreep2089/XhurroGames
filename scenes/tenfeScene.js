@@ -83,7 +83,7 @@ export default class TenfeScene extends Phaser.Scene {
            
          }));
         
-         if(this.inventory.GetTrozos() >= 0)
+         if(this.inventory.GetTrozos() >= 1)
          {
             
             //pintar contador
@@ -188,7 +188,7 @@ export default class TenfeScene extends Phaser.Scene {
 
     update(countdown, dt){
 
-        if(this.inventory.GetTrozos() >= 0)
+        if(this.inventory.GetTrozos() >= 1)
         {
             if ( this.countdown < 0) { // Si se pasan del tiempo o ...
                 //console.log("se ha terminao el tiempo");//debug   
@@ -292,7 +292,7 @@ export default class TenfeScene extends Phaser.Scene {
         });
         this.pestana.add(botellinButton);
     
-        if(this.inventory.GetTrozos() >= 0) //se han derrotado todos los bosses
+        if(this.inventory.GetTrozos() >= 4) //se han derrotado todos los bosses
         {
             let yusoaButton = this.createButton("CONGRESO", 0, 0, '#7e1c9e', () => {
                 this.destino = 13;
