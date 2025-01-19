@@ -11,7 +11,8 @@ import Inventory from '../src/inventory.js';
 
 export default class TenfeScene extends Phaser.Scene {
     constructor(){
-        super({key: "tenfeScene"})
+        super({key: "tenfeScene"});
+        this.destino = '';
     }
 
 
@@ -82,23 +83,24 @@ export default class TenfeScene extends Phaser.Scene {
            
          }));
         
-         if(this.inventory.GetTrozos() >= 1)
+         if(this.inventory.GetTrozos() >= 0)
          {
+            
             //pintar contador
             let tiempoEspera = null;
             this.resultText = this.add.text(
                 this.sys.game.canvas.width / 5,
                 this.sys.game.canvas.height / 2.5,
                 'Tiempo de espera: ',
-                { fontSize: '40px', color: '#000000', backgroundColor: '#f38383', fontWeight: 'bold', fontFamily: 'Georgia', padding: { x: 10, y: 5 } }
+                { fontSize: '40px', color: '#000000', backgroundColor: '#e677ff', fontWeight: 'bold', fontFamily: 'Georgia', padding: { x: 10, y: 5 } }
             ).setOrigin(0.5);
 
-            //pintar boton  linea metro yusoa
+            //pintar boton linea metro yusoa
             const yusoaMetroButton = this.add.text(
                 this.sys.game.canvas.width / 5,
                 this.sys.game.canvas.height / 5,
                 'ESPERAR TENFE',
-                { fontSize: '75px', color: '#ffffff', backgroundColor: '#a51b1b', fontWeight: 'bold', fontFamily: 'Georgia', padding: { x: 10, y: 5 } }
+                { fontSize: '75px', color: '#ffffff', backgroundColor: '#d100ff', fontWeight: 'bold', fontFamily: 'Georgia', padding: { x: 10, y: 5 } }
             ).setOrigin(0.5).setInteractive();
             
             yusoaMetroButton.on('pointerdown', () => {
@@ -147,11 +149,11 @@ export default class TenfeScene extends Phaser.Scene {
                         this.resultText.setText('EL TREN HA LLEGADO');
                         //subir ansiedad, referencia al player inventario json dialogo...
                         this.player.IncreaseAnxiety(secs);
-                        this.createButton('Entrar al tren', this.sys.game.canvas.width / 5, this.sys.game.canvas.height / 2, () => {
+                        this.createButton('Entrar al tren', this.sys.game.canvas.width / 5, this.sys.game.canvas.height / 2, '#7e1c9e', () => {
                             //subir ansiedad
                             //...
                             this.scene.start('zonaScene', {// Cambiar escena
-                            modo: 13, //cambiar a modo: 13
+                            modo: this.destino, //cambiar a modo: 13
                                 player: this.player.getConfigData(),
                                 inventory: this.inventory.getConfigData(),
                                 dialogueJson: this.dialogueJson
@@ -162,14 +164,20 @@ export default class TenfeScene extends Phaser.Scene {
                     callbackScope: this
                 });
 
-            })}
-        else{
+            })
+            
+            //pintar seleccion de barrios
+            this.mostrarPestana();
+        
+        }
+        else
+        {
             //mensaje diciendo que no se puede utilizar
             let aviso = this.add.text(
                 this.sys.game.canvas.width / 2,
                 this.sys.game.canvas.height / 2,
                 'TENFE NO ESTÁ DISPONIBLE',
-                { fontSize: '100px', color: '#000000', backgroundColor: '#d31a14', fontWeight: 'bold', fontFamily: 'Georgia', padding: { x: 10, y: 5 } }
+                { fontSize: '100px', color: '#ffffff', backgroundColor: '#d100ff', fontWeight: 'bold', fontFamily: 'Georgia', padding: { x: 10, y: 5 } }
             ).setOrigin(0.5);
         }
 
@@ -180,7 +188,7 @@ export default class TenfeScene extends Phaser.Scene {
 
     update(countdown, dt){
 
-        if(this.inventory.GetTrozos() >= 1)
+        if(this.inventory.GetTrozos() >= 0)
         {
             if ( this.countdown < 0) { // Si se pasan del tiempo o ...
                 //console.log("se ha terminao el tiempo");//debug   
@@ -201,10 +209,103 @@ export default class TenfeScene extends Phaser.Scene {
         }
     }
 
-    createButton(text, x, y, callback) {
-        const button = this.add.text(x, y, text, { fontSize: '50px', color: '#ffffff', backgroundColor: '#7e1c9e', fontWeight: 'bold', fontFamily: 'Georgia', padding: { x: 10, y: 5 } })
+    createButton(text, x, y, color, callback) {
+        const button = this.add.text(x, y, text, { fontSize: '50px', color: '#ffffff', backgroundColor: color, fontWeight: 'bold', fontFamily: 'Georgia', padding: { x: 10, y: 5 } })
         .setOrigin(0.5).setInteractive();
         button.on('pointerdown', callback);
+        return button;
     }   
+
+    mostrarPestana()
+    {
+        // Tamaño del rectángulo de botones
+        let rectWidth = 700;
+        let rectHeight = 500;
+
+        // Centro de la pantalla
+        let centerX = this.sys.game.canvas.width / 2;
+        let centerY = this.sys.game.canvas.height / 2;
+
+        // Crear la pestaña
+        this.pestana = this.add.container(
+            this.sys.game.canvas.width / 2, // Centro del canvas
+            this.sys.game.canvas.height / 2 // Centro del canvas
+        );
+    
+        // Fondo semitransparente para bloquear clics detrás
+        this.blocker = this.add.rectangle(
+            this.sys.game.canvas.width / 2, 
+            this.sys.game.canvas.height / 2, 
+            this.sys.game.canvas.width, 
+            this.sys.game.canvas.height, 
+            0x000000, 
+            1 // Opacidad (50%)
+        ).setInteractive(); // Captura eventos para bloquear interacciones
+
+        // Posiciones de los botones formando un rectángulo
+        let positions = [
+            { x: -rectWidth / 2, y: -rectHeight / 2 }, // Esquina superior izquierda
+            { x: rectWidth / 2, y: -rectHeight / 2 },  // Esquina superior derecha
+            { x: -rectWidth / 2, y: rectHeight / 2 },  // Esquina inferior izquierda
+            { x: rectWidth / 2, y: rectHeight / 2 }    // Esquina inferior derecha
+        ];
+
+        // Crear titulo
+        let pestanaTitulo = this.add.text(0, -rectHeight / 1.3, "SELECCIONE BARRIO AL QUE VIAJAR", { fontSize: '50px', color: '#FFFFFF', backgroundColor: '#7e1c9e', fontWeight: 'bold', fontFamily: 'Georgia', padding: { x: 10, y: 5 } })
+        .setOrigin(0.5);
+        this.pestana.add(pestanaTitulo);
+
+        // Crear botones
+        let calderillaButton = this.createButton("CALDERILLA", positions[0].x, positions[0].y, '#ffff00', () => {
+            this.destino = 4;
+
+            // Evento del botón para ocultar la pestaña
+            this.blocker.destroy(); // Eliminar bloqueador
+            this.pestana.destroy(); // Eliminar la pestaña
+        });
+        this.pestana.add(calderillaButton);
+
+        let navajasButton = this.createButton("NAVAJAS", positions[1].x, positions[1].y, '#00f7ff', () => {
+            this.destino = 10;
+
+            // Evento del botón para ocultar la pestaña
+            this.blocker.destroy(); // Eliminar bloqueador
+            this.pestana.destroy(); // Eliminar la pestaña
+        });
+        this.pestana.add(navajasButton);
+
+        let porrasButton = this.createButton("PORRAS", positions[2].x, positions[2].y, '#4dff00', () => {
+            this.destino = 7;
+
+            // Evento del botón para ocultar la pestaña
+            this.blocker.destroy(); // Eliminar bloqueador
+            this.pestana.destroy(); // Eliminar la pestaña
+        });
+        this.pestana.add(porrasButton);
+
+        let botellinButton = this.createButton("BOTELLIN", positions[3].x, positions[3].y, '#ff0000', () => {
+            this.destino = 1;
+
+            // Evento del botón para ocultar la pestaña
+            this.blocker.destroy(); // Eliminar bloqueador
+            this.pestana.destroy(); // Eliminar la pestaña
+        });
+        this.pestana.add(botellinButton);
+    
+        if(this.inventory.GetTrozos() >= 0) //se han derrotado todos los bosses
+        {
+            let yusoaButton = this.createButton("CONGRESO", 0, 0, '#7e1c9e', () => {
+                this.destino = 13;
+    
+                // Evento del botón para ocultar la pestaña
+                this.blocker.destroy(); // Eliminar bloqueador
+                this.pestana.destroy(); // Eliminar la pestaña
+            });
+            this.pestana.add(yusoaButton);
+        }
+
+        // Agregar el fondo bloqueador detrás de la pestaña
+        this.children.bringToTop(this.pestana);
+    }
 
 }
