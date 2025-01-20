@@ -70,8 +70,8 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('fondo8', 'assets/fondos/fondoP2.jpeg'); //fondo 3 Zona scene
     this.load.image('fondo9', 'assets/fondos/fondoP3.jpeg'); //fondo 3 Zona scene
 
-    this.load.image('fondo10', 'assets/fondos/fondoN1.png'); //fondo 3 Zona scene
-    this.load.image('fondo11', 'assets/fondos/fondoN2.png'); //fondo 3 Zona scene
+    this.load.image('fondo10', 'assets/fondos/fondoN1.jpeg'); //fondo 3 Zona scene
+    this.load.image('fondo11', 'assets/fondos/fondoN2.jpeg'); //fondo 3 Zona scene
     this.load.image('fondo12', 'assets/fondos/fondoN3.jpeg'); //fondo 3 Zona scene
 
     this.load.image('fondo13', 'assets/fondos/diputadosZona.jpg'); //fondo 3 Zona scene
