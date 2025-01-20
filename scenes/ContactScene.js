@@ -151,7 +151,7 @@ init(data){
 
         //BARRIO: RELIGIOSO
             else if(this.barrio == 2)
-            {const religioso = jsonObject["religioso"];
+            {const religioso = jsonObject["calderilla"];
                 religioso.npcs.forEach(npc => {
                 if (npc.conocida) { // Comprobar si este NPC es conocido
                     contacto = npc.name; // La imagen se toma del nombre del NPC
@@ -177,7 +177,7 @@ init(data){
         //BARRIO: DINERO
             else if(this.barrio == 4)
             {
-                const dinero = jsonObject["dinero"];
+                const dinero = jsonObject["porras"];
                 dinero.npcs.forEach(npc => {
                 if (npc.conocida) { // Comprobar si este NPC es conocido
                     contacto = npc.name; // La imagen se toma del nombre del NPC
