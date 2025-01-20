@@ -1368,12 +1368,12 @@
             {
                 "sprite": "flechaP",
                 "x": 22,
-                "y": 3.3,
+                "y": 1.8,
                 "colliderGroup": "flechas",
                 "modo": 8,
                 "ant": 9,
-                "width": -0.2,
-                "height": 0.2
+                "width": -0.15,
+                "height": 0.15
             }
         ]
         
