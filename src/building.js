@@ -9,7 +9,7 @@
  * @param colliderGroup // este es el grupo donde se añade para poder colisionar
  */
 export default class Building extends Phaser.GameObjects.Zone {
-    constructor(scene, x, y, width, height, colliderGroup) {
+    constructor(scene, x, y, width, height) {
         super(scene, x, y, width, height); // Crear la zona en lugar de un sprite
         
         // Añadir la zona a la escena

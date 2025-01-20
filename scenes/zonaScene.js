@@ -329,7 +329,7 @@ export default class ZonaScene extends Phaser.Scene{
         let building1 = new Building(this, 
             this.sys.game.canvas.width / building.x,
             this.sys.game.canvas.height / building.y,
-            building.width, building.height, this.buildings);
+            building.width, building.height);
 
         this.buildings.add(building1);
     }
