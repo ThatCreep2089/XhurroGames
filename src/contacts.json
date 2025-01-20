@@ -129,15 +129,69 @@
     
     },
     "navajas":
-    {
-          "npcs":
-            [
-                
-                
-            ]
+    { "npcs":
+    [
+       
+        {
+            "name": "Gregorio",
+            "conocida": true,
+            "posx": 5,
+            "posy": 5,
+             "descripcion":"Ex-militar",
+             "edad": 80,
+              "localizacion":"Edificio feo"
+        },
+        {
+            "name": "Aladdin",
+            "conocida": true,
+            "posx": 2,
+            "posy": 5,
+            "descripcion":"Principe Árabe",
+            "edad": 30,
+            "localizacion":"Embajada de Qatar"
+        },
+        {
+            "name": "Pelayo",
+            "conocida": true,
+            "posx": 14,
+            "posy": 3,
+            "descripcion":"Tenista Cayetano",
+            "edad": 20,
+            "localizacion":"Club de tenis"
+        },
+        {
+            "name": "Elena",
+            "conocida": true,
+            "posx": 11,
+            "posy": 3,
+            "descripcion":"Abuela Enfadada",
+            "edad": 70,
+            "localizacion":"Club de tenis"
+        },
+        {
+            "name": "Cayetana",
+            "conocida": true,
+            "posx": 8,
+            "posy": 3,
+            "descripcion":"Niña Pija",
+            "edad": 16,
+            "localizacion":"Colegio Highlands"
+        },
+        {
+            "name": "Adelina",
+            "conocida": true,
+            "posx": 5,
+            "posy": 3,
+            "descripcion":"Secretario de María",
+            "edad": 45,
+            "localizacion":"Madre haciendo yoga"
+        }
+        
+        
+    ]
             
     
-    },   "dinero":
+    },   "calderilla":
     {
           "npcs":
             [
