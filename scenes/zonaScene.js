@@ -24,7 +24,7 @@ export default class ZonaScene extends Phaser.Scene{
         
         this.key="zonaScene";
         
-        this.modo= data.modo || 1;
+        this.modo= data.modo || 8;
         this.fondo = 'fondo' + this.modo;
         
         

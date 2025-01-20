@@ -1014,31 +1014,31 @@
         [
             {
                 "sprite": "tenfeVerde",
-                "x": 1.9,
-                "y": 1.3,
+                "x": 1.38,
+                "y": 1.95,
                 "width": 0.1,
                 "height": 0.1,
                 "colliderGroup": "localizations",
                 "scenario": "tenfeFondo",
                 "caja":
                 {
-                    "x": 1.9,
-                    "y": 1.55,
+                    "x": 1.38,
+                    "y": 2.4,
                     "width": 0.08,
-                    "height": 0.08,
+                    "height": 0.05,
                     "id": "cajaVerde"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 1.9,
-                    "y": 1.55,
+                    "x": 1.38,
+                    "y": 2.4,
                     "text": "TENFE"
                 },
                 "decor":
                 {
-                    "x": 1.75,
-                    "y": 1.45,
+                    "x": 1.3,
+                    "y": 2.2,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsVerde"
@@ -1047,16 +1047,16 @@
             },
             {
                 "sprite": "parking",
-                "x": 1.315,
-                "y": 2.6,
+                "x": 4.3,
+                "y": 1.15,
                 "width": 0.5,
                 "height": 0.5,
                 "colliderGroup": "localizations",
                 "scenario": "parking",
                 "caja":
                 {
-                    "x": 1.315,
-                    "y": 2.1,
+                    "x": 4.3,
+                    "y": 1.15,
                     "width": 0.1,
                     "height": 0.08,
                     "id": "cajaVerde"
@@ -1064,14 +1064,14 @@
                 "texto":
                 {
                     "size": "30px",
-                    "x": 1.315,
-                    "y": 2.1,
+                    "x": 4.3,
+                    "y": 1.15,
                     "text": "PARKING"
                 },
                 "decor":
                 {
-                    "x": 1.19,
-                    "y": 2.2,
+                    "x": 3.2,
+                    "y": 1.15,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsVerde"
@@ -1079,31 +1079,31 @@
             },
             {
                 "sprite": "panaderia",
-                "x": 6,
-                "y": 6,
-                "width": 0.4,
-                "height": 0.4,
+                "x": 4.2,
+                "y": 3.36,
+                "width": 0.5,
+                "height": 0.5,
                 "colliderGroup": "localizations",
                 "scenario": "panaderia",
                 "caja":
                 {
-                    "x": 3.2,
-                    "y": 6,
-                    "width": 0.08,
-                    "height": 0.08,
+                    "x": 4.2,
+                    "y": 3.36,
+                    "width": 0.09,
+                    "height": 0.07,
                     "id": "cajaVerde"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 3.2,
-                    "y": 6,
+                    "x": 4.2,
+                    "y": 3.36,
                     "text": "PANADERIA"
                 },
                 "decor":
                 {
-                    "x": 3.5,
-                    "y": 10,
+                    "x": 3.2,
+                    "y": 4,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsVerde"
