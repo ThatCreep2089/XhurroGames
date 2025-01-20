@@ -1116,7 +1116,7 @@
             {
             "sprite": "flechaP",
             "x": 1.05,
-            "y": 1.63,
+            "y": 5.8,
             "colliderGroup": "flechas",
             "modo": 8,
             "ant": 7,
@@ -1136,31 +1136,31 @@
         [
             {
                 "sprite": "cafeteria",
-                "x": 1.27,
-                "y": 11,
+                "x": 3.6,
+                "y": 1.1,
                 "width": 0.5,
-                "height": 0.4,
+                "height": 0.5,
                 "colliderGroup": "localizations",
                 "scenario": "cafeteria",
                 "caja":
                 {
-                    "x": 1.28,
-                    "y": 3,
-                    "width": 0.15,
-                    "height": 0.12,
+                    "x": 3,
+                    "y": 1.4,
+                    "width": 0.1,
+                    "height": 0.1,
                     "id": "cajaVerde"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 1.28,
-                    "y": 3,
+                    "x": 3,
+                    "y": 1.4,
                     "text": "CAFETERIA"
                 },
                 "decor":
                 {
-                    "x": 1.15,
-                    "y": 4,
+                    "x": 2.5,
+                    "y": 1.3,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsVerde"
@@ -1168,63 +1168,63 @@
             },
             {
                 "sprite": "colegioP",
-                "x": 1.1,
-                "y": 1.22,
+                "x": 1.98,
+                "y": 2.7,
                 "width": 0.5,
                 "height": 0.5,
                 "colliderGroup": "localizations",
                 "scenario": "colegioP",
                 "caja":
                 {
-                    "x": 1.36,
-                    "y": 1.22,
-                    "width": 0.07,
+                    "x": 1.4,
+                    "y": 2.7,
+                    "width": 0.1,
                     "height": 0.1,
                     "id": "cajaVerde"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 1.36,
-                    "y": 1.22,
+                    "x": 1.4,
+                    "y": 2.7,
                     "text": "COLEGIO\nPUBLICO"
                 },
                 "decor":
                 {
-                    "x": 1.3,
-                    "y": 1.38,
-                    "width": 0.15,
+                    "x": 1.5,
+                    "y": 3.2,
+                    "width": 0.17,
                     "height": 0.15,
                     "id": "mapsVerde"
                 }
             },
             {
                 "sprite": "zara",
-                "x": 4.65,
-                "y": 1.38,
-                "width": 0.3,
-                "height": 0.3,
+                "x": 1.15,
+                "y": 1.17,
+                "width": 0.55,
+                "height": 0.6,
                 "colliderGroup": "localizations",
                 "scenario": "zara",
                 "caja":
                 {
-                    "x": 3.4,
-                    "y": 1.1,
-                    "width": 0.15,
-                    "height": 0.11,
+                    "x": 1.15,
+                    "y": 1.3,
+                    "width": 0.07,
+                    "height": 0.07,
                     "id": "cajaVerde"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 3.4,
-                    "y": 1.1,
+                    "x": 1.15,
+                    "y": 1.3,
                     "text": "ZARA"
                 },
                 "decor":
                 {
-                    "x": 3.5,
-                    "y": 1.2,
+                    "x": 1.07,
+                    "y": 1.4,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsVerde"
@@ -1237,7 +1237,7 @@
             {
                 "sprite": "flechaP",
                 "x": 22,
-                "y": 1.63,
+                "y": 5.8,
                 "colliderGroup": "flechas",
                 "modo": 7,
                 "ant": 8,
@@ -1247,7 +1247,7 @@
             {
                 "sprite": "flechaP",
                 "x": 1.03,
-                "y": 3.3,
+                "y": 1.8,
                 "colliderGroup": "flechas",
                 "modo": 9,
                 "ant": 8,
