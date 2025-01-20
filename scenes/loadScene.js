@@ -234,12 +234,18 @@ export default class loadScene extends Phaser.Scene {
 
 
      //COMBATE
-     this.load.image('cartaBotellin', 'assets/combate/botellin.jpg');
-     this.load.image('cartaCalderilla', 'assets/combate/calderilla.jpg');
-     this.load.image('cartaNavaja', 'assets/combate/navaj.jpg');
+     this.load.image('cartaBotellin', 'assets/combate/botellin.png');
+     this.load.image('cartaCalderilla', 'assets/combate/calderilla.png');
+     this.load.image('cartaNavajas', 'assets/combate/navajas.jpg');
      this.load.image('cartaPorras', 'assets/combate/porras.jpg');
-     this.load.image('cartaNormal', 'assets/combate/normal.png');
+     this.load.image('cartaNormal', 'assets/combate/normal.jpg');
      this.load.image('botonDamageTotal', 'assets/combate/total.png');
+
+
+     this.load.image('cartaAfecto', 'assets/combate/afecto.jpg');
+     this.load.image('cartaAgnosticismo', 'assets/combate/agnosticismo.jpg');
+     this.load.image('cartaTrabajoDuro', 'assets/combate/trabajoduro.jpg');
+     this.load.image('cartaHumildad', 'assets/combate/humildad.jpg');
 
      //VIDEO
 

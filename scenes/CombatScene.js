@@ -73,7 +73,7 @@ init(data){
        this.setEntities(); 
        //creamos botones y textos en la escena
        this.createAttackButtons();
-       this.createStadisticsButtons();
+       this.createStadisticsText();
        this.createOtherText();
 
        //eventos de turnos
@@ -427,10 +427,6 @@ changeTurns() {
         return {"end": false, "playerwin": false}
     }
 
-    
-    changeCualidadesVisibility(){
-        //para hacer bonito el combate 
-    }
 
     changeActiveButtons(){
 
@@ -465,10 +461,10 @@ changeTurns() {
         });
     }
 
-    createButton(x, y, width, height, color, callback) {
-        return this.add.rectangle(x, y, width, height, color)
-            .setInteractive()
-            .on('pointerdown', callback);
+
+    createButton(x, y, sprite, scale, callback) {
+        return this.add.image(x, y, sprite).setScale(scale)
+            .setInteractive().on('pointerdown', callback);
     }
 
     setEntities(){
@@ -510,21 +506,16 @@ changeTurns() {
 
 
     createAttackButtons(){
-        //ataque normal
-        this.attackButton = this.add.image(this.sys.game.canvas.width / 1.8,
-        this.sys.game.canvas.height / 1.5, 'cartaNormal').setScale(0.7)
-        .setInteractive().on('pointerdown', () => this.playerTurn());
-        
-       /* this.attackButton = this.createButton(
-            this.attackNormalImage.x,
-            this.attackNormalImage.y,
-            this.attackNormalImage.width,
-            this.attackNormalImage.height,
-            0xff0000,
+        //ataque normal        
+        this.attackButton = this.createButton(
+            this.sys.game.canvas.width / 1.8,
+            this.sys.game.canvas.height / 1.5,
+            'cartaNormal',
+            0.7,
             () => this.playerTurn()
-     ).setScale(0.7);
-     //.setVisible(false);
-*/
+        );
+
+
 
         this.attackNormalText = this.createText(
             this.sys.game.canvas.width / 1.95,
@@ -535,20 +526,53 @@ changeTurns() {
            ).setDepth(1);
 
 
+        //ataque humildad
+        this.playerHumildadButton = this.createButton(
+            this.sys.game.canvas.width / 3.5,
+            this.sys.game.canvas.height / 2 + 100,
+           'cartaHumildad',
+            0.7,                          
+            () => this.cualidades('humildad')
+        ).setOrigin(0, 0); 
+
+        //ataque trabajo duro
+        this.playerTrabajoDuroButton = this.createButton(
+            this.sys.game.canvas.width / 3.5,
+            this.sys.game.canvas.height / 2 + 200,
+            'cartaTrabajoDuro',
+            0.7,                          
+            () => this.cualidades('trabajo duro')
+        ).setOrigin(0, 0);
+
+
+        //ataque agnosticismo
+        this.playerAgnosticismoButton = this.createButton(
+            this.sys.game.canvas.width / 3.5,
+            this.sys.game.canvas.height / 2 + 300,
+            'cartaAgnosticismo',
+            0.7,                          
+            () => this.cualidades('agnosticismo')
+        ).setOrigin(0, 0);
+
+        //ataque afecto
+        this.playerAfectoButton = this.createButton(
+            this.sys.game.canvas.width / 3.5,
+            this.sys.game.canvas.height / 2 + 400,
+            'cartaAfecto',
+            0.7,                         
+            () => this.cualidades('afecto')
+        ).setOrigin(0, 0);  
+
         //suma daño total
 
-        this.totalDamageButton = this.add.image(this.sys.game.canvas.width / 1.15,
-            this.sys.game.canvas.height / 1.3, 'botonDamageTotal').setScale(0.5)
-            .setInteractive().on('pointerdown', () => this.playerMakesDamage(this.totalDamage));
-/*
         this.totalDamageButton = this.createButton(
             this.sys.game.canvas.width / 1.15,
             this.sys.game.canvas.height / 1.3,
-            300, 300,
-            0xff0000,
+            'botonDamageTotal',
+            0.5,
             () => this.playerMakesDamage(this.totalDamage)
       );
-      */
+      
    
         this.totalDamageText = this.createText(
             this.sys.game.canvas.width / 1.2,
@@ -565,74 +589,70 @@ changeTurns() {
     }
 
 
-createStadisticsButtons() {
+createStadisticsText() {
 
-    //botón humildad
+    //humildad
     this.playerHumildadText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 4.8,
         'Humildad: ' + this.player.humildad
     );
 
-    this.playerHumildadButton = this.createButton(
-        this.sys.game.canvas.width / 3.5,
-        this.sys.game.canvas.height / 2 + 100,
-        300,     
-        50,    
-        0xFFFFFF,                          
-        () => this.cualidades('humildad')
-    ).setOrigin(0, 0); 
 
-    
-    // botón trabajo duro
+    //trabajo duro
     this.playerTrabajoDuroText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 3.9,
         'Trabajo duro: ' + this.player.trabajoDuro
     );
 
-    this.playerTrabajoDuroButton = this.createButton(
-        this.sys.game.canvas.width / 3.5,
-        this.sys.game.canvas.height / 2 + 200,
-        300,     
-        50,    
-        0xFFFFFF,                          
-        () => this.cualidades('trabajo duro')
-    ).setOrigin(0, 0);
+   
 
-     //botón agnosticismo
+     // agnosticismo
     this.playerAgnosticismoText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 3.2,
         'Agnosticismo: ' + this.player.agnosticismo
     );
 
-    this.playerAgnosticismoButton = this.createButton(
-        this.sys.game.canvas.width / 3.5,
-        this.sys.game.canvas.height / 2 + 300,
-        300,     
-        50,    
-        0xFFFFFF,                          
-        () => this.cualidades('agnosticismo')
-    ).setOrigin(0, 0);
+    
 
-    //botón afecto
+    //afecto
     this.playerAfectoText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 2.7,
         'Afecto: '+ this.player.afecto
     );
 
-    this.playerAfectoButton = this.createButton(
-        this.sys.game.canvas.width / 3.5,
-        this.sys.game.canvas.height / 2 + 400,
-        300,     
-        50,   
-        0xFFFFFF,                          
-        () => this.cualidades('afecto')
-    ).setOrigin(0, 0);  
+    //texto de la salud del player
+    this.playerHealthText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 20,
+        'PlayerHP: ' + this.player.health
+    );
+
+    //texto del maná del player
+    this.playerManaText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 10,
+        'PlayerMana: ' + this.player.mana
+    );
+
+    //texto de la ansiedad del player
+    this.playerAnxietyText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 6.75,
+        'Ansiedad: ' + this.player.ansiedad);
+
+    //texto de la salud del enemigo 
+    this.enemyHealthText = this.createText(
+        this.sys.game.canvas.width / 2,
+        this.sys.game.canvas.height / 8,
+        'Enemigo: ' + this.enemy.health,  
+        );    
 
     
+ 
 
 }
 
@@ -641,65 +661,42 @@ createStadisticsButtons() {
     createOtherText() {
 
                 
-        //texto de la salud del player
-        this.playerHealthText = this.createText(
-            this.sys.game.canvas.width / 40,
-            this.sys.game.canvas.height / 20,
-            'PlayerHP: ' + this.player.health
-        );
 
-        //texto del maná del player
-        this.playerManaText = this.createText(
-            this.sys.game.canvas.width / 40,
-            this.sys.game.canvas.height / 10,
-            'PlayerMana: ' + this.player.mana
-        );
-
-        //texto de la salud del enemigo 
-        this.enemyHealthText = this.createText(
-            this.sys.game.canvas.width / 2,
-            this.sys.game.canvas.height / 8,
-            'Enemigo: ' + this.enemy.health,  
-            );
 
 
   
         // Rectángulos (cartas) debajo de cada texto (bajados):
         const offsetY = 350;  // Aumento en el valor Y para bajar los rectángulos
         // Rectángulo para 'espadas'
-        this.espadasCard = this.add.rectangle(
+        this.espadasCard = this.add.image(
             this.sys.game.canvas.width / 2 + 100,  
             this.sys.game.canvas.height / 1.7 + offsetY, // Mover más abajo
-            60, 100, // Ancho y alto del rectángulo más grandes
-            0xFFFFFF // Color blanco
-        );
+            'cartaNavajas'
+        ).setScale(0.4);
         this.espadasCard.setOrigin(0.5); // Centrar el origen del rectángulo
 
         // Rectángulo para 'copas'
-        this.copasCard = this.add.rectangle(
+        this.copasCard = this.add.image(
             this.sys.game.canvas.width / 2 + 200,  
             this.sys.game.canvas.height / 1.7 + offsetY, // Mover más abajo
-            60, 100,  // Ancho y alto del rectángulo más grandes
-            0xFFFFFF // Color blanco
-        );
+            `cartaBotellin`
+        ).setScale(0.4);
         this.copasCard.setOrigin(0.5);
 
         // Rectángulo para 'bastos'
-        this.bastosCard = this.add.rectangle(
+        this.bastosCard = this.add.image(
             this.sys.game.canvas.width / 2 + 300,  
             this.sys.game.canvas.height / 1.7 + offsetY, // Mover más abajo
-            60, 100, // Ancho y alto del rectángulo más grandes
-            0xFFFFFF // Color blanco
-        );
+            'cartaPorras'
+        ).setScale(0.4);
         this.bastosCard.setOrigin(0.5);
 
         // Rectángulo para 'oros'
-        this.orosCard = this.add.rectangle(
+        this.orosCard = this.add.image(
             this.sys.game.canvas.width / 2 + 400, 
             this.sys.game.canvas.height / 1.7 + offsetY, // Mover más abajo
-            60, 100, // Ancho y alto del rectángulo más grandes
-            0xFFFFFF // Color blanco
-        );
+            'cartaCalderilla'
+        ).setScale(0.4);
         this.orosCard.setOrigin(0.5);
 
         
