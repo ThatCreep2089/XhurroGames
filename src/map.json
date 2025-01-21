@@ -1066,7 +1066,7 @@
                 
             },
             {
-                "sprite": "parking",
+                "sprite": "localParking",
                 "x": 4.3,
                 "y": 1.15,
                 "width": 0.5,
@@ -1098,7 +1098,7 @@
                 }
             },
             {
-                "sprite": "panaderia",
+                "sprite": "localPanaderia",
                 "x": 4.2,
                 "y": 3.36,
                 "width": 0.5,
@@ -1155,7 +1155,7 @@
         "localizations":
         [
             {
-                "sprite": "cafeteria",
+                "sprite": "localCafeteria",
                 "x": 3.6,
                 "y": 1.1,
                 "width": 0.5,
@@ -1187,7 +1187,7 @@
                 }
             },
             {
-                "sprite": "colegioP",
+                "sprite": "localColegioP",
                 "x": 1.98,
                 "y": 2.7,
                 "width": 0.5,
@@ -1219,7 +1219,7 @@
                 }
             },
             {
-                "sprite": "zara",
+                "sprite": "localZara",
                 "x": 1.15,
                 "y": 1.17,
                 "width": 0.55,
@@ -1286,7 +1286,7 @@
         "localizations":
         [
             {
-                "sprite": "pizzeria",
+                "sprite": "localPizzeria",
                 "x": 3.23,
                 "y": 9,
                 "width": 0.5,
@@ -1318,7 +1318,7 @@
                 }
             },
             {
-                "sprite": "ctt",
+                "sprite": "localCtt",
                 "x": 1.22,
                 "y": 1.25,
                 "width": 0.5,
@@ -1440,7 +1440,7 @@
                 
             },
             {
-                "sprite": "plazaN",
+                "sprite": "localPlazaN",
                 "x": 1.315,
                 "y": 4,
                 "width": 0.5,
@@ -1472,7 +1472,7 @@
                 }
             },
             {
-                "sprite": "mercadona",
+                "sprite": "localMercadona",
                 "x": 6,
                 "y": 6,
                 "width": 0.4,
@@ -1529,7 +1529,7 @@
         "localizations":
         [
             {
-                "sprite": "descampado",
+                "sprite": "localDescampado",
                 "x": 1.27,
                 "y": 11,
                 "width": 0.5,
@@ -1561,7 +1561,7 @@
                 }
             },
             {
-                "sprite": "callejon",
+                "sprite": "localCallejon",
                 "x": 1.1,
                 "y": 1.22,
                 "width": 0.5,
@@ -1593,7 +1593,7 @@
                 }
             },
             {
-                "sprite": "carcel",
+                "sprite": "localCarcel",
                 "x": 4.65,
                 "y": 1.38,
                 "width": 0.3,
@@ -1660,7 +1660,7 @@
         "localizations":
         [
             {
-                "sprite": "comisaria",
+                "sprite": "localComisaria",
                 "x": 2.67,
                 "y": 3.5,
                 "width": 0.5,
@@ -1692,7 +1692,7 @@
                 }
             },
             {
-                "sprite": "discoteca",
+                "sprite": "localDiscoteca",
                 "x": 1.19,
                 "y": 1.95,
                 "width": 0.5,
