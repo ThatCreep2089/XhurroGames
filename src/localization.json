@@ -361,24 +361,34 @@
         [
             
             {
-                "name": "taza",
-                "description": "+10 de vida",
-                "x": 600,
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
                 "y": 1000,
-                "effect": 1,
+                "effect": 3,
                 "amountOfEffect": 10,
                 "recogido": "false"
         
             },
             {
-                "name": "botella",
-                "description": "+5 de vida",
-                "x": 1500,
-                "y": 800,
-                "effect": 1,
-                "amountOfEffect": 5,
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
                 "recogido": "false"
-            
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
             }
             
             
@@ -400,24 +410,24 @@
         [
             
             {
-                "name": "taza",
-                "description": "+10 de vida",
-                "x": 600,
-                "y": 1000,
-                "effect": 1,
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1000,
+                "y": 800,
+                "effect": 3,
                 "amountOfEffect": 10,
                 "recogido": "false"
         
             },
             {
-                "name": "botella",
-                "description": "+5 de vida",
-                "x": 1500,
-                "y": 800,
-                "effect": 1,
-                "amountOfEffect": 5,
+                "name": "mar_iguana",
+                "description": "-40 de ansidad",
+                "x": 700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 40,
                 "recogido": "false"
-            
+        
             }
             
             
@@ -439,24 +449,34 @@
         [
             
             {
-                "name": "taza",
-                "description": "+10 de vida",
-                "x": 600,
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
                 "y": 1000,
-                "effect": 1,
+                "effect": 3,
                 "amountOfEffect": 10,
                 "recogido": "false"
         
             },
             {
-                "name": "botella",
-                "description": "+5 de vida",
-                "x": 1500,
-                "y": 800,
-                "effect": 1,
-                "amountOfEffect": 5,
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
                 "recogido": "false"
-            
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
             }
             
             
@@ -517,26 +537,35 @@
         [
             
             {
-                "name": "taza",
-                "description": "+10 de vida",
-                "x": 600,
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
                 "y": 1000,
-                "effect": 1,
+                "effect": 3,
                 "amountOfEffect": 10,
                 "recogido": "false"
         
             },
             {
-                "name": "botella",
-                "description": "+5 de vida",
+                "name": "sanidad privada",
+                "description": "vida máxima +20",
                 "x": 1500,
-                "y": 800,
-                "effect": 1,
-                "amountOfEffect": 5,
+                "y": 1000,
+                "effect": 2,
+                "amountOfEffect": 20,
                 "recogido": "false"
-            
+        
+            },
+            {
+                "name": "sanidad pública",
+                "description": "vida máxima +10",
+                "x":150,
+                "y": 800,
+                "effect": 2,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
             }
-            
             
         ],
         "npcs":
@@ -622,24 +651,34 @@
         [
             
             {
-                "name": "taza",
-                "description": "+10 de vida",
-                "x": 600,
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
                 "y": 1000,
-                "effect": 1,
+                "effect": 3,
                 "amountOfEffect": 10,
                 "recogido": "false"
         
             },
             {
-                "name": "botella",
-                "description": "+5 de vida",
-                "x": 1500,
-                "y": 800,
-                "effect": 1,
-                "amountOfEffect": 5,
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
                 "recogido": "false"
-            
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
             }
             
             
@@ -758,24 +797,34 @@
         [
             
             {
-                "name": "taza",
-                "description": "+10 de vida",
-                "x": 600,
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
                 "y": 1000,
-                "effect": 1,
+                "effect": 3,
                 "amountOfEffect": 10,
                 "recogido": "false"
         
             },
             {
-                "name": "botella",
-                "description": "+5 de vida",
-                "x": 1500,
-                "y": 800,
-                "effect": 1,
-                "amountOfEffect": 5,
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
                 "recogido": "false"
-            
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
             }
             
             
@@ -914,24 +963,34 @@
         [
             
             {
-                "name": "taza",
-                "description": "+10 de vida",
-                "x": 600,
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
                 "y": 1000,
-                "effect": 1,
+                "effect": 3,
                 "amountOfEffect": 10,
                 "recogido": "false"
         
             },
             {
-                "name": "botella",
-                "description": "+5 de vida",
-                "x": 1500,
-                "y": 800,
-                "effect": 1,
-                "amountOfEffect": 5,
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
                 "recogido": "false"
-            
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
             }
             
             
@@ -972,24 +1031,24 @@
         [
             
             {
-                "name": "taza",
-                "description": "+10 de vida",
-                "x": 600,
-                "y": 1000,
-                "effect": 1,
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1000,
+                "y": 800,
+                "effect": 3,
                 "amountOfEffect": 10,
                 "recogido": "false"
         
             },
             {
-                "name": "botella",
-                "description": "+5 de vida",
-                "x": 1500,
-                "y": 800,
-                "effect": 1,
-                "amountOfEffect": 5,
+                "name": "mar_iguana",
+                "description": "-40 de ansidad",
+                "x": 700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 40,
                 "recogido": "false"
-            
+        
             }
             
             
@@ -1050,24 +1109,34 @@
         [
             
             {
-                "name": "taza",
-                "description": "+10 de vida",
-                "x": 600,
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
                 "y": 1000,
-                "effect": 1,
+                "effect": 3,
                 "amountOfEffect": 10,
                 "recogido": "false"
         
             },
             {
-                "name": "botella",
-                "description": "+5 de vida",
+                "name": "sanidad privada",
+                "description": "vida máxima +20",
                 "x": 1500,
-                "y": 800,
-                "effect": 1,
-                "amountOfEffect": 5,
+                "y": 1000,
+                "effect": 2,
+                "amountOfEffect": 20,
                 "recogido": "false"
-            
+        
+            },
+            {
+                "name": "sanidad pública",
+                "description": "vida máxima +10",
+                "x":150,
+                "y": 800,
+                "effect": 2,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
             }
             
             
@@ -1089,24 +1158,34 @@
         [
             
             {
-                "name": "taza",
-                "description": "+10 de vida",
-                "x": 600,
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
                 "y": 1000,
-                "effect": 1,
+                "effect": 3,
                 "amountOfEffect": 10,
                 "recogido": "false"
         
             },
             {
-                "name": "botella",
-                "description": "+5 de vida",
-                "x": 1500,
-                "y": 800,
-                "effect": 1,
-                "amountOfEffect": 5,
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
                 "recogido": "false"
-            
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
             }
             
             
@@ -1165,28 +1244,36 @@
     {
         "items":
         [
-            
             {
-                "name": "taza",
-                "description": "+10 de vida",
-                "x": 600,
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
                 "y": 1000,
-                "effect": 1,
+                "effect": 3,
                 "amountOfEffect": 10,
                 "recogido": "false"
         
             },
             {
-                "name": "botella",
-                "description": "+5 de vida",
-                "x": 1500,
-                "y": 800,
-                "effect": 1,
-                "amountOfEffect": 5,
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
                 "recogido": "false"
-            
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
             }
-            
             
         ],
         "npcs":
