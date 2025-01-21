@@ -888,7 +888,7 @@ createStadisticsText() {
         let nombres = "Información sobre el combate:\n" +
         "Ataque normal: Suma el valor de las cartas.\n" +
         "Ataque especial: Utiliza maná y multiplica las cartas\n dependiendo del nivel de la cualidad correspondiente. \n" +
-        "Utiliza estos ataques con cabeza y \n ¡buena suerte!";
+        "Utiliza estos ataques con cabeza y \n ¡Buena suerte!";
 
         // Crear el texto con los nombres
         const textoPestana = this.add.text(0, 0, nombres, {
