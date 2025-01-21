@@ -55,7 +55,7 @@ export default class GeneralContactsScene extends Phaser.Scene {
         backScene = this.add.image(
             this.sys.game.canvas.width / 12,
             this.sys.game.canvas.height / 1.2, 
-            'flechaa')
+            'flechaM')
         .setScale(-0.3, 0.3)
         .setInteractive()
         .on('pointerdown', () => {
