@@ -107,7 +107,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('localColegio', 'assets/edificios/colegio.png');
     this.load.image('localGolf', 'assets/edificios/golf.png');
 
-    this.load.image('TenfeVerde', 'assets/edificios/tenfeP.png');
+    this.load.image('tenfeVerde', 'assets/edificios/tenfeP.png');
     this.load.image('pitiBancoVerde', 'assets/edificios/pitiBancoP.png');
     this.load.image('localCafeteria', 'assets/edificios/cafeteria.png');
     this.load.image('localColegioP', 'assets/edificios/colegioP.png');
