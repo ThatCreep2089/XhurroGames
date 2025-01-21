@@ -107,15 +107,15 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('localColegio', 'assets/edificios/colegio.png');
     this.load.image('localGolf', 'assets/edificios/golf.png');
 
-    this.load.image('tenfeVerde', 'assets/edificios/tenfeP.png');
+    this.load.image('localTenfeVerde', 'assets/edificios/tenfeP.png');
     this.load.image('pitiBancoVerde', 'assets/edificios/pitiBancoP.png');
-    this.load.image('cafeteria', 'assets/edificios/cafeteria.png');
-    this.load.image('colegioP', 'assets/edificios/colegioP.png');
-    this.load.image('ctt', 'assets/edificios/ctt.png');
-    this.load.image('panaderia', 'assets/edificios/panaderia.png');
-    this.load.image('parking', 'assets/edificios/parking.png');
-    this.load.image('pizzeria', 'assets/edificios/pizzeria.png');
-    this.load.image('zara', 'assets/edificios/zara.png');
+    this.load.image('localCafeteria', 'assets/edificios/cafeteria.png');
+    this.load.image('localColegioP', 'assets/edificios/colegioP.png');
+    this.load.image('localCtt', 'assets/edificios/ctt.png');
+    this.load.image('localPanaderia', 'assets/edificios/panaderia.png');
+    this.load.image('localParking', 'assets/edificios/parking.png');
+    this.load.image('localPizzeria', 'assets/edificios/pizzeria.png');
+    this.load.image('localZara', 'assets/edificios/zara.png');
 
     this.load.image('tenfeAzul', 'assets/edificios/tenfeN.png');
     this.load.image('pitiBancoAzul', 'assets/edificios/pitiBancoN.png');
@@ -181,6 +181,14 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('colegio', 'assets/fondos/colegioFondo.jpg');
     this.load.image('golf', 'assets/fondos/golfFondo.jpg');
 
+    this.load.image('cafeteria', 'assets/fondos/cafeteria.jpg');
+    this.load.image('colegioP', 'assets/fondos/colegioP.jpg');
+    this.load.image('ctt', 'assets/fondos/ctt.jpg');
+    this.load.image('panaderia', 'assets/fondos/panaderia.jpg');
+    this.load.image('pizzeria', 'assets/fondos/pizzeria.jpg');
+    this.load.image('zara', 'assets/fondos/zara.jpg');
+    this.load.image('parking', 'assets/fondos/parking.jpeg');
+
 
 
     this.load.image('congreso', 'assets/fondos/congresoFondo.jpg');
@@ -203,6 +211,20 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('GATO EN CAJA', 'assets/npc/gato.png');
     this.load.image('COPAS', 'assets/npc/bossBotellin.png');
     this.load.image('YUSOA', 'assets/npc/yusoa.png');
+
+    this.load.image('KAREN', 'assets/npc/karen.png');
+    this.load.image('GREGORIO', 'assets/npc/gregorio.png');
+    this.load.image('CAYETANA', 'assets/npc/cayetana.png');
+    this.load.image('ADELINA', 'assets/npc/adelina.png');
+    this.load.image('ALADIN', 'assets/npc/aladin.png');
+    this.load.image('PELAYO', 'assets/npc/pelayo.png');
+
+    this.load.image('BRYAN', 'assets/npc/bryan.png');
+    this.load.image('JULIANA', 'assets/npc/juliana.png');
+    this.load.image('MANOLO', 'assets/npc/manolo.png');
+    this.load.image('MIHAI', 'assets/npc/mihai.png');
+    this.load.image('NICOLETA', 'assets/npc/nicoleta.png');
+    this.load.image('SUSANA', 'assets/npc/susana.png');
 
     this.load.image('arrow', 'assets/other/arrow.png');
     this.load.image('accept', 'assets/other/accept.png');

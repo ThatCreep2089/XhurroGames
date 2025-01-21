@@ -386,14 +386,8 @@
         "npcs":
         [
             {
-                "name": "MARÍA JOSÉ",
+                "name": "KAREN",
                 "x": 3.8, 
-                "y": 1.4,
-                "scale": 0.27
-            },
-            {
-                "name": "MARÍA DEL CARMEN",
-                "x": 1.6, 
                 "y": 1.4,
                 "scale": 0.27
             }
@@ -431,14 +425,8 @@
         "npcs":
         [
             {
-                "name": "MARÍA JOSÉ",
+                "name": "ADELINA",
                 "x": 3.8, 
-                "y": 1.4,
-                "scale": 0.27
-            },
-            {
-                "name": "MARÍA DEL CARMEN",
-                "x": 1.6, 
                 "y": 1.4,
                 "scale": 0.27
             }
@@ -476,14 +464,8 @@
         "npcs":
         [
             {
-                "name": "MARÍA JOSÉ",
+                "name": "ALADIN",
                 "x": 3.8, 
-                "y": 1.4,
-                "scale": 0.27
-            },
-            {
-                "name": "MARÍA DEL CARMEN",
-                "x": 1.6, 
                 "y": 1.4,
                 "scale": 0.27
             }
@@ -521,14 +503,8 @@
         "npcs":
         [
             {
-                "name": "MARÍA JOSÉ",
+                "name": "PELAYO",
                 "x": 3.8, 
-                "y": 1.4,
-                "scale": 0.27
-            },
-            {
-                "name": "MARÍA DEL CARMEN",
-                "x": 1.6, 
                 "y": 1.4,
                 "scale": 0.27
             }
@@ -566,14 +542,8 @@
         "npcs":
         [
             {
-                "name": "MARÍA JOSÉ",
+                "name": "GREGORIO",
                 "x": 3.8, 
-                "y": 1.4,
-                "scale": 0.27
-            },
-            {
-                "name": "MARÍA DEL CARMEN",
-                "x": 1.6, 
                 "y": 1.4,
                 "scale": 0.27
             }
@@ -611,14 +581,8 @@
         "npcs":
         [
             {
-                "name": "MARÍA JOSÉ",
+                "name": "CAYETANA",
                 "x": 3.8, 
-                "y": 1.4,
-                "scale": 0.27
-            },
-            {
-                "name": "MARÍA DEL CARMEN",
-                "x": 1.6, 
                 "y": 1.4,
                 "scale": 0.27
             }
@@ -656,16 +620,321 @@
         "npcs":
         [
             {
-                "name": "MARÍA JOSÉ",
+                "name": "COPAS",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.9
+            },
+            {
+                "name": "GATO EN CAJA",
+                "x": 1.35, 
+                "y": 1.4,
+                "scale": 0.25,
+                "requisitos":
+                [
+                    {
+                        "name": "GREGORIO"
+                    },
+                    {
+                        "name": "ADELINA"
+                    },
+                    {
+                        "name": "CAYETANA"
+                    }
+                ]
+                
+            }
+
+        ]
+    },
+    "cafeteria":
+    {
+        "items":
+        [
+            
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "MANOLO",
                 "x": 3.8, 
                 "y": 1.4,
                 "scale": 0.27
+            }
+
+        ]
+    },
+    "colegioP":
+    {
+        "items":
+        [
+            
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
             },
             {
-                "name": "MARÍA DEL CARMEN",
-                "x": 1.6, 
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "JULIANA",
+                "x": 3.8, 
                 "y": 1.4,
                 "scale": 0.27
+            }
+
+        ]
+    },
+    "panaderia":
+    {
+        "items":
+        [
+            
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "BRYAN",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.27
+            }
+
+        ]
+    },
+    "pizzeria":
+    {
+        "items":
+        [
+            
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "MIHAI",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.27
+            }
+
+        ]
+    },
+    "zara":
+    {
+        "items":
+        [
+            
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "SUSANA",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.27
+            }
+
+        ]
+    },
+    "parking":
+    {
+        "items":
+        [
+            
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "NICOLETA",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.27
+            }
+
+        ]
+    },
+    "ctt":
+    {
+        "items":
+        [
+            
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "COPAS",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.9
+            },
+            {
+                "name": "GATO EN CAJA",
+                "x": 1.35, 
+                "y": 1.4,
+                "scale": 0.25,
+                "requisitos":
+                [
+                    {
+                        "name": "JULIANA"
+                    },
+                    {
+                        "name": "MANOLO"
+                    },
+                    {
+                        "name": "NICOLETA"
+                    }
+                ]
+                
             }
 
         ]

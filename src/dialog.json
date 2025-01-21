@@ -248,6 +248,90 @@
         "scale": 0.5
         
     },
+    "ALADIN":{
+        "frases":
+        [
+            { "texto": "مرحباً (hola)", "author": "Aladin" },
+            { "texto": "Querido amige tu país es espléndido.", "author": "Aladin" },
+            { "texto": "La cultura (para nada heredada),la comida,el paisaje.", "author": "Aladin" },
+            { "texto": "Por cierto, ¿tienes contacto con el gobernador de este país?", "author": "Aladin" },
+            { "texto": "Porque me encantaría proponer algunos tratados de negocios", "author": "Aladin" },
+            { "texto": "que podría tener muchos beneficios para ambos países.", "author": "Aladin" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "PELAYO":{
+        "frases":
+        [
+            { "texto": "Eh Eh, ¿Has visto el saque de revés que he hecho?", "author": "Pelayo" },
+            { "texto": "Impresionante, ¿a que sí?", "author": "Pelayo" },
+            { "texto": "No es por fardar pero entrené en la academia de Rafir Nadl.", "author": "Pelayo" },
+            { "texto": "Si es que somos igualitos.", "author": "Pelayo" },
+            { "texto": "Misma técnica, mismos saques, se podría hasta decir que soy su sucesor.", "author": "Pelayo" },
+            { "texto": "Si es que que bueno que soy.", "author": "Pelayo" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "ADELINA":{
+        "frases":
+        [
+            { "texto": "Juntamos los brazos y notamos como toda la tensión de nuestro cuerpo desaparece.", "author": "Adelina" },
+            { "texto": "Inspiramos y expiramos.", "author": "Adelina" },
+            { "texto": "¿Interesade en unas clases de yoga?", "author": "Adelina" },
+            { "texto": "Y que después de 3 días lograría despertar del sueño eterno", "author": "Adelina" },
+            { "texto": "Te ayuda a recobrar el control sobre ti misme y es un momento ideal para practicar mindfulness.", "author": "Adelina" },
+            { "texto": " Aprovecha, es una oportunidad única en la vida.", "author": "Adelina" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "CAYETANA":{
+        "frases":
+        [
+            { "texto": "Osea tie, ¿Has visto el nuevo bolso que ha salido de la nueva línea de Luan Lutoni?", "author": "Cayetana" },
+            { "texto": "Buah tie, es super bonito con un encaje violeta, y hecho de un material super duradero poli... no se que.", "author": "Cayetana" },
+            { "texto": "Si es que es una ganga 40000 euros.", "author": "Cayetana" },
+            { "texto": "No se por qué papi no me lo quiere comprar", "author": "Cayetana" },
+            { "texto": "Si solo he suspendido una asignatura.", "author": "Cayetana" },
+            { "texto": "Bueno, y esa también... y aquella... y otra…", "author": "Cayetana" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "GREGORIO":{
+        "frases":
+        [
+            { "texto": "¡FIIIIRMEEEEES!", "author": "Gregorio" },
+            { "texto": "Esta juventud ya no respeta a los veteranos de la guerra.", "author": "Gregorio" },
+            { "texto": "Cuando yo tenía tu edad me aliste en el ejército y me desplegaron en Marruecos.", "author": "Gregorio" },
+            { "texto": "Esta insignia la gané por mi estupenda labor, mira tiene grabada una espléndida ave.", "author": "Gregorio" },
+            { "texto": "Esta ave fue de vital importancia en toda mi juventud y adultez.", "author": "Gregorio" },
+            { "texto": "Que cariño le tengo...", "author": "Gregorio" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "KAREN":{
+        "frases":
+        [
+            { "texto": "¡INDIGNANTE!", "author": "Karen" },
+            { "texto": "El otro día fui con mi familia a uno de los mejores restaurantes del país y nos trajeron los platos con bastante retraso.", "author": "Karen" },
+            { "texto": "¡15 MINUTOS! ¡INDIGNANTE! ¡MIRES POR DONDE LO MIRES!", "author": "Karen" },
+            { "texto": "Y como es normal, solicité la hoja de reclamaciones.", "author": "Karen" },
+            { "texto": "Y tienen la poca vergüenza de decirnos que es el tiempo normal de espera.", "author": "Karen" },
+            { "texto": "¡INDIGNANTE! Les voy a demandar.", "author": "Karen" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
     "COPAS":
     {
         "frases":[
