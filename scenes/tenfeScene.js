@@ -83,7 +83,7 @@ export default class TenfeScene extends Phaser.Scene {
            
          }));
         
-         if(this.inventory.GetTrozos() >= 0)
+         if(this.inventory.GetTrozos() >= 1)
          {
             
             //pintar contador
