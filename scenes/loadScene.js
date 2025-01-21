@@ -247,6 +247,9 @@ export default class loadScene extends Phaser.Scene {
      this.load.image('cartaTrabajoDuro', 'assets/combate/trabajoduro.jpg');
      this.load.image('cartaHumildad', 'assets/combate/humildad.jpg');
 
+     this.load.image('fondoCombate', 'assets/combate/fondocombate.png');
+     this.load.image('infoButton', 'assets/combate/infobutton.png');
+
      //VIDEO
 
      this.load.video('intro', 'assets/videos/manifestacion.mp4', false);
