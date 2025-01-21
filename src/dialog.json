@@ -473,6 +473,51 @@
         "scale": 0.3
         
     },
+    "PITIBANCO AMARILLO":{
+        "frases":[
+            { "texto": "Hola, soy Piti Banco, el banco del piti.", "author": "PitiBanco Rojo" },
+            { "texto": "¿Te quieres fumar uno?", "author": "PitiBanco Rojo" },
+            { "texto": "¡Son muy saludables y te mejoran el ánimo!", "author": "PitiBanco Rojo" },
+            { "texto": "Pero recuerda, solo uno de cada, eh?", "author": "PitiBanco Rojo" },
+            { "texto": "Que nos conocemos, amigue.", "author": "PitiBanco Rojo" }
+        ],
+        "isPitiBanco": true,
+        "fumado": "Ey ey ey pequeñe, ya te lo has fumado",
+        "curarAnsiedad": "true",
+        "curarVida": "true",
+        "scale": 0.3
+        
+    },
+    "PITIBANCO AZUL":{
+        "frases":[
+            { "texto": "Hola, soy Piti Banco, el banco del piti.", "author": "PitiBanco Rojo" },
+            { "texto": "¿Te quieres fumar uno?", "author": "PitiBanco Rojo" },
+            { "texto": "¡Son muy saludables y te mejoran el ánimo!", "author": "PitiBanco Rojo" },
+            { "texto": "Pero recuerda, solo uno de cada, eh?", "author": "PitiBanco Rojo" },
+            { "texto": "Que nos conocemos, amigue.", "author": "PitiBanco Rojo" }
+        ],
+        "isPitiBanco": true,
+        "fumado": "Ey ey ey pequeñe, ya te lo has fumado",
+        "curarAnsiedad": "true",
+        "curarVida": "true",
+        "scale": 0.3
+        
+    },
+    "PITIBANCO VERDE":{
+        "frases":[
+            { "texto": "Hola, soy Piti Banco, el banco del piti.", "author": "PitiBanco Rojo" },
+            { "texto": "¿Te quieres fumar uno?", "author": "PitiBanco Rojo" },
+            { "texto": "¡Son muy saludables y te mejoran el ánimo!", "author": "PitiBanco Rojo" },
+            { "texto": "Pero recuerda, solo uno de cada, eh?", "author": "PitiBanco Rojo" },
+            { "texto": "Que nos conocemos, amigue.", "author": "PitiBanco Rojo" }
+        ],
+        "isPitiBanco": true,
+        "fumado": "Ey ey ey pequeñe, ya te lo has fumado",
+        "curarAnsiedad": "true",
+        "curarVida": "true",
+        "scale": 0.3
+        
+    },
     "YUSOA":{
         "frases":[
             { "texto": "¡YUSOA! Tu reinado de terror termina hoy.", "author": "Elle" },
