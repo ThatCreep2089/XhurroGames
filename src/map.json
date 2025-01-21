@@ -655,7 +655,39 @@
     {
         "buildings":
         [
-            
+           
+            {
+                "x": 4,
+                "y": 10,
+                "width": 600,
+                "height": 400
+            },
+            {
+                "x": 50,
+                "y": 10,
+                "width": 50,
+                "height": 350
+            },
+
+            {
+                "x": 1.05,
+                "y": 2.7,
+                "width": 100,
+                "height": 400
+            },
+            {
+                "x": 50,
+                "y": 1.7,
+                "width": 50,
+                "height": 550
+            },
+            {
+                "x": 4,
+                "y": 2.1,
+                "width": 600,
+                "height": 400
+            }
+
         ],
         "localizations":
         [
@@ -1399,7 +1431,7 @@
         ]
         
     },
-    "10":
+   "10":
     {
         "buildings":
         [
@@ -1410,7 +1442,7 @@
             {
                 "sprite": "tenfeAzul",
                 "x": 1.9,
-                "y": 1.3,
+                "y": 3.4,
                 "width": 0.1,
                 "height": 0.1,
                 "colliderGroup": "localizations",
@@ -1418,7 +1450,7 @@
                 "caja":
                 {
                     "x": 1.9,
-                    "y": 1.55,
+                    "y": 6,
                     "width": 0.08,
                     "height": 0.08,
                     "id": "cajaAzul"
@@ -1427,13 +1459,13 @@
                 {
                     "size": "30px",
                     "x": 1.9,
-                    "y": 1.55,
+                    "y": 6,
                     "text": "TENFE"
                 },
                 "decor":
                 {
                     "x": 1.75,
-                    "y": 1.45,
+                    "y": 6.2,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAzul"
@@ -1442,31 +1474,31 @@
             },
             {
                 "sprite": "localPlazaN",
-                "x": 1.315,
-                "y": 4,
+                "x": 6.47,
+                "y": 1.6,
                 "width": 0.5,
                 "height": 0.5,
                 "colliderGroup": "localizations",
                 "scenario": "plazaN",
                 "caja":
                 {
-                    "x": 1.315,
-                    "y": 2.1,
-                    "width": 0.1,
+                    "x": 6.47,
+                    "y": 1.6,
+                    "width": 0.13,
                     "height": 0.08,
                     "id": "cajaAzul"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 1.315,
-                    "y": 2.1,
+                    "x": 6.47,
+                    "y": 1.6,
                     "text": "PLAZA NAVAJAS"
                 },
                 "decor":
                 {
-                    "x": 1.19,
-                    "y": 2.2,
+                    "x": 4,
+                    "y": 1.6,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAzul"
@@ -1474,31 +1506,31 @@
             },
             {
                 "sprite": "localMercadona",
-                "x": 6,
-                "y": 6,
-                "width": 0.4,
-                "height": 0.4,
+                "x": 1.18,
+                "y": 1.15,
+                "width": 0.5,
+                "height": 0.5,
                 "colliderGroup": "localizations",
                 "scenario": "mercadona",
                 "caja":
                 {
-                    "x": 3.2,
-                    "y": 6,
-                    "width": 0.08,
+                    "x": 1.18,
+                    "y": 1.15,
+                    "width": 0.1,
                     "height": 0.08,
                     "id": "cajaAzul"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 3.2,
-                    "y": 6,
+                    "x": 1.18,
+                    "y": 1.15,
                     "text": "MERCANONA"
                 },
                 "decor":
                 {
-                    "x": 3.5,
-                    "y": 10,
+                    "x": 1.08,
+                    "y": 1.15,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAzul"
