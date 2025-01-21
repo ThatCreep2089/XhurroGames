@@ -45,7 +45,7 @@ init(data){
 
 
         //Pintamos un fondo
-        var back = this.add.image(0, 0, 'combat').setOrigin(0, 0);
+        var back = this.add.image(0, 0, 'fondoCombate').setOrigin(0, 0);
 
         //escalar el fondo
         var scaleX = this.cameras.main.width / back.width;
@@ -60,7 +60,13 @@ init(data){
             this.cameras.main.height / 2 - back.displayHeight / 2
         );
         
-        
+        this.infoButton = this.createButton(this.sys.game.canvas.width / 50,
+            this.sys.game.canvas.height / 1.7,
+            'infoButton',
+            2,
+            () => this.mostrarInfo() 
+        );
+
         //generamos las primeras cartas
         this.espadas;
         this.copas;
@@ -440,6 +446,7 @@ changeTurns() {
                 this.playerTrabajoDuroButton.setInteractive();
                 this.playerAgnosticismoButton.setInteractive();
                 this.playerAfectoButton.setInteractive();
+                this.infoButton.setInteractive();
             }
         else {
                 this.attackButton.disableInteractive();
@@ -448,6 +455,7 @@ changeTurns() {
                 this.playerTrabajoDuroButton.disableInteractive();
                 this.playerAgnosticismoButton.disableInteractive();
                 this.playerAfectoButton.disableInteractive();
+                this.infoButton.disableInteractive();
             }   
         }
 
@@ -535,6 +543,14 @@ changeTurns() {
             () => this.cualidades('humildad')
         ).setOrigin(0, 0); 
 
+        this.attackHumildadText = this.createText(
+            this.sys.game.canvas.width / 3.30,
+            this.sys.game.canvas.height / 2 + 115,
+            'Humildad',
+            '50px',
+            '#000000'
+           ).setDepth(1);
+
         //ataque trabajo duro
         this.playerTrabajoDuroButton = this.createButton(
             this.sys.game.canvas.width / 3.5,
@@ -545,6 +561,14 @@ changeTurns() {
         ).setOrigin(0, 0);
 
 
+        this.attackTrabajoDuroText = this.createText(
+            this.sys.game.canvas.width / 3.45,
+            this.sys.game.canvas.height / 2 + 215,
+            'Trabajo Duro',
+            '50px',
+            '#000000'
+           ).setDepth(1);
+
         //ataque agnosticismo
         this.playerAgnosticismoButton = this.createButton(
             this.sys.game.canvas.width / 3.5,
@@ -554,6 +578,15 @@ changeTurns() {
             () => this.cualidades('agnosticismo')
         ).setOrigin(0, 0);
 
+
+        this.attackAgnosticismoText = this.createText(
+            this.sys.game.canvas.width / 3.45,
+            this.sys.game.canvas.height / 2 + 315,
+            'Agnosticismo',
+            '50px',
+            '#000000'
+           ).setDepth(1);
+
         //ataque afecto
         this.playerAfectoButton = this.createButton(
             this.sys.game.canvas.width / 3.5,
@@ -562,6 +595,14 @@ changeTurns() {
             0.7,                         
             () => this.cualidades('afecto')
         ).setOrigin(0, 0);  
+
+        this.attackAfectoText = this.createText(
+            this.sys.game.canvas.width / 3.35,
+            this.sys.game.canvas.height / 2 + 415,
+            'Afecto',
+            '50px',
+            '#000000'
+           ).setDepth(1);
 
         //suma daño total
 
@@ -576,7 +617,7 @@ changeTurns() {
    
         this.totalDamageText = this.createText(
             this.sys.game.canvas.width / 1.2,
-            this.sys.game.canvas.height / 1.8,
+            this.sys.game.canvas.height / 1.55,
             'Total'  
         );
        
@@ -595,7 +636,9 @@ createStadisticsText() {
     this.playerHumildadText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 4.8,
-        'Humildad: ' + this.player.humildad
+        'Humildad: ' + this.player.humildad,
+        '50px',
+        '#000000'
     );
 
 
@@ -603,7 +646,9 @@ createStadisticsText() {
     this.playerTrabajoDuroText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 3.9,
-        'Trabajo duro: ' + this.player.trabajoDuro
+        'Trabajo duro: ' + this.player.trabajoDuro,
+        '50px',
+        '#000000'
     );
 
    
@@ -612,7 +657,9 @@ createStadisticsText() {
     this.playerAgnosticismoText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 3.2,
-        'Agnosticismo: ' + this.player.agnosticismo
+        'Agnosticismo: ' + this.player.agnosticismo,
+        '50px',
+        '#000000'
     );
 
     
@@ -621,47 +668,54 @@ createStadisticsText() {
     this.playerAfectoText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 2.7,
-        'Afecto: '+ this.player.afecto
+        'Afecto: '+ this.player.afecto,
+        '50px',
+        '#000000'    
     );
 
     //texto de la salud del player
     this.playerHealthText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 20,
-        'PlayerHP: ' + this.player.health
+        'PlayerHP: ' + this.player.health,
+        '50px',
+        '#000000'
     );
 
     //texto del maná del player
     this.playerManaText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 10,
-        'PlayerMana: ' + this.player.mana
+        'PlayerMana: ' + this.player.mana,
+        '50px',
+        '#000000'
     );
 
     //texto de la ansiedad del player
     this.playerAnxietyText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 6.75,
-        'Ansiedad: ' + this.player.ansiedad);
+        'Ansiedad: ' + this.player.ansiedad,
+        '50px',
+        '#000000'
+    );
 
     //texto de la salud del enemigo 
     this.enemyHealthText = this.createText(
         this.sys.game.canvas.width / 2,
         this.sys.game.canvas.height / 8,
-        'Enemigo: ' + this.enemy.health,  
+        'Enemigo: ' + this.enemy.health,
+        '50px',
+        '#000000'
         );    
 
-    
- 
+
 
 }
 
 
 
     createOtherText() {
-
-                
-
 
 
   
@@ -710,7 +764,6 @@ createStadisticsText() {
             
         ).setOrigin(0.5);  // Centramos el texto en su posición
 
-        // Repite lo mismo para los otros textos y rectángulos
 
         // Texto del número de 'copas' centrado en el rectángulo de 'copas'
         this.copasNumber = this.createText(
@@ -759,7 +812,7 @@ createStadisticsText() {
             this.sys.game.canvas.height / 2, 
             this.sys.game.canvas.width, 
             this.sys.game.canvas.height, 
-            0x000000, 
+            0x939393, 
             0.5 // Opacidad (50%)
         ).setInteractive(); // Captura eventos para bloquear interacciones
 
@@ -806,4 +859,71 @@ createStadisticsText() {
         // Agregar el fondo bloqueador detrás de la pestaña
         this.children.bringToTop(this.pestana);
     }
+
+
+    mostrarInfo()
+    {
+        // Crear la pestaña
+        this.pestana = this.add.container(
+            this.sys.game.canvas.width / 2, // Centro del canvas
+            this.sys.game.canvas.height / 2 // Centro del canvas
+        );
+    
+        // Fondo semitransparente para bloquear clics detrás
+        this.blocker = this.add.rectangle(
+            this.sys.game.canvas.width / 2, 
+            this.sys.game.canvas.height / 2, 
+            this.sys.game.canvas.width, 
+            this.sys.game.canvas.height, 
+            0x939393, 
+            0.5 // Opacidad (50%)
+        ).setInteractive(); // Captura eventos para bloquear interacciones
+
+        // Fondo de la pestaña (más grande)
+        const fondoPestana = this.add.rectangle(0, 0, 1000, 500, 0x000000) // Nuevo tamaño: 600x500
+            .setOrigin(0.5) // Centrado
+            .setInteractive(); // Fondo para capturar clics
+        this.pestana.add(fondoPestana);
+    
+        let nombres = "Información sobre el combate:\n" +
+        "Ataque normal: Suma el valor de las cartas.\n" +
+        "Ataque especial: Utiliza maná y multiplica las cartas\n dependiendo del nivel de la cualidad correspondiente. \n" +
+        "Utiliza estos ataques con cabeza y \n ¡Buena suerte!";
+
+        // Crear el texto con los nombres
+        const textoPestana = this.add.text(0, 0, nombres, {
+            font: "40px Georgia",
+            color: "#ffffff",
+            align: "center"
+        });
+    
+        textoPestana.setOrigin(0.5, 0.5); // Centrar el origen del texto
+        textoPestana.setPosition(0, 5); // Ajustar la posición dentro del fondo
+        this.pestana.add(textoPestana);
+    
+        // Crear el botón rojo para ocultar la pestaña
+        const botonCerrar = this.add.rectangle(450, -200, 60, 60, 0xff0000) // Ajuste relativo a la posición del fondo
+            .setOrigin(0.5)
+            .setInteractive();
+        this.pestana.add(botonCerrar);
+
+        const botonCerrarTexto = this.add.text(450, -200, "X", {
+            fontSize: "30px", // Asegurar tamaño de fuente
+            fontFamily: "Arial",
+            fontStyle: "bold",
+            color: "#ffffff"
+        }).setOrigin(0.5);
+
+        this.pestana.add(botonCerrarTexto);
+    
+        // Evento del botón para ocultar la pestaña
+        botonCerrar.on("pointerdown", () => {
+            this.blocker.destroy(); // Eliminar bloqueador
+            this.pestana.destroy(); // Eliminar la pestaña
+        });
+
+        // Agregar el fondo bloqueador detrás de la pestaña
+        this.children.bringToTop(this.pestana);
+    }
+
 }
