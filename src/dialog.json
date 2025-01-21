@@ -458,13 +458,13 @@
         }
         
     },
-    "PITIBANCO":{
+    "PITIBANCO ROJO":{
         "frases":[
-            { "texto": "Hola, soy Piti Banco, el banco del piti.", "author": "PitiBanco" },
-            { "texto": "¿Te quieres fumar uno?", "author": "PitiBanco" },
-            { "texto": "¡Son muy saludables y te mejoran el ánimo!", "author": "PitiBanco" },
-            { "texto": "Pero recuerda, solo uno de cada, eh?", "author": "PitiBanco" },
-            { "texto": "Que nos conocemos, amigue.", "author": "PitiBanco" }
+            { "texto": "Hola, soy Piti Banco, el banco del piti.", "author": "PitiBanco Rojo" },
+            { "texto": "¿Te quieres fumar uno?", "author": "PitiBanco Rojo" },
+            { "texto": "¡Son muy saludables y te mejoran el ánimo!", "author": "PitiBanco Rojo" },
+            { "texto": "Pero recuerda, solo uno de cada, eh?", "author": "PitiBanco Rojo" },
+            { "texto": "Que nos conocemos, amigue.", "author": "PitiBanco Rojo" }
         ],
         "isPitiBanco": true,
         "fumado": "Ey ey ey pequeñe, ya te lo has fumado",

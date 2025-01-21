@@ -182,21 +182,29 @@ export default class DialogueScene extends Phaser.Scene {
             console.log("dialogo completado")
             if(this.dialogueJson[this.npc].isPitiBanco == true)
             {
-                console.log("reconoce piti banco")
+                //PORROS (BOTONES)
+
                 if(this.dialogueJson[this.npc].curarAnsiedad == "true")
                 {
-                    this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad
-                    this.dialogueJson[this.npc].curarAnsiedad = "false";
+                    //curar ansiedad
+                    this.addButtonToScene(4, 3, 0xff7c00, `CURAR ANSIEDAD`, this.fumarPorroAnsiedad);
                 }
-                else{
+                else
+                {
                     this.dialog.setText(this.dialogueJson[this.npc].fumado, true);
                 }
-                //PORROS (BOTONES)
-                //curar ansiedad
-                this.addButtonToScene(4, 3, 0xff7c00, `CURAR ANSIEDAD`, this.fumarPorroAnsiedad);
+
+                if(this.dialogueJson[this.npc].curarVida == "true")
+                {
+                    //curar vida
+                    this.addButtonToScene(1.5, 3, 0x00fff3, `CURAR VIDA`, this.fumarPorroVida);
+                }
+                else
+                {
+                    this.dialog.setText(this.dialogueJson[this.npc].fumado, true);
+                }
                     
-                //curar vida
-                this.addButtonToScene(1.5, 3, 0x00fff3, `CURAR VIDA`, this.fumarPorroVida);
+                
             }
             else if(this.dialogueJson[this.npc].isBoss == true)
             {
@@ -347,30 +355,16 @@ export default class DialogueScene extends Phaser.Scene {
 
     fumarPorroAnsiedad() 
     {
-        console.log("entra en fumar porro")
-        console.log(this.dialogueJson[this.npc].curarAnsiedad)
-        if(this.dialogueJson[this.npc].curarAnsiedad == "true")
-        {
-            this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad
-            this.dialogueJson[this.npc].curarAnsiedad = "false";
-        }
-        else{
-            this.dialog.setText(this.dialogueJson[this.npc].fumado, true);
-        } 
+        this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad
+        this.dialogueJson[this.npc].curarAnsiedad = "false";
+        
     }
 
     fumarPorroVida()
     {
-        if(this.dialogueJson[this.npc].curarVida == "true")
-            {
-                var diff = this.player.maxHealth - this.player.health; //lo que le falta para estar al maximo
-                this.player.HealPlayer(diff);
-                this.dialogueJson[this.npc].curarVida = "false";
-            }
-            else
-            {
-                this.dialog.setText(this.dialogueJson[this.npc].fumado, true);
-            }
+        var diff = this.player.maxHealth - this.player.health; //lo que le falta para estar al maximo
+        this.player.HealPlayer(diff);
+        this.dialogueJson[this.npc].curarVida = "false";
     }
 
 
