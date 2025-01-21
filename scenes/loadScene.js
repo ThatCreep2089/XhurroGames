@@ -135,6 +135,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('flechaC', 'assets/other/flechaC.png');
     this.load.image('flechaP', 'assets/other/flechaP.png');
     this.load.image('flechaN', 'assets/other/flechaN.png');
+    this.load.image('flechaM', 'assets/other/flechaMorada.png');
 
     //ASSETS NOMBRES LOCALIZATIONS
     this.load.image('caja', 'assets/other/caja.png');

@@ -203,7 +203,7 @@ export default class ZonaScene extends Phaser.Scene{
            // botones para ir inventario
            let inventarioButton =this.BotonIrLocalizacion( this.sys.game.canvas.width / 14,
             this.sys.game.canvas.height / 1.5, 
-            50, 50, 0xffe800)
+            50, 50, 0xa88ee9)
         .on('pointerdown', () => {
             this.IrLocaliz('InventoryScene',player);
            
@@ -212,7 +212,7 @@ export default class ZonaScene extends Phaser.Scene{
         let statsButton = this.BotonIrLocalizacion( 
             this.sys.game.canvas.width / 14,
             this.sys.game.canvas.height / 1.15, 
-            50, 50, 0xffe800)
+            50, 50, 0xa88ee9)
         .on('pointerdown', () => {
             this.IrLocaliz('StatsScene',player);
            
@@ -222,7 +222,7 @@ export default class ZonaScene extends Phaser.Scene{
         let contactosButton = this.BotonIrLocalizacion( 
             this.sys.game.canvas.width / 14,
             this.sys.game.canvas.height / 1.3, 
-            50, 50, 0xffe800)
+            50, 50, 0xa88ee9)
         .on('pointerdown', () => {
             this.IrLocaliz('GeneralContactsScene',player);
            
