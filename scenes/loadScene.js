@@ -342,6 +342,7 @@ export default class loadScene extends Phaser.Scene {
         this.cameras.main.width / 2 - back.displayWidth / 2,
         this.cameras.main.height / 2 - back.displayHeight / 2
     );
+    
     // Cambiar a la siguiente escena cuando todo esté listo
     this.scene.start("MainMenuScene", this.player.getConfigData()); // Cambia "MainMenuScene" por escena principal
   }
