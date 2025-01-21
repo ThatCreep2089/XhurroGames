@@ -332,6 +332,90 @@
         "scale": 0.5,
         "recompensa": "humildad"
     },
+    "HILARIO":{
+        "frases":
+        [
+            { "texto": "Heredé el oficio de mi padre, como hizo mi padre de su padre y así durante generaciones.", "author": "Hilario" },
+            { "texto": "Los Hnos Ortiz llevan en el negocio de la panadería cientos de años y está tienda siempre ha tenido sus clientes fieles.", "author": "Hilario" },
+            { "texto": "Ahora con la apertura de centros comerciales solo los clientes más longevos vienen a comprar.", "author": "Hilario" },
+            { "texto": "Esta situación es desesperante pero yo sé que este negocio sobrevivirá.", "author": "Hilario" },
+            { "texto": "Que las nuevas generaciones aprenderán a apreciar la calidad de nuestros productos.", "author": "Hilario" }
+            
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "JULIANA":{
+        "frases":
+        [
+            { "texto": "¿Sabes hasta que cifra ha subido el abandono escolar?", "author": "Juliana" },
+            { "texto": "Se ha cuadruplicado.", "author": "Juliana" },
+            { "texto": "De verdad que estoy muy preocupada.", "author": "Juliana" },
+            { "texto": "¿Cómo puede ser que un adolescente de 16 años, a lo sumo, quiera abandonar el instituto?", "author": "Juliana" },
+            { "texto": "Si, hay que echarle horas a los estudios. Pero, ¿a qué chaval no le gusta estar un rato con sus compañeros en clase?", "author": "Juliana" },
+            { "texto": "Es todo culpa del gobernador.", "author": "Juliana" },
+            { "texto": "Que nos da muy pocas subvenciones para ayudar a estos chavales con pocos recursos a seguir estudiando.", "author": "Juliana" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "MANOLO":{
+        "frases":
+        [
+            { "texto": "¿Conoces la empresa de paquetería CTT?", "author": "Manolo" },
+            { "texto": "Pues si estás pensando en echar currículum...", "author": "Manolo" },
+            { "texto": "¡NI SE TE OCURRA! LOS GERENTES SON UNOS ***** *******. POR NO HABLAR DEL JEFE.", "author": "Manolo" },
+            { "texto": "Perdón, pero sacan lo peor de mi. Es que es horrible de verdad.", "author": "Manolo" },
+            { "texto": "Solo he trabajado un 1 año con ellos y ya no puedo más.", "author": "Manolo" },
+            { "texto": "Los de recursos humanos están comprados por el jefe y si te quejas de trato indebido o injusto les da absolutamente igual.", "author": "Manolo" },
+            { "texto": "A mí no me vuelven a ver la cara.", "author": "Manolo" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "MIHAI":{
+        "frases":
+        [
+            { "texto": "Eyyy colegaaa ¿qué taaaaal??", "author": "Mihai" },
+            { "texto": "Yo estoy super chili.", "author": "Karen" },
+            { "texto": "No veas cómo la gente pide pizzas. Eh, una tras otra, tras otra,", "author": "Karen" },
+            { "texto": "Pero, eehh, tranqui colegui que si quieres un descuento podemos hacer un trato guapo guapo.", "author": "Karen" },
+            { "texto": "Tu me das un gramito y yo te doy un descuentito, ¿oferton, eh?", "author": "Karen" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "NICOLETA":{
+        "frases":
+        [
+            { "texto": "¡6 DIAS A LA SEMANA!", "author": "Nicoleta" },
+            { "texto": "¡TODO EL DIA con DOS míseros descansos de 1 h para comer y cenar!", "author": "Nicoleta" },
+            { "texto": "Encima, me pagan una miseria para todo el trabajo que hago.", "author": "Nicoleta" },
+            { "texto": "De verdad, que estoy que echo humo, pero necesito este curro.", "author": "Nicoleta" },
+            { "texto": "¿Cómo si no voy a poder pagar mi apartamento y alimentar a mi gato Kuskus?", "author": "Nicoleta" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "SUSANA":{
+        "frases":
+        [
+            { "texto": "Susana dobla estás camisetas que las han dejado tiradas,", "author": "Susana" },
+            { "texto": "Susana recoge todos estos pares de pantalones,", "author": "Susana" },
+            { "texto": "Susana estos zapatos los han dejado descolocados, colócalos para que los clientes los vean bien,", "author": "Susana" },
+            { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
+            { "texto": "¡MADRE MIA! ¿¡CÓMO PUEDEN SER ESOS SERES HUMANOS LLAMADOS CLIENTES TAN DESORDENADOS¡?", "author": "Susana" },
+            { "texto": "Aguanta solo dos semanas más y podrás comprarle a papá esas medicaciones que necesita para el tratamiento.", "author": "Susana" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
     "COPAS":
     {
         "frases":[
