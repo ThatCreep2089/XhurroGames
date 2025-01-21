@@ -248,6 +248,90 @@
         "scale": 0.5
         
     },
+    "ALADIN":{
+        "frases":
+        [
+            { "texto": "Oh querido hermane, ¿qué te trae por este lugar?", "author": "Jesus" },
+            { "texto": "El otro dia un ave blanca me reveló mi destino", "author": "Jesus" },
+            { "texto": "Me dijo que me sacrificaría por todos mis vecinos", "author": "Jesus" },
+            { "texto": "Y que después de 3 días lograría despertar del sueño eterno", "author": "Jesus" },
+            { "texto": "Se me ha encomendado esta divina tarea a mi, un simple ex-carpintero que ahora deambula estas calles sin hogar ni trabajo ", "author": "Jesus" },
+            { "texto": "Debo de seguir bebiendo de este vino bendito para volver a verla y preguntarla más acerca de mi enmienda.", "author": "Jesus" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "PELAYO":{
+        "frases":
+        [
+            { "texto": "Oh querido hermane, ¿qué te trae por este lugar?", "author": "Jesus" },
+            { "texto": "El otro dia un ave blanca me reveló mi destino", "author": "Jesus" },
+            { "texto": "Me dijo que me sacrificaría por todos mis vecinos", "author": "Jesus" },
+            { "texto": "Y que después de 3 días lograría despertar del sueño eterno", "author": "Jesus" },
+            { "texto": "Se me ha encomendado esta divina tarea a mi, un simple ex-carpintero que ahora deambula estas calles sin hogar ni trabajo ", "author": "Jesus" },
+            { "texto": "Debo de seguir bebiendo de este vino bendito para volver a verla y preguntarla más acerca de mi enmienda.", "author": "Jesus" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "ADELINA":{
+        "frases":
+        [
+            { "texto": "Oh querido hermane, ¿qué te trae por este lugar?", "author": "Jesus" },
+            { "texto": "El otro dia un ave blanca me reveló mi destino", "author": "Jesus" },
+            { "texto": "Me dijo que me sacrificaría por todos mis vecinos", "author": "Jesus" },
+            { "texto": "Y que después de 3 días lograría despertar del sueño eterno", "author": "Jesus" },
+            { "texto": "Se me ha encomendado esta divina tarea a mi, un simple ex-carpintero que ahora deambula estas calles sin hogar ni trabajo ", "author": "Jesus" },
+            { "texto": "Debo de seguir bebiendo de este vino bendito para volver a verla y preguntarla más acerca de mi enmienda.", "author": "Jesus" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "CAYETANA":{
+        "frases":
+        [
+            { "texto": "Oh querido hermane, ¿qué te trae por este lugar?", "author": "Jesus" },
+            { "texto": "El otro dia un ave blanca me reveló mi destino", "author": "Jesus" },
+            { "texto": "Me dijo que me sacrificaría por todos mis vecinos", "author": "Jesus" },
+            { "texto": "Y que después de 3 días lograría despertar del sueño eterno", "author": "Jesus" },
+            { "texto": "Se me ha encomendado esta divina tarea a mi, un simple ex-carpintero que ahora deambula estas calles sin hogar ni trabajo ", "author": "Jesus" },
+            { "texto": "Debo de seguir bebiendo de este vino bendito para volver a verla y preguntarla más acerca de mi enmienda.", "author": "Jesus" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "GREGORIO":{
+        "frases":
+        [
+            { "texto": "Oh querido hermane, ¿qué te trae por este lugar?", "author": "Jesus" },
+            { "texto": "El otro dia un ave blanca me reveló mi destino", "author": "Jesus" },
+            { "texto": "Me dijo que me sacrificaría por todos mis vecinos", "author": "Jesus" },
+            { "texto": "Y que después de 3 días lograría despertar del sueño eterno", "author": "Jesus" },
+            { "texto": "Se me ha encomendado esta divina tarea a mi, un simple ex-carpintero que ahora deambula estas calles sin hogar ni trabajo ", "author": "Jesus" },
+            { "texto": "Debo de seguir bebiendo de este vino bendito para volver a verla y preguntarla más acerca de mi enmienda.", "author": "Jesus" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "KAREN":{
+        "frases":
+        [
+            { "texto": "Oh querido hermane, ¿qué te trae por este lugar?", "author": "Jesus" },
+            { "texto": "El otro dia un ave blanca me reveló mi destino", "author": "Jesus" },
+            { "texto": "Me dijo que me sacrificaría por todos mis vecinos", "author": "Jesus" },
+            { "texto": "Y que después de 3 días lograría despertar del sueño eterno", "author": "Jesus" },
+            { "texto": "Se me ha encomendado esta divina tarea a mi, un simple ex-carpintero que ahora deambula estas calles sin hogar ni trabajo ", "author": "Jesus" },
+            { "texto": "Debo de seguir bebiendo de este vino bendito para volver a verla y preguntarla más acerca de mi enmienda.", "author": "Jesus" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
     "COPAS":
     {
         "frases":[
