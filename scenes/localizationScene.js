@@ -172,7 +172,7 @@ export default class localizationScene extends Phaser.Scene
             this.backButton = this.add.image(
                 this.sys.game.canvas.width / 4,
                 this.sys.game.canvas.height / 3.2, 
-                'flecha')
+                'flechaM')
             .setScale(-0.3, 0.3)
             .setInteractive()
             .on('pointerdown', () => {

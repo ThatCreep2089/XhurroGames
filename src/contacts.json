@@ -6,7 +6,7 @@
                
                 {
                     "name": "Consuelo",
-                    "conocida": true,
+                    "conocida": false,
                     "posx": 5,
                     "posy": 5,
                      "descripcion":"enfermera",
@@ -15,7 +15,7 @@
                 },
                 {
                     "name": "María Teresa",
-                    "conocida": true,
+                    "conocida": false,
                     "posx": 2,
                     "posy": 5,
                     "descripcion":"monja",
@@ -24,7 +24,7 @@
                 },
                 {
                     "name": "Humberto",
-                    "conocida": true,
+                    "conocida": false,
                     "posx": 14,
                     "posy": 3,
                     "descripcion":"Dueño de un caballo",
@@ -33,7 +33,7 @@
                 },
                 {
                     "name": "José",
-                    "conocida": true,
+                    "conocida": false,
                     "posx": 11,
                     "posy": 3,
                     "descripcion":"Dueño de un caballo",
@@ -42,7 +42,7 @@
                 },
                 {
                     "name": "María",
-                    "conocida": true,
+                    "conocida": false,
                     "posx": 8,
                     "posy": 3,
                     "descripcion":"Presidenta cámara CNI",
@@ -51,7 +51,7 @@
                 },
                 {
                     "name": "Pedrito",
-                    "conocida": true,
+                    "conocida": false,
                     "posx": 5,
                     "posy": 3,
                     "descripcion":"Secretario de María",
@@ -60,7 +60,7 @@
                 },
                 {
                     "name": "Ali",
-                    "conocida": true,
+                    "conocida": false,
                     "posx": 2,
                     "posy": 3,
                     "descripcion":"Da pistas",
@@ -69,7 +69,7 @@
                 },
                 {
                     "name": "Jesús",
-                    "conocida": true,
+                    "conocida": false,
                     "posx": 8,
                     "posy": 5,
                     "descripcion":"Vagabundo",
@@ -78,7 +78,7 @@
                 },
                 {
                     "name": "Paco",
-                    "conocida": true,
+                    "conocida": false,
                     "posx": 11,
                     "posy": 5,
                     "descripcion":"Profesor historia",
@@ -87,7 +87,7 @@
                 },
                 {
                     "name": "María del Carmen",
-                    "conocida": true,
+                    "conocida": false,
                     "posx": 14,
                     "posy": 5,
                     "descripcion":"Lesbiana oprimida",
@@ -96,7 +96,7 @@
                 },
                 {
                     "name": "Ángel",
-                    "conocida": true,
+                    "conocida": false,
                     "posx": 5,
                     "posy": 7,
                     "descripcion":"Average borracho",
@@ -105,7 +105,7 @@
                 },
                 {
                     "name": "María José",
-                    "conocida": true,
+                    "conocida": false,
                     "posx": 8,
                     "posy": 7,
                     "descripcion":"Lesbiana oprimida",
@@ -128,31 +128,31 @@
             
     
     },
-    "navajas":
+    "calderilla":
     { "npcs":
     [
        
         {
             "name": "Gregorio",
-            "conocida": true,
+            "conocida": false,
             "posx": 5,
             "posy": 5,
              "descripcion":"Ex-militar",
              "edad": 80,
-              "localizacion":"Edificio feo"
+              "localizacion":"Iglesia de los Muertos"
         },
         {
             "name": "Aladdin",
-            "conocida": true,
+            "conocida": false,
             "posx": 2,
             "posy": 5,
             "descripcion":"Principe Árabe",
             "edad": 30,
-            "localizacion":"Embajada de Qatar"
+            "localizacion":"Embajada de Natar"
         },
         {
             "name": "Pelayo",
-            "conocida": true,
+            "conocida": false,
             "posx": 14,
             "posy": 3,
             "descripcion":"Tenista Cayetano",
@@ -160,38 +160,38 @@
             "localizacion":"Club de tenis"
         },
         {
-            "name": "Elena",
-            "conocida": true,
+            "name": "Karen",
+            "conocida": false,
             "posx": 11,
             "posy": 3,
             "descripcion":"Abuela Enfadada",
             "edad": 70,
-            "localizacion":"Club de tenis"
+            "localizacion":"Edificio Feo"
         },
         {
             "name": "Cayetana",
-            "conocida": true,
+            "conocida": false,
             "posx": 8,
             "posy": 3,
             "descripcion":"Niña Pija",
             "edad": 16,
-            "localizacion":"Colegio Highlands"
+            "localizacion":"Colegio Privado"
         },
         {
             "name": "Adelina",
-            "conocida": true,
+            "conocida": false,
             "posx": 5,
             "posy": 3,
-            "descripcion":"Secretario de María",
+            "descripcion":"Madre haciendo yoga",
             "edad": 45,
-            "localizacion":"Madre haciendo yoga"
+            "localizacion":"Plaza"
         }
         
         
     ]
             
     
-    },   "calderilla":
+    },   "navajas":
     {
           "npcs":
             [

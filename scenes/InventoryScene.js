@@ -121,6 +121,7 @@ export default class InventoryScene extends Phaser.Scene
     {
         for( let i= prin;i<=fin;i++)
         {
+            console.log(this.rects[i].setVisible(bool))
             this.rects[i].setVisible(bool)
         }
     }
@@ -226,8 +227,7 @@ export default class InventoryScene extends Phaser.Scene
                 rect2.disableInteractive();
             }
 
-            //No mostramos el rect del si y el no
-           this.RectVisivility(1,2,false);
+            this.RectVisivility(0,2,false);
 
             //Texto opción NO
             let texto2 = this.CrearText(1150, 650, "No");
@@ -242,10 +242,11 @@ export default class InventoryScene extends Phaser.Scene
             this.textos.push(texto);
 
             //establecemos el orden de las capas con el depth
-            this.SetDepthRect(0,2,2);
+            this.SetDepthRect(0,2,1);
             this.SetDepthText(0,2,2);//2
 
-            this.RectVisivility(0,0,false);
+            this.TextVisivility(0,2,false);
+           
 
         // Cuando seleccionamos el sprite los hacemos visibles
         sprite.on('pointerdown', () => {
