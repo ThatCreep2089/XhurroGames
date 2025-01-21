@@ -130,7 +130,7 @@ init(data){
         this.TextVisivility(0,3,false);
         
     });
-        //BARRIO: OBRERO
+        //BARRIO: BOTELLIN
         if(this.barrio == 1)
             {  
                 const obrero = jsonObject["botellin"];
@@ -149,9 +149,9 @@ init(data){
                 });
             }
 
-        //BARRIO: RELIGIOSO
+        //BARRIO: PORRAS
             else if(this.barrio == 2)
-            {const religioso = jsonObject["calderilla"];
+            {const religioso = jsonObject["porras"];
                 religioso.npcs.forEach(npc => {
                 if (npc.conocida) { // Comprobar si este NPC es conocido
                     contacto = npc.name; // La imagen se toma del nombre del NPC
@@ -174,10 +174,10 @@ init(data){
             });
     
             }
-        //BARRIO: DINERO
+        //BARRIO: CALDERILLA
             else if(this.barrio == 4)
             {
-                const dinero = jsonObject["porras"];
+                const dinero = jsonObject["calderilla"];
                 dinero.npcs.forEach(npc => {
                 if (npc.conocida) { // Comprobar si este NPC es conocido
                     contacto = npc.name; // La imagen se toma del nombre del NPC

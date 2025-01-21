@@ -297,7 +297,7 @@ export default class loadScene extends Phaser.Scene {
      
     //CONTACT SCENE
   
-      //CONTACTOS(de momento tienen el mismo sprite pero en un futuro cada uno tendra el suyo)
+      //CONTACTOS
       //ZONA BOTELLIN
       this.load.image('Consuelo', 'assets/contactos/consuelo.png'); 
       this.load.image('María Teresa', 'assets/contactos/mariaTeresa.png'); 
@@ -311,6 +311,23 @@ export default class loadScene extends Phaser.Scene {
       this.load.image('Ángel', 'assets/contactos/angel.png'); 
       this.load.image('María José', 'assets/contactos/mariaJose.png'); 
       this.load.image('María del Carmen', 'assets/contactos/mariaDelCarmen.png'); 
+
+     
+        //ZONA PORRAS
+      this.load.image('Nicoleta', 'assets/contactos/nicoleta.png'); 
+      this.load.image('Juliana', 'assets/contactos/juliana.png'); 
+      this.load.image('Mihai', 'assets/contactos/mihai.png'); 
+      this.load.image('Susana', 'assets/contactos/susana.png'); 
+      this.load.image('Hilario', 'assets/contactos/hilario.png'); 
+      this.load.image('Manolo', 'assets/contactos/manolo.png');
+       
+       //ZONA CALDERILLA
+       this.load.image('Gregorio', 'assets/contactos/gregorio.png');
+       this.load.image('Aladin', 'assets/contactos/aladin.png');
+       this.load.image('Pelayo', 'assets/contactos/pelayo.png');
+       this.load.image('Karen', 'assets/contactos/karen.png');
+       this.load.image('Cayetana', 'assets/contactos/cayetana.png');
+       this.load.image('Adelina', 'assets/contactos/adelina.png');
 
       this.load.image('trozo', 'assets/recolectables/constitucion1.png'); 
       

@@ -118,11 +118,68 @@
     
     },
 
-    "religioso":
+    "porras":
     {
           "npcs":
             [
-                
+                    
+        {
+            "name": "Nicoleta",
+            "conocida": false,
+            "posx": 5,
+            "posy": 5,
+             "descripcion":"Guardia Parking",
+             "edad": 30,
+              "localizacion":"Parking"
+        },    
+        {
+            "name": "Juliana",
+            "conocida": false,
+            "posx": 2,
+            "posy": 5,
+             "descripcion":"Profesora de Lengua",
+             "edad": 30,
+              "localizacion":"Colegio"
+        },
+            
+        {
+            "name": "Mihai",
+            "conocida": false,
+            "posx": 14,
+            "posy": 3,
+             "descripcion":"Trabajador Pizzeria",
+             "edad": 21,
+              "localizacion":"Pizzeria"
+        },
+            
+        {
+            "name": "Susana",
+            "conocida": false,
+            "posx": 11,
+            "posy": 3,
+             "descripcion":"Dependienta Xara",
+             "edad": 30,
+              "localizacion":"Xara"
+        },
+            
+        {
+            "name": "Hilario",
+            "conocida": false,
+            "posx": 8,
+            "posy": 3,
+             "descripcion":"Panadero",
+             "edad": 40,
+              "localizacion":"Panaderia"
+        },
+        {
+            "name": "Manolo",
+            "conocida": false,
+            "posx": 5,
+            "posy": 3,
+             "descripcion":"Ex-trabajador TCT",
+             "edad": 40,
+              "localizacion":"Cafeteria"
+        }
                 
             ]
             
@@ -131,7 +188,7 @@
     "calderilla":
     { "npcs":
     [
-       
+   
         {
             "name": "Gregorio",
             "conocida": false,
@@ -142,7 +199,7 @@
               "localizacion":"Iglesia de los Muertos"
         },
         {
-            "name": "Aladdin",
+            "name": "Aladin",
             "conocida": false,
             "posx": 2,
             "posy": 5,
