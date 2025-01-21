@@ -386,14 +386,8 @@
         "npcs":
         [
             {
-                "name": "MARÍA JOSÉ",
+                "name": "KAREN",
                 "x": 3.8, 
-                "y": 1.4,
-                "scale": 0.27
-            },
-            {
-                "name": "MARÍA DEL CARMEN",
-                "x": 1.6, 
                 "y": 1.4,
                 "scale": 0.27
             }
@@ -431,14 +425,8 @@
         "npcs":
         [
             {
-                "name": "MARÍA JOSÉ",
+                "name": "ADELINA",
                 "x": 3.8, 
-                "y": 1.4,
-                "scale": 0.27
-            },
-            {
-                "name": "MARÍA DEL CARMEN",
-                "x": 1.6, 
                 "y": 1.4,
                 "scale": 0.27
             }
@@ -476,14 +464,8 @@
         "npcs":
         [
             {
-                "name": "MARÍA JOSÉ",
+                "name": "ALADIN",
                 "x": 3.8, 
-                "y": 1.4,
-                "scale": 0.27
-            },
-            {
-                "name": "MARÍA DEL CARMEN",
-                "x": 1.6, 
                 "y": 1.4,
                 "scale": 0.27
             }
@@ -521,14 +503,8 @@
         "npcs":
         [
             {
-                "name": "MARÍA JOSÉ",
+                "name": "PELAYO",
                 "x": 3.8, 
-                "y": 1.4,
-                "scale": 0.27
-            },
-            {
-                "name": "MARÍA DEL CARMEN",
-                "x": 1.6, 
                 "y": 1.4,
                 "scale": 0.27
             }
@@ -566,14 +542,8 @@
         "npcs":
         [
             {
-                "name": "MARÍA JOSÉ",
+                "name": "GREGORIO",
                 "x": 3.8, 
-                "y": 1.4,
-                "scale": 0.27
-            },
-            {
-                "name": "MARÍA DEL CARMEN",
-                "x": 1.6, 
                 "y": 1.4,
                 "scale": 0.27
             }
@@ -611,14 +581,8 @@
         "npcs":
         [
             {
-                "name": "MARÍA JOSÉ",
+                "name": "CAYETANA",
                 "x": 3.8, 
-                "y": 1.4,
-                "scale": 0.27
-            },
-            {
-                "name": "MARÍA DEL CARMEN",
-                "x": 1.6, 
                 "y": 1.4,
                 "scale": 0.27
             }
@@ -656,16 +620,29 @@
         "npcs":
         [
             {
-                "name": "MARÍA JOSÉ",
+                "name": "COPAS",
                 "x": 3.8, 
                 "y": 1.4,
-                "scale": 0.27
+                "scale": 0.9
             },
             {
-                "name": "MARÍA DEL CARMEN",
-                "x": 1.6, 
+                "name": "GATO EN CAJA",
+                "x": 1.35, 
                 "y": 1.4,
-                "scale": 0.27
+                "scale": 0.25,
+                "requisitos":
+                [
+                    {
+                        "name": "GREGORIO"
+                    },
+                    {
+                        "name": "ADELINA"
+                    },
+                    {
+                        "name": "CAYETANA"
+                    }
+                ]
+                
             }
 
         ]
