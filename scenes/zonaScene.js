@@ -24,7 +24,7 @@ export default class ZonaScene extends Phaser.Scene{
         
         this.key="zonaScene";
         
-        this.modo= data.modo || 9;
+        this.modo= data.modo || 1;
         this.fondo = 'fondo' + this.modo;
         
         
@@ -124,35 +124,12 @@ export default class ZonaScene extends Phaser.Scene{
             this.createFlecha(flecha);});
 
         //POSICION
-        if(this.modo == 2)
+        if(data.ant != undefined)
         {
-            //POSICION
-            if(data.ant == 1)
-            {
-                startPosition= { x: this.sys.game.canvas.width / 22, y: this.sys.game.canvas.height / 3.3 };
-            }
-            else if (data.ant == 3)
-            {
-                startPosition= { x: this.sys.game.canvas.width / 1.05, y: this.sys.game.canvas.height / 3.3 };
-            }
-        }
-        else if(this.modo == 3){
+            const newStartPosition = zone.newPosition[data.ant];
+            startPosition= { x: this.sys.game.canvas.width / newStartPosition.x, y: this.sys.game.canvas.height / newStartPosition.y };
             
-            //POSICION
-            if(data.ant == 2)
-            {
-                startPosition= { x: this.sys.game.canvas.width / 22, y: this.sys.game.canvas.height / 3.3 };
-            }
         }
-        else{
-            
-            //POSICION    
-            if(data.ant == 2)
-            {
-                startPosition= { x:  this.sys.game.canvas.width / 1.05, y: this.sys.game.canvas.height / 3.3 };
-            }
-        }
-
         //INVENTARIO
             //instanciar inventario
             this.inventory = new Inventory(this);
