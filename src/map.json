@@ -347,29 +347,18 @@
                 "width": 0.1,
                 "height": 0.1,
                 "colliderGroup": "localizations",
-                "scenario": "pitiBanco",
+                "scenario": "pitiBancoRojo",
                 "caja":
                 {
-                    "x": 3.1,
-                    "y": 1.27,
-                    "width": 0.18,
-                    "height": 0.13,
-                    "id": "caja"
+                   
                 },
                 "texto":
                 {
-                    "size": "30px",
-                    "x": 3,
-                    "y": 1.3,
-                    "text": "CRUZ\nROJA"
+                    
                 },
                 "decor":
                 {
-                    "x": 3.5,
-                    "y": 1.15,
-                    "width": 0.13,
-                    "height": 0.13,
-                    "id": "maps"
+                    
                 }
             }
         ],
@@ -729,35 +718,24 @@
                 
             },
             {
-                "sprite": "pitiBancoLocalization",
-                "x": 3.9,
-                "y": 1.5,
+                "sprite": "pitiBancoAmarillo",
+                "x": 2.5,
+                "y": 1.3,
                 "width": 0.1,
                 "height": 0.1,
                 "colliderGroup": "localizations",
-                "scenario": "pitiBanco",
+                "scenario": "pitiBancoAmarillo",
                 "caja":
                 {
-                    "x": 3.1,
-                    "y": 1.27,
-                    "width": 0.18,
-                    "height": 0.13,
-                    "id": "caja"
+                    
                 },
                 "texto":
                 {
-                    "size": "30px",
-                    "x": 3,
-                    "y": 1.3,
-                    "text": "CRUZ\nROJA"
+                    
                 },
                 "decor":
                 {
-                    "x": 3.5,
-                    "y": 1.15,
-                    "width": 0.13,
-                    "height": 0.13,
-                    "id": "maps"
+                    
                 }
             }
         ],
@@ -1116,35 +1094,24 @@
                 
             },
             {
-                "sprite": "pitiBancoLocalization",
+                "sprite": "pitiBancoVerde",
                 "x": 3.57,
                 "y": 1.45,
                 "width": 0.1,
                 "height": 0.1,
                 "colliderGroup": "localizations",
-                "scenario": "pitiBanco",
+                "scenario": "pitiBancoVerde",
                 "caja":
                 {
-                    "x": 3.25,
-                    "y": 1.12,
-                    "width": 0.1,
-                    "height": 0.1,
-                    "id": "cajaVerde"
+                    
                 },
                 "texto":
                 {
-                    "size": "30px",
-                    "x": 3.25,
-                    "y": 1.12,
-                    "text": "PITIBANCO\nPORRAS"
+                    
                 },
                 "decor":
                 {
-                    "x": 2.7,
-                    "y": 1.22,
-                    "width": 0.13,
-                    "height": 0.13,
-                    "id": "mapsVerde"
+                    
                 }
             }
         ],
@@ -1509,29 +1476,18 @@
                 "width": 0.08,
                 "height": 0.08,
                 "colliderGroup": "localizations",
-                "scenario": "pitiBanco",
+                "scenario": "pitiBancoAzul",
                 "caja":
                 {
-                    "x": 1.57,
-                    "y": 1.65,
-                    "width": 0.08,
-                    "height": 0.1,
-                    "id": "cajaAzul"
+                    
                 },
                 "texto":
                 {
-                    "size": "30px",
-                    "x": 1.57,
-                    "y": 1.65,
-                    "text": "PITI\nBANCO"
+                    
                 },
                 "decor":
                 {
-                    "x": 1.55,
-                    "y": 1.9,
-                    "width": 0.13,
-                    "height": 0.13,
-                    "id": "mapsAzul"
+                    
                 }
             }
         ],

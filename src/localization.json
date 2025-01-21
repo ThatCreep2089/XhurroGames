@@ -310,7 +310,7 @@
 
         ]
     },
-    "pitiBanco":
+    "pitiBancoRojo":
     {
         "items":
         [
@@ -585,6 +585,33 @@
                 "x": 3.8, 
                 "y": 1.4,
                 "scale": 0.27
+            }
+
+        ]
+    },
+    "pitiBancoAmarillo":
+    {
+        "items":
+        [
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 400,
+                "y": 150,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            }
+        ],
+        "npcs":
+        [
+            {
+                "name": "PITIBANCO AMARILLO",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+
             }
 
         ]
