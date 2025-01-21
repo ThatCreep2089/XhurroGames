@@ -113,7 +113,7 @@ export default class DialogueScene extends Phaser.Scene {
             .setScale(this.dialogueJson[this.npc].scale);
 
         // 4.1. CASOS ESPECIALES:
-       if(this.npc == 'PITIBANCO')
+       if(this.dialogueJson[this.npc].isPitiBanco == true)
         {
              //debug (para probar si funciona curar)
              //this.player.takeDamage(50);
@@ -179,8 +179,18 @@ export default class DialogueScene extends Phaser.Scene {
         // Cuando se termina el dialogo...
         this.dialog.on('dialogComplete', () => {
 
-            if(this.npc == 'PITIBANCO')
+            console.log("dialogo completado")
+            if(this.dialogueJson[this.npc].isPitiBanco == true)
             {
+                console.log("reconoce piti banco")
+                if(this.dialogueJson[this.npc].curarAnsiedad == "true")
+                {
+                    this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad
+                    this.dialogueJson[this.npc].curarAnsiedad = "false";
+                }
+                else{
+                    this.dialog.setText(this.dialogueJson[this.npc].fumado, true);
+                }
                 //PORROS (BOTONES)
                 //curar ansiedad
                 this.addButtonToScene(4, 3, 0xff7c00, `CURAR ANSIEDAD`, this.fumarPorroAnsiedad);
@@ -337,6 +347,8 @@ export default class DialogueScene extends Phaser.Scene {
 
     fumarPorroAnsiedad() 
     {
+        console.log("entra en fumar porro")
+        console.log(this.dialogueJson[this.npc].curarAnsiedad)
         if(this.dialogueJson[this.npc].curarAnsiedad == "true")
         {
             this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad
@@ -407,7 +419,7 @@ export default class DialogueScene extends Phaser.Scene {
 
 
     update(){
-        if((this.npc == 'PITIBANCO'))
+        if(this.dialogueJson[this.npc].isPitiBanco == true)
         {
             // Actualiza el texto con el nuevo valor de la variable
             this.anxietyText.setText(`Ansiedad: ${this.player.ansiedad}`);

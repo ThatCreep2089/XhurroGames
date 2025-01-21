@@ -122,7 +122,7 @@ export default class localizationScene extends Phaser.Scene
             .setScale(0.5, 0.5)
             .setInteractive()
             .on('pointerdown', () => {
-                if(this.player.ansiedad == this.player.maxAnsiedad - 50 && this.npcTalk != 'PITIBANCO')
+                if(this.player.ansiedad == this.player.maxAnsiedad - 50 && this.dialogueJson[this.npcTalk].isPitiBanco != true)
                 {
                     //console.log("no puedes hablar mas, mucha ansiedad");
                     this.mostrarPestana();
@@ -151,7 +151,7 @@ export default class localizationScene extends Phaser.Scene
                     }
                     else
                     {
-                        if(this.npcTalk != 'PITIBANCO') //a dialogos si NO es pitibanco
+                        if(this.dialogueJson[this.npcTalk].isPitiBanco != true) //a dialogos si NO es pitibanco
                         {
                             this.player.IncreaseAnxiety(10);
                             

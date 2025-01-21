@@ -466,6 +466,7 @@
             { "texto": "Pero recuerda, solo uno de cada, eh?", "author": "PitiBanco" },
             { "texto": "Que nos conocemos, amigue.", "author": "PitiBanco" }
         ],
+        "isPitiBanco": true,
         "fumado": "Ey ey ey pequeñe, ya te lo has fumado",
         "curarAnsiedad": "true",
         "curarVida": "true",

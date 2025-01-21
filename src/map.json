@@ -1410,7 +1410,7 @@
             {
                 "sprite": "tenfeAzul",
                 "x": 1.9,
-                "y": 1.3,
+                "y": 3.4,
                 "width": 0.1,
                 "height": 0.1,
                 "colliderGroup": "localizations",
@@ -1418,7 +1418,7 @@
                 "caja":
                 {
                     "x": 1.9,
-                    "y": 1.55,
+                    "y": 6,
                     "width": 0.08,
                     "height": 0.08,
                     "id": "cajaAzul"
@@ -1427,13 +1427,13 @@
                 {
                     "size": "30px",
                     "x": 1.9,
-                    "y": 1.55,
+                    "y": 6,
                     "text": "TENFE"
                 },
                 "decor":
                 {
                     "x": 1.75,
-                    "y": 1.45,
+                    "y": 6.2,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAzul"
@@ -1442,31 +1442,31 @@
             },
             {
                 "sprite": "localPlazaN",
-                "x": 1.315,
-                "y": 4,
+                "x": 6.47,
+                "y": 1.6,
                 "width": 0.5,
                 "height": 0.5,
                 "colliderGroup": "localizations",
                 "scenario": "plazaN",
                 "caja":
                 {
-                    "x": 1.315,
-                    "y": 2.1,
-                    "width": 0.1,
+                    "x": 6.47,
+                    "y": 1.6,
+                    "width": 0.13,
                     "height": 0.08,
                     "id": "cajaAzul"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 1.315,
-                    "y": 2.1,
+                    "x": 6.47,
+                    "y": 1.6,
                     "text": "PLAZA NAVAJAS"
                 },
                 "decor":
                 {
-                    "x": 1.19,
-                    "y": 2.2,
+                    "x": 4,
+                    "y": 1.6,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAzul"
@@ -1474,31 +1474,31 @@
             },
             {
                 "sprite": "localMercadona",
-                "x": 6,
-                "y": 6,
-                "width": 0.4,
-                "height": 0.4,
+                "x": 1.18,
+                "y": 1.15,
+                "width": 0.5,
+                "height": 0.5,
                 "colliderGroup": "localizations",
                 "scenario": "mercadona",
                 "caja":
                 {
-                    "x": 3.2,
-                    "y": 6,
-                    "width": 0.08,
+                    "x": 1.18,
+                    "y": 1.15,
+                    "width": 0.1,
                     "height": 0.08,
                     "id": "cajaAzul"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 3.2,
-                    "y": 6,
+                    "x": 1.18,
+                    "y": 1.15,
                     "text": "MERCANONA"
                 },
                 "decor":
                 {
-                    "x": 3.5,
-                    "y": 10,
+                    "x": 1.08,
+                    "y": 1.15,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAzul"
@@ -1511,7 +1511,7 @@
             {
             "sprite": "flechaN",
             "x": 1.05,
-            "y": 1.63,
+            "y": 2.6,
             "colliderGroup": "flechas",
             "modo": 11,
             "ant": 10,
@@ -1531,31 +1531,31 @@
         [
             {
                 "sprite": "localDescampado",
-                "x": 1.27,
-                "y": 11,
+                "x": 1.2,
+                "y": 8,
                 "width": 0.5,
-                "height": 0.4,
+                "height": 0.5,
                 "colliderGroup": "localizations",
                 "scenario": "descampado",
                 "caja":
                 {
-                    "x": 1.28,
-                    "y": 3,
-                    "width": 0.15,
-                    "height": 0.12,
+                    "x": 1.2,
+                    "y": 8,
+                    "width": 0.1,
+                    "height": 0.07,
                     "id": "cajaAzul"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 1.28,
-                    "y": 3,
+                    "x": 1.2,
+                    "y": 8,
                     "text": "DESCAMPADO"
                 },
                 "decor":
                 {
-                    "x": 1.15,
-                    "y": 4,
+                    "x": 1.08,
+                    "y": 6,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAzul"
@@ -1564,7 +1564,7 @@
             {
                 "sprite": "localCallejon",
                 "x": 1.1,
-                "y": 1.22,
+                "y": 1.42,
                 "width": 0.5,
                 "height": 0.5,
                 "colliderGroup": "localizations",
@@ -1573,7 +1573,7 @@
                 {
                     "x": 1.36,
                     "y": 1.22,
-                    "width": 0.07,
+                    "width": 0.09,
                     "height": 0.1,
                     "id": "cajaAzul"
                 },
@@ -1586,8 +1586,8 @@
                 },
                 "decor":
                 {
-                    "x": 1.3,
-                    "y": 1.38,
+                    "x": 1.26,
+                    "y": 1.22,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAzul"
@@ -1595,7 +1595,7 @@
             },
             {
                 "sprite": "localCarcel",
-                "x": 4.65,
+                "x": 2.8,
                 "y": 1.38,
                 "width": 0.3,
                 "height": 0.3,
@@ -1603,23 +1603,23 @@
                 "scenario": "carcel",
                 "caja":
                 {
-                    "x": 3.4,
-                    "y": 1.1,
-                    "width": 0.15,
-                    "height": 0.11,
+                    "x": 1.9,
+                    "y": 1.38,
+                    "width": 0.1,
+                    "height": 0.08,
                     "id": "cajaAzul"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 3.4,
-                    "y": 1.1,
+                    "x": 1.9,
+                    "y": 1.38,
                     "text": "CARCEL"
                 },
                 "decor":
                 {
-                    "x": 3.5,
-                    "y": 1.2,
+                    "x": 1.7,
+                    "y": 1.38,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAzul"
@@ -1632,7 +1632,7 @@
             {
                 "sprite": "flechaN",
                 "x": 22,
-                "y": 1.63,
+                "y": 2.6,
                 "colliderGroup": "flechas",
                 "modo": 10,
                 "ant": 11,
@@ -1642,7 +1642,7 @@
             {
                 "sprite": "flechaN",
                 "x": 1.03,
-                "y": 3.3,
+                "y": 1.04,
                 "colliderGroup": "flechas",
                 "modo": 12,
                 "ant": 11,
@@ -1662,8 +1662,8 @@
         [
             {
                 "sprite": "localComisaria",
-                "x": 2.67,
-                "y": 3.5,
+                "x": 2.3,
+                "y": 2.8,
                 "width": 0.5,
                 "height": 0.4,
                 "colliderGroup": "localizations",
@@ -1671,7 +1671,7 @@
                 "caja":
                 {
                     "x": 2.67,
-                    "y": 2.1,
+                    "y": 1.9,
                     "width": 0.1,
                     "height": 0.1,
                     "id": "cajaAzul"
@@ -1680,13 +1680,13 @@
                 {
                     "size": "30px",
                     "x": 2.67,
-                    "y": 2.1,
+                    "y": 1.9,
                     "text": "COMISARIA"
                 },
                 "decor":
                 {
                     "x": 2.67,
-                    "y": 2.5,
+                    "y": 2.1,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAzul"
@@ -1694,16 +1694,16 @@
             },
             {
                 "sprite": "localDiscoteca",
-                "x": 1.19,
-                "y": 1.95,
+                "x": 1.14,
+                "y": 3,
                 "width": 0.5,
                 "height": 0.5,
                 "colliderGroup": "localizations",
                 "scenario": "discoteca",
                 "caja":
                 {
-                    "x": 1.19,
-                    "y": 1.5,
+                    "x": 1.14,
+                    "y": 1.3,
                     "width": 0.13,
                     "height": 0.12,
                     "id": "cajaAzul"
@@ -1711,14 +1711,14 @@
                 "texto":
                 {
                     "size": "30px",
-                    "x": 1.19,
-                    "y": 1.5,
+                    "x": 1.14,
+                    "y": 1.3,
                     "text": "DISCOTECA"
                 },
                 "decor":
                 {
-                    "x": 1.15,
-                    "y": 1.75,
+                    "x": 1.11,
+                    "y": 1.45,
                     "width": 0.15,
                     "height": 0.15,
                     "id": "mapsAzul"
@@ -1726,32 +1726,32 @@
                 
             },
             {
-                "sprite": "pitiBancoLocalization",
-                "x": 3.9,
-                "y": 1.5,
-                "width": 0.1,
-                "height": 0.1,
+                "sprite": "pitiBancoAzul",
+                "x": 1.57,
+                "y": 1.3,
+                "width": 0.08,
+                "height": 0.08,
                 "colliderGroup": "localizations",
                 "scenario": "pitiBanco",
                 "caja":
                 {
-                    "x": 3.1,
-                    "y": 1.27,
-                    "width": 0.18,
-                    "height": 0.13,
+                    "x": 1.57,
+                    "y": 1.65,
+                    "width": 0.08,
+                    "height": 0.1,
                     "id": "cajaAzul"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 3,
-                    "y": 1.3,
-                    "text": "CRUZ\nROJA"
+                    "x": 1.57,
+                    "y": 1.65,
+                    "text": "PITI\nBANCO"
                 },
                 "decor":
                 {
-                    "x": 3.5,
-                    "y": 1.15,
+                    "x": 1.55,
+                    "y": 1.9,
                     "width": 0.13,
                     "height": 0.13,
                     "id": "mapsAzul"
