@@ -107,15 +107,15 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('localColegio', 'assets/edificios/colegio.png');
     this.load.image('localGolf', 'assets/edificios/golf.png');
 
-    this.load.image('tenfeVerde', 'assets/edificios/tenfeP.png');
+    this.load.image('localTenfeVerde', 'assets/edificios/tenfeP.png');
     this.load.image('pitiBancoVerde', 'assets/edificios/pitiBancoP.png');
-    this.load.image('cafeteria', 'assets/edificios/cafeteria.png');
-    this.load.image('colegioP', 'assets/edificios/colegioP.png');
-    this.load.image('ctt', 'assets/edificios/ctt.png');
-    this.load.image('panaderia', 'assets/edificios/panaderia.png');
-    this.load.image('parking', 'assets/edificios/parking.png');
-    this.load.image('pizzeria', 'assets/edificios/pizzeria.png');
-    this.load.image('zara', 'assets/edificios/zara.png');
+    this.load.image('localCafeteria', 'assets/edificios/cafeteria.png');
+    this.load.image('localColegioP', 'assets/edificios/colegioP.png');
+    this.load.image('localCtt', 'assets/edificios/ctt.png');
+    this.load.image('localPanaderia', 'assets/edificios/panaderia.png');
+    this.load.image('localParking', 'assets/edificios/parking.png');
+    this.load.image('localPizzeria', 'assets/edificios/pizzeria.png');
+    this.load.image('localZara', 'assets/edificios/zara.png');
 
     this.load.image('tenfeAzul', 'assets/edificios/tenfeN.png');
     this.load.image('pitiBancoAzul', 'assets/edificios/pitiBancoN.png');
@@ -180,6 +180,14 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('tenis', 'assets/fondos/tenisFondo.jpg');
     this.load.image('colegio', 'assets/fondos/colegioFondo.jpg');
     this.load.image('golf', 'assets/fondos/golfFondo.jpg');
+
+    this.load.image('cafeteria', 'assets/fondos/cafeteria.jpg');
+    this.load.image('colegioP', 'assets/fondos/colegioP.jpg');
+    this.load.image('ctt', 'assets/fondos/ctt.jpg');
+    this.load.image('panaderia', 'assets/fondos/panaderia.jpg');
+    this.load.image('pizzeria', 'assets/fondos/pizzeria.jpg');
+    this.load.image('zara', 'assets/fondos/zara.jpg');
+    this.load.image('parking', 'assets/fondos/parking.jpeg');
 
 
 
