@@ -252,7 +252,61 @@
     {
           "npcs":
             [
-                
+                {
+                    "name": "Jessica",
+                    "conocida": false,
+                    "posx": 5,
+                    "posy": 5,
+                     "descripcion":"Conexiones con bandas",
+                     "edad": 24,
+                      "localizacion":"Iglesia de los Muertos"
+                },
+                {
+                    "name": "Valentino",
+                    "conocida": false,
+                    "posx": 2,
+                    "posy": 5,
+                    "descripcion":"Policía",
+                    "edad": 40,
+                    "localizacion":"Embajada de Natar"
+                },
+                {
+                    "name": "Yonk",
+                    "conocida": false,
+                    "posx": 14,
+                    "posy": 3,
+                    "descripcion":"Drogadicto",
+                    "edad": 29,
+                    "localizacion":"Club de tenis"
+                },
+                {
+                    "name": "Juanjo",
+                    "conocida": false,
+                    "posx": 11,
+                    "posy": 3,
+                    "descripcion":"Trabajador Mercadona",
+                    "edad": 35,
+                    "localizacion":"Edificio Feo"
+                },
+                {
+                    "name": "Toni",
+                    "conocida": false,
+                    "posx": 8,
+                    "posy": 3,
+                    "descripcion":"Quiere un piso",
+                    "edad": 1000,
+                    "localizacion":"Colegio Privado"
+                },
+                {
+                    "name": "Koke",
+                    "conocida": false,
+                    "posx": 5,
+                    "posy": 3,
+                    "descripcion":"De una banda",
+                    "edad": 28,
+                    "localizacion":"Plaza"
+                }
+                   
                 
             ]
             
