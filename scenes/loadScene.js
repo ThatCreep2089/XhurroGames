@@ -228,6 +228,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('ADELINA', 'assets/npc/adelina.png');
     this.load.image('ALADIN', 'assets/npc/aladin.png');
     this.load.image('PELAYO', 'assets/npc/pelayo.png');
+    this.load.image('ANDREA', 'assets/npc/andrea.png');
 
     this.load.image('HILARIO', 'assets/npc/hilario.png');
     this.load.image('JULIANA', 'assets/npc/juliana.png');
@@ -235,6 +236,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('MIHAI', 'assets/npc/mihai.png');
     this.load.image('NICOLETA', 'assets/npc/nicoleta.png');
     this.load.image('SUSANA', 'assets/npc/susana.png');
+    this.load.image('NEREA', 'assets/npc/nerea.png');
 
     this.load.image('JESSICA', 'assets/npc/jessica.png');
     this.load.image('JUANJO', 'assets/npc/juanjo.png');
@@ -242,6 +244,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('TONI', 'assets/npc/toni.png');
     this.load.image('VALENTINO', 'assets/npc/valentino.png');
     this.load.image('YONK', 'assets/npc/yonki.png');
+    this.load.image('VICTOR', 'assets/npc/victor.png');
 
     this.load.image('PITIBANCO AMARILLO', 'assets/npc/pitiBancoC.png');
     this.load.image('PITIBANCO AZUL', 'assets/npc/pitiBancoN.png');
