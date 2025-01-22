@@ -1515,68 +1515,68 @@
         "localizations":
         [
             {
-                "sprite": "tenfe",
-                "x": 1.9,
-                "y": 1.25,
+                "sprite": "tenfeCongreso",
+                "x": 2,
+                "y": 7,
                 "width": 0.1,
                 "height": 0.1,
                 "colliderGroup": "localizations",
                 "scenario": "tenfeFondo",
                 "caja":
                 {
-                    "x": 1.94,
-                    "y": 1.5,
+                    "x": 3,
+                    "y": 7,
                     "width": 0.2,
                     "height": 0.12,
-                    "id": "caja"
+                    "id": "cajaCongreso"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 1.9,
-                    "y": 1.53,
+                    "x": 2.9,
+                    "y": 7.5,
                     "text": "TENFE"
                 },
                 "decor":
                 {
-                    "x": 1.75,
-                    "y": 1.3,
+                    "x": 2.5,
+                    "y": 6.8,
                     "width": 0.15,
                     "height": 0.15,
-                    "id": "maps"
+                    "id": "mapsCongreso"
                 }
                 
             },
             {
                 "sprite": "congresoLocalization",
-                "x": 1.52,
-                "y": 2.25,
-                "width": 0.305,
-                "height": 0.3,
+                "x": 2,
+                "y": 1.5,
+                "width": 0.8,
+                "height": 0.8,
                 "colliderGroup": "localizations",
                 "scenario": "congreso",
                 "caja":
                 {
-                    "x": 1.54,
-                    "y": 2.2,
-                    "width": 0.18,
-                    "height": 0.13,
-                    "id": "caja"
+                    "x": 2.05,
+                    "y": 1.15,
+                    "width": 0.2,
+                    "height": 0.08,
+                    "id": "cajaCongreso"
                 },
                 "texto":
                 {
                     "size": "30px",
-                    "x": 1.52,
-                    "y": 2.3,
+                    "x": 2,
+                    "y": 1.16,
                     "text": "YUSOA"
                 },
                 "decor":
                 {
-                    "x": 1.68,
-                    "y": 2.25,
+                    "x": 2.25,
+                    "y": 1.2,
                     "width": -0.13,
                     "height": 0.13,
-                    "id": "maps"
+                    "id": "mapsCongreso"
                 }
                 
             }

@@ -129,7 +129,8 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('localMercadona', 'assets/edificios/mercadona.png');
     this.load.image('localPlazaN', 'assets/edificios/plazaN.png');
 
-    this.load.image('congresoLocalization', 'assets/fondos/contaminado.png');
+    this.load.image('tenfeCongreso', 'assets/edificios/tenfeYusoa.png');
+    this.load.image('congresoLocalization', 'assets/edificios/congreso.png');
     
     //FLECHAS
     this.load.image('flecha', 'assets/other/flecha.png');
@@ -154,6 +155,8 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('cajaAzul', 'assets/other/cajaN.png');
     this.load.image('mapsAzul', 'assets/other/mapsN.png');
 
+    this.load.image('cajaCongreso', 'assets/other/cajaCongreso.png');
+    this.load.image('mapsCongreso', 'assets/other/mapsCongreso.png');
   
     //FONDO STATS
     this.load.image('fondoStats', 'assets/stats/fondoStats.png'); 
@@ -205,7 +208,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('discoteca', 'assets/fondos/discoteca.png');
     this.load.image('pitiBancoAzul', 'assets/fondos/pitibancoFN.png');
 
-    this.load.image('congreso', 'assets/fondos/contaminado.png');
+    this.load.image('congreso', 'assets/fondos/congresoFondo.jpg');
     
 
     //NPCS
