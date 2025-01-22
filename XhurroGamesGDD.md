@@ -95,8 +95,6 @@ Tras elegir alguna de estas opciones el jugador lanzará las 4 cartas en conjunt
   Ejemplo:
   - Si el jefe es débil a la calderilla, Primero se sumará el daño base de todas las cartas de la mano que sean de calderillas con sus puntos por cualidades( en caso de haberse seleccionado) y se multiplicará ese daño por 2. Después ese resultado se añadirá a la suma de las otras cartas.  
 
-- **Debilidades**: Cada jefe de cada zona contará con una debilidad a cierto palo.
-
 ## Tabla de Estadísticas de Enemigos
 
 | **Jefes**           | **Debilidades** |
@@ -237,8 +235,8 @@ Cada zona está basada en uno de los palos de la baraja española, siendo iguale
 **Pokemon** (sistema de combate)  
 
 ![Persona 5](assets/gdd/persona.jpg)
-**Pokemon** (sistema de combate)  
+**Persona 5** (relaciones y crítica social)  
 
 ![South Park](assets/gdd/southPark.jpg)
-**Pokemon** (sistema de combate)  
+**South Park** (Estilo artístico)  
 
