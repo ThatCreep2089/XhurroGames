@@ -692,7 +692,7 @@
                 "scale": 0.9
             },
             {
-                "name": "GATO EN CAJA",
+                "name": "GATO EN CAJA AMARILLO",
                 "x": 1.35, 
                 "y": 1.4,
                 "scale": 0.25,
@@ -957,6 +957,33 @@
 
         ]
     },
+    "pitiBancoVerde":
+    {
+        "items":
+        [
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 400,
+                "y": 150,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            }
+        ],
+        "npcs":
+        [
+            {
+                "name": "PITIBANCO VERDE",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+
+            }
+
+        ]
+    },
     "ctt":
     {
         "items":
@@ -1004,7 +1031,7 @@
                 "scale": 0.9
             },
             {
-                "name": "GATO EN CAJA",
+                "name": "GATO EN CAJA VERDE",
                 "x": 1.35, 
                 "y": 1.4,
                 "scale": 0.25,
@@ -1056,7 +1083,7 @@
         "npcs":
         [
             {
-                "name": "NICOLETA",
+                "name": "YONK",
                 "x": 3.8, 
                 "y": 1.4,
                 "scale": 0.27
@@ -1095,7 +1122,7 @@
         "npcs":
         [
             {
-                "name": "NICOLETA",
+                "name": "VALENTINO",
                 "x": 3.8, 
                 "y": 1.4,
                 "scale": 0.27
@@ -1144,7 +1171,7 @@
         "npcs":
         [
             {
-                "name": "NICOLETA",
+                "name": "JESSICA",
                 "x": 3.8, 
                 "y": 1.4,
                 "scale": 0.27
@@ -1193,7 +1220,7 @@
         "npcs":
         [
             {
-                "name": "NICOLETA",
+                "name": "KOKE",
                 "x": 3.8, 
                 "y": 1.4,
                 "scale": 0.27
@@ -1232,7 +1259,7 @@
         "npcs":
         [
             {
-                "name": "NICOLETA",
+                "name": "JUANJO",
                 "x": 3.8, 
                 "y": 1.4,
                 "scale": 0.27
@@ -1279,10 +1306,36 @@
         "npcs":
         [
             {
-                "name": "NICOLETA",
+                "name": "TONI",
                 "x": 3.8, 
                 "y": 1.4,
                 "scale": 0.27
+            }
+
+        ]
+    },
+    "pitiBancoAzul":
+    {
+        "items":
+        [
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 400,
+                "y": 150,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            }
+        ],
+        "npcs":
+        [
+            {
+                "name": "PITIBANCO AZUL",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
             }
 
         ]
@@ -1323,20 +1376,20 @@
                 "scale": 0.9
             },
             {
-                "name": "GATO EN CAJA",
+                "name": "GATO EN CAJA AZUL",
                 "x": 1.35, 
                 "y": 1.4,
                 "scale": 0.25,
                 "requisitos":
                 [
                     {
-                        "name": "JULIANA"
+                        "name": "VALENTINO"
                     },
                     {
-                        "name": "MANOLO"
+                        "name": "JESSICA"
                     },
                     {
-                        "name": "NICOLETA"
+                        "name": "TONI"
                     }
                 ]
                 
