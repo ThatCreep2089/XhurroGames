@@ -179,6 +179,16 @@
              "descripcion":"Ex-trabajador TCT",
              "edad": 40,
               "localizacion":"Cafeteria"
+        },
+        
+        {
+            "name": "Nerea",
+            "conocida": false,
+            "posx": 8,
+            "posy": 7,
+             "descripcion":"Da pistas",
+             "edad": 19,
+              "localizacion":"Xara"
         }
                 
             ]
@@ -189,6 +199,8 @@
     { "npcs":
     [
    
+       
+        
         {
             "name": "Gregorio",
             "conocida": false,
@@ -242,6 +254,15 @@
             "descripcion":"Madre haciendo yoga",
             "edad": 45,
             "localizacion":"Plaza"
+        },
+        {
+            "name": "Andrea",
+            "conocida": false,
+            "posx": 2,
+            "posy": 3,
+             "descripcion":"Da pistas",
+             "edad": 19,
+              "localizacion":"Edificio Feo"
         }
         
         
@@ -305,7 +326,17 @@
                     "descripcion":"De una banda",
                     "edad": 28,
                     "localizacion":"Plaza"
-                }
+                },
+                 
+        {
+            "name": "Victor",
+            "conocida": false,
+            "posx": 8,
+            "posy": 7,
+             "descripcion":"Da pistas",
+             "edad": 19,
+              "localizacion":"Plaza"
+        }
                    
                 
             ]
