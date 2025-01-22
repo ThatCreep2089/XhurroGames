@@ -326,7 +326,7 @@ export default class DialogueScene extends Phaser.Scene {
         let recompensa = this.dialogueJson[this.npc].recompensa;
         //console.log(recompensa);
 
-        if (this.npc == "COPAS"){
+        if (this.dialogueJson[this.npc].isBoss == true){
            // console.log(recompensa);
            // console.log(recompensa.name)
             this.addItemToScene(recompensa);

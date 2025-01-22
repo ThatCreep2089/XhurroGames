@@ -482,7 +482,7 @@ changeTurns() {
 
         //enemigo
         this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5, this.npc);
-        this.enemy.setScale(0.7);
+        this.enemy.setScale(0.5);
 
         //inventario
         this.inventory = new Inventory(this)
