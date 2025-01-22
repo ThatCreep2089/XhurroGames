@@ -32,10 +32,9 @@ init(data){
     create() {
         
         //añadimos la música del combate
-        if (!this.sound.get('combatMusic')) {
-            const music = this.sound.add('combatMusic', { volume: 0.5, loop: true });
-            music.play();
-        }
+            this.musicCombat = this.sound.add('combatMusic', { volume: 0.5, loop: true });
+            this.musicCombat.play();
+        
 
         //nos aseguramos de inicializar bien todo
         this.turn = 'player'; 
@@ -216,6 +215,7 @@ changeTurns() {
             this.events.removeListener('enemyAttack');
             this.events.removeListener('playerDamaged');
             this.events.removeListener('updateStatus');
+            this.musicCombat.stop();
             this.changeActiveButtons();
             this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
                 inventory: this.inventory.getConfigData(),
@@ -234,7 +234,7 @@ changeTurns() {
             this.events.removeListener('playerDamaged');
             this.events.removeListener('updateStatus');
             this.changeActiveButtons();
-
+            this.musicCombat.stop();
             this.player.health = 1;
 
             this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 

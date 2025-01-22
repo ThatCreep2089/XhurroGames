@@ -141,10 +141,10 @@ export default class TenfeScene extends Phaser.Scene {
                         //console.log("el metro ha llegado");//debug
                         //reemplza timer por texto
 
-                        if (!this.sound.get('avisoMetro')) {
-                            const music = this.sound.add('avisoMetro', { volume: 0.5, loop: false });
-                            music.play();
-                        }
+                        
+                            this.musicMetro = this.sound.add('avisoMetro', { volume: 0.5, loop: false });
+                            this.musicMetro.play();
+                        
 
                         this.resultText.setText('EL TREN HA LLEGADO');
                         //subir ansiedad, referencia al player inventario json dialogo...
