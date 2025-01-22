@@ -179,7 +179,7 @@ export default class DialogueScene extends Phaser.Scene {
         // Cuando se termina el dialogo...
         this.dialog.on('dialogComplete', () => {
 
-            console.log("dialogo completado")
+            //console.log("dialogo completado")
             if(this.dialogueJson[this.npc].isPitiBanco == true)
             {
                 //PORROS (BOTONES)
