@@ -370,6 +370,21 @@
         "scale": 0.5,
         "recompensa": "humildad"
     },
+    "ANDREA":{
+
+        "frases":
+        [
+            { "texto": "¿Has oído hablar del cura de la iglesia de al lado?", "author": "Ali" },
+            { "texto": "está casi al final del distrito, el cura se encuenta en ella,", "author": "Ali" },
+            { "texto": "aunque siempre actúa raro y de manera sospechosa, nadie nunca le contradice.", "author": "Ali" },
+            { "texto": "Además últimamente han desaparecido muchos niños en el barrio.", "author": "Ali" },
+            { "texto": "Creo que ha podido ser él, ojalá alguien le pare los pies.", "author": "Ali" },
+            { "texto": "Realmente es horrible lo que algunos adultos pueden llegar a hacer...", "author": "Ali" }
+        ],
+        "hablado": "false",
+        "scale": 0.3,
+        "recompensa": "agnosticismo"
+    },
     "HILARIO":{
         "frases":
         [
@@ -454,6 +469,21 @@
         "scale": 0.5,
         "recompensa": "humildad"
     },
+    "NEREA":{
+
+        "frases":
+        [
+            { "texto": "¿Has oído hablar del cura de la iglesia de al lado?", "author": "Ali" },
+            { "texto": "está casi al final del distrito, el cura se encuenta en ella,", "author": "Ali" },
+            { "texto": "aunque siempre actúa raro y de manera sospechosa, nadie nunca le contradice.", "author": "Ali" },
+            { "texto": "Además últimamente han desaparecido muchos niños en el barrio.", "author": "Ali" },
+            { "texto": "Creo que ha podido ser él, ojalá alguien le pare los pies.", "author": "Ali" },
+            { "texto": "Realmente es horrible lo que algunos adultos pueden llegar a hacer...", "author": "Ali" }
+        ],
+        "hablado": "false",
+        "scale": 0.3,
+        "recompensa": "agnosticismo"
+    },
     "JESSICA":{
         "frases":
         [
@@ -537,6 +567,21 @@
         "hablado": "false",
         "scale": 0.5,
         "recompensa": "humildad"
+    },
+    "VICTOR":{
+
+        "frases":
+        [
+            { "texto": "¿Has oído hablar del cura de la iglesia de al lado?", "author": "Ali" },
+            { "texto": "está casi al final del distrito, el cura se encuenta en ella,", "author": "Ali" },
+            { "texto": "aunque siempre actúa raro y de manera sospechosa, nadie nunca le contradice.", "author": "Ali" },
+            { "texto": "Además últimamente han desaparecido muchos niños en el barrio.", "author": "Ali" },
+            { "texto": "Creo que ha podido ser él, ojalá alguien le pare los pies.", "author": "Ali" },
+            { "texto": "Realmente es horrible lo que algunos adultos pueden llegar a hacer...", "author": "Ali" }
+        ],
+        "hablado": "false",
+        "scale": 0.3,
+        "recompensa": "agnosticismo"
     },
     "KADOR":
     {
