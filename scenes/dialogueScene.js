@@ -355,8 +355,8 @@ export default class DialogueScene extends Phaser.Scene {
 
     fumarPorroAnsiedad() 
     {
-        console.log("entra en fumar porro")
-        console.log(this.dialogueJson[this.npc].curarAnsiedad)
+        //console.log("entra en fumar porro")
+        //console.log(this.dialogueJson[this.npc].curarAnsiedad)
         if(this.dialogueJson[this.npc].curarAnsiedad == "true")
         {
             this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad

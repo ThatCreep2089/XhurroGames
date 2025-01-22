@@ -140,8 +140,8 @@ init(data){
 
         this.tweens.add({
             targets: [this.enemy],
-            scaleX: 0.5,
-            scaleY: 0.5, 
+            scaleX: 0.15,
+            scaleY: 0.15, 
             duration: 1500, 
             ease: 'Power2',
             yoyo: true,
@@ -888,6 +888,7 @@ createStadisticsText() {
         let nombres = "Información sobre el combate:\n" +
         "Ataque normal: Suma el valor de las cartas.\n" +
         "Ataque especial: Utiliza maná y multiplica las cartas\n dependiendo del nivel de la cualidad correspondiente. \n" +
+        "Con más de 40 de ansiedad, haces la mitad de daño.\n" +
         "Utiliza estos ataques con cabeza y \n ¡Buena suerte!";
 
         // Crear el texto con los nombres
