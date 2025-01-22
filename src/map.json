@@ -718,7 +718,7 @@
                 
             },
             {
-                "sprite": "pitiBancoAmarillo",
+                "sprite": "localpitiBancoAmarillo",
                 "x": 2.5,
                 "y": 1.3,
                 "width": 0.1,
@@ -1094,7 +1094,7 @@
                 
             },
             {
-                "sprite": "pitiBancoVerde",
+                "sprite": "localpitiBancoVerde",
                 "x": 3.57,
                 "y": 1.45,
                 "width": 0.1,
@@ -1470,7 +1470,7 @@
                 
             },
             {
-                "sprite": "pitiBancoAzul",
+                "sprite": "localpitiBancoAzul",
                 "x": 1.57,
                 "y": 1.3,
                 "width": 0.08,

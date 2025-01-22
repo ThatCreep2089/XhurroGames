@@ -100,7 +100,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('localization8', 'assets/edificios/iglesia.png');
 
     this.load.image('tenfeAmarillo', 'assets/edificios/tenfeC.png');
-    this.load.image('pitiBancoAmarillo', 'assets/edificios/pitiBancoC.png');
+    this.load.image('localpitiBancoAmarillo', 'assets/edificios/pitiBancoC.png');
     this.load.image('localEdifFEO', 'assets/edificios/edificioFeo.png');
     this.load.image('localPlaza', 'assets/edificios/plaza.png');
     this.load.image('localEmbajada', 'assets/edificios/embajada.png');
@@ -110,7 +110,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('localGolf', 'assets/edificios/golf.png');
 
     this.load.image('tenfeVerde', 'assets/edificios/tenfeP.png');
-    this.load.image('pitiBancoVerde', 'assets/edificios/pitiBancoP.png');
+    this.load.image('localpitiBancoVerde', 'assets/edificios/pitiBancoP.png');
     this.load.image('localCafeteria', 'assets/edificios/cafeteria.png');
     this.load.image('localColegioP', 'assets/edificios/colegioP.png');
     this.load.image('localCtt', 'assets/edificios/ctt.png');
@@ -120,7 +120,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('localZara', 'assets/edificios/zara.png');
 
     this.load.image('tenfeAzul', 'assets/edificios/tenfeN.png');
-    this.load.image('pitiBancoAzul', 'assets/edificios/pitiBancoN.png');
+    this.load.image('localpitiBancoAzul', 'assets/edificios/pitiBancoN.png');
     this.load.image('localCallejon', 'assets/edificios/callejon.png');
     this.load.image('localCarcel', 'assets/edificios/carcel.png');
     this.load.image('localComisaria', 'assets/edificios/comisaria.png');
@@ -184,7 +184,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('tenis', 'assets/fondos/tenisFondo.png');
     this.load.image('colegio', 'assets/fondos/colegioFondo.png');
     this.load.image('golf', 'assets/fondos/golfFondo.png');
-    this.load.image('pitiBancoC', 'assets/fondos/pitibancoFC.png');
+    this.load.image('pitiBancoAmarillo', 'assets/fondos/pitibancoFC.png');
 
     this.load.image('cafeteria', 'assets/fondos/cafeteria.png');
     this.load.image('colegioP', 'assets/fondos/colegioP.png');
@@ -193,7 +193,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('pizzeria', 'assets/fondos/pizzeria.png');
     this.load.image('zara', 'assets/fondos/zara.png');
     this.load.image('parking', 'assets/fondos/parking.png');
-    this.load.image('pitiBancoP', 'assets/fondos/pitibancoFP.png');
+    this.load.image('pitiBancoVerde', 'assets/fondos/pitibancoFP.png');
 
     
     this.load.image('mercadona', 'assets/fondos/mercadona.png');
@@ -203,7 +203,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('comisaria', 'assets/fondos/comisaria.png');
     this.load.image('descampado', 'assets/fondos/descampado.png');
     this.load.image('discoteca', 'assets/fondos/discoteca.png');
-    this.load.image('pitiBancoN', 'assets/fondos/pitibancoFN.png');
+    this.load.image('pitiBancoAzul', 'assets/fondos/pitibancoFN.png');
 
     this.load.image('congreso', 'assets/fondos/contaminado.png');
     
