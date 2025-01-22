@@ -189,18 +189,57 @@
         "scale": 0.5,
         "recompensa": "humildad"
     },
-    "GATO EN CAJA":{
+    "GATO EN CAJA ROJO":{
 
         "frases":
         [
-            { "texto": "Miauu, Marramau mau", "author": "Gato" },
-            { "texto": "(Ey ey pequeñe,¿Has socializado con la gente no?)", "author": "Gato" },
-            { "texto": "miiiaau marrau miau", "author": "Gato" },
-            { "texto": "Tengo algo golosón que seguro que te interesa", "author": "Gato" }
+            { "texto": "Miauu, Marramau mau", "author": "Gato rojo" },
+            { "texto": "(Ey ey pequeñe,¿Has socializado con la gente no?)", "author": "Gato rojo" },
+            { "texto": "miiiaau marrau miau", "author": "Gato rojo" },
+            { "texto": "Tengo algo golosón que seguro que te interesa", "author": "Gato rojo" }
+        ],
+        "hablado": "false",
+        "scale": 0.4,
+        "recompensa": "agnosticismo"
+    },
+    "GATO EN CAJA AMARILLO":{
+
+        "frases":
+        [
+            { "texto": "Miauu, Marramau mau", "author": "Gato amarillo" },
+            { "texto": "(Ey ey pequeñe,¿Has socializado con la gente no?)", "author": "Gato amarillo" },
+            { "texto": "miiiaau marrau miau", "author": "Gato amarillo" },
+            { "texto": "Tengo algo golosón que seguro que te interesa", "author": "Gato amarillo" }
+        ],
+        "hablado": "false",
+        "scale": 0.4,
+        "recompensa": "humildad"
+    },
+    "GATO EN CAJA VERDE":{
+
+        "frases":
+        [
+            { "texto": "Miauu, Marramau mau", "author": "Gato verde" },
+            { "texto": "(Ey ey pequeñe,¿Has socializado con la gente no?)", "author": "Gato verde" },
+            { "texto": "miiiaau marrau miau", "author": "Gato verde" },
+            { "texto": "Tengo algo golosón que seguro que te interesa", "author": "Gato verde" }
         ],
         "hablado": "false",
         "scale": 0.4,
         "recompensa": "trabajo duro"
+    },
+    "GATO EN CAJA AZUL":{
+
+        "frases":
+        [
+            { "texto": "Miauu, Marramau mau", "author": "Gato azul" },
+            { "texto": "(Ey ey pequeñe,¿Has socializado con la gente no?)", "author": "Gato azul" },
+            { "texto": "miiiaau marrau miau", "author": "Gato azul" },
+            { "texto": "Tengo algo golosón que seguro que te interesa", "author": "Gato azul" }
+        ],
+        "hablado": "false",
+        "scale": 0.4,
+        "recompensa": "afecto"
     },
     "ELLIE":{
         "frases":[
@@ -416,6 +455,132 @@
         "recompensa": "humildad"
     },
     "KADOR":
+    {
+        "frases":[
+            { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Kador" },
+            { "texto": "Toma asiento al fondo y mantente calladite.", "author": "Kador" },
+            { "texto": "No queremos que te pase nada, ¿no crees?", "author": "Kador" },
+            { "texto": "No vengo a escucharte hablar, momia andante", "author": "Elle" },
+            { "texto": "He cookeado y estoy aquí para poner fin a tu reinado de terror en este barrio.", "author": "Elle" },
+            { "texto": "Dame el trozo de constitución que tienes y huye de aquí, primera y última advertencia.", "author": "Elle" },
+            { "texto": "JAJAJAJAJA, vaya humos tienes para tener un cuerpo tan pequeño.", "author": "Kador" },
+            { "texto": "¿Realmente piensas que un niñate como tú puede derrotarme?", "author": "Kador" },
+            { "texto": "Adelante, intentalo. Tengo muchas ganas de comerte vivo.", "author": "Kador" }
+        ],
+        "victory":[
+            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Kador" },
+            { "texto": "¿Eso es todo tu poder? Hasta la monja de aquí al lado podría haberte ganado", "author": "Elle" },
+            { "texto": "Te me relajas con la humillación.", "author": "Kador" },
+            { "texto": "Toma la maldita constitución y lárgate de aquí.", "author": "Kador" },
+            { "texto": "Eso no es suficiente, debes marcharte de aquí inmediatamente.", "author": "Elle" },
+            { "texto": "Que sí, que sí. Pero que primero tengo que coger un tren y ya sabes como funciona Tenfe.", "author": "Kador" }
+        ],
+        "lose":[
+            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Kador" },
+            { "texto": "Mi victoria estaba clara, tengo a Dios de mi lado.", "author": "Kador" },
+            { "texto": "No me rendiré. Me volveré más fuerte y algún día caerás.", "author": "Kador" },
+            { "texto": "A tu casa, niñate", "author": "Kador" }
+        ],
+        "scale": 0.5,
+        "derrotado": false,
+        "isBoss": true,
+        "recompensa": 
+        { 
+            "name": "trozo",
+            "description": "trozo de constitución",
+            "effect": 0,
+            "x": 800,
+            "y": 700,
+            "amountOfEffect": 10,
+            "recogido": "false"
+        }
+        
+    },
+    "VARIN":
+    {
+        "frases":[
+            { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Kador" },
+            { "texto": "Toma asiento al fondo y mantente calladite.", "author": "Kador" },
+            { "texto": "No queremos que te pase nada, ¿no crees?", "author": "Kador" },
+            { "texto": "No vengo a escucharte hablar, momia andante", "author": "Elle" },
+            { "texto": "He cookeado y estoy aquí para poner fin a tu reinado de terror en este barrio.", "author": "Elle" },
+            { "texto": "Dame el trozo de constitución que tienes y huye de aquí, primera y última advertencia.", "author": "Elle" },
+            { "texto": "JAJAJAJAJA, vaya humos tienes para tener un cuerpo tan pequeño.", "author": "Kador" },
+            { "texto": "¿Realmente piensas que un niñate como tú puede derrotarme?", "author": "Kador" },
+            { "texto": "Adelante, intentalo. Tengo muchas ganas de comerte vivo.", "author": "Kador" }
+        ],
+        "victory":[
+            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Kador" },
+            { "texto": "¿Eso es todo tu poder? Hasta la monja de aquí al lado podría haberte ganado", "author": "Elle" },
+            { "texto": "Te me relajas con la humillación.", "author": "Kador" },
+            { "texto": "Toma la maldita constitución y lárgate de aquí.", "author": "Kador" },
+            { "texto": "Eso no es suficiente, debes marcharte de aquí inmediatamente.", "author": "Elle" },
+            { "texto": "Que sí, que sí. Pero que primero tengo que coger un tren y ya sabes como funciona Tenfe.", "author": "Kador" }
+        ],
+        "lose":[
+            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Kador" },
+            { "texto": "Mi victoria estaba clara, tengo a Dios de mi lado.", "author": "Kador" },
+            { "texto": "No me rendiré. Me volveré más fuerte y algún día caerás.", "author": "Kador" },
+            { "texto": "A tu casa, niñate", "author": "Kador" }
+        ],
+        "scale": 0.5,
+        "derrotado": false,
+        "isBoss": true,
+        "recompensa": 
+        { 
+            "name": "trozo",
+            "description": "trozo de constitución",
+            "effect": 0,
+            "x": 800,
+            "y": 700,
+            "amountOfEffect": 10,
+            "recogido": "false"
+        }
+        
+    },
+    "LUTHOR":
+    {
+        "frases":[
+            { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Kador" },
+            { "texto": "Toma asiento al fondo y mantente calladite.", "author": "Kador" },
+            { "texto": "No queremos que te pase nada, ¿no crees?", "author": "Kador" },
+            { "texto": "No vengo a escucharte hablar, momia andante", "author": "Elle" },
+            { "texto": "He cookeado y estoy aquí para poner fin a tu reinado de terror en este barrio.", "author": "Elle" },
+            { "texto": "Dame el trozo de constitución que tienes y huye de aquí, primera y última advertencia.", "author": "Elle" },
+            { "texto": "JAJAJAJAJA, vaya humos tienes para tener un cuerpo tan pequeño.", "author": "Kador" },
+            { "texto": "¿Realmente piensas que un niñate como tú puede derrotarme?", "author": "Kador" },
+            { "texto": "Adelante, intentalo. Tengo muchas ganas de comerte vivo.", "author": "Kador" }
+        ],
+        "victory":[
+            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Kador" },
+            { "texto": "¿Eso es todo tu poder? Hasta la monja de aquí al lado podría haberte ganado", "author": "Elle" },
+            { "texto": "Te me relajas con la humillación.", "author": "Kador" },
+            { "texto": "Toma la maldita constitución y lárgate de aquí.", "author": "Kador" },
+            { "texto": "Eso no es suficiente, debes marcharte de aquí inmediatamente.", "author": "Elle" },
+            { "texto": "Que sí, que sí. Pero que primero tengo que coger un tren y ya sabes como funciona Tenfe.", "author": "Kador" }
+        ],
+        "lose":[
+            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Kador" },
+            { "texto": "Mi victoria estaba clara, tengo a Dios de mi lado.", "author": "Kador" },
+            { "texto": "No me rendiré. Me volveré más fuerte y algún día caerás.", "author": "Kador" },
+            { "texto": "A tu casa, niñate", "author": "Kador" }
+        ],
+        "scale": 0.5,
+        "derrotado": false,
+        "isBoss": true,
+        "recompensa": 
+        { 
+            "name": "trozo",
+            "description": "trozo de constitución",
+            "effect": 0,
+            "x": 800,
+            "y": 700,
+            "amountOfEffect": 10,
+            "recogido": "false"
+        }
+        
+    },
+    "RAJMUR":
     {
         "frases":[
             { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Kador" },
