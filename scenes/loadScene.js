@@ -76,7 +76,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('fondo11', 'assets/fondos/fondoN2.jpeg'); //fondo 3 Zona scene
     this.load.image('fondo12', 'assets/fondos/fondoN3.jpeg'); //fondo 3 Zona scene
 
-    this.load.image('fondo13', 'assets/fondos/diputadosZona.jpg'); //fondo 3 Zona scene
+    this.load.image('fondo13', 'assets/fondos/contaminano.png'); //fondo 3 Zona scene
 
     //PLAYER
     this.load.image('player', 'assets/npc/elle.png'); //future elle
@@ -129,7 +129,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('localMercadona', 'assets/edificios/mercadona.png');
     this.load.image('localPlazaN', 'assets/edificios/plazaN.png');
 
-    this.load.image('congresoLocalization', 'assets/edificios/congreso.png');
+    this.load.image('congresoLocalization', 'assets/edificios/contaminado.png');
     
     //FLECHAS
     this.load.image('flecha', 'assets/other/flecha.png');
@@ -177,31 +177,31 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('iglesia', 'assets/fondos/iglesia.jpg');
     this.load.image('pitiBanco', 'assets/fondos/pitiBanco.jpg');
 
-    this.load.image('edifFeo', 'assets/fondos/edifFeoFondo.jpg');
-    this.load.image('plaza', 'assets/fondos/plazaFondo.jpg');
-    this.load.image('embajada', 'assets/fondos/embajadaFondo.jpg');
-    this.load.image('iglesiaPeque', 'assets/fondos/iglesiaPequeFondo.jpg');
-    this.load.image('tenis', 'assets/fondos/tenisFondo.jpg');
-    this.load.image('colegio', 'assets/fondos/colegioFondo.jpeg');
-    this.load.image('golf', 'assets/fondos/golfFondo.jpg');
+    this.load.image('edifFeo', 'assets/fondos/edifFeoFondo.png');
+    this.load.image('plaza', 'assets/fondos/plazaFondo.png');
+    this.load.image('embajada', 'assets/fondos/embajadaFondo.png');
+    this.load.image('iglesiaPeque', 'assets/fondos/iglesiaPequeFondo.png');
+    this.load.image('tenis', 'assets/fondos/tenisFondo.png');
+    this.load.image('colegio', 'assets/fondos/colegioFondo.png');
+    this.load.image('golf', 'assets/fondos/golfFondo.png');
 
-    this.load.image('cafeteria', 'assets/fondos/cafeteria.jpg');
-    this.load.image('colegioP', 'assets/fondos/colegioP.jpeg');
-    this.load.image('ctt', 'assets/fondos/ctt.jpg');
-    this.load.image('panaderia', 'assets/fondos/panaderia.jpg');
-    this.load.image('pizzeria', 'assets/fondos/pizzeria.jpg');
-    this.load.image('zara', 'assets/fondos/zara.jpg');
-    this.load.image('parking', 'assets/fondos/parking.jpeg');
+    this.load.image('cafeteria', 'assets/fondos/cafeteria.png');
+    this.load.image('colegioP', 'assets/fondos/colegioP.png');
+    this.load.image('ctt', 'assets/fondos/ctt.png');
+    this.load.image('panaderia', 'assets/fondos/panaderia.png');
+    this.load.image('pizzeria', 'assets/fondos/pizzeria.png');
+    this.load.image('zara', 'assets/fondos/zara.png');
+    this.load.image('parking', 'assets/fondos/parking.png');
 
-    this.load.image('mercadona', 'assets/fondos/mercadona.jpg');
-    this.load.image('plazaN', 'assets/fondos/plazaN.jpg');
-    this.load.image('callejon', 'assets/fondos/callejon.jpg');
-    this.load.image('carcel', 'assets/fondos/carcel.jpg');
-    this.load.image('comisaria', 'assets/fondos/comisaria.jpg');
-    this.load.image('descampado', 'assets/fondos/descampado.jpg');
-    this.load.image('discoteca', 'assets/fondos/discoteca.jpg');
+    this.load.image('mercadona', 'assets/fondos/mercadona.png');
+    this.load.image('plazaN', 'assets/fondos/plazaN.png');
+    this.load.image('callejon', 'assets/fondos/callejon.png');
+    this.load.image('carcel', 'assets/fondos/carcel.png');
+    this.load.image('comisaria', 'assets/fondos/comisaria.png');
+    this.load.image('descampado', 'assets/fondos/descampado.png');
+    this.load.image('discoteca', 'assets/fondos/discoteca.png');
 
-    this.load.image('congreso', 'assets/fondos/congresoFondo.jpg');
+    this.load.image('congreso', 'assets/fondos/contaminado.jpg');
     
 
     //NPCS
