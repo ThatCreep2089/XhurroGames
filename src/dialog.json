@@ -380,15 +380,15 @@
         "recompensa": "humildad"
     },
     "ANDREA":{
-
         "frases":
         [
-            { "texto": "¿Has oído hablar del cura de la iglesia de al lado?", "author": "Ali" },
-            { "texto": "está casi al final del distrito, el cura se encuenta en ella,", "author": "Ali" },
-            { "texto": "aunque siempre actúa raro y de manera sospechosa, nadie nunca le contradice.", "author": "Ali" },
-            { "texto": "Además últimamente han desaparecido muchos niños en el barrio.", "author": "Ali" },
-            { "texto": "Creo que ha podido ser él, ojalá alguien le pare los pies.", "author": "Ali" },
-            { "texto": "Realmente es horrible lo que algunos adultos pueden llegar a hacer...", "author": "Ali" }
+            { "texto": "Buenas compañere, si quieres hablar conmigo son 5 euritos.", "author": "Andrea" },
+            { "texto": "JAJAJA es broma, es broma. ", "author": "Andrea" },
+            { "texto": "Pero si seguimos así, esto se va a volver real. Los precios en el barrio están más caros que nunca.", "author": "Andrea" },
+            { "texto": "Y todo es culpa del gobernador. Aunque haya mucha gente que intenta convencerse de que cualquier grupo minoritario es el culpable.", "author": "Andrea" },
+            { "texto": "Mucha gente, incapaz de llegar a fin de mes o para pagar sus deudas, ha vendido sus terrenos al gobernador y ha tenido que marcharse de aquí.", "author": "Andrea" },
+            { "texto": "A mí me gustaría vivir aquí, es donde tengo toda mi vida.", "author": "Andrea" },
+            { "texto": "Pero parece ser que quieren echar a todo el mundo para que solo ellos y sus amiguitos puedan vivir aquí.", "author": "Andrea" }
         ],
         "hablado": "false",
         "scale": 0.3,
