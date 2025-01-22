@@ -62,7 +62,7 @@ let config = {
         arcade: { 
             fps: 60,         // Ajusta esto a 60 o más para mayor fluidez
             timeScale: 0.5,
-            debug: true // Aquí indicamos si queremos que Phaser pinte los cuerpos y fuerzas de los objetos con físicas
+            debug: false // Aquí indicamos si queremos que Phaser pinte los cuerpos y fuerzas de los objetos con físicas
         },
         checkCollision: {
             up: true,
