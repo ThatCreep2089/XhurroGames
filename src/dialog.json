@@ -473,12 +473,12 @@
 
         "frases":
         [
-            { "texto": "¿Has oído hablar del cura de la iglesia de al lado?", "author": "Ali" },
-            { "texto": "está casi al final del distrito, el cura se encuenta en ella,", "author": "Ali" },
-            { "texto": "aunque siempre actúa raro y de manera sospechosa, nadie nunca le contradice.", "author": "Ali" },
-            { "texto": "Además últimamente han desaparecido muchos niños en el barrio.", "author": "Ali" },
-            { "texto": "Creo que ha podido ser él, ojalá alguien le pare los pies.", "author": "Ali" },
-            { "texto": "Realmente es horrible lo que algunos adultos pueden llegar a hacer...", "author": "Ali" }
+            { "texto": "Hola amigue, perdona por las pintas que llevo ahora mismo.", "author": "Nerea" },
+            { "texto": "Acabo de terminar de trabajar mis 12 horas y no tengo muchas ganas para nada más.", "author": "Nerea" },
+            { "texto": "Aunque por aquí, estamos todos en la misma situación.", "author": "Nerea" },
+            { "texto": "Como no quedan muchos trabajos y tenemos que comer, los únicos que quedan son en la condenada CTT esa del final.", "author": "Nerea" },
+            { "texto": "Antes no era un mal sitio para trabajar, pero desde que Yusoa puso a su esbirro como CEO las jornadas se han intensificado y los salarios no paran de bajar.", "author": "Nerea" },
+            { "texto": "¿Hasta cuando continuará este sufrimiento?", "author": "Nerea" }
         ],
         "hablado": "false",
         "scale": 0.3,
@@ -487,12 +487,12 @@
     "JESSICA":{
         "frases":
         [
-            { "texto": "Susana dobla estás camisetas que las han dejado tiradas,", "author": "Susana" },
-            { "texto": "Susana recoge todos estos pares de pantalones,", "author": "Susana" },
-            { "texto": "Susana estos zapatos los han dejado descolocados, colócalos para que los clientes los vean bien,", "author": "Susana" },
-            { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
-            { "texto": "¡MADRE MIA! ¿¡CÓMO PUEDEN SER ESOS SERES HUMANOS LLAMADOS CLIENTES TAN DESORDENADOS¡?", "author": "Susana" },
-            { "texto": "Aguanta solo dos semanas más y podrás comprarle a papá esas medicaciones que necesita para el tratamiento.", "author": "Susana" }
+            { "texto": "Estos policías me la han jugado.", "author": "Jessica" },
+            { "texto": "Mi amiga está en la banda de tu ya sabes quién, yo no tengo nada que ver con ese mundillo pero a mí mi amiga me importa.", "author": "Jessica" },
+            { "texto": "La intenté convencer de dejarlo, pero ella seguía.", "author": "Jessica" },
+            { "texto": "Los policías dieron conmigo y de alguna manera me asociaron con la banda por ser su amiga.", "author": "Jessica" },
+            { "texto": "Yo no tengo nada que ver y se lo he repetido mil veces pero no me creen.", "author": "Jessica" },
+            { "texto": "Estoy muy cansada.", "author": "Jessica" }
         ],
         "hablado": "false",
         "scale": 0.5,
@@ -501,12 +501,12 @@
     "JUANJO":{
         "frases":
         [
-            { "texto": "Susana dobla estás camisetas que las han dejado tiradas,", "author": "Susana" },
-            { "texto": "Susana recoge todos estos pares de pantalones,", "author": "Susana" },
-            { "texto": "Susana estos zapatos los han dejado descolocados, colócalos para que los clientes los vean bien,", "author": "Susana" },
-            { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
-            { "texto": "¡MADRE MIA! ¿¡CÓMO PUEDEN SER ESOS SERES HUMANOS LLAMADOS CLIENTES TAN DESORDENADOS¡?", "author": "Susana" },
-            { "texto": "Aguanta solo dos semanas más y podrás comprarle a papá esas medicaciones que necesita para el tratamiento.", "author": "Susana" }
+            { "texto": "Yo me reformé, ¿sabes?", "author": "Juanjo" },
+            { "texto": "Antes era miembro de la banda de ya tu sabes quién, pero lo dejé.", "author": "Juanjo" },
+            { "texto": "Quería ganar dinero de forma legal, sin tener que vender nada en callejones oscuros.", "author": "Juanjo" },
+            { "texto": "En un principio costó porque tenía mis hábitos que desentonaban.", "author": "Juanjo" },
+            { "texto": "Pero volví a los estudios.", "author": "Juanjo" },
+            { "texto": "Y mientras me saco un título, consigo dinero trabajando.", "author": "Juanjo" }
         ],
         "hablado": "false",
         "scale": 0.5,
@@ -529,12 +529,12 @@
     "TONI":{
         "frases":
         [
-            { "texto": "Susana dobla estás camisetas que las han dejado tiradas,", "author": "Susana" },
-            { "texto": "Susana recoge todos estos pares de pantalones,", "author": "Susana" },
-            { "texto": "Susana estos zapatos los han dejado descolocados, colócalos para que los clientes los vean bien,", "author": "Susana" },
-            { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
-            { "texto": "¡MADRE MIA! ¿¡CÓMO PUEDEN SER ESOS SERES HUMANOS LLAMADOS CLIENTES TAN DESORDENADOS¡?", "author": "Susana" },
-            { "texto": "Aguanta solo dos semanas más y podrás comprarle a papá esas medicaciones que necesita para el tratamiento.", "author": "Susana" }
+            { "texto": "Colega, ¿Quieres una carta de Pokemen?", "author": "Toni" },
+            { "texto": "Los alquileres están muy mal", "author": "Toni" },
+            { "texto": "Y bueno, vendiendo cartas fullart y legendarias...", "author": "Toni" },
+            { "texto": "Puedo sacarme unas pelas y meterlas en un fondo de ahorros.", "author": "Toni" },
+            { "texto": "Consigo una miseria, no te voy a mentir", "author": "Toni" },
+            { "texto": "Pero por algo hay que empezar.", "author": "Toni" }
         ],
         "hablado": "false",
         "scale": 0.5,
@@ -543,12 +543,14 @@
     "VALENTINO":{
         "frases":
         [
-            { "texto": "Susana dobla estás camisetas que las han dejado tiradas,", "author": "Susana" },
-            { "texto": "Susana recoge todos estos pares de pantalones,", "author": "Susana" },
-            { "texto": "Susana estos zapatos los han dejado descolocados, colócalos para que los clientes los vean bien,", "author": "Susana" },
-            { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
-            { "texto": "¡MADRE MIA! ¿¡CÓMO PUEDEN SER ESOS SERES HUMANOS LLAMADOS CLIENTES TAN DESORDENADOS¡?", "author": "Susana" },
-            { "texto": "Aguanta solo dos semanas más y podrás comprarle a papá esas medicaciones que necesita para el tratamiento.", "author": "Susana" }
+            { "texto": "¿Por qué tuvo que ser él? ¿Por qué tuve que ser yo?", "author": "Valentino" },
+            { "texto": "Hace 10 años en la academia de policías tenía un amigo, mi mejor amigo Valerio.", "author": "Valentino" },
+            { "texto": "Juntos éramos los mejores del cuerpo, atrapábamos siempre a los culpables.", "author": "Valentino" },
+            { "texto": "Pero después de un caso donde murió una joven inocente, los dos nos empezamos a distanciar.", "author": "Valentino" },
+            { "texto": "Él empezó a cambiar, quería seguir ejerciendo justicia pero de una forma totalmente diferente.", "author": "Valentino" },
+            { "texto": "Uniéndose a una banda.", "author": "Valentino" },
+            { "texto": "Intenté detenerle pero no sirvió para nada, y al final me tocó encarcelarle.", "author": "Valentino" },
+            { "texto": "Cuanto echo de menos nuestros momentos en la academia.", "author": "Valentino" }
         ],
         "hablado": "false",
         "scale": 0.5,
@@ -557,12 +559,12 @@
     "YONK":{
         "frases":
         [
-            { "texto": "Susana dobla estás camisetas que las han dejado tiradas,", "author": "Susana" },
-            { "texto": "Susana recoge todos estos pares de pantalones,", "author": "Susana" },
-            { "texto": "Susana estos zapatos los han dejado descolocados, colócalos para que los clientes los vean bien,", "author": "Susana" },
-            { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
-            { "texto": "¡MADRE MIA! ¿¡CÓMO PUEDEN SER ESOS SERES HUMANOS LLAMADOS CLIENTES TAN DESORDENADOS¡?", "author": "Susana" },
-            { "texto": "Aguanta solo dos semanas más y podrás comprarle a papá esas medicaciones que necesita para el tratamiento.", "author": "Susana" }
+            { "texto": "Yo antes tenía familia, mi hermana Xon y me hermano Can.", "author": "Yonk" },
+            { "texto": "Éramos los tres contra el mundo, teníamos padres pero nos abandonaron cuando yo era pequeño.", "author": "Yonk" },
+            { "texto": "Un día unos hombres vinieron y querían saldar cuentas con nuestros padres,", "author": "Yonk" },
+            { "texto": "nosotros no teníamos ni idea de donde estaban, casi ni les recordábamos.", "author": "Yonk" },
+            { "texto": "No valiéndoles esa respuesta saldaron cuentas con mis hermanos. Solo quedé yo.", "author": "Yonk" },
+            { "texto": "A partir de ahí, caí en una espiral consumiendo drogas y bueno, aquí estoy, sobreviviendo.", "author": "Yonk" }
         ],
         "hablado": "false",
         "scale": 0.5,
@@ -572,12 +574,15 @@
 
         "frases":
         [
-            { "texto": "¿Has oído hablar del cura de la iglesia de al lado?", "author": "Ali" },
-            { "texto": "está casi al final del distrito, el cura se encuenta en ella,", "author": "Ali" },
-            { "texto": "aunque siempre actúa raro y de manera sospechosa, nadie nunca le contradice.", "author": "Ali" },
-            { "texto": "Además últimamente han desaparecido muchos niños en el barrio.", "author": "Ali" },
-            { "texto": "Creo que ha podido ser él, ojalá alguien le pare los pies.", "author": "Ali" },
-            { "texto": "Realmente es horrible lo que algunos adultos pueden llegar a hacer...", "author": "Ali" }
+            { "texto": "Ey, pane, ¿Cómo te va todo?", "author": "Victor" },
+            { "texto": "No me suenas mucho y por aquí todos nos conocemos, por la cuenta que nos trae. Seguro que eres nuevo.", "author": "Victor" },
+            { "texto": "Oye, pues ten mucho cuidado por donde vas y por cuál calles caminas.", "author": "Victor" },
+            { "texto": "Nunca sabes si te puedes encontrar a alguno de la banda.", "author": "Victor" },
+            { "texto": "No te digo el nombre que sino el muerto acabo siendo yo.", "author": "Victor" },
+            { "texto": "¡Ah!, y por nada del mundo vayas a la discoteca del final.", "author": "Victor" },
+            { "texto": "Se rumorea que el jefe de la banda tiene ahí sus cuarteles.", "author": "Victor" },
+            { "texto": "La música está bien, pero no vale unas cuantas puñaladas.", "author": "Victor" },
+            { "texto": "Ale chao, yo no te he dicho nada.", "author": "Victor" }
         ],
         "hablado": "false",
         "scale": 0.3,
