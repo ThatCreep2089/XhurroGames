@@ -107,7 +107,6 @@ Tras elegir alguna de estas opciones el jugador lanzará las 4 cartas en conjunt
 | **Jefe Copas**      | Navajas         |
 
 
-
 ## 5. Diseño de niveles
 
 “Yusoa es ley” cuenta con cuatro zonas distintas, cada una basada en los cuatro distintos palos de la baraja española, interconectadas con TENFE.
@@ -221,16 +220,17 @@ Cada zona está basada en uno de los palos de la baraja española, siendo iguale
 | Zona Botellín    | Zona con tonos rojizos, con lugares religiosos                                | Aravaca / Madrid Oeste       |
 
 
+
 ### 9.3. Personajes Principales
 | **NOMBRE**          | **DESCRIPCIÓN**                                                                                          | **DISEÑO/IMAGEN** |
 |---------------------|----------------------------------------------------------------------------------------------------------|-------------------|
 | **Elle**            | Protagonista del juego. Aparece en Madrizz y decide derrocar al régimen corrupto.                        |     ![Elle](assets/npc/elle.png)                 |
 | **Ellie**           | Personaje secundario. Introduce el mundo a “Elle” y lidera en las sombras la resistencia (Luciérnagas). Mientras que Elle se encuentra luchando con los secuaces en cada zona y contra Yusoa, Ellie va ganando adeptos a su causa para organizar un levantamiento popular contra el régimen. |                   |
 | **Yusoa**           | Enemigo final. Fue quien dividió Madrizz en las 4 zonas y guarda el poder absoluto.                       |    ![Yusoa](assets/npc/yusoa.png)                 |
-| **Boss Oros** | Secuaz de Yusoa. Clasista.                                                                                 | ![Oros](assets/gdd/siluetaOros.png)                  |
-| **Boss Espadas**    | Secuaz de Yusoa. Sanguinario.                                                                              |  ![Espadas](assets/gdd/siluetaEspadas.png)                        |
-| **Boss Bastos**     | Secuaz de Yusoa. Avaricioso.                                                                               | ![Bastos](assets/gdd/siluetaBastos.png)                         |
-| **Boss Copas**   | Secuaz de Yusoa. Egocéntrico.                                                                              |    ![Copas](assets/gdd/siluetaCopas.png)               |
+| **Boss Oros** | Varin.Secuaz de Yusoa. Clasista.                                                                                 | ![Oros](assets/gdd/siluetaOros.png)                  |
+| **Boss Espadas**    | Luthor.Secuaz de Yusoa. Sanguinario.                                                                              |  ![Espadas](assets/gdd/siluetaEspadas.png)                        |
+| **Boss Bastos**     | Rajmur.Secuaz de Yusoa. Avaricioso.                                                                               | ![Bastos](assets/gdd/siluetaBastos.png)                         |
+| **Boss Copas**   | Kador.Secuaz de Yusoa. Egocéntrico.                                                                              |    ![Copas](assets/gdd/siluetaCopas.png)               |
 
 ## 10. Referencias
 ![Pokemon](assets/gdd/pokemon.jpg)

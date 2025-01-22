@@ -50,7 +50,9 @@ export default class loadScene extends Phaser.Scene {
       );
     });
 
-   
+    //FONDO YUSOA
+
+   this.load.image('contamFondo', 'assets/fondos/contaminado.png');// fondo tenfe
 
    
     //FONDO TENFE
