@@ -255,7 +255,7 @@ export default class localizationScene extends Phaser.Scene
         var arrow = this.add.image(
             this.sys.game.canvas.width /npc.x,
             this.sys.game.canvas.height / 2.5, 
-            'arrow')
+            'flechaR')
             .setScale(0.2, 0.1);
         this.arrows.add(arrow);
 
