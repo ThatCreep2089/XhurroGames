@@ -129,11 +129,13 @@ export default class localizationScene extends Phaser.Scene
                 }
                 else
                 {
+                    
                     // SUBIR ANSIEDAD
-                if(this.npcTalk == 'GATO EN CAJA')
+                    let npc = mode.npcs.find(n => n.name === this.npcTalk);
+                    if(npc && npc.isCat == true)
                     {
                         //verificar si tiene lo que hay q tener
-                        const { cumplidos, noCumplidos } = this.requisitosGato(mode);
+                        const { cumplidos, noCumplidos } = this.requisitosGato(npc);
     
                         if (noCumplidos.length > 0)
                         {
@@ -333,15 +335,15 @@ export default class localizationScene extends Phaser.Scene
     }
 
     //verificar si el jugador cumple los requisitos para hablar con el gato
-    requisitosGato(mode)
+    requisitosGato(npc)
     {
         //busco al gato
-        const gatoEnCaja = mode.npcs.find(npc => npc.name == "GATO EN CAJA");
+        //const gatoEnCaja = mode.npcs.find(npc => npc.name == "GATO EN CAJA");
         
         const cumplidos = [];
         const noCumplidos = [];
 
-        gatoEnCaja.requisitos.forEach(requisito => {
+        npc.requisitos.forEach(requisito => {
             //si no ha hablado -> salir directamente
             if (this.dialogueJson[requisito.name].hablado == "true")
             {
