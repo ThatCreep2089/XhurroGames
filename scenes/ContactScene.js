@@ -46,7 +46,7 @@ init(data){
    }
   
    //creacion de rectangulos
-   CrearRect(x,y,w,h,color,origen)
+   CreateRect(x,y,w,h,color,origen)
    {
       let rect= this.add.rectangle(x,y,w,h,color,origen);
        return rect;
@@ -71,7 +71,7 @@ init(data){
    }
 
    //creacion de textos
-   CrearText(x,y,string)
+   CreateText(x,y,string)
    {
     let text=this.add.text(x,y,string,{
 
@@ -83,7 +83,21 @@ init(data){
     text.setVisible(false);  
     return text;
    }
+ //determina si hemos hablado con un npc
+Talked(npc)
+ {
+  let name = npc.name.toUpperCase(); //guardar nombre del npc en mayusculas
 
+  let npcOb = this.dialogueJson[name]; //acceder al objeto npc especifico del dialogo json
+
+
+  if(npcOb.hablado == "true")
+  {
+      
+      let contacto = npc.name; // La imagen se toma del nombre del NPC
+      this.addContactToScene(npc, contacto);
+  }
+ }
     create(data) {
 
         //pintamos el fondo
@@ -107,23 +121,24 @@ init(data){
      this.rects=[];
      this.textos=[];
    //set visible false
-   this.rect0 = this.CrearRect(950, 600, 900, 400, 0xf6f6f6).setOrigin(0.5) // Fondo del texto
+   this.rect0 = this.CreateRect(950, 600, 900, 400, 0xf6f6f6).setOrigin(0.5) // Fondo del texto
    this.rects.push(this.rect0);
 
-   this.rect = this.CrearRect(1350, 750, 50, 50, 0xff0000).setInteractive(); // Botón cerrar
+   this.rect = this.CreateRect(1350, 750, 50, 50, 0xff0000).setInteractive(); // Botón cerrar
    this.rects.push(this.rect);
    this.RectVisivility(0,1,false);
 
    //Texto con descripciones inicialmente vacios
-   this.texto = this.CrearText(950, 500, "");
+   this.texto = this.CreateText(950, 500, "");
    this.textos.push( this.texto);
-   this.texto2 = this.CrearText(950, 550, "");
+   this.texto2 = this.CreateText(950, 550, "");
    this.textos.push( this.texto2);
-   this.texto3 = this.CrearText(950, 650, "");
+   this.texto3 = this.CreateText(950, 650, "");
    this.textos.push( this.texto3);
-   this.texto4 = this.CrearText(950, 600, "");
+   this.texto4 = this.CreateText(950, 600, "");
    this.textos.push( this.texto4);
     
+  
     this.rect.on('pointerdown', () => {
         // Ocultar todos los elementos al cerrar el rect de cerrar
         this.RectVisivility(0,1,false);
@@ -133,30 +148,18 @@ init(data){
         //BARRIO: BOTELLIN
         if(this.barrio == 1)
             {  
-                const obrero = jsonObject["botellin"];
-                obrero.npcs.forEach(npc => {
-                    let name = npc.name.toUpperCase(); //guardar nombre del npc en mayusculas
-
-                    let npcOb = this.dialogueJson[name]; //acceder al objeto npc especifico del dialogo json
-
-
-                    if(npcOb.hablado == "true")
-                    {
-                        
-                        contacto = npc.name; // La imagen se toma del nombre del NPC
-                        this.addContactToScene(npc, contacto);
-                    }
+                const botellin = jsonObject["botellin"];
+                botellin.npcs.forEach(npc => {
+                   
+                    this.Talked(npc);
                 });
             }
 
         //BARRIO: PORRAS
             else if(this.barrio == 2)
-            {const religioso = jsonObject["porras"];
-                religioso.npcs.forEach(npc => {
-                if (npc.conocida) { // Comprobar si este NPC es conocido
-                    contacto = npc.name; // La imagen se toma del nombre del NPC
-                    this.addContactToScene(npc, contacto);
-                }
+            {const porras = jsonObject["porras"];
+                porras.npcs.forEach(npc => {
+                    this.Talked(npc);
                 
             });
     
@@ -166,24 +169,16 @@ init(data){
             {
                 const navajas = jsonObject["navajas"];
                 navajas.npcs.forEach(npc => {
-                if (npc.conocida) { // Comprobar si este NPC es conocido
-                    contacto = npc.name; // La imagen se toma del nombre del NPC
-                    this.addContactToScene(npc, contacto);
-                }
-                
+                    this.Talked(npc);
             });
     
             }
         //BARRIO: CALDERILLA
             else if(this.barrio == 4)
             {
-                const dinero = jsonObject["calderilla"];
-                dinero.npcs.forEach(npc => {
-                if (npc.conocida) { // Comprobar si este NPC es conocido
-                    contacto = npc.name; // La imagen se toma del nombre del NPC
-                    this.addContactToScene(npc, contacto);
-                }
-                
+                const calderilla = jsonObject["calderilla"];
+                calderilla.npcs.forEach(npc => {
+                    this.Talked(npc);
             });
             }
           
@@ -215,7 +210,9 @@ init(data){
         npcs.posx* (this.sys.game.canvas.width / 16),
         npcs.posy*(this.sys.game.canvas.height / 9), 
         contacto // Imagen asociada
+        
     )
+
     .setOrigin(0.5, 0.5)
     .setScale(0.5)
     .setInteractive();
