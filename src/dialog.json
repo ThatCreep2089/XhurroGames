@@ -314,7 +314,7 @@
         ],
         "hablado": "false",
         "scale": 0.5,
-        "recompensa": "humildad"
+        "recompensa": "agnosticismo"
     },
     "ADELINA":{
         "frases":
@@ -329,7 +329,7 @@
         ],
         "hablado": "false",
         "scale": 0.5,
-        "recompensa": "humildad"
+        "recompensa": "afecto"
     },
     "CAYETANA":{
         "frases":
@@ -362,7 +362,7 @@
         ],
         "hablado": "false",
         "scale": 0.5,
-        "recompensa": "humildad"
+        "recompensa": "trabajo duro"
     },
     "KAREN":{
         "frases":
@@ -406,7 +406,7 @@
         ],
         "hablado": "false",
         "scale": 0.5,
-        "recompensa": "humildad"
+        "recompensa": "afecto"
     },
     "JULIANA":{
         "frases":
@@ -421,7 +421,7 @@
         ],
         "hablado": "false",
         "scale": 0.5,
-        "recompensa": "humildad"
+        "recompensa": "trabajo duro"
     },
     "MANOLO":{
         "frases":
@@ -449,7 +449,7 @@
         ],
         "hablado": "false",
         "scale": 0.5,
-        "recompensa": "humildad"
+        "recompensa": "agnosticismo"
     },
     "NICOLETA":{
         "frases":
@@ -462,7 +462,7 @@
         ],
         "hablado": "false",
         "scale": 0.5,
-        "recompensa": "humildad"
+        "recompensa": "afecto"
     },
     "SUSANA":{
         "frases":
@@ -476,7 +476,7 @@
         ],
         "hablado": "false",
         "scale": 0.5,
-        "recompensa": "humildad"
+        "recompensa": "trabajo duro"
     },
     "NEREA":{
 
@@ -519,7 +519,7 @@
         ],
         "hablado": "false",
         "scale": 0.5,
-        "recompensa": "humildad"
+        "recompensa": "afecto"
     },
     "KOKE":{
         "frases":
@@ -533,7 +533,7 @@
         ],
         "hablado": "false",
         "scale": 0.5,
-        "recompensa": "humildad"
+        "recompensa": "trabajo duro"
     },
     "TONI":{
         "frases":
@@ -563,7 +563,7 @@
         ],
         "hablado": "false",
         "scale": 0.5,
-        "recompensa": "humildad"
+        "recompensa": "agnosticismo"
     },
     "YONK":{
         "frases":
@@ -577,7 +577,7 @@
         ],
         "hablado": "false",
         "scale": 0.5,
-        "recompensa": "humildad"
+        "recompensa": "afecto"
     },
     "VICTOR":{
 
@@ -597,7 +597,7 @@
         "scale": 0.3,
         "recompensa": "agnosticismo"
     },
-    "KADOR":
+   "KADOR":
     {
         "frases":[
             { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Kador" },
@@ -642,29 +642,65 @@
     "VARIN":
     {
         "frases":[
-            { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Kador" },
-            { "texto": "Toma asiento al fondo y mantente calladite.", "author": "Kador" },
-            { "texto": "No queremos que te pase nada, ¿no crees?", "author": "Kador" },
-            { "texto": "No vengo a escucharte hablar, momia andante", "author": "Elle" },
-            { "texto": "He cookeado y estoy aquí para poner fin a tu reinado de terror en este barrio.", "author": "Elle" },
-            { "texto": "Dame el trozo de constitución que tienes y huye de aquí, primera y última advertencia.", "author": "Elle" },
-            { "texto": "JAJAJAJAJA, vaya humos tienes para tener un cuerpo tan pequeño.", "author": "Kador" },
-            { "texto": "¿Realmente piensas que un niñate como tú puede derrotarme?", "author": "Kador" },
-            { "texto": "Adelante, intentalo. Tengo muchas ganas de comerte vivo.", "author": "Kador" }
+            { "texto": "Buenos días, ¿As venido a jugar una partida al golf?", "author": "Varin" },
+            { "texto": "¿O a quejarte como todos por la subida de precios?", "author": "Varin" },
+            { "texto": "No vengo a jugar una partida contigo", "author": "Kador" },
+            { "texto": "¿No? JAJAJAJ ", "author": "Varin" },
+            { "texto": " Vengo a que devuelvas las tierras que obligaste a los vecinos a vender por TU subida de precios", "author": "Elle" },
+            { "texto": "VENGA PAJARRACO A LUCHAR", "author": "Elle" },
+            { "texto": "Menudos modales tchtchcth", "author": "Varin" },
+            { "texto": "¡Atácame si puedes!", "author": "Varin" }
         ],
         "victory":[
-            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Kador" },
-            { "texto": "¿Eso es todo tu poder? Hasta la monja de aquí al lado podría haberte ganado", "author": "Elle" },
-            { "texto": "Te me relajas con la humillación.", "author": "Kador" },
-            { "texto": "Toma la maldita constitución y lárgate de aquí.", "author": "Kador" },
-            { "texto": "Eso no es suficiente, debes marcharte de aquí inmediatamente.", "author": "Elle" },
-            { "texto": "Que sí, que sí. Pero que primero tengo que coger un tren y ya sabes como funciona Tenfe.", "author": "Kador" }
+            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Varin" },
+            { "texto": "Prepara las alas que vas a tener otra forma, una redonda", "author": "Elle" },
+            { "texto": "Te tenia que haber picoteado más tch", "author": "Varin" },
+            { "texto": "Toma este papel y fuera de mi campo", "author": "Varin"},
+            { "texto": "Timi isti pipil y firi di mi cimpi", "author": "Elle" },
+            { "texto": "¡Serás!", "author": "Varin" }
         ],
         "lose":[
-            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Kador" },
-            { "texto": "Mi victoria estaba clara, tengo a Dios de mi lado.", "author": "Kador" },
-            { "texto": "No me rendiré. Me volveré más fuerte y algún día caerás.", "author": "Kador" },
-            { "texto": "A tu casa, niñate", "author": "Kador" }
+            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Varin" },
+            { "texto": "Ni me has rozado", "author": "Varin"  },
+            { "texto": "La bola claramente a entrado en el hoyo, me declaro vencedor", "author": "Varin" },
+            { "texto": "A llorar fuera del campo que se desvían las bolas de su trayectoria", "author": "Varin" }
+        ],
+        "scale": 0.5,
+        "derrotado": false,
+        "isBoss": true,
+        "recompensa": 
+        { 
+            "name": "trozo",
+            "description": "trozo de constitución",
+            "effect": 0,
+            "x": 800,
+            "y": 700,
+            "amountOfEffect": 10,
+            "recogido": "false"
+        }
+
+    },
+    "RAJMUR":
+    {
+        "frases":[
+            { "texto": "Venga tu, que estas haciendo el vago a trabajar", "author": "Luthor" },
+            { "texto": "¿No me has escuchado?, ¡Que mi riqueza no se crea sola!", "author": "Luthor" },
+            { "texto": "Como puedes explotar a tus trabajadores y darles tan malos tratos", "author": "Elle" },
+            { "texto": "Para que tú te quedes con todo ", "author": "Elle" },
+            { "texto": "JAJAJA todo y todos son mios", "author": "Luthor" },
+            { "texto": "vamos a cambiar eso , ¡LUCHA!", "author": "Elle" }
+        ],
+        "victory":[
+            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Luthor"},
+            { "texto": "Ahora sentirás lo que han sentido tus trabajadores", "author": "Elle" },
+            { "texto": "¡No, no puede ser!", "author": "Luthor"},
+            { "texto": "Coge esto y vete ya, no te soporto", "author": "Elle"}
+        ],
+        "lose":[
+            { "texto": "Bueno bueno tenemos otro trabajador más", "author": "Luthor" },
+            { "texto": "Contigo mi fortuna aumentará bastante", "author": "Luthor" },
+            { "texto": "Va a hacer turnos de 15 Horas JAJAJA", "author": "Luthor" }
+           
         ],
         "scale": 0.5,
         "derrotado": false,
@@ -684,29 +720,26 @@
     "LUTHOR":
     {
         "frases":[
-            { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Kador" },
-            { "texto": "Toma asiento al fondo y mantente calladite.", "author": "Kador" },
-            { "texto": "No queremos que te pase nada, ¿no crees?", "author": "Kador" },
-            { "texto": "No vengo a escucharte hablar, momia andante", "author": "Elle" },
-            { "texto": "He cookeado y estoy aquí para poner fin a tu reinado de terror en este barrio.", "author": "Elle" },
-            { "texto": "Dame el trozo de constitución que tienes y huye de aquí, primera y última advertencia.", "author": "Elle" },
-            { "texto": "JAJAJAJAJA, vaya humos tienes para tener un cuerpo tan pequeño.", "author": "Kador" },
-            { "texto": "¿Realmente piensas que un niñate como tú puede derrotarme?", "author": "Kador" },
-            { "texto": "Adelante, intentalo. Tengo muchas ganas de comerte vivo.", "author": "Kador" }
+            { "texto": "¿EH tu has venido a unirte a mi banda?", "author": "Luthor" },
+            { "texto": "¡Aprovecha que hoy me siento generoso JAJAJAJA!", "author": "Luthor" },
+            { "texto": "Ni de broma me gustaría que me asociasen contigo", "author": "Elle" },
+            { "texto": "Estas causando violencia y drogadiccion a la gente por tus crimenes ", "author": "Elle" },
+            { "texto": "¡Qué se hubiesen unido a mi JAJAJAJA!", "author": "Luthor" },
+            { "texto": "LUCHA CONTRA MI", "author": "Elle" },
+            { "texto": "Demuestrame de que pasta estas heche chaval", "author": "Luthor" }
         ],
         "victory":[
-            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Kador" },
-            { "texto": "¿Eso es todo tu poder? Hasta la monja de aquí al lado podría haberte ganado", "author": "Elle" },
-            { "texto": "Te me relajas con la humillación.", "author": "Kador" },
-            { "texto": "Toma la maldita constitución y lárgate de aquí.", "author": "Kador" },
-            { "texto": "Eso no es suficiente, debes marcharte de aquí inmediatamente.", "author": "Elle" },
-            { "texto": "Que sí, que sí. Pero que primero tengo que coger un tren y ya sabes como funciona Tenfe.", "author": "Kador" }
+            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Luthor"},
+            { "texto": "Soy más resistente que tú", "author": "Elle" },
+            { "texto": "!Enfréntate a mi otra vez!", "author": "Luthor"},
+            { "texto": "Deja a la gente en paz y vete con tu banda", "author": "Elle"},
+            { "texto": "Toma estó y lárgate", "author": "Luthor"}
         ],
         "lose":[
-            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Kador" },
-            { "texto": "Mi victoria estaba clara, tengo a Dios de mi lado.", "author": "Kador" },
-            { "texto": "No me rendiré. Me volveré más fuerte y algún día caerás.", "author": "Kador" },
-            { "texto": "A tu casa, niñate", "author": "Kador" }
+            { "texto": "YO SOY MÁS DURO", "author": "Luthor" },
+            { "texto": "YO SOY MEJOR", "author": "Luthor" },
+            { "texto": "LARGATE ANTES DE QUE TE DE OTRA PALIZA", "author": "Luthor" }
+
         ],
         "scale": 0.5,
         "derrotado": false,
@@ -721,49 +754,7 @@
             "amountOfEffect": 10,
             "recogido": "false"
         }
-        
-    },
-    "RAJMUR":
-    {
-        "frases":[
-            { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Kador" },
-            { "texto": "Toma asiento al fondo y mantente calladite.", "author": "Kador" },
-            { "texto": "No queremos que te pase nada, ¿no crees?", "author": "Kador" },
-            { "texto": "No vengo a escucharte hablar, momia andante", "author": "Elle" },
-            { "texto": "He cookeado y estoy aquí para poner fin a tu reinado de terror en este barrio.", "author": "Elle" },
-            { "texto": "Dame el trozo de constitución que tienes y huye de aquí, primera y última advertencia.", "author": "Elle" },
-            { "texto": "JAJAJAJAJA, vaya humos tienes para tener un cuerpo tan pequeño.", "author": "Kador" },
-            { "texto": "¿Realmente piensas que un niñate como tú puede derrotarme?", "author": "Kador" },
-            { "texto": "Adelante, intentalo. Tengo muchas ganas de comerte vivo.", "author": "Kador" }
-        ],
-        "victory":[
-            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Kador" },
-            { "texto": "¿Eso es todo tu poder? Hasta la monja de aquí al lado podría haberte ganado", "author": "Elle" },
-            { "texto": "Te me relajas con la humillación.", "author": "Kador" },
-            { "texto": "Toma la maldita constitución y lárgate de aquí.", "author": "Kador" },
-            { "texto": "Eso no es suficiente, debes marcharte de aquí inmediatamente.", "author": "Elle" },
-            { "texto": "Que sí, que sí. Pero que primero tengo que coger un tren y ya sabes como funciona Tenfe.", "author": "Kador" }
-        ],
-        "lose":[
-            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Kador" },
-            { "texto": "Mi victoria estaba clara, tengo a Dios de mi lado.", "author": "Kador" },
-            { "texto": "No me rendiré. Me volveré más fuerte y algún día caerás.", "author": "Kador" },
-            { "texto": "A tu casa, niñate", "author": "Kador" }
-        ],
-        "scale": 0.5,
-        "derrotado": false,
-        "isBoss": true,
-        "recompensa": 
-        { 
-            "name": "trozo",
-            "description": "trozo de constitución",
-            "effect": 0,
-            "x": 800,
-            "y": 700,
-            "amountOfEffect": 10,
-            "recogido": "false"
-        }
-        
+
     },
     "PITIBANCO ROJO":{
         "frases":[
