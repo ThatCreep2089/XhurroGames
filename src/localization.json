@@ -293,6 +293,7 @@
                 "x": 1.35, 
                 "y": 1.4,
                 "scale": 0.25,
+                "isCat": true,
                 "requisitos":
                 [
                     {
@@ -696,6 +697,7 @@
                 "x": 1.35, 
                 "y": 1.4,
                 "scale": 0.25,
+                "isCat": true,
                 "requisitos":
                 [
                     {
@@ -1035,6 +1037,7 @@
                 "x": 1.35, 
                 "y": 1.4,
                 "scale": 0.25,
+                "isCat": true,
                 "requisitos":
                 [
                     {
@@ -1380,6 +1383,7 @@
                 "x": 1.35, 
                 "y": 1.4,
                 "scale": 0.25,
+                "isCat": true,
                 "requisitos":
                 [
                     {
