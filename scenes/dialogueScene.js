@@ -241,7 +241,7 @@ export default class DialogueScene extends Phaser.Scene {
             const backScene = this.add.image(
                 this.sys.game.canvas.width / 12,
                 this.sys.game.canvas.height / 2, 
-                'flecha')
+                'flechaM')
             .setScale(-0.3, 0.3)
             .setInteractive()
             .on('pointerdown', () => 
