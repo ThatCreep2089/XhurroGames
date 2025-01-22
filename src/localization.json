@@ -283,10 +283,10 @@
         "npcs":
         [
             {
-                "name": "COPAS",
+                "name": "KADOR",
                 "x": 3.8, 
                 "y": 1.4,
-                "scale": 0.9
+                "scale": 0.4
             },
             {
                 "name": "GATO EN CAJA",
@@ -686,10 +686,10 @@
         "npcs":
         [
             {
-                "name": "COPAS",
+                "name": "VARIN",
                 "x": 3.8, 
                 "y": 1.4,
-                "scale": 0.9
+                "scale": 0.4
             },
             {
                 "name": "GATO EN CAJA AMARILLO",
@@ -1025,10 +1025,10 @@
         "npcs":
         [
             {
-                "name": "COPAS",
+                "name": "RAJMUR",
                 "x": 3.8, 
                 "y": 1.4,
-                "scale": 0.9
+                "scale": 0.3
             },
             {
                 "name": "GATO EN CAJA VERDE",
@@ -1370,10 +1370,10 @@
         "npcs":
         [
             {
-                "name": "COPAS",
+                "name": "LUTHOR",
                 "x": 3.8, 
                 "y": 1.4,
-                "scale": 0.9
+                "scale": 0.4
             },
             {
                 "name": "GATO EN CAJA AZUL",

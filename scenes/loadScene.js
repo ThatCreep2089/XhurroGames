@@ -52,7 +52,7 @@ export default class loadScene extends Phaser.Scene {
 
     //FONDO YUSOA
 
-   this.load.image('contamFondo', 'assets/fondos/contaminado.png');// fondo tenfe
+   this.load.image('fondo13', 'assets/fondos/contaminado.png');// fondo tenfe
 
    
     //FONDO TENFE
@@ -250,6 +250,11 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('GATO EN CAJA AMARILLO', 'assets/npc/gatoC.png');
     this.load.image('GATO EN CAJA VERDE', 'assets/npc/gatoP.png');
     this.load.image('GATO EN CAJA AZUL', 'assets/npc/gatoN.png');
+
+    this.load.image('VARIN', 'assets/gdd/siluetaOros.png');
+    this.load.image('LUTHOR', 'assets/gdd/siluetaEspadas.png');
+    this.load.image('KADOR', 'assets/gdd/siluetaCopas.png');
+    this.load.image('RAJMUR', 'assets/gdd/siluetaBastos.png');
 
 
     this.load.image('arrow', 'assets/other/arrow.png');

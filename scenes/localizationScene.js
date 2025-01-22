@@ -230,7 +230,7 @@ export default class localizationScene extends Phaser.Scene
             this.acceptButton(true, "Quieres hablar con "+ npc.name +"?");
             this.npcTalk = npc.name;
             })
-        .on('pointerover', () => spritePJ.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
+        .on('pointerover', () => spritePJ.setTint(0xcd02ff)) //para que se ponga rojo cuando el raton está encima
         .on('pointerout', () => spritePJ.clearTint());
 
         

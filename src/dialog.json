@@ -415,32 +415,32 @@
         "scale": 0.5,
         "recompensa": "humildad"
     },
-    "COPAS":
+    "KADOR":
     {
         "frases":[
-            { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Copas" },
-            { "texto": "Toma asiento al fondo y mantente calladite.", "author": "Copas" },
-            { "texto": "No queremos que te pase nada, ¿no crees?", "author": "Copas" },
+            { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Kador" },
+            { "texto": "Toma asiento al fondo y mantente calladite.", "author": "Kador" },
+            { "texto": "No queremos que te pase nada, ¿no crees?", "author": "Kador" },
             { "texto": "No vengo a escucharte hablar, momia andante", "author": "Elle" },
             { "texto": "He cookeado y estoy aquí para poner fin a tu reinado de terror en este barrio.", "author": "Elle" },
             { "texto": "Dame el trozo de constitución que tienes y huye de aquí, primera y última advertencia.", "author": "Elle" },
-            { "texto": "JAJAJAJAJA, vaya humos tienes para tener un cuerpo tan pequeño.", "author": "Copas" },
-            { "texto": "¿Realmente piensas que un niñate como tú puede derrotarme?", "author": "Copas" },
-            { "texto": "Adelante, intentalo. Tengo muchas ganas de comerte vivo.", "author": "Copas" }
+            { "texto": "JAJAJAJAJA, vaya humos tienes para tener un cuerpo tan pequeño.", "author": "Kador" },
+            { "texto": "¿Realmente piensas que un niñate como tú puede derrotarme?", "author": "Kador" },
+            { "texto": "Adelante, intentalo. Tengo muchas ganas de comerte vivo.", "author": "Kador" }
         ],
         "victory":[
-            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Copas" },
+            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Kador" },
             { "texto": "¿Eso es todo tu poder? Hasta la monja de aquí al lado podría haberte ganado", "author": "Elle" },
-            { "texto": "Te me relajas con la humillación.", "author": "Copas" },
-            { "texto": "Toma la maldita constitución y lárgate de aquí.", "author": "Copas" },
+            { "texto": "Te me relajas con la humillación.", "author": "Kador" },
+            { "texto": "Toma la maldita constitución y lárgate de aquí.", "author": "Kador" },
             { "texto": "Eso no es suficiente, debes marcharte de aquí inmediatamente.", "author": "Elle" },
-            { "texto": "Que sí, que sí. Pero que primero tengo que coger un tren y ya sabes como funciona Tenfe.", "author": "Copas" }
+            { "texto": "Que sí, que sí. Pero que primero tengo que coger un tren y ya sabes como funciona Tenfe.", "author": "Kador" }
         ],
         "lose":[
-            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Copas" },
-            { "texto": "Mi victoria estaba clara, tengo a Dios de mi lado.", "author": "Copas" },
-            { "texto": "No me rendiré. Me volveré más fuerte y algún día caerás.", "author": "Copas" },
-            { "texto": "A tu casa, niñate", "author": "Copas" }
+            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Kador" },
+            { "texto": "Mi victoria estaba clara, tengo a Dios de mi lado.", "author": "Kador" },
+            { "texto": "No me rendiré. Me volveré más fuerte y algún día caerás.", "author": "Kador" },
+            { "texto": "A tu casa, niñate", "author": "Kador" }
         ],
         "scale": 0.5,
         "derrotado": false,
