@@ -1,3 +1,4 @@
+
 /* Escena que sirve para mostrar visualmente los items del inventario
 Tiene metodos para utilizar los items, rectangulos y textos para mostar informacion como
 cantidad, nombre y si se desea utiliza*/
@@ -9,9 +10,6 @@ export default class InventoryScene extends Phaser.Scene
     {
         super({key: "InventoryScene"});
         this.itemSprites = []; //array donde guardamos los items a renderizar
-          //creamos arrays para guardar los textos y los rectangulos
-        this.rects=[];
-        this.textos=[];
     }
 
 
@@ -29,7 +27,6 @@ export default class InventoryScene extends Phaser.Scene
 
     create(){ 
 
-        
         //Creamos player
         this.player= new Player(this,0,0);
         this.player.init(this.playerConfig);
@@ -114,63 +111,7 @@ export default class InventoryScene extends Phaser.Scene
                 player.HealQuality(item.amount);
                 break;
         }
-    } 
-    
-     //seteamos la visibilidad de rects, desde el primero(prin) hasta el ultimo(fin) y un estado (bool)
-    RectVisivility(prin,fin,bool)
-    {
-        for( let i= prin;i<=fin;i++)
-        {
-            console.log(this.rects[i].setVisible(bool))
-            this.rects[i].setVisible(bool)
-        }
-    }
-
-     //seteamos la visibilidad de textos, desde el primero(prin) hasta el ultimo(fin) y un estado (bool)
-    TextVisivility(prin,fin,bool)
-    {
-        for( let i= prin;i<=fin;i++)
-        {
-            this.textos[i].setVisible(bool)
-        }
-    }
-   
-    //creacion de rectangulos
-    CrearRect(x,y,w,h,color,origen)
-    {
-       let rect= this.add.rectangle(x,y,w,h,color,origen);
-        return rect;
-    }
-
-     //seteamos la profundidad de rects
-    SetDepthRect(prin,fin,num)
-    {
-        for( let i= prin;i<=fin;i++)
-            {
-                this.rects[i].setDepth(num);
-            }
-    }
-
-     //seteamos la profundidad de textos
-    SetDepthText(prin,fin,num)
-    {
-        for( let i= prin;i<=fin;i++)
-            {
-                this.textos[i].setDepth(num);
-            }
-    }
-
-    //creacion de textos
-    CrearText(x,y,string)
-    {
-     let text=this.add.text(x,y,string,{
-
-         fontSize: '40px',
-         fill: '#1c1c1c',
-         align: 'center'
-     }).setOrigin(0.5, 0.5).setVisible(false);  
-     return text;
-    }
+    }   
 
     RenderizarItems()
     {
@@ -180,7 +121,6 @@ export default class InventoryScene extends Phaser.Scene
         sprite.destroy();
     });
 
- 
     // Limpiar la lista de sprites
     this.itemSprites = [];
 
@@ -198,62 +138,69 @@ export default class InventoryScene extends Phaser.Scene
     //para cada item del inventario creamos un sprite
     items.forEach((item, index) => {
 
+
         const x = columna * (cellSize + margin) + horizontalOffset;
         const y = fila * (cellSize + margin) + verticalOffset;
 
         //creamos el sprite segun el nombre del itema
         let sprite = this.add.image(x, y, item.name).setOrigin(0, 0);
         sprite.setDisplaySize(450, 300); // Ajusta el tamaño del ítem
+
         sprite.setInteractive(); // Hacer el sprite interactivo
 
-
         // Crear el rectángulo de fondo con la información
-        let rect0=this.CrearRect(950, 500, 600, 400, 0xf6f6f6);
-        rect0.setOrigin(0.5);
-        this.rects.push(rect0);
-    
+        const rect0 = this.add.rectangle(950, 500, 600, 400, 0xf6f6f6).setOrigin(0.5); // Rectángulo de fondo centrado
 
         // Crear los botones (rectángulos con texto)
-            let rect1 = this.CrearRect(1150, 650, 100, 50, 0xff0000);//RECT DEL NO
-            rect1.setInteractive();
-            this.rects.push(rect1);
-            
-            let rect2 = this.CrearRect(750, 650, 100, 50, 0x00ff00);//RECT DEL SI
-            rect2.setInteractive();
-            this.rects.push(rect2);
-           
+            const rect = this.add.rectangle(1150, 650, 100, 50, 0xff0000).setInteractive();//RECT DEL NO
+            const rect2 = this.add.rectangle(750, 650, 100, 50, 0x00ff00).setInteractive();//RECT DEL SI
             if(item.name=="trozo")
             {
                 rect2.disableInteractive();
             }
-
-            this.RectVisivility(0,2,false);
+            rect2.setVisible(false);
+            rect.setVisible(false);
 
             //Texto opción NO
-            let texto2 = this.CrearText(1150, 650, "No");
-            this.textos.push(texto2);
-            
+            let texto2 = this.add.text(1150, 650, "No", {
+                fontSize: '40px',
+                fill: '#1c1c1c',
+                align: 'center'
+            }).setOrigin(0.5, 0.5).setVisible(false);  
+    
             //Texto opción SI
-            let texto3 = this.CrearText(750, 650, "Sí");
-            this.textos.push(texto3);
+            let texto3 = this.add.text(750, 650, "Sí", {
+                fontSize: '40px',
+                fill: '#1c1c1c',
+                align: 'center'
+            }).setOrigin(0.5, 0.5).setVisible(false); 
 
             // texto que rellenaremos con info más tarde
-            let texto = this.CrearText(950, 500, "", );
-            this.textos.push(texto);
+            let texto = this.add.text(950, 500, "", {
+                fontSize: '40px',
+                fill: '#1c1c1c',
+                align: 'center'
+            }).setOrigin(0.5, 0.5).setVisible(false);  // Centrado y oculto
 
             //establecemos el orden de las capas con el depth
-            this.SetDepthRect(0,2,1);
-            this.SetDepthText(0,2,2);//2
-
-            this.TextVisivility(0,2,false);
-           
+            texto2.setDepth(2);
+            texto3.setDepth(2);
+            rect2.setDepth(2);
+            rect.setDepth(2);
+            rect0.setVisible(false);
+            rect0.setDepth(2);
+            texto.setDepth(2);
 
         // Cuando seleccionamos el sprite los hacemos visibles
         sprite.on('pointerdown', () => {
         
-            this.RectVisivility(0,2,true);
-            this.TextVisivility(0,2,true);
-             
+                    rect.setVisible(true);
+                    rect2.setVisible(true);
+                    texto2.setVisible(true);
+                    texto3.setVisible(true);
+                    rect0.setVisible(true);
+                    texto.setVisible(true);
+          
             // Actualizar el texto con la información del item
             if(item.name!="trozo")
             {
@@ -269,10 +216,14 @@ export default class InventoryScene extends Phaser.Scene
         });
 
         // Si selecciono "No"
-        rect1.on('pointerdown', () => {
-            this.RectVisivility(0,2,false);
-            this.TextVisivility(0,2,false);
-            
+        rect.on('pointerdown', () => {
+           
+                    rect.setVisible(false);
+                    rect2.setVisible(false);
+                    texto2.setVisible(false);
+                    texto3.setVisible(false);
+                    rect0.setVisible(false);
+                    texto.setVisible(false);
            
         });
 
@@ -286,8 +237,12 @@ export default class InventoryScene extends Phaser.Scene
             if (item.cantidad === 0) {
                 sprite.setVisible(false);
             }
-            this.RectVisivility(0,2,false);
-            this.TextVisivility(0,2,false);
+                    rect2.setVisible(false);
+                    texto2.setVisible(false);
+                    texto3.setVisible(false);
+                    rect0.setVisible(false);
+                    rect.setVisible(false);
+                    texto.setVisible(false);
           
         });
 
