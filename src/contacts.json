@@ -280,7 +280,7 @@
                     "posy": 5,
                      "descripcion":"Conexiones con bandas",
                      "edad": 24,
-                      "localizacion":"Iglesia de los Muertos"
+                      "localizacion":"Comisaria"
                 },
                 {
                     "name": "Valentino",
@@ -289,7 +289,7 @@
                     "posy": 5,
                     "descripcion":"Policía",
                     "edad": 40,
-                    "localizacion":"Embajada de Natar"
+                    "localizacion":"Carcel"
                 },
                 {
                     "name": "Yonk",
@@ -298,7 +298,7 @@
                     "posy": 3,
                     "descripcion":"Drogadicto",
                     "edad": 29,
-                    "localizacion":"Club de tenis"
+                    "localizacion":"Callejon"
                 },
                 {
                     "name": "Juanjo",
@@ -307,7 +307,7 @@
                     "posy": 3,
                     "descripcion":"Trabajador Mercadona",
                     "edad": 35,
-                    "localizacion":"Edificio Feo"
+                    "localizacion":"Mercanona"
                 },
                 {
                     "name": "Toni",
@@ -316,7 +316,7 @@
                     "posy": 3,
                     "descripcion":"Quiere un piso",
                     "edad": 1000,
-                    "localizacion":"Colegio Privado"
+                    "localizacion":"Plaza"
                 },
                 {
                     "name": "Koke",
@@ -325,7 +325,7 @@
                     "posy": 3,
                     "descripcion":"De una banda",
                     "edad": 28,
-                    "localizacion":"Plaza"
+                    "localizacion":"Descampado"
                 },
                  
         {

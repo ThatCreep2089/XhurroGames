@@ -524,12 +524,12 @@
     "KOKE":{
         "frases":
         [
-            { "texto": "Susana dobla estás camisetas que las han dejado tiradas,", "author": "Susana" },
-            { "texto": "Susana recoge todos estos pares de pantalones,", "author": "Susana" },
-            { "texto": "Susana estos zapatos los han dejado descolocados, colócalos para que los clientes los vean bien,", "author": "Susana" },
+            { "texto": "Yo soy Koke el príncipe del barrio, yo soy Koke y soy el mejor.,", "author": "Koke" },
+            { "texto": "Eh tú vete preparando y me das eso que llevas sino te doy un mamporro, que al jefe le gustan las cosas brillantes. ,", "author": "Koke" },
+            { "texto": "Simplemente dame lo que quiero, si no lo cogeré a la fuerza y será peor.,", "author": "Koke" },
             { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
-            { "texto": "¡MADRE MIA! ¿¡CÓMO PUEDEN SER ESOS SERES HUMANOS LLAMADOS CLIENTES TAN DESORDENADOS¡?", "author": "Susana" },
-            { "texto": "Aguanta solo dos semanas más y podrás comprarle a papá esas medicaciones que necesita para el tratamiento.", "author": "Susana" }
+            { "texto": "Y eso otro que tienes ahí escondido también me lo das, va a ser mío.", "author": "Koke" },
+            { "texto": "Y si no te gusta a ver quien tiene más fuerza, ¿quieres pelear?", "author": "Koke" }
         ],
         "hablado": "false",
         "scale": 0.5,
