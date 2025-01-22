@@ -129,7 +129,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('localMercadona', 'assets/edificios/mercadona.png');
     this.load.image('localPlazaN', 'assets/edificios/plazaN.png');
 
-    this.load.image('congresoLocalization', 'assets/edificios/contaminado.png');
+    this.load.image('congresoLocalization', 'assets/fondos/contaminado.png');
     
     //FLECHAS
     this.load.image('flecha', 'assets/other/flecha.png');
@@ -201,7 +201,7 @@ export default class loadScene extends Phaser.Scene {
     this.load.image('descampado', 'assets/fondos/descampado.png');
     this.load.image('discoteca', 'assets/fondos/discoteca.png');
 
-    this.load.image('congreso', 'assets/fondos/contaminado.jpg');
+    this.load.image('congreso', 'assets/fondos/contaminado.png');
     
 
     //NPCS
