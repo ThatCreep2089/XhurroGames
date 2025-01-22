@@ -454,6 +454,90 @@
         "scale": 0.5,
         "recompensa": "humildad"
     },
+    "JESSICA":{
+        "frases":
+        [
+            { "texto": "Susana dobla estás camisetas que las han dejado tiradas,", "author": "Susana" },
+            { "texto": "Susana recoge todos estos pares de pantalones,", "author": "Susana" },
+            { "texto": "Susana estos zapatos los han dejado descolocados, colócalos para que los clientes los vean bien,", "author": "Susana" },
+            { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
+            { "texto": "¡MADRE MIA! ¿¡CÓMO PUEDEN SER ESOS SERES HUMANOS LLAMADOS CLIENTES TAN DESORDENADOS¡?", "author": "Susana" },
+            { "texto": "Aguanta solo dos semanas más y podrás comprarle a papá esas medicaciones que necesita para el tratamiento.", "author": "Susana" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "JUANJO":{
+        "frases":
+        [
+            { "texto": "Susana dobla estás camisetas que las han dejado tiradas,", "author": "Susana" },
+            { "texto": "Susana recoge todos estos pares de pantalones,", "author": "Susana" },
+            { "texto": "Susana estos zapatos los han dejado descolocados, colócalos para que los clientes los vean bien,", "author": "Susana" },
+            { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
+            { "texto": "¡MADRE MIA! ¿¡CÓMO PUEDEN SER ESOS SERES HUMANOS LLAMADOS CLIENTES TAN DESORDENADOS¡?", "author": "Susana" },
+            { "texto": "Aguanta solo dos semanas más y podrás comprarle a papá esas medicaciones que necesita para el tratamiento.", "author": "Susana" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "KOKE":{
+        "frases":
+        [
+            { "texto": "Susana dobla estás camisetas que las han dejado tiradas,", "author": "Susana" },
+            { "texto": "Susana recoge todos estos pares de pantalones,", "author": "Susana" },
+            { "texto": "Susana estos zapatos los han dejado descolocados, colócalos para que los clientes los vean bien,", "author": "Susana" },
+            { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
+            { "texto": "¡MADRE MIA! ¿¡CÓMO PUEDEN SER ESOS SERES HUMANOS LLAMADOS CLIENTES TAN DESORDENADOS¡?", "author": "Susana" },
+            { "texto": "Aguanta solo dos semanas más y podrás comprarle a papá esas medicaciones que necesita para el tratamiento.", "author": "Susana" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "TONI":{
+        "frases":
+        [
+            { "texto": "Susana dobla estás camisetas que las han dejado tiradas,", "author": "Susana" },
+            { "texto": "Susana recoge todos estos pares de pantalones,", "author": "Susana" },
+            { "texto": "Susana estos zapatos los han dejado descolocados, colócalos para que los clientes los vean bien,", "author": "Susana" },
+            { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
+            { "texto": "¡MADRE MIA! ¿¡CÓMO PUEDEN SER ESOS SERES HUMANOS LLAMADOS CLIENTES TAN DESORDENADOS¡?", "author": "Susana" },
+            { "texto": "Aguanta solo dos semanas más y podrás comprarle a papá esas medicaciones que necesita para el tratamiento.", "author": "Susana" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "VALENTINO":{
+        "frases":
+        [
+            { "texto": "Susana dobla estás camisetas que las han dejado tiradas,", "author": "Susana" },
+            { "texto": "Susana recoge todos estos pares de pantalones,", "author": "Susana" },
+            { "texto": "Susana estos zapatos los han dejado descolocados, colócalos para que los clientes los vean bien,", "author": "Susana" },
+            { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
+            { "texto": "¡MADRE MIA! ¿¡CÓMO PUEDEN SER ESOS SERES HUMANOS LLAMADOS CLIENTES TAN DESORDENADOS¡?", "author": "Susana" },
+            { "texto": "Aguanta solo dos semanas más y podrás comprarle a papá esas medicaciones que necesita para el tratamiento.", "author": "Susana" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "YONK":{
+        "frases":
+        [
+            { "texto": "Susana dobla estás camisetas que las han dejado tiradas,", "author": "Susana" },
+            { "texto": "Susana recoge todos estos pares de pantalones,", "author": "Susana" },
+            { "texto": "Susana estos zapatos los han dejado descolocados, colócalos para que los clientes los vean bien,", "author": "Susana" },
+            { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
+            { "texto": "¡MADRE MIA! ¿¡CÓMO PUEDEN SER ESOS SERES HUMANOS LLAMADOS CLIENTES TAN DESORDENADOS¡?", "author": "Susana" },
+            { "texto": "Aguanta solo dos semanas más y podrás comprarle a papá esas medicaciones que necesita para el tratamiento.", "author": "Susana" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
     "KADOR":
     {
         "frases":[
