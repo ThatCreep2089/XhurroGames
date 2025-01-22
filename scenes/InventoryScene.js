@@ -1,3 +1,4 @@
+
 /* Escena que sirve para mostrar visualmente los items del inventario
 Tiene metodos para utilizar los items, rectangulos y textos para mostar informacion como
 cantidad, nombre y si se desea utiliza*/
@@ -68,7 +69,7 @@ export default class InventoryScene extends Phaser.Scene
         backScene = this.add.image(
             this.sys.game.canvas.width / 12,
             this.sys.game.canvas.height / 1.2, 
-            'flechaa')
+            'flechaM')
         .setScale(-0.3, 0.3)
         .setInteractive()
         .on('pointerdown', () => {
@@ -114,7 +115,8 @@ export default class InventoryScene extends Phaser.Scene
 
     RenderizarItems()
     {
-       // Eliminar solo los sprites de los ítems 
+       // cada vez que renderizo el inventario hago un primer barrido para eliminar los anteriores y 
+       //renderizarlos en las nuevas posiciones
     this.itemSprites.forEach(sprite => {
         sprite.destroy();
     });

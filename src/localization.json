@@ -1,363 +1,1426 @@
 {
-    "botellin":
+    "parque":
     {
-        "parque":
-        {
-            "items":
-            [
-              
-                {
-                    "name": "taza",
-                    "description": "+10 de vida",
-                    "x": 600,
-                    "y": 1000,
-                    "effect": 1,
-                    "amountOfEffect": 10,
-                    "recogido": "false"
+        "items":
+        [
             
-                },
-                {
-                    "name": "botella",
-                    "description": "+5 de vida",
-                    "x": 1500,
-                    "y": 800,
-                    "effect": 1,
-                    "amountOfEffect": 5,
-                    "recogido": "false"
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "MARÍA JOSÉ",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.27
+            },
+            {
+                "name": "MARÍA DEL CARMEN",
+                "x": 1.6, 
+                "y": 1.4,
+                "scale": 0.27
+            }
+
+        ]
+    },
+    "puente":
+    {
+        "items":
+        [
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
+            }
+        ],
+        "npcs":
+        [
+            {
+                "name": "ALI",
+                "x": 3.6, 
+                "y": 1.4,
+                "scale": 0.5
+            },
+            {
+                "name": "JESÚS",
+                "x": 1.5, 
+                "y": 1.4,
+                "scale": 0.27
+            }
+
+        ]
+    },
+    "hipodromo":
+    {
+        "items":
+        [
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1000,
+                "y": 800,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "mar_iguana",
+                "description": "-40 de ansidad",
+                "x": 700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 40,
+                "recogido": "false"
+        
+            }
+        ],
+        "npcs":
+        [
+            {
+                "name": "HUMBERTO",
+                "x": 3.9, 
+                "y": 1.4,
+                "scale": 0.3
+            },
+            {
+                "name": "JOSÉ",
+                "x": 1.6, 
+                "y": 1.4,
+                "scale": 0.3
+            }
+
+        ]
+    },
+    "cni":
+    {
+        "items":
+        [
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "sanidad privada",
+                "description": "vida máxima +20",
+                "x": 1500,
+                "y": 1000,
+                "effect": 2,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "sanidad pública",
+                "description": "vida máxima +10",
+                "x":150,
+                "y": 800,
+                "effect": 2,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            }
+        ],
+        "npcs":
+        [
+            {
+                "name": "MARÍA",
+                "x": 3, 
+                "y": 1.4,
+                "scale": 0.25
+            },
+            {
+                "name": "PEDRITO",
+                "x": 1.6, 
+                "y": 1.4,
+                "scale": 0.25
+            }
+
+        ]
+    },
+    "bar":
+    {
+        "items":
+        [
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            }, {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 1700,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            }
+        ],
+        "npcs":
+        [
+            {
+                "name": "PACO",
+                "x": 3.6, 
+                "y": 1.4,
+                "scale": 0.28
+            },
+            {
+                "name": "ÁNGEL",
+                "x": 1.5, 
+                "y": 1.5,
+                "scale": 0.3
+            }
+
+        ]
+    },
+    "cruzRoja":
+    {
+        "items":
+        [
+            
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 800,
+                "y": 1000,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
+            }
+
+        ],
+        "npcs":
+        [
+            {
+                "name": "CONSUELO",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.3
+            },
+            {
+                "name": "MARÍA TERESA",
+                "x": 1.6, 
+                "y": 1.4,
+                "scale": 0.3
+            }
+
+        ]
+    },
+    "iglesia":
+    {
+        "items":
+        [
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 950,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            }
+        ],
+        "npcs":
+        [
+            {
+                "name": "KADOR",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.4
+            },
+            {
+                "name": "GATO EN CAJA ROJO",
+                "x": 1.35, 
+                "y": 1.4,
+                "scale": 0.25,
+                "isCat": true,
+                "requisitos":
+                [
+                    {
+                        "name": "PACO"
+                    },
+                    {
+                        "name": "CONSUELO"
+                    },
+                    {
+                        "name": "MARÍA"
+                    }
+                ]
                 
-                }
+            }
+
+        ]
+    },
+    "pitiBancoRojo":
+    {
+        "items":
+        [
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 400,
+                "y": 150,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            }
+        ],
+        "npcs":
+        [
+            {
+                "name": "PITIBANCO ROJO",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+
+            }
+
+        ]
+    },
+    "congreso":
+    {
+        "items":
+        [
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "YUSOA",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.6
+
+            }
+
+        ]
+    },
+    "edifFeo":
+    {
+        "items":
+        [
+            
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "KAREN",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.3
+            },
+            {
+                "name": "ANDREA",
+                "x": 1.5, 
+                "y": 1.4,
+                "scale": 0.2
+            }
+
+        ]
+    },
+    "plaza":
+    {
+        "items":
+        [
+            
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1000,
+                "y": 800,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "mar_iguana",
+                "description": "-40 de ansidad",
+                "x": 700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 40,
+                "recogido": "false"
+        
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "ADELINA",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.4
+            }
+
+        ]
+    },
+    "embajada":
+    {
+        "items":
+        [
+            
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "ALADIN",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
+
+        ]
+    },
+    "tenis":
+    {
+        "items":
+        [
+            
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "PELAYO",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
+
+        ]
+    },
+    "iglesiaPeque":
+    {
+        "items":
+        [
+            
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "sanidad privada",
+                "description": "vida máxima +20",
+                "x": 1500,
+                "y": 1000,
+                "effect": 2,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "sanidad pública",
+                "description": "vida máxima +10",
+                "x":150,
+                "y": 800,
+                "effect": 2,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            }
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "GREGORIO",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
+
+        ]
+    },
+    "colegio":
+    {
+        "items":
+        [
+            
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "CAYETANA",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
+
+        ]
+    },
+    "pitiBancoAmarillo":
+    {
+        "items":
+        [
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 400,
+                "y": 150,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            }
+        ],
+        "npcs":
+        [
+            {
+                "name": "PITIBANCO AMARILLO",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+
+            }
+
+        ]
+    },
+    "golf":
+    {
+        "items":
+        [
+            
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "VARIN",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.4
+            },
+            {
+                "name": "GATO EN CAJA AMARILLO",
+                "x": 1.35, 
+                "y": 1.4,
+                "scale": 0.25,
+                "isCat": true,
+                "requisitos":
+                [
+                    {
+                        "name": "GREGORIO"
+                    },
+                    {
+                        "name": "ADELINA"
+                    },
+                    {
+                        "name": "CAYETANA"
+                    }
+                ]
                 
-               
-            ],
-            "npcs":
-            [
-                {
-                    "name": "MARÍA JOSÉ",
-                    "x": 3.8, 
-                    "y": 1.4,
-                    "scale": 0.27
-                },
-                {
-                    "name": "MARÍA DEL CARMEN",
-                    "x": 1.6, 
-                    "y": 1.4,
-                    "scale": 0.27
-                }
+            }
 
-            ]
-        },
-        "puente":
-        {
-            "items":
-            [
-                {
-                    "name": "porro",
-                    "description": "-10 de ansiedad",
-                    "x": 1700,
-                    "y": 1000,
-                    "effect": 3,
-                    "amountOfEffect": 10,
-                    "recogido": "false"
+        ]
+    },
+    "cafeteria":
+    {
+        "items":
+        [
             
-                },
-                {
-                    "name": "roca pija",
-                    "description": "+10 puntos de mana",
-                    "x": 800,
-                    "y": 700,
-                    "effect": 4,
-                    "amountOfEffect": 10,
-                    "recogido": "false"
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
             
-                },
-                {
-                    "name": "roca traviesa",
-                    "description": "+20 puntos de mana",
-                    "x": 1500,
-                    "y": 400,
-                    "effect": 4,
-                    "amountOfEffect": 20,
-                    "recogido": "false"
+            }
             
-                }
-            ],
-            "npcs":
-            [
-                {
-                    "name": "ALI",
-                    "x": 3.6, 
-                    "y": 1.4,
-                    "scale": 0.5
-                },
-                {
-                    "name": "JESÚS",
-                    "x": 1.5, 
-                    "y": 1.4,
-                    "scale": 0.27
-                }
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "MANOLO",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
 
-            ]
-        },
-        "hipodromo":
-        {
-            "items":
-            [
-                {
-                    "name": "porro",
-                    "description": "-10 de ansiedad",
-                    "x": 1000,
-                    "y": 800,
-                    "effect": 3,
-                    "amountOfEffect": 10,
-                    "recogido": "false"
+        ]
+    },
+    "colegioP":
+    {
+        "items":
+        [
             
-                },
-                {
-                    "name": "mar_iguana",
-                    "description": "-40 de ansidad",
-                    "x": 700,
-                    "y": 1000,
-                    "effect": 3,
-                    "amountOfEffect": 40,
-                    "recogido": "false"
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
             
-                }
-            ],
-            "npcs":
-            [
-                {
-                    "name": "HUMBERTO",
-                    "x": 3.9, 
-                    "y": 1.4,
-                    "scale": 0.3
-                },
-                {
-                    "name": "JOSÉ",
-                    "x": 1.6, 
-                    "y": 1.4,
-                    "scale": 0.3
-                }
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "JULIANA",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
 
-            ]
-        },
-        "cni":
-        {
-            "items":
-            [
-                {
-                    "name": "porro",
-                    "description": "-10 de ansiedad",
-                    "x": 1700,
-                    "y": 1000,
-                    "effect": 3,
-                    "amountOfEffect": 10,
-                    "recogido": "false"
+        ]
+    },
+    "panaderia":
+    {
+        "items":
+        [
             
-                },
-                {
-                    "name": "sanidad privada",
-                    "description": "vida máxima +20",
-                    "x": 1500,
-                    "y": 1000,
-                    "effect": 2,
-                    "amountOfEffect": 20,
-                    "recogido": "false"
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
+            }
             
-                },
-                {
-                    "name": "sanidad pública",
-                    "description": "vida máxima +10",
-                    "x":150,
-                    "y": 800,
-                    "effect": 2,
-                    "amountOfEffect": 10,
-                    "recogido": "false"
             
-                }
-            ],
-            "npcs":
-            [
-                {
-                    "name": "MARÍA",
-                    "x": 3, 
-                    "y": 1.4,
-                    "scale": 0.25
-                },
-                {
-                    "name": "PEDRITO",
-                    "x": 1.6, 
-                    "y": 1.4,
-                    "scale": 0.25
-                }
+        ],
+        "npcs":
+        [
+            {
+                "name": "HILARIO",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
 
-            ]
-        },
-        "bar":
-        {
-            "items":
-            [
-                {
-                    "name": "porro",
-                    "description": "-10 de ansiedad",
-                    "x": 1700,
-                    "y": 1000,
-                    "effect": 3,
-                    "amountOfEffect": 10,
-                    "recogido": "false"
+        ]
+    },
+    "pizzeria":
+    {
+        "items":
+        [
             
-                }, {
-                    "name": "taza",
-                    "description": "+10 de vida",
-                    "x": 1700,
-                    "y": 800,
-                    "effect": 1,
-                    "amountOfEffect": 10,
-                    "recogido": "false"
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
             
-                }
-            ],
-            "npcs":
-            [
-                {
-                    "name": "PACO",
-                    "x": 3.6, 
-                    "y": 1.4,
-                    "scale": 0.28
-                },
-                {
-                    "name": "ÁNGEL",
-                    "x": 1.5, 
-                    "y": 1.5,
-                    "scale": 0.3
-                }
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "MIHAI",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
 
-            ]
-        },
-        "cruzRoja":
-        {
-            "items":
-            [
+        ]
+    },
+    "zara":
+    {
+        "items":
+        [
+            
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "SUSANA",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.27
+            },
+            {
+                "name": "NEREA",
+                "x": 1.5, 
+                "y": 1.4,
+                "scale": 0.17
+            }
+
+        ]
+    },
+    "parking":
+    {
+        "items":
+        [
+            
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "NICOLETA",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
+
+        ]
+    },
+    "pitiBancoVerde":
+    {
+        "items":
+        [
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 400,
+                "y": 150,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            }
+        ],
+        "npcs":
+        [
+            {
+                "name": "PITIBANCO VERDE",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+
+            }
+
+        ]
+    },
+    "ctt":
+    {
+        "items":
+        [
+            
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "RAJMUR",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.3
+            },
+            {
+                "name": "GATO EN CAJA VERDE",
+                "x": 1.35, 
+                "y": 1.4,
+                "scale": 0.25,
+                "isCat": true,
+                "requisitos":
+                [
+                    {
+                        "name": "JULIANA"
+                    },
+                    {
+                        "name": "MANOLO"
+                    },
+                    {
+                        "name": "NICOLETA"
+                    }
+                ]
                 
-                {
-                    "name": "roca traviesa",
-                    "description": "+20 puntos de mana",
-                    "x": 800,
-                    "y": 1000,
-                    "effect": 4,
-                    "amountOfEffect": 20,
-                    "recogido": "false"
+            }
+
+        ]
+    },
+    "callejon":
+    {
+        "items":
+        [
             
-                }
-
-            ],
-            "npcs":
-            [
-                {
-                    "name": "CONSUELO",
-                    "x": 3.8, 
-                    "y": 1.4,
-                    "scale": 0.3
-                },
-                {
-                    "name": "MARÍA TERESA",
-                    "x": 1.6, 
-                    "y": 1.4,
-                    "scale": 0.3
-                }
-
-            ]
-        },
-        "iglesia":
-        {
-            "items":
-            [
-                {
-                    "name": "taza",
-                    "description": "+10 de vida",
-                    "x": 950,
-                    "y": 1000,
-                    "effect": 1,
-                    "amountOfEffect": 10,
-                    "recogido": "false"
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1000,
+                "y": 800,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "mar_iguana",
+                "description": "-40 de ansidad",
+                "x": 700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 40,
+                "recogido": "false"
+        
+            }
             
-                }
-            ],
-            "npcs":
-            [
-                {
-                    "name": "COPAS",
-                    "x": 3.8, 
-                    "y": 1.4,
-                    "scale": 0.9
-                },
-                {
-                    "name": "GATO EN CAJA",
-                    "x": 1.35, 
-                    "y": 1.4,
-                    "scale": 0.25,
-                    "requisitos":
-                    [
-                        {
-                            "name": "PACO"
-                        },
-                        {
-                            "name": "CONSUELO"
-                        },
-                        {
-                            "name": "MARÍA"
-                        }
-                    ]
-                    
-                }
-
-            ]
-        },
-        "pitiBanco":
-        {
-            "items":
-            [
-                {
-                    "name": "taza",
-                    "description": "+10 de vida",
-                    "x": 400,
-                    "y": 150,
-                    "effect": 1,
-                    "amountOfEffect": 10,
-                    "recogido": "false"
             
-                }
-            ],
-            "npcs":
-            [
-                {
-                    "name": "PITIBANCO",
-                    "x": 2, 
-                    "y": 1.4,
-                    "scale": 0.3
+        ],
+        "npcs":
+        [
+            {
+                "name": "YONK",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
 
-                }
+        ]
+    },
+    "carcel":
+    {
+        "items":
+        [
+            
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "VALENTINO",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
 
-            ]
-        },
-        "congreso":
-        {
-            "items":
-            [
+        ]
+    },
+    "comisaria":
+    {
+        "items":
+        [
+            
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "sanidad privada",
+                "description": "vida máxima +20",
+                "x": 1500,
+                "y": 1000,
+                "effect": 2,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "sanidad pública",
+                "description": "vida máxima +10",
+                "x":150,
+                "y": 800,
+                "effect": 2,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "JESSICA",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
+
+        ]
+    },
+    "descampado":
+    {
+        "items":
+        [
+            
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "KOKE",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
+
+        ]
+    },
+    "mercadona":
+    {
+        "items":
+        [
+            
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "JUANJO",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
+
+        ]
+    },
+    "plazaN":
+    {
+        "items":
+        [
+            {
+                "name": "porro",
+                "description": "-10 de ansiedad",
+                "x": 1700,
+                "y": 1000,
+                "effect": 3,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca pija",
+                "description": "+10 puntos de mana",
+                "x": 800,
+                "y": 700,
+                "effect": 4,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "roca traviesa",
+                "description": "+20 puntos de mana",
+                "x": 1500,
+                "y": 400,
+                "effect": 4,
+                "amountOfEffect": 20,
+                "recogido": "false"
+        
+            }
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "TONI",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.27
+            },
+            {
+                "name": "VICTOR",
+                "x": 1.5, 
+                "y": 1.4,
+                "scale": 0.17
+            }
+
+        ]
+    },
+    "pitiBancoAzul":
+    {
+        "items":
+        [
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 400,
+                "y": 150,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            }
+        ],
+        "npcs":
+        [
+            {
+                "name": "PITIBANCO AZUL",
+                "x": 2, 
+                "y": 1.4,
+                "scale": 0.3
+            }
+
+        ]
+    },
+    "discoteca":
+    {
+        "items":
+        [
+            {
+                "name": "taza",
+                "description": "+10 de vida",
+                "x": 600,
+                "y": 1000,
+                "effect": 1,
+                "amountOfEffect": 10,
+                "recogido": "false"
+        
+            },
+            {
+                "name": "botella",
+                "description": "+5 de vida",
+                "x": 1500,
+                "y": 800,
+                "effect": 1,
+                "amountOfEffect": 5,
+                "recogido": "false"
+            
+            }
+            
+            
+        ],
+        "npcs":
+        [
+            {
+                "name": "LUTHOR",
+                "x": 3.8, 
+                "y": 1.4,
+                "scale": 0.4
+            },
+            {
+                "name": "GATO EN CAJA AZUL",
+                "x": 1.35, 
+                "y": 1.4,
+                "scale": 0.25,
+                "isCat": true,
+                "requisitos":
+                [
+                    {
+                        "name": "VALENTINO"
+                    },
+                    {
+                        "name": "JESSICA"
+                    },
+                    {
+                        "name": "TONI"
+                    }
+                ]
                 
-            ],
-            "npcs":
-            [
-                {
-                    "name": "YUSOA",
-                    "x": 2, 
-                    "y": 1.4,
-                    "scale": 1
+            }
 
-                }
-
-            ]
-        }
+        ]
     }
+    
+    
     
 
 }

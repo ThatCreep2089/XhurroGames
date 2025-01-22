@@ -108,7 +108,7 @@ LessAnxiety(amount)
         this.ansiedad=0;
         }
         else {
-            this.ansiedad-= this.ansiedad;
+            this.ansiedad-= amount;
         }
 
 }

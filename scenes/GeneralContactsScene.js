@@ -48,14 +48,14 @@ export default class GeneralContactsScene extends Phaser.Scene {
         createRectangle(350, 300, 600, 300,0xd54545,1  ); // Barrio Botellín
         createRectangle(1050, 300, 600, 300,0x30ff81,2  );    // Barrio porras
         createRectangle(350, 650, 600, 300, 0x45d5d5,3 );  // Barrio Navajas
-        createRectangle(1050, 650, 600, 300, 0xffe90c,4 ); // Barrio dinero
+        createRectangle(1050, 650, 600, 300, 0xffe90c,4 ); // Barrio calderilla
 
         //BACK BUTTON (VOLVER A LA ESCENA CORRESPONDIENTE)
         var backScene;
         backScene = this.add.image(
             this.sys.game.canvas.width / 12,
             this.sys.game.canvas.height / 1.2, 
-            'flechaa')
+            'flechaM')
         .setScale(-0.3, 0.3)
         .setInteractive()
         .on('pointerdown', () => {

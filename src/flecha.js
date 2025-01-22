@@ -1,16 +1,16 @@
 /**
- * Building es una manzana inaccesible utilizada como collider
+ * Flecha es un objeto utilizado para viajar entre zonas de un mismo barrio
  * @param scene
- * @param image
+ * @param sprite
  * @param X
  * @param Y
  * @param colliderGroup // este es el grupo donde se añade para poder colisionar
- * @param modo // valor para determinar el siguiente modo de ZonaScene
- * @param ant // valor para determinar el modo anterior de ZonaScene
+ * @param modo // valor para determinar el siguiente modo de ZonaScene (la siguiente zona a la que se viajará)
+ * @param ant // valor para determinar el modo anterior de ZonaScene (la zona actual en la que está)
  */
 export default class Flecha extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, colliderGroup, modo, ant) {
-        super(scene, x, y, 'flecha');
+    constructor(scene, sprite, x, y, colliderGroup, modo, ant) {
+        super(scene, x, y, sprite);
         
         // Agregamos el sprite a la escena
         this.scene.add.existing(this);

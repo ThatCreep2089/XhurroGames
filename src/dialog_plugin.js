@@ -186,7 +186,7 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 	
 		// Definir el comportamiento cuando el cursor pasa sobre el botón
 		this.skipButton.on('pointerover', () => {
-			this.skipButton.setStyle({ fill: '#ff0000' }); // Cambiar color cuando pasa el cursor
+			this.skipButton.setStyle({ fill: '#c100ff' }); // Cambiar color cuando pasa el cursor
 		});
 	
 		this.skipButton.on('pointerout', () => {
@@ -257,7 +257,7 @@ export default class DialogText extends Phaser.Events.EventEmitter{
 			style: {
 				fontSize: this.fontSize * 1.2, // Tamaño más pequeño que el texto principal
 				fontFamily: this.fontFamily,
-				color: '#cf0000' // Color dorado para diferenciar
+				color: '#c100ff'
 			}
 		});
 	}

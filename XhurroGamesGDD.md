@@ -72,7 +72,7 @@ El ataque estará representado con cartas. El jugador contará con un mazo estab
 - **Copas** → Botellín
 
 El jugador sacará 4 cartas del mazo aleatoriamente, creando así su mano. A la hora de atacar el jugador podrá hacerlo de dos maneras distintas:
-1. **Con cualidades** consumiendo x puntos de cualidad. Estas cualidades afectan a los valores de las cartas.
+1. **Con cualidades** consumiendo x puntos de cualidad (representados en el juego como maná). Estas cualidades afectan a los valores de las cartas.
 2. **Sin cualidades**
 
 Tras elegir alguna de estas opciones el jugador lanzará las 4 cartas en conjunto al enemigo, haciendo de daño la suma total. El enemigo atacará y nuevamente será el turno del jugador.
@@ -86,7 +86,7 @@ Tras elegir alguna de estas opciones el jugador lanzará las 4 cartas en conjunt
   - Agnosticismo
   - Afecto
 
-**Puntos de cualidad**: Puntos a gastar para utilizar las cualidades. Se pueden recuperar con objetos.  
+**Puntos de maná**: Puntos a gastar para utilizar las cualidades. Se pueden recuperar con objetos.  
 **Vida**: Puntos de salud del jugador. Se puede aumentar la vida máxima y recuperar puntos con objetos.  
 **Ansiedad**: Puntos de ansiedad del jugador. Afecta negativamente al daño realizado.
 
@@ -95,24 +95,21 @@ Tras elegir alguna de estas opciones el jugador lanzará las 4 cartas en conjunt
   Ejemplo:
   - Si el jefe es débil a la calderilla, Primero se sumará el daño base de todas las cartas de la mano que sean de calderillas con sus puntos por cualidades( en caso de haberse seleccionado) y se multiplicará ese daño por 2. Después ese resultado se añadirá a la suma de las otras cartas.  
 
-- **Debilidades**: Cada jefe de cada zona contará con una debilidad a cierto palo.
-
 ## Tabla de Estadísticas de Enemigos
 
-| **Jefes**       | **Debilidades** | **Efectos**                                                       |
-|-----------------|-----------------|-------------------------------------------------------------------|
-| **Jefe Calderilla** | Porras          | **Mano negra**: -2 puntos de cualidad durante 3 rondas            |
-| **Jefe Navajas**    | Calderilla      | **Sangrado**: -2 puntos de vida durante 3 rondas                   |
-| **Jefe Porras**     | Botellín        | **Mamporro**: Cada 3 rondas el daño del enemigo aumenta 5 puntos  |
-| **Jefe Botellín**   | Navajas         | **Neuronan’t**: Cada 3 rondas una cualidad random es bloqueada    |
-
+| **Jefes**           | **Debilidades** |
+|---------------------|-----------------|
+| **Jefe Oros**       | Porras          |
+| **Jefe Espadas**    | Calderilla      |
+| **Jefe Bastos**     | Botellín        |
+| **Jefe Copas**      | Navajas         |
 
 
 ## 5. Diseño de niveles
 
 “Yusoa es ley” cuenta con cuatro zonas distintas, cada una basada en los cuatro distintos palos de la baraja española, interconectadas con TENFE.
 
-Cada zona cuenta con dos pantallas, las cuales, a su vez, cuentan cada una con dos a tres localizaciones con las que el jugador podrá interactuar, hablar con npc’s y encontrar objetos escondidos. Una será la zona del enemigo.
+Cada zona cuenta con tres pantallas, las cuales, a su vez, cuentan cada una con dos a tres localizaciones con las que el jugador podrá interactuar, hablar con npc’s y encontrar objetos escondidos. Una será la zona del enemigo.
 
 Para poder viajar entre las diferentes zonas el jugador deberá ir a cada estación y decidir viajar. El mapa de TENFE aparecerá y el jugador podrá elegir a cual de las cuatro estaciones quiere viajar.
 
@@ -152,11 +149,13 @@ El jugador utilizará TENFE para ir a una zona de Madrizz. Allí podrá desplaza
 ## 6. HUD
 ## HUD - Estadísticas
 
-| **NOMBRE**       | **DESCRIPCIÓN**                                                                 | **Color Icono** |
-|------------------|---------------------------------------------------------------------------------|-----------------|
-| **STATS**        | Estadísticas de Elle (vida, puntos de cualidades, ansiedad, nivel de las cualidades) | Rojo            |
-| **Mochila**      | Objetos obtenidos (para aumentar vida/ptos cualidad máxima y regeneración de vida/ptos de cualidad) | Amarillo        |
-| **Contactos**    | Información de los NPC tras conocerlos: Nombre, pronombre, imagen, y descripción breve | Morado          |
+| **NOMBRE**       | **DESCRIPCIÓN** |
+|------------------|-----------------|
+| **Estadísticas**        | Estadísticas de Elle (vida, puntos de cualidades, ansiedad, nivel de las cualidades)             |
+| **Inventario**      | Objetos obtenidos (para aumentar vida/ptos cualidad máxima y regeneración de vida/ptos de cualidad)    |
+| **Contactos**    | Información de los NPC tras conocerlos: Nombre, pronombre, imagen, y descripción breve     |
+
+Todos los botones son de color morado.
 
 ### En pantalla
 ![Pantalla](assets/gdd/pantalla.jpg)
@@ -219,24 +218,25 @@ Cada zona está basada en uno de los palos de la baraja española, siendo iguale
 | Zona Botellín    | Zona con tonos rojizos, con lugares religiosos                                | Aravaca / Madrid Oeste       |
 
 
+
 ### 9.3. Personajes Principales
 | **NOMBRE**          | **DESCRIPCIÓN**                                                                                          | **DISEÑO/IMAGEN** |
 |---------------------|----------------------------------------------------------------------------------------------------------|-------------------|
 | **Elle**            | Protagonista del juego. Aparece en Madrizz y decide derrocar al régimen corrupto.                        |     ![Elle](assets/npc/elle.png)                 |
 | **Ellie**           | Personaje secundario. Introduce el mundo a “Elle” y lidera en las sombras la resistencia (Luciérnagas). Mientras que Elle se encuentra luchando con los secuaces en cada zona y contra Yusoa, Ellie va ganando adeptos a su causa para organizar un levantamiento popular contra el régimen. |                   |
 | **Yusoa**           | Enemigo final. Fue quien dividió Madrizz en las 4 zonas y guarda el poder absoluto.                       |    ![Yusoa](assets/npc/yusoa.png)                 |
-| **Boss Calderilla** | Secuaz de Yusoa. Clasista.                                                                                 |                   |
-| **Boss Navajas**    | Secuaz de Yusoa. Sanguinario.                                                                              |                   |
-| **Boss Porras**     | Secuaz de Yusoa. Avaricioso.                                                                               |                   |
-| **Boss Botellín**   | Secuaz de Yusoa. Egocéntrico.                                                                              |                   |
+| **Boss Oros** | Varin.Secuaz de Yusoa. Clasista.                                                                                 | ![Oros](assets/gdd/siluetaOros.png)                  |
+| **Boss Espadas**    | Luthor.Secuaz de Yusoa. Sanguinario.                                                                              |  ![Espadas](assets/gdd/siluetaEspadas.png)                        |
+| **Boss Bastos**     | Rajmur.Secuaz de Yusoa. Avaricioso.                                                                               | ![Bastos](assets/gdd/siluetaBastos.png)                         |
+| **Boss Copas**   | Kador.Secuaz de Yusoa. Egocéntrico.                                                                              |    ![Copas](assets/gdd/siluetaCopas.png)               |
 
 ## 10. Referencias
 ![Pokemon](assets/gdd/pokemon.jpg)
 **Pokemon** (sistema de combate)  
 
 ![Persona 5](assets/gdd/persona.jpg)
-**Pokemon** (sistema de combate)  
+**Persona 5** (relaciones y crítica social)  
 
 ![South Park](assets/gdd/southPark.jpg)
-**Pokemon** (sistema de combate)  
+**South Park** (Estilo artístico)  
 

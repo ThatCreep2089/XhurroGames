@@ -113,7 +113,7 @@ export default class DialogueScene extends Phaser.Scene {
             .setScale(this.dialogueJson[this.npc].scale);
 
         // 4.1. CASOS ESPECIALES:
-       if(this.npc == 'PITIBANCO')
+       if(this.dialogueJson[this.npc].isPitiBanco == true)
         {
              //debug (para probar si funciona curar)
              //this.player.takeDamage(50);
@@ -179,14 +179,32 @@ export default class DialogueScene extends Phaser.Scene {
         // Cuando se termina el dialogo...
         this.dialog.on('dialogComplete', () => {
 
-            if(this.npc == 'PITIBANCO')
+            console.log("dialogo completado")
+            if(this.dialogueJson[this.npc].isPitiBanco == true)
             {
                 //PORROS (BOTONES)
+
+                if(this.dialogueJson[this.npc].curarAnsiedad == "true")
+                {
                 //curar ansiedad
                 this.addButtonToScene(4, 3, 0xff7c00, `CURAR ANSIEDAD`, this.fumarPorroAnsiedad);
-                    
+                }
+                else
+                {
+                    this.dialog.setText(this.dialogueJson[this.npc].fumado, true);
+                }
+
+                if(this.dialogueJson[this.npc].curarVida == "true")
+                {
                 //curar vida
                 this.addButtonToScene(1.5, 3, 0x00fff3, `CURAR VIDA`, this.fumarPorroVida);
+                }
+                else
+                {
+                    this.dialog.setText(this.dialogueJson[this.npc].fumado, true);
+                }
+                    
+                
             }
             else if(this.dialogueJson[this.npc].isBoss == true)
             {
@@ -213,6 +231,8 @@ export default class DialogueScene extends Phaser.Scene {
                 if(this.dialogueJson[this.npc].hablado != "true" && this.npc != "ELLIE")
                 {
                     this.addButtonToScene(2, 2, 0x2eff00, 'ACEPTAR OFRENDA', this.addRecompensa);
+                    this.dialogueJson[this.npc].hablado = "true";
+                    
                 }
                 
             }
@@ -221,12 +241,11 @@ export default class DialogueScene extends Phaser.Scene {
             const backScene = this.add.image(
                 this.sys.game.canvas.width / 12,
                 this.sys.game.canvas.height / 2, 
-                'flecha')
+                'flechaM')
             .setScale(-0.3, 0.3)
             .setInteractive()
             .on('pointerdown', () => 
             {
-                this.dialogueJson[this.npc].hablado = "true";
                 if(this.npc == 'ELLIE'){
                     this.scene.start('zonaScene');
                 }
@@ -275,14 +294,10 @@ export default class DialogueScene extends Phaser.Scene {
             this.sys.game.canvas.height / y, 
             50, 50, color)
         .setInteractive()
-        .setScale(6, 2)
-        .on('pointerdown', () => {
-           // console.log("obtener recompensa");
-            callback.call(this); 
-            button.disableInteractive();
-        });
-        // Texto para mostrar "Ansiedad" en el centro del botón
-        let acceptText = this.add.text(
+        .setScale(6, 2);
+
+        // Texto para mostrar texto en el centro del botón
+        let buttonText = this.add.text(
             button.x,   // Colocar en la misma X del botón
             button.y,   // Colocar en la misma Y del botón
             text,
@@ -296,7 +311,14 @@ export default class DialogueScene extends Phaser.Scene {
         );
 
         // Centrar el texto en el botón
-        acceptText.setOrigin(0.5, 0.5);
+        buttonText.setOrigin(0.5, 0.5);
+
+        //evento
+        button.on('pointerdown', () => {
+            callback.call(this);  // Ejecuta la función asociada
+            button.destroy();
+            buttonText.destroy();
+        });
     }
 
     addRecompensa()
@@ -304,7 +326,7 @@ export default class DialogueScene extends Phaser.Scene {
         let recompensa = this.dialogueJson[this.npc].recompensa;
         //console.log(recompensa);
 
-        if (this.npc == "COPAS"){
+        if (this.dialogueJson[this.npc].isBoss == true){
            // console.log(recompensa);
            // console.log(recompensa.name)
             this.addItemToScene(recompensa);
@@ -333,6 +355,8 @@ export default class DialogueScene extends Phaser.Scene {
 
     fumarPorroAnsiedad() 
     {
+        console.log("entra en fumar porro")
+        console.log(this.dialogueJson[this.npc].curarAnsiedad)
         if(this.dialogueJson[this.npc].curarAnsiedad == "true")
         {
             this.player.LessAnxiety(this.player.ansiedad); //le quita toda la ansiedad
@@ -403,7 +427,7 @@ export default class DialogueScene extends Phaser.Scene {
 
 
     update(){
-        if((this.npc == 'PITIBANCO'))
+        if(this.dialogueJson[this.npc].isPitiBanco == true)
         {
             // Actualiza el texto con el nuevo valor de la variable
             this.anxietyText.setText(`Ansiedad: ${this.player.ansiedad}`);

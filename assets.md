@@ -49,6 +49,7 @@ Todos las imágenes han sido realizadas por los artistas del equipo.
 ## 10. Videos 
 Videos y música utilizados en el juego.
 Todos los videos han sido realizados por los artistas del equipo.
+Tanto "A walk through Madrizzz" (música de zona) como "A fight for freedom (in Madrizz)" (música de combate) han sido compuestos por los artistas del equipo.
 
 ## 11. Web Media
 Todos los assets utilizados en la página web.

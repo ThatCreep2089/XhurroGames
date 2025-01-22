@@ -45,7 +45,7 @@ init(data){
 
 
         //Pintamos un fondo
-        var back = this.add.image(0, 0, 'combat').setOrigin(0, 0);
+        var back = this.add.image(0, 0, 'fondoCombate').setOrigin(0, 0);
 
         //escalar el fondo
         var scaleX = this.cameras.main.width / back.width;
@@ -60,7 +60,13 @@ init(data){
             this.cameras.main.height / 2 - back.displayHeight / 2
         );
         
-        
+        this.infoButton = this.createButton(this.sys.game.canvas.width / 50,
+            this.sys.game.canvas.height / 1.7,
+            'infoButton',
+            2,
+            () => this.mostrarInfo() 
+        );
+
         //generamos las primeras cartas
         this.espadas;
         this.copas;
@@ -73,26 +79,77 @@ init(data){
        this.setEntities(); 
        //creamos botones y textos en la escena
        this.createAttackButtons();
-       this.createStadisticsButtons();
+       this.createStadisticsText();
        this.createOtherText();
 
        //eventos de turnos
         this.events.on('changeTurns', ()=>this.changeTurns());
+
+        this.events.on('playerAttack', ()=>this.playerAttackAnim());
+
         this.events.on('enemyDamaged', ()=>this.enemyDamageAnim());
+
+        this.events.on('enemyAttack', ()=>this.enemyAttackAnim());
+
         this.events.on('playerDamaged', ()=>this.playerDamageAnim());
+
         this.events.on('updateStatus', ()=>this.updateCombatStatus());
 
     }
+
+    playerAttackAnim(){
+        this.changeActiveButtons();
+        this.staticAnim.pause();
+        this.tweens.add({
+            targets: [this.playerSprite],
+            x: '+=50',
+            y: '-=50', 
+            duration: 1000, 
+            ease: 'Power2',
+            yoyo: true, 
+            onComplete: () => {
+                
+                this.events.emit('enemyDamaged');
+            }
+        });
+    }
+
+    enemyAttackAnim(){
+        this.tweens.add({
+            targets: [this.enemy],
+            x: '-=50',
+            y: '+=50', 
+            duration: 1000, 
+            ease: 'Power2',
+            yoyo: true, 
+            onComplete: () => {
+                
+                this.events.emit('playerDamaged');
+            }
+        });
+    }
+
 
     //secuencia al dañar un enemigo
     enemyDamageAnim(){
         //desactiva botones
         //console.log("cambio botones a false");
-        this.changeActiveButtons();
+        
         //pone al enemigo en rojo
         this.enemy.setTint(0xff0000);
-        this.time.delayedCall(3000, () => {
-            this.enemy.clearTint();});
+
+
+        this.tweens.add({
+            targets: [this.enemy],
+            scaleX: 0.5,
+            scaleY: 0.5, 
+            duration: 1500, 
+            ease: 'Power2',
+            yoyo: true,
+            onComplete: () => {
+                this.enemy.clearTint();
+            }
+        });
         //hace el daño al enemigo y actualiza daño total a 0
         this.player.attackEnemy(this.enemy, this.totalDamage);
         this.totalDamage = 0;
@@ -102,9 +159,19 @@ init(data){
 
     //secuencia al dañar al player
     playerDamageAnim(){
-        this.player.setTint(0xff0000);//coloreamos al player
-        this.time.delayedCall(3000, () => {
-            this.player.clearTint();});
+        this.playerSprite.setTint(0xff0000);//coloreamos al player
+       
+        this.tweens.add({
+            targets: [this.playerSprite],
+            scaleX: 0.25,
+            scaleY: 0.25, 
+            duration: 1500, 
+            ease: 'Power2',
+            yoyo: true,
+            onComplete: () => {
+                this.playerSprite.clearTint();
+            }
+        });
 
         //hace daño al player
         this.enemy.attackPlayer(this.player);
@@ -125,6 +192,7 @@ changeTurns() {
         this.updateCardsTexts();
         this.changeActiveButtons();
         this.updateTotalText();
+        this.staticAnim.resume();
     }
 }
 
@@ -143,7 +211,9 @@ changeTurns() {
         //si ha acabado, escena de victoria o derrota
         else if(result.playerwin == true){
             this.events.removeListener('changeTurns');
+            this.events.removeListener('playerAttack');
             this.events.removeListener('enemyDamaged');
+            this.events.removeListener('enemyAttack');
             this.events.removeListener('playerDamaged');
             this.events.removeListener('updateStatus');
             this.changeActiveButtons();
@@ -158,10 +228,15 @@ changeTurns() {
             //console.log("derrota")
             //quitamos listeners
             this.events.removeListener('changeTurns');
+            this.events.removeListener('playerAttack');
             this.events.removeListener('enemyDamaged');
+            this.events.removeListener('enemyAttack');
             this.events.removeListener('playerDamaged');
             this.events.removeListener('updateStatus');
             this.changeActiveButtons();
+
+            this.player.health = 1;
+
             this.scene.start("endCombatScene", {ant: this.ant, player: this.player.getConfigData(), 
                 inventory: this.inventory.getConfigData(),
                 npc: this.npc,
@@ -181,15 +256,18 @@ changeTurns() {
             if(this.player.mana >=20) {
             this.player.manaPerdido(20);
         // console.log("llamo enemydamaged desde mana");
-            this.events.emit('enemyDamaged');
+        
+            this.events.emit('playerAttack');
             }
             else  {
+                this.mostrarPestana();
                 //console.log("no hay mana");
             }
         }
         else {
             //console.log("llamo enemydamaged desde normal");
-            this.events.emit('enemyDamaged');
+            
+            this.events.emit('playerAttack');
         }
         
     }
@@ -300,7 +378,7 @@ changeTurns() {
     // Método de turno del enemigo
     enemyTurn() {
 
-        this.events.emit('playerDamaged');
+        this.events.emit('enemyAttack');
                         
     }
 
@@ -355,10 +433,6 @@ changeTurns() {
         return {"end": false, "playerwin": false}
     }
 
-    
-    changeCualidadesVisibility(){
-        //para hacer bonito el combate 
-    }
 
     changeActiveButtons(){
 
@@ -372,6 +446,7 @@ changeTurns() {
                 this.playerTrabajoDuroButton.setInteractive();
                 this.playerAgnosticismoButton.setInteractive();
                 this.playerAfectoButton.setInteractive();
+                this.infoButton.setInteractive();
             }
         else {
                 this.attackButton.disableInteractive();
@@ -380,6 +455,7 @@ changeTurns() {
                 this.playerTrabajoDuroButton.disableInteractive();
                 this.playerAgnosticismoButton.disableInteractive();
                 this.playerAfectoButton.disableInteractive();
+                this.infoButton.disableInteractive();
             }   
         }
 
@@ -393,20 +469,20 @@ changeTurns() {
         });
     }
 
-    createButton(x, y, width, height, color, callback) {
-        return this.add.rectangle(x, y, width, height, color)
-            .setInteractive()
-            .on('pointerdown', callback);
+
+    createButton(x, y, sprite, scale, callback) {
+        return this.add.image(x, y, sprite).setScale(scale)
+            .setInteractive().on('pointerdown', callback);
     }
 
     setEntities(){
         //player
-        this.player = new Player(this, this.sys.game.canvas.width / 20, this.sys.game.canvas.height / 1.01, 'playerCombat').setOrigin(0.5);;
+        this.player = new Player(this,0,0);
         this.player.init(this.playerConfig);
-        this.player.setScale(0.7);
+
         //enemigo
         this.enemy = new Enemy(this, this.sys.game.canvas.width / 1.2, this.sys.game.canvas.height / 3.5, this.npc);
-        this.enemy.setScale(0.7);
+        this.enemy.setScale(0.3);
 
         //inventario
         this.inventory = new Inventory(this)
@@ -415,56 +491,133 @@ changeTurns() {
 
         //anulamos movimiento player
         this.player.changeMove(false);
-        //this.player.visible = false;
+        this.player.visible = false;
+
+        this.playerSprite = this.add.sprite(this.sys.game.canvas.width / 9, this.sys.game.canvas.height / 1.3,
+        'playerCombat').setOrigin(0.5).setScale(0.3);
+
+
+
+        //animaciones
+        //movimiento estático
+        this.staticAnim = this.tweens.add({
+            targets: [ this.playerSprite, this.enemy],
+            x: '+=5',
+            duration: 300,
+            ease: 'Sine.easeInOut',
+            yoyo: true,
+            repeat: -1,
+            delay: 0
+        });
+
     }
 
 
     createAttackButtons(){
-        //ataque normal
+        //ataque normal        
         this.attackButton = this.createButton(
             this.sys.game.canvas.width / 1.8,
-            this.sys.game.canvas.height / 2,
-            200, 100,
-            0xff0000,
+            this.sys.game.canvas.height / 1.5,
+            'cartaNormal',
+            0.7,
             () => this.playerTurn()
-     );
-        
-        this.attackNormalText = this.createText(
-            this.sys.game.canvas.width / 1.95,
-            this.sys.game.canvas.height / 2.1,
-            'Normal'
-           );
-
-
-        //ataque cualidades
-        /*
-        this.magicButton = this.createButton(
-            this.sys.game.canvas.width / 3,
-            this.sys.game.canvas.height / 2,
-            300, 100,
-            0xff0000,
-            () => this.playerTurn('magic')
-      );
-      */
-        
-        this.attackCualidadesText = this.createText(
-            this.sys.game.canvas.width / 3.7,
-            this.sys.game.canvas.height / 2.1,
-            'Cualidades'
         );
 
+
+
+        this.attackNormalText = this.createText(
+            this.sys.game.canvas.width / 1.95,
+            this.sys.game.canvas.height / 1.56,
+            'Normal',
+            '50px',
+            '#000000'
+           ).setDepth(1);
+
+
+        //ataque humildad
+        this.playerHumildadButton = this.createButton(
+            this.sys.game.canvas.width / 3.5,
+            this.sys.game.canvas.height / 2 + 100,
+           'cartaHumildad',
+            0.7,                          
+            () => this.cualidades('humildad')
+        ).setOrigin(0, 0); 
+
+        this.attackHumildadText = this.createText(
+            this.sys.game.canvas.width / 3.30,
+            this.sys.game.canvas.height / 2 + 115,
+            'Humildad',
+            '50px',
+            '#000000'
+           ).setDepth(1);
+
+        //ataque trabajo duro
+        this.playerTrabajoDuroButton = this.createButton(
+            this.sys.game.canvas.width / 3.5,
+            this.sys.game.canvas.height / 2 + 200,
+            'cartaTrabajoDuro',
+            0.7,                          
+            () => this.cualidades('trabajo duro')
+        ).setOrigin(0, 0);
+
+
+        this.attackTrabajoDuroText = this.createText(
+            this.sys.game.canvas.width / 3.45,
+            this.sys.game.canvas.height / 2 + 215,
+            'Trabajo Duro',
+            '50px',
+            '#000000'
+           ).setDepth(1);
+
+        //ataque agnosticismo
+        this.playerAgnosticismoButton = this.createButton(
+            this.sys.game.canvas.width / 3.5,
+            this.sys.game.canvas.height / 2 + 300,
+            'cartaAgnosticismo',
+            0.7,                          
+            () => this.cualidades('agnosticismo')
+        ).setOrigin(0, 0);
+
+
+        this.attackAgnosticismoText = this.createText(
+            this.sys.game.canvas.width / 3.45,
+            this.sys.game.canvas.height / 2 + 315,
+            'Agnosticismo',
+            '50px',
+            '#000000'
+           ).setDepth(1);
+
+        //ataque afecto
+        this.playerAfectoButton = this.createButton(
+            this.sys.game.canvas.width / 3.5,
+            this.sys.game.canvas.height / 2 + 400,
+            'cartaAfecto',
+            0.7,                         
+            () => this.cualidades('afecto')
+        ).setOrigin(0, 0);  
+
+        this.attackAfectoText = this.createText(
+            this.sys.game.canvas.width / 3.35,
+            this.sys.game.canvas.height / 2 + 415,
+            'Afecto',
+            '50px',
+            '#000000'
+           ).setDepth(1);
+
         //suma daño total
+
         this.totalDamageButton = this.createButton(
             this.sys.game.canvas.width / 1.15,
             this.sys.game.canvas.height / 1.3,
-            300, 300,
-            0xff0000,
+            'botonDamageTotal',
+            0.5,
             () => this.playerMakesDamage(this.totalDamage)
       );
+      
    
         this.totalDamageText = this.createText(
             this.sys.game.canvas.width / 1.2,
-            this.sys.game.canvas.height / 1.8,
+            this.sys.game.canvas.height / 1.55,
             'Total'  
         );
        
@@ -477,78 +630,86 @@ changeTurns() {
     }
 
 
-createStadisticsButtons() {
+createStadisticsText() {
 
-    //botón humildad
+    //humildad
     this.playerHumildadText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 4.8,
-        'Humildad: ' + this.player.humildad
+        'Humildad: ' + this.player.humildad,
+        '50px',
+        '#000000'
     );
 
-    this.playerHumildadButton = this.createButton(
-        this.sys.game.canvas.width / 40,
-        this.sys.game.canvas.height / 4.8,
-        this.playerHumildadText.width,     
-        this.playerHumildadText.height,    
-        0x000000,                          
-        () => this.cualidades('humildad')
-    ).setOrigin(0, 0)
-     .setAlpha(0.5);  
 
-    
-    // botón trabajo duro
+    //trabajo duro
     this.playerTrabajoDuroText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 3.9,
-        'Trabajo duro: ' + this.player.trabajoDuro
+        'Trabajo duro: ' + this.player.trabajoDuro,
+        '50px',
+        '#000000'
     );
 
-    this.playerTrabajoDuroButton = this.createButton(
-        this.sys.game.canvas.width / 40,
-        this.sys.game.canvas.height / 3.9,
-        this.playerTrabajoDuroText.width,     
-        this.playerTrabajoDuroText.height,    
-        0x000000,                          
-        () => this.cualidades('trabajo duro')
-    ).setOrigin(0, 0)
-     .setAlpha(0.5);
+   
 
-     //botón agnosticismo
+     // agnosticismo
     this.playerAgnosticismoText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 3.2,
-        'Agnosticismo: ' + this.player.agnosticismo
+        'Agnosticismo: ' + this.player.agnosticismo,
+        '50px',
+        '#000000'
     );
 
-    this.playerAgnosticismoButton = this.createButton(
-        this.sys.game.canvas.width / 40,
-        this.sys.game.canvas.height / 3.2,
-        this.playerAgnosticismoText.width,     
-        this.playerAgnosticismoText.height,    
-        0x000000,                          
-        () => this.cualidades('agnosticismo')
-    ).setOrigin(0, 0)
-     .setAlpha(0.5);
+    
 
-    //botón afecto
+    //afecto
     this.playerAfectoText = this.createText(
         this.sys.game.canvas.width / 40,
         this.sys.game.canvas.height / 2.7,
-        'Afecto: '+ this.player.afecto
+        'Afecto: '+ this.player.afecto,
+        '50px',
+        '#000000'    
     );
 
-    this.playerAfectoButton = this.createButton(
+    //texto de la salud del player
+    this.playerHealthText = this.createText(
         this.sys.game.canvas.width / 40,
-        this.sys.game.canvas.height / 2.7,
-        this.playerAfectoText.width,     
-        this.playerAfectoText.height,    
-        0x000000,                          
-        () => this.cualidades('afecto')
-    ).setOrigin(0, 0)
-     .setAlpha(0.5);    
+        this.sys.game.canvas.height / 20,
+        'PlayerHP: ' + this.player.health,
+        '50px',
+        '#000000'
+    );
 
-    
+    //texto del maná del player
+    this.playerManaText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 10,
+        'PlayerMana: ' + this.player.mana,
+        '50px',
+        '#000000'
+    );
+
+    //texto de la ansiedad del player
+    this.playerAnxietyText = this.createText(
+        this.sys.game.canvas.width / 40,
+        this.sys.game.canvas.height / 6.75,
+        'Ansiedad: ' + this.player.ansiedad,
+        '50px',
+        '#000000'
+    );
+
+    //texto de la salud del enemigo 
+    this.enemyHealthText = this.createText(
+        this.sys.game.canvas.width / 2,
+        this.sys.game.canvas.height / 8,
+        'Enemigo: ' + this.enemy.health,
+        '50px',
+        '#000000'
+        );    
+
+
 
 }
 
@@ -556,115 +717,60 @@ createStadisticsButtons() {
 
     createOtherText() {
 
-                
-        //texto de la salud del player
-        this.playerHealthText = this.createText(
-            this.sys.game.canvas.width / 40,
-            this.sys.game.canvas.height / 20,
-            'PlayerHP: ' + this.player.health
-        );
 
-        //texto del maná del player
-        this.playerManaText = this.createText(
-            this.sys.game.canvas.width / 40,
-            this.sys.game.canvas.height / 10,
-            'PlayerMana: ' + this.player.mana
-        );
-
-        //texto de la salud del enemigo 
-        this.enemyHealthText = this.createText(
-            this.sys.game.canvas.width / 2,
-            this.sys.game.canvas.height / 8,
-            'Enemigo: ' + this.enemy.health,  
-            );
-
-
-        //texto de valores de las cartas:
-        this.espadasText = this.createText(
-            this.sys.game.canvas.width / 5.5,
-            this.sys.game.canvas.height / 1.7,
-            'espadas: '
-        );
-        
-        
-
-        this.copasText = this.createText(
-            this.sys.game.canvas.width / 2.9,
-            this.sys.game.canvas.height / 1.7,
-            'copas: '
-        );
-
-
-        this.bastosText = this.createText(
-            this.sys.game.canvas.width / 2,
-            this.sys.game.canvas.height / 1.7,
-            'bastos: '  
-        );
-
-
-        this.orosText = this.createText(
-            this.sys.game.canvas.width / 1.5,
-            this.sys.game.canvas.height / 1.7,
-            'oros: '
-        );
-
+  
         // Rectángulos (cartas) debajo de cada texto (bajados):
-        const offsetY = 160;  // Aumento en el valor Y para bajar los rectángulos
-
+        const offsetY = 350;  // Aumento en el valor Y para bajar los rectángulos
         // Rectángulo para 'espadas'
-        this.espadasCard = this.add.rectangle(
-            this.espadasText.x + this.espadasText.width / 2,  // Centrado con el texto
-            this.espadasText.y + this.espadasText.height + offsetY, // Mover más abajo
-            160, 240, // Ancho y alto del rectángulo más grandes
-            0xFFFFFF // Color blanco
-        );
+        this.espadasCard = this.add.image(
+            this.sys.game.canvas.width / 2 + 100,  
+            this.sys.game.canvas.height / 1.7 + offsetY, // Mover más abajo
+            'cartaNavajas'
+        ).setScale(0.4);
         this.espadasCard.setOrigin(0.5); // Centrar el origen del rectángulo
 
         // Rectángulo para 'copas'
-        this.copasCard = this.add.rectangle(
-            this.copasText.x + this.copasText.width / 2,  // Centrado con el texto
-            this.copasText.y + this.copasText.height + offsetY, // Mover más abajo
-            160, 240,  // Ancho y alto del rectángulo más grandes
-            0xFFFFFF // Color blanco
-        );
+        this.copasCard = this.add.image(
+            this.sys.game.canvas.width / 2 + 200,  
+            this.sys.game.canvas.height / 1.7 + offsetY, // Mover más abajo
+            `cartaBotellin`
+        ).setScale(0.4);
         this.copasCard.setOrigin(0.5);
 
         // Rectángulo para 'bastos'
-        this.bastosCard = this.add.rectangle(
-            this.bastosText.x + this.bastosText.width / 2,  // Centrado con el texto
-            this.bastosText.y + this.bastosText.height + offsetY, // Mover más abajo
-            160, 240, // Ancho y alto del rectángulo más grandes
-            0xFFFFFF // Color blanco
-        );
+        this.bastosCard = this.add.image(
+            this.sys.game.canvas.width / 2 + 300,  
+            this.sys.game.canvas.height / 1.7 + offsetY, // Mover más abajo
+            'cartaPorras'
+        ).setScale(0.4);
         this.bastosCard.setOrigin(0.5);
 
         // Rectángulo para 'oros'
-        this.orosCard = this.add.rectangle(
-            this.orosText.x + this.orosText.width / 2,  // Centrado con el texto
-            this.orosText.y + this.orosText.height + offsetY, // Mover más abajo
-            160, 240, // Ancho y alto del rectángulo más grandes
-            0xFFFFFF // Color blanco
-        );
+        this.orosCard = this.add.image(
+            this.sys.game.canvas.width / 2 + 400, 
+            this.sys.game.canvas.height / 1.7 + offsetY, // Mover más abajo
+            'cartaCalderilla'
+        ).setScale(0.4);
         this.orosCard.setOrigin(0.5);
 
+        
         // Texto del número de 'espadas' centrado en el rectángulo de 'espadas'
         this.espadasNumber = this.createText(
             this.espadasCard.x,  // Usamos la posición x del rectángulo
             this.espadasCard.y,  // Usamos la posición y del rectángulo
             this.espadas,
-            '100px', 
+            '40px', 
             '#000000',       // Negro  
             
         ).setOrigin(0.5);  // Centramos el texto en su posición
 
-        // Repite lo mismo para los otros textos y rectángulos
 
         // Texto del número de 'copas' centrado en el rectángulo de 'copas'
         this.copasNumber = this.createText(
             this.copasCard.x,  // Usamos la posición x del rectángulo
             this.copasCard.y,  // Usamos la posición y del rectángulo
             this.copas,  
-            '100px', 
+            '40px', 
             '#000000',       // Negro    
         
         ).setOrigin(0.5);  // Centramos el texto en su posición
@@ -674,7 +780,7 @@ createStadisticsButtons() {
             this.bastosCard.x,  // Usamos la posición x del rectángulo
             this.bastosCard.y,  // Usamos la posición y del rectángulo
             this.bastos, 
-            '100px', 
+            '40px', 
             '#000000',       // Negro
                  
         ).setOrigin(0.5);  // Centramos el texto en su posición
@@ -684,29 +790,140 @@ createStadisticsButtons() {
             this.orosCard.x,  // Usamos la posición x del rectángulo
             this.orosCard.y,  // Usamos la posición y del rectángulo
             this.oros,  
-            '100px', 
+            '40px', 
             '#000000',       // Negro
                 
         ).setOrigin(0.5);  // Centramos el texto en su posición
 
-
-
-       /* let inventarioButton = this.add.rectangle(
-            this.sys.game.canvas.width / 14,
-            this.sys.game.canvas.height / 1.5, 
-            50, 50, 0xffe800)
-        .setInteractive()
-        .setScale(4, 2)
-        .on('pointerdown', () => {
-            console.log("Valor de this.key:", this.key); // Aquí verificamos el valor de this.key
-            this.scene.start('InventoryScene', {
-                lastScene: this.key, // Este es el valor que debería contener "zonaScene"
-                player: this.player.getConfigData(),
-                inventory: this.inventory.getConfigData(),
-                //modo: this.modo,
-                dialogueJson: this.dialogueJson
-            });
-        });
-*/
     }
+
+
+    mostrarPestana()
+    {
+        // Crear la pestaña
+        this.pestana = this.add.container(
+            this.sys.game.canvas.width / 2, // Centro del canvas
+            this.sys.game.canvas.height / 2 // Centro del canvas
+        );
+    
+        // Fondo semitransparente para bloquear clics detrás
+        this.blocker = this.add.rectangle(
+            this.sys.game.canvas.width / 2, 
+            this.sys.game.canvas.height / 2, 
+            this.sys.game.canvas.width, 
+            this.sys.game.canvas.height, 
+            0x939393, 
+            0.5 // Opacidad (50%)
+        ).setInteractive(); // Captura eventos para bloquear interacciones
+
+        // Fondo de la pestaña (más grande)
+        const fondoPestana = this.add.rectangle(0, 0, 600, 500, 0x000000) // Nuevo tamaño: 600x500
+            .setOrigin(0.5) // Centrado
+            .setInteractive(); // Fondo para capturar clics
+        this.pestana.add(fondoPestana);
+    
+        let nombres = "No te queda maná,\n no puedes usar ataques especiales.";
+
+        // Crear el texto con los nombres
+        const textoPestana = this.add.text(0, 0, nombres, {
+            font: "40px Georgia",
+            color: "#ffffff",
+            align: "center"
+        });
+    
+        textoPestana.setOrigin(0.5, 0.5); // Centrar el origen del texto
+        textoPestana.setPosition(0, 5); // Ajustar la posición dentro del fondo
+        this.pestana.add(textoPestana);
+    
+        // Crear el botón rojo para ocultar la pestaña
+        const botonCerrar = this.add.rectangle(250, -200, 60, 60, 0xff0000) // Ajuste relativo a la posición del fondo
+            .setOrigin(0.5)
+            .setInteractive();
+        this.pestana.add(botonCerrar);
+
+        const botonCerrarTexto = this.add.text(250, -200, "X", {
+            fontSize: "30px", // Asegurar tamaño de fuente
+            fontFamily: "Arial",
+            fontStyle: "bold",
+            color: "#ffffff"
+        }).setOrigin(0.5);
+
+        this.pestana.add(botonCerrarTexto);
+    
+        // Evento del botón para ocultar la pestaña
+        botonCerrar.on("pointerdown", () => {
+            this.blocker.destroy(); // Eliminar bloqueador
+            this.pestana.destroy(); // Eliminar la pestaña
+        });
+
+        // Agregar el fondo bloqueador detrás de la pestaña
+        this.children.bringToTop(this.pestana);
+    }
+
+
+    mostrarInfo()
+    {
+        // Crear la pestaña
+        this.pestana = this.add.container(
+            this.sys.game.canvas.width / 2, // Centro del canvas
+            this.sys.game.canvas.height / 2 // Centro del canvas
+        );
+    
+        // Fondo semitransparente para bloquear clics detrás
+        this.blocker = this.add.rectangle(
+            this.sys.game.canvas.width / 2, 
+            this.sys.game.canvas.height / 2, 
+            this.sys.game.canvas.width, 
+            this.sys.game.canvas.height, 
+            0x939393, 
+            0.5 // Opacidad (50%)
+        ).setInteractive(); // Captura eventos para bloquear interacciones
+
+        // Fondo de la pestaña (más grande)
+        const fondoPestana = this.add.rectangle(0, 0, 1000, 500, 0x000000) // Nuevo tamaño: 600x500
+            .setOrigin(0.5) // Centrado
+            .setInteractive(); // Fondo para capturar clics
+        this.pestana.add(fondoPestana);
+    
+        let nombres = "Información sobre el combate:\n" +
+        "Ataque normal: Suma el valor de las cartas.\n" +
+        "Ataque especial: Utiliza maná y multiplica las cartas\n dependiendo del nivel de la cualidad correspondiente. \n" +
+        "Utiliza estos ataques con cabeza y \n ¡Buena suerte!";
+
+        // Crear el texto con los nombres
+        const textoPestana = this.add.text(0, 0, nombres, {
+            font: "40px Georgia",
+            color: "#ffffff",
+            align: "center"
+        });
+    
+        textoPestana.setOrigin(0.5, 0.5); // Centrar el origen del texto
+        textoPestana.setPosition(0, 5); // Ajustar la posición dentro del fondo
+        this.pestana.add(textoPestana);
+    
+        // Crear el botón rojo para ocultar la pestaña
+        const botonCerrar = this.add.rectangle(450, -200, 60, 60, 0xff0000) // Ajuste relativo a la posición del fondo
+            .setOrigin(0.5)
+            .setInteractive();
+        this.pestana.add(botonCerrar);
+
+        const botonCerrarTexto = this.add.text(450, -200, "X", {
+            fontSize: "30px", // Asegurar tamaño de fuente
+            fontFamily: "Arial",
+            fontStyle: "bold",
+            color: "#ffffff"
+        }).setOrigin(0.5);
+
+        this.pestana.add(botonCerrarTexto);
+    
+        // Evento del botón para ocultar la pestaña
+        botonCerrar.on("pointerdown", () => {
+            this.blocker.destroy(); // Eliminar bloqueador
+            this.pestana.destroy(); // Eliminar la pestaña
+        });
+
+        // Agregar el fondo bloqueador detrás de la pestaña
+        this.children.bringToTop(this.pestana);
+    }
+
 }

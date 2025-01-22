@@ -88,7 +88,7 @@ export default class localizationScene extends Phaser.Scene
             this.names = this.add.group();
             this.arrows = this.add.group();
             
-            const mode = this.jsonObject["botellin"][this.localizacion];
+            const mode = this.jsonObject[this.localizacion];
 
             // ITEMS
             mode.items.forEach(item => {
@@ -122,18 +122,20 @@ export default class localizationScene extends Phaser.Scene
             .setScale(0.5, 0.5)
             .setInteractive()
             .on('pointerdown', () => {
-                if(this.player.ansiedad == this.player.maxAnsiedad - 50 && this.npcTalk != 'PITIBANCO')
+                if(this.player.ansiedad == this.player.maxAnsiedad - 50 && this.dialogueJson[this.npcTalk].isPitiBanco != true)
                 {
                     //console.log("no puedes hablar mas, mucha ansiedad");
                     this.mostrarPestana();
                 }
                 else
                 {
+                    
                     // SUBIR ANSIEDAD
-                if(this.npcTalk == 'GATO EN CAJA')
+                    let npc = mode.npcs.find(n => n.name === this.npcTalk);
+                    if(npc && npc.isCat == true)
                     {
                         //verificar si tiene lo que hay q tener
-                        const { cumplidos, noCumplidos } = this.requisitosGato(mode);
+                        const { cumplidos, noCumplidos } = this.requisitosGato(npc);
     
                         if (noCumplidos.length > 0)
                         {
@@ -151,7 +153,7 @@ export default class localizationScene extends Phaser.Scene
                     }
                     else
                     {
-                        if(this.npcTalk != 'PITIBANCO') //a dialogos si NO es pitibanco
+                        if(this.dialogueJson[this.npcTalk].isPitiBanco != true) //a dialogos si NO es pitibanco
                         {
                             this.player.IncreaseAnxiety(10);
                             
@@ -172,7 +174,7 @@ export default class localizationScene extends Phaser.Scene
             this.backButton = this.add.image(
                 this.sys.game.canvas.width / 4,
                 this.sys.game.canvas.height / 3.2, 
-                'flecha')
+                'flechaM')
             .setScale(-0.3, 0.3)
             .setInteractive()
             .on('pointerdown', () => {
@@ -202,7 +204,7 @@ export default class localizationScene extends Phaser.Scene
             const backScene = this.add.image(
                 this.sys.game.canvas.width / 12,
                 this.sys.game.canvas.height / 1.2, 
-                'flecha')
+                'flechaM')
             .setScale(-0.3, 0.3)
             .setInteractive()
             .on('pointerdown', () => this.scene.start('zonaScene', { 
@@ -230,7 +232,7 @@ export default class localizationScene extends Phaser.Scene
             this.acceptButton(true, "Quieres hablar con "+ npc.name +"?");
             this.npcTalk = npc.name;
             })
-        .on('pointerover', () => spritePJ.setTint(0xff0000)) //para que se ponga rojo cuando el raton está encima
+        .on('pointerover', () => spritePJ.setTint(0xcd02ff)) //para que se ponga rojo cuando el raton está encima
         .on('pointerout', () => spritePJ.clearTint());
 
         
@@ -255,7 +257,7 @@ export default class localizationScene extends Phaser.Scene
         var arrow = this.add.image(
             this.sys.game.canvas.width /npc.x,
             this.sys.game.canvas.height / 2.5, 
-            'arrow')
+            'flechaR')
             .setScale(0.2, 0.1);
         this.arrows.add(arrow);
 
@@ -333,15 +335,15 @@ export default class localizationScene extends Phaser.Scene
     }
 
     //verificar si el jugador cumple los requisitos para hablar con el gato
-    requisitosGato(mode)
+    requisitosGato(npc)
     {
         //busco al gato
-        const gatoEnCaja = mode.npcs.find(npc => npc.name == "GATO EN CAJA");
+        //const gatoEnCaja = mode.npcs.find(npc => npc.name == "GATO EN CAJA");
         
         const cumplidos = [];
         const noCumplidos = [];
 
-        gatoEnCaja.requisitos.forEach(requisito => {
+        npc.requisitos.forEach(requisito => {
             //si no ha hablado -> salir directamente
             if (this.dialogueJson[requisito.name].hablado == "true")
             {
@@ -365,6 +367,16 @@ export default class localizationScene extends Phaser.Scene
             this.sys.game.canvas.height / 2 // Centro del canvas
         );
     
+        // Fondo semitransparente para bloquear clics detrás
+        this.blocker = this.add.rectangle(
+            this.sys.game.canvas.width / 2, 
+            this.sys.game.canvas.height / 2, 
+            this.sys.game.canvas.width, 
+            this.sys.game.canvas.height, 
+            0x000000, 
+            0.5 // Opacidad (50%)
+        ).setInteractive(); // Captura eventos para bloquear interacciones
+
         // Fondo de la pestaña (más grande)
         const fondoPestana = this.add.rectangle(0, 0, 600, 500, 0x000000) // Nuevo tamaño: 600x500
             .setOrigin(0.5) // Centrado
@@ -397,14 +409,27 @@ export default class localizationScene extends Phaser.Scene
         this.pestana.add(textoPestana);
     
         // Crear el botón rojo para ocultar la pestaña
-        const botonCerrar = this.add.rectangle(290, -240, 20, 20, 0xff0000) // Ajuste relativo a la posición del fondo
+        const botonCerrar = this.add.rectangle(250, -200, 60, 60, 0xff0000) // Ajuste relativo a la posición del fondo
             .setOrigin(0.5)
             .setInteractive();
         this.pestana.add(botonCerrar);
+
+        const botonCerrarTexto = this.add.text(250, -200, "X", {
+            fontSize: "30px", // Asegurar tamaño de fuente
+            fontFamily: "Arial",
+            fontStyle: "bold",
+            color: "#ffffff"
+        }).setOrigin(0.5);
+
+        this.pestana.add(botonCerrarTexto);
     
         // Evento del botón para ocultar la pestaña
         botonCerrar.on("pointerdown", () => {
-            this.pestana.setVisible(false); // Ocultar la pestaña
+            this.blocker.destroy(); // Eliminar bloqueador
+            this.pestana.destroy(); // Eliminar la pestaña
         });
+
+        // Agregar el fondo bloqueador detrás de la pestaña
+        this.children.bringToTop(this.pestana);
     }
 }

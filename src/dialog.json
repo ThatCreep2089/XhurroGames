@@ -20,7 +20,7 @@
         "frases":
         [
             { "texto": "Ey compañere, ¿Te trata bien la vida?", "author": "Ángel" },
-            { "texto": "Porque a mi no me tratan muy bien.", "author": "Ángel" },
+            { "texto": "Porque a mi no me tratan muy bien. -suspira- ", "author": "Ángel" },
             { "texto": "Mi grupo Los Granos de Yusoa, hemos tenido que separarnos.", "author": "Ángel" },
             { "texto": "No contamos con pasta suficiente y la mitad del grupo está en rehabilitación.", "author": "Ángel" },
             { "texto": "Con el futuro prometodor que teníamos y van y lo tiran por la borda.", "author": "Ángel" },
@@ -35,11 +35,11 @@
 
         "frases":
         [
-            { "texto": "Hola cacho pan, buenas mañas. Hoy hace un tiempo buenísimo para cabalgar un poco, ¿no crees?", "author": "Humberto" },
+            { "texto": "Hola chavale, buenas mañas. Hoy hace un tiempo buenísimo para cabalgar un poco, ¿no crees?", "author": "Humberto" },
             { "texto": "Las apuestas esta semana están muy altas, ¿Te apuntas?", "author": "Humberto" },
             { "texto": "Me he comprado un vinito para disfrutar mientras veo las carreras,", "author": "Humberto" },
             { "texto": "Estoy seguro de que mis jinetes ganarán esta semana de nuevo.", "author": "Humberto" },
-            { "texto": "¡Jajaja!", "author": "Humberto" },
+            { "texto": "¡Jajaja! me voy a hacer de oro", "author": "Humberto" },
             { "texto": "Mi caballo Sardinilla es el mejor de todos, no hay quien le gane.", "author": "Humberto" }
         ],
         "hablado": "false",
@@ -133,7 +133,8 @@
         "frases":
         [
             { "texto": "¿Has oído hablar del cura de la iglesia de al lado?", "author": "Ali" },
-            { "texto": "Siempre actúa raro y de manera sospechosa.", "author": "Ali" },
+            { "texto": "está casi al final del distrito, el cura se encuenta en ella,", "author": "Ali" },
+            { "texto": "aunque siempre actúa raro y de manera sospechosa, nadie nunca le contradice.", "author": "Ali" },
             { "texto": "Además últimamente han desaparecido muchos niños en el barrio.", "author": "Ali" },
             { "texto": "Creo que ha podido ser él, ojalá alguien le pare los pies.", "author": "Ali" },
             { "texto": "Realmente es horrible lo que algunos adultos pueden llegar a hacer...", "author": "Ali" }
@@ -182,24 +183,63 @@
             { "texto": "Me dijo que me sacrificaría por todos mis vecinos", "author": "Jesus" },
             { "texto": "Y que después de 3 días lograría despertar del sueño eterno", "author": "Jesus" },
             { "texto": "Se me ha encomendado esta divina tarea a mi, un simple ex-carpintero que ahora deambula estas calles sin hogar ni trabajo ", "author": "Jesus" },
-            { "texto": "Debo de seguir bebiendo de este vino bendito para volver a verla y preguntarla más hacerca de mi enmienda", "author": "Jesus" }
+            { "texto": "Debo de seguir bebiendo de este vino bendito para volver a verla y preguntarla más acerca de mi enmienda.", "author": "Jesus" }
         ],
         "hablado": "false",
         "scale": 0.5,
         "recompensa": "humildad"
     },
-    "GATO EN CAJA":{
+    "GATO EN CAJA ROJO":{
 
         "frases":
         [
-            { "texto": "Miauu, Marramau mau", "author": "Gato" },
-            { "texto": "(Ey ey pequeñe,¿Has socializado con la gente no?)", "author": "Gato" },
-            { "texto": "miiiaau marrau miau", "author": "Gato" },
-            { "texto": "Tengo algo golosón que seguro que te interesa", "author": "Gato" }
+            { "texto": "Miauu, Marramau mau", "author": "Gato rojo" },
+            { "texto": "(Ey ey pequeñe,¿Has socializado con la gente no?)", "author": "Gato rojo" },
+            { "texto": "miiiaau marrau miau", "author": "Gato rojo" },
+            { "texto": "Tengo algo golosón que seguro que te interesa", "author": "Gato rojo" }
+        ],
+        "hablado": "false",
+        "scale": 0.4,
+        "recompensa": "agnosticismo"
+    },
+    "GATO EN CAJA AMARILLO":{
+
+        "frases":
+        [
+            { "texto": "Miauu, Marramau mau", "author": "Gato amarillo" },
+            { "texto": "(Ey ey pequeñe,¿Has socializado con la gente no?)", "author": "Gato amarillo" },
+            { "texto": "miiiaau marrau miau", "author": "Gato amarillo" },
+            { "texto": "Tengo algo golosón que seguro que te interesa", "author": "Gato amarillo" }
+        ],
+        "hablado": "false",
+        "scale": 0.4,
+        "recompensa": "humildad"
+    },
+    "GATO EN CAJA VERDE":{
+
+        "frases":
+        [
+            { "texto": "Miauu, Marramau mau", "author": "Gato verde" },
+            { "texto": "(Ey ey pequeñe,¿Has socializado con la gente no?)", "author": "Gato verde" },
+            { "texto": "miiiaau marrau miau", "author": "Gato verde" },
+            { "texto": "Tengo algo golosón que seguro que te interesa", "author": "Gato verde" }
         ],
         "hablado": "false",
         "scale": 0.4,
         "recompensa": "trabajo duro"
+    },
+    "GATO EN CAJA AZUL":{
+
+        "frases":
+        [
+            { "texto": "Miauu, Marramau mau", "author": "Gato azul" },
+            { "texto": "(Ey ey pequeñe,¿Has socializado con la gente no?)", "author": "Gato azul" },
+            { "texto": "miiiaau marrau miau", "author": "Gato azul" },
+            { "texto": "Tengo algo golosón que seguro que te interesa", "author": "Gato azul" }
+        ],
+        "hablado": "false",
+        "scale": 0.4,
+        "recompensa": "afecto"
     },
     "ELLIE":{
         "frases":[
@@ -247,32 +287,342 @@
         "scale": 0.5
         
     },
-    "COPAS":
+    "ALADIN":{
+        "frases":
+        [
+            { "texto": "مرحباً (hola)", "author": "Aladin" },
+            { "texto": "Querido amige tu país es espléndido.", "author": "Aladin" },
+            { "texto": "La cultura (para nada heredada), la comida, el paisaje.", "author": "Aladin" },
+            { "texto": "Lo que más me gusta es vuestro gobernador.", "author": "Aladin" },
+            { "texto": "Con tanta nueva tierra que ha adquirido, yo también me puedo crear mis locales.", "author": "Aladin" },
+            { "texto": "Lo único malo es esa gente pequeña que se queja por todo. Nadie le ha quitado nada a nadie.", "author": "Aladin" },
+            { "texto": "Si no lo puedes pagar no es nuestra culpa.", "author": "Aladin" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "PELAYO":{
+        "frases":
+        [
+            { "texto": "Eh Eh, ¿Has visto el saque de revés que he hecho?", "author": "Pelayo" },
+            { "texto": "Impresionante, ¿a que sí?", "author": "Pelayo" },
+            { "texto": "No es por fardar pero entrené en la academia de Rafir Nadl.", "author": "Pelayo" },
+            { "texto": "Misma técnica, mismos saques, se podría hasta decir que soy su sucesor.", "author": "Pelayo" },
+            { "texto": "Además, como muchos alumnos lo han dejado, ahora el trato es mucho más personal.", "author": "Pelayo" },
+            { "texto": "Aunque, alomejor, también lo tendré que dejar, los precios han subido mucho.", "author": "Pelayo" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "agnosticismo"
+    },
+    "ADELINA":{
+        "frases":
+        [
+            { "texto": "Juntamos los brazos y notamos como toda la tensión de nuestro cuerpo desaparece.", "author": "Adelina" },
+            { "texto": "¿Interesade en unas clases de yoga?", "author": "Adelina" },
+            { "texto": "Te ayuda a recobrar el control sobre ti misme y es un momento ideal para practicar mindfulness.", "author": "Adelina" },
+            { "texto": "Aprovecha, es una oportunidad única en la vida.", "author": "Adelina" },
+            { "texto": "Ahora con un descuento de 15 euros la hora.", "author": "Adelina" },
+            { "texto": "¿Cómo que es caro?", "author": "Adelina" },
+            { "texto": "Pues espabila amigue, que los precios están muy caros y yo quiero seguir viviendo aquí.", "author": "Adelina" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "afecto"
+    },
+    "CAYETANA":{
+        "frases":
+        [
+            { "texto": "Osea tie, ¿Has visto el nuevo bolso que ha salido de la nueva línea de Luan Lutoni?", "author": "Cayetana" },
+            { "texto": "Buah tie, es super bonito con un encaje violeta, y hecho de un material super duradero poli... no se que.", "author": "Cayetana" },
+            { "texto": "Si es que es una ganga 40000 euros.", "author": "Cayetana" },
+            { "texto": "No se por qué papi no me lo quiere comprar.", "author": "Cayetana" },
+            { "texto": "Dice que es muy caro y que no me lo merezco. Yo no entiendo nada.", "author": "Cayetana" },
+            { "texto": "Si solo he suspendido una asignatura.", "author": "Cayetana" },
+            { "texto": "Bueno, y esa también... y aquella... y otra…", "author": "Cayetana" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "GREGORIO":{
+        "frases":
+        [
+            { "texto": "¡FIIIIRMEEEEES!", "author": "Gregorio" },
+            { "texto": "Esta juventud ya no respeta a los veteranos de la guerra.", "author": "Gregorio" },
+            { "texto": "Cuando yo tenía tu edad me aliste en el ejército y me desplegaron en Marruecos.", "author": "Gregorio" },
+            { "texto": "Esta insignia la gané por mi estupenda labor, mira tiene grabada una espléndida ave.", "author": "Gregorio" },
+            { "texto": "Esta ave fue de vital importancia en toda mi juventud y adultez.", "author": "Gregorio" },
+            { "texto": "Que cariño le tengo.", "author": "Gregorio" },
+            { "texto": "Además, antes todo estaba mucho mejor.", "author": "Gregorio" },
+            { "texto": "Si es que ya no se puede ni hacer la compra sin arruinarte.", "author": "Gregorio" },
+            { "texto": "Todo es culpa de esa gentuza.", "author": "Gregorio" },
+            { "texto": "¿Qué dices de que todo es culpa del gobernador? Si él es lo único bueno. Nos trae buena economía.", "author": "Gregorio" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "trabajo duro"
+    },
+    "KAREN":{
+        "frases":
+        [
+            { "texto": "¡INDIGNANTE!", "author": "Karen" },
+            { "texto": "El otro día fui con mi familia a uno de los mejores restaurantes del país y nos trajeron los platos con bastante retraso.", "author": "Karen" },
+            { "texto": "¡15 MINUTOS! ¡INDIGNANTE! ¡MIRES POR DONDE LO MIRES!", "author": "Karen" },
+            { "texto": "Y como es normal, solicité la hoja de reclamaciones.", "author": "Karen" },
+            { "texto": "Y tienen la poca vergüenza de decirnos que es el tiempo normal de espera.", "author": "Karen" },
+            { "texto": "¡INDIGNANTE! Les voy a demandar.", "author": "Karen" },
+            { "texto": "Si es que así, de verdad, merecen que los echen de aquí. Menos mal que el gobernador nos ayuda en eso.", "author": "Karen" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "ANDREA":{
+        "frases":
+        [
+            { "texto": "Buenas compañere, si quieres hablar conmigo son 5 euritos.", "author": "Andrea" },
+            { "texto": "JAJAJA es broma, es broma. ", "author": "Andrea" },
+            { "texto": "Pero si seguimos así, esto se va a volver real. Los precios en el barrio están más caros que nunca.", "author": "Andrea" },
+            { "texto": "Y todo es culpa del gobernador. Aunque haya mucha gente que intenta convencerse de que cualquier grupo minoritario es el culpable.", "author": "Andrea" },
+            { "texto": "Mucha gente, incapaz de llegar a fin de mes o para pagar sus deudas, ha vendido sus terrenos al gobernador y ha tenido que marcharse de aquí.", "author": "Andrea" },
+            { "texto": "A mí me gustaría vivir aquí, es donde tengo toda mi vida.", "author": "Andrea" },
+            { "texto": "Pero parece ser que quieren echar a todo el mundo para que solo ellos y sus amiguitos puedan vivir aquí.", "author": "Andrea" }
+        ],
+        "hablado": "false",
+        "scale": 0.3,
+        "recompensa": "agnosticismo"
+    },
+    "HILARIO":{
+        "frases":
+        [
+            { "texto": "Heredé el oficio de mi padre, como hizo mi padre de su padre y así durante generaciones.", "author": "Hilario" },
+            { "texto": "Los Hnos Ortiz llevan en el negocio de la panadería cientos de años y está tienda siempre ha tenido sus clientes fieles.", "author": "Hilario" },
+            { "texto": "Ahora con la apertura de centros comerciales solo los clientes más longevos vienen a comprar.", "author": "Hilario" },
+            { "texto": "Esta situación es desesperante pero yo sé que este negocio sobrevivirá.", "author": "Hilario" },
+            { "texto": "Que las nuevas generaciones aprenderán a apreciar la calidad de nuestros productos.", "author": "Hilario" }
+            
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "afecto"
+    },
+    "JULIANA":{
+        "frases":
+        [
+            { "texto": "¿Sabes hasta que cifra ha subido el abandono escolar?", "author": "Juliana" },
+            { "texto": "Se ha cuadruplicado.", "author": "Juliana" },
+            { "texto": "De verdad que estoy muy preocupada.", "author": "Juliana" },
+            { "texto": "¿Cómo puede ser que un adolescente de 16 años, a lo sumo, quiera abandonar el instituto?", "author": "Juliana" },
+            { "texto": "Si, hay que echarle horas a los estudios. Pero, ¿a qué chaval no le gusta estar un rato con sus compañeros en clase?", "author": "Juliana" },
+            { "texto": "Es todo culpa del gobernador.", "author": "Juliana" },
+            { "texto": "Que nos da muy pocas subvenciones para ayudar a estos chavales con pocos recursos a seguir estudiando.", "author": "Juliana" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "trabajo duro"
+    },
+    "MANOLO":{
+        "frases":
+        [
+            { "texto": "¿Conoces la empresa de paquetería TCT?", "author": "Manolo" },
+            { "texto": "Pues si estás pensando en echar currículum...", "author": "Manolo" },
+            { "texto": "¡NI SE TE OCURRA! LOS GERENTES SON UNOS ***** *******. POR NO HABLAR DEL JEFE.", "author": "Manolo" },
+            { "texto": "Perdón, pero sacan lo peor de mi. Es que es horrible de verdad.", "author": "Manolo" },
+            { "texto": "Solo he trabajado un 1 año con ellos y ya no puedo más.", "author": "Manolo" },
+            { "texto": "Los de recursos humanos están comprados por el jefe y si te quejas de trato indebido o injusto les da absolutamente igual.", "author": "Manolo" },
+            { "texto": "A mí no me vuelven a ver la cara.", "author": "Manolo" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "MIHAI":{
+        "frases":
+        [
+            { "texto": "Eyyy colegaaa ¿qué taaaaal??", "author": "Mihai" },
+            { "texto": "Yo estoy super chill.", "author": "Karen" },
+            { "texto": "No veas cómo la gente pide pizzas. Eh, una tras otra, tras otra,", "author": "Karen" },
+            { "texto": "Pero, eehh, tranqui colegui que si quieres un descuento podemos hacer un trato guapo guapo.", "author": "Karen" },
+            { "texto": "Tu me das un gramito y yo te doy un descuentito, ¿oferton, eh?", "author": "Karen" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "agnosticismo"
+    },
+    "NICOLETA":{
+        "frases":
+        [
+            { "texto": "¡6 DIAS A LA SEMANA!", "author": "Nicoleta" },
+            { "texto": "¡TODO EL DIA con DOS míseros descansos de 1 h para comer y cenar!", "author": "Nicoleta" },
+            { "texto": "Encima, me pagan una miseria para todo el trabajo que hago.", "author": "Nicoleta" },
+            { "texto": "De verdad, que estoy que echo humo, pero necesito este curro.", "author": "Nicoleta" },
+            { "texto": "¿Cómo si no voy a poder pagar mi apartamento y alimentar a mi gato Kuskus?", "author": "Nicoleta" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "afecto"
+    },
+    "SUSANA":{
+        "frases":
+        [
+            { "texto": "Susana dobla estás camisetas que las han dejado tiradas,", "author": "Susana" },
+            { "texto": "Susana recoge todos estos pares de pantalones,", "author": "Susana" },
+            { "texto": "Susana estos zapatos los han dejado descolocados, colócalos para que los clientes los vean bien,", "author": "Susana" },
+            { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
+            { "texto": "¡MADRE MIA! ¿¡CÓMO PUEDEN SER ESOS SERES HUMANOS LLAMADOS CLIENTES TAN DESORDENADOS¡?", "author": "Susana" },
+            { "texto": "Aguanta solo dos semanas más y podrás comprarle a papá esas medicaciones que necesita para el tratamiento.", "author": "Susana" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "trabajo duro"
+    },
+    "NEREA":{
+
+        "frases":
+        [
+            { "texto": "Hola amigue, perdona por las pintas que llevo ahora mismo.", "author": "Nerea" },
+            { "texto": "Acabo de terminar de trabajar mis 12 horas y no tengo muchas ganas para nada más.", "author": "Nerea" },
+            { "texto": "Aunque por aquí, estamos todos en la misma situación.", "author": "Nerea" },
+            { "texto": "Como no quedan muchos trabajos y tenemos que comer, los únicos que quedan son en la condenada TCT esa del final.", "author": "Nerea" },
+            { "texto": "Antes no era un mal sitio para trabajar, pero desde que Yusoa puso a su esbirro como CEO las jornadas se han intensificado y los salarios no paran de bajar.", "author": "Nerea" },
+            { "texto": "¿Hasta cuando continuará este sufrimiento?", "author": "Nerea" }
+        ],
+        "hablado": "false",
+        "scale": 0.3,
+        "recompensa": "agnosticismo"
+    },
+    "JESSICA":{
+        "frases":
+        [
+            { "texto": "Estos policías me la han jugado.", "author": "Jessica" },
+            { "texto": "Mi amiga está en la banda de tu ya sabes quién, yo no tengo nada que ver con ese mundillo pero a mí mi amiga me importa.", "author": "Jessica" },
+            { "texto": "La intenté convencer de dejarlo, pero ella seguía.", "author": "Jessica" },
+            { "texto": "Los policías dieron conmigo y de alguna manera me asociaron con la banda por ser su amiga.", "author": "Jessica" },
+            { "texto": "Yo no tengo nada que ver y se lo he repetido mil veces pero no me creen.", "author": "Jessica" },
+            { "texto": "Estoy muy cansada.", "author": "Jessica" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "JUANJO":{
+        "frases":
+        [
+            { "texto": "Yo me reformé, ¿sabes?", "author": "Juanjo" },
+            { "texto": "Antes era miembro de la banda de ya tu sabes quién, pero lo dejé.", "author": "Juanjo" },
+            { "texto": "Quería ganar dinero de forma legal, sin tener que vender nada en callejones oscuros.", "author": "Juanjo" },
+            { "texto": "En un principio costó porque tenía mis hábitos que desentonaban.", "author": "Juanjo" },
+            { "texto": "Pero volví a los estudios.", "author": "Juanjo" },
+            { "texto": "Y mientras me saco un título, consigo dinero trabajando.", "author": "Juanjo" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "afecto"
+    },
+    "KOKE":{
+        "frases":
+        [
+            { "texto": "Yo soy Koke el príncipe del barrio, yo soy Koke y soy el mejor.,", "author": "Koke" },
+            { "texto": "Eh tú vete preparando y me das eso que llevas sino te doy un mamporro, que al jefe le gustan las cosas brillantes. ,", "author": "Koke" },
+            { "texto": "Simplemente dame lo que quiero, si no lo cogeré a la fuerza y será peor.,", "author": "Koke" },
+            { "texto": "Susana esto, Susana lo otro...", "author": "Susana" },
+            { "texto": "Y eso otro que tienes ahí escondido también me lo das, va a ser mío.", "author": "Koke" },
+            { "texto": "Y si no te gusta a ver quien tiene más fuerza, ¿quieres pelear?", "author": "Koke" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "trabajo duro"
+    },
+    "TONI":{
+        "frases":
+        [
+            { "texto": "Colega, ¿Quieres una carta de Pokemen?", "author": "Toni" },
+            { "texto": "Los alquileres están muy mal", "author": "Toni" },
+            { "texto": "Y bueno, vendiendo cartas fullart y legendarias...", "author": "Toni" },
+            { "texto": "Puedo sacarme unas pelas y meterlas en un fondo de ahorros.", "author": "Toni" },
+            { "texto": "Consigo una miseria, no te voy a mentir", "author": "Toni" },
+            { "texto": "Pero por algo hay que empezar.", "author": "Toni" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "humildad"
+    },
+    "VALENTINO":{
+        "frases":
+        [
+            { "texto": "¿Por qué tuvo que ser él? ¿Por qué tuve que ser yo?", "author": "Valentino" },
+            { "texto": "Hace 10 años en la academia de policías tenía un amigo, mi mejor amigo Valerio.", "author": "Valentino" },
+            { "texto": "Juntos éramos los mejores del cuerpo, atrapábamos siempre a los culpables.", "author": "Valentino" },
+            { "texto": "Pero después de un caso donde murió una joven inocente, los dos nos empezamos a distanciar.", "author": "Valentino" },
+            { "texto": "Él empezó a cambiar, quería seguir ejerciendo justicia pero de una forma totalmente diferente.", "author": "Valentino" },
+            { "texto": "Uniéndose a una banda.", "author": "Valentino" },
+            { "texto": "Intenté detenerle pero no sirvió para nada, y al final me tocó encarcelarle.", "author": "Valentino" },
+            { "texto": "Cuanto echo de menos nuestros momentos en la academia.", "author": "Valentino" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "agnosticismo"
+    },
+    "YONK":{
+        "frases":
+        [
+            { "texto": "Yo antes tenía familia, mi hermana Xon y me hermano Can.", "author": "Yonk" },
+            { "texto": "Éramos los tres contra el mundo, teníamos padres pero nos abandonaron cuando yo era pequeño.", "author": "Yonk" },
+            { "texto": "Un día unos hombres vinieron y querían saldar cuentas con nuestros padres,", "author": "Yonk" },
+            { "texto": "nosotros no teníamos ni idea de donde estaban, casi ni les recordábamos.", "author": "Yonk" },
+            { "texto": "No valiéndoles esa respuesta saldaron cuentas con mis hermanos. Solo quedé yo.", "author": "Yonk" },
+            { "texto": "A partir de ahí, caí en una espiral consumiendo drogas y bueno, aquí estoy, sobreviviendo.", "author": "Yonk" }
+        ],
+        "hablado": "false",
+        "scale": 0.5,
+        "recompensa": "afecto"
+    },
+    "VICTOR":{
+
+        "frases":
+        [
+            { "texto": "Ey, pane, ¿Cómo te va todo?", "author": "Victor" },
+            { "texto": "No me suenas mucho y por aquí todos nos conocemos, por la cuenta que nos trae. Seguro que eres nuevo.", "author": "Victor" },
+            { "texto": "Oye, pues ten mucho cuidado por donde vas y por cuál calles caminas.", "author": "Victor" },
+            { "texto": "Nunca sabes si te puedes encontrar a alguno de la banda.", "author": "Victor" },
+            { "texto": "No te digo el nombre que sino el muerto acabo siendo yo.", "author": "Victor" },
+            { "texto": "¡Ah!, y por nada del mundo vayas a la discoteca del final.", "author": "Victor" },
+            { "texto": "Se rumorea que el jefe de la banda tiene ahí sus cuarteles.", "author": "Victor" },
+            { "texto": "La música está bien, pero no vale unas cuantas puñaladas.", "author": "Victor" },
+            { "texto": "Ale chao, yo no te he dicho nada.", "author": "Victor" }
+        ],
+        "hablado": "false",
+        "scale": 0.3,
+        "recompensa": "agnosticismo"
+    },
+   "KADOR":
     {
         "frases":[
-            { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Copas" },
-            { "texto": "Toma asiento al fondo y mantente calladite.", "author": "Copas" },
-            { "texto": "No queremos que te pase nada, ¿no crees?", "author": "Copas" },
+            { "texto": "Hola pequeñe, ¿vienes al sermón de hoy?", "author": "Kador" },
+            { "texto": "Toma asiento al fondo y mantente calladite.", "author": "Kador" },
+            { "texto": "No queremos que te pase nada, ¿no crees?", "author": "Kador" },
             { "texto": "No vengo a escucharte hablar, momia andante", "author": "Elle" },
             { "texto": "He cookeado y estoy aquí para poner fin a tu reinado de terror en este barrio.", "author": "Elle" },
             { "texto": "Dame el trozo de constitución que tienes y huye de aquí, primera y última advertencia.", "author": "Elle" },
-            { "texto": "JAJAJAJAJA, vaya humos tienes para tener un cuerpo tan pequeño.", "author": "Copas" },
-            { "texto": "¿Realmente piensas que un niñate como tú puede derrotarme?", "author": "Copas" },
-            { "texto": "Adelante, intentalo. Tengo muchas ganas de comerte vivo.", "author": "Copas" }
+            { "texto": "JAJAJAJAJA, vaya humos tienes para tener un cuerpo tan pequeño.", "author": "Kador" },
+            { "texto": "¿Realmente piensas que un niñate como tú puede derrotarme?", "author": "Kador" },
+            { "texto": "Adelante, intentalo. Tengo muchas ganas de comerte vivo.", "author": "Kador" }
         ],
         "victory":[
-            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Copas" },
+            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Kador" },
             { "texto": "¿Eso es todo tu poder? Hasta la monja de aquí al lado podría haberte ganado", "author": "Elle" },
-            { "texto": "Te me relajas con la humillación.", "author": "Copas" },
-            { "texto": "Toma la maldita constitución y lárgate de aquí.", "author": "Copas" },
+            { "texto": "Te me relajas con la humillación.", "author": "Kador" },
+            { "texto": "Toma la maldita constitución y lárgate de aquí.", "author": "Kador" },
             { "texto": "Eso no es suficiente, debes marcharte de aquí inmediatamente.", "author": "Elle" },
-            { "texto": "Que sí, que sí. Pero que primero tengo que coger un tren y ya sabes como funciona Tenfe.", "author": "Copas" }
+            { "texto": "Que sí, que sí. Pero que primero tengo que coger un tren y ya sabes como funciona Tenfe.", "author": "Kador" }
         ],
         "lose":[
-            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Copas" },
-            { "texto": "Mi victoria estaba clara, tengo a Dios de mi lado.", "author": "Copas" },
-            { "texto": "No me rendiré. Me volveré más fuerte y algún día caerás.", "author": "Copas" },
-            { "texto": "A tu casa, niñate", "author": "Copas" }
+            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Kador" },
+            { "texto": "Mi victoria estaba clara, tengo a Dios de mi lado.", "author": "Kador" },
+            { "texto": "No me rendiré. Me volveré más fuerte y algún día caerás.", "author": "Kador" },
+            { "texto": "A tu casa, niñate", "author": "Kador" }
         ],
         "scale": 0.5,
         "derrotado": false,
@@ -289,14 +639,177 @@
         }
         
     },
-    "PITIBANCO":{
+    "VARIN":
+    {
         "frases":[
-            { "texto": "Hola, soy Piti Banco, el banco del piti.", "author": "PitiBanco" },
-            { "texto": "¿Te quieres fumar uno?", "author": "PitiBanco" },
-            { "texto": "¡Son muy saludables y te mejoran el ánimo!", "author": "PitiBanco" },
-            { "texto": "Pero recuerda, solo uno de cada, eh?", "author": "PitiBanco" },
-            { "texto": "Que nos conocemos, amigue.", "author": "PitiBanco" }
+            { "texto": "Buenos días, ¿As venido a jugar una partida al golf?", "author": "Varin" },
+            { "texto": "¿O a quejarte como todos por la subida de precios?", "author": "Varin" },
+            { "texto": "No vengo a jugar una partida contigo", "author": "Kador" },
+            { "texto": "¿No? JAJAJAJ ", "author": "Varin" },
+            { "texto": " Vengo a que devuelvas las tierras que obligaste a los vecinos a vender por TU subida de precios", "author": "Elle" },
+            { "texto": "VENGA PAJARRACO A LUCHAR", "author": "Elle" },
+            { "texto": "Menudos modales tchtchcth", "author": "Varin" },
+            { "texto": "¡Atácame si puedes!", "author": "Varin" }
         ],
+        "victory":[
+            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Varin" },
+            { "texto": "Prepara las alas que vas a tener otra forma, una redonda", "author": "Elle" },
+            { "texto": "Te tenia que haber picoteado más tch", "author": "Varin" },
+            { "texto": "Toma este papel y fuera de mi campo", "author": "Varin"},
+            { "texto": "Timi isti pipil y firi di mi cimpi", "author": "Elle" },
+            { "texto": "¡Serás!", "author": "Varin" }
+        ],
+        "lose":[
+            { "texto": "JAJAJAJAJAJJAJAJAJAJA", "author": "Varin" },
+            { "texto": "Ni me has rozado", "author": "Varin"  },
+            { "texto": "La bola claramente a entrado en el hoyo, me declaro vencedor", "author": "Varin" },
+            { "texto": "A llorar fuera del campo que se desvían las bolas de su trayectoria", "author": "Varin" }
+        ],
+        "scale": 0.5,
+        "derrotado": false,
+        "isBoss": true,
+        "recompensa": 
+        { 
+            "name": "trozo",
+            "description": "trozo de constitución",
+            "effect": 0,
+            "x": 800,
+            "y": 700,
+            "amountOfEffect": 10,
+            "recogido": "false"
+        }
+
+    },
+    "RAJMUR":
+    {
+        "frases":[
+            { "texto": "Venga tu, que estas haciendo el vago a trabajar", "author": "Luthor" },
+            { "texto": "¿No me has escuchado?, ¡Que mi riqueza no se crea sola!", "author": "Luthor" },
+            { "texto": "Como puedes explotar a tus trabajadores y darles tan malos tratos", "author": "Elle" },
+            { "texto": "Para que tú te quedes con todo ", "author": "Elle" },
+            { "texto": "JAJAJA todo y todos son mios", "author": "Luthor" },
+            { "texto": "vamos a cambiar eso , ¡LUCHA!", "author": "Elle" }
+        ],
+        "victory":[
+            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Luthor"},
+            { "texto": "Ahora sentirás lo que han sentido tus trabajadores", "author": "Elle" },
+            { "texto": "¡No, no puede ser!", "author": "Luthor"},
+            { "texto": "Coge esto y vete ya, no te soporto", "author": "Elle"}
+        ],
+        "lose":[
+            { "texto": "Bueno bueno tenemos otro trabajador más", "author": "Luthor" },
+            { "texto": "Contigo mi fortuna aumentará bastante", "author": "Luthor" },
+            { "texto": "Va a hacer turnos de 15 Horas JAJAJA", "author": "Luthor" }
+           
+        ],
+        "scale": 0.5,
+        "derrotado": false,
+        "isBoss": true,
+        "recompensa": 
+        { 
+            "name": "trozo",
+            "description": "trozo de constitución",
+            "effect": 0,
+            "x": 800,
+            "y": 700,
+            "amountOfEffect": 10,
+            "recogido": "false"
+        }
+        
+    },
+    "LUTHOR":
+    {
+        "frases":[
+            { "texto": "¿EH tu has venido a unirte a mi banda?", "author": "Luthor" },
+            { "texto": "¡Aprovecha que hoy me siento generoso JAJAJAJA!", "author": "Luthor" },
+            { "texto": "Ni de broma me gustaría que me asociasen contigo", "author": "Elle" },
+            { "texto": "Estas causando violencia y drogadiccion a la gente por tus crimenes ", "author": "Elle" },
+            { "texto": "¡Qué se hubiesen unido a mi JAJAJAJA!", "author": "Luthor" },
+            { "texto": "LUCHA CONTRA MI", "author": "Elle" },
+            { "texto": "Demuestrame de que pasta estas heche chaval", "author": "Luthor" }
+        ],
+        "victory":[
+            { "texto": "AAAAAGGGGGHHHHHHHH", "author": "Luthor"},
+            { "texto": "Soy más resistente que tú", "author": "Elle" },
+            { "texto": "!Enfréntate a mi otra vez!", "author": "Luthor"},
+            { "texto": "Deja a la gente en paz y vete con tu banda", "author": "Elle"},
+            { "texto": "Toma estó y lárgate", "author": "Luthor"}
+        ],
+        "lose":[
+            { "texto": "YO SOY MÁS DURO", "author": "Luthor" },
+            { "texto": "YO SOY MEJOR", "author": "Luthor" },
+            { "texto": "LARGATE ANTES DE QUE TE DE OTRA PALIZA", "author": "Luthor" }
+
+        ],
+        "scale": 0.5,
+        "derrotado": false,
+        "isBoss": true,
+        "recompensa": 
+        { 
+            "name": "trozo",
+            "description": "trozo de constitución",
+            "effect": 0,
+            "x": 800,
+            "y": 700,
+            "amountOfEffect": 10,
+            "recogido": "false"
+        }
+
+    },
+    "PITIBANCO ROJO":{
+        "frases":[
+            { "texto": "Hola, soy Piti Banco, el banco del piti.", "author": "PitiBanco Rojo" },
+            { "texto": "¿Te quieres fumar uno?", "author": "PitiBanco Rojo" },
+            { "texto": "¡Son muy saludables y te mejoran el ánimo!", "author": "PitiBanco Rojo" },
+            { "texto": "Pero recuerda, solo uno de cada, eh?", "author": "PitiBanco Rojo" },
+            { "texto": "Que nos conocemos, amigue.", "author": "PitiBanco Rojo" }
+        ],
+        "isPitiBanco": true,
+        "fumado": "Ey ey ey pequeñe, ya te lo has fumado",
+        "curarAnsiedad": "true",
+        "curarVida": "true",
+        "scale": 0.3
+        
+    },
+    "PITIBANCO AMARILLO":{
+        "frases":[
+            { "texto": "Hola, soy Piti Banco, el banco del piti.", "author": "PitiBanco Rojo" },
+            { "texto": "¿Te quieres fumar uno?", "author": "PitiBanco Rojo" },
+            { "texto": "¡Son muy saludables y te mejoran el ánimo!", "author": "PitiBanco Rojo" },
+            { "texto": "Pero recuerda, solo uno de cada, eh?", "author": "PitiBanco Rojo" },
+            { "texto": "Que nos conocemos, amigue.", "author": "PitiBanco Rojo" }
+        ],
+        "isPitiBanco": true,
+        "fumado": "Ey ey ey pequeñe, ya te lo has fumado",
+        "curarAnsiedad": "true",
+        "curarVida": "true",
+        "scale": 0.3
+        
+    },
+    "PITIBANCO AZUL":{
+        "frases":[
+            { "texto": "Hola, soy Piti Banco, el banco del piti.", "author": "PitiBanco Rojo" },
+            { "texto": "¿Te quieres fumar uno?", "author": "PitiBanco Rojo" },
+            { "texto": "¡Son muy saludables y te mejoran el ánimo!", "author": "PitiBanco Rojo" },
+            { "texto": "Pero recuerda, solo uno de cada, eh?", "author": "PitiBanco Rojo" },
+            { "texto": "Que nos conocemos, amigue.", "author": "PitiBanco Rojo" }
+        ],
+        "isPitiBanco": true,
+        "fumado": "Ey ey ey pequeñe, ya te lo has fumado",
+        "curarAnsiedad": "true",
+        "curarVida": "true",
+        "scale": 0.3
+        
+    },
+    "PITIBANCO VERDE":{
+        "frases":[
+            { "texto": "Hola, soy Piti Banco, el banco del piti.", "author": "PitiBanco Rojo" },
+            { "texto": "¿Te quieres fumar uno?", "author": "PitiBanco Rojo" },
+            { "texto": "¡Son muy saludables y te mejoran el ánimo!", "author": "PitiBanco Rojo" },
+            { "texto": "Pero recuerda, solo uno de cada, eh?", "author": "PitiBanco Rojo" },
+            { "texto": "Que nos conocemos, amigue.", "author": "PitiBanco Rojo" }
+        ],
+        "isPitiBanco": true,
         "fumado": "Ey ey ey pequeñe, ya te lo has fumado",
         "curarAnsiedad": "true",
         "curarVida": "true",
@@ -330,7 +843,7 @@
             { "texto": "Cuando me vuelva más fuerte verás, nos volveremos a ver en breves.", "author": "Elle" }
             
         ],
-        "scale": 1,
+        "scale": 0.8,
         "isBoss": true,
         "derrotado": false
         
